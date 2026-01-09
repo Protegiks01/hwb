@@ -7498,5 +7498,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_725e2d62-aff1-4893-bcc3-c5cbee859c39?mode=deep",
     "timestamp": "2026-01-09 23:25:27.293573",
     "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Clock source consistency] If the kernel switches between different clock sources (TSC, HPET, ACPI) during runtime, could the rusage time values become inconsistent or jump backwards, violating monotonicity assumptions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_376312d4-7fa9-492e-ae96-8a1e2bdb6501?mode=deep",
+    "timestamp": "2026-01-09 23:26:36.348535",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Thread vs process time] Does RUSAGE_SELF correctly capture CPU time from all goroutines/threads in the process, or could multi-threaded validator operations have CPU usage that's not properly accounted for in this measurement? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3673d2c3-994b-4c40-ae57-5522212e618c?mode=deep",
+    "timestamp": "2026-01-09 23:26:49.397972",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Process fork edge case] If the node process forks a child and the child calls this function, does Getrusage return the child's CPU time or inherit the parent's accumulated time, potentially causing metrics to jump dramatically? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7391873b-7f78-49bd-a94c-c5f70a6de178?mode=deep",
+    "timestamp": "2026-01-09 23:27:02.608335",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Microsecond boundary] When both Utime.Usec and Stime.Usec are exactly 999999, does adding them (1999998) and dividing by 1000000 correctly yield 1.999998 seconds, or could integer truncation cause precision loss? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_55173e67-3ff4-4de7-a772-6b36019bc564?mode=deep",
+    "timestamp": "2026-01-09 23:27:16.786176",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Zero initialization] On first call immediately after process startup, when Utime and Stime are both zero, does returning 0 cause CollectProcessMetrics to incorrectly calculate 0% CPU usage that persists until the second collection cycle? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2284cc77-0411-4c1b-a07a-718ddc321da6?mode=deep",
+    "timestamp": "2026-01-09 23:27:31.464825",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Sign preservation] If rusage.Utime or rusage.Stime fields are unexpectedly negative (due to kernel bugs or tampering), does the arithmetic preserve the sign correctly or could sign extension issues cause large positive values to appear? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_28c966f8-5ae6-4031-a04c-438cca34e3b7?mode=deep",
+    "timestamp": "2026-01-09 23:27:47.288206",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Type conversion safety] When converting int64 Sec and Usec to float64, are there values near the float64 mantissa precision limit where the conversion loses precision, causing CPU time to appear frozen even as the process continues running? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_109cc12e-b775-4866-969e-0f4169cfd63b?mode=deep",
+    "timestamp": "2026-01-09 23:28:04.803290",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Denormal numbers] For very small CPU time values (microseconds), could the float64 representation become denormalized, causing performance degradation in subsequent floating-point calculations and slowing down the metrics collection loop? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dced0599-199c-424b-ae2e-14edd6e5dbf1?mode=deep",
+    "timestamp": "2026-01-09 23:28:23.732768",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Float64 infinity] Could extreme values of Sec or Usec cause the float64 conversion and arithmetic to produce +Inf or -Inf, which then propagate through metrics calculations causing NaN values that crash the metrics system? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dd433aae-0c96-44a5-bd08-c18e4f030ea9?mode=deep",
+    "timestamp": "2026-01-09 23:28:44.077715",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Platform detection] Are there edge case platforms (like Android, Solaris) where the build tags allow compilation but syscall.Getrusage behaves differently or is unsupported, causing runtime failures in production? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3e59c961-d970-459a-beaa-53de150e4699?mode=deep",
+    "timestamp": "2026-01-09 23:29:06.728880",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Import conflict] Could the syscall import 'golang.org/x/sys/unix' conflict with standard library syscall packages in certain build configurations, causing compilation errors or linking the wrong syscall implementation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5b18da14-1269-4097-a4bb-2f4bbb15879b?mode=deep",
+    "timestamp": "2026-01-09 23:29:29.722611",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Build tag bypass] Does the build constraint '!windows && !js' at line 17 correctly exclude this implementation on unsupported platforms, or could build configuration errors cause this Unix-specific code to compile on Windows and panic at runtime? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2ecc838f-f2c7-4670-9c99-0d9044a8d9ca?mode=deep",
+    "timestamp": "2026-01-09 23:29:53.746173",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Metric registry consistency] If this function fails intermittently, causing gaps in CPU time data, could the metrics registry accumulate inconsistent state where gauges and counters diverge, making it impossible to accurately reconstruct historical CPU usage? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_196e091a-ee81-4d6c-a627-feec8f53a8b7?mode=deep",
+    "timestamp": "2026-01-09 23:30:18.166133",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Counter increment corruption] When cpuProcLoadTotal.Inc(procLoad) is called with a value derived from this function, could negative or extremely large float64 values from arithmetic errors corrupt the counter's internal state causing permanent metrics corruption? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dc056296-5f00-4403-a3c8-345cd522aa7d?mode=deep",
+    "timestamp": "2026-01-09 23:30:42.569062",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Percentage calculation overflow] When CollectProcessMetrics calculates procLoad percentage by dividing delta CPU time by secondsSinceLastCollect and multiplying by 100, could edge cases where this function returns stale or zero values cause division by zero or infinite percentages? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_148aff3a-7bda-4b97-910a-e4983cd93504?mode=deep",
+    "timestamp": "2026-01-09 23:31:05.572678",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Monitoring alert bypass] If security monitoring relies on CPU load metrics to detect abnormal validator behavior, could the error case returning 0 cause false negatives where malicious activity goes undetected due to metrics appearing normal? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_afd3ae48-789a-4bfc-a954-23aee55a1a1a?mode=deep",
+    "timestamp": "2026-01-09 23:31:27.438791",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Metrics delta corruption] In CollectProcessMetrics, when this function returns 0 due to error while the previous value was non-zero, does the negative delta (cpustats[now].LocalTime - cpustats[prev].LocalTime) cause integer underflow in percentage calculations at line 184? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a31cad0a-073a-473b-9338-e055479d8be5?mode=deep",
+    "timestamp": "2026-01-09 23:31:49.594588",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Metrics-based DoS] If metrics collection relies on this function being accurate, could an attacker cause repeated syscall failures that trigger excessive logging and error handling, creating a DoS condition in the metrics subsystem? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_48a8f94c-95a6-4a93-9d22-5e8671957386?mode=deep",
+    "timestamp": "2026-01-09 23:32:12.019056",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Performance profiling attack] Could an attacker use CPU time metrics exposed through this function to perform timing side-channel attacks that leak information about validator block production timing or transaction processing patterns? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_badbda5f-10cc-4d68-8257-f37a4db43dfe?mode=deep",
+    "timestamp": "2026-01-09 23:32:34.792427",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Resource hiding] If a validator node is performing off-chain computation attacks or MEV extraction, could the CPU time reporting be accurate enough to detect this behavior, or does the granularity hide malicious activity within normal variance? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9b93226c-7e45-47c8-8989-e16f229d332f?mode=deep",
+    "timestamp": "2026-01-09 23:32:57.739892",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [CPU time forgery] Could a malicious validator manipulate their reported CPU metrics by intercepting this function or the underlying syscall to appear as if they're consuming minimal resources while performing expensive attacks or double-spending attempts? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5a168355-7f41-40ec-97f7-b471739df380?mode=deep",
+    "timestamp": "2026-01-09 23:33:22.237995",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Signal interruption] Can syscall.Getrusage be interrupted by Unix signals (SIGINT, SIGTERM), causing it to return EINTR error that gets logged but doesn't retry, permanently losing that CPU time measurement and corrupting delta calculations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_08c7d3b8-0bb8-447c-9eff-36f7809576fe?mode=deep",
+    "timestamp": "2026-01-09 23:33:46.932786",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Syscall security context] Does syscall.Getrusage require specific capabilities or permissions that could be missing in containerized or sandboxed environments, causing the function to silently fail and return 0 in production validator nodes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6480dfa0-4271-429b-b834-85a4cde8a79a?mode=deep",
+    "timestamp": "2026-01-09 23:34:09.816753",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Platform inconsistency] Are the rusage.Utime and rusage.Stime fields consistently defined across all Unix platforms (Linux, BSD, macOS), or could platform differences cause the arithmetic to produce incompatible CPU time values between validators on different systems? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_20e0d8b5-da16-4b8b-b261-92b0ddcf66e7?mode=deep",
+    "timestamp": "2026-01-09 23:34:31.913480",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Resource limit bypass] If an attacker exhausts RLIMIT_CPU or other resource limits causing Getrusage to fail, does returning 0 allow the node to continue operating without detecting that it's hit resource limits that should trigger graceful shutdown? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_18711fec-dc42-438a-9247-a7fc2bf5bf60?mode=deep",
+    "timestamp": "2026-01-09 23:34:54.348797",
+    "report_generated": false
   }
 ]
