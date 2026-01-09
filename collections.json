@@ -5098,5 +5098,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d2a57652-c3c8-45c7-a727-6d0ef25b0e33?mode=deep",
     "timestamp": "2026-01-09 20:52:54.996599",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Case sensitivity] Are function names in rawName case-sensitive for signature computation? Can attackers use case variations to create collision-prone signatures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5dec7d32-8d28-40e9-b16e-ce1b7b520d82?mode=deep",
+    "timestamp": "2026-01-09 20:54:07.327995",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Struct: Method] [Overload suffix] At lines 54-61, the comment mentions overloaded functions get suffixes (foo, foo0). Is this suffix added in NewMethod or externally? Inconsistent suffix handling could cause method ID collisions. (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f6377ce3-ef04-4c88-9efc-3ff1e5717089?mode=deep",
+    "timestamp": "2026-01-09 20:54:20.140665",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Struct: Method] [Name vs RawName] The Method struct has both Name (line 62) and RawName (line 63). If these diverge unexpectedly, which is used for signature computation at line 117? Using the wrong one could cause ID mismatches. (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d2efb99f-9d9c-4ccd-bd55-37ecb844cbb5?mode=deep",
+    "timestamp": "2026-01-09 20:54:33.847740",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Overload detection] NewMethod receives both name and rawName as parameters. If name includes an overload suffix but rawName doesn't, can this cause confusion in method resolution and allow calling wrong functions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_764445fd-6323-45f6-bdae-740a22506a12?mode=deep",
+    "timestamp": "2026-01-09 20:54:47.649661",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Struct: Method] [Overload limit] If a contract has many overloaded functions, is there a limit to suffix numbers (foo0, foo1, ...foo999)? Can integer overflow in suffix generation cause name collisions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_124b8600-db7c-4ffa-8b5d-2a3e2ecf9452?mode=deep",
+    "timestamp": "2026-01-09 20:55:02.315973",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Signature uniqueness] At line 117, signature uses rawName. For overloaded functions with same rawName but different parameters, are signatures guaranteed unique? Duplicate signatures would cause ID collisions. (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4db08ccc-c119-4454-98ce-c24825e16b67?mode=deep",
+    "timestamp": "2026-01-09 20:55:18.260227",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [No error return] NewMethod at line 94 returns only a Method struct, not an error. If invalid inputs are provided, can this silently create malformed Methods that cause issues later? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6a98944a-1bec-4b9e-be14-00d7f931350f?mode=deep",
+    "timestamp": "2026-01-09 20:55:35.503883",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Input validation] There's no validation of name, rawName, or mutability parameters at line 94. Can empty strings, nil values, or invalid formats be passed, creating invalid Methods? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f2a8d186-ec60-4ab8-9141-56074a8812c9?mode=deep",
+    "timestamp": "2026-01-09 20:55:54.316231",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Type validation] At lines 100-109, input.Type and output.Type are used without nil checks. Are Arguments guaranteed to have valid Type fields? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_211729ea-e896-409c-85be-eb13e87b0172?mode=deep",
+    "timestamp": "2026-01-09 20:56:15.186538",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: IsConstant()] [String comparison] At line 160, StateMutability is compared to string literals. Is this comparison case-sensitive? Can \\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_af19f8ad-6287-4afd-b0d1-ab137ac61ae2?mode=deep",
+    "timestamp": "2026-01-09 20:56:36.771047",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: IsPayable()] [String comparison] At line 166, similar case-sensitivity concern for \\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cd7784c3-0e67-403f-8ebf-f6d3173cdb4e?mode=deep",
+    "timestamp": "2026-01-09 20:56:59.427774",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Struct: Method] [Method ID usage] The ID field at line 87 is used for transaction calldata. If ID is corrupted or collides with another method, can transactions invoke unintended functions leading to unauthorized state changes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e5fa7f02-050b-41a8-bf66-be3663b00215?mode=deep",
+    "timestamp": "2026-01-09 20:57:23.367593",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Transaction encoding] Methods created by NewMethod are used to encode transaction calldata. If signature computation at line 117 is incorrect, can this cause transactions to fail or execute wrong functions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_991708a8-878f-4bb8-9aec-e5b07e8f949b?mode=deep",
+    "timestamp": "2026-01-09 20:57:49.483873",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Struct: Method] [State mutability enforcement] The StateMutability field at line 72 should restrict state changes. Does the EVM enforce this, or can a \\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_98fe596a-6ca0-48aa-85b7-7dd1e73c4e52?mode=deep",
+    "timestamp": "2026-01-09 20:58:15.993259",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: IsPayable()] [Ether transfer validation] IsPayable() result should control whether a function accepts ether. If this check is bypassed or incorrectly implemented, can users lose ether by sending to non-payable functions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ed2bed70-1328-42dd-85d0-f2d9caffedca?mode=deep",
+    "timestamp": "2026-01-09 20:58:43.363251",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Struct: Method] [Gas estimation] Method metadata is likely used for gas estimation. If inputs/outputs are incorrect, can this cause gas estimation errors leading to transaction failures or DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_05f8c51d-3d7c-45cd-9574-498f62af7463?mode=deep",
+    "timestamp": "2026-01-09 20:59:11.287205",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Struct: Method] [Legacy flags] At lines 75-76, Constant and Payable are marked as legacy. Can conflicts between these flags and StateMutability field cause inconsistent behavior across different Solidity versions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_98d39acc-c101-4332-8065-e49d4ec8d2b1?mode=deep",
+    "timestamp": "2026-01-09 20:59:38.158390",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: IsConstant()] [Flag priority] At line 160, both StateMutability and Constant are checked with OR logic. If they conflict (StateMutability=\\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eda3d867-945a-4986-ad5d-8ae8d3a0a895?mode=deep",
+    "timestamp": "2026-01-09 21:00:04.922569",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: IsPayable()] [Flag priority] At line 166, similar concern. If StateMutability=\\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_794597a9-b0bc-48a8-8e2d-97cfdedff7ce?mode=deep",
+    "timestamp": "2026-01-09 21:00:32.284857",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Legacy handling] NewMethod accepts both isConst/isPayable (legacy) and mutability parameters. Can passing contradictory values cause undefined method behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1b177119-7e4a-46dd-bd67-07256d96d269?mode=deep",
+    "timestamp": "2026-01-09 21:00:59.715758",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Struct: Method] [Deprecation] Are legacy Constant/Payable fields properly deprecated and ignored in favor of StateMutability? Or can they still affect behavior creating vulnerabilities? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_02460908-d34e-4f3f-bf52-9172db6cbc87?mode=deep",
+    "timestamp": "2026-01-09 21:01:26.463903",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Display string injection] At line 137, the str field is constructed from user-controlled names. Can injection of control characters or ANSI codes affect logging systems or monitoring tools? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2de386d5-6c5b-42b0-b2c1-32c2823376cc?mode=deep",
+    "timestamp": "2026-01-09 21:01:49.553617",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: String()] [Immutability] The str field at line 80 is computed once in NewMethod. If method fields are modified later, does String() return stale data causing confusion? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b227a728-2099-4941-a811-404256976172?mode=deep",
+    "timestamp": "2026-01-09 21:02:14.623176",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Format consistency] At lines 126-128, state mutability is added to string representation. Is the format consistent with Solidity syntax? Inconsistencies could confuse developers. (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5660c737-b167-438f-a178-81b42effa3d4?mode=deep",
+    "timestamp": "2026-01-09 21:02:41.371047",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Input name formatting] At line 101, input names are formatted as \\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_01636c0b-6956-48fb-8e8d-dc7693e49936?mode=deep",
+    "timestamp": "2026-01-09 21:03:07.846836",
+    "report_generated": false
   }
 ]
