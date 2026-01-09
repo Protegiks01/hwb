@@ -2098,5 +2098,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a92c60cd-1a38-40d6-b7c0-25fac99b74aa?mode=deep",
     "timestamp": "2026-01-09 17:29:45.191148",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyStoreTransactor()] [Context background risk] At line 77, context.Background() is hardcoded - if signing operations are long-running or blocked, could this prevent proper cancellation, leading to resource exhaustion or hanging transactions during validator operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4904cd3e-62ed-4b8c-a59a-3c6911bfa8c7?mode=deep",
+    "timestamp": "2026-01-09 17:30:57.768197",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyedTransactor()] [No timeout context] The context.Background() at line 101 has no timeout - if crypto.Sign() hangs due to hardware issues or RNG blocking, could this cause validator nodes to miss block signing deadlines, disrupting consensus? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6b3ed401-acf3-4cb7-be85-a7f73e143d48?mode=deep",
+    "timestamp": "2026-01-09 17:31:11.005857",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewClefTransactor()] [Uncancellable context] At line 177, context.Background() provides no cancellation - if Clef external signer becomes unresponsive, could this cause indefinite blocking that prevents validators from producing blocks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5888389f-6b46-496b-8e46-e7e7744e0b9a?mode=deep",
+    "timestamp": "2026-01-09 17:31:24.082961",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyStoreTransactorWithChainID()] [Context propagation] The hardcoded context.Background() at line 138 - if the caller needs to cancel signing operations (e.g., during node shutdown), does the lack of context propagation prevent proper cleanup, potentially leaking resources? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_88a77624-5861-440b-90be-6642dd4c292f?mode=deep",
+    "timestamp": "2026-01-09 17:31:37.918336",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyedTransactorWithChainID()] [Context immutability] At line 162, context.Background() is set once - if the TransactOpts is reused for multiple transactions and the caller wants different contexts (with timeouts or cancellation), is there a way to update the context, or will all operations use the same background context? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_27fc9271-56e8-4ff0-908c-3fb655b538e9?mode=deep",
+    "timestamp": "2026-01-09 17:31:53.053598",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewTransactor()] [Nil keyin reader] At line 45, if keyin is nil, will io.ReadAll() at line 47 cause a nil pointer dereference panic that crashes the node during transaction signing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ecee764b-900f-4ddc-8774-ff6e5ea612f8?mode=deep",
+    "timestamp": "2026-01-09 17:32:09.546573",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyedTransactor()] [Nil private key] At line 85, if the key parameter is nil, will crypto.PubkeyToAddress(key.PublicKey) at line 87 cause a panic that crashes validators during block signing operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9c6955c6-0ac5-480f-a8c4-3bd26a2760a6?mode=deep",
+    "timestamp": "2026-01-09 17:32:26.819454",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyStoreTransactor()] [Nil keystore] At line 62, if keystore parameter is nil, will the keystore.SignHash() call at line 71 panic when invoked by the signer closure, potentially crashing validators mid-consensus? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7802ef5f-a47a-4083-a713-ea212cd810bd?mode=deep",
+    "timestamp": "2026-01-09 17:32:45.511575",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyStoreTransactorWithChainID()] [Nil account] If the account parameter at line 121 contains a nil or invalid Address field, will subsequent operations panic or produce invalid TransactOpts that sign with zero address? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_afc2596b-4473-493f-be48-9ef4f5a85bb5?mode=deep",
+    "timestamp": "2026-01-09 17:33:05.547302",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewClefTransactor()] [Nil external signer] At line 168, if clef parameter is nil, will clef.SignTx() at line 175 panic when the signer closure is invoked, crashing the node during transaction processing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a153f72e-0579-4e74-9dea-70c73a1d689a?mode=deep",
+    "timestamp": "2026-01-09 17:33:26.462307",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewTransactorWithChainID()] [Nil chain ID handling] At lines 107-117, the function doesn't explicitly check for nil chainID before passing to LatestSignerForChainID - could this cause a panic in the signer selection logic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_970b6097-269c-4dac-ba9f-8ccd385668c9?mode=deep",
+    "timestamp": "2026-01-09 17:33:48.842306",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyedTransactorWithChainID()] [Nil signer result] If types.LatestSignerForChainID() at line 149 returns nil for an invalid chainID, will subsequent Hash() or WithSignature() calls panic during transaction signing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c691656a-f95e-4abf-b99f-b383f48c3dda?mode=deep",
+    "timestamp": "2026-01-09 17:34:11.262013",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewTransactor()] [Deprecated function usage] The warning at line 46 indicates deprecation - if validators or minting contract operations still use this function, could attackers exploit the missing chain ID protection to replay critical governance or minting transactions across chains? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_56235216-d52d-471d-ae30-4bc2b9d4d2f8?mode=deep",
+    "timestamp": "2026-01-09 17:34:35.876753",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyStoreTransactor()] [Deprecated keystore signer] At lines 62-79, this deprecated function lacks chain ID protection - if WBT node operators use this for validator signing, could attackers replay validator votes or block signatures on test networks or forked chains? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4b8506c9-251a-4dcf-a72b-367cfa08e26e?mode=deep",
+    "timestamp": "2026-01-09 17:35:00.592212",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyedTransactor()] [Legacy signer risk] The deprecated function at line 85 uses HomesteadSigner - if any WBT infrastructure (validators, bridge contracts) still uses this, could replay attacks compromise the entire PoA consensus mechanism? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dbf11e9a-daba-4663-a82f-aaa13646f4ec?mode=deep",
+    "timestamp": "2026-01-09 17:35:25.617439",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewTransactor()] [Deprecation enforcement] Lines 45-56 show a log warning but don't prevent usage - could malicious or compromised code intentionally use deprecated functions to enable replay attacks while hiding behind 'legacy compatibility'? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_02a8979e-bc99-424f-bc72-58c0d5727e34?mode=deep",
+    "timestamp": "2026-01-09 17:35:50.677676",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyStoreTransactor()] [Migration risk] During migration from deprecated to new functions, could partially upgraded validators use both old and new signers simultaneously, creating transaction signature inconsistencies that split the network? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_79a44f6a-377e-44d4-8ba3-b1035537ae6a?mode=deep",
+    "timestamp": "2026-01-09 17:36:15.855360",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyStoreTransactor()] [Transaction type support] At line 71, signer.Hash(tx) is called - does HomesteadSigner properly handle all transaction types (legacy, EIP-2930, EIP-1559), or could attackers send unsupported transaction types that bypass signature verification? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_946ff086-e4fe-49d9-989b-8a6f37669c2b?mode=deep",
+    "timestamp": "2026-01-09 17:36:39.334686",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyedTransactorWithChainID()] [EIP-1559 compatibility] At line 149, does LatestSignerForChainID() select a signer that supports EIP-1559 transactions with maxFeePerGas and maxPriorityFeePerGas, or could signing EIP-1559 txs with wrong signer create invalid signatures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_298ca786-95d8-47f9-b761-6ec7c63f5175?mode=deep",
+    "timestamp": "2026-01-09 17:37:03.297815",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewClefTransactor()] [Transaction type validation] At line 175, clef.SignTx() receives a nil chainID parameter - does Clef properly validate transaction types without explicit chain ID, or could this enable signing of malformed transactions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9800a177-f1ab-4085-8566-d4ed563461ca?mode=deep",
+    "timestamp": "2026-01-09 17:37:28.145245",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyedTransactor()] [Transaction hash manipulation] At line 95, signer.Hash(tx) generates hash for signing - if the Transaction struct contains unexpected fields or malformed data, could this lead to different hash calculations across nodes, causing signature verification failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1fee4779-dc05-4815-8835-d4d129180268?mode=deep",
+    "timestamp": "2026-01-09 17:37:53.841770",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyStoreTransactorWithChainID()] [WithSignature validation] At line 136, tx.WithSignature() attaches the signature - does this function validate that the signature length and format are correct, or could malformed signatures be attached leading to invalid transactions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c3f1badf-ccee-4560-8e22-53a8cc81d454?mode=deep",
+    "timestamp": "2026-01-09 17:38:20.727222",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyStoreTransactor()] [Keystore backend trust] At line 71, the function fully trusts keystore.SignHash() - if the keystore backend is a remote or hardware wallet that's compromised, could it return arbitrary signatures without proper authorization checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f4e6c400-55f5-4389-8278-d3b7cec0d222?mode=deep",
+    "timestamp": "2026-01-09 17:38:45.830452",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewClefTransactor()] [External signer vulnerability] At line 175, Clef external signer controls all signing - if Clef has vulnerabilities or is misconfigured to auto-approve transactions, could attackers bypass all authorization checks and sign arbitrary transactions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_31a41571-7ec0-4bee-9af7-8169aaa211d8?mode=deep",
+    "timestamp": "2026-01-09 17:39:12.133415",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewTransactor()] [Keystore decryption trust] At line 51, keystore.DecryptKey() is trusted completely - if the keystore package has vulnerabilities in decryption (e.g., padding oracle), could attackers decrypt keys without knowing the passphrase? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_05dd961e-bdce-4bda-9fd9-c72aa0c2ad59?mode=deep",
+    "timestamp": "2026-01-09 17:39:38.402013",
+    "report_generated": false
   }
 ]
