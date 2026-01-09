@@ -1048,5 +1048,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4f95e80f-2425-4a38-91c5-5f670d3678fd?mode=deep",
     "timestamp": "2026-01-09 16:18:50.093725",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: Copy()] [Tuple Detection] Can the isTuple() check at line 124 misclassify arguments causing copyTuple to be called on atomic data or vice versa, leading to state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_24fbb378-c1a7-40ef-926f-04039ddb473b?mode=deep",
+    "timestamp": "2026-01-09 16:20:08.613557",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: Copy()] [copyAtomic Single Value] At line 127, can accessing values[0] panic if values slice was modified between length check and access? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_35302bf6-a11d-4b4f-a19c-0f0ae7158d40?mode=deep",
+    "timestamp": "2026-01-09 16:20:21.442980",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: Copy()] [Type Mismatch] Can type mismatches between the target interface v and values slice elements cause silent failures or incorrect data copying in EVM state transitions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7a97823b-1019-456d-80ef-93c3db1b206f?mode=deep",
+    "timestamp": "2026-01-09 16:20:35.175873",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: Copy()] [Reflection Vulnerability] Can malicious reflection-based attacks exploit the reflect.ValueOf chain at line 115 to access or modify protected memory regions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6bc77444-1cca-47ad-a16a-557753d3845d?mode=deep",
+    "timestamp": "2026-01-09 16:20:50.190704",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: Copy()] [Concurrent Access] If v points to a struct being concurrently modified by another goroutine, can Copy() cause data races during the copyTuple/copyAtomic operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a4214ec1-29a8-4de5-aaa8-f8eaed812905?mode=deep",
+    "timestamp": "2026-01-09 16:21:05.107358",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: copyAtomic()] [Elem Panic] Can calling .Elem() at line 132 panic if v is not actually a pointer despite earlier checks, causing validator node crashes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c3fbbfd3-3a2d-474a-82a8-0a230a5497b0?mode=deep",
+    "timestamp": "2026-01-09 16:21:20.902488",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: copyAtomic()] [Struct Field Access] At line 136, can accessing Field(0) panic if the struct is empty or has non-exported first field, causing transaction processing failures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_61de2c16-7360-4be9-8850-6cf8bc023edd?mode=deep",
+    "timestamp": "2026-01-09 16:21:37.532224",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: copyAtomic()] [Set Function] Can the set() function called at lines 136 and 138 fail silently or panic on type mismatches, corrupting unpacked transaction data? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e422f332-f9bb-45cc-8d68-5d786c7e4fc1?mode=deep",
+    "timestamp": "2026-01-09 16:21:56.116882",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: copyAtomic()] [Nil Source] If marshalledValues contains nil interface values, can this cause the reflect.ValueOf(marshalledValues) at line 133 to create zero values that corrupt destination? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9b9140be-8ebe-4a46-8777-720fc82c2a89?mode=deep",
+    "timestamp": "2026-01-09 16:22:15.925471",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: copyAtomic()] [Kind Check] Does checking dst.Kind()==reflect.Struct at line 135 handle all struct types correctly, or can embedded structs or anonymous fields cause incorrect unpacking? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_209122d3-0b06-46aa-944c-c215e45fd530?mode=deep",
+    "timestamp": "2026-01-09 16:22:37.038280",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: copyAtomic()] [Type Conversion] Can implicit type conversions during set() operations cause precision loss or overflow in numeric fields, corrupting transaction amounts? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_10c0040f-8d0c-4352-b356-871288e89a60?mode=deep",
+    "timestamp": "2026-01-09 16:22:59.136457",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: copyTuple()] [Elem Panic] Can .Elem() at line 143 panic if v is a nil pointer, causing validator nodes to crash during event log processing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_81c86f11-0e54-4aba-9c2a-90012b6238bc?mode=deep",
+    "timestamp": "2026-01-09 16:23:21.689995",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: copyTuple()] [NonIndexed Cache] Can the NonIndexed() call at line 144 return different results if called multiple times due to race conditions, causing inconsistent copying? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_493a271d-276c-4c1f-8d6b-4af6a2b5bddb?mode=deep",
+    "timestamp": "2026-01-09 16:23:45.971969",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: copyTuple()] [ArgNames Allocation] Can the argNames slice allocation at line 148 consume excessive memory if NonIndexed() returns millions of arguments? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_46709b19-d371-4f25-8b25-20fa16de7a28?mode=deep",
+    "timestamp": "2026-01-09 16:24:11.883464",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: copyTuple()] [mapArgNamesToStructFields Error] If mapArgNamesToStructFields at line 153 returns an error, can the subsequent operations continue with partially initialized abi2struct map? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a32caa2f-218f-4cbf-b29f-caf349af4538?mode=deep",
+    "timestamp": "2026-01-09 16:24:37.718697",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: copyTuple()] [Field Lookup] Can the FieldByName lookup at line 158 fail to find fields with non-standard casing, causing silent data loss in unpacking? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dee9adda-f40e-4174-8e30-eaa60857f7c7?mode=deep",
+    "timestamp": "2026-01-09 16:25:03.610038",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: copyTuple()] [IsValid Check] At line 159, can the IsValid() check be bypassed with reflection tricks, allowing access to invalid memory regions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_083a16bf-0ad7-48cd-904c-be22fc3cab54?mode=deep",
+    "timestamp": "2026-01-09 16:25:28.863349",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: copyTuple()] [Set Error Propagation] Can errors from set() at line 162 be silently ignored, causing partial struct population and corrupted transaction data? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9ee0e75b-af07-47c4-923e-2d68659f94b6?mode=deep",
+    "timestamp": "2026-01-09 16:25:54.539360",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: copyTuple()] [marshalledValues Index] Can the index i at line 162 go out-of-bounds if marshalledValues length doesn't match NonIndexed() length? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0f4718e4-815b-460b-87a9-b07e8e09ecae?mode=deep",
+    "timestamp": "2026-01-09 16:26:20.763056",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: copyTuple()] [Slice Length Check] At line 167, can the comparison value.Len() < len(marshalledValues) use wrong comparison direction, allowing buffer overflows? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_750d95b0-0095-49ea-8f4d-8521b2bd7da9?mode=deep",
+    "timestamp": "2026-01-09 16:26:48.228332",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: copyTuple()] [Array vs Slice] Can the switch case at line 166 handling both reflect.Slice and reflect.Array cause issues if fixed-size arrays are treated as dynamic slices? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4e37a998-b377-4c11-a090-ecdc217fdb5c?mode=deep",
+    "timestamp": "2026-01-09 16:27:14.092298",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: copyTuple()] [Index Access] Can value.Index(i) at line 171 panic on out-of-bounds access if concurrent modifications change slice length? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a094fb0b-2faf-479c-929c-5c073bfdd396?mode=deep",
+    "timestamp": "2026-01-09 16:27:39.727392",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: copyTuple()] [Loop Bound] Does the loop at line 170 correctly iterate over nonIndexedArgs instead of marshalledValues, potentially causing index mismatches? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1c9b6616-e0e6-4099-af09-2fe76138b893?mode=deep",
+    "timestamp": "2026-01-09 16:28:04.383322",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: copyTuple()] [Default Case] Can the default case at line 175-176 be reached with unexpected value types that should have been caught earlier? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_06d2ab43-ae90-410d-a50c-747630901802?mode=deep",
+    "timestamp": "2026-01-09 16:28:30.481068",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: copyTuple()] [Error Message] Does the error message at line 176 leak sensitive type information that could aid attackers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f13a908e-7efa-466e-82f6-8b9a442b1a68?mode=deep",
+    "timestamp": "2026-01-09 16:28:56.160111",
+    "report_generated": false
   }
 ]
