@@ -3148,5 +3148,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a74ff0aa-a2cc-4c6d-a707-c966379f3896?mode=deep",
     "timestamp": "2026-01-09 18:42:10.731795",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Format.Source Failure] At lines 280-283, if format.Source fails, the error message includes the buffer contents - could this leak sensitive information from the ABI or expose the full generated code? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1d217468-b190-4843-8484-e6ad4b6c71dd?mode=deep",
+    "timestamp": "2026-01-09 18:43:25.161752",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: structured()] [Empty Name Bypass] At lines 454-456, the function checks for empty names but at lines 459-461 also checks if normalized names are empty or collide - can an attacker craft names that pass the first check but fail the second, causing inconsistent behavior? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8a27cbac-c454-4603-b0da-e237d8c0b76b?mode=deep",
+    "timestamp": "2026-01-09 18:43:38.222695",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: structured()] [Field Collision Detection] At lines 460-463, field name collisions are detected using capitalise() but the exists map check happens after capitalization - can Unicode normalization attacks bypass this collision detection? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_51bc078c-f32c-4665-a922-84f84724143c?mode=deep",
+    "timestamp": "2026-01-09 18:43:51.597991",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: hasStruct()] [Unbounded Recursion] At lines 470-481, the function recursively checks for struct types - can an attacker provide a deeply nested type structure that causes stack overflow through excessive recursion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4a171a17-f9f0-4787-998e-5091017172a1?mode=deep",
+    "timestamp": "2026-01-09 18:44:05.233171",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: isKeyWord()] [Incomplete Keyword List] The isKeyWord function at lines 43-78 has a switch statement checking Go keywords - but it doesn't return true in any case except the default, making the function always return false. Is this a bug that could allow keyword injection? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bcf0eb48-d4e1-48d1-8f93-48cfb5bec7ea?mode=deep",
+    "timestamp": "2026-01-09 18:44:19.666160",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: alias()] [Alias Injection] At lines 419-424, the alias function allows renaming identifiers - can an attacker use this to rename methods to Go keywords or stdlib function names, causing compilation errors or shadowing attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_efd28434-b359-4c26-adb1-4ff9acedc099?mode=deep",
+    "timestamp": "2026-01-09 18:44:35.492048",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: capitalise()] [Case Manipulation] At line 433, capitalise is aliased to abi.ToCamelCase - are there edge cases where this transformation could produce invalid identifiers or collide with reserved names? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5a591e36-f74f-4467-b7b7-910f1fcbf70a?mode=deep",
+    "timestamp": "2026-01-09 18:44:52.424219",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: decapitalise()] [Empty String Handling] At lines 437-442, if the input string is empty, it's returned as-is - but is there validation that the input is non-empty before accessing goForm[:1] which could cause a slice bounds panic? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bea4cbbd-5727-4504-ae74-bad8d0c7dc0b?mode=deep",
+    "timestamp": "2026-01-09 18:45:11.292889",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Bytecode Injection] At line 224, bytecodes[i] is used after TrimPrefix/TrimSpace - can an attacker inject malicious bytecode that gets embedded into deployed contracts, enabling backdoors or malicious behavior? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9bac6d7f-ec7d-4967-a7ed-a8a25f59b738?mode=deep",
+    "timestamp": "2026-01-09 18:45:31.606105",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Function Signature Map] At lines 235-237, function signatures are optionally provided - if fsigs contains malicious 4-byte signatures, could these override legitimate function selectors causing method confusion attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3f96025e-8df0-4272-aad0-f62b7aa9c73f?mode=deep",
+    "timestamp": "2026-01-09 18:45:51.398250",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Constructor Input Processing] At lines 126-130, constructor inputs are processed for struct types - if constructor has malformed inputs, could this cause panic or generate invalid deployment code? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c6e3769a-8660-465e-8bb4-274b6c805bbd?mode=deep",
+    "timestamp": "2026-01-09 18:46:11.901697",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Method Input Normalization] At lines 148-157, method inputs are copied and normalized - but if normalized.Inputs allocation fails or indices are out of bounds, could this cause memory corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fabff4e2-3a79-40ca-af95-58beb14453eb?mode=deep",
+    "timestamp": "2026-01-09 18:46:33.443712",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Output Name Capitalization] At lines 161-167, output names are capitalized - can this create collisions if multiple outputs differ only in case, breaking struct field uniqueness? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9a99a214-7428-4129-a6df-beaa737bfca4?mode=deep",
+    "timestamp": "2026-01-09 18:46:56.570132",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Event Input Name Generation] At lines 195-206, event input names are generated with index suffixes to avoid collisions - but is the loop bounded? Could an attacker cause infinite loop by exhausting all possible indexed names? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cf804fe0-43fb-4e4d-9989-c58f5d81a7c4?mode=deep",
+    "timestamp": "2026-01-09 18:47:19.826110",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Fallback/Receive Handling] At lines 215-220, fallback and receive functions are specially handled - are there validation checks ensuring these match the expected signatures, or could malformed ones cause runtime errors? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_18ab4b67-f94b-4c83-b8ae-b374c8568bcd?mode=deep",
+    "timestamp": "2026-01-09 18:47:44.539244",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Library Type Marking] At lines 253-257, libraries are marked based on the isLib map - could race conditions if multiple goroutines call Bind() concurrently cause inconsistent library markings? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b46c2406-5e06-4484-9fec-ec525b6f36ec?mode=deep",
+    "timestamp": "2026-01-09 18:48:09.961107",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Template Data Construction] At lines 259-264, template data is constructed - if any of the maps (contracts, structs) contain nil entries, could this cause nil pointer dereference during template execution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_24d48b69-9d4b-4380-ba84-37083b49f09e?mode=deep",
+    "timestamp": "2026-01-09 18:48:32.286188",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Template Function Map] At lines 267-273, custom functions are registered with the template - if bindtype/bindtopictype functions panic, does this crash the entire binding process? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a9d1d612-a5b5-45f8-b648-d139f3242bd4?mode=deep",
+    "timestamp": "2026-01-09 18:48:54.416342",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: bindStructTypeGo()] [TupleElems Access] At line 385, kind.TupleElems is accessed - is there validation that TupleElems has the same length as TupleRawNames to prevent index out of bounds? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cafd8e31-a237-4c6e-99f0-e3b0e1853adc?mode=deep",
+    "timestamp": "2026-01-09 18:49:17.676166",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: bindStructTypeGo()] [Name Conflict Resolution] At line 387, abi.ResolveNameConflict is called - if this function has bugs, could it generate invalid or colliding field names that break generated code? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fef55774-ce1d-444b-950d-98b01f5f4bcd?mode=deep",
+    "timestamp": "2026-01-09 18:49:40.775835",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Concurrent Map Access] The contracts and structs maps are accessed throughout Bind() - if this function is called concurrently, could race conditions cause map corruption or data races? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7f562828-af42-4f16-94fb-35792eb587b2?mode=deep",
+    "timestamp": "2026-01-09 18:50:03.504531",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [String Escaping in Template] At line 223, InputABI uses ReplaceAll for quote escaping - is this sufficient to prevent all template injection attacks, or are there other escape sequences needed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_00e0140f-b1e8-430f-85a8-ad54c2de45a3?mode=deep",
+    "timestamp": "2026-01-09 18:50:25.988371",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: bindTypeGo()] [Slice Type Recursion] At line 330, slice types recursively call bindTypeGo - for multi-dimensional slices, could excessive nesting cause stack overflow? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_aecfeb42-3b90-4d6f-8938-f4ea1c911672?mode=deep",
+    "timestamp": "2026-01-09 18:50:49.322615",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: bindStructTypeGo()] [Array Type Recursion] At line 403, array types recursively call bindStructTypeGo - similar to slice concern, could deeply nested arrays cause stack overflow? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dd800d4e-e0d3-4830-800e-aaa028644398?mode=deep",
+    "timestamp": "2026-01-09 18:51:10.764250",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Type Array Length Mismatch] At line 95, the loop iterates based on len(types) - but if abis or bytecodes arrays are shorter, accessing abis[i] or bytecodes[i] could panic. Is length validation performed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fb41040c-b902-408d-9b9c-1adf1baa7124?mode=deep",
+    "timestamp": "2026-01-09 18:51:34.118563",
+    "report_generated": false
   }
 ]
