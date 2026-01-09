@@ -1798,5 +1798,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d7ae2075-6987-4f6d-b51b-3484b8485e00?mode=deep",
     "timestamp": "2026-01-09 17:05:08.231129",
     "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Sensitive data exposure] The logging function outputs all metric values without filtering - can sensitive information (private keys, account balances, validator addresses, transaction details) leak through metrics if they're registered with descriptive names? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5d03c00a-b452-4fa9-b5bf-aa709c231f3f?mode=deep",
+    "timestamp": "2026-01-09 17:06:20.597964",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Timer overflow] On lines 67-68, t.Min() and t.Max() return int64 values that are divided by 'du' - if these values are near int64 max (representing extremely long durations), can the float64 conversion lose precision or produce infinity? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_08c722f3-6ac9-4668-9e3d-899cda923247?mode=deep",
+    "timestamp": "2026-01-09 17:06:33.341148",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Integer overflow] When logging Counter values with Count() on lines 26 and 44, if the counter has overflowed past int64 maximum, will the logged value wrap around or display incorrectly? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_56539b53-2ef0-4656-bf3c-c75047625473?mode=deep",
+    "timestamp": "2026-01-09 17:06:46.548721",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: Log()] [Fixed scale assumption] Log() hardcodes scale to time.Nanosecond on line 12 - for metrics tracking very long durations, can this cause float64 overflow when dividing nanosecond values, producing incorrect logged values? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_872733d6-7ee0-485c-b59b-0cafb79514e7?mode=deep",
+    "timestamp": "2026-01-09 17:07:00.506943",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Frequency validation] The 'freq' parameter is not validated - can passing freq=0 or negative durations cause time.Tick() to behave unexpectedly, panic, or create rapid-fire logging that exhausts resources? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bcbc6c44-84e8-4e4f-ae3f-8a80a94d6a58?mode=deep",
+    "timestamp": "2026-01-09 17:07:15.486754",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Time.Tick timing] The time.Tick(freq) on line 21 may skip ticks if the logging callback takes longer than 'freq' to execute - can processing complex metrics or slow logger implementations cause tick skipping that leads to missed metrics or timing inconsistencies? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f2a19ec5-3e5f-40f7-824b-88debd0329fa?mode=deep",
+    "timestamp": "2026-01-09 17:07:31.878092",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Log injection] If metric names passed to Printf contain newline characters or ANSI escape codes, can attackers inject fake log entries or manipulate log formatting to hide malicious activity? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0bdc5910-19b8-4ffe-851a-9a7ae17576db?mode=deep",
+    "timestamp": "2026-01-09 17:07:49.151119",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Printf error handling] None of the l.Printf() calls (lines 25-79) check for errors - if the Logger implementation fails (disk full, permission denied, network logger unavailable), are these failures silently ignored, potentially hiding critical issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5f36fc51-7cc1-4634-86e1-e0b70ba881a7?mode=deep",
+    "timestamp": "2026-01-09 17:08:08.157706",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Format string injection] Throughout lines 25-79, metric names are directly interpolated into Printf format strings - if metric names contain format specifiers like %s, %d, %v, can this cause Printf to consume additional arguments, crash, or expose stack memory? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7bfd913c-67ee-4133-a4bb-042fe7be4297?mode=deep",
+    "timestamp": "2026-01-09 17:08:28.498322",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Iterator invalidation] During the Registry.Each() iteration on line 22, if the registry is modified (metrics unregistered/registered) in another goroutine, does this cause iterator invalidation that could panic or skip/duplicate metrics in logs? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a13687cc-d224-4664-803a-0d2df17f38db?mode=deep",
+    "timestamp": "2026-01-09 17:08:49.334389",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Concurrent access] If multiple goroutines call LogScaled() on the same Registry concurrently, and Registry.Each() doesn't properly synchronize access, can this lead to data races that corrupt metric values or cause panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_89a2d5b3-91f4-4795-9024-895df8e7b13c?mode=deep",
+    "timestamp": "2026-01-09 17:09:11.273664",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Race condition] The Registry.Each() call on line 22 iterates over metrics - if the registry is concurrently modified (metrics added/removed) while iterating, can this cause race conditions, inconsistent reads, or panics in the callback function? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e80a613f-519b-4bba-ba2c-b242ddf76ed8?mode=deep",
+    "timestamp": "2026-01-09 17:09:33.248388",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Error formatting] On line 39, metric.Error() is logged with %v format - if Error() returns a maliciously crafted error with format string directives or extremely long messages, can this cause Printf vulnerabilities or log injection attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0c45675e-f0f5-419e-aa8f-244f10c1b161?mode=deep",
+    "timestamp": "2026-01-09 17:09:56.450587",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Healthcheck side effects] When calling metric.Check() on line 37, can malicious or buggy healthcheck implementations perform dangerous side effects, modify critical state, or execute expensive operations that cause DoS during logging? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3518520f-4110-44ab-b88b-25c02a503c29?mode=deep",
+    "timestamp": "2026-01-09 17:10:18.030579",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Healthcheck panic] On line 37, metric.Check() is called on a Healthcheck - if the healthcheck function panics during execution, does this crash the logging goroutine or propagate to crash the entire node? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d7a786c2-d6af-453f-8ee9-33d384b3ebb9?mode=deep",
+    "timestamp": "2026-01-09 17:10:42.440545",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Nil percentiles] If Percentiles() returns nil instead of a slice on lines 42 or 64, will accessing ps[0] through ps[4] cause nil pointer dereferences and crash the logging goroutine? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6cdb4c03-e10b-44d2-9506-e92e8d5a75c7?mode=deep",
+    "timestamp": "2026-01-09 17:11:08.214467",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Slice bounds] After calling Percentiles() on lines 42 and 64, the code accesses ps[0] through ps[4] - if Percentiles() returns a slice with fewer than 5 elements due to implementation bugs, does this cause slice index out of bounds panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8d4f34ff-7bae-4292-ab30-f7f9f29d4db9?mode=deep",
+    "timestamp": "2026-01-09 17:11:32.809363",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Percentiles panic] On lines 42 and 64, Percentiles() is called with a hardcoded slice []float64{0.5, 0.75, 0.95, 0.99, 0.999} - if the Percentiles() implementation has bugs or panics, does this crash the logging goroutine? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2c33d723-ee74-4d6d-8ded-837aff095b51?mode=deep",
+    "timestamp": "2026-01-09 17:11:55.400364",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Snapshot consistency] When Snapshot() is called on Timer (line 63), Histogram (line 41), and Meter (line 55), are these snapshots atomic, or can concurrent modifications to the metrics during snapshotting produce inconsistent or corrupted data in the logs? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9360bf60-6a17-4237-8faf-9c9298dbcf3a?mode=deep",
+    "timestamp": "2026-01-09 17:12:20.572522",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Nil snapshot] If metric.Snapshot() returns nil for Histogram (line 41), Meter (line 55), or Timer (line 63), do the subsequent method calls on the snapshot object cause nil pointer dereference panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6270ca81-4d72-4ddc-84c6-e8ec20ff762b?mode=deep",
+    "timestamp": "2026-01-09 17:12:44.480860",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Panic in Snapshot] On lines 41, 55, and 63, Snapshot() is called on Histogram, Meter, and Timer types - if any of these Snapshot() implementations panic, does this crash the logging goroutine or propagate to crash the entire node? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_21086267-dd23-4c7a-a2a1-c2d9c63b5da3?mode=deep",
+    "timestamp": "2026-01-09 17:13:09.366317",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Interface compliance] If a malicious or buggy metric implementation is registered that doesn't properly implement the Counter, Gauge, Histogram, Timer, or Meter interfaces, can calling their methods cause panics that crash the logging goroutine or the entire node? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_84b5d10f-dd42-43be-afce-06564fd55668?mode=deep",
+    "timestamp": "2026-01-09 17:13:34.382941",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Type assertion] The type switch on lines 23-80 handles specific metric types, but what happens if Registry.Each() provides a metric type not in the switch cases (like ResettingTimer mentioned in registry.go) - does the metric get silently ignored, potentially hiding important metrics or security-relevant information? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_07188307-7cdc-4462-8db8-cb96887b4724?mode=deep",
+    "timestamp": "2026-01-09 17:13:59.139028",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [String manipulation] What is the expected format of scale.String() output, and can non-standard time.Duration values cause unexpected string formats that break the [1:] slicing assumption on line 19, leading to panics or incorrect suffix extraction? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_334f82fa-1358-4bd7-b9ad-b70b4c4b94b5?mode=deep",
+    "timestamp": "2026-01-09 17:14:23.247600",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Slice out of bounds] On line 19, the expression scale.String()[1:] assumes the string representation has at least 2 characters - if scale.String() returns an empty string or single character, does this cause an index out of bounds panic crashing the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f143d5d1-e8cb-4ba5-a370-beaa59111fe6?mode=deep",
+    "timestamp": "2026-01-09 17:14:46.153407",
+    "report_generated": false
   }
 ]
