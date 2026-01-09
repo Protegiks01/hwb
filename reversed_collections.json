@@ -148,5 +148,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_24444205-9899-408d-ae9b-37fac560112a?mode=deep",
     "timestamp": "2026-01-09 15:16:47.348726",
     "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/prometheus.go] [Function: Handler()] [GC pressure] Does the allocation of the names slice, collector buffer, and multiple metric snapshots create significant garbage collection pressure that could cause GC pauses during block production? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_faba6613-dcfc-42c1-a063-3098d51ea36d?mode=deep",
+    "timestamp": "2026-01-09 15:18:26.422514",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/prometheus.go] [Function: Handler()] [Lock contention] If the metrics registry uses locks internally, can high-frequency scraping of the Prometheus endpoint cause lock contention that degrades blockchain node performance during critical operations like block validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_58e214ad-317a-4e35-bcbd-f56d035b4325?mode=deep",
+    "timestamp": "2026-01-09 15:18:39.414194",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/prometheus.go] [Function: Handler()] [Mining/minting patterns] Can metrics about block production rates, minting activity, or gas usage patterns reveal validator behavior patterns that could be exploited for MEV extraction or censorship? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f4ff1748-f96c-41e8-8d49-d1a5b9a24fe6?mode=deep",
+    "timestamp": "2026-01-09 15:18:53.153752",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/prometheus.go] [Function: Handler()] [Network topology exposure] Can peer connection metrics reveal network topology, making it easier for attackers to partition the network or launch eclipse attacks against specific validators? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b3da2e0e-50af-490c-b075-dec77284ad91?mode=deep",
+    "timestamp": "2026-01-09 15:19:07.060241",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/prometheus.go] [Function: Handler()] [Transaction pool leakage] Can metrics about transaction pool size, gas prices, or nonce gaps leak information that enables front-running attacks or helps attackers understand transaction ordering? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_725f58fc-c334-4c42-9597-373c44d44094?mode=deep",
+    "timestamp": "2026-01-09 15:19:21.611194",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/prometheus.go] [Function: Handler()] [Validator reconnaissance] Can the metrics endpoint expose information about validator selection, block signing activity, or consensus state that allows attackers to predict which validator will produce the next block and prepare targeted attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c4b6c0bd-b1f2-4fa8-a71d-6682dfc4fb3c?mode=deep",
+    "timestamp": "2026-01-09 15:19:37.667101",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/prometheus.go] [Function: Handler()] [Timestamp omission] The handler doesn't include timestamps in the Prometheus output, relying on scraper timestamps. Can this create issues during clock skew, time travel attacks, or when metrics change rapidly between scrapes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_60c099ef-030a-45b1-a5bd-2913bd96a774?mode=deep",
+    "timestamp": "2026-01-09 15:19:54.498044",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/prometheus.go] [Function: Handler()] [Metric type mismatch] If the same metric name is registered with different types across requests (due to registry changes), does this violate Prometheus's requirement that metric types be consistent, breaking scrapers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_935aeae2-0591-48f5-b381-f96c595a28ce?mode=deep",
+    "timestamp": "2026-01-09 15:20:13.770955",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/prometheus.go] [Function: Handler()] [Label injection] Can metric names containing Prometheus label syntax (curly braces, equals signs) be misinterpreted by Prometheus scrapers as having labels, creating confusion or metric shadowing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_34f02e64-e13b-4b90-beef-5a3f6fa03070?mode=deep",
+    "timestamp": "2026-01-09 15:20:34.067320",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/prometheus.go] [Function: Handler()] [Counter overflow] For metrics.Counter types, if counter values overflow int64 during normal operation, does the Prometheus output handle this correctly or expose negative/incorrect values? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_463e26ab-80ef-4472-aa85-1e39eda85b0c?mode=deep",
+    "timestamp": "2026-01-09 15:20:55.627803",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/prometheus.go] [Function: Handler()] [Snapshot performance] If certain metric types (Histogram, Timer) have expensive Snapshot() operations, can an attacker trigger metric collection requests at high frequency to cause sustained CPU/memory pressure? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f6a1b33a-429b-4eb7-9da8-ebdc24b197a6?mode=deep",
+    "timestamp": "2026-01-09 15:21:17.460892",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/prometheus.go] [Function: Handler()] [Registry synchronization] Is the metrics.Registry thread-safe for concurrent reads during reg.Each() iteration while other parts of the node are updating metrics, or can this cause data races? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3267bd3b-8580-4d2c-bf93-c7ae55e72773?mode=deep",
+    "timestamp": "2026-01-09 15:21:41.509979",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/prometheus.go] [Function: Handler()] [Amplification attack] Can an attacker leverage the metrics endpoint as an amplification vector by sending small HTTP requests that trigger large response payloads, enabling bandwidth exhaustion attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6673f1b8-9ef6-42ce-b028-ac41b7229526?mode=deep",
+    "timestamp": "2026-01-09 15:22:07.240873",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/prometheus.go] [Function: Handler()] [Goroutine leak] If the HTTP request is cancelled or times out during metrics collection, are there goroutine leaks in the reg.Each() iteration or collector operations that accumulate over time? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_92308be6-3127-45f1-a570-43bd4510d138?mode=deep",
+    "timestamp": "2026-01-09 15:22:32.950062",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/prometheus.go] [Function: Handler()] [CPU exhaustion] Can an attacker register metrics with extremely long names (megabytes) that cause sort.Strings() to consume excessive CPU time during each metrics request, degrading node performance? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_38ea18c7-4403-48e1-a988-a75c1ddfe8e8?mode=deep",
+    "timestamp": "2026-01-09 15:22:59.077962",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/prometheus.go] [Function: Handler()] [ResettingTimer empty values] If a ResettingTimer has no values (empty slice), the collector checks len(m.Values()) <= 0, but are there race conditions where values could be removed after the check but before percentile calculation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6c39458a-e30a-4782-905f-51c8dbe33a06?mode=deep",
+    "timestamp": "2026-01-09 15:23:25.762936",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/prometheus.go] [Function: Handler()] [Histogram/Timer percentile calculation] Can malicious metric data cause the Percentiles() calculation in the collector to panic, hang, or produce infinite/NaN values that corrupt the entire metrics output? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0dea16f2-cca5-42d2-812d-2da12dd8176c?mode=deep",
+    "timestamp": "2026-01-09 15:23:53.595979",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/prometheus.go] [Function: Handler()] [Metric removal during iteration] If metrics are unregistered from the registry concurrently while reg.Each() is iterating, can this cause nil pointer dereferences or panics when attempting to access removed metrics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_80811bc9-261e-4c45-9455-a977e9272c4a?mode=deep",
+    "timestamp": "2026-01-09 15:24:20.794578",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/prometheus.go] [Function: Handler()] [Empty registry] If the registry is completely empty (no metrics registered), does the handler produce valid Prometheus output or does it return an error/empty response that could break monitoring pipelines? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3792cc23-bff4-4763-8cab-c59e12c5c17b?mode=deep",
+    "timestamp": "2026-01-09 15:24:48.294578",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/prometheus.go] [Function: Handler()] [Nil metric handling] If reg.Get(name) returns a nil metric or a metric whose Snapshot() returns nil, will the type switch panic when attempting to call methods on nil interfaces? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f7ae668d-742b-45bc-ad05-02ba50f5262e?mode=deep",
+    "timestamp": "2026-01-09 15:25:15.522599",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/prometheus.go] [Function: Handler()] [Unicode handling] Are metric names with Unicode characters, null bytes, or control characters properly escaped in the Prometheus output format, or can they break parsers and monitoring systems? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_617e6a05-183a-4635-a6e7-525d796aa03e?mode=deep",
+    "timestamp": "2026-01-09 15:25:40.216430",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/prometheus.go] [Function: Handler()] [Format string vulnerability] If metric names or values contain Prometheus format specifiers or special characters, can the collector's sprintf operations in writeGaugeCounter/writeSummaryPercentile create format string vulnerabilities or corrupt the output? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_946d425c-5d13-451f-a8ad-5e58968d8c55?mode=deep",
+    "timestamp": "2026-01-09 15:26:07.548746",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/prometheus.go] [Function: Handler()] [Collector buffer write] Can the w.Write(c.buff.Bytes()) operation fail partially, leaving the HTTP response in an inconsistent state that causes client parsing errors or incomplete metric transmission? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_379fbd0b-42f6-4115-bbd2-7cb06f2660c6?mode=deep",
+    "timestamp": "2026-01-09 15:26:32.928760",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/prometheus.go] [Function: Handler()] [Authentication bypass] Is the Prometheus metrics endpoint exposed without authentication, allowing any attacker with network access to scrape detailed internal node metrics for reconnaissance before launching targeted attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7caf054c-171f-4526-82ab-bba4db830b13?mode=deep",
+    "timestamp": "2026-01-09 15:26:58.908047",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/prometheus.go] [Function: Handler()] [Missing security headers] Does the endpoint lack security headers like X-Content-Type-Options, preventing MIME sniffing attacks, or CSP headers that could mitigate XSS if metrics contain user-controlled data? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7fa03618-a335-47fd-a390-3f18674e1661?mode=deep",
+    "timestamp": "2026-01-09 15:27:25.758810",
+    "report_generated": false
   }
 ]
