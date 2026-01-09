@@ -298,5 +298,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_aac6311a-4489-43ef-92ec-56029297949e?mode=deep",
     "timestamp": "2026-01-09 15:26:47.565878",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: EventByID()] [Common.Hash Type] The function accepts common.Hash - does this properly validate that the hash is exactly 32 bytes, or could malformed hashes cause comparison errors? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d48dbc34-8448-410c-a088-ef1f71ee49d9?mode=deep",
+    "timestamp": "2026-01-09 15:28:10.169569",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: HasFallback()] [Type Check Only] The function only checks if Fallback.Type == Fallback - but what if Fallback is partially initialized with Type set but other fields invalid, could this cause issues in fallback execution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_10ae10a2-6e99-4bb0-8f94-fcec190f536f?mode=deep",
+    "timestamp": "2026-01-09 15:28:23.113475",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: HasFallback()] [Zero Value Check] If abi.Fallback is the zero value, does Type default to 0 (Constructor), or could this cause false negatives in fallback detection? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_97f91e38-b809-47f9-b523-547d788b29bc?mode=deep",
+    "timestamp": "2026-01-09 15:28:36.200325",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: HasReceive()] [Type Check Only] Similar to HasFallback, only checks Type field - could partially initialized Receive cause issues in plain ether transfer handling? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a1806ccb-0091-4e05-8ef6-9c74b4c11290?mode=deep",
+    "timestamp": "2026-01-09 15:28:50.108652",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: HasReceive()] [Receive vs Fallback] If both HasReceive and HasFallback return true, is there clear precedence in which gets called for plain ether transfers, or could this cause ambiguous execution? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7de72f62-66f0-460f-9ae8-48f588bf0039?mode=deep",
+    "timestamp": "2026-01-09 15:29:04.757853",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: UnpackRevert()] [Selector Validation] The function checks for exact revertSelector match - but can an attacker craft data that starts with revert selector but contains malicious payload causing incorrect revert reason parsing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fc65bc1f-1a2a-43a5-8158-8347bb776530?mode=deep",
+    "timestamp": "2026-01-09 15:29:20.317333",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: UnpackRevert()] [Short Data] Checks len(data) < 4 - but what if data is exactly 4 bytes (just selector), does unpacking data[4:] on empty slice cause issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a3da2d22-9077-4980-8cf0-0e9e0fb96f7e?mode=deep",
+    "timestamp": "2026-01-09 15:29:37.658867",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: UnpackRevert()] [Type Creation] Creates new Type for 'string' - if NewType fails, is the error properly propagated or could nil Type cause panic in Arguments.Unpack? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3a1f4f3b-3be0-434b-ab23-5c8449d3dc96?mode=deep",
+    "timestamp": "2026-01-09 15:29:56.357770",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: UnpackRevert()] [Type Assertion] The function performs type assertion unpacked[0].(string) - what if unpacking succeeds but returns non-string type, could this panic crash the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f9d87ba3-864d-4091-8d78-434516fce0af?mode=deep",
+    "timestamp": "2026-01-09 15:30:16.254900",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: UnpackRevert()] [Large Strings] For extremely long revert reason strings, does the unpacking have size limits, or could an attacker cause memory exhaustion by reverting with massive strings? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a2eff527-7232-494e-a0b2-3a8de41fd19b?mode=deep",
+    "timestamp": "2026-01-09 15:30:37.778197",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: UnpackRevert()] [Revert Selector Global] The revertSelector is a package-level variable computed once - is this thread-safe if multiple goroutines access it concurrently during transaction processing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_339b40a3-d95e-4e68-bc1f-0b9b00ff8dcb?mode=deep",
+    "timestamp": "2026-01-09 15:31:00.207714",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: UnpackRevert()] [Index Bounds] Accesses unpacked[0] without checking array length - if Unpack returns empty array, could this cause index out of bounds panic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e8669e87-45c0-4de3-b02d-643ade4545b7?mode=deep",
+    "timestamp": "2026-01-09 15:31:24.329505",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Struct: ABI] [Map Concurrent Access] The Methods, Events, and Errors maps - are these protected by any locks, or could concurrent reads during transaction processing and writes during ABI updates cause race conditions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a9da87c9-4194-4a30-8de8-ecf99cf37235?mode=deep",
+    "timestamp": "2026-01-09 15:31:50.236891",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Struct: ABI] [Constructor Field] The Constructor field is a single Method - can contracts with multiple constructors cause confusion or is this enforced during UnmarshalJSON? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ffcb797d-bb5e-4131-9664-6257dbd84448?mode=deep",
+    "timestamp": "2026-01-09 15:32:14.388675",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Struct: ABI] [Fallback vs Receive] The comment notes Fallback represents legacy fallback - can mixing legacy and new-style fallback/receive cause execution ambiguity in contract calls? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fc8c1ecb-aa44-4a9d-9d2b-806fc1dc5278?mode=deep",
+    "timestamp": "2026-01-09 15:32:37.634430",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Struct: ABI] [Map Nil Values] Could any of the map values (Method, Event, Error) be nil, causing nil pointer dereference when accessed in transaction processing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fe167119-cda4-48f6-8d5f-fb319d22f3c5?mode=deep",
+    "timestamp": "2026-01-09 15:33:01.124808",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Cross-Function] [Pack then MethodById] If Pack() is called with one method name and MethodById() is called with the resulting data, could method ID collisions cause a different method to be identified leading to incorrect execution? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6d10440c-27d9-44fc-868a-e3bf82388eb2?mode=deep",
+    "timestamp": "2026-01-09 15:33:25.082378",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Cross-Function] [UnmarshalJSON then Pack] After unmarshaling ABI from potentially malicious JSON, could crafted method definitions cause Pack() to generate invalid transaction data that passes initial validation but corrupts state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6655e6b3-396c-4d92-9883-900c845a4a6a?mode=deep",
+    "timestamp": "2026-01-09 15:33:49.118400",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Cross-Function] [Pack then Unpack] Does packing then unpacking the same data produce identical values for all types, or could precision loss or encoding differences cause state inconsistencies? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f4ddb0bb-e72b-4b76-886e-21f7742ea412?mode=deep",
+    "timestamp": "2026-01-09 15:34:12.801308",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Cross-Function] [Multiple Unpack Calls] If Unpack(), UnpackIntoInterface(), and UnpackIntoMap() are called on the same data with the same ABI, do they produce consistent results or could implementation differences cause parsing discrepancies? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_73d8438a-294a-4a82-a2b6-ea618e9351c1?mode=deep",
+    "timestamp": "2026-01-09 15:34:36.111712",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Cross-Function] [EventByID then Unpack] After looking up event by ID, could event.Inputs have nil or invalid arguments that cause Unpack to panic when processing event logs? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dc415663-9127-4b24-83cb-8a3a135e8739?mode=deep",
+    "timestamp": "2026-01-09 15:34:59.814746",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Memory Safety] [Slice Capacity] Throughout the file, append operations are used - could repeatedly appending to slices cause excessive memory allocations and fragmentation in long-running validator nodes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fcf467f6-679c-4669-82e9-2b1fff1be636?mode=deep",
+    "timestamp": "2026-01-09 15:35:22.629606",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Memory Safety] [String Allocation] Methods and event names are strings stored in maps - for contracts with many methods, could this cause significant memory overhead? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fa4eae11-5d80-4ee8-90b2-61a442a44a20?mode=deep",
+    "timestamp": "2026-01-09 15:35:46.938821",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Memory Safety] [Interface{} Boxing] Functions return []interface{} which requires boxing - could this cause heap allocations impacting performance in high-throughput transaction processing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b63d2361-525c-42e5-b7b1-b23715eb31e7?mode=deep",
+    "timestamp": "2026-01-09 15:36:12.448100",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Memory Safety] [JSON Decoder] The json.NewDecoder in JSON() reads from io.Reader - if the reader doesn't implement proper buffering, could this cause excessive small reads impacting performance? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_940983af-3466-4caf-acd9-736373e77433?mode=deep",
+    "timestamp": "2026-01-09 15:36:39.322719",
+    "report_generated": false
   }
 ]
