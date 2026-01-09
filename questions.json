@@ -1948,5 +1948,130 @@
     "question": "internal/version/vcs.go",
     "url": "https://deepwiki.com/search/-generate-150-targeted-securit_e6f38014-491a-4d5f-b81e-6e0d9dd55281?mode=deep",
     "questions_generated": false
+  },
+  {
+    "question": "internal/version/version.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_ba71626f-064b-4f1f-8d6d-c737f8ed7bc6?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "internal/web3ext/web3ext.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_81ef3560-15fd-4691-baa5-65d8eaaad88a?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "les/api_backend.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_b9439a62-204a-4ec1-b1d0-8fdddaf7173a?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "les/api.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_41579496-8ecb-4a42-b719-afbe4b347825?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "les/benchmark.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_d8237ff3-3a63-4c9a-9c4e-0bc9f0654aee?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "les/bloombits.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_0e1b64de-251f-4ad5-807a-cfefe96a7f93?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "les/catalyst/api.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_b3ca5ba1-9d8b-43b0-be0d-4294b993fc30?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "les/checkpointoracle/oracle.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_e11c9598-05d7-4912-a8e2-6a9c55fb397c?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "les/client_handler.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_c2fbadf7-a065-4fd4-87fe-5673a6ef86a1?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "les/client.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_4ece4716-fe44-4199-873a-4d7720473c81?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "les/commons.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_8c69a437-9c94-40fe-b003-b587ec43f148?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "les/costtracker.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_7f0e6454-bfb6-43f6-a1d5-de6481bd7b2b?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "les/distributor.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_6feb5f87-cd17-425c-b799-482ba80d8457?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "les/downloader/api.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_80ca8948-ac4d-4459-a087-443cc2501b1c?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "les/downloader/downloader.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_0c446c01-75f3-4425-8eb3-6a064ad8a596?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "les/downloader/events.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_3dd96a71-338a-4d83-a835-4e949981c0ab?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "les/downloader/metrics.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_5c69be04-af45-4e28-9b3a-d67387e48b9a?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "les/downloader/modes.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_43ee414e-34d1-4340-b216-cb491cc1dd6e?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "les/downloader/peer.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_894b4ab4-9078-4f55-a034-4e3dd167c3b1?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "les/downloader/queue.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_c80942a2-be90-413b-bc3e-65f5edf8619d?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "les/downloader/resultstore.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_caba5880-efa0-4e40-97b2-16d6bd47da0c?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "les/downloader/statesync.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_29664fc6-a935-4ee2-9ef9-ea32d8a0401f?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "les/downloader/types.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_2db2a955-b886-4395-9e6c-36db8c9f9368?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "les/enr_entry.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_0be53b8d-07c9-4468-a42c-48051c827324?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "les/fetcher.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_3d1e8c9b-78ee-4b91-af5a-0951ecc2439c?mode=deep",
+    "questions_generated": false
   }
 ]
