@@ -898,5 +898,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cd6beca2-8dfe-4062-8d03-6279e2f4ef2e?mode=deep",
     "timestamp": "2026-01-09 16:06:32.270693",
     "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Flush timing] Is w.Flush() called after each metric write inside the loop on line 118, or is it called once after all metrics, and could this cause buffer size issues or inconsistent metric delivery? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_124f1977-7c20-43f5-9ee8-42673f781949?mode=deep",
+    "timestamp": "2026-01-09 16:08:00.151047",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Struct: OpenTSDBConfig] [DurationUnit validation] Is DurationUnit validated to be non-zero before use, preventing the division-by-zero vulnerabilities in timer metric export? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_41e196f1-cfe5-47a6-a164-802da0b9b9b2?mode=deep",
+    "timestamp": "2026-01-09 16:08:12.563481",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Struct: OpenTSDBConfig] [FlushInterval] Can FlushInterval be set to extremely small values (nanoseconds) causing excessive network traffic and CPU consumption from constant exports, leading to DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ca421837-a642-4c90-bb75-997f76d4b7be?mode=deep",
+    "timestamp": "2026-01-09 16:08:26.050479",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: OpenTSDB()] [Default values] Does the function set safe defaults for unspecified configuration parameters, or could missing configuration cause undefined behavior or panics? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_14826654-9264-4be3-8309-78b1db0ebd0b?mode=deep",
+    "timestamp": "2026-01-09 16:08:39.908163",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Struct: OpenTSDBConfig] [Config validation] Is there any validation of the OpenTSDBConfig fields before use, or can malicious configuration values cause panics, hangs, or security issues during metrics export? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b76062f5-502f-404d-99aa-5e28028920d2?mode=deep",
+    "timestamp": "2026-01-09 16:08:54.455355",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Timing attack] Could an attacker observing metrics export timing and content infer sensitive information about block production, transaction processing, or validator operations enabling timing attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3607c54b-3aae-4894-b1ad-12bbfd29cbd0?mode=deep",
+    "timestamp": "2026-01-09 16:09:10.290051",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Metric content leak] Could the metric names, values, or prefixes contain sensitive information about node performance, validator status, or transaction volumes that could be leaked to a compromised OpenTSDB server? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1de9e05a-6bf2-4cbf-a173-426fc3321b9a?mode=deep",
+    "timestamp": "2026-01-09 16:09:28.150764",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: getShortHostname()] [Information leak] Does exposing the node hostname in every metric line leak sensitive infrastructure information about the node's network location or identity that could aid attackers in targeting the node? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_75b70af2-b0aa-40a8-a10e-63647fdf996b?mode=deep",
+    "timestamp": "2026-01-09 16:09:46.965875",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Timestamp precision] Is the Unix timestamp format on line 62 compatible with OpenTSDB's expected timestamp precision (seconds vs milliseconds), or could timestamp mismatches cause metrics to be recorded at wrong times? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_453177a7-87c2-422b-842b-7d291ce49f79?mode=deep",
+    "timestamp": "2026-01-09 16:10:07.713399",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Metric naming] Does the prefix.name format conform to OpenTSDB naming conventions, or could invalid characters in metric names cause server-side rejections and metric loss? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f1c60d67-ab68-4bab-8fee-fa01428014ab?mode=deep",
+    "timestamp": "2026-01-09 16:10:28.492077",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Tag format] Is the 'host=' tag format correct according to OpenTSDB specifications, and could tag formatting errors cause the entire metric to be rejected by the server? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9a8f1fd2-95ae-41fc-afbc-3b1f1aa638f0?mode=deep",
+    "timestamp": "2026-01-09 16:10:50.812809",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Protocol format] Do the fmt.Fprintf format strings correctly implement the OpenTSDB line protocol, or could malformed messages be rejected by the server causing metric loss? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a93415cd-4f7f-4488-9a0c-65a9b225d8ef?mode=deep",
+    "timestamp": "2026-01-09 16:11:13.745143",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Type switch exhaustiveness] Are there metric types defined in the codebase that aren't handled by the type switch, causing metrics to be silently dropped and critical node data to not be exported? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f8a87a08-80c9-49ee-bc11-0f90f431039e?mode=deep",
+    "timestamp": "2026-01-09 16:11:36.739028",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Interface mismatch] If a malicious or buggy metric implementation is registered that doesn't properly implement the Counter/Gauge/etc. interfaces, could method calls cause panics during export? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9944cf6a-4c5c-4dfe-81c6-6aba3c730f0e?mode=deep",
+    "timestamp": "2026-01-09 16:12:00.190321",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Type assertion] If the Registry contains metrics of unexpected types not matching the switch statement cases on lines 71-117, are they silently ignored, potentially causing important metrics to be lost without operator awareness? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c284e658-3e4e-40a4-b533-4a94b533605b?mode=deep",
+    "timestamp": "2026-01-09 16:12:24.398196",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: OpenTSDBWithConfig()] [Shutdown handling] If the node is shutting down, can the time.Tick goroutine be stopped gracefully, or will it continue attempting exports indefinitely potentially blocking shutdown? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4789b421-007e-4961-b8da-2cf8059681d7?mode=deep",
+    "timestamp": "2026-01-09 16:12:47.911277",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Metric snapshot consistency] When taking snapshots of Histogram/Meter/Timer metrics, are the snapshots atomic, or could concurrent metric updates during snapshot creation cause inconsistent or corrupted metric values to be exported? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8273c41f-c6f1-4e77-ba3d-c7326862f47c?mode=deep",
+    "timestamp": "2026-01-09 16:13:12.335710",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Registry iteration] Is the Registry.Each() iteration thread-safe if metrics are being concurrently registered/unregistered during export, or could this cause iteration corruption, missed metrics, or panics? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fc40c699-a0fd-4e4b-afb4-d839c52e5fbd?mode=deep",
+    "timestamp": "2026-01-09 16:13:34.170929",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: OpenTSDBWithConfig()] [Concurrent execution] Can multiple calls to OpenTSDBWithConfig() execute concurrently, and if so, do they safely share access to the global shortHostName variable without race conditions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e2561f33-1a40-43bb-9878-b3a07174a0b1?mode=deep",
+    "timestamp": "2026-01-09 16:13:56.528062",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Percentiles panic] Can the Percentiles() calls on lines 82, 102 panic if the histogram/timer is empty or contains invalid data, and would this crash the entire metrics export goroutine? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a527e8f6-cf24-4ea1-93ab-d87d2a1e42b0?mode=deep",
+    "timestamp": "2026-01-09 16:14:19.333183",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Snapshot panic] Do the Snapshot() calls on lines 81, 94, 101 check for nil returns, or could nil snapshots cause panics when calling methods like Count(), Min(), Max() on them? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6983b25e-7c4f-421c-bab8-26badceda195?mode=deep",
+    "timestamp": "2026-01-09 16:14:42.798817",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Interface nil check] Are the interface{} metric types (Counter, Gauge, etc.) checked for nil before method calls, or could nil metrics in the Registry cause panics during type assertion or method invocation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2c6f223c-bb58-4fac-bc12-ba79dcfb11b1?mode=deep",
+    "timestamp": "2026-01-09 16:15:06.982572",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Nil pointer] If c.Registry is nil on line 70, will calling Each() cause a nil pointer dereference panic, and can this be triggered through malicious configuration to crash the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c548317d-44e3-4408-bb43-c0d2c6efebc4?mode=deep",
+    "timestamp": "2026-01-09 16:15:31.691697",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Nil pointer] If c.Addr is nil on line 64, will net.DialTCP panic or return an error? Could an attacker trigger this condition through configuration manipulation to crash the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d3509e02-c727-4b4b-9b3e-0611855d8481?mode=deep",
+    "timestamp": "2026-01-09 16:15:55.162974",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Nil pointer] If c parameter is nil, accessing c.Addr, c.Registry, etc. will cause nil pointer dereference panics crashing the node. Is there any nil check before dereferencing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4643e5b7-de2f-4a7d-8a5b-fdc4ac693e57?mode=deep",
+    "timestamp": "2026-01-09 16:16:20.338601",
+    "report_generated": false
   }
 ]
