@@ -448,5 +448,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_940983af-3466-4caf-acd9-736373e77433?mode=deep",
     "timestamp": "2026-01-09 15:36:39.322719",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Integer Safety] [Data Length] The check 'len(data)%32 != 0' - for extremely large data lengths close to int overflow, could the modulo operation behave unexpectedly? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_11c66f28-4904-4782-8406-e5c9f18eeb8f?mode=deep",
+    "timestamp": "2026-01-09 15:38:03.546060",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Integer Safety] [Slice Indexing] The sigdata[:4] operation - on platforms where int is 32-bit, could extremely large slices cause index overflow? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a513a652-06a4-42a9-9be1-f3f3c387832f?mode=deep",
+    "timestamp": "2026-01-09 15:38:16.580291",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Integer Safety] [Method ID] Method.ID is 4 bytes - are there any operations that assume it fits in uint32 that could overflow on unexpected values? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_36bf414c-d272-4279-9f51-5662d4ae52da?mode=deep",
+    "timestamp": "2026-01-09 15:38:29.997933",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Panic Safety] [Map Access] Accessing Methods[name] and Events[name] - if done concurrently with map modifications, could this trigger 'concurrent map read and map write' panic? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_28dff193-20b8-497a-b373-35d3459058fb?mode=deep",
+    "timestamp": "2026-01-09 15:38:43.934161",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Panic Safety] [Slice Bounds] Multiple [:4] slice operations - if any length checks are bypassed due to race conditions, could these cause slice bounds panic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a2563fba-59c1-4ca9-8d29-a591d870c027?mode=deep",
+    "timestamp": "2026-01-09 15:38:58.517097",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Panic Safety] [Type Assertion] UnpackRevert() performs type assertion - if this fails, does it panic or return error, and could unhandled panics crash validator nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e07c9946-e10f-421d-a292-24ef9fd61c2e?mode=deep",
+    "timestamp": "2026-01-09 15:39:14.347017",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Panic Safety] [Nil Pointer] Throughout the file, returned pointers (*Method, *Event) - are there code paths that could dereference these without nil checks causing panics? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9f6be321-0752-4998-ba7b-0351b731d889?mode=deep",
+    "timestamp": "2026-01-09 15:39:32.765771",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Error Handling] [JSON Decode Error] If json.Decode() returns error in JSON(), is the partially decoded ABI struct in a valid state or corrupted? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8b7885f1-21a0-4c6b-862d-c5334636bbd5?mode=deep",
+    "timestamp": "2026-01-09 15:39:51.255485",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Error Handling] [Pack Error Propagation] When method.Inputs.Pack() fails in Pack(), does the error provide enough context for debugging without leaking sensitive contract details? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_869b4797-eb00-4cf2-807d-943e430cebde?mode=deep",
+    "timestamp": "2026-01-09 15:40:11.698058",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Error Handling] [Unpack Error Recovery] If args.Unpack() fails partway through, are allocated resources properly cleaned up or could this cause memory leaks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e2b0b687-b4d0-40cf-92b4-aa865565b4a2?mode=deep",
+    "timestamp": "2026-01-09 15:40:33.162983",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Error Handling] [Silent Failures] Are there any error conditions that are silently ignored, potentially masking critical issues in transaction processing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9ae94687-fdd6-48d1-b893-3246c5138d98?mode=deep",
+    "timestamp": "2026-01-09 15:40:55.140991",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Race Condition] [ABI Struct Modification] If one goroutine calls UnmarshalJSON() while another calls Pack() or Unpack(), could concurrent map access cause data races or panics? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_637bd850-9637-445f-81f6-5b4dc7eef9f3?mode=deep",
+    "timestamp": "2026-01-09 15:41:19.532133",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Race Condition] [Method Lookup] In MethodById(), iterating over Methods map while another goroutine modifies it could cause non-deterministic behavior or crashes. (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d6e51071-b744-41ab-81cd-a25bc78c2c51?mode=deep",
+    "timestamp": "2026-01-09 15:41:43.961996",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Race Condition] [Event Lookup] Similarly, EventByID() concurrent with map modifications could cause races. (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b055973e-ade6-44a5-9593-5770eb88f48c?mode=deep",
+    "timestamp": "2026-01-09 15:42:08.035520",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Race Condition] [Shared Return Values] When returning *Method or *Event pointers, if the underlying structs are modified, could readers see inconsistent state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f680c776-dd24-40f9-97d2-441606813e23?mode=deep",
+    "timestamp": "2026-01-09 15:42:32.407012",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Validator Attack] [ABI Manipulation] Can a malicious validator craft custom ABIs for the mint contract that bypass mint limits by using incorrect method signatures that still pass initial validation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_626dcfaa-933b-417e-afde-01d19009ad75?mode=deep",
+    "timestamp": "2026-01-09 15:42:58.267226",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Validator Attack] [Method ID Manipulation] Could a compromised validator generate transactions with method IDs that don't match actual method hashes, causing incorrect method dispatch in the mint contract? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_540f84e4-d02a-4e6f-a5c7-fcfe5ee5c5bc?mode=deep",
+    "timestamp": "2026-01-09 15:43:24.590102",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Validator Attack] [Event Log Forgery] Can a malicious validator create event logs with manipulated topic hashes that EventByID() accepts but represent different events, causing incorrect burn tracking? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d93ff0e4-76e9-4544-883a-c98649b3a601?mode=deep",
+    "timestamp": "2026-01-09 15:43:51.100697",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Validator Attack] [Fallback Abuse] Could a compromised validator send ether to contracts without triggering the correct fallback/receive function by manipulating the ABI representation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_79b2fa4a-8d55-4e95-b48d-8187b1849c77?mode=deep",
+    "timestamp": "2026-01-09 15:44:17.975576",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Transaction Impact] [Invalid Method Call] If MethodById() returns an error during transaction processing, does the transaction get properly rejected or could it consume gas without state changes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eee9ba05-d8cd-478e-80de-1e1eede401f8?mode=deep",
+    "timestamp": "2026-01-09 15:44:44.634714",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Transaction Impact] [Unpack Failure] When Unpack() fails on transaction return data, does this cause transaction revert or could it lead to inconsistent state between execution and logs? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a5b1c9bb-d3d8-4dec-a6ee-4b6458887846?mode=deep",
+    "timestamp": "2026-01-09 15:45:12.989195",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Transaction Impact] [Constructor Packing] If Pack() with empty name fails during contract deployment, could this leave the blockchain in an inconsistent state with deployed code but failed constructor? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2db1a41b-256b-42ab-8f4d-b7c84b365fe3?mode=deep",
+    "timestamp": "2026-01-09 15:45:38.703766",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Transaction Impact] [Revert Parsing] If UnpackRevert() fails to parse revert reason, does this prevent proper error reporting or could it hide critical contract failures from users? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ae11fdd6-038a-4e43-93f9-238c4cd2e513?mode=deep",
+    "timestamp": "2026-01-09 15:46:05.975311",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [State Corruption] [Argument Mismatch] If getArguments() returns arguments for a method when event arguments were expected (or vice versa), could subsequent unpacking corrupt state or logs? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2e58004a-30c5-4f43-99ba-314d74b30a86?mode=deep",
+    "timestamp": "2026-01-09 15:46:31.899907",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [State Corruption] [Type Confusion] Can Pack() accept arguments of wrong types that get encoded incorrectly but pass validation, leading to state corruption when the transaction executes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3f34de4b-eb5d-43a8-ac79-fe8b4393914b?mode=deep",
+    "timestamp": "2026-01-09 15:46:57.946562",
+    "report_generated": false
   }
 ]
