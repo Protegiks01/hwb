@@ -3298,5 +3298,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fa09d8a4-b6e3-49e6-b505-585379bec8ab?mode=deep",
     "timestamp": "2026-01-09 18:42:38.862880",
     "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv2.go] [Function: InfluxDBV2WithTags()] [Information disclosure] Write errors are logged on line 51 which may include the full error response from InfluxDB containing auth tokens, internal paths, or system information - can these logs expose sensitive data to attackers with log access? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4d10eeb3-79c4-43e6-a8c8-b079e37a27b6?mode=deep",
+    "timestamp": "2026-01-09 18:43:53.511648",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv2.go] [Function: send()] [Information disclosure] The tags map on line 22 is sent with every metric point on line 84 - if these tags contain node identifiers or IP addresses, can attackers correlate InfluxDB data to deanonymize validators or identify validator node locations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_88f28c5f-d65c-4dcf-a0e8-90f2a8f9f671?mode=deep",
+    "timestamp": "2026-01-09 18:44:06.282818",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv2.go] [Function: send()] [Information disclosure] All metrics from r.reg.Each() are sent to InfluxDB including potentially sensitive blockchain data (validator identities, transaction volumes, account activities) - is there any filtering or sanitization to prevent leaking confidential validator operations or network topology? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_577345c2-02eb-47c8-8485-b7ac33273d5b?mode=deep",
+    "timestamp": "2026-01-09 18:44:19.380762",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv2.go] [Struct: v2Reporter] [Information disclosure] The token field on line 18 stores the InfluxDB authentication token in plaintext memory - if the node crashes and produces a core dump or memory dump, will this expose the token allowing unauthorized access to metrics data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_26358d15-c3a7-429a-9b2b-26e647524982?mode=deep",
+    "timestamp": "2026-01-09 18:44:33.066286",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv2.go] [Function: InfluxDBV2WithTags()] [Memory leak] The errorsCh channel is unbuffered and requires active reading to prevent write blocking - if the error reading goroutine somehow exits or blocks, will subsequent write errors cause the write API to block forever, leaking memory in pending write operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ded63cfb-96c7-4cb1-9af6-5d84c86e0e90?mode=deep",
+    "timestamp": "2026-01-09 18:44:47.518092",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv2.go] [Function: send()] [Resource exhaustion] The Flush() call on line 88 forces all buffered writes to be sent immediately - if metrics are sent at high frequency with large payloads, can this cause network bandwidth exhaustion affecting critical blockchain P2P communications? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_91ccd49c-45e1-4461-a74f-9c7c72740ea2?mode=deep",
+    "timestamp": "2026-01-09 18:45:03.368003",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv2.go] [Function: run()] [DoS attack] The pingTicker fires every 5 seconds performing a Health() check - if InfluxDB is slow to respond, can accumulated health checks consume all network connections, file descriptors, or goroutines, causing DoS to the node's other networking functions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9c9eb895-6175-403d-af84-1075e55ed371?mode=deep",
+    "timestamp": "2026-01-09 18:45:19.730268",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv2.go] [Function: send()] [Memory exhaustion] Each call to send() creates new Point objects with influxdb2.NewPoint() on line 84 - if InfluxDB stops accepting data but the reporter keeps running, will unbounded points accumulate in the async write buffer causing memory exhaustion and node OOM crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4b5b9bf6-9e14-4dc2-be4c-5619096c99f8?mode=deep",
+    "timestamp": "2026-01-09 18:45:39.182020",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv2.go] [Function: send()] [DoS attack] The send() method calls r.reg.Each() which iterates over all metrics in the registry without any limit - if an attacker can register thousands of metrics through exposed APIs, can this cause each send() iteration to take seconds, consuming CPU and blocking the metrics reporter goroutine? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_29ce363f-0610-402d-b202-8aba6eaeafc7?mode=deep",
+    "timestamp": "2026-01-09 18:45:59.431962",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv2.go] [Function: send()] [Race condition] The WriteAPI write operations on lines 85 and 88 are called from the send() method which runs on intervalTicker, but the WriteAPI is documented as async - if multiple send() calls overlap (slow network), can concurrent writes corrupt the internal write buffer or cause data races? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_48e3583d-1010-4722-b5d5-13bd12dc429d?mode=deep",
+    "timestamp": "2026-01-09 18:46:20.191007",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv2.go] [Function: run()] [Race condition] Both intervalTicker and pingTicker fire concurrently and access shared r.client without synchronization - if send() is writing metrics while Health() is checking connection, can this cause race conditions in the underlying HTTP client leading to corrupted requests or crashes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_81772726-5999-4906-8d94-ab73423f99c2?mode=deep",
+    "timestamp": "2026-01-09 18:46:41.097025",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv2.go] [Function: InfluxDBV2WithTags()] [Race condition] The tags map passed as parameter is stored directly in rep.tags on line 38 without copying - if the caller modifies this map concurrently while send() reads it on line 84, can this cause 'concurrent map read and map write' panics that crash the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_42fb2b5f-5211-4fc2-adc3-3a533baf25af?mode=deep",
+    "timestamp": "2026-01-09 18:47:04.813209",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv2.go] [Function: send()] [Race condition] The send() method iterates over r.reg.Each() and accesses r.tags on line 84 without locking - if another goroutine modifies the registry or tags map concurrently, can this cause data races, map corruption, or 'concurrent map iteration and map write' panics? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_86fd592d-7eba-4ba3-b2c3-32799d8be268?mode=deep",
+    "timestamp": "2026-01-09 18:47:28.466044",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv2.go] [Struct: v2Reporter] [Race condition] The v2Reporter struct fields (reg, client, write, tags, namespace) are accessed from multiple goroutines (main reporter, error handler) without any mutex protection - can concurrent reads/writes cause data races that corrupt metrics data or cause panics? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d2e59987-5521-4e56-a5ea-dccaf89d3a4d?mode=deep",
+    "timestamp": "2026-01-09 18:47:52.280875",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv2.go] [Function: send()] [Panic condition] The readMeter function is called with r.namespace and name on line 80, but if readMeter panics due to unexpected metric types or nil snapshots, will this panic propagate and crash the reporter goroutine or the entire node? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_11a6b685-382b-47e3-9131-1867584e8ea8?mode=deep",
+    "timestamp": "2026-01-09 18:48:16.812580",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv2.go] [Function: run()] [Error handling] The health check on line 69 logs errors but does not trigger any reconnection logic - if InfluxDB becomes unavailable, will the reporter continue attempting to send metrics to a dead connection, causing unbounded memory growth in write buffers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_18c2e2ec-9b01-4666-ad9a-5b6c32aaf502?mode=deep",
+    "timestamp": "2026-01-09 18:48:42.715136",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv2.go] [Function: InfluxDBV2WithTags()] [Error handling] The write error goroutine on lines 49-52 only logs errors with log.Warn but takes no action - if InfluxDB is continuously rejecting writes due to authentication failure or quota exhaustion, will the node continue sending metrics pointlessly, wasting CPU and memory? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_18895a38-77f4-43ea-806b-18806c7f4300?mode=deep",
+    "timestamp": "2026-01-09 18:49:08.128100",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv2.go] [Function: send()] [Panic condition] The send() method calls r.write.WritePoint() and r.write.Flush() but r.write could be nil if WriteAPI creation failed - is there nil checking before use, or can this panic and crash the entire node during metrics reporting? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e15e8625-74fe-4db6-84f2-c82bbcd1485d?mode=deep",
+    "timestamp": "2026-01-09 18:49:32.172013",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv2.go] [Function: InfluxDBV2WithTags()] [Panic condition] The defer rep.client.Close() on line 42 executes immediately due to defer semantics, but rep.run() continues executing - will subsequent calls to r.client.Health() on line 69 panic with nil pointer or closed client errors, crashing the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_509ce911-43ab-47d5-8310-8092df528404?mode=deep",
+    "timestamp": "2026-01-09 18:49:57.027548",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv2.go] [Function: run()] [Goroutine leak] The run() method contains an infinite loop with no exit condition or context cancellation - if the node needs to shutdown gracefully, how does this goroutine terminate, or does it prevent clean shutdown and cause resource leaks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6f58d855-36f8-4b07-b53c-d481e039a968?mode=deep",
+    "timestamp": "2026-01-09 18:50:22.612990",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv2.go] [Function: run()] [Resource leak] The intervalTicker and pingTicker are created but the infinite for loop on line 64 never exits naturally - if this function panics or returns early, will the deferred Stop() calls on lines 61-62 still execute, or will ticker goroutines leak? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c678151c-52b0-4a01-95d5-b26694215c3e?mode=deep",
+    "timestamp": "2026-01-09 18:50:48.580125",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv2.go] [Function: InfluxDBV2WithTags()] [Resource leak] The errorsCh channel is created by rep.write.Errors() on line 46, but there is no explicit cleanup or close of this channel - can this lead to channel leaks if the WriteAPI is terminated unexpectedly, causing goroutines to block forever? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_539fe5ea-8406-4dbb-919f-2d66762e3bc3?mode=deep",
+    "timestamp": "2026-01-09 18:51:15.920294",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv2.go] [Function: InfluxDBV2WithTags()] [Goroutine leak] The error handling goroutine started on line 49 reads from errorsCh channel in an infinite loop, but if the write API is closed or the client disconnects, will this goroutine leak forever consuming memory and preventing garbage collection? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2302c8f5-7a79-4a75-9de1-189ba05495e0?mode=deep",
+    "timestamp": "2026-01-09 18:51:42.773084",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv2.go] [Function: InfluxDBV2WithTags()] [Resource leak] The defer statement on line 42 closes the client immediately after creating it, but the function then calls rep.run() which runs an infinite loop - does this cause the client to be closed before the reporter actually uses it, breaking all metric reporting and potentially causing nil pointer panics? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dc5d06ed-7d5e-4462-9e6f-a3d32b1f40c3?mode=deep",
+    "timestamp": "2026-01-09 18:52:08.698640",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: send()] [Precision not set] The time precision isn't explicitly set in BatchPointsConfig - does this default to nanoseconds, and could precision mismatches cause data issues in InfluxDB? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f7b78549-7fb2-454c-b61d-ada9a4f92a41?mode=deep",
+    "timestamp": "2026-01-09 18:52:34.327167",
+    "report_generated": false
   }
 ]
