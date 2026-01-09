@@ -7648,5 +7648,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_18711fec-dc42-438a-9247-a7fc2bf5bf60?mode=deep",
     "timestamp": "2026-01-09 23:34:54.348797",
     "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Syscall tampering] On systems with kernel rootkits or syscall interception, could a malicious actor manipulate syscall.Getrusage to return false CPU usage values that make a validator node appear idle while it's actually performing malicious consensus operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0ac1b982-d053-4e07-96ba-d657a5e491ed?mode=deep",
+    "timestamp": "2026-01-09 23:36:06.684158",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Metrics collector race] If CollectProcessMetrics calls this function in a tight loop while another goroutine also calls it for debugging, could the lack of synchronization cause one goroutine to read stale or torn float64 values from the return, corrupting metrics calculations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ada14e2f-641f-41d2-a661-59a9f6ebe100?mode=deep",
+    "timestamp": "2026-01-09 23:36:19.736945",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Logger race] When log.Warn is called on error, could concurrent calls to this function cause race conditions in the logging subsystem that lead to garbled log messages or logger corruption affecting node diagnostics? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d48f7bbd-396e-4f4d-be48-973860111ebf?mode=deep",
+    "timestamp": "2026-01-09 23:36:33.708502",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Stack variable race] Is the local 'usage' syscall.Rusage variable on the stack safe from concurrent modifications, or could the syscall implementation write to shared memory that creates race conditions when multiple threads call this function? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f8f8ecc3-f470-43bd-9bf5-607a92b4b659?mode=deep",
+    "timestamp": "2026-01-09 23:36:47.519390",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Concurrent syscall race] If getProcessCPUTime is called concurrently from multiple goroutines, could simultaneous syscall.Getrusage calls cause resource contention or kernel-level race conditions that return inconsistent or corrupted rusage values? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4fc24b97-5417-4f18-a2aa-410cfd18c8b0?mode=deep",
+    "timestamp": "2026-01-09 23:37:02.328218",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Division precision] When dividing (usage.Utime.Usec + usage.Stime.Usec) by 1000000, are there edge cases where the integer division truncates fractional microseconds before float conversion, losing sub-microsecond precision that accumulates into significant measurement errors? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fc30f0aa-43f3-4ca9-b379-90e0d331b2fe?mode=deep",
+    "timestamp": "2026-01-09 23:37:18.113715",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Negative time values] If the system clock is adjusted backwards or rusage values are corrupted, could negative Sec or Usec values cause the function to return negative CPU time, breaking the assumption in CollectProcessMetrics that CPU time is monotonically increasing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_23964ffe-43c2-4813-a5a4-70be16adac77?mode=deep",
+    "timestamp": "2026-01-09 23:37:34.761937",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Precision loss] Does the float64 conversion and division by 1000000 introduce precision errors that accumulate over time, causing drift in cpuProcLoad calculations that could affect long-running validator nodes' performance monitoring? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9bcb1dbf-c657-47cb-a0be-59cf76245ea6?mode=deep",
+    "timestamp": "2026-01-09 23:37:54.079819",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Microsecond overflow] When adding usage.Utime.Usec + usage.Stime.Usec before division by 1000000, could the sum exceed int64 maximum if both values are near 1000000 microseconds, causing overflow in the fractional seconds calculation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_086f1697-7392-4c1e-bc90-eaffb6a541aa?mode=deep",
+    "timestamp": "2026-01-09 23:38:14.743665",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Integer overflow] When adding usage.Utime.Sec + usage.Stime.Sec, could integer overflow occur on systems with extremely long uptimes (decades), causing the CPU time to wrap around and appear as if the process just started? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bf75f299-8ecf-4016-b9bf-af931551866e?mode=deep",
+    "timestamp": "2026-01-09 23:38:36.829409",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Monitoring blind spot] When getProcessCPUTime returns 0 on syscall failure, could this create a monitoring blind spot where the node appears idle during critical consensus operations, masking validator performance issues or attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9b756d52-4344-49d3-9893-0e858790bec7?mode=deep",
+    "timestamp": "2026-01-09 23:38:59.549959",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Resource exhaustion detection] If the node is under a resource exhaustion attack causing syscall.Getrusage to fail, does returning 0 instead of propagating the error prevent proper detection and response to ongoing DoS attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_790f574f-5975-43bb-9faa-c59dca5ba583?mode=deep",
+    "timestamp": "2026-01-09 23:39:23.988665",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Information leak] Does the log.Warn call when Getrusage fails expose sensitive internal state information about resource limits or syscall failures that could aid an attacker in fingerprinting the node or planning resource exhaustion attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_92e9ed04-2b2f-4aeb-90f5-9f5aee9da993?mode=deep",
+    "timestamp": "2026-01-09 23:39:49.129282",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [DoS through metrics] If syscall.Getrusage consistently fails due to resource limits or system manipulation, does returning 0 cause CollectProcessMetrics to calculate negative CPU deltas that could panic or corrupt metrics causing monitoring system failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bccabd9b-bcea-46d8-961c-306cbf53f711?mode=deep",
+    "timestamp": "2026-01-09 23:40:13.852501",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Error masking] When syscall.Getrusage fails and returns 0, could this silent failure hide critical system resource exhaustion or syscall tampering that should halt the node or trigger alerts instead of returning zero CPU time? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c7e3285b-ed28-4c43-a689-2e25fdeb75e6?mode=deep",
+    "timestamp": "2026-01-09 23:40:38.074098",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cpu_enabled.go] [Function: ReadCPUStats()] [Performance correlation] If CPU metrics are inaccurate due to failures in ReadCPUStats or getProcessCPUTime(), could operators fail to correlate performance degradation with actual system load, making it harder to diagnose attacks or misconfigurations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f0c3bad6-3599-4885-ae38-fcba715e5623?mode=deep",
+    "timestamp": "2026-01-09 23:41:01.482814",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cpu_enabled.go] [Function: ReadCPUStats()] [Attack detection] If CPU metrics collection fails silently, could this prevent detection of cryptojacking attacks where an attacker uses compromised validator nodes for cryptocurrency mining, consuming CPU resources but not affecting consensus directly? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_23d58995-645c-4086-aa09-bf5dc7f18733?mode=deep",
+    "timestamp": "2026-01-09 23:41:21.730412",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cpu_enabled.go] [Build configuration] The build tag excludes iOS and JS platforms - if WBT is deployed on an unsupported platform where metrics/cpu_disabled.go is used instead (which is a no-op), could critical CPU monitoring be silently disabled, preventing detection of validator node compromise or resource exhaustion attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_481f1d4e-c373-4256-8f07-3d96dc5db335?mode=deep",
+    "timestamp": "2026-01-09 23:41:43.649161",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cpu_enabled.go] [Function: ReadCPUStats()] [Maximum value handling] If CPU times approach float64 maximum values on long-running systems, could subsequent calls cause overflow when computing deltas in CollectProcessMetrics, resulting in negative or incorrect CPU load percentages? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f0af97b6-1981-4915-9238-780b5abe2a68?mode=deep",
+    "timestamp": "2026-01-09 23:42:06.107364",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cpu_enabled.go] [Function: ReadCPUStats()] [Zero time handling] If a system has just booted or CPU times are genuinely zero, will the metrics calculations in CollectProcessMetrics handle division by zero when computing percentages, or could this cause panics? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e407b4da-7a24-48ab-9c0a-1130693c1c87?mode=deep",
+    "timestamp": "2026-01-09 23:42:28.760659",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cpu_enabled.go] [Function: ReadCPUStats()] [Initialization state] If ReadCPUStats is called before the first successful cpu.Times() call, the stats struct may contain zero values - could CollectProcessMetrics misinterpret these as valid metrics on first iteration, causing incorrect initial CPU load calculations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0b2d8a9d-c424-4481-be68-e7e50fcfe480?mode=deep",
+    "timestamp": "2026-01-09 23:42:50.455092",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cpu_enabled.go] [Function: ReadCPUStats()] [Stats struct lifecycle] If CollectProcessMetrics reuses the same CPUStats structs in the cpustats array, could stale values from previous iterations persist if ReadCPUStats fails, causing incorrect delta calculations that hide actual CPU usage patterns? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_89aba3b2-91f1-4621-922d-ccf7fba02fb2?mode=deep",
+    "timestamp": "2026-01-09 23:43:14.099799",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cpu_enabled.go] [Function: ReadCPUStats()] [Version pinning] Is the gopsutil dependency version pinned and audited? Could using an outdated version expose known vulnerabilities in CPU statistics gathering that attackers could exploit to crash nodes or escalate privileges? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_822516c8-8f9f-4528-8964-950671a33f0a?mode=deep",
+    "timestamp": "2026-01-09 23:43:38.014655",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cpu_enabled.go] [Function: ReadCPUStats()] [Supply chain attack] The function depends on github.com/shirou/gopsutil/cpu package - if this dependency is compromised or contains vulnerabilities, could malicious code in cpu.Times() exfiltrate validator private keys, corrupt metrics, or crash nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9054d94e-a39b-48ac-8c1e-21a9233e0819?mode=deep",
+    "timestamp": "2026-01-09 23:44:02.275777",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cpu_enabled.go] [Function: ReadCPUStats()] [Insufficient error context] The error logging at line 32 only logs 'Could not read cpu stats' with the error - could this lack of context (missing timestamp, call frequency, system state) make it difficult to diagnose whether failures are due to attacks, system issues, or bugs? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_270208df-0657-449f-aad5-49f9e3a5364a?mode=deep",
+    "timestamp": "2026-01-09 23:44:27.639602",
+    "report_generated": false
   }
 ]
