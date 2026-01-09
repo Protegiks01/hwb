@@ -748,5 +748,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4a289ba7-1277-4fbc-9f52-81be7b107b2f?mode=deep",
     "timestamp": "2026-01-09 15:56:55.589437",
     "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Connection state] After defer conn.Close() is scheduled, could subsequent write operations fail if conn is already closed by another part of the code, causing panics? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e38c05b7-2651-4155-84af-0d965df8226e?mode=deep",
+    "timestamp": "2026-01-09 15:58:14.633487",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: OpenTSDBWithConfig()] [Blocking forever] Since OpenTSDBWithConfig is blocking and uses time.Tick which never stops, could calling this function block the main goroutine forever if not called in a separate goroutine? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_116aadc1-1753-4afe-acf6-f20186226925?mode=deep",
+    "timestamp": "2026-01-09 15:58:27.760609",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Type assertion panic] Could the type switch on lines 71-117 encounter unexpected types that cause panic during type assertion, crashing the metrics export? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_56b20186-c9a6-48af-b3cf-f824066454d0?mode=deep",
+    "timestamp": "2026-01-09 15:58:40.951999",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Callback panic] If the Registry.Each() callback panics during metric iteration, would this be properly recovered, or would it crash the metrics export goroutine and stop all future exports? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_46fe0452-6341-4f1f-a185-66b4b31f8035?mode=deep",
+    "timestamp": "2026-01-09 15:58:54.696682",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: getShortHostname()] [Hostname caching] Once shortHostName is set, it's never updated. Could this cause issues if the hostname changes during node operation (e.g., in cloud environments)? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b7659c21-5154-425f-b8a1-2cfd6017190f?mode=deep",
+    "timestamp": "2026-01-09 15:59:09.439940",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Special characters in prefix] Does the prefix string get validated or sanitized, or could special OpenTSDB protocol characters in the prefix break protocol parsing on the server side? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6ba27b14-4cb2-41b0-9686-e7f61f09164e?mode=deep",
+    "timestamp": "2026-01-09 15:59:25.530421",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Metric name length] Are there limits on metric name or prefix length, and could extremely long names cause buffer allocation failures or memory exhaustion? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2362def2-c315-4bf9-a034-0f1463b7e732?mode=deep",
+    "timestamp": "2026-01-09 15:59:42.528239",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: OpenTSDB()] [Parameter validation] Are the parameters d (duration), prefix, and addr validated before being passed to OpenTSDBWithConfig, or could nil/invalid values cause panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0de42fad-3b3f-4cd4-a3c1-0cd197bbddb2?mode=deep",
+    "timestamp": "2026-01-09 16:00:01.599212",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Empty registry] If the Registry is empty or all metrics are unregistered, does the function handle this gracefully, or could it send empty/malformed data to OpenTSDB? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0e609052-3fd7-45ba-a8d9-b16f8d35e644?mode=deep",
+    "timestamp": "2026-01-09 16:00:22.159178",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Global variable] [Package initialization] Could concurrent package initialization or init() function calls cause races on the shortHostName global variable during node startup? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_be7a0b2e-87e9-474b-bbd1-66fcaafc13a5?mode=deep",
+    "timestamp": "2026-01-09 16:00:44.352876",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: getShortHostname()] [String index bounds] On line 52, is the index bound check sufficient to prevent slice out-of-bounds panics if strings.Index returns unexpected values? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7b6d0296-60a6-40da-b266-b2d61d2553ba?mode=deep",
+    "timestamp": "2026-01-09 16:01:07.127056",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Defer in loop] Is defer conn.Close() on line 68 safe in a function that's called repeatedly from a loop, or could this cause resource leaks due to defer execution timing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0e81d396-7d71-4bd7-aa7e-e434492fc481?mode=deep",
+    "timestamp": "2026-01-09 16:01:31.385042",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: OpenTSDBWithConfig()] [Range over closed channel] Does time.Tick return a channel that could be closed, and if so, would the range loop on line 41 properly handle channel closure or panic? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ef1f7d07-cc85-46cb-94a2-3f2fb9f2ceb7?mode=deep",
+    "timestamp": "2026-01-09 16:01:55.205156",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Write deadline] Is there a write deadline set on the connection, or could slow OpenTSDB servers cause writes to block indefinitely, hanging the metrics export? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5512c3ed-e784-4743-a459-1763d810b25d?mode=deep",
+    "timestamp": "2026-01-09 16:02:19.588998",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [TCP keepalive] Are TCP keepalive settings configured on the connection, and if the remote server becomes unresponsive, how long until the connection times out? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f3c2afc5-45d3-40b1-8440-daecbc809088?mode=deep",
+    "timestamp": "2026-01-09 16:02:44.102953",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Network partition] If the network connection is established but becomes partitioned during metric export, could this cause the function to hang waiting for writes to complete, blocking the export goroutine? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a74ecd24-7eb6-404a-9bf7-33ccfc684925?mode=deep",
+    "timestamp": "2026-01-09 16:03:10.220319",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Connection reuse] Is a new TCP connection created for each export attempt, and could this cause connection exhaustion or port exhaustion if FlushInterval is very short? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ec13ade9-b98a-47fc-820c-bc46f84fd103?mode=deep",
+    "timestamp": "2026-01-09 16:03:33.365485",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Meter rates] Are the Rate1(), Rate5(), Rate15(), RateMean() values from Meter metrics properly validated before export, or could NaN/Infinity values cause protocol errors? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3f020795-184d-4a82-b76b-09a600848649?mode=deep",
+    "timestamp": "2026-01-09 16:03:56.018245",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Timer conversion] When dividing timer values by duration unit on lines 104-116, could precision loss occur causing inaccurate timing metrics that mislead operators about node performance? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f12fdda9-aae0-4673-891c-d6df2631a8d6?mode=deep",
+    "timestamp": "2026-01-09 16:04:19.974414",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Histogram percentiles] Are the hardcoded percentile values [0.5, 0.75, 0.95, 0.99, 0.999] on lines 82, 102 appropriate for all use cases, or could this miss important metric distribution information? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6d819c79-9f17-4a3e-a137-26ba7167b4fb?mode=deep",
+    "timestamp": "2026-01-09 16:04:39.768267",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Float precision] For CounterFloat64 and GaugeFloat64 using %f format, is precision loss an issue for very large or very small values, causing metric inaccuracy? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0c056668-f464-4fe5-83d6-6e90a4666574?mode=deep",
+    "timestamp": "2026-01-09 16:05:00.008190",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Counter overflow] Can Counter.Count() return negative values or overflow, and if so, would the %d format specifier properly handle this, or could it cause metric corruption? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9783abaa-20c9-43e5-9dcb-2f9bf52a1b3d?mode=deep",
+    "timestamp": "2026-01-09 16:05:21.182684",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Partial flush] If w.Flush() is called after each metric write (line 118 in loop), could repeated flush calls for many metrics cause excessive system call overhead and performance degradation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_70fd5719-266a-41b6-846d-dd2a82d23eca?mode=deep",
+    "timestamp": "2026-01-09 16:05:44.808267",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Buffer overflow] Could extremely long metric names or prefix strings cause buffer overflows in the bufio.Writer, leading to memory corruption or panics? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b3d7c541-e1ec-4c68-bdf2-391c2195e533?mode=deep",
+    "timestamp": "2026-01-09 16:06:06.892701",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Write error handling] Are fmt.Fprintf write errors checked and handled, or are they silently ignored allowing corrupted partial metrics to be sent to OpenTSDB? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cd6beca2-8dfe-4062-8d03-6279e2f4ef2e?mode=deep",
+    "timestamp": "2026-01-09 16:06:32.270693",
+    "report_generated": false
   }
 ]
