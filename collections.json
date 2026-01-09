@@ -2698,5 +2698,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_22476961-493e-4266-bd14-514808e247d9?mode=deep",
     "timestamp": "2026-01-09 18:11:29.026956",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: DeployBackend] [Block number mismatch] If CodeAt() is called with a different block number than the receipt's block, can this lead to inconsistent deployment verification results? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2112fde2-14d3-4bb5-81f0-e8105ee047b4?mode=deep",
+    "timestamp": "2026-01-09 18:12:39.986640",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Error: ErrNoCode] [Error ambiguity] Can ErrNoCode be confused with network errors or state access failures, causing callers to incorrectly retry operations that will never succeed? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0ef3b54c-2429-47d0-aeea-c596be495b6f?mode=deep",
+    "timestamp": "2026-01-09 18:12:52.841545",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Error: ErrNoCode] [Suicide detection] Does ErrNoCode properly distinguish between contracts that never existed vs. contracts that self-destructed, potentially hiding malicious contract suicide? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e9ea6d9b-612e-44e7-b312-1f2bb1faf0d7?mode=deep",
+    "timestamp": "2026-01-09 18:13:05.888612",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Error: ErrNoPendingState] [Feature detection] Is ErrNoPendingState consistently returned by all implementations that don't support pending state, or can some implementations panic instead causing node crashes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5cb9a297-ec84-44bd-9032-a67b4483cb9f?mode=deep",
+    "timestamp": "2026-01-09 18:13:20.065822",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Error: ErrNoCodeAfterDeploy] [Deployment validation] Can ErrNoCodeAfterDeploy be bypassed by contracts that have minimal code (e.g., just a revert), potentially allowing failed deployments to appear successful? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5989a526-b9be-48ac-810b-210925d126f1?mode=deep",
+    "timestamp": "2026-01-09 18:13:34.441523",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Error: ErrNoCodeAfterDeploy] [Gas exhaustion confusion] Can contract deployments that run out of gas return ErrNoCodeAfterDeploy instead of a gas error, masking the true cause of deployment failure? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_783f3cb9-8be0-4de7-a1dc-3008c0953012?mode=deep",
+    "timestamp": "2026-01-09 18:13:49.907409",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractBackend] [Interface combination] Does combining ContractCaller, ContractTransactor, and ContractFilterer in ContractBackend create any security assumptions that individual interfaces don't have, potentially causing vulnerabilities in composite implementations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9fbe090e-5c62-4b32-a980-7542419ced14?mode=deep",
+    "timestamp": "2026-01-09 18:14:07.753698",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractBackend] [State consistency] Are ContractCaller read operations guaranteed to see state from the same block as ContractTransactor operations, or can inconsistent views lead to race conditions in contract interaction? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dc1a3753-0d3e-48f2-8a11-bc7c8f4e61bc?mode=deep",
+    "timestamp": "2026-01-09 18:14:26.538690",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractCaller] [Implementation variance] Can different backend implementations interpret the blockNumber parameter differently (e.g., treating 0 as genesis vs. latest), causing inconsistent behavior across nodes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ce4bfa51-7e35-4ba3-96c6-7c0408c0053b?mode=deep",
+    "timestamp": "2026-01-09 18:14:46.936938",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractTransactor] [Implementation atomicity] Do implementations guarantee atomicity of operations like getting nonce and sending transaction, or can concurrent transactions cause nonce conflicts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5d2e9b6a-b0f4-4d72-8773-508f32ec8f7d?mode=deep",
+    "timestamp": "2026-01-09 18:15:07.874770",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractFilterer] [Implementation limits] Are there standard limits on log query sizes that all implementations must enforce, or can different implementations have vastly different DoS resistance? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_04a23de9-58b2-4142-aaa2-7840a033f1d4?mode=deep",
+    "timestamp": "2026-01-09 18:15:29.511658",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [All Interfaces] [Context propagation] Do all interface methods properly propagate context deadlines and cancellations to underlying operations, or can long-running operations ignore context timeouts causing resource leaks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_37d51446-a4b9-47d2-b971-8172231d75f6?mode=deep",
+    "timestamp": "2026-01-09 18:15:53.134079",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [All Interfaces] [Context values] Can malicious context values be injected that affect backend behavior, potentially bypassing security checks or causing unexpected state changes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0bb40542-4094-4628-923a-fc5ced18fdad?mode=deep",
+    "timestamp": "2026-01-09 18:16:18.191607",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [All Interfaces] [Context cancellation cleanup] When contexts are cancelled, do implementations properly clean up resources like database connections or file handles, or can cancellation cause resource leaks accumulating over time? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f1301787-d68b-428e-8fcf-e5ff25a2a071?mode=deep",
+    "timestamp": "2026-01-09 18:16:44.361671",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractCaller] [Big.Int overflow] Can blockNumber *big.Int values overflow when converted to uint64 internally, causing incorrect block lookups or panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6e2408f5-dc83-4be9-a15d-234ff661efd6?mode=deep",
+    "timestamp": "2026-01-09 18:17:11.411800",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractTransactor] [Big.Int nil] Can nil *big.Int values for gas price or block numbers cause nil pointer dereferences in implementations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b6e4f86c-de11-4a1b-ace6-6cccd0ab41a1?mode=deep",
+    "timestamp": "2026-01-09 18:17:39.428307",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractTransactor] [Uint64 overflow] Can EstimateGas() return values near uint64 maximum that overflow when used in calculations with gas prices? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_581715db-501d-417d-8341-7e7edc12c595?mode=deep",
+    "timestamp": "2026-01-09 18:18:08.443347",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractCaller] [Address zero] Is the zero address (0x0) properly handled by CodeAt() and CallContract(), or can it cause special behavior that differs from normal addresses? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4fcc29e2-0346-460c-99d8-8a270772d77c?mode=deep",
+    "timestamp": "2026-01-09 18:18:36.756618",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractTransactor] [Concurrent nonce] If multiple goroutines call PendingNonceAt() concurrently for the same account, can race conditions cause the same nonce to be returned twice? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_edf271be-73de-4260-a3b4-9f7b4d6a24c9?mode=deep",
+    "timestamp": "2026-01-09 18:19:04.331002",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractFilterer] [Concurrent subscription] Can multiple goroutines calling SubscribeFilterLogs() with overlapping filters cause race conditions in log delivery or subscription management? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_43448579-6bcf-4f2f-a487-3bc812e7fb24?mode=deep",
+    "timestamp": "2026-01-09 18:19:30.562469",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: DeployBackend] [Concurrent receipt query] Can concurrent calls to TransactionReceipt() during a chain reorg return inconsistent receipts, causing deployment verification to fail intermittently? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_20b966c7-a1c1-49df-bbc0-70e79cec2d24?mode=deep",
+    "timestamp": "2026-01-09 18:19:56.488794",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractTransactor] [PoA validator interaction] Can malicious contract transactions be crafted that interfere with Clique validator voting or signer management through the ContractTransactor interface? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3d0331b7-fcca-4f94-b47d-92b10b3b30b8?mode=deep",
+    "timestamp": "2026-01-09 18:20:23.672137",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractCaller] [PoA state access] Can CodeAt() or CallContract() be used to access validator-only state or bypass PoA consensus checks by querying non-canonical chain states? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_20c8665c-80dd-4312-8e14-7aa54a9ef007?mode=deep",
+    "timestamp": "2026-01-09 18:20:50.882297",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractFilterer] [Validator event filtering] Can FilterLogs() be used to monitor validator voting events in a way that enables front-running of validator changes or manipulation of validator set? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9a87d99e-ea2f-4f8b-941e-e12d1ca6fb22?mode=deep",
+    "timestamp": "2026-01-09 18:21:16.142992",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractTransactor] [Block time manipulation] In Clique PoA with shorter block times, can SuggestGasPrice() or EstimateGas() make incorrect assumptions about block timing causing transaction timing attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b0d5bd98-772a-496d-b79d-292fe3fb4706?mode=deep",
+    "timestamp": "2026-01-09 18:21:42.252328",
+    "report_generated": false
   }
 ]
