@@ -2548,5 +2548,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_85a5783d-ea58-43e9-981a-b7e7572c035c?mode=deep",
     "timestamp": "2026-01-09 17:52:10.198049",
     "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: MarshalJSON()] [HTTP Endpoint Exposure] MarshalJSON is used in HTTP endpoints - if an attacker floods the metrics API endpoint, can repeated JSON marshaling cause CPU exhaustion preventing block production? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1576b7f2-959b-4398-85c9-aaf1cd68d377?mode=deep",
+    "timestamp": "2026-01-09 17:53:26.087755",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSON()] [Ethstats Integration] Line 17-21 is used by ethstats.go for continuous metrics reporting - if multiple ethstats connections call WriteJSON, can the accumulated goroutine leaks eventually exhaust node resources during high validator activity? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_33f587bf-d788-4cff-8144-175a208ed562?mode=deep",
+    "timestamp": "2026-01-09 17:53:39.124217",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: MarshalJSON()] [Performance Impact] If JSON marshaling on line 12 takes excessive time (due to large registry), can this delay HTTP responses in the ethstats monitoring system, causing it to timeout and report node as offline? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b71d47d3-d079-4b9f-b237-e41c19a9d1a2?mode=deep",
+    "timestamp": "2026-01-09 17:53:52.721105",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSONOnce()] [Export Failure Detection] With no error return or logging, how can operators detect when metrics export fails due to network issues, disk space, or permission problems during critical consensus operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ce1d7086-fcaa-4bc4-bb95-90ca5d652740?mode=deep",
+    "timestamp": "2026-01-09 17:54:06.607761",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSON()] [Silent Goroutine Failure] If the WriteJSON goroutine panics or deadlocks, there's no logging or alerting - can this cause metrics collection to silently fail, preventing detection of consensus bugs or validator misbehavior until catastrophic failure? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_aafbadd5-c4b3-4554-b32c-e15eed3bc7bb?mode=deep",
+    "timestamp": "2026-01-09 17:54:21.159395",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: GetAll() integration] [Registered Metrics Types] GetAll() only handles specific metric types (Counter, Gauge, etc.) - if unsupported types are registered, are they silently omitted from JSON, potentially hiding important metrics from monitoring? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7519377c-6b16-4c7f-8e67-e84a42a72261?mode=deep",
+    "timestamp": "2026-01-09 17:54:37.008749",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: PrefixedRegistry.MarshalJSON()] [Nested Prefixes] If PrefixedRegistry wraps another PrefixedRegistry, does GetAll() on line 30 correctly handle nested prefixes, or can it cause infinite recursion or incorrect metric names in JSON? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_52c2a293-9ef9-467d-bcdb-a200cc105d58?mode=deep",
+    "timestamp": "2026-01-09 17:54:53.997894",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: MarshalJSON()] [StandardRegistry Metrics Map] Line 12's GetAll() accesses StandardRegistry.metrics map - if this map is corrupted (e.g., by unsafe concurrent access elsewhere), can json.Marshal panic or produce invalid output? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_79b1298f-6850-445c-8d38-c3cabb282b2b?mode=deep",
+    "timestamp": "2026-01-09 17:55:12.974739",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSON()] [Immediate Return] If WriteJSON's goroutine spawning is not intended and function should block, does the immediate return after line 20 cause the ticker to run unsupervised, potentially outliving the caller's intended lifetime? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9c5bfdad-4338-42cc-b5ad-4897fc5107d8?mode=deep",
+    "timestamp": "2026-01-09 17:55:33.152327",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: PrefixedRegistry.MarshalJSON()] [Empty Prefix] If PrefixedRegistry has empty string prefix, does GetAll() behave correctly or can it return unfiltered metrics from underlying registry, exposing internal data? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_67b43c44-8bcc-4ee5-b288-69a1f2a7be65?mode=deep",
+    "timestamp": "2026-01-09 17:55:54.608469",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: MarshalJSON()] [Empty Registry] If StandardRegistry.metrics map is empty, does GetAll() return empty map or nil, and can this cause json.Marshal on line 12 to produce unexpected output that breaks monitoring parsers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ae81ad5d-9219-43a6-b6a5-d3443e8cea6e?mode=deep",
+    "timestamp": "2026-01-09 17:56:17.524611",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSONOnce()] [Writer State] If w maintains internal state (e.g., compression, buffering), can repeated Encode calls on line 26 leave the writer in inconsistent state between invocations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_763b9d93-5aa3-4641-b65e-7aed04a9a27c?mode=deep",
+    "timestamp": "2026-01-09 17:56:41.442704",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSONOnce()] [Write Partial Data] If json.NewEncoder(w).Encode fails mid-write, can partial JSON be written to w without indication of failure, corrupting subsequent data in the stream? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_47a05d7d-7709-4743-b5c4-261d6ef080ce?mode=deep",
+    "timestamp": "2026-01-09 17:57:06.636989",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSON()] [Writer Lifecycle] There's no mechanism to close or clean up writer w - if w is a file or network connection that should be closed, can the leaked goroutine keep the writer open indefinitely, exhausting file descriptors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_afc2bae0-eb3d-455f-a176-c55d8b67e07f?mode=deep",
+    "timestamp": "2026-01-09 17:57:33.993697",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSON()] [Tick Drift] Over long periods, can time.Tick drift due to GC pauses or system load, causing metrics export timing to become unreliable for time-series analysis of consensus behavior? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d109121e-0933-4a2f-a95e-6543f0f6bd6a?mode=deep",
+    "timestamp": "2026-01-09 17:58:00.717923",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSON()] [Clock Skew] time.Tick uses wall clock - if system time changes (NTP sync, admin adjustment), can this cause tick intervals to be incorrect, potentially causing metrics to export too frequently or rarely? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8a1fe7aa-2963-4725-850b-4143a7364bc9?mode=deep",
+    "timestamp": "2026-01-09 17:58:27.622672",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSON()] [Tick Channel Behavior] time.Tick returns a channel - if the receiver (line 18-20 loop) blocks on WriteJSONOnce, can channel buffer fill and cause time.Tick to drop ticks, resulting in irregular metrics export intervals? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dd8d0fa8-4ee0-4656-9ca7-c37f7bd2bdc3?mode=deep",
+    "timestamp": "2026-01-09 17:58:54.207737",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: GetAll() integration] [Metric Registration During Iteration] If new metrics are registered while GetAll() iterates via Each(), can this cause the iteration to skip metrics or include duplicates in the JSON output? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9a4043ed-dfa3-4a17-afa5-ff31908a537c?mode=deep",
+    "timestamp": "2026-01-09 17:59:19.678677",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: GetAll() integration] [Healthcheck Side Effects] GetAll() calls Check() on Healthcheck metrics (registry.go:131) - if Check() has side effects or blocks, can this cause unexpected behavior or delays during JSON marshaling on line 12? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7a1bb544-5132-4d3d-9183-471965a407d9?mode=deep",
+    "timestamp": "2026-01-09 17:59:45.225715",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: GetAll() integration] [Timer Snapshot] GetAll() creates Timer snapshots which may be expensive - if timers contain millions of samples, can the Snapshot() operation on line 156 of registry.go take so long that JSON marshaling times out or causes delays in consensus operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3d987788-1fd4-4806-9918-014c3624f267?mode=deep",
+    "timestamp": "2026-01-09 18:00:10.878950",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: GetAll() integration] [Histogram Panic] GetAll() calls Snapshot() on Histogram metrics and Percentiles() - if Percentiles receives invalid percentage values, can this panic during JSON marshaling on line 12, crashing the node? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e067f691-70d1-44c9-becb-482e5aed233f?mode=deep",
+    "timestamp": "2026-01-09 18:00:38.069195",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSONOnce()] [Reentrant Call] If the io.Writer w's Write() method calls back into the metrics system (e.g., logging that updates counters), can this create reentrant mutex acquisition attempting to lock the already-locked registry? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ab8394e1-3434-435b-9399-8a6bc26d9620?mode=deep",
+    "timestamp": "2026-01-09 18:01:03.739531",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: GetAll() integration] [Each() Iteration Lock] Each() iterates registered() which holds mutex for entire copy operation - if the registry contains thousands of metrics, can this long lock hold delay other critical operations like metric updates during block validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8b360933-5a5d-446d-bbc2-7639a4532319?mode=deep",
+    "timestamp": "2026-01-09 18:01:29.264135",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSON()] [Mutex Contention] Continuous calls to WriteJSONOnce() on line 19 repeatedly invoke GetAll() acquiring registry mutex - can high-frequency metrics export starve other operations needing registry access, degrading consensus performance? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dfdc24fe-55df-4ea5-8223-797a64494438?mode=deep",
+    "timestamp": "2026-01-09 18:01:53.227169",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: MarshalJSON()] [Lock Ordering] GetAll() calls Each() which calls registered() acquiring StandardRegistry.mutex - if another goroutine holds the mutex and waits for a metric lock, can this create deadlock that freezes metrics export and potentially other node operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a8e21a45-b93b-47c1-8a19-3ff68733c1d0?mode=deep",
+    "timestamp": "2026-01-09 18:02:15.605951",
+    "report_generated": false
   }
 ]
