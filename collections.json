@@ -1198,5 +1198,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f13a908e-7efa-466e-82f6-8b9a442b1a68?mode=deep",
     "timestamp": "2026-01-09 16:28:56.160111",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: UnpackValues()] [NonIndexed Consistency] Can NonIndexed() at line 185 return different results if called multiple times, causing retval capacity mismatch? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d9c0e704-b258-4dad-978a-67e0b57c239e?mode=deep",
+    "timestamp": "2026-01-09 16:30:11.051587",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: UnpackValues()] [Retval Capacity] Can the initial capacity at line 186 be insufficient if NonIndexed() changes, causing multiple reallocations and memory pressure? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c48fe097-4511-4e77-9ef3-45d1e5a115b2?mode=deep",
+    "timestamp": "2026-01-09 16:30:24.141069",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: UnpackValues()] [VirtualArgs Overflow] Can the virtualArgs counter at line 187 overflow if processing extremely large nested arrays, corrupting offset calculations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_035ffe5a-be3d-40f8-a86f-7695c2a595b7?mode=deep",
+    "timestamp": "2026-01-09 16:30:37.390889",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: UnpackValues()] [Offset Calculation] At line 189, can (index+virtualArgs)*32 overflow on large indices, causing out-of-bounds data access in toGoType? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_85b2da85-7b1d-45f3-8792-1620f28cfbe7?mode=deep",
+    "timestamp": "2026-01-09 16:30:51.256704",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: UnpackValues()] [toGoType Error] Can errors from toGoType at line 189-192 leave retval in partially populated state that gets returned anyway? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a69f1294-d5df-4a4a-b11c-0187741e7988?mode=deep",
+    "timestamp": "2026-01-09 16:31:05.898379",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: UnpackValues()] [ArrayTy Check] At line 193, can the ArrayTy type check miss edge cases where arrays are encoded differently, causing incorrect virtualArgs updates? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8c8d39e9-e0ae-404d-b471-8f6b964fc1d8?mode=deep",
+    "timestamp": "2026-01-09 16:31:21.726836",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: UnpackValues()] [isDynamicType] Can isDynamicType at line 193 incorrectly classify types, causing static arrays to be treated as dynamic and corrupting offset calculations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cbd5a110-c419-411a-9e61-b4886e197077?mode=deep",
+    "timestamp": "2026-01-09 16:31:38.726525",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: UnpackValues()] [getTypeSize Division] At line 204, can getTypeSize(arg.Type)/32 lose precision or overflow, causing incorrect virtualArgs increments? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fb4c5997-c379-48d4-887e-bf9a30233011?mode=deep",
+    "timestamp": "2026-01-09 16:31:57.355868",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: UnpackValues()] [VirtualArgs Decrement] Why is virtualArgs decremented by 1 at line 204? Can off-by-one errors here cause misaligned data reading? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f89432f2-817e-4194-80f9-6d89c7a91e05?mode=deep",
+    "timestamp": "2026-01-09 16:32:17.842935",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: UnpackValues()] [TupleTy Handling] At line 205, can static tuples with complex nested structures cause incorrect virtualArgs calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_645495d6-9749-4a1e-9f24-7c01124dc146?mode=deep",
+    "timestamp": "2026-01-09 16:32:38.991663",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: UnpackValues()] [getTypeSize Recursion] Can deeply nested tuple types cause getTypeSize to overflow stack or return incorrect sizes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b0777b79-508f-4401-a4c0-08647a0a9286?mode=deep",
+    "timestamp": "2026-01-09 16:33:01.335177",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: UnpackValues()] [Append Race] If retval is accessed by another goroutine during append at line 210, can this cause slice corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_86005bab-a37c-477d-ac38-e0a535cbfc26?mode=deep",
+    "timestamp": "2026-01-09 16:33:25.479052",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: UnpackValues()] [Loop Iteration] Can the loop at line 188 skip arguments or double-process them if NonIndexed() result changes mid-loop? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3e119623-a446-4c0a-8f7c-06923f9854c4?mode=deep",
+    "timestamp": "2026-01-09 16:33:49.492666",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: UnpackValues()] [Data Length] Does UnpackValues verify that data length matches expected total size before processing, or can truncated data cause issues? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_26100af7-4942-45b5-aad5-e02e53aedc80?mode=deep",
+    "timestamp": "2026-01-09 16:34:13.860912",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: UnpackValues()] [Memory Exhaustion] Can malicious ABIs with thousands of array elements cause UnpackValues to allocate excessive memory through retval growth? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c37301cd-5f26-4115-bfd3-b7bc3e835641?mode=deep",
+    "timestamp": "2026-01-09 16:34:40.405345",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: PackValues()] [Variadic Expansion] Can the slice-to-variadic expansion at line 218 cause issues if args contains nil or invalid interface values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4906ffb3-dd9a-4c50-9ce4-46be42ad691c?mode=deep",
+    "timestamp": "2026-01-09 16:35:07.879156",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: PackValues()] [Wrapper Bypass] Can direct Pack() calls behave differently than PackValues() calls, creating inconsistencies in transaction encoding? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_93ed5d74-e8d6-4202-a9bc-5c88c76d8158?mode=deep",
+    "timestamp": "2026-01-09 16:35:34.668898",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: Pack()] [Argument Count] At line 225, can the argument count mismatch check be bypassed by providing structs that expand to correct number of fields? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d254d538-8abb-4da3-bd1e-b8af0106b60d?mode=deep",
+    "timestamp": "2026-01-09 16:36:01.660184",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: Pack()] [VariableInput Allocation] Can the variableInput slice at line 230 grow unbounded for large dynamic types, causing memory exhaustion in validators? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a9e6813b-abcf-48ca-a363-990486f0982f?mode=deep",
+    "timestamp": "2026-01-09 16:36:29.410919",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: Pack()] [InputOffset Calculation] Can the inputOffset accumulation at lines 233-236 overflow for transactions with many or large arguments? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e89817b8-50c7-4481-b020-cd768c03ead1?mode=deep",
+    "timestamp": "2026-01-09 16:36:56.874235",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: Pack()] [getTypeSize Loop] If getTypeSize returns incorrect sizes, can the inputOffset at line 235 be wrong, causing dynamic data to overwrite static data? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_17659fc9-9631-409f-b5f8-74e9d525fece?mode=deep",
+    "timestamp": "2026-01-09 16:37:24.281114",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: Pack()] [Type.pack Error] Can errors from Type.pack at line 241-243 leave ret in inconsistent state if some arguments were already packed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c7e2bd49-dc46-4f10-9b3c-1dec8c3752af?mode=deep",
+    "timestamp": "2026-01-09 16:37:50.347334",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: Pack()] [Reflect Value] Can reflect.ValueOf(a) at line 241 panic on certain interface types, causing transaction processing to fail? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c463a0f9-84fc-43dd-ad8b-d1d3da1514d3?mode=deep",
+    "timestamp": "2026-01-09 16:38:17.058914",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: Pack()] [isDynamicType Check] At line 246, can isDynamicType misclassify types causing static data to be packed as dynamic or vice versa? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8a45755a-42b2-4445-ba59-14f55e62508d?mode=deep",
+    "timestamp": "2026-01-09 16:38:42.541634",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: Pack()] [packNum Offset] Can packNum at line 248 produce incorrect offset encoding if inputOffset exceeds maximum safe integer size? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_98fe0a6e-1c1f-4337-8e3c-47d9d32c0e89?mode=deep",
+    "timestamp": "2026-01-09 16:39:07.971149",
+    "report_generated": false
   }
 ]
