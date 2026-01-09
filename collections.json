@@ -1,1 +1,152 @@
-[]
+[
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: JSON()] [DoS Attack] Can an attacker provide an extremely large JSON payload through the io.Reader that causes memory exhaustion during json.NewDecoder().Decode(), potentially crashing validator nodes and disrupting block production? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_967be563-3545-43a2-b31b-94380fc4d613?mode=deep",
+    "timestamp": "2026-01-09 15:07:43.441819",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: JSON()] [DoS Attack] Does the JSON decoder have any limits on recursion depth or nested structure complexity, or can an attacker craft deeply nested JSON structures that cause stack overflow during parsing, leading to node crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d09bb95b-13ee-40d0-b453-285f9a89249b?mode=deep",
+    "timestamp": "2026-01-09 15:07:56.504870",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: JSON()] [Input Validation] Can malformed JSON with invalid UTF-8 sequences or null bytes cause the decoder to panic or produce corrupted ABI structures that lead to incorrect transaction execution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bed69ac4-426a-447c-93cf-4ef560acadef?mode=deep",
+    "timestamp": "2026-01-09 15:08:09.699792",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: JSON()] [State Corruption] If the JSON decoder returns a partial ABI structure on error, does the calling code properly validate the ABI completeness before using it for transaction processing, or could incomplete ABIs lead to incorrect state transitions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_88007fa3-a6e2-47a8-a63a-dfdc0a6c1675?mode=deep",
+    "timestamp": "2026-01-09 15:08:23.489533",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: JSON()] [Resource Exhaustion] Can an attacker provide JSON with extremely long string values in method/event names that consume excessive memory when allocated, causing memory pressure on validator nodes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_70d2ba58-b745-4302-92e7-52f415b16029?mode=deep",
+    "timestamp": "2026-01-09 15:08:38.228362",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: Pack()] [Method ID Collision] When packing constructor calls with empty name, does the function properly handle the case where Constructor.Inputs is nil, or could this cause a nil pointer dereference leading to node crashes during transaction construction? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_09fea900-d324-47a8-a0cd-ea33e3a8fe77?mode=deep",
+    "timestamp": "2026-01-09 15:08:53.993205",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: Pack()] [Method Lookup] Can an attacker exploit the method lookup logic by providing method names with special characters or extremely long names that cause performance degradation or hash collisions in the Methods map? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e8cec755-99e6-48d7-a27a-26625ab436a7?mode=deep",
+    "timestamp": "2026-01-09 15:09:11.146954",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: Pack()] [Data Manipulation] Does the append operation that combines method.ID and arguments properly validate that method.ID is exactly 4 bytes, or could corrupted ABI definitions lead to invalid transaction data that passes initial validation but fails during execution? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_79d104bc-8e2c-4da7-98d3-25f0632de723?mode=deep",
+    "timestamp": "2026-01-09 15:09:30.624313",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: Pack()] [Integer Overflow] When appending method.ID to arguments, could extremely large argument data cause integer overflow in slice capacity calculations, leading to memory corruption or incorrect transaction encoding? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_66a8f55c-629e-41a0-bf06-c51f3e2eedad?mode=deep",
+    "timestamp": "2026-01-09 15:09:51.042825",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: Pack()] [Error Handling] If method.Inputs.Pack() returns an error but has already allocated large amounts of memory, is that memory properly released, or could repeated failed pack attempts cause memory leaks in validator nodes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_047a514f-77c8-4029-bb15-1c5fc5576dad?mode=deep",
+    "timestamp": "2026-01-09 15:10:12.650826",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: Pack()] [Method Not Found] When a method name doesn't exist in abi.Methods, does the error message potentially leak sensitive information about the contract's internal structure that could aid attackers in reconnaissance? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_569d56d4-db41-4cfc-aa7d-6ab89bd0507c?mode=deep",
+    "timestamp": "2026-01-09 15:10:36.282896",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: getArguments()] [Data Length Validation] The modulo check 'len(data)%32 != 0' only validates output data for methods but not for events - can an attacker exploit this inconsistency by providing event data with non-32-byte alignment that causes incorrect parsing downstream? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5a39049d-74ef-4ea9-bd7d-a61af1595a1b?mode=deep",
+    "timestamp": "2026-01-09 15:11:00.177837",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: getArguments()] [Naming Collision] Since the function checks both Methods and Events maps for the same name, can an attacker create a contract with identically named methods and events that causes ambiguous argument selection and incorrect data unpacking? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d5323a7c-fd80-4811-800e-ed5366ff2490?mode=deep",
+    "timestamp": "2026-01-09 15:11:25.819387",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: getArguments()] [Priority Confusion] The function checks abi.Methods before abi.Events - can this ordering be exploited to force method output unpacking when event unpacking was intended, leading to type confusion and incorrect state interpretation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ded91a5b-e5f2-4f90-b6e2-1124c50d4e0a?mode=deep",
+    "timestamp": "2026-01-09 15:11:52.203905",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: getArguments()] [Nil Return] When both method and event lookups fail and args is nil, does the calling code properly check for nil before dereferencing, or could this cause panic conditions in transaction processing paths? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bf5242af-92fd-4ac7-8c74-af71ee3e4587?mode=deep",
+    "timestamp": "2026-01-09 15:12:19.412819",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: getArguments()] [Error Message] The error message format reveals internal state - could repeated queries with various names be used to enumerate all available methods and events, violating contract privacy assumptions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8e1bdb5c-c5c7-4e4a-8b96-7d1a873753d0?mode=deep",
+    "timestamp": "2026-01-09 15:12:49.015461",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: Unpack()] [Error Propagation] Does the function properly sanitize error messages from args.Unpack() that might contain sensitive decoded data, or could error logs leak private information from failed transaction attempts? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8717e42b-c7b6-4aa5-8d77-e4a189e6b5e0?mode=deep",
+    "timestamp": "2026-01-09 15:13:18.703944",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: Unpack()] [Return Type] The function returns []interface{} - can type assertion errors in calling code cause panics if the unpacked data doesn't match expected types, potentially crashing nodes during transaction validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c0d179f9-096b-4569-b4dd-45a32b06df07?mode=deep",
+    "timestamp": "2026-01-09 15:13:47.523833",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: Unpack()] [Memory Allocation] For large data payloads, does args.Unpack() have memory limits, or can an attacker provide transaction data that causes unbounded memory allocation during unpacking, leading to DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e2e3d0e5-775c-4043-acf6-494d563dda3f?mode=deep",
+    "timestamp": "2026-01-09 15:14:13.513363",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: UnpackIntoInterface()] [Type Safety] The function accepts interface{} for v parameter - can an attacker exploit reflection operations in args.Copy() by providing unexpected types that cause panics or memory corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_810eba9f-09d1-4801-917b-bc8b0618d31c?mode=deep",
+    "timestamp": "2026-01-09 15:14:38.754582",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: UnpackIntoInterface()] [Double Allocation] The function unpacks data into a temporary slice then copies to v - can this double allocation be exploited with large payloads to cause memory exhaustion in nodes processing many transactions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c544e355-77ba-4515-a46d-e74523750d7a?mode=deep",
+    "timestamp": "2026-01-09 15:15:02.728205",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: UnpackIntoInterface()] [Race Condition] If v is a shared structure accessed by multiple goroutines, could concurrent calls to UnpackIntoInterface() cause race conditions in args.Copy() leading to corrupted state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_53fb6fc9-09ca-405a-a068-39b9282c1daa?mode=deep",
+    "timestamp": "2026-01-09 15:15:27.831905",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: UnpackIntoInterface()] [Partial Copy] If args.Copy() fails partway through, could v be left in a partially modified state that causes incorrect transaction execution or state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d61bfa44-42a7-45cf-ad41-7b4732aaeeaf?mode=deep",
+    "timestamp": "2026-01-09 15:15:54.217964",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: UnpackIntoMap()] [Nil Map] If the provided map v is nil, does args.UnpackIntoMap() properly handle it or attempt to write to nil map causing panic and node crash? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_03a35f24-e5ff-4c02-a1a0-15be390e5ae0?mode=deep",
+    "timestamp": "2026-01-09 15:16:18.026437",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: UnpackIntoMap()] [Map Collision] Can an attacker craft ABI data where argument names collide with existing map keys, causing unexpected overwrites of critical data in the caller's map? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_734589d2-36f4-40b2-84cd-bf397fab7fcb?mode=deep",
+    "timestamp": "2026-01-09 15:16:44.515715",
+    "report_generated": false
+  }
+]
