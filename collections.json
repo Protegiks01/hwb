@@ -1348,5 +1348,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_98fe0a6e-1c1f-4337-8e3c-47d9d32c0e89?mode=deep",
     "timestamp": "2026-01-09 16:39:07.971149",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: Pack()] [Offset Update] At line 250, can inputOffset += len(packed) overflow if packed data is extremely large? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6c4b287d-6531-42ec-93e3-8849a2d2d6c2?mode=deep",
+    "timestamp": "2026-01-09 16:40:39.287627",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: Pack()] [Variable Input Append] Can variableInput append at line 252 cause memory reallocation storms for many dynamic arguments? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_260fe458-6a1e-4ac9-8014-e5d347396366?mode=deep",
+    "timestamp": "2026-01-09 16:40:52.080961",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: Pack()] [Static Append] Can the ret append at line 255 cause incorrect ordering if dynamic type detection was wrong? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_aa2e6d56-853c-47da-a689-1ed5bd0b2122?mode=deep",
+    "timestamp": "2026-01-09 16:41:05.524509",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: Pack()] [Final Concatenation] At line 259, can the final append of variableInput to ret create incorrect ABI encoding if offsets were miscalculated? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2073497b-21f7-4b8c-bd6c-1758c1bb72af?mode=deep",
+    "timestamp": "2026-01-09 16:41:19.225014",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: Pack()] [Empty Arguments] Can Pack handle empty arguments slice correctly, or does it produce invalid empty ABI encoding? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_391ca274-4008-4ef6-a10b-51dc5d409f66?mode=deep",
+    "timestamp": "2026-01-09 16:41:33.745849",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: Pack()] [Concurrent Packing] If multiple goroutines call Pack on the same Arguments concurrently, can shared state corruption occur? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4f7facc8-1789-4fbd-9503-3b0275d7f0b9?mode=deep",
+    "timestamp": "2026-01-09 16:41:49.377122",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: Pack()] [Length Mismatch] Can the args and abiArgs length comparison at line 225 be fooled by variadic argument expansion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a7e7f710-18ae-453a-a379-cb00d04e20e3?mode=deep",
+    "timestamp": "2026-01-09 16:42:07.152476",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: ToCamelCase()] [Empty String] Can empty string input cause issues with strings.Split at line 266? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0cec39db-095e-4d5f-ab01-96e75904e61d?mode=deep",
+    "timestamp": "2026-01-09 16:42:25.644306",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: ToCamelCase()] [Underscore Handling] Can strings with multiple consecutive underscores cause empty parts array elements, leading to incorrect casing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_15042ef6-02be-43c0-817c-e930f289eaf8?mode=deep",
+    "timestamp": "2026-01-09 16:42:46.489147",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: ToCamelCase()] [Unicode Handling] Can Unicode characters in input string cause incorrect ToUpper behavior at line 269? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_96890bb7-cdb2-4a8d-99ed-e0f877576c46?mode=deep",
+    "timestamp": "2026-01-09 16:43:08.286171",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: ToCamelCase()] [Length Check] Can the len(s) > 0 check at line 268 fail for multi-byte Unicode characters? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_328fc669-46b5-443f-817b-08ca49290e9f?mode=deep",
+    "timestamp": "2026-01-09 16:43:30.612637",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: ToCamelCase()] [Memory Allocation] Can extremely long input strings with many underscores cause excessive string allocations in parts slice? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5f6399af-3771-42c9-9ac5-5c415519efa6?mode=deep",
+    "timestamp": "2026-01-09 16:43:53.859241",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: ToCamelCase()] [Slice Bounds] Can s[:1] and s[1:] at line 269 cause slice bounds errors on edge cases? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e3e15944-d6c8-4639-ae45-dcf751069693?mode=deep",
+    "timestamp": "2026-01-09 16:44:19.341660",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Cross-Function] [Unpack→UnpackValues Chain] Can errors in Unpack's empty data check allow invalid data to reach UnpackValues, causing crashes in toGoType? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5920869c-70d8-4fb6-9ce2-4732a12d21e1?mode=deep",
+    "timestamp": "2026-01-09 16:44:44.336215",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Cross-Function] [UnpackIntoMap→UnpackValues Chain] Can race conditions between UnpackIntoMap's map writes and concurrent UnpackValues calls corrupt shared NonIndexed() results? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_91069e62-8451-418f-9c8a-2611190bbf7b?mode=deep",
+    "timestamp": "2026-01-09 16:45:09.054077",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Cross-Function] [Copy→copyTuple/copyAtomic] Can the tuple classification in Copy be exploited to force wrong copy function, bypassing type safety? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_64af59a4-57bd-48c5-bafa-706ba774e144?mode=deep",
+    "timestamp": "2026-01-09 16:45:33.783854",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Cross-Function] [Pack→Type.pack] Can inconsistencies between Pack's offset calculations and Type.pack's actual output sizes cause ABI encoding corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_70b1dd97-c1e3-4540-bf6f-40dfddef4b47?mode=deep",
+    "timestamp": "2026-01-09 16:45:58.981708",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Cross-Function] [NonIndexed Caching] Can repeated NonIndexed() calls in different functions return different results if Arguments slice is modified concurrently? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a0bf60af-c07f-4d9a-aff6-61f0e733719d?mode=deep",
+    "timestamp": "2026-01-09 16:46:23.873479",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Cross-Function] [Error Propagation] Can errors from low-level functions like toGoType or Type.pack be lost or mishandled during propagation to Unpack/Pack callers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_efe5a042-5c4b-42a2-86ca-7149b1a52768?mode=deep",
+    "timestamp": "2026-01-09 16:46:46.744520",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Cross-Function] [Type Consistency] Can Type objects created in UnmarshalJSON become inconsistent with runtime type checks in Pack/Unpack operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_49389755-f775-4839-ad9b-1ffe6314ad96?mode=deep",
+    "timestamp": "2026-01-09 16:47:10.625126",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Cross-Function] [Reflection State] Can reflection operations in copyAtomic/copyTuple corrupt state used by subsequent Pack operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8a295cf0-9f5a-4c23-a33c-046135bc96df?mode=deep",
+    "timestamp": "2026-01-09 16:47:34.356422",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Struct: Argument] [Concurrent Modification] Can the Argument struct fields (Name, Type, Indexed) be modified concurrently during unpacking operations, causing race conditions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8b7f3930-dbf1-4854-938f-4377480ee661?mode=deep",
+    "timestamp": "2026-01-09 16:47:56.058394",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Struct: Argument] [Type Pointer] Can the Type field containing complex nested structures cause memory leaks if not properly cleaned up? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_80a85204-6c12-4a4c-b73b-7e6cc55c3bab?mode=deep",
+    "timestamp": "2026-01-09 16:48:19.395498",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Struct: Argument] [Name Validation] Does the Name field have any validation to prevent malicious names that could exploit field mapping logic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9a19a866-a955-4021-8be8-5d744fe9a157?mode=deep",
+    "timestamp": "2026-01-09 16:48:44.164908",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Struct: Arguments] [Slice Capacity] Can the Arguments slice grow unbounded during ABI parsing, causing memory exhaustion in validators? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7c0346c1-e0b2-44bf-9541-dd61ed1b4618?mode=deep",
+    "timestamp": "2026-01-09 16:49:09.063044",
+    "report_generated": false
   }
 ]
