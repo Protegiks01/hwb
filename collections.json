@@ -2248,5 +2248,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_05dd961e-bdce-4bda-9fd9-c72aa0c2ad59?mode=deep",
     "timestamp": "2026-01-09 17:39:38.402013",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewClefTransactor()] [Clef RPC security] The Clef external signer likely uses RPC - if the RPC communication isn't properly authenticated or encrypted, could attackers intercept or modify signing requests to steal funds or manipulate transactions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d04c12ba-60b4-4388-91b1-a69695007253?mode=deep",
+    "timestamp": "2026-01-09 17:40:51.318253",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyStoreTransactorWithChainID()] [Keystore implementation] If the keystore at line 121 is a custom implementation rather than the standard go-ethereum keystore, could it have vulnerabilities in key storage, access control, or signing that bypass security assumptions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_92b81dde-b4b3-40d3-a5e8-dbaf094c956e?mode=deep",
+    "timestamp": "2026-01-09 17:41:04.235073",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyedTransactorWithChainID()] [Crypto package trust] At line 156, crypto.Sign() from go-ethereum is trusted - if WBT uses a forked or modified crypto package, could vulnerabilities in the fork enable private key extraction or signature forgery? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_197f119e-a456-4e8a-97da-0e18d43d6da7?mode=deep",
+    "timestamp": "2026-01-09 17:41:17.390153",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewTransactor()] [JSON buffer cleanup] At line 47, io.ReadAll() allocates a buffer for the entire key file - if this buffer isn't garbage collected promptly, could it leak encrypted key material in memory dumps or swap space? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_37475429-67e1-4687-9862-3f7729b557e6?mode=deep",
+    "timestamp": "2026-01-09 17:41:32.106185",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyedTransactor()] [Private key cleanup] The private key at line 85 is captured in a closure at line 95 - does this prevent the key from being garbage collected, keeping it in memory indefinitely even after the TransactOpts is no longer needed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ac011bbb-3658-4ce3-93eb-7e6ff229fc16?mode=deep",
+    "timestamp": "2026-01-09 17:41:47.052029",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyedTransactorWithChainID()] [Closure memory retention] The signer closure at lines 152-161 captures the private key - if the TransactOpts is stored long-term (e.g., in a validator pool), does this keep sensitive key material in memory for extended periods vulnerable to memory attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_178074fb-4204-4a73-807c-a3c7a287814d?mode=deep",
+    "timestamp": "2026-01-09 17:42:03.142821",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewTransactorWithChainID()] [Decrypted key lifetime] After DecryptKey() at line 112, the decrypted key is passed to NewKeyedTransactorWithChainID() - how long does the key remain in memory before garbage collection, and could this window be exploited? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2751ec30-e8ef-44af-9992-c79aabd10def?mode=deep",
+    "timestamp": "2026-01-09 17:42:20.772507",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyStoreTransactor()] [Account object persistence] The account parameter at line 62 is captured in the closure - if Account contains sensitive metadata or references to key material, could this leak information through memory inspection? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e9c145f3-81f4-4562-944f-acef66e6c6b2?mode=deep",
+    "timestamp": "2026-01-09 17:42:40.330656",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyedTransactor()] [Signature malleability] At line 95-99, after crypto.Sign() generates signature, is the signature normalized to prevent malleability (e.g., ensuring s-value is in lower half of curve order), or could attackers create alternative valid signatures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c2e932cc-c46e-454d-b5a0-76204241b20d?mode=deep",
+    "timestamp": "2026-01-09 17:43:00.313200",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyStoreTransactorWithChainID()] [Recovery ID validation] After SignHash() at line 132, does WithSignature() at line 136 validate that the recovery ID (v value) is correct and recovers to the expected address, or could invalid recovery IDs pass through? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f4e04877-5481-4372-9b49-b4b50b7b4a79?mode=deep",
+    "timestamp": "2026-01-09 17:43:22.290178",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyedTransactorWithChainID()] [Signature format] At line 160, tx.WithSignature() attaches the signature - does it validate the signature is exactly 65 bytes (r, s, v), or could truncated or extended signatures be attached leading to invalid transactions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a77c4bb5-177f-45fd-8b9d-b7e962746784?mode=deep",
+    "timestamp": "2026-01-09 17:43:44.604821",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyStoreTransactor()] [Hash signature mismatch] At line 71, the hash from signer.Hash(tx) is signed - if the transaction is modified after hashing but before WithSignature() at line 75, could this create a valid-looking transaction with signature mismatch? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f3d5bf01-111f-42e4-9bda-a805acd36162?mode=deep",
+    "timestamp": "2026-01-09 17:44:08.719741",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewTransactor()] [Passphrase validation] The passphrase at line 45 is used directly in DecryptKey() at line 51 - are there length limits or character restrictions, or could extremely long passphrases cause buffer issues or DoS attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5c164397-8724-420c-bd3d-a796110c59b2?mode=deep",
+    "timestamp": "2026-01-09 17:44:33.515125",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyedTransactorWithChainID()] [Chain ID bounds] The chainID parameter at line 144 - could negative, zero, or extremely large values cause issues in signer selection, signature generation, or transaction encoding? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ee32be50-d6f1-4952-a6c1-2e135daa7cea?mode=deep",
+    "timestamp": "2026-01-09 17:44:59.211071",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewTransactorWithChainID()] [Key file size limit] At line 108, io.ReadAll() has no size limit - could an attacker provide an extremely large key file that causes memory exhaustion when read, leading to DoS on validator nodes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7eaf1370-8b36-403c-9700-f910ab139de9?mode=deep",
+    "timestamp": "2026-01-09 17:45:24.837605",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewClefTransactor()] [Account address validation] The account.Address at line 170 is used without validation - could an invalid or zero address bypass authorization checks or cause unexpected behavior in Clef signing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c0f20047-c4bb-4bc9-9f1a-6e3c9e20a066?mode=deep",
+    "timestamp": "2026-01-09 17:45:51.413034",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyStoreTransactor()] [Transaction mutability] After TransactOpts is returned at line 65-78, if the underlying Transaction object is modified before signing, could this lead to signing a different transaction than intended, enabling transaction substitution attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_86d191c5-2f3c-435a-8d59-13f91960f0f8?mode=deep",
+    "timestamp": "2026-01-09 17:46:17.923275",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyedTransactorWithChainID()] [From field override] The From field is set at line 151 - if transaction processing code overrides this field after TransactOpts creation, could transactions be signed with one address but sent from another, causing validation failures or security issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6267a1d8-0804-4b07-85c6-b0cc9ee26327?mode=deep",
+    "timestamp": "2026-01-09 17:46:45.269219",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewClefTransactor()] [Transaction consistency] At line 175, the transaction is passed to Clef - if the transaction object is modified concurrently by another goroutine during signing, could this lead to signature-transaction mismatch or race conditions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5c357755-f96e-4203-94ed-82f57025eef3?mode=deep",
+    "timestamp": "2026-01-09 17:47:12.313451",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyedTransactor()] [Public key derivation failure] At line 87, if crypto.PubkeyToAddress() fails silently or returns an invalid address, will subsequent authorization checks at line 92-94 pass incorrectly, enabling unauthorized signing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3ea17a5f-78f3-4454-ace4-ef16b50705f8?mode=deep",
+    "timestamp": "2026-01-09 17:47:37.656416",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyStoreTransactorWithChainID()] [Signer lifecycle] The signer created at line 125 - is it cached or created fresh each time? If cached globally, could concurrent modifications lead to race conditions or use of wrong signer for transactions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b0dd3f3a-dd68-4476-af99-d44a9100e810?mode=deep",
+    "timestamp": "2026-01-09 17:48:03.132744",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewTransactorWithChainID()] [Key decryption timing] The DecryptKey() operation at line 112 could take variable time based on passphrase complexity - could timing analysis leak information about passphrase strength or key derivation parameters? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_39987c92-8955-4b15-b647-4ca15d39bedc?mode=deep",
+    "timestamp": "2026-01-09 17:48:27.744597",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewClefTransactor()] [Clef chainID enforcement] At line 175, the comment says 'Clef enforces its own chain id' - if Clef is misconfigured with wrong chain ID, could it sign transactions valid on different chains, enabling replay attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_60d33be8-d908-4ed7-bbd1-bce483db163e?mode=deep",
+    "timestamp": "2026-01-09 17:48:53.472108",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyedTransactorWithChainID()] [Address derivation consistency] If crypto.PubkeyToAddress() at line 145 uses different derivation logic than other parts of WBT (e.g., different checksum encoding), could this lead to address mismatches causing transaction failures or funds loss? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dff9f7e7-868b-44cb-8746-d242d9afc0ef?mode=deep",
+    "timestamp": "2026-01-09 17:49:19.979931",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyStoreTransactor()] [SignHash return validation] At line 71, keystore.SignHash() returns a signature - is the signature length and format validated before passing to WithSignature() at line 75, or could malformed signatures cause panics or validation bypasses? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_38d69d08-f636-4768-a0e4-7c399f251c2d?mode=deep",
+    "timestamp": "2026-01-09 17:49:46.407455",
+    "report_generated": false
   }
 ]
