@@ -4798,5 +4798,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6691a6df-843a-4c73-866b-710c8d46bb3e?mode=deep",
     "timestamp": "2026-01-09 20:33:04.490888",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Truncation attack] Since the ID at line 118 is truncated to 4 bytes from a 32-byte Keccak256 hash, what is the probability of birthday paradox collisions in a large contract with many functions? Can attackers deliberately create collision-prone function names to exploit this? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_35ebb4ca-00f6-4204-8ad5-05e83db691c9?mode=deep",
+    "timestamp": "2026-01-09 20:34:14.471610",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Slice bounds] In the loop at lines 100-103 iterating over inputs, if the inputs slice is nil or contains nil elements, can this cause a nil pointer dereference leading to node panic and DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b6264185-ee70-4213-878b-c2b763f120c9?mode=deep",
+    "timestamp": "2026-01-09 20:34:27.611598",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Slice bounds] In the loop at lines 104-109 iterating over outputs, if the outputs slice length changes during iteration (concurrent modification), can this cause out-of-bounds access or inconsistent method representation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_963a7897-327f-4395-af72-51a05effeea8?mode=deep",
+    "timestamp": "2026-01-09 20:34:40.999675",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Memory exhaustion] At lines 96-98 where slices are pre-allocated with make([]string, len(inputs)), if an attacker provides inputs with extremely large length, can this cause memory exhaustion and DoS through excessive slice allocation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_759dda5d-0709-4332-af7b-d3de461f21d6?mode=deep",
+    "timestamp": "2026-01-09 20:34:55.075049",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Integer overflow] When pre-allocating slices at lines 96-98, if len(inputs) or len(outputs) is near the maximum integer value, can arithmetic operations on these lengths cause integer overflow leading to incorrect memory allocation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ea355d95-b37d-4b44-b5ee-97a6d01b21f8?mode=deep",
+    "timestamp": "2026-01-09 20:35:10.446777",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Type validation] At line 102 where input.Type.String() is called, if the Type field is nil or contains invalid data, can this cause panic or return malformed type strings that corrupt the method signature? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dda4cb9f-4203-437c-b3c1-3ba1cc3757cd?mode=deep",
+    "timestamp": "2026-01-09 20:35:26.971226",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Format string injection] At line 101 using fmt.Sprintf(\\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1df54d09-4d55-4158-a227-2dad7fc84393?mode=deep",
+    "timestamp": "2026-01-09 20:35:45.330476",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Unicode exploitation] In signature generation at line 117, if rawName contains Unicode characters, homoglyphs, or zero-width characters, can attackers create visually identical but cryptographically different method signatures to bypass validation or confuse users? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6bcedaa1-5fcb-443b-bbcc-41b3b7bf80f4?mode=deep",
+    "timestamp": "2026-01-09 20:36:04.338238",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [String concatenation] At line 117 using strings.Join(types, \\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_95094453-afb4-4344-b702-bcb2b9966980?mode=deep",
+    "timestamp": "2026-01-09 20:36:25.023840",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Length validation] When constructing the output names string at lines 105-108, if output.Name is excessively long, can this cause string concatenation to consume excessive memory or create oversized method representations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1b03863f-829e-4cd8-90db-875eacbf7390?mode=deep",
+    "timestamp": "2026-01-09 20:36:46.313449",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Canonical form violation] At line 102, does input.Type.String() always return the canonical form of types (e.g., \\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1f15ffe2-7c01-4bd4-8b16-1bbe28d8b09a?mode=deep",
+    "timestamp": "2026-01-09 20:37:08.429871",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Type confusion] At line 116, the signature and ID are only computed if funType == Function. Can an attacker manipulate the funType parameter to be Constructor/Fallback/Receive when it should be Function, bypassing signature validation and allowing unsigned function calls? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fe4f2a6e-5dc4-423c-a485-3be081dfefbd?mode=deep",
+    "timestamp": "2026-01-09 20:37:32.453672",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Special function bypass] When funType is Fallback (line 131) or Receive (line 133), no signature or ID is computed. Can attackers exploit this by misclassifying regular functions as fallback/receive to bypass method ID checks and execute unauthorized code? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4440b2ae-c15f-4fa1-9c2a-39df1dea328d?mode=deep",
+    "timestamp": "2026-01-09 20:37:56.993519",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Constructor confusion] At line 135 when funType == Constructor, the identity is set to \\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_faa7f10c-c9c6-4f86-b514-16478932f21f?mode=deep",
+    "timestamp": "2026-01-09 20:38:24.266169",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Type enumeration boundary] The FunctionType enum at lines 29-42 defines 4 types (0-3). If an invalid integer outside this range is passed as funType, can this cause undefined behavior or bypass type-specific security checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b1685f6b-9ca0-4ad1-ab05-a89f433b6f31?mode=deep",
+    "timestamp": "2026-01-09 20:38:50.201601",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Identity manipulation] At lines 129-136 where identity string is constructed based on funType, can inconsistencies between funType and actual function behavior lead to misleading audit logs or security monitoring failures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f0f96902-9e2d-4777-8071-e598bd9a09f7?mode=deep",
+    "timestamp": "2026-01-09 20:39:14.231009",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: IsConstant()] [State mutability bypass] At line 160, IsConstant() checks if StateMutability is \\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2b1f7bf6-724a-434c-a89b-ec5b5785d45b?mode=deep",
+    "timestamp": "2026-01-09 20:39:39.200573",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: IsPayable()] [Payment bypass] At line 166, IsPayable() checks if StateMutability is \\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3b65e05c-d10d-4b79-8013-d6fc0533da04?mode=deep",
+    "timestamp": "2026-01-09 20:40:04.639088",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Mutability inconsistency] At lines 122-124, if mutability parameter is \\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a24394ed-f9b8-41f0-9f08-bc25c52cd036?mode=deep",
+    "timestamp": "2026-01-09 20:40:32.066253",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: IsConstant()] [Legacy compatibility] At line 160, the Constant field is checked alongside StateMutability. Can conflicts between legacy Constant flag and new StateMutability field lead to inconsistent read-only enforcement across different client versions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d71e1584-86df-4137-8ca3-c3465e8ec095?mode=deep",
+    "timestamp": "2026-01-09 20:40:57.991238",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Mutability validation] The mutability parameter at line 94 is stored without validation. Can invalid mutability strings (not \\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f4eec166-8538-44d9-9eec-948452952236?mode=deep",
+    "timestamp": "2026-01-09 20:41:23.992219",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Struct: Method] [Race condition] The Method struct at lines 52-88 contains mutable fields (Name, Inputs, Outputs, etc.). If multiple goroutines access and modify the same Method instance concurrently, can race conditions corrupt method representation leading to signature mismatches or invalid function calls? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1339db8c-9178-43b7-b21f-b3910438cbd8?mode=deep",
+    "timestamp": "2026-01-09 20:41:51.256740",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Concurrent creation] At lines 94-152, NewMethod creates and initializes a Method struct. If multiple goroutines create Methods with the same rawName concurrently, can race conditions in signature computation or ID generation lead to non-deterministic method IDs? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8e59ab44-1733-4099-8994-99af21ea4f26?mode=deep",
+    "timestamp": "2026-01-09 20:42:19.601898",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: String()] [Concurrent access] At line 154, String() returns method.str without any synchronization. If method.str is being modified by another goroutine during NewMethod initialization, can this return partially constructed strings causing parsing errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d81d07c1-f4eb-4344-ae83-e8fc826db814?mode=deep",
+    "timestamp": "2026-01-09 20:42:45.280934",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Field: ID] [Concurrent reads] The ID field at line 87 is a []byte slice. If multiple goroutines read this slice concurrently while another modifies it, can this cause data races or return incorrect method IDs for transaction encoding? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4e18e251-65ca-4631-8d34-921b51b90076?mode=deep",
+    "timestamp": "2026-01-09 20:43:10.558530",
+    "report_generated": false
   }
 ]
