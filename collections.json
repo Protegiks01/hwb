@@ -748,5 +748,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_074f48be-ef2b-4569-be14-3c6a7575d6d7?mode=deep",
     "timestamp": "2026-01-09 15:57:49.951680",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Consensus] [Non-Deterministic Unpack] Could differences in how different validator implementations of Unpack() handle edge cases cause consensus divergence? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_caa87f14-4df7-4a76-b306-238bc737a4e2?mode=deep",
+    "timestamp": "2026-01-09 15:59:09.620055",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Consensus] [Method Ordering] If MethodById() returns different methods on different validators due to map iteration randomness, could this cause chain splits? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b8edada6-b402-41bd-b151-71927406e4cc?mode=deep",
+    "timestamp": "2026-01-09 15:59:22.532007",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Consensus] [ABI Version Differences] If validators load different versions of the same contract ABI, could Pack/Unpack differences cause state divergence? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_55627f8d-02b5-47e5-8664-51419db0c14a?mode=deep",
+    "timestamp": "2026-01-09 15:59:36.357311",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Consensus] [Error Handling Differences] If some validators successfully unpack data that others fail on, could this cause transaction execution divergence? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_969e3ada-cbe6-4e3f-a5a9-7f664ec64dee?mode=deep",
+    "timestamp": "2026-01-09 15:59:50.171164",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Information Disclosure] [Error Messages] Do error messages from Pack(), Unpack(), or MethodById() reveal internal contract structure that should be kept private? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a6fa1a47-3c0c-47c5-bca3-475b9968a1e1?mode=deep",
+    "timestamp": "2026-01-09 16:00:04.870317",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Information Disclosure] [Method Enumeration] Can an attacker enumerate all methods in a contract by brute-forcing method IDs with MethodById()? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_010f3cfa-d152-4b27-aeae-65e25ef236d9?mode=deep",
+    "timestamp": "2026-01-09 16:00:20.703932",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Information Disclosure] [Event Enumeration] Similarly, can EventByID() be abused to discover all events a contract emits? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7bbcd9c0-cf1d-471c-afe5-be3a5a8e608c?mode=deep",
+    "timestamp": "2026-01-09 16:00:38.032993",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Compatibility] [Solidity Version] Does the ABI properly handle all Solidity versions from 0.4.x through 0.8.x, or could version-specific features cause parsing failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_baf3eb18-50e8-4bbd-9120-388081bd9e64?mode=deep",
+    "timestamp": "2026-01-09 16:00:56.905372",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Compatibility] [Legacy Fallback] The comment mentions legacy fallback before v0.6.0 - could mixing legacy and new contracts cause fallback resolution issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b52b9a5a-f585-4ea5-b643-54a152eee705?mode=deep",
+    "timestamp": "2026-01-09 16:01:17.433192",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Compatibility] [Deprecated Fields] The Constant and Payable fields are deprecated - could their continued presence cause conflicts with StateMutability? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5f443c05-cf2b-4386-8019-c429fe5f10e8?mode=deep",
+    "timestamp": "2026-01-09 16:01:39.054300",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Input Validation] [Name Validation] Does UnmarshalJSON validate that method/event names are valid identifiers, or could special characters cause issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_303ca353-8bf6-484a-ae53-7cebd8da7f10?mode=deep",
+    "timestamp": "2026-01-09 16:02:02.640175",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Input Validation] [Type Validation] Are argument types validated during unmarshaling, or could invalid types cause failures during Pack/Unpack? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3de6af4a-6ffc-4db7-9647-29cbb27a3691?mode=deep",
+    "timestamp": "2026-01-09 16:02:26.552746",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Input Validation] [Signature Data] Does MethodById() validate that sigdata contains valid UTF-8 or could binary data cause encoding issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_22310031-5ae0-4288-841f-5213c3512b4a?mode=deep",
+    "timestamp": "2026-01-09 16:02:52.050694",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Additional] [JSON Injection] Could malicious JSON in UnmarshalJSON contain control characters or escape sequences that corrupt the ABI structure? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_63fce7ea-ef7f-4b94-9f8b-9e2cf93d5545?mode=deep",
+    "timestamp": "2026-01-09 16:03:18.501067",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Additional] [Recursive Structures] Does the ABI handle recursive or circular argument references, or could these cause infinite loops during Pack/Unpack? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d5d93427-74d5-4f19-8a32-353bdefbc794?mode=deep",
+    "timestamp": "2026-01-09 16:03:44.857254",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Additional] [Serialization] If an ABI struct is serialized then deserialized (e.g., for network transmission), could any fields become corrupted? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_04e49c4f-fbc8-4590-809a-25a5c40b10b6?mode=deep",
+    "timestamp": "2026-01-09 16:04:11.604836",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Additional] [Pointer Aliasing] When returning *Method or *Event pointers, could multiple pointers to the same object cause unexpected mutations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5abeb671-0ac0-43be-9e81-d308c2f0c05d?mode=deep",
+    "timestamp": "2026-01-09 16:04:35.332005",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Additional] [Global State] The revertSelector global variable - could modification of this value (via unsafe pointer manipulation) affect all UnpackRevert calls? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_40bfe5ac-ac66-4a00-b4c7-4a78bd96d4b7?mode=deep",
+    "timestamp": "2026-01-09 16:04:59.699888",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: UnmarshalJSON()] [JSON Injection] Can an attacker craft malicious JSON input with extremely nested ArgumentMarshaling structures that cause stack overflow during json.Unmarshal, leading to node crash and network-wide DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d58f2fc2-ff9e-430d-b2d2-4740095dd834?mode=deep",
+    "timestamp": "2026-01-09 16:05:25.643565",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: UnmarshalJSON()] [Type Confusion] Can malicious JSON provide invalid Type strings that pass NewType() validation but create inconsistent Type objects, potentially causing state corruption when unpacking transaction data in EVM execution? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a081ea1e-cad2-4122-97b1-f643f897f8af?mode=deep",
+    "timestamp": "2026-01-09 16:05:52.685461",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: UnmarshalJSON()] [Memory Exhaustion] Can an attacker submit JSON with extremely large InternalType or Components arrays that consume excessive memory during unmarshaling, causing validator nodes to crash and disrupting block production? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_63333e52-2ad3-498d-bdb8-a07914638d2c?mode=deep",
+    "timestamp": "2026-01-09 16:06:18.734874",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: UnmarshalJSON()] [Error Masking] Does the error wrapping at line 50 properly propagate all critical errors from json.Unmarshal, or can certain malformed inputs silently fail and create partially initialized Argument structs leading to undefined behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_867aa7ca-9f68-44e6-9ba9-273d347878e3?mode=deep",
+    "timestamp": "2026-01-09 16:06:46.144641",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: UnmarshalJSON()] [Nil Pointer] If NewType() at line 53 returns an error but partially initializes the Type field, can subsequent operations on the Argument cause nil pointer dereferences that crash validator nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4bcb0939-60a2-44c4-b00f-d5fa521b361d?mode=deep",
+    "timestamp": "2026-01-09 16:07:14.863178",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: UnmarshalJSON()] [Component Recursion] Can deeply recursive Components in ArgumentMarshaling cause infinite recursion in NewType(), leading to stack exhaustion and validator node crashes during ABI parsing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2ec9153c-b65b-4d38-8d90-8ff447cec2e0?mode=deep",
+    "timestamp": "2026-01-09 16:07:43.324907",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: UnmarshalJSON()] [Unicode Injection] Can malicious Unicode characters in Name field bypass validation and later cause issues in mapArgNamesToStructFields() or field lookups, potentially enabling transaction manipulation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_367869c7-b23c-4fcf-bc97-b68a6361523c?mode=deep",
+    "timestamp": "2026-01-09 16:08:09.992528",
+    "report_generated": false
   }
 ]
