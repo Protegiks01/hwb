@@ -3298,5 +3298,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fb41040c-b902-408d-9b9c-1adf1baa7124?mode=deep",
     "timestamp": "2026-01-09 18:51:34.118563",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Method Constant Classification] At lines 139-141, methods are classified as constant vs non-constant - if IsConstant() has bugs, could state-changing methods be misclassified as read-only, enabling unauthorized state modifications? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d9c5b082-ac1c-47cb-b46b-aab03186dfaf?mode=deep",
+    "timestamp": "2026-01-09 18:52:48.331004",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Structured Output Detection] At lines 170-173, structured flag is set based on structured() function - if this incorrectly returns true/false, could it cause type mismatches in generated binding code? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_be242473-70fa-4c24-8ce0-b4b036b15a5a?mode=deep",
+    "timestamp": "2026-01-09 18:53:01.392349",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Input Name Keyword Collision] At lines 151-153, if input.Name is empty or a keyword, it's renamed to 'arg%d' - but is there validation that this generated name doesn't collide with other parameters? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c1793370-f5e7-4bd2-94cb-4470ad5aab33?mode=deep",
+    "timestamp": "2026-01-09 18:53:14.893875",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [ABI Whitespace Stripping] At lines 102-107, all whitespace is removed from ABI JSON - could this break valid JSON formatting or cause parsing errors in edge cases? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e2e8b79a-9d3d-4336-a375-70830dd30be5?mode=deep",
+    "timestamp": "2026-01-09 18:53:28.673469",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: bindBasicTypeGo()] [Regex Compilation] At line 302, a regex is compiled inline - is this regex pattern safe from ReDoS attacks, or could malicious type strings cause CPU exhaustion? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_faa089e8-e964-4caf-b5d1-b37270a53de2?mode=deep",
+    "timestamp": "2026-01-09 18:53:43.835115",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Library Pattern Matching] At line 240, regexp.Match could fail and return an error - but this error is only logged, not propagated. Could this mask critical library resolution failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_41590ce8-f1cd-4d06-90e0-10f15dbfae3d?mode=deep",
+    "timestamp": "2026-01-09 18:53:59.018432",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [FuncSigs Array Bounds] At lines 235-237, fsigs[i] is accessed only if len(fsigs) > i - but what if fsigs contains nil maps at valid indices? Could this cause nil map access panics? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_36118b99-8885-4f20-8f3c-f90176bdee1f?mode=deep",
+    "timestamp": "2026-01-09 18:54:15.790064",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: structured()] [Two-Element Argument Handling] At lines 448-450, the function returns false for len(args) < 2 - is this correct, or should single-output structs also be supported? Could this cause API inconsistency? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4ce3f6de-39c4-4d38-863f-3e97293e7b5b?mode=deep",
+    "timestamp": "2026-01-09 18:54:33.854117",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: bindTopicTypeGo()] [Incomplete Hashing] The TODO comment at lines 347-352 indicates arrays and structs should be hashed but aren't - could this cause event log parsing errors or enable log forgery attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_064802d2-d1ca-494c-ae7f-a5af4d3241cf?mode=deep",
+    "timestamp": "2026-01-09 18:54:53.615696",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Contract Type Capitalization] At line 222, types[i] is capitalized for the contract type - if types[i] is empty or starts with non-alphabetic characters, could this generate invalid Go type names? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_629d419a-eb00-42c0-b545-f91a2fb1e033?mode=deep",
+    "timestamp": "2026-01-09 18:55:14.236878",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [InputBin Prefix Stripping] At line 224, bytecode is stripped of '0x' prefix - but what if bytecode contains multiple '0x' prefixes or malformed hex? Could this cause deployment failures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d5592e3a-cf51-407c-8f4c-4747dcb2a685?mode=deep",
+    "timestamp": "2026-01-09 18:55:35.589457",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: hasStruct()] [SliceTy Element Check] At lines 472-473, for slice types, hasStruct recursively checks the element - but is t.Elem validated to be non-nil before dereferencing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e533d0a6-455c-4d03-bef5-f3d861ba9e73?mode=deep",
+    "timestamp": "2026-01-09 18:55:56.575499",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: hasStruct()] [ArrayTy Element Check] At lines 474-475, for array types, hasStruct recursively checks the element - similar nil check concern as SliceTy. (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_81dba5cc-9882-4e8e-bdb2-c41b95782d83?mode=deep",
+    "timestamp": "2026-01-09 18:56:18.827462",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Template Parse Failure] At line 274, template.New().Parse() could fail if tmplSource contains invalid syntax - is there validation that the template source is well-formed? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_22f41b90-b3a1-41ec-b72a-c5b1b7e56f7d?mode=deep",
+    "timestamp": "2026-01-09 18:56:42.079615",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Buffer Allocation] At line 265, a new buffer is allocated - for extremely large ABIs generating massive code, could buffer growth cause memory exhaustion? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2d48a6d0-d6cf-4e86-b82f-6648596cbecb?mode=deep",
+    "timestamp": "2026-01-09 18:57:04.588326",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: alias()] [Map Nil Check] At lines 420-422, aliases map is accessed - if aliases is nil, does map lookup panic, or is nil map access safe in Go? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_28dee1ad-c97d-4389-87b7-7ead7e2b3ca7?mode=deep",
+    "timestamp": "2026-01-09 18:57:26.232454",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Identifier Case Sensitivity] At lines 142-145, normalized identifiers are used for duplicate detection - but if Go is case-insensitive for exports, could this cause compilation errors? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cb72c879-f88f-4e47-ae34-8ff306d6c18b?mode=deep",
+    "timestamp": "2026-01-09 18:57:47.236159",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: structured()] [Capitalise Empty Return] At line 459, capitalise() is called and checked for empty string - under what conditions does capitalise return empty, and is this properly handled? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0346dca3-851a-4db8-9b95-230aedd456eb?mode=deep",
+    "timestamp": "2026-01-09 18:58:07.156695",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: decapitalise()] [String Slicing Safety] At line 442, goForm[:1] is accessed - the check at line 437-439 ensures len(input) != 0, but does ToCamelCase preserve non-empty property? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1d3e8091-3a8c-4c97-9cbc-4e1b755d92f8?mode=deep",
+    "timestamp": "2026-01-09 18:58:28.602262",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: bindStructTypeGo()] [Field Allocation] At line 383, fields slice is appended to - for ABIs with thousands of struct fields, could repeated append operations cause performance issues or memory fragmentation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f1200bf2-b539-4a75-a744-c182202ae6fe?mode=deep",
+    "timestamp": "2026-01-09 18:58:49.108585",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Event Name Normalization] At lines 184-189, event names are normalized and checked for duplicates - but if normalization produces empty strings, could this cause invalid generated code? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_94379b7e-701a-4adb-8c61-5d0eb0514dbd?mode=deep",
+    "timestamp": "2026-01-09 18:59:11.718220",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Used Map in Event Processing] At line 191, a 'used' map tracks capitalized names to prevent collisions - but is this map properly scoped per event, or could it leak between events? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2c66b7d6-efcf-45d6-aef0-498c2e547123?mode=deep",
+    "timestamp": "2026-01-09 18:59:34.078431",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: bindBasicTypeGo()] [Default Case Handling] At lines 314-317, the default case returns kind.String() - if kind.String() returns unexpected values for unknown types, could this inject invalid type names into generated code? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8d362705-b5aa-41ac-994c-e5a9d051ea1f?mode=deep",
+    "timestamp": "2026-01-09 18:59:57.266008",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Method Copy Operation] At lines 148-149, normalized.Inputs is allocated and copied from original.Inputs - is the length check redundant, or could there be cases where copy fails? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a15bd116-e71f-4fb5-a5af-5c0de9544e0b?mode=deep",
+    "timestamp": "2026-01-09 19:00:21.855249",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Output Copy Operation] At lines 158-160, similar copy operation for outputs - same concern about copy safety and length validation. (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_30173ea6-ad6d-42ca-8e20-8554f7213c03?mode=deep",
+    "timestamp": "2026-01-09 19:00:46.752294",
+    "report_generated": false
   }
 ]
