@@ -2998,5 +2998,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3253f328-1930-4cd7-bbeb-fd8320f8e569?mode=deep",
     "timestamp": "2026-01-09 18:32:15.787888",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [ABI Injection] Can an attacker craft a malicious ABI JSON string that exploits the abi.JSON() parser at line 97 to inject arbitrary code into the generated binding, potentially compromising nodes that compile and use these bindings? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cdc096a9-0a0c-41f9-aa14-71c47640c768?mode=deep",
+    "timestamp": "2026-01-09 18:33:30.908985",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [DoS via Memory Exhaustion] Can an attacker provide an ABI with an extremely large number of methods/events causing the Bind() function to allocate unbounded memory in the contracts/calls/transacts/events maps (lines 87-93, 111-123), leading to node crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cff763db-43b1-4d23-8597-52441e561e00?mode=deep",
+    "timestamp": "2026-01-09 18:33:43.872831",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Template Injection] At lines 223-224, the InputABI string undergoes simple quote escaping with ReplaceAll - can an attacker craft an ABI that breaks out of the string context in the template to inject arbitrary Go code into the generated binding? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ce9c0a3e-60d3-400f-850d-9c5c33c5fcbc?mode=deep",
+    "timestamp": "2026-01-09 18:33:57.106776",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Integer Overflow] When processing array types, does the code properly validate that kind.Size values cannot cause integer overflow when used in array declarations, potentially leading to buffer overflows in generated code? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_989cb816-f2e5-4b0a-afed-acc8cd61688d?mode=deep",
+    "timestamp": "2026-01-09 18:34:10.889125",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Regex DoS] At line 240, the regex pattern matching for library references uses regexp.Match with user-controlled pattern strings - can an attacker craft library patterns that cause catastrophic backtracking, leading to CPU exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d45af77b-88a8-4831-9435-d0bccd5626dc?mode=deep",
+    "timestamp": "2026-01-09 18:34:25.825051",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Identifier Collision Bypass] The duplicate identifier detection at lines 138-145 uses separate maps for calls vs transacts - can an attacker craft method names that collide across categories but aren't detected, causing compilation errors or runtime confusion in generated bindings? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_deeb340d-bdaa-468f-964b-6cd54c770057?mode=deep",
+    "timestamp": "2026-01-09 18:34:41.667168",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Nil Pointer Dereference] If evmABI.Constructor is nil but code attempts to access evmABI.Constructor.Inputs at line 126, could this cause a panic that crashes the binding generation process? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_36a519ad-2011-4e09-a64c-eb08005c9aa2?mode=deep",
+    "timestamp": "2026-01-09 18:34:59.650963",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Error Handling Bypass] At line 98-100, if abi.JSON() returns an error, the function returns immediately - but are all subsequent error paths properly handled, or could partial state from failed bindings leak into the contracts map? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b4316b1e-219e-4ed7-ac46-612d130e3a4a?mode=deep",
+    "timestamp": "2026-01-09 18:35:18.682643",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Unicode Normalization Attack] The unicode.IsSpace check at line 103 removes whitespace from ABI JSON - can an attacker use Unicode lookalike characters or normalization issues to bypass validation while preserving malicious content? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_65afce3c-d848-4999-82da-815ae2184461?mode=deep",
+    "timestamp": "2026-01-09 18:35:39.409628",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Array Bounds] When iterating over types/abis/bytecodes arrays at line 95, is there proper validation that all three arrays have matching lengths? Could mismatched lengths cause out-of-bounds access? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2a979cc2-caba-4a87-90b5-e22bcb511f0c?mode=deep",
+    "timestamp": "2026-01-09 18:36:01.040080",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Library Reference Injection] At lines 239-250, library pattern matching and replacement occurs - can an attacker inject malicious library addresses or patterns that get embedded into the bytecode, potentially redirecting contract calls to attacker-controlled contracts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0ee4b783-1f01-48a5-958a-66cdc73a1951?mode=deep",
+    "timestamp": "2026-01-09 18:36:22.681515",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Package Name Injection] The pkg parameter at line 84 is used directly in template data at line 260 - can an attacker control this to inject malicious package names that break Go package resolution or cause import confusion attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ac7cefe9-4bd6-4b88-ad8a-edda68eb8257?mode=deep",
+    "timestamp": "2026-01-09 18:36:46.212617",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Method Name Collision] When normalizing method names at line 135, if the methodNormalizer produces collisions that aren't caught by the identifier map check, could this cause method shadowing or overriding in generated bindings? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bf6eb214-ec68-463d-a829-377e863b5f89?mode=deep",
+    "timestamp": "2026-01-09 18:37:11.401555",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Anonymous Event Handling] At lines 177-179, anonymous events are skipped - but are they properly excluded from all processing, or could they still affect the eventIdentifiers map causing denial of service? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_84c8be1e-29e1-4ed5-9e83-3536ba58bb68?mode=deep",
+    "timestamp": "2026-01-09 18:37:37.953209",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: bindStructTypeGo()] [Infinite Recursion] At line 368, the function recursively calls itself for nested tuple types - can an attacker craft a circular struct reference in the ABI that causes infinite recursion and stack overflow, crashing the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a666f82d-9917-454d-b1a7-15b41f7f3b95?mode=deep",
+    "timestamp": "2026-01-09 18:38:02.811847",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: bindStructTypeGo()] [Struct Name Collision] At lines 377-380, struct IDs are generated from TupleRawName + kind.String() - can an attacker craft multiple different structs that hash to the same ID, causing struct definition conflicts in generated code? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6c803364-c639-4531-89ae-87e6f335118b?mode=deep",
+    "timestamp": "2026-01-09 18:38:28.696079",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: bindStructTypeGo()] [Memory Exhaustion] When processing deeply nested struct types, does the structs map grow unbounded? Could an attacker provide an ABI with thousands of nested structs causing memory exhaustion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c30524df-3bb3-418c-9426-ef207f9042e8?mode=deep",
+    "timestamp": "2026-01-09 18:38:53.588216",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: bindStructTypeGo()] [Field Name Injection] At line 386, field names are capitalized but is there validation that the resulting names are valid Go identifiers? Could special characters cause code generation failures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_16bae343-53b9-4425-9cd7-eebff7cd06c3?mode=deep",
+    "timestamp": "2026-01-09 18:39:17.608233",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: bindStructTypeGo()] [Empty Struct Generation] At lines 392-394, if TupleRawName is empty, a generic name like 'Struct0' is used - can this cause collisions with user-defined types or other generated structs? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_227eb4cd-9f6a-4f1c-9b36-ac5c5592991f?mode=deep",
+    "timestamp": "2026-01-09 18:39:43.213762",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: bindTypeGo()] [Type Confusion] At lines 325-326, when handling TupleTy, the function looks up structs by key - if the struct doesn't exist in the map, could this cause a nil pointer dereference or return empty string causing invalid Go code generation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b671d303-b905-4a87-a199-da2064ea34f8?mode=deep",
+    "timestamp": "2026-01-09 18:40:08.882101",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: bindTypeGo()] [Array Size Overflow] At line 328, array size is formatted directly into code - if kind.Size is maliciously large (e.g., MaxUint64), could this create syntactically invalid or exploitable array declarations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7b4cca9b-0b16-48b3-8a70-06a4bc4fcd78?mode=deep",
+    "timestamp": "2026-01-09 18:40:34.348610",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: bindBasicTypeGo()] [Integer Type Mapping] At lines 302-307, integer types are mapped based on regex parsing of type strings - can an attacker craft type strings that bypass the size validation and map to incorrect Go types, causing type confusion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1a4ac6c6-dc6a-4d27-898f-34c5d9dac8b5?mode=deep",
+    "timestamp": "2026-01-09 18:40:57.815308",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: bindBasicTypeGo()] [FixedBytes Overflow] At line 309, FixedBytes types use kind.Size to determine byte array size - is there validation that Size is within valid range (1-32 for Solidity)? Could invalid sizes cause code generation errors? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ec5fad8e-1524-47b6-aa32-d51af13fcf4f?mode=deep",
+    "timestamp": "2026-01-09 18:41:20.876329",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: bindTopicTypeGo()] [Hash Conversion Logic] At lines 353-355, strings and byte slices are converted to common.Hash for indexed parameters - but the comment at lines 347-352 mentions arrays and structs should also be hashed. Is this incomplete implementation exploitable? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7397d4a6-889c-484e-9cec-0e5c7ac0fb69?mode=deep",
+    "timestamp": "2026-01-09 18:41:45.597638",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Template Execution Panic] At line 275, template execution could panic on malformed template data - is there proper panic recovery to prevent node crashes during binding generation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a74ff0aa-a2cc-4c6d-a707-c966379f3896?mode=deep",
+    "timestamp": "2026-01-09 18:42:10.731795",
+    "report_generated": false
   }
 ]
