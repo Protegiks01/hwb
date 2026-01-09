@@ -4048,5 +4048,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f9258107-b66e-4ca7-ae81-83db28bc79f2?mode=deep",
     "timestamp": "2026-01-09 19:41:31.378253",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: typeErr()] [Information Disclosure] Does the error message returned by typeErr leak sensitive information about internal types or values that could help attackers craft more sophisticated attacks against ABI encoding/decoding? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_80c733b8-a636-44fc-b91e-9aa971bd688e?mode=deep",
+    "timestamp": "2026-01-09 19:42:48.483085",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: typeErr()] [Panic on Invalid Parameters] If expected or got parameters are nil or invalid interface values, could fmt.Errorf panic when formatting the error, causing node crashes during transaction validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c2b6ed6c-b97a-4983-81f1-a55f1aee84d5?mode=deep",
+    "timestamp": "2026-01-09 19:43:01.303684",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Constants: errBad*] [Insufficient Error Granularity] The error constants on lines 26-35 provide basic type mismatch errors, but do they provide enough detail for security monitoring? Could attackers exploit the lack of detailed error information to hide systematic type confusion attacks across multiple transactions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e5f9eea4-70e5-4220-8ab1-be9949cc1b05?mode=deep",
+    "timestamp": "2026-01-09 19:43:14.472355",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Constants: errBad*] [Error Handling Bypass] When functions like ReadInteger return these error constants, are they properly checked and handled throughout the codebase, or could ignored errors lead to incorrect value interpretation and fund loss in token operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_012e23be-48c4-4878-acf9-1f3882322efa?mode=deep",
+    "timestamp": "2026-01-09 19:43:28.970075",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Integration: sliceTypeCheck + typeCheck] [Recursive Validation Inconsistency] When sliceTypeCheck recursively calls itself for nested arrays, could inconsistent validation logic between the recursive call and the initial typeCheck call create validation gaps exploitable for type confusion attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_246c629f-fc7d-4d23-90e6-649dd6ab008c?mode=deep",
+    "timestamp": "2026-01-09 19:43:43.469462",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Integration: formatSliceString + sliceTypeCheck] [Error Message Type Confusion] If formatSliceString produces incorrect type representations due to malformed sliceSize values, could this lead to confusion in error messages that masks the true validation failure, allowing attackers to exploit misunderstandings in debugging? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6e3e2532-17cc-4064-a19e-f8e64e50f3f0?mode=deep",
+    "timestamp": "2026-01-09 19:43:59.197012",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: sliceTypeCheck()] [Quadratic Complexity Attack] For nested arrays, each level of nesting requires validation. Could an attacker craft deeply nested array types (e.g., [][][][]...[]uint) causing O(n^2) or worse validation complexity leading to CPU exhaustion DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fa754474-3dad-4cec-b702-9dfad4c5c6d8?mode=deep",
+    "timestamp": "2026-01-09 19:44:15.989448",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: typeCheck()] [Reflection Performance] The heavy use of reflect.Value operations (Kind(), Len(), Index(), Type()) can be expensive. Could an attacker submit many transactions with complex array types to exhaust CPU resources through expensive reflection operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_82c491f7-b820-4624-a939-33d03b008048?mode=deep",
+    "timestamp": "2026-01-09 19:44:35.451721",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: sliceTypeCheck()] [Memory Allocation Attack] When validating large arrays, do the reflection operations allocate temporary memory? Could an attacker submit transactions with many large array parameters to exhaust node memory causing OOM crashes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ae4ff6c8-52a7-4877-a833-a43eca5db227?mode=deep",
+    "timestamp": "2026-01-09 19:44:55.156314",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Integration: pack.go] [Type Check Bypass in Packing] When type.go:pack() calls typeCheck before packing data, if typeCheck has validation gaps, could malformed data pass through and get incorrectly packed into transaction calldata, causing state corruption during EVM execution? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d02ca65a-145e-4895-8dc8-db6596aa8a0f?mode=deep",
+    "timestamp": "2026-01-09 19:45:17.040164",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Integration: unpack.go] [Malicious Contract Return Data] When unpacking return data from malicious contracts, if typeCheck doesn't adequately validate the data structure, could crafted return values cause memory corruption or type confusion leading to incorrect balance updates? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c7bb6824-d251-454b-9dca-d9129d73a378?mode=deep",
+    "timestamp": "2026-01-09 19:45:39.281920",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Integration: ReadInteger] [Integer Type Confusion] The error constants errBadUint8 through errBadInt64 are used in ReadInteger validation. If typeCheck doesn't properly validate integer types before they reach ReadInteger, could integer overflow or underflow occur causing incorrect balance calculations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9a9ef006-30b0-4df0-945a-7e5d42b491d8?mode=deep",
+    "timestamp": "2026-01-09 19:46:03.356319",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: sliceTypeCheck()] [Zero-Length Array Edge Case] When t.T == ArrayTy and t.Size == 0, does the validation properly handle zero-length arrays, or could this edge case bypass checks allowing malformed zero-length arrays into contract processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_697cf060-0af6-4e55-8736-7616275caf42?mode=deep",
+    "timestamp": "2026-01-09 19:46:28.013372",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: sliceTypeCheck()] [Maximum Array Size] Is there a maximum limit on t.Size? Could an attacker specify t.Size == math.MaxInt causing integer overflow in downstream operations that allocate buffers based on this size? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eab34bf7-9421-43a5-8264-112e5d00725e?mode=deep",
+    "timestamp": "2026-01-09 19:46:53.988975",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: typeCheck()] [FixedBytes Zero Size] On line 79, if t.Size == 0 for FixedBytesTy, does this represent a valid state, or could zero-size fixed bytes cause issues in address validation or hash operations leading to signature forgery? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8d7bc5e6-4f01-4557-b30e-515640c08a9d?mode=deep",
+    "timestamp": "2026-01-09 19:47:19.327305",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: formatSliceString()] [sliceSize == 0] If sliceSize is 0 (not -1), does the format string correctly represent this as [0]type, and could this representation be confused with dynamic slices in error messages leading to debugging confusion? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c05fd3d6-2122-4013-bf48-a1b4b38063af?mode=deep",
+    "timestamp": "2026-01-09 19:47:44.894548",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: sliceTypeCheck()] [Elem Type Consistency] When checking nested types, is t.Elem guaranteed to be properly initialized? Could an uninitialized or partially initialized Type.Elem cause nil pointer dereferences or incorrect validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_09ccec04-2b9a-47b2-a5cc-d5f6b9ad9c17?mode=deep",
+    "timestamp": "2026-01-09 19:48:11.755201",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: typeCheck()] [Type Enum Consistency] The function switches on t.T (Type enum), but are all possible Type enum values handled? Could new Type enum values added in the future cause the function to incorrectly validate those types leading to security vulnerabilities? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dc4cc28c-7578-44d8-82f7-ab2673d6f95b?mode=deep",
+    "timestamp": "2026-01-09 19:48:41.996283",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: sliceTypeCheck()] [Reflect.Value Thread Safety] reflect.Value operations are called on val which may be shared across goroutines. Are these operations thread-safe, or could concurrent access lead to race conditions causing inconsistent validation results? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c33251bf-a478-45b0-9e2a-d701e70cf1b0?mode=deep",
+    "timestamp": "2026-01-09 19:49:09.658333",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: typeCheck()] [Type Object Mutation] If the Type object t is mutable and shared across multiple transaction validations, could concurrent modifications cause race conditions where one transaction's validation affects another's? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_388e2526-3c92-4bbe-b024-2bef476dc5dd?mode=deep",
+    "timestamp": "2026-01-09 19:49:37.080340",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: sliceTypeCheck()] [Unhandled Panics] The function uses several operations that could panic (Index(), Elem(), GetType()). If panics occur, are they properly recovered to prevent node crashes, or could malicious transactions cause unrecovered panics leading to DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_763fe1fa-2695-47cd-bec9-60644e98e881?mode=deep",
+    "timestamp": "2026-01-09 19:50:04.876604",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: typeCheck()] [Error vs Panic Inconsistency] The function returns errors for validation failures but doesn't handle potential panics from reflection operations. Could this inconsistency allow some invalid states to cause panics while others return errors, enabling targeted DoS attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d18b0466-14f5-4003-b6eb-bf20e366e003?mode=deep",
+    "timestamp": "2026-01-09 19:50:32.836308",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: sliceTypeCheck()] [Pointer vs Value Semantics] When accessing *t.Elem on line 59, if t.Elem is a pointer to a Type, could pointer aliasing issues cause the same Type object to be validated multiple times in different contexts leading to incorrect validation state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_03196601-a6e9-4383-aa9a-6463a7284560?mode=deep",
+    "timestamp": "2026-01-09 19:50:58.750063",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: typeCheck()] [Interface Type Confusion] On line 77, comparing reflect.Kind values, but could Go's interface type system allow certain type conversions that make incompatible types appear compatible in Kind comparison? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2408f065-9817-4dbe-b938-6dc86548487c?mode=deep",
+    "timestamp": "2026-01-09 19:51:24.391142",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: formatSliceString()] [String Allocation DoS] When fmt.Sprintf is called with large sliceSize values, could the resulting string allocation consume excessive memory if called repeatedly in error paths during transaction validation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_17a78fb2-264b-425d-8a0f-aba9597dd9a1?mode=deep",
+    "timestamp": "2026-01-09 19:51:50.837521",
+    "report_generated": false
   }
 ]
