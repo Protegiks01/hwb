@@ -1648,5 +1648,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ede3a89f-1bf9-4dfb-818b-9159704d9184?mode=deep",
     "timestamp": "2026-01-09 16:55:02.453825",
     "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: init()] [Command injection] In the init() function (lines 39-56), can an attacker inject malicious command-line arguments through process manipulation or environment variable injection that cause the metrics system to be inappropriately enabled/disabled, potentially hiding evidence of attacks or causing DoS through excessive metric collection? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_41fdaf6c-da61-4df3-bc76-a803515407d7?mode=deep",
+    "timestamp": "2026-01-09 16:56:21.712392",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Global: enablerFlags] [Data race] Can concurrent modifications to the `enablerFlags` slice (line 31) during runtime (if accessed unsafely elsewhere) cause data races that corrupt the flag names, potentially disabling metrics collection unexpectedly and creating monitoring blind spots? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_391a0386-3407-409c-9000-ddc7f0cc9669?mode=deep",
+    "timestamp": "2026-01-09 16:56:34.897037",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Global: EnabledExpensive] [Race condition] Can the global `EnabledExpensive` variable (line 28) be subject to race conditions when read by multiple goroutines simultaneously, leading to inconsistent expensive metric collection that could mask resource exhaustion issues during high-load validator operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c4e0b617-4fe5-451d-b308-5649e7379f42?mode=deep",
+    "timestamp": "2026-01-09 16:56:54.868695",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Global: Enabled] [Race condition] If the `Enabled` flag is modified by one goroutine while another goroutine is checking it in CollectProcessMetrics() (line 126), can this race condition cause a panic or inconsistent behavior where metrics are partially collected, potentially hiding critical node health issues during validator operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ebbf6061-6a9a-4e60-954d-f833345212c0?mode=deep",
+    "timestamp": "2026-01-09 16:57:08.780381",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Global: Enabled] [Race condition] Can concurrent goroutines race when reading the global `Enabled` variable (line 23) after the init() function completes, causing inconsistent metric collection states across different parts of the node that could lead to partial metric collection failures and monitoring blind spots? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e2bc200c-2aff-40bd-8fdf-dee6778c22dc?mode=deep",
+    "timestamp": "2026-01-09 16:57:23.405430",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Registry mutation] If the Registry implementation allows concurrent mutations during iteration in Each(), and metrics are added/removed while logging, can this cause the logged snapshot to be inconsistent with the actual metric state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dba5d1c5-7745-4bdc-bce9-6ae5a07db5b5?mode=deep",
+    "timestamp": "2026-01-09 16:57:39.135822",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: Log()] [Wrapper function] The Log() function on line 11 is a thin wrapper around LogScaled() - does this introduce any overhead or issues, and could confusion between Log() and LogScaled() lead to incorrect scale parameters being used? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4359fea5-0c2d-4c37-913c-61c17da00cc8?mode=deep",
+    "timestamp": "2026-01-09 16:57:56.241642",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Scale precision mismatch] When Timer values representing sub-nanosecond durations (if possible) are divided by 'scale' on lines 67-75, can precision loss make critical timing metrics appear as zero, hiding performance issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e9f9d859-9144-428c-871e-c4eca9068f8a?mode=deep",
+    "timestamp": "2026-01-09 16:58:16.030951",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Invalid scale] What happens if an unsupported or custom time.Duration scale is passed that doesn't follow standard formatting (nanosecond, millisecond, second) - can this cause the [1:] slicing on line 19 to produce meaningless suffixes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a390da9a-a66e-4e40-8752-b4c0c1ba758d?mode=deep",
+    "timestamp": "2026-01-09 16:58:37.414051",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [DoS through logging] Can a malicious validator or attacker who controls metric registration trigger excessive logging by registering thousands of metrics, causing disk space exhaustion or I/O bottlenecks that degrade validator performance? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b61580f0-38ec-461c-a556-194ff045ea0d?mode=deep",
+    "timestamp": "2026-01-09 16:58:59.303651",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Validator metrics leak] If validator nodes log metrics that reveal their block production timing, voting patterns, or consensus-related counters, can this information leak enable attackers to predict validator behavior and launch targeted attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_244bdc34-7d65-496e-b124-63d39a82bbb4?mode=deep",
+    "timestamp": "2026-01-09 16:59:22.203027",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Panic propagation] If LogScaled() is called directly from a critical path rather than in a separate goroutine, can panics from logging operations propagate and crash important node components like consensus or transaction processing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ea8c1cf7-d59b-4301-956d-f40f53f5eef6?mode=deep",
+    "timestamp": "2026-01-09 16:59:45.749237",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Unhandled panics] The entire function lacks panic recovery - if any metric method, Printf call, or Snapshot operation panics, does this crash the logging goroutine, and can repeated panics on each tick consume resources through goroutine churn? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cc76de02-b8a9-404e-a6d1-7218f495751d?mode=deep",
+    "timestamp": "2026-01-09 17:00:09.762971",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Snapshot cost] Creating snapshots on lines 41, 55, and 63 may involve copying large data structures - if metrics contain large sample sets, can frequent snapshotting during logging cause CPU spikes that interfere with consensus or transaction processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_77781d6b-130d-4f4c-9f68-9bef578a5deb?mode=deep",
+    "timestamp": "2026-01-09 17:00:33.360746",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [String concatenation] The Printf calls throughout lines 25-79 involve string formatting - can logging large numbers of metrics with long names cause excessive string allocation and memory usage? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f0210367-f40f-4992-b93b-845103e69f84?mode=deep",
+    "timestamp": "2026-01-09 17:00:58.026888",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Memory allocation] On each tick (line 21), the Registry.Each() callback allocates memory for snapshot operations (lines 41, 55, 63) - can high-frequency logging with many metrics cause memory pressure and GC overhead that degrades node performance? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_91242efb-14f2-4a0a-8f55-4bc551799433?mode=deep",
+    "timestamp": "2026-01-09 17:01:23.123452",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Float64 NaN/Inf] If CounterFloat64 or GaugeFloat64 metrics contain NaN or Infinity values (lines 29, 35), will Printf format these correctly or produce garbled output that could confuse log parsing tools? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_439d85ea-b5a0-4d0d-8c18-72999aee8e34?mode=deep",
+    "timestamp": "2026-01-09 17:01:48.443126",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [CounterSnapshot panic] For Counter metrics on line 26, if Count() is called on a CounterSnapshot after Clear() or Dec() operations that panic (as designed), can this cause unexpected panics in the logging function? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e5f36cbe-bb3c-4bb4-8925-c8a737f40680?mode=deep",
+    "timestamp": "2026-01-09 17:02:11.772339",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [NilCounter handling] If a NilCounter (no-op implementation) is registered, calling Count() returns 0 - does logging always-zero metrics create noise in logs that could hide actual issues or fill disk space unnecessarily? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_21a51400-0bf2-46d6-a039-f8a5dfed6bd6?mode=deep",
+    "timestamp": "2026-01-09 17:02:34.811504",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Stoppable metrics] Some metrics implement the Stoppable interface (mentioned in registry.go) - if a metric is stopped while LogScaled() is accessing it, can this cause panics or corrupted data in logs? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_94624f07-ab17-4686-9989-b466d61a7294?mode=deep",
+    "timestamp": "2026-01-09 17:02:58.900430",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Metric unregistration] If metrics are unregistered from the Registry while Registry.Each() is iterating on line 22, can this cause the iteration to access freed memory, invalid pointers, or panic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_07d2fd9a-ece5-47ad-97e9-2597a09a2a19?mode=deep",
+    "timestamp": "2026-01-09 17:03:24.704261",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Blocking logger] If the Logger.Printf() implementation blocks (writing to slow disk, waiting for network), can this cause the logging goroutine to hang indefinitely, accumulating ticks and eventually exhausting memory with backed-up time.Tick events? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_57b3b3cf-4892-47d9-8838-db12aece03d0?mode=deep",
+    "timestamp": "2026-01-09 17:03:49.243378",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Logger thread safety] If the Logger interface implementation is not thread-safe, and multiple LogScaled() goroutines write to the same logger concurrently, can this cause interleaved output, corrupted logs, or crashes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ad87ce9a-f368-4cb4-8384-8efa502b42b3?mode=deep",
+    "timestamp": "2026-01-09 17:04:14.565403",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Network topology] If metrics include network-related counters (peer counts, connection metrics), does logging these values expose network topology information that attackers could use to target specific nodes or plan network attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9029b5b3-055e-44ef-8344-3d26f873077d?mode=deep",
+    "timestamp": "2026-01-09 17:04:40.681122",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/log.go] [Function: LogScaled()] [Timing attacks] By logging precise timing metrics from Timer objects (lines 62-79), does this expose internal node performance characteristics that could aid attackers in timing attacks or side-channel attacks against cryptographic operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d7ae2075-6987-4f6d-b51b-3484b8485e00?mode=deep",
+    "timestamp": "2026-01-09 17:05:08.231129",
+    "report_generated": false
   }
 ]
