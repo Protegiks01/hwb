@@ -7348,5 +7348,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_563ec5aa-bc0f-473f-aec3-64a8896c20d6?mode=deep",
     "timestamp": "2026-01-09 23:15:29.300251",
     "report_generated": false
+  },
+  {
+    "question": "[File: metrics/debug.go] [Function: CaptureDebugGCStats()] [Resource leak] Can the time.Tick(d) channel (line 25) accumulate unbounded ticks if CaptureDebugGCStatsOnce() takes longer than duration d to execute, potentially causing memory leaks and channel buffer exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a8a7aee0-a830-4ee7-b90d-ca39a5c044bf?mode=deep",
+    "timestamp": "2026-01-09 23:16:59.900793",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/debug.go] [Function: CaptureDebugGCStats()] [Goroutine leak] Does the infinite loop using time.Tick(d) (line 25) have any mechanism to stop the goroutine, or will it run forever even if the node is shutting down, potentially causing goroutine leaks and preventing clean shutdown? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c7fc36f3-8cd9-4124-8b79-879a4577692e?mode=deep",
+    "timestamp": "2026-01-09 23:17:13.053030",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/debug.go] [Global variable: gcStats] [Race condition] Is the global gcStats variable (line 19) safe for concurrent access when debug.ReadGCStats(&gcStats) is called (line 41), or can this cause data races if multiple capture goroutines run simultaneously? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_32d448b6-ffe5-4b29-8f30-94822cdec2bd?mode=deep",
+    "timestamp": "2026-01-09 23:17:26.954095",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/debug.go] [Global variable: debugMetrics] [Race condition] Is the debugMetrics struct (lines 8-18) protected by any mutex or synchronization mechanism when accessed concurrently by CaptureDebugGCStatsOnce() and potential metric readers, or can this lead to data races? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_275df9d6-cc11-4539-8dc6-813d29b04532?mode=deep",
+    "timestamp": "2026-01-09 23:17:41.126536",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/debug.go] [Function: CaptureDebugGCStats()] [Race condition] Can multiple invocations of CaptureDebugGCStats() result in multiple goroutines simultaneously accessing debugMetrics.GCStats and debugMetrics.ReadGCStats without synchronization, causing data races that violate Go's memory model? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7d60811c-2233-4c29-bd86-ffa1c2afa0c6?mode=deep",
+    "timestamp": "2026-01-09 23:17:56.239835",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/debug.go] [Function: CaptureDebugGCStatsOnce()] [Race condition] Does the concurrent read of gcStats.LastGC (line 39) and subsequent write via debug.ReadGCStats(&gcStats) (line 41) create a race condition that could lead to torn reads where lastGC and gcStats.LastGC are inconsistent, causing incorrect pause time updates? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_14d67a6c-0cd3-4ecf-ad5c-93a54dcc7c31?mode=deep",
+    "timestamp": "2026-01-09 23:18:12.748715",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/debug.go] [Function: CaptureDebugGCStatsOnce()] [Race condition] Can concurrent calls to CaptureDebugGCStatsOnce() from multiple goroutines result in race conditions when reading/writing the global gcStats variable (line 19, 39-50), potentially corrupting GC statistics and causing inconsistent metrics that could hide node performance degradation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_79d83642-df54-45fb-943c-6b6a0407325c?mode=deep",
+    "timestamp": "2026-01-09 23:18:29.982380",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Deprecated syscall APIs] Could future Linux kernel versions deprecate or change the semantics of getrusage syscall, breaking this function's assumptions about CPU time measurement? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_734af8d1-ea45-40cc-a95f-e3f1b3a171ce?mode=deep",
+    "timestamp": "2026-01-09 23:18:49.613016",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Upstream go-ethereum changes] If upstream go-ethereum modifies this function, could the merge introduce regressions or security issues specific to WBT's validator consensus requirements? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1459a422-d7ce-4167-ad0c-8a53200193b4?mode=deep",
+    "timestamp": "2026-01-09 23:19:10.521946",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [golang.org/x/sys/unix version] Could vulnerabilities or bugs in the golang.org/x/sys/unix dependency affect syscall.Getrusage behavior, and are there mechanisms to detect and handle such issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_12dbac48-7675-424a-af46-2e97553685de?mode=deep",
+    "timestamp": "2026-01-09 23:19:32.223373",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Thread safety documentation] Does the function document whether it's safe to call concurrently from multiple goroutines, or could callers make incorrect assumptions about thread safety? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_416a374f-94c3-413b-9803-30431d125171?mode=deep",
+    "timestamp": "2026-01-09 23:19:56.007812",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Arithmetic documentation] Is the microsecond to second conversion (division by 1000000) clearly documented with bounds checking notes, or could future modifications introduce overflow bugs? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7f890b4e-47eb-42e6-821e-e2954277552e?mode=deep",
+    "timestamp": "2026-01-09 23:20:20.350776",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Error handling documentation] Does the function document what happens when Getrusage fails and why returning 0 is safe, or could future maintainers introduce bugs by not understanding this failure mode? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5bf416aa-ee66-4a46-abfb-edf33510a76a?mode=deep",
+    "timestamp": "2026-01-09 23:20:46.056219",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Platform compatibility testing] Has this function been tested on all supported Unix platforms (Linux, FreeBSD, macOS) to ensure rusage structure layout and field semantics are consistent? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bb7e5eef-2d4f-42ac-a5b6-f229639b5e6e?mode=deep",
+    "timestamp": "2026-01-09 23:21:12.516490",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Overflow test coverage] Have edge cases like integer overflow, extremely large Sec values, or microsecond addition overflow been tested to ensure the function degrades gracefully rather than panicking? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_681a00d4-c1ce-464b-8532-0f43956db9e7?mode=deep",
+    "timestamp": "2026-01-09 23:21:38.382592",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Unit test coverage] Are there unit tests that verify this function handles Getrusage errors correctly, or could the error path be untested allowing bugs to reach production validators? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5e0de6aa-bc35-442a-a859-a5fecc79c6fa?mode=deep",
+    "timestamp": "2026-01-09 23:22:01.497627",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Multi-validator interference] On a system running multiple validator processes, does RUSAGE_SELF correctly isolate each validator's CPU time, or could cross-process interference cause metrics to include CPU time from other validators? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_95121a2c-4adf-4365-8e82-cf63412dda17?mode=deep",
+    "timestamp": "2026-01-09 23:22:25.005264",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Consensus fairness] Could differences in syscall.Getrusage implementation across validator platforms cause some nodes to report inaccurate CPU usage, affecting network-wide resource allocation or validator reputation systems? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_00694bbe-dd38-408f-bec5-af856b4f0a00?mode=deep",
+    "timestamp": "2026-01-09 23:22:48.020763",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Block production timing] If this function is called during the critical window when a validator must seal a block, could syscall latency cause the CPU time measurement to delay block production and miss the validator's turn? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_38b0f44a-5652-4558-a97a-a49f0e75ba89?mode=deep",
+    "timestamp": "2026-01-09 23:23:10.553906",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Privilege escalation detection] Could monitoring anomalies in CPU time reported by this function detect privilege escalation or code injection attacks where malicious code consumes CPU while appearing to be the validator process? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b353ce8d-d73f-47df-ab31-040130427d7c?mode=deep",
+    "timestamp": "2026-01-09 23:23:32.469512",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Audit trail] When Getrusage fails and logs a warning, is this failure captured in security audit logs that could help detect resource exhaustion attacks or system compromise attempts? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_94801ea6-1946-479b-a862-92babef3b336?mode=deep",
+    "timestamp": "2026-01-09 23:23:55.067834",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Side channel timing] Does the execution time of syscall.Getrusage vary based on system load or scheduler state in a way that could leak information about concurrent validator operations to an attacker measuring timing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f69235f8-fa66-4440-9977-1e30ac87fbd2?mode=deep",
+    "timestamp": "2026-01-09 23:24:18.524257",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Kernel contention] On systems with many processes calling getrusage simultaneously, could kernel-level locking or contention cause this syscall to block, delaying metrics collection and potentially missing time-sensitive measurements? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bb39a9e6-cc39-409b-838b-408f7ab91b7a?mode=deep",
+    "timestamp": "2026-01-09 23:24:41.717246",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Cache effects] Could frequent calls to syscall.Getrusage cause cache pollution or TLB misses that degrade validator node performance during critical consensus operations like block sealing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_614d8ae7-e02a-4f90-8966-a51b99028419?mode=deep",
+    "timestamp": "2026-01-09 23:25:04.267605",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cputime_unix.go] [Function: getProcessCPUTime()] [Syscall overhead] When called repeatedly in the metrics collection loop (every refresh interval), does the syscall.Getrusage overhead itself contribute measurable CPU usage that gets included in the measurement, creating a feedback loop? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_725e2d62-aff1-4893-bcc3-c5cbee859c39?mode=deep",
+    "timestamp": "2026-01-09 23:25:27.293573",
+    "report_generated": false
   }
 ]
