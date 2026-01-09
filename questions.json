@@ -1248,5 +1248,130 @@
     "question": "crypto/bn256/bn256_slow.go",
     "url": "https://deepwiki.com/search/-generate-150-targeted-securit_c52d78cd-5f1f-4f19-894b-9c4ddb50bb5f?mode=deep",
     "questions_generated": false
+  },
+  {
+    "question": "crypto/bn256/cloudflare/bn256.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_33505499-d3ea-4e71-a907-d5c4e265fe53?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/bn256/cloudflare/constants.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_e58bb342-c61b-48da-a140-df7a15a2f841?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/bn256/cloudflare/curve.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_942b66a8-1c18-4add-bff5-de3f37623938?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/bn256/cloudflare/gfp_decl.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_485b6d26-e78c-4370-a42b-cdac443f39a3?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/bn256/cloudflare/gfp_generic.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_879b02c0-4177-42ed-96b1-47a5e3a12db2?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/bn256/cloudflare/gfp.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_e208a321-9510-4fd1-95de-e51984354105?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/bn256/cloudflare/gfp12.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_6975f40d-00df-40e3-94cc-b2ce54d3a2cd?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/bn256/cloudflare/gfp2.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_86bc02d3-8dcf-447c-904a-4c3a90bdc521?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/bn256/cloudflare/gfp6.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_4fe76d27-7618-423f-b563-a359392103f2?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/bn256/cloudflare/lattice.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_6c7bb05c-56a7-4ce7-a425-577b8b597586?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/bn256/cloudflare/optate.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_059f8ab9-c2dc-45a9-a8e0-d10212ea9c69?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/bn256/cloudflare/twist.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_bf806b23-7182-4881-9c57-ff97cf393d44?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/bn256/google/bn256.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_ecc87a34-068b-4d85-b4bb-98e491b46f0f?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/bn256/google/constants.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_830ef321-8fdc-4ef9-a0b2-6115274c9624?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/bn256/google/curve.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_773afa54-41a4-4652-bf47-133b4eb3eccf?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/bn256/google/gfp12.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_ea7752ed-54c1-487f-b168-0e6977538416?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/bn256/google/gfp2.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_f409eec5-06eb-4c07-b6c2-be0004a71d9b?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/bn256/google/gfp6.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_0b3166b8-d9f8-4760-bf1b-d085c013ebff?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/bn256/google/optate.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_23f66ad5-053a-49fd-9989-e1ba450f406d?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/bn256/google/twist.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_f83e4cda-523a-4cea-b999-6929e04b82f8?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/crypto.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_91349a93-5dfe-4663-8809-cf5e6a837200?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/ecies/ecies.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_4e9ca2bc-5a72-4e22-b900-3ecaccb33e57?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/ecies/params.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_144d068e-e055-460e-8f3c-fbb5c3320564?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/secp256k1/curve.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_ba9a8c92-4121-44b0-a479-b0496ee0e4d7?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/secp256k1/panic_cb.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_e2196b99-5df9-44db-bdc9-34aa346e5426?mode=deep",
+    "questions_generated": false
   }
 ]
