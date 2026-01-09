@@ -1648,5 +1648,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3ec76118-eac2-4fc7-ba80-176f0cd7a7b9?mode=deep",
     "timestamp": "2026-01-09 16:59:16.338323",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Type Safety] [Reflection Type Mismatch] Can reflect.ValueOf operations produce Values with incorrect types that bypass later type checking? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_983ce222-d404-41d5-b529-257273f3794b?mode=deep",
+    "timestamp": "2026-01-09 17:00:25.700738",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Type Safety] [Dynamic Type Confusion] Can dynamic type detection in Pack incorrectly classify complex types, corrupting ABI encoding? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4b418018-0763-45f4-996c-a634e8716bc0?mode=deep",
+    "timestamp": "2026-01-09 17:00:38.452023",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Type Safety] [Tuple vs Array] Can tuple types be confused with array types in copyTuple switch statement, causing incorrect unpacking? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f50a847d-3cd2-4cff-8cc6-204e58c26ed1?mode=deep",
+    "timestamp": "2026-01-09 17:00:51.717968",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Type Safety] [Pointer vs Value] Can reflection operations on pointers vs values cause type confusion in copyAtomic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fbc208b7-7470-47d0-98ed-b9bbb2c55161?mode=deep",
+    "timestamp": "2026-01-09 17:01:05.384017",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Edge Case] [Zero-Length Arrays] Can static arrays with size 0 cause division-by-zero or incorrect offset calculations in UnpackValues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_61086c13-6bc3-4996-8b17-cf2de7c4e2d1?mode=deep",
+    "timestamp": "2026-01-09 17:01:20.135459",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Edge Case] [Maximum Nesting] Can maximally nested tuple/array types cause stack overflow during recursive type processing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f41b3b01-8f44-4818-a2fa-34da36b8f651?mode=deep",
+    "timestamp": "2026-01-09 17:01:36.023222",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Edge Case] [Empty String Arguments] Can arguments with empty string Names cause map key collisions in UnpackIntoMap? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_be5d94cb-1d65-4091-b426-a50e9d1cfa15?mode=deep",
+    "timestamp": "2026-01-09 17:01:52.897285",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Edge Case] [All Indexed Arguments] Can Arguments where all are Indexed cause NonIndexed() to return empty slice, breaking callers' assumptions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_365b212c-a1b6-41d4-ad05-a03bd2e241f3?mode=deep",
+    "timestamp": "2026-01-09 17:02:11.016897",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Edge Case] [Single Element Tuple] Can a tuple with exactly one element be mishandled by isTuple check, affecting Pack/Unpack logic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_aa9044e4-e07c-4f4d-8c78-2c48c52a719e?mode=deep",
+    "timestamp": "2026-01-09 17:02:30.250398",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Edge Case] [Nil Interface] Can nil interface{} values in args parameter to Pack cause nil pointer dereferences? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fdf7bf10-9a67-4c1b-bb3c-1239468d0ec5?mode=deep",
+    "timestamp": "2026-01-09 17:02:50.809940",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Edge Case] [Empty Components] Can ArgumentMarshaling with empty Components array cause NewType to create invalid Type objects? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5f0da4d5-81ea-4a98-b3db-628dc72c2ddf?mode=deep",
+    "timestamp": "2026-01-09 17:03:11.753078",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Blockchain] [Cross-Chain Bridge] Can ABI encoding mismatches in the custom mint contract exploited through argument.go vulnerabilities enable unauthorized token minting? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_439fb1ff-7923-406b-99d6-3f4793d4acfd?mode=deep",
+    "timestamp": "2026-01-09 17:03:34.298261",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Blockchain] [Validator DoS] Can malicious transactions with crafted ABI data cause all validator nodes to crash simultaneously through Pack/Unpack operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a5f8acb5-a64b-4b9c-9337-1cc60858308d?mode=deep",
+    "timestamp": "2026-01-09 17:03:58.142075",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Blockchain] [State Root Manipulation] Can ABI unpacking errors cause inconsistent state updates across nodes, leading to state root mismatches and chain splits? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3a2d16af-6f77-4601-992c-921956f981d9?mode=deep",
+    "timestamp": "2026-01-09 17:04:22.641934",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Blockchain] [Transaction Replay] Can ABI encoding allow transaction replay attacks if packed data is not deterministic across encodings? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4a73a3b1-fa5a-439d-baad-fd36caca0e08?mode=deep",
+    "timestamp": "2026-01-09 17:04:47.661139",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Blockchain] [Gas Manipulation] Can ABI packing/unpacking operations be exploited to underestimate transaction gas requirements, causing out-of-gas failures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_afc5e910-cdfd-40b7-bf60-0a37418f0c26?mode=deep",
+    "timestamp": "2026-01-09 17:05:14.064937",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Blockchain] [Event Log Forgery] Can incorrect NonIndexed() filtering allow attackers to forge event logs with manipulated Indexed fields? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ebb40a62-f56b-4fba-b656-be1dc0ef0607?mode=deep",
+    "timestamp": "2026-01-09 17:05:41.868645",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Blockchain] [Balance Corruption] Can ABI unpacking errors when processing token transfer events cause incorrect balance updates? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_95bc9fb0-6483-4120-aac2-0da3cbea6142?mode=deep",
+    "timestamp": "2026-01-09 17:06:10.569656",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Blockchain] [Consensus Divergence] Can different nodes produce different NonIndexed() results for the same Arguments, causing consensus failure? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_34e645ce-aac7-4faf-8166-f432b132e3a0?mode=deep",
+    "timestamp": "2026-01-09 17:06:38.734097",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Go-Specific] [Panic Recovery] Are panic conditions in reflection operations properly recovered to prevent validator crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_daf07630-621a-4f36-9727-207c8e58abfb?mode=deep",
+    "timestamp": "2026-01-09 17:07:05.201126",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Go-Specific] [Nil Pointer Panic] Can nil pointer dereferences occur when accessing Type.Elem or nested Type fields? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e0b94c06-b333-4487-afc0-391c8308f96e?mode=deep",
+    "timestamp": "2026-01-09 17:07:32.009566",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Go-Specific] [Slice Bounds Panic] Can slice operations like s[:1] or value.Index(i) panic on out-of-bounds access? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2788c443-8b4e-4bae-9ff2-ecf5cf7667bc?mode=deep",
+    "timestamp": "2026-01-09 17:07:57.932053",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Go-Specific] [Map Nil Access] Can nil map access occur if UnpackIntoMap's nil check is bypassed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9281be54-5dd3-4e3a-a6a5-cd68f1a78ecd?mode=deep",
+    "timestamp": "2026-01-09 17:08:25.636690",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Go-Specific] [Goroutine Leak] Can any operations spawn goroutines that don't terminate, causing resource leaks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_632906bc-ba5e-479a-be9a-4fc545c20874?mode=deep",
+    "timestamp": "2026-01-09 17:08:54.030857",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Go-Specific] [Defer Overhead] Are there missing defer statements for cleanup that could cause resource leaks on error paths? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c66e2117-f8af-41cb-9be4-29577c78c8dd?mode=deep",
+    "timestamp": "2026-01-09 17:09:21.063401",
+    "report_generated": false
   }
 ]
