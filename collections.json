@@ -3448,5 +3448,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_30173ea6-ad6d-42ca-8e20-8554f7213c03?mode=deep",
     "timestamp": "2026-01-09 19:00:46.752294",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/bind.go] [Function: Bind()] [Error Return Consistency] Throughout Bind(), errors are returned with different levels of context - could insufficient error context make debugging difficult or hide security issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b5c63433-bea3-40bf-8c68-23fe4d8e148a?mode=deep",
+    "timestamp": "2026-01-09 19:01:58.031196",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [DoS Attack] Can an attacker exploit the infinite polling loop by deploying a transaction that never gets mined, causing the function to run indefinitely and consume resources if the context is never canceled, leading to node resource exhaustion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1538f138-40c2-4479-b666-136e8dc16a13?mode=deep",
+    "timestamp": "2026-01-09 19:02:11.036675",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Race Condition] If multiple goroutines call WaitMined() concurrently with the same transaction hash, can race conditions in the backend's TransactionReceipt() implementation lead to inconsistent receipt data being returned to different callers, potentially causing state inconsistencies? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b4abeaf3-c3c2-405b-aa77-400c9ce706b5?mode=deep",
+    "timestamp": "2026-01-09 19:02:24.432765",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Ticker Resource Leak] If the context is canceled before queryTicker.Stop() is called via defer, could there be scenarios where the ticker continues running in edge cases, causing goroutine and memory leaks that accumulate over time? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7f181c43-e820-4add-98b5-31956fae911d?mode=deep",
+    "timestamp": "2026-01-09 19:02:38.110202",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Receipt Manipulation] Can a malicious backend implementation return a forged receipt that appears valid but contains manipulated transaction status, gas used, or logs, allowing an attacker to deceive contract deployment/interaction logic? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_01d3a8da-e28d-428a-9475-7852b97257b1?mode=deep",
+    "timestamp": "2026-01-09 19:02:52.621890",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Nil Receipt] Does the function properly handle the case where TransactionReceipt() returns a nil receipt with no error, or could this lead to nil pointer dereference in calling code that assumes a valid receipt is always returned? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eca51005-d853-4593-af02-8a028b9d426d?mode=deep",
+    "timestamp": "2026-01-09 19:03:07.388710",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Context Cancellation Timing] If the context is canceled exactly when TransactionReceipt() succeeds, is there a race condition where the function might return ctx.Err() instead of the valid receipt, causing transaction confirmation failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f89db1e2-53c6-445f-bc19-1a5871b23a97?mode=deep",
+    "timestamp": "2026-01-09 19:03:24.806142",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Error Masking] By only checking for ethereum.NotFound and treating all other errors as transient with Trace logging, could critical backend errors (RPC failures, database corruption, network splits) be masked, leading to incorrect system state assumptions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_21d97c9a-fb66-4bfb-8e42-0c1b88ac7847?mode=deep",
+    "timestamp": "2026-01-09 19:03:42.501797",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Transaction Hash Collision] If two transactions somehow produce the same hash (through hash collision or backend manipulation), could WaitMined return the receipt for the wrong transaction, leading to incorrect contract deployment detection? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2ce542d3-43ee-4e8c-be62-d621e1b61b20?mode=deep",
+    "timestamp": "2026-01-09 19:04:02.521914",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Reorg Handling] If a chain reorganization occurs while WaitMined is polling, causing a previously mined transaction to become unmined, does the function detect this and continue waiting, or could it return a stale receipt from the orphaned chain? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c81612a7-27dd-432d-b2d0-5369a9b24360?mode=deep",
+    "timestamp": "2026-01-09 19:04:23.321924",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Backend Panic] If the backend's TransactionReceipt() implementation panics, is there any recovery mechanism, or will the panic propagate and crash the node, causing service disruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5626c3b6-4bf4-417c-a2ad-bfdd3fd6bd1d?mode=deep",
+    "timestamp": "2026-01-09 19:04:45.069888",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Time Manipulation] With a fixed 1-second polling interval via time.NewTicker(time.Second), can an attacker exploit predictable polling patterns to time their malicious transactions to avoid detection or confirmation delays? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4b952e62-7787-4cd8-8b41-dbf43dcbb975?mode=deep",
+    "timestamp": "2026-01-09 19:05:07.161442",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Resource Exhaustion] If thousands of transactions are submitted concurrently and each spawns a WaitMined goroutine with a 1-second ticker, could this lead to excessive ticker creation, memory pressure, and eventual node performance degradation or crash? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_de666637-4e40-48ad-9805-81827f114e47?mode=deep",
+    "timestamp": "2026-01-09 19:05:28.792022",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Select Race] In the select statement choosing between ctx.Done() and queryTicker.C, if both channels are ready simultaneously, could the non-deterministic selection cause inconsistent behavior in transaction confirmation handling? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_04ac6e9b-97ed-46ae-a48b-0205d380737b?mode=deep",
+    "timestamp": "2026-01-09 19:05:52.073715",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Immediate Context Cancellation] If the context is already canceled when WaitMined is called, does the function check this before starting the polling loop, or does it waste resources creating a ticker and making at least one TransactionReceipt call? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1d3f939b-2fd9-4470-917b-39754d765090?mode=deep",
+    "timestamp": "2026-01-09 19:06:16.221273",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Logger Side Effects] Could the log.New() call creating a logger with the transaction hash cause memory leaks if millions of transactions are monitored, as each creates a new logger instance that may not be properly garbage collected? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_488b97ad-82fd-4c1d-b4d3-69373dd74a1f?mode=deep",
+    "timestamp": "2026-01-09 19:06:42.065375",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitDeployed()] [Non-Deployment Transaction] The function checks if tx.To() != nil to detect non-deployment transactions, but could a malicious transaction be crafted with To() == nil that isn't actually a contract creation, bypassing this validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b5ce443c-af31-4f60-8b45-a9557a22804e?mode=deep",
+    "timestamp": "2026-01-09 19:07:09.156421",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitDeployed()] [Zero Address Bypass] The function checks if receipt.ContractAddress == common.Address{} to detect deployment failure, but could a malicious receipt contain a non-zero but invalid address that passes this check but points to no actual contract? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b90bf067-5ce5-4ca5-a649-4f90f7aaa38e?mode=deep",
+    "timestamp": "2026-01-09 19:07:37.670232",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitDeployed()] [Code Verification Race] Between checking receipt.ContractAddress and calling CodeAt(), could a contract self-destruct or be replaced through a state manipulation attack, causing the code check to return empty code even though deployment initially succeeded? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_226bdcd8-67bf-4edb-b012-3909577160e7?mode=deep",
+    "timestamp": "2026-01-09 19:08:06.077258",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitDeployed()] [Pre-Homestead OOG] The comment mentions pre-Homestead chains where OOG in constructor could leave an empty account, but does this check work correctly on all chain configurations, including WBT's custom chain parameters? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_323cea0a-039f-477e-97e6-bba642ab6d58?mode=deep",
+    "timestamp": "2026-01-09 19:08:34.713973",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitDeployed()] [CodeAt Nil Block] The function calls CodeAt() with nil block number, which means 'latest', but in a fast-moving chain with frequent reorgs, could this return code from a different block than the receipt, causing validation inconsistencies? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_53c2bc67-5268-4ca5-96d5-b7bd4d702ec6?mode=deep",
+    "timestamp": "2026-01-09 19:09:01.841674",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitDeployed()] [Error Ordering] If CodeAt() returns both err == nil and len(code) == 0, the function sets err = ErrNoCodeAfterDeploy, but could there be cases where err is actually non-nil and important, getting overwritten and lost? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_beffe62e-21b2-45bd-a7e8-04b677b5ab4e?mode=deep",
+    "timestamp": "2026-01-09 19:09:27.400192",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitDeployed()] [Proxy Contract Detection] Does the code length check correctly handle proxy contracts or contracts with minimal bytecode, or could legitimate deployments be rejected as failed due to small code size? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6723b85f-8e0d-43de-9df6-599657b13d4a?mode=deep",
+    "timestamp": "2026-01-09 19:09:51.659537",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitDeployed()] [Receipt Status Ignored] The function doesn't check receipt.Status to verify if the deployment transaction actually succeeded or reverted, could a failed deployment with Status=0 still return a contract address, leading to incorrect deployment detection? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9358ad61-a6b6-48b8-a0a7-6ef47af094b8?mode=deep",
+    "timestamp": "2026-01-09 19:10:16.538391",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitDeployed()] [Frontrun Deployment] Could an attacker monitor pending contract deployments using WaitDeployed and frontrun the deployment with their own malicious contract at a computed address, causing the original deployer to interact with the wrong contract? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_94666195-b376-4489-9bc0-f6a1d16337c5?mode=deep",
+    "timestamp": "2026-01-09 19:10:42.062130",
+    "report_generated": false
   }
 ]
