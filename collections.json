@@ -1498,5 +1498,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7c0346c1-e0b2-44bf-9541-dd61ed1b4618?mode=deep",
     "timestamp": "2026-01-09 16:49:09.063044",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Struct: Arguments] [Nil Slice] Can an Arguments slice be nil vs. empty, causing different behavior in NonIndexed(), isTuple(), etc.? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9f3c33b5-a06e-45b8-ae05-5ca17fae5a99?mode=deep",
+    "timestamp": "2026-01-09 16:50:22.835672",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Struct: ArgumentMarshaling] [JSON Bombs] Can malicious JSON create deeply nested Components causing exponential memory growth during unmarshaling? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e4530dde-c85e-484a-b70f-ec2961cfd858?mode=deep",
+    "timestamp": "2026-01-09 16:50:35.937351",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Struct: ArgumentMarshaling] [Field Validation] Are all fields (Name, Type, InternalType, Components, Indexed) validated for consistency before use? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_789f3d15-29a2-4b43-84eb-3bbc31a31b7b?mode=deep",
+    "timestamp": "2026-01-09 16:50:49.332286",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [EVM Integration] [Transaction Decoding] Can malicious transaction calldata exploit ABI unpacking to cause validator node crashes during EVM execution? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_db9ee1ea-eb13-48af-a113-723abedf9f93?mode=deep",
+    "timestamp": "2026-01-09 16:51:03.114641",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [EVM Integration] [Event Log Parsing] Can crafted event logs with manipulated Indexed flags cause incorrect data extraction, leading to incorrect state updates? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_db096cb1-56ef-4577-89ac-5475de3cd0fb?mode=deep",
+    "timestamp": "2026-01-09 16:51:17.985836",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [EVM Integration] [Function Signature] Can ABI encoding mismatches between Pack and actual EVM expectations allow function selector collisions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a60ccff1-cd81-4be0-8b26-e84ee0a03c43?mode=deep",
+    "timestamp": "2026-01-09 16:51:34.276973",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [EVM Integration] [Return Data] Can incorrect unpacking of EVM return data cause state corruption if return values are used in subsequent transactions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fc27bc46-9f8b-46c4-995f-6854c073c9c6?mode=deep",
+    "timestamp": "2026-01-09 16:51:52.160470",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [EVM Integration] [Gas Metering] Can ABI unpacking operations consume unbounded gas during transaction execution, enabling DoS attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5ad50bfb-4e61-4da0-8e39-f9566154a76e?mode=deep",
+    "timestamp": "2026-01-09 16:52:10.347277",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [EVM Integration] [Revert Handling] If ABI unpacking fails mid-transaction, are partial state changes properly reverted? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6188b059-54c4-4bf5-a253-ca398afc9836?mode=deep",
+    "timestamp": "2026-01-09 16:52:31.071714",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [EVM Integration] [Constructor Arguments] Can malicious constructor arguments exploit Pack/Unpack to deploy contracts with corrupted initialization state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a1be1a56-714b-491e-9ae3-f5e7c6cd737d?mode=deep",
+    "timestamp": "2026-01-09 16:52:50.373049",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [EVM Integration] [Fallback Function] Can empty or malformed calldata bypass ABI unpacking and trigger fallback functions unexpectedly? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f46ae5cc-57ef-4e8c-99ce-e6534f82d9d2?mode=deep",
+    "timestamp": "2026-01-09 16:53:11.717593",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Memory] [Slice Growth] Can append operations in UnpackValues and Pack cause excessive memory reallocations under adversarial inputs? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5443f7aa-6ca4-4c4d-8ac4-5529fedcfa9b?mode=deep",
+    "timestamp": "2026-01-09 16:53:34.973473",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Memory] [Interface Boxing] Can interface{} conversions in marshalledValues cause memory leaks through unintended reference retention? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3a4eaba4-51f5-4986-b9c1-41dce8c8a64c?mode=deep",
+    "timestamp": "2026-01-09 16:53:59.005295",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Memory] [Reflection Overhead] Can repeated reflection operations in copyTuple create performance DoS through CPU exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5fa287de-e972-4027-b484-76e14c3b08d2?mode=deep",
+    "timestamp": "2026-01-09 16:54:24.854303",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Memory] [String Concatenation] Can ToCamelCase's string concatenation at line 272 cause O(n²) memory behavior for many underscores? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8255115a-50f7-4e16-9f7e-31de78424072?mode=deep",
+    "timestamp": "2026-01-09 16:54:50.652396",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Memory] [Map Growth] Can UnpackIntoMap's map populate unbounded maps leading to memory exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1d792d36-2606-4aab-99f7-808129ba054e?mode=deep",
+    "timestamp": "2026-01-09 16:55:17.734298",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Memory] [Byte Slice Retention] Can the data []byte parameter in Unpack/UnpackValues be retained longer than necessary, preventing garbage collection? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d160b086-0863-40d0-8605-1c19463157dd?mode=deep",
+    "timestamp": "2026-01-09 16:55:45.217410",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Integer] [Offset Overflow] In UnpackValues line 189, can (index+virtualArgs)*32 overflow if index or virtualArgs are large? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5d1d0a5c-dc07-4071-aba7-859e196a8f42?mode=deep",
+    "timestamp": "2026-01-09 16:56:13.298311",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Integer] [Size Calculation] In UnpackValues line 204, can getTypeSize(arg.Type)/32 produce incorrect results for types with non-32-byte-aligned sizes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c2ef7fe4-868c-465e-86c8-b7761f7ba516?mode=deep",
+    "timestamp": "2026-01-09 16:56:41.325253",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Integer] [InputOffset Overflow] In Pack line 235, can inputOffset += getTypeSize accumulate to exceed maximum int size? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0f2bd2bb-529d-4f5b-ac4e-228af410896f?mode=deep",
+    "timestamp": "2026-01-09 16:57:08.509551",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Integer] [Length Arithmetic] In Pack line 250, can inputOffset += len(packed) overflow when processing large dynamic data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_52c9109e-0fbb-4a0d-83ea-2a9b8427fbf0?mode=deep",
+    "timestamp": "2026-01-09 16:57:37.063761",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Integer] [Capacity Calculation] In UnpackValues line 186, can len(nonIndexedArgs) be manipulated to cause incorrect capacity allocation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5c7a1183-2903-4e63-8370-263b383131aa?mode=deep",
+    "timestamp": "2026-01-09 16:58:04.476826",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Integer] [Index Bounds] In copyTuple line 171, can index i exceed slice bounds if loop condition is modified concurrently? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5e0236b5-4c68-4d0e-935c-527ae3fd31c6?mode=deep",
+    "timestamp": "2026-01-09 16:58:28.987953",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Integer] [VirtualArgs Underflow] Can virtualArgs become negative if decrement at line 204 exceeds increments, causing offset miscalculation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4ffd680a-46db-40ac-a6d8-2378001a54ed?mode=deep",
+    "timestamp": "2026-01-09 16:58:53.238992",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Type Safety] [Interface Type Assertion] Can interface{} values in marshalledValues contain unexpected types that cause set() to fail silently? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3ec76118-eac2-4fc7-ba80-176f0cd7a7b9?mode=deep",
+    "timestamp": "2026-01-09 16:59:16.338323",
+    "report_generated": false
   }
 ]
