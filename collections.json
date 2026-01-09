@@ -3598,5 +3598,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_94666195-b376-4489-9bc0-f6a1d16337c5?mode=deep",
     "timestamp": "2026-01-09 19:10:42.062130",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitDeployed()] [Address Collision] If two deployment transactions somehow result in the same contract address (through CREATE2 manipulation or hash collision), could WaitDeployed return the wrong address, leading to security vulnerabilities in contract interactions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_72b30c95-d791-48ee-9254-822844f17d32?mode=deep",
+    "timestamp": "2026-01-09 19:11:53.884399",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitDeployed()] [Backend Address Manipulation] Can a malicious backend implementation return an arbitrary ContractAddress in the receipt that doesn't match the actual deployed address, bypassing the code verification check through timing manipulation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_84fed8c8-ab2e-4402-bd78-edd4080baea1?mode=deep",
+    "timestamp": "2026-01-09 19:12:06.953202",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitDeployed()] [Chain Fork During Deploy] If a chain fork occurs during contract deployment, causing the transaction to be mined on both chains at different addresses, which address does WaitDeployed return, and could this lead to cross-chain security issues? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_103d9615-bd0e-4332-9229-eb4b82947e31?mode=deep",
+    "timestamp": "2026-01-09 19:12:20.654203",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitDeployed()] [Selfdestruct in Constructor] Could a malicious contract immediately self-destruct in its constructor after deployment, passing the code length check initially but leaving no code by the time dependent contracts try to interact with it? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a063546e-a2fa-4a2a-8089-a7a7c019fbdc?mode=deep",
+    "timestamp": "2026-01-09 19:12:34.654681",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Nil Transaction] If a nil transaction pointer is passed to WaitMined, does tx.Hash() cause a nil pointer dereference panic, or is there validation to handle this gracefully? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_63a496a6-f40a-4291-9a73-0ca01201ff4d?mode=deep",
+    "timestamp": "2026-01-09 19:12:49.450099",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Nil Backend] If the DeployBackend parameter b is nil, will TransactionReceipt() call cause a nil pointer dereference panic, potentially crashing the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_00d462cb-723b-4485-a599-34acf4e42954?mode=deep",
+    "timestamp": "2026-01-09 19:13:05.345477",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitDeployed()] [Nil Transaction] If a nil transaction is passed to WaitDeployed, does tx.To() cause a panic before reaching the validation error, creating an inconsistent error handling path? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1d4b6064-1d86-43e1-988f-719377c42f21?mode=deep",
+    "timestamp": "2026-01-09 19:13:22.783157",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitDeployed()] [Context Propagation] If the context passed to WaitDeployed is canceled during the CodeAt() call after WaitMined succeeds, is the error handling correct, or could partial results be returned causing state inconsistencies? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3816a539-2d88-48db-b89b-e85888f14c19?mode=deep",
+    "timestamp": "2026-01-09 19:13:42.451142",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitDeployed()] [ErrNoCodeAfterDeploy Handling] Is ErrNoCodeAfterDeploy a properly defined exported error that calling code can check with errors.Is(), or could error matching fail, causing incorrect error handling in deployment flows? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5125973d-0533-4e88-8a0a-b9e387342bb2?mode=deep",
+    "timestamp": "2026-01-09 19:14:03.578603",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Concurrent Receipt Modification] If the backend's TransactionReceipt() implementation returns a shared receipt object that gets modified by concurrent goroutines, could race conditions corrupt receipt data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8ef819bb-108b-496e-967a-d11805b21071?mode=deep",
+    "timestamp": "2026-01-09 19:14:25.076208",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Backend State Race] If multiple WaitMined calls are made concurrently and the backend implementation has internal race conditions in its state management, could this lead to incorrect receipt retrieval or database corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1343d9e3-d5bc-403e-8746-88d523e4c63b?mode=deep",
+    "timestamp": "2026-01-09 19:14:48.524378",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitDeployed()] [Concurrent CodeAt] If CodeAt() is called concurrently for the same address from multiple goroutines during contract deployment, could race conditions in the backend's code cache lead to inconsistent results? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1cf7ff91-1dcb-45bb-a62f-fd12a4d6317c?mode=deep",
+    "timestamp": "2026-01-09 19:15:12.749077",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Ticker Stop Race] Is there any race condition between queryTicker.Stop() in defer and the select statement reading from queryTicker.C, potentially causing panics or incorrect behavior? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_27148a6f-de26-4140-a503-520a8db866f0?mode=deep",
+    "timestamp": "2026-01-09 19:15:38.010655",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Backend Interface Trust] Does the function make any assumptions about the DeployBackend interface implementation being honest, or could a malicious backend implementation exploit the polling mechanism to cause security issues? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d0628cb5-4f6c-4d16-a560-3c1d9f5e5b2e?mode=deep",
+    "timestamp": "2026-01-09 19:16:03.745365",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Error Type Assumption] The function uses errors.Is(err, ethereum.NotFound), but if the backend returns a wrapped error or custom error type that doesn't match, could legitimate 'not found' cases be mishandled? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_abc7413c-5efd-4268-be84-a74e5f03f3cb?mode=deep",
+    "timestamp": "2026-01-09 19:16:30.230475",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitDeployed()] [Receipt Trust] Does WaitDeployed assume the receipt returned by WaitMined is always valid and correctly formatted, or could malformed receipts cause panics or incorrect behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_580304e8-cbbb-4a0c-8263-48e72dd59764?mode=deep",
+    "timestamp": "2026-01-09 19:16:56.637392",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitDeployed()] [Block Number Assumption] When calling CodeAt() with nil block number, does this correctly resolve to the same block as the receipt, or could there be consensus differences causing validation failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_260604b2-9ec6-45a4-a388-a2fdcaf3aad3?mode=deep",
+    "timestamp": "2026-01-09 19:17:24.285650",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Goroutine Leak] If WaitMined is called without proper context cancellation, could the goroutine run forever on unmined transactions, causing goroutine leaks and resource exhaustion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_efbb5b50-32db-4686-b903-82580d414859?mode=deep",
+    "timestamp": "2026-01-09 19:17:52.678474",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Log Spam] Could an attacker spam the network with transactions that never get mined, causing WaitMined to generate excessive Trace logs and fill up disk space? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4eeb66e1-e3a1-4c98-9980-47a43fc63b99?mode=deep",
+    "timestamp": "2026-01-09 19:18:20.497012",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitDeployed()] [Double Wait Cost] Since WaitDeployed calls WaitMined internally and then makes additional CodeAt() call, could this be exploited to cause double resource consumption compared to direct receipt retrieval? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3578bad0-a05a-496e-9194-3606f1c2199a?mode=deep",
+    "timestamp": "2026-01-09 19:18:47.814102",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Backend RPC Flood] With 1-second polling interval, if thousands of WaitMined calls are active, could this flood the backend RPC endpoint with TransactionReceipt() requests, causing RPC DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_65249e74-9145-441d-924e-d51be6164740?mode=deep",
+    "timestamp": "2026-01-09 19:19:14.082200",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Orphaned Receipt] If a receipt is returned for a transaction that was later orphaned due to chain reorg, does the function detect this, or will it return invalid receipt data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_adc07a35-d1fa-42d3-a70a-78d4ab3cd443?mode=deep",
+    "timestamp": "2026-01-09 19:19:40.209199",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitDeployed()] [Reorg Address Change] If a contract deployment is reorganized to a different block, could the contract address change, and does WaitDeployed handle this correctly or return stale address information? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_641fafe1-78ef-4349-aa58-656d7e0cbc01?mode=deep",
+    "timestamp": "2026-01-09 19:20:04.822461",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Receipt Finality] Does WaitMined wait for transaction finality or just inclusion in any block, and could returning non-finalized receipts lead to issues if the transaction is later reversed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2603f355-59ce-48c2-87b2-f7bbec83a69d?mode=deep",
+    "timestamp": "2026-01-09 19:20:31.291119",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitDeployed()] [Code Availability] After a reorg, could the contract code become temporarily unavailable at the deployed address, causing CodeAt() to fail even though deployment was successful? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ab013719-8295-42d0-be3d-d3f13ed7390e?mode=deep",
+    "timestamp": "2026-01-09 19:20:56.789518",
+    "report_generated": false
   }
 ]
