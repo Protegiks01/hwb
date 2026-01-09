@@ -2398,5 +2398,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_38d69d08-f636-4768-a0e4-7c399f251c2d?mode=deep",
     "timestamp": "2026-01-09 17:49:46.407455",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewTransactor()] [Deprecated warning bypass] The log.Warn() at line 46 only warns about deprecation - could malicious code suppress logs or ignore warnings to continue using vulnerable deprecated functions in production validator operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1d35f1c3-479d-48e4-85c3-edf5750a3d25?mode=deep",
+    "timestamp": "2026-01-09 17:50:55.814147",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyedTransactor()] [Homestead signer limitations] At line 88, HomesteadSigner is used - does this signer properly handle contract creation transactions, and could limitations in contract creation signing be exploited for unauthorized deployments? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a82d0e04-4a59-4bf7-be75-547726604abd?mode=deep",
+    "timestamp": "2026-01-09 17:51:08.576083",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Global variables] Are there any global variables used by these functions (e.g., cached signers, key material) that could be accessed concurrently without proper synchronization, leading to race conditions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_946864e4-5ec3-4348-ba88-5470cf535872?mode=deep",
+    "timestamp": "2026-01-09 17:51:21.739251",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyStoreTransactorWithChainID()] [Error return path] If keystore.SignHash() fails at line 132-134, the error is returned, but is the partially constructed transaction cleaned up, or could it leak sensitive information in error handlers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_191c91f1-a8ce-41c2-98a3-b8b764b8ac0f?mode=deep",
+    "timestamp": "2026-01-09 17:51:36.646217",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyedTransactorWithChainID()] [Private key validation] The private key at line 144 - is it validated to be a valid secp256k1 private key (non-zero, within curve order), or could invalid keys lead to weak or predictable signatures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_25b6ca20-bc4f-4b32-b00f-07ec0a162558?mode=deep",
+    "timestamp": "2026-01-09 17:51:51.080416",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewClefTransactor()] [Clef response validation] After clef.SignTx() at line 175 returns a signed transaction, is the signature validated to ensure it correctly recovers to the expected address, or is Clef trusted completely without verification? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d8f87d41-5ecc-48ec-a358-396c68cd4b5d?mode=deep",
+    "timestamp": "2026-01-09 17:52:06.620461",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractCaller] [Input validation] Do implementations of CodeAt() properly validate that the blockNumber parameter doesn't overflow or cause integer wraparound when converted to internal block representations, potentially allowing access to unauthorized blockchain states? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_14e9549c-ef06-421b-b4d8-420b50f8ef8f?mode=deep",
+    "timestamp": "2026-01-09 17:52:24.394092",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractCaller] [Nil pointer] Can implementations of CodeAt() handle nil blockNumber parameter safely, or will this cause nil pointer dereference panics that crash nodes and cause DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ff17d122-bfbd-46d9-b366-4b55d22d3365?mode=deep",
+    "timestamp": "2026-01-09 17:52:43.070213",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractCaller] [State consistency] Does the CodeAt() interface require implementations to use consistent state snapshots, or can race conditions between the code check and contract call lead to time-of-check-time-of-use (TOCTOU) vulnerabilities? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b5e36456-e604-494f-99fd-379cd02971e8?mode=deep",
+    "timestamp": "2026-01-09 17:53:03.596664",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractCaller] [Address validation] Does the CodeAt() interface specification require validation that contract addresses are valid Ethereum addresses, or can malformed addresses cause panics or undefined behavior in implementations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_109f7c07-86c4-41e3-9222-09da83a75b9b?mode=deep",
+    "timestamp": "2026-01-09 17:53:26.129564",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractCaller] [Context cancellation] Can implementations of CodeAt() properly handle context cancellation, or might abrupt cancellations leave backend state corrupted or locks unreleased causing deadlocks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d7001567-f9a0-4ca4-b83d-fadd773cee29?mode=deep",
+    "timestamp": "2026-01-09 17:53:50.514326",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractCaller] [Resource exhaustion] Does the CallContract() interface impose limits on the returned byte array size, or can malicious contracts return gigabyte-sized responses causing memory exhaustion and node crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b6049d84-9008-4771-acec-37cc04bfbaa4?mode=deep",
+    "timestamp": "2026-01-09 17:54:15.861183",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractCaller] [Gas limit bypass] Can CallContract() implementations be exploited to execute contract calls without proper gas limits, allowing infinite loops or expensive operations that DoS the node? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1a135bbe-9426-4672-bb67-d591ce0b519b?mode=deep",
+    "timestamp": "2026-01-09 17:54:42.613280",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractCaller] [Block number manipulation] If CallContract() receives a future blockNumber, can this be exploited to query states that don't exist yet, potentially revealing validator intentions or causing state inconsistencies? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b58998eb-f69c-4555-bdc5-a1e866de3a5d?mode=deep",
+    "timestamp": "2026-01-09 17:55:09.904078",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractCaller] [Revert data handling] Does CallContract() properly distinguish between transaction reverts and actual errors, or can attackers craft reverts that are misinterpreted as successful calls leading to incorrect state assumptions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eeb58254-229c-4e7f-b020-fa1b670a3bf2?mode=deep",
+    "timestamp": "2026-01-09 17:55:38.939447",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractCaller] [Historical state access] Can CodeAt() with historical blockNumbers be used to perform expensive state lookups that aren't properly rate-limited, enabling DoS attacks through repeated historical queries? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d6ce781a-1570-4da3-9321-0511cb034862?mode=deep",
+    "timestamp": "2026-01-09 17:56:05.979601",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: PendingContractCaller] [State volatility] Does PendingCodeAt() guarantee that pending state remains consistent during the call, or can concurrent transaction pool modifications cause race conditions leading to inconsistent contract code being returned? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7d7912a0-864d-4601-8f11-a0f1c809223e?mode=deep",
+    "timestamp": "2026-01-09 17:56:33.435260",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: PendingContractCaller] [Front-running] Can malicious actors use PendingCallContract() to preview pending transactions and front-run them, extracting MEV or manipulating transaction ordering for profit? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5c32a9d1-ac6a-469b-ab30-f9fb74c5dd6a?mode=deep",
+    "timestamp": "2026-01-09 17:57:02.664580",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: PendingContractCaller] [Pending state manipulation] If implementations don't properly isolate pending state queries, can attackers inject malicious transactions into the pending pool that affect PendingCallContract() results, misleading users about transaction outcomes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_80926fb1-c77d-4b8a-87fc-cceda884f898?mode=deep",
+    "timestamp": "2026-01-09 17:57:32.702614",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: PendingContractCaller] [DoS through pending queries] Can repeated calls to PendingCallContract() with expensive operations overwhelm the transaction pool processing, causing legitimate transactions to be delayed or dropped? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_03afe7c7-9e63-4510-bfba-71eca386e45e?mode=deep",
+    "timestamp": "2026-01-09 17:58:00.716078",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Error: ErrNoPendingState] [Error handling] If a backend doesn't support pending state, is ErrNoPendingState always properly returned, or can some code paths fall through to undefined behavior causing panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e99eb27d-329e-48ee-bf84-96f60633bfae?mode=deep",
+    "timestamp": "2026-01-09 17:58:27.468122",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: PendingContractCaller] [Consistency guarantee] Does PendingCodeAt() guarantee atomicity with PendingCallContract(), or can the code change between checking code existence and executing the call, causing TOCTOU vulnerabilities? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7d36d491-6a07-46ab-8dcf-a2ffed06dd6e?mode=deep",
+    "timestamp": "2026-01-09 17:58:54.091749",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractTransactor] [Header manipulation] Can HeaderByNumber() be exploited to return crafted headers that don't match actual blockchain state, allowing attackers to trick contract deployment or transaction logic? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d7659115-fd27-4f06-8ee1-cbd13ec4d6b3?mode=deep",
+    "timestamp": "2026-01-09 17:59:20.401666",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractTransactor] [Nil header handling] Does HeaderByNumber() with nil parameter safely return the latest header, or can race conditions during chain reorganizations cause it to return an orphaned header leading to incorrect transaction construction? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_71642178-45ca-4a51-a2de-b76de5fbd298?mode=deep",
+    "timestamp": "2026-01-09 17:59:48.306978",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractTransactor] [Nonce race condition] Can concurrent calls to PendingNonceAt() for the same account return duplicate nonces, enabling transaction replay attacks or nonce confusion that causes transaction failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d05230d4-297a-4bf4-b373-ff805ff61ddc?mode=deep",
+    "timestamp": "2026-01-09 18:00:16.778833",
+    "report_generated": false
   }
 ]
