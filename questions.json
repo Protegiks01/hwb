@@ -123,5 +123,130 @@
     "question": "accounts/keystore/key.go",
     "url": "https://deepwiki.com/search/-generate-150-targeted-securit_eedde993-62ad-4a2d-8dc8-54882a8b9e1f?mode=deep",
     "questions_generated": false
+  },
+  {
+    "question": "accounts/keystore/keystore.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_37b20d17-cc7f-4dca-be79-57905e8a3129?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "accounts/keystore/passphrase.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_7af8d200-44aa-446b-85f4-cbc177337e69?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "accounts/keystore/plain.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_10b2c630-29aa-4c4a-bab1-20f6e3760e54?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "accounts/keystore/presale.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_c6d72e40-3069-465b-abfc-a7423b7757a8?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "accounts/keystore/wallet.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_f14590b4-2b67-44f5-9b37-81bec471a1ed?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "accounts/keystore/watch_fallback.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_2fb03312-0059-4bec-94ab-54087a533ffc?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "accounts/keystore/watch.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_67a42e85-e985-4be7-9c04-1c5ea54a7fa9?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "accounts/manager.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_0e1dab47-46ff-46b7-a68f-0747c96b4a67?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "accounts/scwallet/apdu.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_fd1a7f2c-a09b-4199-9fca-fb7d01811857?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "accounts/scwallet/hub.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_6a94774d-d7dd-436e-8f67-848c98108a81?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "accounts/scwallet/securechannel.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_36e13da1-e965-4eaa-9114-5416641c2272?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "accounts/scwallet/wallet.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_f227693e-e8c1-4f64-9e68-f1d98a4e50e9?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "accounts/sort.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_6da71390-b041-4238-9581-f29dea4a4980?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "accounts/url.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_63e7477d-1a09-415a-b3f6-8484f117ac68?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "accounts/usbwallet/hub.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_992422f3-521e-41e4-a199-53df788bcec3?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "accounts/usbwallet/ledger.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_8975b349-b72e-4c56-9ccb-37d2df0eccf9?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "accounts/usbwallet/trezor.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_307bbe07-171c-4757-af94-7a0f05070612?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "accounts/usbwallet/trezor/trezor.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_3151625f-1e67-4331-996a-6035322648fa?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "accounts/usbwallet/wallet.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_e28bcc84-d44f-4bd7-91f1-d3af538aa3fa?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "beacon/engine/errors.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_8e1c7dc0-e0f5-4674-b735-4c740da38131?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "beacon/engine/types.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_10bf7216-2036-4e7d-9e57-2e2c99fcea86?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "cmd/clef/main.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_804f4cb7-5dcd-46c7-a03e-d667daaaa6a7?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "cmd/geth/accountcmd.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_2f3febd4-b0b2-4c3e-b809-debbc15a3c39?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "cmd/geth/chaincmd.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_2d4fb0f2-0d1e-4654-9367-28e80e079e93?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "cmd/geth/config.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_27997da8-7516-4ead-9a2c-b5e92ded48bb?mode=deep",
+    "questions_generated": false
   }
 ]
