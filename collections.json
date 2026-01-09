@@ -2548,5 +2548,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d05230d4-297a-4bf4-b373-ff805ff61ddc?mode=deep",
     "timestamp": "2026-01-09 18:00:16.778833",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractTransactor] [Nonce manipulation] Does PendingNonceAt() properly account for pending transactions in the mempool, or can attackers exploit gaps in nonce tracking to replace or cancel legitimate transactions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_01a4c10e-f500-4862-8870-9d6b75895556?mode=deep",
+    "timestamp": "2026-01-09 18:01:46.472201",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractTransactor] [Gas price manipulation] Can SuggestGasPrice() be manipulated by malicious validators to return artificially high prices, forcing users to overpay for transactions or artificially low prices causing transactions to never be mined? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4c8ad74b-50d5-4304-9e8f-e8f933f2bf7f?mode=deep",
+    "timestamp": "2026-01-09 18:01:59.520844",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractTransactor] [Gas price oracle attack] If SuggestGasPrice() relies on recent block history, can attackers temporarily manipulate gas prices through coordinated transaction submission to mislead the price oracle? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bd64305a-609e-458e-88a5-57a33b6d8618?mode=deep",
+    "timestamp": "2026-01-09 18:02:12.676059",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractTransactor] [EIP-1559 tip manipulation] Can SuggestGasTipCap() return negative values or values exceeding maximum gas price bounds, causing transaction construction to fail or overflow calculations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_355eb6ef-f2f1-4ebe-930f-98cc611fbcf8?mode=deep",
+    "timestamp": "2026-01-09 18:02:26.334408",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractTransactor] [Gas estimation DoS] Can EstimateGas() be exploited with malicious contract calls that consume excessive resources during estimation, causing node DoS without actually submitting expensive transactions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1a9b2220-99e9-4bac-81b7-fb839e20d851?mode=deep",
+    "timestamp": "2026-01-09 18:02:40.848596",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractTransactor] [Gas estimation accuracy] Does EstimateGas() account for state changes between estimation and actual execution, or can changing contract states cause transactions to fail due to insufficient gas after estimation succeeds? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c1b32265-42ad-4251-a5e4-614d25b6f864?mode=deep",
+    "timestamp": "2026-01-09 18:02:56.422513",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractTransactor] [Gas estimation overflow] Can EstimateGas() return a uint64 value that overflows when multiplied by gas price, causing incorrect fee calculations and potential fund loss? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_aefe5aeb-d0d1-4acd-9b16-724470790d17?mode=deep",
+    "timestamp": "2026-01-09 18:03:12.893859",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractTransactor] [Transaction injection attack] Can SendTransaction() be called with malformed transactions that pass initial validation but cause panics or state corruption when processed by the transaction pool? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c53108bb-c62b-4f0a-953b-3b2f94bcaea9?mode=deep",
+    "timestamp": "2026-01-09 18:03:31.875991",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractTransactor] [Duplicate transaction handling] Does SendTransaction() properly handle duplicate transaction submissions, or can repeated submissions cause transaction pool bloat or race conditions in nonce tracking? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6be22575-8480-4ea3-9918-1463e0601f49?mode=deep",
+    "timestamp": "2026-01-09 18:03:52.387412",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractTransactor] [Signature validation bypass] Does SendTransaction() assume transactions are pre-validated, or must implementations validate signatures, potentially allowing unsigned or malformed transactions into the pool? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_89daa89e-3452-4453-819d-3a7de0a35506?mode=deep",
+    "timestamp": "2026-01-09 18:04:14.444860",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractTransactor] [Transaction replacement] Can SendTransaction() with higher gas prices replace pending transactions without proper validation, enabling griefing attacks or transaction censorship? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e1bc29ce-c0da-4cd5-90a6-97a244c0ba2d?mode=deep",
+    "timestamp": "2026-01-09 18:04:37.383875",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractTransactor] [Context timeout] Do all ContractTransactor methods properly respect context timeouts, or can cancelled contexts leave operations partially completed causing state inconsistencies? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_23a5f2d0-1f9e-4f58-bf04-a753af866427?mode=deep",
+    "timestamp": "2026-01-09 18:05:00.974631",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractFilterer] [Filter query DoS] Can FilterLogs() be exploited with unbounded queries (e.g., fromBlock=0, toBlock=latest) that force nodes to scan millions of blocks, causing memory exhaustion and node crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_18344f34-12f5-4fe2-9662-4ffeaf3d812c?mode=deep",
+    "timestamp": "2026-01-09 18:05:26.005516",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractFilterer] [Block range validation] Does FilterLogs() enforce maximum block range limits, or can attackers specify extremely large ranges causing CPU/memory DoS through excessive log scanning? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6fd0fea7-8bba-44d7-8071-cf89ba55afea?mode=deep",
+    "timestamp": "2026-01-09 18:05:52.258460",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractFilterer] [Topic filter bypass] Can malicious FilterQuery parameters be crafted to bypass topic filters and access logs they shouldn't be able to retrieve, potentially exposing sensitive contract events? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b507da46-c306-4aff-9900-d5fe9289ec7c?mode=deep",
+    "timestamp": "2026-01-09 18:06:20.457174",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractFilterer] [Address filter validation] Does FilterLogs() properly validate contract addresses in the query, or can wildcard or malformed addresses cause excessive log scanning or panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_56546395-b27b-42fe-bb81-2edc6516f2d9?mode=deep",
+    "timestamp": "2026-01-09 18:06:49.794692",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractFilterer] [Subscription resource leak] Can SubscribeFilterLogs() subscriptions be created without limits, causing resource exhaustion through goroutine leaks or channel buffer overflows? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4e9a40c3-96c5-4a1e-8fbc-804a128c7482?mode=deep",
+    "timestamp": "2026-01-09 18:07:19.107061",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractFilterer] [Subscription DoS] If a subscriber doesn't consume logs fast enough from the channel, does the implementation block or drop logs, and can this be exploited to cause node performance degradation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9672a827-9bb1-44e3-bf9d-66772b07be7f?mode=deep",
+    "timestamp": "2026-01-09 18:07:49.680309",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractFilterer] [Reorg handling] Does SubscribeFilterLogs() properly handle chain reorganizations, or can reorgs cause duplicate logs, missing logs, or incorrect log ordering in subscriptions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b4ce81c5-7cf1-4888-98a7-ffd8db0ffacb?mode=deep",
+    "timestamp": "2026-01-09 18:08:21.583152",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractFilterer] [Channel closure] Is the log channel properly closed when the subscription ends, or can channel leaks accumulate over time causing memory exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_71188959-6c8a-4b07-bacf-160eee415c04?mode=deep",
+    "timestamp": "2026-01-09 18:08:54.009550",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractFilterer] [Historical log manipulation] Can FilterLogs() return logs from orphaned blocks during reorganizations, causing applications to process events that never actually occurred on the canonical chain? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1318d97e-f4c6-4276-bc00-cb3b7b1e92cd?mode=deep",
+    "timestamp": "2026-01-09 18:09:26.992640",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: DeployBackend] [Receipt availability] Can TransactionReceipt() return nil receipts for valid transactions that haven't been mined yet, causing callers to incorrectly assume transaction failure? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c852564c-7bb3-4b07-bb53-a966c8ac21c0?mode=deep",
+    "timestamp": "2026-01-09 18:09:59.291429",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: DeployBackend] [Receipt forgery] Does TransactionReceipt() validate that returned receipts actually belong to the requested transaction hash, or can implementations return incorrect receipts causing deployment verification failures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e8012afc-e1e7-42e1-aa0d-5cc0cd90c62b?mode=deep",
+    "timestamp": "2026-01-09 18:10:28.540237",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: DeployBackend] [Orphaned receipt] Can TransactionReceipt() return receipts from orphaned blocks during reorganizations, causing WaitDeployed or WaitMined to incorrectly conclude contracts are deployed when they aren't on canonical chain? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7cbdc524-83b1-41c2-9bff-a8fa20a58d7d?mode=deep",
+    "timestamp": "2026-01-09 18:10:58.187960",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: DeployBackend] [Code verification race] Is there a race condition between TransactionReceipt() confirming deployment and CodeAt() checking contract code, where contract could self-destruct between checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_22476961-493e-4266-bd14-514808e247d9?mode=deep",
+    "timestamp": "2026-01-09 18:11:29.026956",
+    "report_generated": false
   }
 ]
