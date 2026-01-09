@@ -1798,5 +1798,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c66e2117-f8af-41cb-9be4-29577c78c8dd?mode=deep",
     "timestamp": "2026-01-09 17:09:21.063401",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Go-Specific] [Interface Nil] Can interface{} values that are non-nil but contain nil pointers cause unexpected behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_128907a0-dfb8-426d-a61d-b29fd7b8b637?mode=deep",
+    "timestamp": "2026-01-09 17:10:40.263481",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Go-Specific] [Type Switch] Can type switches on interface{} values miss certain type cases causing fallthrough to wrong handlers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_941e67e6-f13a-46e6-864f-517ecfeb2d1b?mode=deep",
+    "timestamp": "2026-01-09 17:10:53.283735",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Validation] [Data Length] Does Unpack validate that data length is multiple of 32 bytes before processing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c8d1ed6a-e7ab-4b01-92e7-64bb9db52194?mode=deep",
+    "timestamp": "2026-01-09 17:11:06.982733",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Validation] [Argument Count] Does Pack verify that variadic args count matches abiArgs count before processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b48e9588-2ca3-45c3-aba6-676bfb358c8f?mode=deep",
+    "timestamp": "2026-01-09 17:11:21.918684",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Validation] [Name Characters] Are argument\n\n### Citations\n\n**File:** accounts/abi/argument.go (L1-273)\n```go\n// Copyright 2015 The go-ethereum Authors\n// This file is part of the go-ethereum library.\n//\n// The go-ethereum library is free software: you can redistribute it and/or modify\n// it under the terms of the GNU Lesser General Public License as published by\n// the Free Software Foundation, either version 3 of the License, or\n// (at your option) any later version.\n//\n// The go-ethereum library is distributed in the hope that it will be useful,\n// but WITHOUT ANY WARRANTY; without even the implied warranty of\n// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the\n// GNU Lesser General Public License for more details.\n//\n// You should have received a copy of the GNU Lesser General Public License\n// along with the go-ethereum library. If not, see <http://www.gnu.org/licenses/>.\n\npackage abi\n\nimport (",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7a8e02fe-b040-4450-b28e-7d2d89f2c0ab?mode=deep",
+    "timestamp": "2026-01-09 17:11:36.864028",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewTransactor()] [Replay attack] Can an attacker exploit the deprecated NewTransactor() function which uses HomesteadSigner without chain ID to replay transactions from WBT (Whitechain) on other EVM-compatible chains, potentially causing unauthorized fund transfers or state changes across multiple networks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2937e12d-532a-405e-955b-ab8d7c11fd74?mode=deep",
+    "timestamp": "2026-01-09 17:11:53.035122",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyStoreTransactor()] [Replay attack] Does the deprecated NewKeyStoreTransactor() at line 62-79 allow cross-chain replay attacks by using HomesteadSigner without EIP-155 chain ID protection, enabling attackers to replay WBT transactions on Ethereum mainnet or other chains using the same account? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c5b5855b-fc80-4ad7-bde0-86b37500f74f?mode=deep",
+    "timestamp": "2026-01-09 17:12:10.205224",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyedTransactor()] [Replay attack] Can malicious actors exploit the HomesteadSigner in NewKeyedTransactor() at line 85-103 to replay validator or minting contract transactions across chains, potentially causing double-minting of tokens or unauthorized validator operations on forked networks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_75ca7d27-57d6-48f9-b109-3b3de22c4bb4?mode=deep",
+    "timestamp": "2026-01-09 17:12:30.060435",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewTransactorWithChainID()] [Chain ID validation] If chainID parameter is nil at line 107-117, does the function fail gracefully or could it create a TransactOpts that allows signing without proper chain protection, enabling replay attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_923cf20e-f703-49aa-a8b2-9a90b0ef554d?mode=deep",
+    "timestamp": "2026-01-09 17:12:50.280771",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyedTransactorWithChainID()] [Chain ID bypass] At lines 146-148, if chainID is nil, the function returns ErrNoChainID, but can an attacker pass a valid but incorrect chain ID (e.g., Ethereum mainnet's chain ID) to sign WBT transactions that are valid on other networks, enabling cross-chain theft? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_04f50fef-0643-4f3d-8038-f5f0171276ec?mode=deep",
+    "timestamp": "2026-01-09 17:13:12.095725",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyStoreTransactorWithChainID()] [Chain ID manipulation] Can an attacker who controls the chainID parameter at line 121-140 pass a chain ID of 1 (Ethereum mainnet) instead of WBT's chain ID, causing the keystore to sign transactions valid on Ethereum mainnet, leading to fund theft on multiple chains? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_52b4a3d3-9b09-4d82-8586-7f2055322610?mode=deep",
+    "timestamp": "2026-01-09 17:13:35.084492",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewTransactorWithChainID()] [Chain ID integer overflow] If an attacker passes an extremely large *big.Int value as chainID at line 107, could this cause integer overflow in types.LatestSignerForChainID() leading to incorrect signer selection and potential replay attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2ffa37ea-0174-4556-849a-4c718f162fa1?mode=deep",
+    "timestamp": "2026-01-09 17:13:59.133722",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyedTransactorWithChainID()] [Negative chain ID] Can an attacker pass a negative *big.Int as chainID at line 144, potentially bypassing chain ID validation or causing unexpected behavior in types.LatestSignerForChainID() that could enable replay attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f2d1b203-e089-406a-bc2e-3c55145a02b7?mode=deep",
+    "timestamp": "2026-01-09 17:14:23.964507",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewTransactor()] [Private key exposure] At lines 45-56, after DecryptKey() extracts the private key, is the key properly zeroed from memory after creating the TransactOpts, or does it remain in memory where it could be extracted via memory dumps or process inspection? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2507aa00-f4d0-43d4-952b-c4a1a0c1278e?mode=deep",
+    "timestamp": "2026-01-09 17:14:49.689008",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyedTransactor()] [Private key in closure] At lines 85-103, the ecdsa.PrivateKey is captured in the Signer closure - if an attacker gains access to the TransactOpts object, can they extract the private key from the closure's captured variables through reflection or memory inspection? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_87663f85-33e5-452b-bdc7-aab52ce5a04b?mode=deep",
+    "timestamp": "2026-01-09 17:15:15.632514",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewTransactorWithChainID()] [Key material cleanup] After keystore.DecryptKey() at line 112 decrypts the private key and passes it to NewKeyedTransactorWithChainID(), is the decrypted key object properly zeroed to prevent memory leakage, or does it persist in heap memory accessible to attackers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_305b0e94-4963-4767-bacd-90dc2779a976?mode=deep",
+    "timestamp": "2026-01-09 17:15:43.358183",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyedTransactorWithChainID()] [Private key persistence] The private key at line 144 is captured in the signer closure at line 156 - if the TransactOpts object is serialized (e.g., for debugging or logging), could the private key be inadvertently written to disk or transmitted over the network? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_95fd3151-dab2-47f0-8f4e-61d7d5bc4f15?mode=deep",
+    "timestamp": "2026-01-09 17:16:07.216381",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewTransactor()] [JSON key exposure] At line 47, io.ReadAll() reads the entire encrypted JSON key into memory - if this buffer is not properly cleared after use, could an attacker with memory access extract encrypted key material and attempt offline brute-force attacks on the passphrase? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b7f722b7-7505-4448-af8b-769c8e564ba8?mode=deep",
+    "timestamp": "2026-01-09 17:16:35.184843",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewTransactorWithChainID()] [Passphrase in memory] The passphrase string at line 107 is passed to DecryptKey() at line 112 - is the passphrase string properly zeroed after use, or does it remain in memory where garbage collection could leave it accessible for extended periods? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_09bb93d4-4408-4da7-9f72-50c16e8c4dbe?mode=deep",
+    "timestamp": "2026-01-09 17:17:04.373181",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyedTransactor()] [Public key derivation] At line 87, crypto.PubkeyToAddress() derives the address from the public key - could timing attacks on this operation leak information about the private key bits through cache timing analysis? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_978d9900-ffcc-4764-b6e0-750b86eb09b1?mode=deep",
+    "timestamp": "2026-01-09 17:17:31.051839",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyedTransactorWithChainID()] [Private key reference] The private key passed at line 144 - if multiple TransactOpts are created from the same key, are they all sharing the same private key reference, creating a risk that zeroing one affects all, or that one reference keeps the key in memory indefinitely? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a37f3754-2183-49c5-9836-248d699e2913?mode=deep",
+    "timestamp": "2026-01-09 17:17:57.585051",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyStoreTransactor()] [Address verification bypass] At lines 68-70, the signer checks if address != account.Address, but what if an attacker can manipulate the account.Address field after TransactOpts creation to bypass this check and sign transactions for different addresses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_acba597f-0e8a-45c4-afd6-f28dde507b5f?mode=deep",
+    "timestamp": "2026-01-09 17:18:25.308514",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyedTransactor()] [Authorization bypass] The authorization check at lines 92-94 compares address != keyAddr, but if keyAddr derivation at line 87 is compromised or manipulated, could an attacker sign transactions for arbitrary addresses bypassing this check? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_81aa3455-22f8-49c5-986a-cd14b87289a0?mode=deep",
+    "timestamp": "2026-01-09 17:18:52.382748",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyedTransactorWithChainID()] [From field manipulation] After TransactOpts is returned at line 150-163, if an attacker can modify the From field, does the signer closure still properly validate against the original keyAddr, or could this enable signing for unauthorized addresses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fad942a2-3c1d-415e-b3d5-f5d1021b92c8?mode=deep",
+    "timestamp": "2026-01-09 17:19:18.650634",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewClefTransactor()] [External signer trust] At lines 168-179, the function trusts the external.ExternalSigner (Clef) completely - if Clef is compromised or improperly configured, could it sign transactions for any address regardless of the authorization check at lines 172-174? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f4302b42-270a-4f28-9d82-268654304f7e?mode=deep",
+    "timestamp": "2026-01-09 17:19:46.223173",
+    "report_generated": false
   }
 ]
