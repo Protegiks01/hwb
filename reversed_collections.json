@@ -2848,5 +2848,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6242c283-c4ec-4008-a402-f58275da98ea?mode=deep",
     "timestamp": "2026-01-09 18:12:27.506764",
     "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSON()] [CPU Exhaustion] The infinite loop on line 18-20 continuously marshals and writes JSON - if duration d is set to a very small value (e.g., 1ms), can this cause continuous CPU-intensive JSON marshaling that starves block validation and state transition goroutines? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_57236090-b706-4856-a844-ea355b6f7522?mode=deep",
+    "timestamp": "2026-01-09 18:13:38.979509",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: MarshalJSON()] [Memory Exhaustion] Line 12 calls GetAll() which creates a complete in-memory snapshot of all metrics - if an attacker registers millions of metrics (e.g., unique per-transaction counters), can this cause json.Marshal to allocate gigabytes of memory, triggering OOM kills during consensus-critical operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b4e06113-6bee-42e4-acc1-36b2928d5900?mode=deep",
+    "timestamp": "2026-01-09 18:13:51.818096",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: MarshalJSON()] [Panic Propagation] Line 12 calls r.GetAll() which may panic if metrics contain invalid types or nil values - can a panic during JSON marshaling propagate up and crash the entire node during critical operations like validator block signing or state root computation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b7132092-e9e2-470d-8b01-ac674cc11312?mode=deep",
+    "timestamp": "2026-01-09 18:14:05.475813",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSON()] [Error Propagation] The WriteJSON() function calls WriteJSONOnce() in a loop (line 19) but has no error handling - if WriteJSONOnce fails repeatedly (e.g., network connection broken), can this goroutine continue running forever attempting failed writes, leaking resources while masking the underlying failure from operators? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_aa6a12c8-9e3d-4033-abbb-ae8558a0145f?mode=deep",
+    "timestamp": "2026-01-09 18:14:19.156021",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSONOnce()] [Error Suppression] Line 26 ignores the error from json.NewEncoder(w).Encode(r) - if encoding fails (e.g., writer closed, disk full, network timeout), can this silent failure cause monitoring systems to miss critical alerts about validator misbehavior or consensus failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_60ba70eb-52ba-414c-9b1a-65d67cc714d1?mode=deep",
+    "timestamp": "2026-01-09 18:14:33.754832",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: MarshalJSON()] [Silent Failure] Line 12 returns json.Marshal() error directly but callers may ignore it - if marshaling fails due to memory exhaustion during consensus operations, can this silent failure prevent critical metrics from being recorded, allowing consensus bugs to go undetected until catastrophic chain splits occur? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dee7aa9e-8954-4027-b34c-3768f7c12027?mode=deep",
+    "timestamp": "2026-01-09 18:14:49.631620",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: PrefixedRegistry.MarshalJSON()] [Race Condition] Line 30 calls p.GetAll() which delegates to underlying registry - if the underlying StandardRegistry is concurrently modified while prefixed registry marshals, can this cause data races in the metrics map access, potentially crashing the node with panic during block production? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_03a7e021-1818-4f4f-ada7-bf1967c25b3a?mode=deep",
+    "timestamp": "2026-01-09 18:15:07.301884",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSON()] [Concurrent Writer Access] The WriteJSON() function calls WriteJSONOnce(r, w) on line 19 every d duration without writer synchronization - if the io.Writer w is shared (e.g., network socket, file), can concurrent writes from the ticker corrupt the output stream, causing metrics collection to fail during critical validator operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_04205c24-e8c9-444f-a863-4cbdfc5138b4?mode=deep",
+    "timestamp": "2026-01-09 18:15:26.879710",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSONOnce()] [Race Condition] Line 26 encodes registry r without synchronization - if multiple goroutines call WriteJSONOnce() concurrently with the same writer w, can interleaved JSON output corrupt the data stream, causing monitoring systems to receive malformed metrics and fail to detect critical consensus failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_66d72770-7a55-4221-ac50-f21c5cf2b93d?mode=deep",
+    "timestamp": "2026-01-09 18:15:47.312940",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: MarshalJSON()] [TOCTOU] The MarshalJSON() on line 11-13 calls GetAll() which creates a snapshot via Each(), but metric values can change between snapshot creation and JSON encoding - can a malicious validator exploit this timing window to manipulate reported metrics (e.g., showing different gas usage or transaction counts) to deceive monitoring systems about consensus state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6af11e2b-6ed4-4d0b-84ff-0b42c77d3d68?mode=deep",
+    "timestamp": "2026-01-09 18:16:09.328965",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: MarshalJSON()] [Race Condition] Line 12 calls r.GetAll() which iterates through StandardRegistry.metrics map using Each() - if concurrent metric updates occur during JSON marshaling (e.g., block processing updating counters while exporting metrics), can this cause race detector panics or inconsistent metric snapshots that expose incorrect blockchain state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c2690a49-0087-45b3-95e6-d853691250ec?mode=deep",
+    "timestamp": "2026-01-09 18:16:32.342448",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSON()] [Resource Exhaustion] The infinite for-range loop on line 18 has no exit condition or context cancellation - if the node needs to gracefully shutdown during a validator transition or upgrade, can this leaked goroutine prevent proper cleanup, causing the node to hang indefinitely and miss its validator turn? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_380490af-2616-489f-94d3-5145ea322315?mode=deep",
+    "timestamp": "2026-01-09 18:16:56.715237",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSON()] [DoS Attack] Since WriteJSON() on line 17-21 creates an infinite loop with no cancellation context - can a malicious actor repeatedly trigger metrics export initialization to spawn unlimited goroutines, each running time.Tick() forever, leading to CPU and memory exhaustion that prevents the node from participating in consensus? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_652e7380-646f-4f9f-8938-50e918818d3c?mode=deep",
+    "timestamp": "2026-01-09 18:17:21.619540",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSON()] [Goroutine Leak] The time.Tick(d) on line 18 has no Stop() mechanism - if a validator node restarts metrics collection or reconfigures monitoring endpoints, can accumulated leaked goroutines consume enough memory (each ticker + channel buffers) to trigger OOM kills during critical consensus operations like block production? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_02bd9209-2400-45e7-9e3f-f1d38ec6d203?mode=deep",
+    "timestamp": "2026-01-09 18:17:47.604588",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSON()] [Resource Leak] The function uses time.Tick(d) on line 18 which creates an unstoppable ticker, causing a permanent goroutine leak - if this is called multiple times (e.g., by different monitoring services or during node restarts), can an attacker trigger repeated calls to exhaust node resources, eventually causing memory exhaustion and node crash requiring restart? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_30a778c4-66af-4cdf-9b4e-b7e332fd2a38?mode=deep",
+    "timestamp": "2026-01-09 18:18:14.443966",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSON()] [CPU Exhaustion] The infinite loop on line 18-20 continuously marshals and writes JSON - if duration d is set to a very small value (e.g., 1ms), can this cause continuous CPU-intensive JSON marshaling that starves block validation and state transition goroutines? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2653e83e-8c23-48b8-b606-c1c67a837dbc?mode=deep",
+    "timestamp": "2026-01-09 18:18:41.182597",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: MarshalJSON()] [Memory Exhaustion] Line 12 calls GetAll() which creates a complete in-memory snapshot of all metrics - if an attacker registers millions of metrics (e.g., unique per-transaction counters), can this cause json.Marshal to allocate gigabytes of memory, triggering OOM kills during consensus-critical operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f99df1b8-7f0f-4289-b17b-2c855ab2bc65?mode=deep",
+    "timestamp": "2026-01-09 18:19:09.252380",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: MarshalJSON()] [Panic Propagation] Line 12 calls r.GetAll() which may panic if metrics contain invalid types or nil values - can a panic during JSON marshaling propagate up and crash the entire node during critical operations like validator block signing or state root computation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b62e5b2f-5c76-4c1b-a6b2-a2b861efc571?mode=deep",
+    "timestamp": "2026-01-09 18:19:37.216065",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSON()] [Error Propagation] The WriteJSON() function calls WriteJSONOnce() in a loop (line 19) but has no error handling - if WriteJSONOnce fails repeatedly (e.g., network connection broken), can this goroutine continue running forever attempting failed writes, leaking resources while masking the underlying failure from operators? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_56bb6ee9-9c7a-4be0-9643-6ea519827bfa?mode=deep",
+    "timestamp": "2026-01-09 18:20:05.245088",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSONOnce()] [Error Suppression] Line 26 ignores the error from json.NewEncoder(w).Encode(r) - if encoding fails (e.g., writer closed, disk full, network timeout), can this silent failure cause monitoring systems to miss critical alerts about validator misbehavior or consensus failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0a660953-704d-4886-a5b3-b278442688c1?mode=deep",
+    "timestamp": "2026-01-09 18:20:33.951642",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: MarshalJSON()] [Silent Failure] Line 12 returns json.Marshal() error directly but callers may ignore it - if marshaling fails due to memory exhaustion during consensus operations, can this silent failure prevent critical metrics from being recorded, allowing consensus bugs to go undetected until catastrophic chain splits occur? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_efc0f2fa-7655-4c4d-aee0-22801d0498cb?mode=deep",
+    "timestamp": "2026-01-09 18:21:02.329776",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: PrefixedRegistry.MarshalJSON()] [Race Condition] Line 30 calls p.GetAll() which delegates to underlying registry - if the underlying StandardRegistry is concurrently modified while prefixed registry marshals, can this cause data races in the metrics map access, potentially crashing the node with panic during block production? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e9c041f2-300d-418c-81cd-10b1e11b461e?mode=deep",
+    "timestamp": "2026-01-09 18:21:29.764612",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSON()] [Concurrent Writer Access] The WriteJSON() function calls WriteJSONOnce(r, w) on line 19 every d duration without writer synchronization - if the io.Writer w is shared (e.g., network socket, file), can concurrent writes from the ticker corrupt the output stream, causing metrics collection to fail during critical validator operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cb0dc936-5625-4d56-ae3f-a2d284602f2d?mode=deep",
+    "timestamp": "2026-01-09 18:21:56.690622",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSONOnce()] [Race Condition] Line 26 encodes registry r without synchronization - if multiple goroutines call WriteJSONOnce() concurrently with the same writer w, can interleaved JSON output corrupt the data stream, causing monitoring systems to receive malformed metrics and fail to detect critical consensus failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_257870e9-511f-437a-8491-eb1ddea719b5?mode=deep",
+    "timestamp": "2026-01-09 18:22:22.604394",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: MarshalJSON()] [TOCTOU] The MarshalJSON() on line 11-13 calls GetAll() which creates a snapshot via Each(), but metric values can change between snapshot creation and JSON encoding - can a malicious validator exploit this timing window to manipulate reported metrics (e.g., showing different gas usage or transaction counts) to deceive monitoring systems about consensus state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7d7a221b-5a24-4ffe-83e1-00f3f1aa19df?mode=deep",
+    "timestamp": "2026-01-09 18:22:49.689567",
+    "report_generated": false
   }
 ]
