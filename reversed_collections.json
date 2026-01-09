@@ -1348,5 +1348,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_90bae0d2-44e0-457c-a448-8a3495e26e02?mode=deep",
     "timestamp": "2026-01-09 16:35:36.432280",
     "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: CollectProcessMetrics()] [Sleep interruption] If the goroutine is paused or interrupted during the Sleep() call, can this cause metrics collection to miss critical events or create large gaps in monitoring data during validator operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d16e86d3-8211-4b7b-8f46-968b8c6bedf3?mode=deep",
+    "timestamp": "2026-01-09 16:36:40.056186",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: CollectProcessMetrics()] [Sleep drift] Can the `time.Sleep(refresh)` call (line 218) drift over time due to system load, causing metric collection intervals to become increasingly inaccurate and making time-series analysis unreliable? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_847bfc3a-26bb-408d-a336-bbc986e33e82?mode=deep",
+    "timestamp": "2026-01-09 16:36:53.170037",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: readRuntimeStats()] [Partial updates] If the function returns early or panics partway through updating the runtimeStats struct (lines 98-119), can this leave the struct in a partially-initialized state that causes incorrect metric calculations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d5b7b0ce-14b3-4d20-a15f-ad3d47cbb046?mode=deep",
+    "timestamp": "2026-01-09 16:37:06.505777",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: CollectProcessMetrics()] [Swap logic] Can the index swap `now, prev = prev, now` (line 171) fail to maintain proper state if the loop is interrupted or paused, causing metrics to use wrong reference points for delta calculations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f9c4ce67-48e8-4ce3-b506-dc8d59ce7ab5?mode=deep",
+    "timestamp": "2026-01-09 16:37:20.363705",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: CollectProcessMetrics()] [State initialization] The `lastCollectTime` is zero-initialized (line 167), causing `secondsSinceLastCollect` to be very large on first iteration - is this properly handled to prevent metrics explosion, or can it cause integer overflow in calculations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f98bdd91-18c7-4630-9eba-c2d8a1928f0a?mode=deep",
+    "timestamp": "2026-01-09 16:37:35.169668",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: CollectProcessMetrics()] [First iteration] On the first loop iteration (line 171), `prev` index points to uninitialized data in the `cpustats`, `diskstats`, and `rstats` slices - can this cause incorrect delta calculations (lines 178-180, 201-202, 210-215) that produce garbage initial metrics? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4dcbcab9-a421-4944-bacf-065292c9f86c?mode=deep",
+    "timestamp": "2026-01-09 16:37:51.200134",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: CollectProcessMetrics()] [pprof race] Can the `threadCreateProfile.Count()` call (line 192) race with other pprof operations, potentially returning inconsistent thread counts or causing panics in the pprof subsystem? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4e19bae4-ceb5-4b5f-a18d-71989050d610?mode=deep",
+    "timestamp": "2026-01-09 16:38:08.197960",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: CollectProcessMetrics()] [Registry race] Can concurrent metric updates (lines 182-215) cause race conditions in the underlying registry when multiple goroutines try to update the same metrics simultaneously? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d97b0dcc-4246-4de9-82a6-3e6b9e0f6e20?mode=deep",
+    "timestamp": "2026-01-09 16:38:29.463618",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: CollectProcessMetrics()] [ReadDiskStats race] If `ReadDiskStats(&diskstats[now])` (line 209) is not thread-safe, can concurrent metric collection attempts cause data races in disk statistics gathering that corrupt I/O metrics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dee379f3-b80a-4393-8f11-dea4be27211e?mode=deep",
+    "timestamp": "2026-01-09 16:38:50.396682",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: CollectProcessMetrics()] [ReadCPUStats race] Can concurrent calls to `ReadCPUStats(&cpustats[now])` (line 173) from multiple goroutines cause race conditions in the underlying CPU stat reading mechanism, producing corrupted or inconsistent CPU metrics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_473b0630-de58-4a9a-bee7-37f88ab4d14b?mode=deep",
+    "timestamp": "2026-01-09 16:39:12.811981",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: readRuntimeStats()] [Uint64 assignment] Can the direct assignment of `s.Value.Uint64()` to uint64 fields (lines 102-116) fail silently if the underlying value type is incorrect, resulting in zero values that hide actual memory or goroutine statistics? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_20bcbea9-10be-4de6-bd02-e7a9275280b8?mode=deep",
+    "timestamp": "2026-01-09 16:39:35.718185",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: CollectProcessMetrics()] [Sign issues] When calling `memAllocs.Mark(int64(rstats[now].GCAllocBytes - rstats[prev].GCAllocBytes))` (line 201), can uint64 underflow produce values that when cast to int64 become negative, causing incorrect memory allocation metrics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_be25fe74-5a53-4655-bdfd-7f9c7c29da4a?mode=deep",
+    "timestamp": "2026-01-09 16:39:59.360031",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: CollectProcessMetrics()] [Precision loss] Can the float64-to-int64 conversions for CPU metrics (lines 182-184) lose precision for very small time intervals, causing metrics to always show 0% even during actual CPU load, hiding performance degradation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0c362104-8b10-4d05-b791-b26866509259?mode=deep",
+    "timestamp": "2026-01-09 16:40:23.973303",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: CollectProcessMetrics()] [Type overflow] When converting float64 CPU percentages to int64 using `int64(sysLoad / secondsSinceLastCollect * 100)` (line 182), can values exceeding int64 max cause overflow or wraparound, producing negative percentages that hide CPU exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_10f73080-a251-4691-a9cb-94fa5f0536d4?mode=deep",
+    "timestamp": "2026-01-09 16:40:48.520839",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: CollectProcessMetrics()] [Incomplete metrics] If only some metrics are successfully read while others fail, can this partial metric state cause inconsistent monitoring that makes it impossible to diagnose validator node issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a0be9a13-9cf1-490b-bdc1-2c69b75ca27b?mode=deep",
+    "timestamp": "2026-01-09 16:41:12.235203",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: readRuntimeStats()] [Metric read failure] If `metrics.Read(runtimeSamples)` fails silently without populating values, can subsequent operations on uninitialized or stale metric values produce incorrect monitoring data that hides node health issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1900d637-c863-4aa8-87fd-bc9face6b5b7?mode=deep",
+    "timestamp": "2026-01-09 16:41:35.281474",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: CollectProcessMetrics()] [Ignored errors] The ReadCPUStats() call (line 173) doesn't check for errors - can CPU stat reading failures go undetected, causing incorrect load calculations that hide CPU exhaustion attacks on validator nodes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_705281f7-27cf-4e45-9d8e-9424a547d20d?mode=deep",
+    "timestamp": "2026-01-09 16:41:59.244609",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: CollectProcessMetrics()] [Silent failure] When `ReadDiskStats(&diskstats[now])` returns an error (line 209), the code silently continues without disk metrics - can this mask persistent disk failures that could indicate database corruption or validator node storage issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6d2356d6-747c-4357-8da4-27bc4f231b9b?mode=deep",
+    "timestamp": "2026-01-09 16:42:23.597151",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: readRuntimeStats()] [Slice iteration] In the range loop over `runtimeSamples` (line 90), can modifications to the slice during iteration cause index mismatches or skip metric readings, resulting in incomplete monitoring data? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_73081cde-4740-4e8a-852f-3af624e323ba?mode=deep",
+    "timestamp": "2026-01-09 16:42:47.090994",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: CollectProcessMetrics()] [Slice access] When accessing `cpustats[now]` and `cpustats[prev]` (lines 173-180), can concurrent modifications to these slices from other goroutines cause slice bounds violations or data races? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c7a58f8b-e31e-4b65-9625-ce9778f5137d?mode=deep",
+    "timestamp": "2026-01-09 16:43:10.457788",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: CollectProcessMetrics()] [Array bounds] In the loop swap operation `now, prev = prev, now` (line 171), can the indices become out of sync with the actual slice sizes for `cpustats`, `diskstats`, and `rstats`, causing out-of-bounds access panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_63447e2a-0f7f-4d02-abaf-bc32d1b03c52?mode=deep",
+    "timestamp": "2026-01-09 16:43:35.126422",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: init()] [Double initialization] Can the init() function be triggered multiple times in certain scenarios (e.g., through dynamic loading), causing the `Enabled` and `EnabledExpensive` flags to be set incorrectly based on stale os.Args data? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9584f874-1b7e-4587-b20e-0776ef08d4b8?mode=deep",
+    "timestamp": "2026-01-09 16:44:00.774402",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: CollectProcessMetrics()] [Early return bypass] If `Enabled` is false (line 126), the function returns early - but can there be scenarios where metrics were already registered in a previous call, causing memory leaks from registered but unused metrics? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5897b986-6fbd-4cac-a47c-6e52a564a52d?mode=deep",
+    "timestamp": "2026-01-09 16:44:26.570366",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: CollectProcessMetrics()] [Metric collision] If CollectProcessMetrics() is called multiple times concurrently, can the metric registration operations (lines 144-165) cause race conditions in the registry that result in metrics overwriting each other or becoming inconsistent? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_50533478-9a6a-47d2-84b1-ba36b16cb9be?mode=deep",
+    "timestamp": "2026-01-09 16:44:50.312240",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: CollectProcessMetrics()] [Registry pollution] Can the multiple `GetOrRegister*` calls (lines 144-165) be exploited to pollute the DefaultRegistry with duplicate or malicious metrics if called concurrently, causing metric name collisions and incorrect monitoring data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fb9b83ab-617b-4f05-ae1f-630c34d01de8?mode=deep",
+    "timestamp": "2026-01-09 16:45:16.665873",
+    "report_generated": false
   }
 ]
