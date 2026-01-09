@@ -3748,5 +3748,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ab013719-8295-42d0-be3d-d3f13ed7390e?mode=deep",
     "timestamp": "2026-01-09 19:20:56.789518",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Malicious Validator Censorship] In WBT's PoA consensus, could a malicious validator censor specific transactions indefinitely, causing WaitMined to never return and blocking critical operations like contract deployments? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_927a33fa-b34e-48ce-8b72-c17d12193add?mode=deep",
+    "timestamp": "2026-01-09 19:22:05.824186",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Block Time Manipulation] Could validators manipulate block timestamps or intervals to affect the 1-second polling behavior of WaitMined, causing synchronization issues or timing attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_78c2286d-9628-46fa-91b2-ab40529fabfe?mode=deep",
+    "timestamp": "2026-01-09 19:22:18.697618",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitDeployed()] [Validator Deployment Attack] Could a compromised validator approve a malicious contract deployment transaction but manipulate the receipt to show a different contract address, bypassing the code verification? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6355239d-5e00-4d8e-b97c-bf3a470f0da2?mode=deep",
+    "timestamp": "2026-01-09 19:22:31.812807",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Invalid Transaction Type] Does the function handle all transaction types correctly (legacy, EIP-2930, EIP-1559), or could certain transaction types cause unexpected behavior in hash calculation or receipt format? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_85cc0d65-32e3-469f-9a98-52b278406864?mode=deep",
+    "timestamp": "2026-01-09 19:22:46.196683",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitDeployed()] [Transaction To() Field] The check tx.To() != nil assumes this reliably identifies non-deployment transactions, but could there be edge cases in transaction formats where this assumption fails? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1f428085-4a89-4958-84ab-3ef09ba656b6?mode=deep",
+    "timestamp": "2026-01-09 19:23:01.057751",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitDeployed()] [Address Format] Does the function validate that receipt.ContractAddress is a properly formatted Ethereum address, or could malformed addresses pass the zero-address check? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9de776c0-f891-4c24-ae72-09e7908dc1d5?mode=deep",
+    "timestamp": "2026-01-09 19:23:17.749949",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Receipt Immutability] Does the function assume receipts are immutable once returned, or could backend mutations to receipt objects cause data integrity issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_88d17b57-9d27-4228-8192-769faa67d7eb?mode=deep",
+    "timestamp": "2026-01-09 19:23:35.031864",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitDeployed()] [Code Verification Window] Is there a time-of-check-time-of-use vulnerability between verifying the code exists and the calling code actually using the deployed contract? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e1c496a8-92b6-40ba-bd8e-109b0397fc9b?mode=deep",
+    "timestamp": "2026-01-09 19:23:54.931325",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitDeployed()] [State Sync Issues] If the node is not fully synced, could CodeAt() return incorrect results (empty code for recently deployed contracts), causing false deployment failures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0ffd425c-61ac-4868-9d95-354e0c9099f5?mode=deep",
+    "timestamp": "2026-01-09 19:24:15.383873",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Memory Leak via Logger] Does the logger created with log.New(",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_356f8559-84fc-41ec-9a17-f9a4a4a673e1?mode=deep",
+    "timestamp": "2026-01-09 19:24:37.162912",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Receipt Memory] For transactions with large logs or complex receipts, could repeated polling and receipt retrieval cause excessive memory allocations and GC pressure? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c0925c22-388a-4560-9eca-f4d75c3464fa?mode=deep",
+    "timestamp": "2026-01-09 19:24:59.699730",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitDeployed()] [Large Contract Code] For contracts with very large bytecode, does the CodeAt() call handle memory efficiently, or could retrieving code for multiple large contracts cause memory exhaustion? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b58f24d7-e6f6-4738-a69c-9125bfa4071f?mode=deep",
+    "timestamp": "2026-01-09 19:25:25.230390",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Context Leak] If a parent context is canceled but a child context is passed to WaitMined, could the function continue running despite parent cancellation, causing resource leaks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c33c476c-851c-4a51-8362-7cf62401ddc1?mode=deep",
+    "timestamp": "2026-01-09 19:25:50.911563",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitDeployed()] [Multi-level Context] Since WaitDeployed passes context to both WaitMined and CodeAt, could context cancellation between these calls create inconsistent states? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_14b61fe6-852e-4d2b-8649-b1bbada79082?mode=deep",
+    "timestamp": "2026-01-09 19:26:15.739092",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Deadline Handling] If the context has a deadline that expires during polling, is the deadline error properly propagated, or could it be confused with other context errors? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_59c8d3b9-5222-4489-b1dc-79bca8347a59?mode=deep",
+    "timestamp": "2026-01-09 19:26:41.375670",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [RPC Response Manipulation] Could a man-in-the-middle attacker manipulate RPC responses from the backend to return fake receipts, and does the function have any integrity checks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f665de81-f47b-41a5-a613-ab16672da61a?mode=deep",
+    "timestamp": "2026-01-09 19:27:09.231463",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitDeployed()] [Code Injection via RPC] Could manipulated RPC responses inject malicious contract code into the CodeAt() result, causing the function to approve malicious deployments? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_811a294e-c030-4370-9d81-659b4d61cec5?mode=deep",
+    "timestamp": "2026-01-09 19:27:37.326757",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Network Partition] During a network partition where the backend becomes unreachable, does WaitMined handle connection errors gracefully, or could it cause cascading failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9fd4f4e6-2d27-4101-a19d-d18f54d0bc8a?mode=deep",
+    "timestamp": "2026-01-09 19:28:06.955046",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Transaction Replacement] If a transaction is replaced (via higher gas price) while WaitMined is polling, does it detect the original transaction will never mine, or continue waiting indefinitely? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5308e90a-f940-4da1-b375-0a2bf6cb0531?mode=deep",
+    "timestamp": "2026-01-09 19:28:36.682302",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitDeployed()] [Failed Deployment Detection] Does the function properly distinguish between deployment failures (constructor revert, OOG) and other error conditions to provide accurate error reporting? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_45db6e97-8e3f-4487-adb6-077f693041c1?mode=deep",
+    "timestamp": "2026-01-09 19:29:03.852278",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitDeployed()] [Empty Contract Code] For contracts that compile to empty bytecode (edge case), does the len(code) == 0 check incorrectly reject legitimate deployments? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_34a4ab4b-754e-4f25-aaba-b76b57850b3f?mode=deep",
+    "timestamp": "2026-01-09 19:29:30.954578",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Malicious Validator Censorship] In WBT's PoA consensus, could a malicious validator censor specific transactions indefinitely, causing WaitMined to never return and blocking critical operations like contract deployments? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cd7ff896-bf0d-4d33-8668-15a54ccf06ed?mode=deep",
+    "timestamp": "2026-01-09 19:29:59.822853",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Block Time Manipulation] Could validators manipulate block timestamps or intervals to affect the 1-second polling behavior of WaitMined, causing synchronization issues or timing attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1f5f3e8e-230e-45a9-9281-ac370bf35a5f?mode=deep",
+    "timestamp": "2026-01-09 19:30:27.108994",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitDeployed()] [Validator Deployment Attack] Could a compromised validator approve a malicious contract deployment transaction but manipulate the receipt to show a different contract address, bypassing the code verification? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0a7a738b-6ef4-4f2c-a02e-a8b7a425cbf2?mode=deep",
+    "timestamp": "2026-01-09 19:30:56.529968",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/util.go] [Function: WaitMined()] [Invalid Transaction Type] Does the function handle all transaction types correctly (legacy, EIP-2930, EIP-1559), or could certain transaction types cause unexpected behavior in hash calculation or receipt format? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3573d044-ad6a-4f4a-9006-e8719273d577?mode=deep",
+    "timestamp": "2026-01-09 19:31:24.442627",
+    "report_generated": false
   }
 ]
