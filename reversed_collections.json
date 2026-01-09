@@ -4798,5 +4798,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_944688b9-fc76-4822-a035-b98fe77e987d?mode=deep",
     "timestamp": "2026-01-09 20:29:23.020269",
     "report_generated": false
+  },
+  {
+    "question": "[File: metrics/graphite.go] [Function: graphite()] [String replacement] At lines 85 and 104, strings.Replace() is used to remove dots from percentile keys - if the float formatting produces unexpected characters, can this create invalid metric names in Graphite? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_678c3c7e-ecc1-447d-8fc6-5004714e6de9?mode=deep",
+    "timestamp": "2026-01-09 20:31:22.310635",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/graphite.go] [Function: GraphiteWithConfig()] [Concurrent calls] If multiple goroutines call GraphiteWithConfig() with the same GraphiteConfig, will they create multiple time.Tick() loops all trying to export to the same Graphite server simultaneously, causing connection exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a1e74231-2b85-418c-8971-d4f2deab886f?mode=deep",
+    "timestamp": "2026-01-09 20:31:35.450363",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/graphite.go] [Function: graphite()] [Nil Registry] If c.Registry is nil, calling c.Registry.Each() will panic - is there any validation of GraphiteConfig before passing to graphite()? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_18395b60-bc10-4105-a824-e9ff849da1aa?mode=deep",
+    "timestamp": "2026-01-09 20:31:49.429538",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/graphite.go] [Function: graphite()] [Registry mutation] While iterating c.Registry.Each(), if another goroutine modifies the Registry (adding/removing metrics), can this cause race conditions, panics, or inconsistent metric exports? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3bcb9ff5-51a7-41e0-8bac-452242eb5f56?mode=deep",
+    "timestamp": "2026-01-09 20:32:03.412221",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/graphite.go] [Function: graphite()] [Snapshot panic] Calling metric.Snapshot() on Histogram, Meter, and Timer - if Snapshot() panics due to concurrent access or internal errors, will this crash the entire metrics export operation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8b252cf5-453a-4810-9e1a-d4cb01fa7087?mode=deep",
+    "timestamp": "2026-01-09 20:32:18.286289",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/graphite.go] [Function: graphite()] [Nil interface] If c.Registry.Each() passes a nil interface{} value, will the type switch fail to match any case, silently skipping the metric without error? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e85ce28e-b6f6-48a7-ab96-71b0a603156c?mode=deep",
+    "timestamp": "2026-01-09 20:32:34.413127",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/graphite.go] [Function: graphite()] [Type switch default] The switch statement on interface{} has no default case - if the Registry contains metric types not listed (Counter, Gauge, Histogram, Meter, Timer), will these be silently ignored, hiding monitoring data? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b1b25881-a1c8-46ab-8214-c64323bfe450?mode=deep",
+    "timestamp": "2026-01-09 20:32:51.911078",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/graphite.go] [Function: graphite()] [Write failure] fmt.Fprintf() returns (int, error) but the error is ignored throughout - can write failures (network disconnection, buffer full) go undetected, leading to silent metric loss? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3287b676-de2a-4377-b5a8-1539e7577e96?mode=deep",
+    "timestamp": "2026-01-09 20:33:11.474033",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/graphite.go] [Function: graphite()] [Flush failure] w.Flush() is called inside the Each() loop but its error is not checked - if the network connection breaks mid-export, can this cause partial metric data to be sent, corrupting the Graphite database? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bc8a9c62-0107-4b08-909d-8f8a4bda2976?mode=deep",
+    "timestamp": "2026-01-09 20:33:33.019962",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/graphite.go] [Function: graphite()] [Buffer overflow] The bufio.NewWriter(conn) has a default buffer size - if a single metric produces extremely large output (long names, high precision floats), can this cause buffer overflow or excessive memory allocation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7a79c5e0-3530-492d-9620-939702945ffb?mode=deep",
+    "timestamp": "2026-01-09 20:33:54.968844",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/graphite.go] [Function: Graphite()] [Default percentiles] The default percentiles []float64{0.5, 0.75, 0.95, 0.99, 0.999} are hardcoded - if these don't match the underlying histogram/timer implementation's expected values, can this cause calculation errors or panics? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1552de5b-d8dd-4cbd-a9e5-d92c592d7731?mode=deep",
+    "timestamp": "2026-01-09 20:34:17.793266",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/graphite.go] [Function: graphite()] [Nil slice] If c.Percentiles is nil, the range loop will not execute, but is this the intended behavior, or could this hide critical percentile metrics from monitoring? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7a6911eb-2e29-4cb1-83c5-5349989ffa20?mode=deep",
+    "timestamp": "2026-01-09 20:34:42.452071",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/graphite.go] [Function: graphite()] [Slice bounds] When iterating c.Percentiles with ps[psIdx], if h.Percentiles() or t.Percentiles() returns fewer elements than len(c.Percentiles), will this cause an index out of bounds panic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7ed1e7e9-7445-448f-9043-9f543be7f2b0?mode=deep",
+    "timestamp": "2026-01-09 20:35:08.415154",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/graphite.go] [Function: Graphite()] [Float64 conversion] Converting c.DurationUnit (time.Duration which is int64) to float64 at line 59 - can very large duration values lose precision in the conversion, causing incorrect metric calculations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9a5728bb-fbaa-4a9a-8d73-64f877fe4317?mode=deep",
+    "timestamp": "2026-01-09 20:35:32.510293",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/graphite.go] [Function: graphite()] [Integer truncation] When dividing Timer values by int64(du), can integer truncation lose precision for very small duration units, causing metrics to become 0 and hide performance issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8d939923-a7c1-4deb-b9e1-ad92e0ef6662?mode=deep",
+    "timestamp": "2026-01-09 20:35:57.258376",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/graphite.go] [Function: graphite()] [Division by zero] At lines 99-102, t.Min()/int64(du), t.Max()/int64(du), t.Mean()/du, t.StdDev()/du - if c.DurationUnit is set to 0, will this cause a panic and crash the metrics export goroutine? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eaf536fd-b10c-47e3-bb2c-6dc734bc17a8?mode=deep",
+    "timestamp": "2026-01-09 20:36:20.770885",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/graphite.go] [Function: graphite()] [Race condition] The 'now' timestamp is captured once at line 58 but used for all metrics - if metrics export takes significant time, can timestamp inconsistencies across metrics cause monitoring system issues or mask attack patterns? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4e4f5235-6759-42a4-9937-28af21c1a6c7?mode=deep",
+    "timestamp": "2026-01-09 20:36:41.730299",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/graphite.go] [Function: GraphiteWithConfig()] [Flush interval bypass] If c.FlushInterval is set to 0 or negative duration, can this cause time.Tick() to behave unexpectedly, potentially creating a tight loop that consumes 100% CPU? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2d175588-3477-4594-b7d5-e7967bb23a2c?mode=deep",
+    "timestamp": "2026-01-09 20:37:01.793883",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/graphite.go] [Function: graphite()] [Time manipulation] The timestamp is obtained from time.Now().Unix() without validation - if the system clock is manipulated (NTP attacks), can this cause metrics to be rejected by Graphite or create misleading monitoring data? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f407c7d6-e844-4d65-81fc-9f2a29e5ba2d?mode=deep",
+    "timestamp": "2026-01-09 20:37:23.261046",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/graphite.go] [Function: GraphiteConfig] [Configuration exposure] If c.Addr points to an attacker-controlled server, can the attacker collect all node metrics including transaction processing rates, validator performance, and network topology information? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6d516619-12e5-4327-b203-bd3feb407aec?mode=deep",
+    "timestamp": "2026-01-09 20:37:45.427056",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/graphite.go] [Function: graphite()] [Unencrypted transmission] The TCP connection to Graphite is unencrypted - can an attacker performing man-in-the-middle attacks capture sensitive node performance metrics revealing attack surface information? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_96036ca1-a1c1-4384-8838-977927c50c70?mode=deep",
+    "timestamp": "2026-01-09 20:38:06.441660",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/graphite.go] [Function: graphite()] [Sensitive data leak] All metrics in c.Registry are exported to the external Graphite server - if the Registry contains sensitive blockchain metrics (validator IPs, transaction rates, account balances), can this leak information to attackers monitoring the Graphite endpoint? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2c8767a6-80b4-4593-ab0e-50ddfd378ef6?mode=deep",
+    "timestamp": "2026-01-09 20:38:26.416946",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/graphite.go] [Function: graphite()] [Integer overflow] When computing percentile keys with strconv.FormatFloat(psKey*100.0, 'f', -1, 64), can float multiplication overflow or produce unexpected results with extreme percentile values, causing metric corruption? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c5340d6a-0b35-4606-93d7-9ee0c21093b7?mode=deep",
+    "timestamp": "2026-01-09 20:38:46.774034",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/graphite.go] [Function: graphite()] [Prefix injection] The c.Prefix is directly concatenated in fmt.Fprintf() - if the prefix contains newlines or special characters, can this corrupt the Graphite protocol stream and inject false metrics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b75eb8ae-0de2-49ba-bc7b-a7e9c9a20b4d?mode=deep",
+    "timestamp": "2026-01-09 20:39:07.502730",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/graphite.go] [Function: graphite()] [Metric name injection] If metric names in the Registry contain newline characters (\\\\n), can an attacker inject arbitrary Graphite metrics by creating malicious metric names that break the protocol format? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f9565a5b-de44-4c5f-91d6-00efd6ee164b?mode=deep",
+    "timestamp": "2026-01-09 20:39:28.923676",
+    "report_generated": false
   }
 ]
