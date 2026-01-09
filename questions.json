@@ -1123,5 +1123,130 @@
     "question": "core/vm/operations_acl.go",
     "url": "https://deepwiki.com/search/-generate-150-targeted-securit_c847dc46-cde7-4e0c-83a1-7e7aa42f4804?mode=deep",
     "questions_generated": false
+  },
+  {
+    "question": "core/vm/runtime/env.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_f4d1683f-9080-4c18-83b8-3ca26fdbda10?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "core/vm/runtime/runtime.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_90e5640e-27a6-45d0-aed2-a1a743c0bafb?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "core/vm/stack_table.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_bba408a1-9d38-413b-86ee-0e3008570645?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "core/vm/stack.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_cdf400e6-f052-4ccb-81ed-e782ffc1aed1?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/blake2b/blake2b_generic.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_56d579cf-f25d-4567-aa31-f90888b4d908?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/blake2b/blake2b_ref.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_d3d95e1b-280a-485e-a8ab-07008df48b16?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/blake2b/blake2b.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_806d6aac-eee6-424f-937f-e17aee5297a3?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/blake2b/blake2x.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_5d432ffb-c84b-4473-8ca5-a6c7da8b0475?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/blake2b/register.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_2387d904-76c8-4ed6-ae2c-49b259b6793d?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/bls12381/arithmetic_decl.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_b580b484-8d06-4304-b046-5872dd89e35a?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/bls12381/arithmetic_fallback.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_1ca9ee53-6990-4a3c-bb0d-c87eb4ec1fd7?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/bls12381/bls12_381.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_c9551b15-5b37-406f-82b7-3996d6e9f04e?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/bls12381/field_element.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_e51596b5-b0da-4c4f-9708-e77ea0407a3d?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/bls12381/fp.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_96e662d0-4c0d-40e2-b8f3-e18abf075277?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/bls12381/fp12.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_add57c87-dead-4037-8161-0211239a94e8?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/bls12381/fp2.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_9e4dc002-895a-4c6f-9659-b59d60667b1f?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/bls12381/fp6.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_6679fcd7-82cf-47da-beec-6d582aee3ba2?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/bls12381/g1.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_a66a02ca-672a-4d8c-803e-35d03b1c003e?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/bls12381/g2.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_a19a8ed8-84e3-48d4-8078-5989efbee79e?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/bls12381/gt.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_d25c03f0-bcfc-48ff-a8bd-405444246334?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/bls12381/isogeny.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_a33b912c-2bc9-4e46-b9f1-9862b0398e6a?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/bls12381/pairing.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_bd076d7c-6289-48a8-9c3a-d5974f1e06e0?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/bls12381/swu.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_d0da8fd4-5297-470d-8daa-81abad3e2984?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/bls12381/utils.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_a4ca5c2c-a13b-4fed-918d-331e40629037?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "crypto/bn256/bn256_slow.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_c52d78cd-5f1f-4f19-894b-9c4ddb50bb5f?mode=deep",
+    "questions_generated": false
   }
 ]
