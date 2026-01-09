@@ -1,6 +1,6 @@
 import json
 
-BASE_URL = "https://github.com/whitebit-exchange/wbt"
+BASE_URL = "https://deepwiki.com/whitebit-exchange/wbt"
 
 
 def get_questions():
