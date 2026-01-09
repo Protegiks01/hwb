@@ -1048,5 +1048,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4643e5b7-de2f-4a7d-8a5b-fdc4ac693e57?mode=deep",
     "timestamp": "2026-01-09 16:16:20.338601",
     "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Write amplification] For Histogram and Timer metrics that write 10+ lines each, could an attacker cause metrics export to consume excessive network bandwidth by registering many complex metrics, causing network saturation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9aa92d85-03a4-498e-8810-0a818e17fc5c?mode=deep",
+    "timestamp": "2026-01-09 16:17:50.354581",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Buffer exhaustion] Does bufio.NewWriter have a maximum buffer size, and if large numbers of metrics are written, could buffer reallocation cause memory pressure or OOM conditions crashing the node? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_128caef9-8b04-4f2c-b6e2-1c9a70d9ee42?mode=deep",
+    "timestamp": "2026-01-09 16:18:03.235552",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: OpenTSDBWithConfig()] [Timer leak] Does time.Tick create a ticker that is never stopped, and if OpenTSDBWithConfig() is called repeatedly (e.g., during config reloads), could this accumulate timers causing memory leaks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7fd0ec29-27a8-496a-9c8a-370614c76887?mode=deep",
+    "timestamp": "2026-01-09 16:18:16.692022",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [CPU exhaustion] Can an attacker register extremely large numbers of metrics in the Registry, causing the Each() iteration to consume excessive CPU time during every flush interval and degrading node performance? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_63bd30b3-493b-45d0-a36e-338a377ed356?mode=deep",
+    "timestamp": "2026-01-09 16:18:30.331800",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Memory exhaustion] If the Registry contains thousands of metrics, each with histograms or timers requiring 10+ writes per metric, could the bufio.Writer buffer grow unbounded causing memory exhaustion before Flush() is called? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2cea6491-d6b6-430f-aca7-d3b2ffae5e36?mode=deep",
+    "timestamp": "2026-01-09 16:18:44.865899",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Partial write handling] If bufio.Writer's Flush() fails on line 118, are previous writes guaranteed to have completed, or could partial metrics be sent to OpenTSDB causing corrupted or inconsistent metric data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_27cfb022-c7bc-47e6-bcd6-4aa907024ed4?mode=deep",
+    "timestamp": "2026-01-09 16:19:00.498252",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: getShortHostname()] [Error suppression] On line 50, os.Hostname() errors are silently ignored with the blank identifier, meaning if hostname retrieval fails, an empty hostname could be used in metrics, causing metric corruption or loss. Could this be exploited? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7bbe651d-f1bf-45fc-88b2-8b69b913740f?mode=deep",
+    "timestamp": "2026-01-09 16:19:17.726442",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Error suppression] Does the function return early on connection errors but silently ignore write errors from fmt.Fprintf() or w.Flush(), potentially causing metrics to be silently lost without operator awareness? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_49ea64a1-1e38-44fc-8ef6-a674ce2c60ec?mode=deep",
+    "timestamp": "2026-01-09 16:19:36.916451",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: OpenTSDBWithConfig()] [Silent failure] If openTSDB() returns an error on line 42, it is only logged to standard log, meaning metric export failures are silent and operators won't be alerted to potential node monitoring failures - could this hide critical node problems? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b6336293-2279-4375-920a-437ef1340f94?mode=deep",
+    "timestamp": "2026-01-09 16:19:57.195598",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Timestamp overflow] Does time.Now().Unix() on line 62 properly handle timestamp overflow scenarios in the distant future (year 2038 problem on 32-bit systems), or could this cause metrics to be recorded with incorrect timestamps? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dbc5d056-f388-4919-a592-f8999ff70eec?mode=deep",
+    "timestamp": "2026-01-09 16:20:17.874062",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Float conversion] When converting duration unit to float64 on line 63, can loss of precision occur for very large or very small duration values, causing incorrect timer metrics to be reported and misleading node operators? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_869b0bde-92e9-4116-b4b4-06ee184bc44b?mode=deep",
+    "timestamp": "2026-01-09 16:20:41.355181",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Integer overflow] When converting Timer.Min()/Timer.Max() values by dividing by int64(du) on lines 104-105, can integer overflow occur if du is very small (approaching zero) and the timer values are large, causing incorrect metrics or panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e2d94795-62b0-42a1-a4f7-968ac0571358?mode=deep",
+    "timestamp": "2026-01-09 16:21:05.353463",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Division by zero] On lines 104-112, can the c.DurationUnit be set to zero, causing division-by-zero panics when converting Timer metrics and crashing the node during metrics export? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dadb3fbd-dff1-4a99-9ca5-e7509182981c?mode=deep",
+    "timestamp": "2026-01-09 16:21:29.945733",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Metric name injection] Can metric names registered in the Registry contain spaces, dots, or other special characters that could break the OpenTSDB protocol format, causing metric corruption or protocol parsing errors on the server side? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e6b509f5-9296-4d5f-868c-299ea4db8c29?mode=deep",
+    "timestamp": "2026-01-09 16:21:54.969430",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Format string injection] Are the fmt.Fprintf calls using user-controlled data safely, or could specially crafted metric names cause format string vulnerabilities leading to crashes or information disclosure? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_91401acc-7c73-4948-bcbc-7b0326a83e2e?mode=deep",
+    "timestamp": "2026-01-09 16:22:17.600061",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: getShortHostname()] [Input validation] Does os.Hostname() return attacker-controllable data in containerized or virtualized environments, and could an attacker craft a malicious hostname containing protocol injection characters to compromise metrics integrity? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b52daa29-4891-42c9-9600-65e9c70f34e5?mode=deep",
+    "timestamp": "2026-01-09 16:22:42.472404",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Protocol injection] Can the shortHostname value contain newlines or special characters that could break the OpenTSDB protocol format on lines 73-117, allowing injection of fake metrics or protocol commands? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_44f98a5f-5011-44d9-8e99-5cdeef409490?mode=deep",
+    "timestamp": "2026-01-09 16:23:06.153008",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Protocol injection] Is the c.Prefix string validated before being inserted into OpenTSDB protocol messages, or can an attacker inject newlines or other control characters to inject multiple fake metric entries or OpenTSDB commands? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cc4e604b-26a6-41b5-81e3-3735435f0ccf?mode=deep",
+    "timestamp": "2026-01-09 16:23:27.691930",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Protocol injection] Can an attacker inject malicious characters (newlines, control characters) into the metric name parameter passed to Registry.Each(), allowing them to inject arbitrary OpenTSDB commands and potentially corrupt the metrics database or execute unauthorized operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dfba330d-3560-4ff1-8537-f6ffbfdda448?mode=deep",
+    "timestamp": "2026-01-09 16:23:49.855486",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Network error handling] If the TCP connection is established but becomes broken during the write operations, are there proper timeouts to detect this, or could the node hang indefinitely trying to write to a dead connection? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f106a134-1b3a-43aa-8968-8534ee23db06?mode=deep",
+    "timestamp": "2026-01-09 16:24:12.476359",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: OpenTSDBWithConfig()] [Goroutine leak] Does the time.Tick on line 41 create a goroutine that can never be stopped, and if OpenTSDBWithConfig() is called multiple times, could this cause unbounded goroutine accumulation leading to memory exhaustion and node crash? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fe7794f7-f567-4ade-9716-e353550c5691?mode=deep",
+    "timestamp": "2026-01-09 16:24:35.307228",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Connection hijacking] Is there any validation that c.Addr points to a legitimate OpenTSDB server, or can a compromised configuration cause metrics to be exported to an attacker-controlled server, potentially leaking sensitive node information? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f5ddba93-48dd-4701-8fee-cb43bfa3f668?mode=deep",
+    "timestamp": "2026-01-09 16:25:01.028897",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [DoS attack] Can an attacker control the c.Addr parameter to point to a malicious or slow server that never responds, causing the node to hang indefinitely during metrics export and preventing proper node operation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_35f94ea9-6ed7-4695-a9e1-31c5ca2127df?mode=deep",
+    "timestamp": "2026-01-09 16:25:25.954275",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Resource leak] If the connection succeeds on line 64 but an error occurs before defer conn.Close() executes, or if the Registry.Each() callback panics, could the TCP connection leak, eventually exhausting node file descriptors and causing node failure? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6e8c4a21-c3b4-49db-976f-5432216c01ac?mode=deep",
+    "timestamp": "2026-01-09 16:25:51.043579",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: openTSDB()] [Resource exhaustion] Does the net.DialTCP call on line 64 have any timeout configured, or can an attacker cause the connection attempt to hang indefinitely, blocking the goroutine and potentially causing resource exhaustion if multiple exports are attempted? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eb795162-d4a9-4216-a473-2bf5b1f82999?mode=deep",
+    "timestamp": "2026-01-09 16:26:17.065813",
+    "report_generated": false
   }
 ]
