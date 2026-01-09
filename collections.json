@@ -1948,5 +1948,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f4302b42-270a-4f28-9d82-268654304f7e?mode=deep",
     "timestamp": "2026-01-09 17:19:46.223173",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyStoreTransactor()] [Keystore authorization] At line 71, keystore.SignHash() is called without additional authorization checks - could a compromised or malicious keystore implementation bypass account locking and sign unauthorized transactions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f07e4269-7755-4386-9d74-a1c184a2a127?mode=deep",
+    "timestamp": "2026-01-09 17:20:52.401647",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewClefTransactor()] [Address mismatch] The check at lines 172-174 returns ErrNotAuthorized if addresses don't match, but what if the transaction object has a different From field than the address parameter, creating inconsistency that could be exploited? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_05c3e3be-ec57-4be5-bfb6-ff23446e65a4?mode=deep",
+    "timestamp": "2026-01-09 17:21:05.386863",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyStoreTransactorWithChainID()] [Account verification] At line 129, the address check compares against account.Address from the parameter - if the accounts.Account struct is mutable and modified after TransactOpts creation, could this enable signing for different addresses? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3a5412fe-bd45-4afe-acff-97ba31e43712?mode=deep",
+    "timestamp": "2026-01-09 17:21:18.615902",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyedTransactor()] [Signature generation] At line 95, crypto.Sign() generates the signature - if the transaction hash input contains null bytes or unexpected data, could this lead to signature malleability allowing attackers to modify transactions post-signing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a6f81172-96d8-4b6c-949d-fb6d58ad2c4c?mode=deep",
+    "timestamp": "2026-01-09 17:21:32.591768",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyStoreTransactor()] [Hash collision] At line 71, signer.Hash(tx).Bytes() generates the transaction hash - could hash collision attacks allow two different transactions to have the same hash, enabling attackers to substitute transactions after signing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bfe0dd68-bdbc-400a-bf35-a6bd76f86a77?mode=deep",
+    "timestamp": "2026-01-09 17:21:47.474818",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyedTransactorWithChainID()] [Signature verification] After tx.WithSignature() at line 160, is the resulting signature verified to ensure it correctly recovers to the expected address, or could signature malleability allow attackers to create valid-looking but invalid signatures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a2b2bc2c-34c5-46af-a934-d74ebba3fadd?mode=deep",
+    "timestamp": "2026-01-09 17:22:03.403421",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyStoreTransactor()] [HomesteadSigner security] At line 64, HomesteadSigner is used in deprecated function - does this older signing algorithm have known vulnerabilities (e.g., lack of EIP-2718 support) that could be exploited in transaction malleability attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a71fa0cf-e3c8-42d9-98c4-94a8c857ba1c?mode=deep",
+    "timestamp": "2026-01-09 17:22:20.580639",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyStoreTransactorWithChainID()] [Signer selection] At line 125, types.LatestSignerForChainID() selects the signer - if WBT's chain ID triggers selection of an outdated signer (e.g., HomesteadSigner), could this enable signature malleability or replay attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2528d5bd-dcd7-4481-b1b0-d487096c0bfd?mode=deep",
+    "timestamp": "2026-01-09 17:22:39.785363",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyedTransactorWithChainID()] [ECDSA implementation] The crypto.Sign() call at line 156 uses Go's ECDSA implementation - are there known timing attacks or fault injection attacks against this implementation that could leak private key bits during repeated signing operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_48eb7526-4ffc-4564-8858-fe44a4277eb6?mode=deep",
+    "timestamp": "2026-01-09 17:23:00.327482",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewTransactor()] [Key decryption side-channel] At line 51, keystore.DecryptKey() performs cryptographic operations - could side-channel attacks (timing, power analysis) during decryption leak information about the passphrase or private key? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2193020e-259d-47ee-b17a-e184d389f71e?mode=deep",
+    "timestamp": "2026-01-09 17:23:22.080566",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyedTransactor()] [Signature determinism] Is crypto.Sign() at line 95 deterministic (using RFC 6979), or does it use random k values that could be exploited if the RNG is weak or predictable, potentially leaking the private key after multiple signatures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d748aec6-44fe-4bba-9ebe-d2d0328b4b5c?mode=deep",
+    "timestamp": "2026-01-09 17:23:44.859859",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewTransactor()] [Decryption error leak] At lines 51-54, if DecryptKey() fails, does the error message leak information about whether the key format is valid, the encryption algorithm used, or the passphrase validity, enabling attackers to mount targeted attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7fca9f21-6ce3-4510-836b-09011304d196?mode=deep",
+    "timestamp": "2026-01-09 17:24:09.218683",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyStoreTransactor()] [Signature error handling] At lines 71-74, if SignHash() returns an error, could the error message reveal information about the keystore state, account locking status, or authorization failures that helps attackers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_350b5559-0f9c-4bba-bdee-a782bf7e62d9?mode=deep",
+    "timestamp": "2026-01-09 17:24:34.615411",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyedTransactor()] [Signing failure leak] At lines 95-98, if crypto.Sign() fails, does the returned error contain information about the private key, transaction structure, or signing algorithm that could aid attackers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4e673189-e88d-470f-a3ac-8c685bde4e46?mode=deep",
+    "timestamp": "2026-01-09 17:25:01.671317",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewTransactorWithChainID()] [IO error information] At line 108-110, if io.ReadAll() fails, could the error reveal information about the key file path, permissions, or file structure that helps attackers locate or access encrypted key material? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1d134cf2-0350-4a04-afda-a673a7e36fd6?mode=deep",
+    "timestamp": "2026-01-09 17:25:29.449268",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyedTransactorWithChainID()] [Authorization error] The ErrNotAuthorized error at line 154 is generic - could attackers use timing analysis to differentiate between 'wrong address' vs 'signing failure' to map account relationships? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_da2183a9-ec28-4921-bcc9-f324bb483b29?mode=deep",
+    "timestamp": "2026-01-09 17:25:57.065619",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewClefTransactor()] [External signer errors] At line 175, if clef.SignTx() fails, could the error message leak information about Clef's internal state, connected accounts, or security policies that aids social engineering attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1e5ff8d2-7386-470e-98e7-33b3e9131cc3?mode=deep",
+    "timestamp": "2026-01-09 17:26:24.957473",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyStoreTransactorWithChainID()] [Chain ID error] At lines 122-124, if chainID is nil, ErrNoChainID is returned - could attackers use this to fingerprint which version of the signing functions is being used and target known vulnerabilities in deprecated versions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cdf0c035-1128-4ecc-99b4-a0731a4654d6?mode=deep",
+    "timestamp": "2026-01-09 17:26:50.445304",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyedTransactor()] [Concurrent signing] If multiple goroutines call the signer closure at lines 91-100 concurrently using the same TransactOpts, could race conditions in crypto.Sign() or internal state lead to signature corruption or private key leakage? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ba150a76-2ba7-40b8-963a-4cfb5de9b6d9?mode=deep",
+    "timestamp": "2026-01-09 17:27:16.250510",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyStoreTransactor()] [Keystore race condition] At line 71, if multiple goroutines concurrently call keystore.SignHash() with the same account, could race conditions in the keystore implementation lead to signature mixing, double-signing, or account unlocking errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8033c31b-1b95-4ca6-87d2-d271b5873377?mode=deep",
+    "timestamp": "2026-01-09 17:27:42.380506",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyStoreTransactorWithChainID()] [Concurrent access] If the keystore parameter at line 121 is shared across multiple TransactOpts and accessed concurrently, could race conditions in account locking/unlocking lead to unauthorized signatures or keystore corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ee1ce5c1-9bb1-45e9-96c2-e06cbb554ca8?mode=deep",
+    "timestamp": "2026-01-09 17:28:09.160920",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewClefTransactor()] [External signer race] At line 175, if multiple goroutines concurrently call clef.SignTx() through the same TransactOpts, could race conditions in the external signer's RPC communication lead to signature mixing or transaction confusion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_998536e3-e68e-495f-ba8b-0ca34472cdb4?mode=deep",
+    "timestamp": "2026-01-09 17:28:35.891607",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyedTransactorWithChainID()] [Signer instance sharing] If types.LatestSignerForChainID() at line 149 returns a shared signer instance used across multiple TransactOpts, could concurrent hash calculations or signature operations have race conditions leading to incorrect transaction signatures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3a9db38f-cf7b-4c5a-8680-8a8bcda55d6e?mode=deep",
+    "timestamp": "2026-01-09 17:29:01.401713",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewTransactor()] [Key decryption race] If multiple goroutines simultaneously call NewTransactor() with the same keyin Reader at line 45, could race conditions in io.ReadAll() at line 47 lead to partial reads, corrupted JSON, or key material mixing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9637a024-3931-42d0-9d1c-d7b549b41b75?mode=deep",
+    "timestamp": "2026-01-09 17:29:22.980151",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/auth.go] [Function: NewKeyedTransactor()] [Public key derivation race] If crypto.PubkeyToAddress() at line 87 has internal state or caching, could concurrent calls from multiple goroutines lead to incorrect address derivation or race conditions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a92c60cd-1a38-40d6-b7c0-25fac99b74aa?mode=deep",
+    "timestamp": "2026-01-09 17:29:45.191148",
+    "report_generated": false
   }
 ]
