@@ -598,5 +598,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1f80049c-3770-4472-9818-7cb2e70f9dd4?mode=deep",
     "timestamp": "2026-01-09 15:47:11.890076",
     "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/collector.go] [Function: addCounter()] [Integer overflow] Can the Counter.Count() value overflow when converted to the fmt.Sprintf %v format at line 108, causing incorrect metric reporting that masks node performance issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9fbe4715-bd2e-4c6f-bd45-260d83932f33?mode=deep",
+    "timestamp": "2026-01-09 15:48:23.740258",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/collector.go] [Function: strconv.FormatFloat()] [Precision loss] At lines 71 and 86, does the 'f' format with -1 precision cause numeric precision loss in percentile values that could misrepresent critical blockchain metrics (block times, gas usage)? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8fbf3c50-0385-469d-a8c5-6726eb88b6ae?mode=deep",
+    "timestamp": "2026-01-09 15:48:36.592401",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/collector.go] [Function: addResettingTimer()] [Type conversion] Can the len(val) conversion to interface{} at line 97 overflow or cause type confusion when extremely large timer value arrays are provided? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1b6c3359-5ec6-4717-b989-ab25f5d2b91c?mode=deep",
+    "timestamp": "2026-01-09 15:48:50.255756",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/collector.go] [Function: addTimer()] [Array bounds] Can the loop at lines 85-87 iterate beyond the bounds of the ps slice if Percentiles() returns fewer elements than pv, causing index out of range panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8d75a6b8-9b29-4943-83f4-6fbbe6932587?mode=deep",
+    "timestamp": "2026-01-09 15:49:04.024912",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/collector.go] [Function: addHistogram()] [Array bounds] Is there proper bounds checking between the pv array (line 66) and ps array (line 67), or can mismatched array lengths cause out-of-bounds access at line 71 leading to panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6e2422a8-a5ce-4041-8586-a7921b125cd7?mode=deep",
+    "timestamp": "2026-01-09 15:49:18.638964",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/collector.go] [Function: addHistogram()] [Label injection] At line 69, when mutateKey(name) is used for the TYPE directive, can an attacker inject malicious metric names that create fake TYPE declarations overriding legitimate metrics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cfa15a64-1486-4d3c-8533-773ae02a2d20?mode=deep",
+    "timestamp": "2026-01-09 15:49:34.572794",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/collector.go] [Function: mutateKey()] [Incomplete sanitization] Does the single ReplaceAll('/','_') operation at line 123 adequately handle all Prometheus naming restrictions, or can metric names with spaces, dots, hyphens, or Unicode characters break Prometheus parsers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9e8afca0-5759-4508-96e5-598033e914b8?mode=deep",
+    "timestamp": "2026-01-09 15:49:51.473206",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/collector.go] [Function: writeSummaryPercentile()] [Tag injection] Can attackers inject malicious Prometheus label syntax into the quantile tag at line 119 (e.g., quantile=\\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_306abf7d-402c-4f85-aa9f-6e1680efa593?mode=deep",
+    "timestamp": "2026-01-09 15:50:10.560315",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/collector.go] [Function: writeGaugeCounter()] [Format string vulnerability] Does the fmt.Sprintf() call at line 107 with user-controlled 'name' parameter properly escape special characters, or can attackers inject format specifiers causing crashes or information disclosure? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_439fa6de-0bfe-4fa5-93cf-5ab32ae4a04f?mode=deep",
+    "timestamp": "2026-01-09 15:50:30.816454",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/collector.go] [Function: addCounter()] [Name injection] Can a malicious actor provide metric names containing Prometheus reserved keywords or format strings that bypass the simple ReplaceAll('/','_') sanitization in mutateKey(), injecting arbitrary metric definitions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_56891165-538a-474e-9119-21936f06a497?mode=deep",
+    "timestamp": "2026-01-09 15:50:52.208832",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/collector.go] [Function: mutateKey()] [Injection attack] Does the mutateKey() function at line 122-124 properly sanitize metric names, or can an attacker inject newlines, special characters, or Prometheus format directives (e.g., '# TYPE', '# HELP') to corrupt the entire metrics output? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_503f5e0e-46d2-42b3-810f-b75ab81523de?mode=deep",
+    "timestamp": "2026-01-09 15:51:14.862722",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/collector.go] [Function: writeSummaryPercentile()] [Race condition] Can the WriteString() call at line 119 be interleaved with other metric writes during concurrent access, causing malformed quantile data that breaks metric parsing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9eaf27b1-1252-48eb-b828-15d0465024f4?mode=deep",
+    "timestamp": "2026-01-09 15:51:37.332651",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/collector.go] [Function: writeSummaryCounter()] [Race condition] Are the sequential WriteString() calls at lines 113-114 atomic, or can race conditions during concurrent metric collection cause partial writes that corrupt the Prometheus format? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ae93c8d5-b741-42ed-948f-49c52c700274?mode=deep",
+    "timestamp": "2026-01-09 15:52:01.281711",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/collector.go] [Function: writeGaugeCounter()] [Race condition] Can concurrent calls to writeGaugeCounter() from multiple goroutines cause interleaved writes to the shared bytes.Buffer at lines 107-108, producing malformed Prometheus output that crashes monitoring systems? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6d751064-a921-4321-8085-899427a7fb65?mode=deep",
+    "timestamp": "2026-01-09 15:52:24.646178",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/collector.go] [Struct: collector] [Concurrent access] Is the collector.buff bytes.Buffer protected by mutex locks, or can concurrent goroutines calling add*() methods simultaneously cause race conditions and data corruption in the Prometheus output? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2e890da5-cca5-4ee5-a2e6-5d11c01f249f?mode=deep",
+    "timestamp": "2026-01-09 15:52:47.630002",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/collector.go] [Function: addResettingTimer()] [DoS via empty check bypass] Can an attacker exploit the len(m.Values()) <= 0 check at line 92 by providing edge-case timer values that pass the check but cause panics in subsequent Percentiles() calls, crashing validator nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0f83fed2-72e1-4d31-8e0c-a81961294b91?mode=deep",
+    "timestamp": "2026-01-09 15:53:11.217925",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/collector.go] [Function: addTimer()] [Memory exhaustion] Does the Timer.Percentiles() call at line 82 have bounds checking on the returned slice, or can manipulated timer metrics cause excessive memory allocation leading to node crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_38011ec8-ce97-4035-8357-36f7c886046e?mode=deep",
+    "timestamp": "2026-01-09 15:53:34.188526",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/collector.go] [Function: addHistogram()] [Memory exhaustion] Can an attacker provide malicious histogram metrics with extremely large sample counts that cause the Percentiles() calculation at line 67 to allocate excessive memory, leading to OOM crashes across validator nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_033b024f-12d9-43e7-96e0-d99f24218373?mode=deep",
+    "timestamp": "2026-01-09 15:53:58.384607",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/collector.go] [Function: newCollector()] [Memory leak] Is there any mechanism to limit the size of the bytes.Buffer created in newCollector(), or can an attacker trigger unlimited metric collection causing memory exhaustion and node crash through unbounded buffer growth? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_074e4b46-8e5b-4a45-960d-b7e730df0e97?mode=deep",
+    "timestamp": "2026-01-09 15:54:22.022715",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/collector.go] [Function: addCounter()] [Integer overflow] Can the Counter.Count() value overflow when converted to the fmt.Sprintf %v format at line 108, causing incorrect metric reporting that masks node performance issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d7137806-ff33-4e61-95c6-c8c6df9372bb?mode=deep",
+    "timestamp": "2026-01-09 15:54:47.016486",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/collector.go] [Function: strconv.FormatFloat()] [Precision loss] At lines 71 and 86, does the 'f' format with -1 precision cause numeric precision loss in percentile values that could misrepresent critical blockchain metrics (block times, gas usage)? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_68dd421f-df3d-4f8d-88e7-401c0e0eda26?mode=deep",
+    "timestamp": "2026-01-09 15:55:11.475026",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/collector.go] [Function: addResettingTimer()] [Type conversion] Can the len(val) conversion to interface{} at line 97 overflow or cause type confusion when extremely large timer value arrays are provided? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_60339c3d-7727-4189-a166-4f023f14b4b1?mode=deep",
+    "timestamp": "2026-01-09 15:55:37.652615",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/collector.go] [Function: addTimer()] [Array bounds] Can the loop at lines 85-87 iterate beyond the bounds of the ps slice if Percentiles() returns fewer elements than pv, causing index out of range panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a45fb11a-d8ef-4004-b890-bf12bf228f9a?mode=deep",
+    "timestamp": "2026-01-09 15:56:03.269322",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/collector.go] [Function: addHistogram()] [Array bounds] Is there proper bounds checking between the pv array (line 66) and ps array (line 67), or can mismatched array lengths cause out-of-bounds access at line 71 leading to panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_71dc3e60-d050-45ca-ae08-33dd1a9224e9?mode=deep",
+    "timestamp": "2026-01-09 15:56:28.314494",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/prometheus/collector.go] [Function: addHistogram()] [Label injection] At line 69, when mutateKey(name) is used for the TYPE directive, can an attacker inject malicious metric names that create fake TYPE declarations overriding legitimate metrics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4a289ba7-1277-4fbc-9f52-81be7b107b2f?mode=deep",
+    "timestamp": "2026-01-09 15:56:55.589437",
+    "report_generated": false
   }
 ]
