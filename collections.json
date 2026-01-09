@@ -598,5 +598,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3f34de4b-eb5d-43a8-ac79-fe8b4393914b?mode=deep",
     "timestamp": "2026-01-09 15:46:57.946562",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [State Corruption] [Partial Unpack] If UnpackIntoInterface() or UnpackIntoMap() fail partway through, could partially written data cause state inconsistencies in contract storage? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_17abce7d-b023-4a7c-9094-be19d8fc048b?mode=deep",
+    "timestamp": "2026-01-09 15:48:27.904857",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [State Corruption] [Method Confusion] Could method name conflicts resolved by ResolveNameConflict cause the wrong method to execute, corrupting contract state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4d4d7060-b75d-48bd-81a5-50a4c2cd860b?mode=deep",
+    "timestamp": "2026-01-09 15:48:40.990978",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [DoS Attack] [JSON Bomb] Can an attacker provide a highly compressed JSON payload that expands to gigabytes during parsing in JSON(), exhausting validator memory? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d19e29b1-2bc8-439f-90e3-71565c5c32d9?mode=deep",
+    "timestamp": "2026-01-09 15:48:54.692601",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [DoS Attack] [Method Iteration] With contracts having thousands of methods, could MethodById() linear search cause CPU exhaustion when processing many transactions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f3830ad0-3b6a-48c1-8092-9956d9f82094?mode=deep",
+    "timestamp": "2026-01-09 15:49:08.527481",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [DoS Attack] [Event Iteration] Similarly, EventByID() on contracts with many events could cause log processing DoS. (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a8e63621-4786-4a46-b11c-1f0526198c27?mode=deep",
+    "timestamp": "2026-01-09 15:49:23.154970",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [DoS Attack] [Repeated Unpacking] Could an attacker flood the network with transactions containing large data payloads that require expensive unpacking operations, overwhelming validator CPU? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bc54cb3e-a34c-4d9b-ae38-2948999988d9?mode=deep",
+    "timestamp": "2026-01-09 15:49:39.157472",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [DoS Attack] [Revert String Size] Can extremely long revert reason strings in UnpackRevert() cause memory exhaustion or log storage issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_697b4683-fdd3-4a84-8025-f5a790068565?mode=deep",
+    "timestamp": "2026-01-09 15:49:56.067042",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Cryptographic] [Method ID Generation] The 4-byte method ID is derived from Keccak256 hash - are there known preimage attacks that could allow method ID spoofing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_20e7156f-9a02-480b-88e5-7b096adb9919?mode=deep",
+    "timestamp": "2026-01-09 15:50:14.623989",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Cryptographic] [Event Topic Hash] Event IDs use full Keccak256 hash - but are 32 bytes sufficient to prevent birthday attacks in event ID collision? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1938d235-022f-47fa-8c87-9b6ad236dca9?mode=deep",
+    "timestamp": "2026-01-09 15:50:35.035110",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Cryptographic] [Hash Collision] If two different method signatures produce the same 4-byte ID prefix, does MethodById() have any secondary validation to detect this? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cfa6f6e3-7dcd-45a6-bd4b-211832731331?mode=deep",
+    "timestamp": "2026-01-09 15:50:57.163418",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Data Integrity] [ABI Consistency] If the same contract is loaded from different JSON sources, could differences in field ordering cause different Method/Event map iterations leading to non-deterministic behavior? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9e87d025-94b7-4a9d-b450-6d1af73ac89f?mode=deep",
+    "timestamp": "2026-01-09 15:51:19.797424",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Data Integrity] [Round-Trip Encoding] Does packing a value then unpacking it guarantee bit-perfect reproduction for all types, or could encoding differences cause state drift? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7859d4bd-5680-425d-8fb2-4f782b49fbc2?mode=deep",
+    "timestamp": "2026-01-09 15:51:44.073631",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Data Integrity] [Map Ordering] Since Go maps have randomized iteration order, could this cause non-deterministic behavior when iterating Methods or Events in consensus-critical code? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_614d0314-3394-41e8-b815-2205969beda2?mode=deep",
+    "timestamp": "2026-01-09 15:52:09.392133",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Edge Case] [Empty ABI] What happens if an ABI with zero methods, events, and errors is created - could empty maps cause unexpected behavior in dependent code? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1bcbfadb-801c-4a4e-a8da-ca1207b8987f?mode=deep",
+    "timestamp": "2026-01-09 15:52:35.720410",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Edge Case] [All Functions] If a contract defines constructor, functions, fallback, receive, events, and errors all at once, does the ABI handle this correctly or could resource limits be exceeded? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_33c1147a-5be9-4308-a47d-728cc3eaf95a?mode=deep",
+    "timestamp": "2026-01-09 15:53:02.307205",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Edge Case] [Unicode Names] Can method or event names contain Unicode characters, and if so, could Unicode normalization issues cause name matching problems? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_23f31681-05ca-4248-9488-5d654f72f7a8?mode=deep",
+    "timestamp": "2026-01-09 15:53:29.643342",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Edge Case] [Zero-Length Data] What happens when Pack() or Unpack() is called with zero-length data - could this cause unexpected behavior or panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fb94db51-011c-4c71-b208-5841157bcdea?mode=deep",
+    "timestamp": "2026-01-09 15:53:56.528620",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Edge Case] [Maximum Methods] Is there a practical limit on the number of methods in the Methods map, or could contracts with millions of methods cause performance degradation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_055685d2-3458-4b1d-acc1-ccfd375fcde4?mode=deep",
+    "timestamp": "2026-01-09 15:54:24.492562",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Mint Contract] [ABI Tampering] Could a malicious actor modify the mint contract's ABI in memory to bypass mint limits by altering method signatures or parameters before Pack() is called? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d47b6d9e-c0c3-4ad1-846d-698b28639755?mode=deep",
+    "timestamp": "2026-01-09 15:54:52.964525",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Mint Contract] [Event Filtering] If the mint contract emits events, could EventByID() failures cause burn events from external chains to be missed, breaking the bridge? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ddef2931-1d54-4a0c-afe3-c799b0c267bd?mode=deep",
+    "timestamp": "2026-01-09 15:55:21.367953",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Mint Contract] [Constructor Attack] During mint contract deployment, could malicious constructor parameters packed via Pack() bypass initialization checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5165c20b-f48c-4fc1-ae4b-fb1ff62bbfe0?mode=deep",
+    "timestamp": "2026-01-09 15:55:48.818052",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Mint Contract] [Method Call Validation] Does the ABI validation prevent calling administrative mint functions with forged method IDs? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a2a7fe16-e80f-4064-957c-54b5f693c035?mode=deep",
+    "timestamp": "2026-01-09 15:56:18.783939",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Resource Exhaustion] [String Interning] Are method/event name strings interned or could duplicate strings across many ABIs cause memory bloat? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b604b177-8727-429d-855a-41a0bfcbb5f5?mode=deep",
+    "timestamp": "2026-01-09 15:56:48.723106",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Resource Exhaustion] [Map Growth] Do the Methods/Events/Errors maps ever shrink, or do they only grow as more ABIs are loaded, potentially exhausting memory over time? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_426efc66-0b61-44f5-b5df-489bda13b70d?mode=deep",
+    "timestamp": "2026-01-09 15:57:18.557058",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Resource Exhaustion] [Argument Slices] Are Inputs/Outputs argument slices reused or is new memory allocated for each unpacking operation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_074f48be-ef2b-4569-be14-3c6a7575d6d7?mode=deep",
+    "timestamp": "2026-01-09 15:57:49.951680",
+    "report_generated": false
   }
 ]
