@@ -6298,5 +6298,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_950cf7c6-5159-4e68-a712-daf41af4b876?mode=deep",
     "timestamp": "2026-01-09 22:09:06.862321",
     "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: EWMASnapshot] [Reference retention] When Snapshot() returns an EWMASnapshot at line 94, does it inadvertently retain references to the parent StandardEWMA through closures or otherwise, preventing garbage collection and causing memory leaks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_aa132ad3-07f5-49f0-b08e-d418fe97b916?mode=deep",
+    "timestamp": "2026-01-09 22:10:18.497260",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: StandardEWMA] [Atomic copying] If a StandardEWMA is copied after being used, does the atomic.Int64 field get copied correctly, and can operations on both the original and copy cause memory corruption or unexpected behavior in the atomic operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1eb1b0d9-16f6-4deb-a91d-728ea8e6cf30?mode=deep",
+    "timestamp": "2026-01-09 22:10:31.726892",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: StandardEWMA] [Mutex copying] If a StandardEWMA struct is copied by value (e.g., a2 := *a1), does the copied mutex become invalid, and can operations on the copied struct cause undefined behavior or data races when the mutex is accessed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d8c20659-8a00-46a0-b885-c1107d5ee497?mode=deep",
+    "timestamp": "2026-01-09 22:10:44.968712",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Rate()] [Precision loss] When multiplying a.rate (float64) by time.Second (Duration = int64 = 1e9) at line 89, can the multiplication lose precision or overflow if rate is at extreme values, producing incorrect rate results? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_86fb0604-cd21-43f6-8664-f5add6de9d1a?mode=deep",
+    "timestamp": "2026-01-09 22:10:59.549777",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: EWMASnapshot] [Type confusion] Can type assertions or interface casting be used to convert an EWMASnapshot to a StandardEWMA and then call Tick() or Update() on it, bypassing the panic checks at lines 50 and 55 and corrupting the immutable snapshot? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d17b8ea1-0441-47d1-8d04-4c3b67695709?mode=deep",
+    "timestamp": "2026-01-09 22:11:14.690138",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Tick()] [Lossy conversion] When converting count (int64) to float64 at line 102, can precision be lost for large count values (>2^53), causing undercounting and making rate calculations inaccurate for high-throughput scenarios? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_511c1cc7-4a65-4330-b67c-b0a6e98fc81c?mode=deep",
+    "timestamp": "2026-01-09 22:11:31.073279",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Update()] [MinInt64] Can Update(math.MinInt64) be called to set uncounted to a large negative value, and does Tick() at line 102 handle negative counts gracefully or produce undefined behavior in the float64 conversion and rate calculation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0dd38f60-c5f8-4e81-84a4-6c748a09a52a?mode=deep",
+    "timestamp": "2026-01-09 22:11:47.102191",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Update()] [MaxInt64] If Update(math.MaxInt64) is called followed immediately by Update(1), can the atomic Add() operations cause the int64 to overflow and wrap to negative, corrupting the uncounted field permanently? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b17efc1c-557d-496f-948c-5128dc92ab2a?mode=deep",
+    "timestamp": "2026-01-09 22:12:05.108909",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Rate()] [Never ticked] If Rate() is called on a StandardEWMA that has never had Tick() called (init=false, rate=0), does it return 0 which might incorrectly indicate no activity, or should it return an error/sentinel value? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_199b3814-b134-4f83-ab01-62fe545fcf9a?mode=deep",
+    "timestamp": "2026-01-09 22:12:23.826470",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: StandardEWMA] [Alpha=1] If alpha=1 is passed to NewEWMA(), does line 106 become a.rate += 1 * (instantRate - a.rate) = instantRate, making the EWMA equivalent to instantRate with no smoothing, defeating the purpose of exponential averaging and making metrics too noisy? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b9a63848-3ac5-469e-af95-edddccbb03d0?mode=deep",
+    "timestamp": "2026-01-09 22:12:45.617895",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: StandardEWMA] [Zero alpha] If alpha=0 is passed to NewEWMA() at line 20, does the EWMA formula at line 106 degenerate to a.rate += 0 * (...) = a.rate, causing the rate to never update and creating a permanently stale metric that doesn't respond to attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_931aef34-1e03-428c-b8d7-1cd2c1b275f3?mode=deep",
+    "timestamp": "2026-01-09 22:13:07.489796",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Tick()] [First tick] On the very first Tick() call when init=false at line 105, does setting a.rate = instantRate at line 109 correctly initialize the EWMA, or should it use a different initialization strategy to avoid startup transients affecting early rate measurements? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b95bfcfd-95a1-4b12-be63-7696c84c85a2?mode=deep",
+    "timestamp": "2026-01-09 22:13:31.595792",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Tick()] [Zero count] When Tick() is called with uncounted=0 at line 100, does the calculation at line 102 produce instantRate=0 correctly, and does the EWMA formula at line 106 handle zero rates properly without numerical issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_41ffe1f8-7011-445b-b319-432b67df3ca4?mode=deep",
+    "timestamp": "2026-01-09 22:13:55.102822",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Update()] [Zero update] What happens when Update(0) is called - does it unnecessarily trigger atomic operations and potentially cause performance degradation if called repeatedly, and should there be a fast path for n=0? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c0a2fcbe-4d7d-4ea9-af21-26b46adf91b9?mode=deep",
+    "timestamp": "2026-01-09 22:14:18.689276",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Rate()] [Unit conversion] Does the multiplication by time.Second at line 89 correctly convert the internal rate (per nanosecond) to rate per second, and if time.Second is somehow not 1e9, can this produce incorrect rates that break rate limiting thresholds? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_173ffdc1-2db7-4bb6-8055-74c4022a450e?mode=deep",
+    "timestamp": "2026-01-09 22:14:45.008529",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Tick()] [Accumulation error] When many events occur in a 5-second window (count >> 1e9), does the float64 conversion at line 102 lose precision for the lower bits, causing undercounting of events and making rate limiting less effective against high-volume attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_77efa150-b7bf-4fd1-87b3-581a79516811?mode=deep",
+    "timestamp": "2026-01-09 22:15:09.996812",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: NewEWMA1/5/15()] [Alpha formula accuracy] Are the alpha formulas at lines 26, 31, 36 using math.Exp(-5.0/60.0/N) mathematically correct for N-minute exponentially weighted moving averages sampled every 5 seconds, or do they implement a different averaging window than advertised? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e51e7529-1074-465f-a8f9-391983682378?mode=deep",
+    "timestamp": "2026-01-09 22:15:35.429228",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Tick()] [EWMA convergence] Does the EWMA calculation at line 106 correctly implement exponential weighting, or can the formula a.rate += a.alpha * (instantRate - a.rate) cause numerical instability or incorrect convergence when instantRate varies wildly, affecting rate-based security decisions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d544265f-0bf7-41d3-a7bb-2be95f08a551?mode=deep",
+    "timestamp": "2026-01-09 22:16:01.068456",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Tick()] [Time unit inconsistency] The instantRate calculation at line 102 divides by float64(5*time.Second), but Rate() at line 89 multiplies by time.Second - if these time units are inconsistent or if time.Second is not 1e9 nanoseconds as expected, can rate calculations be off by orders of magnitude? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eb19bbb2-cedc-4dc4-b7ca-db2df48d3a3a?mode=deep",
+    "timestamp": "2026-01-09 22:16:26.903426",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Update()] [ABA problem] In the atomic operations, can an ABA problem occur where uncounted goes from value A to B back to A between Load() and Add() operations, causing Tick() to make incorrect assumptions about which events have been counted? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6df38214-f4bb-4b4e-9d0c-a7bf1d148e4b?mode=deep",
+    "timestamp": "2026-01-09 22:16:51.290783",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Tick()] [Memory visibility] Are the writes to a.rate (lines 106, 109) and a.init (line 108) guaranteed to be visible to subsequent Rate() calls even though they use different synchronization primitives (mutex vs atomic), or can memory visibility issues cause stale rate values to be read? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d1c06b38-ca14-4703-9ef0-fb7a70b8e054?mode=deep",
+    "timestamp": "2026-01-09 22:17:10.025014",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Snapshot()] [Recursive lock] Since Snapshot() at line 93-94 calls Rate() which locks the mutex, if Rate() is somehow modified to call Snapshot(), can this create a recursive locking attempt causing a deadlock or panic on non-reentrant mutexes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ae5a9c8a-8d13-4961-84ce-446fdc98ce5a?mode=deep",
+    "timestamp": "2026-01-09 22:17:32.324075",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Rate()] [Deadlock potential] If Rate() at line 87 acquires the mutex and then some code path calls another function that tries to acquire the same mutex before the defer unlock executes, can this cause a deadlock that freezes the metrics system and potentially hangs the validator node? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_09e7d08f-8a52-46db-bbb8-d7c513b756a8?mode=deep",
+    "timestamp": "2026-01-09 22:17:53.756449",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: StandardEWMA] [Mixed synchronization] Does the StandardEWMA struct mix atomic operations (line 78, atomic.Int64) and mutex-protected fields (lines 79-81), and can this mixed synchronization model lead to subtle race conditions where atomic operations on uncounted race with mutex-protected operations on rate? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ea4bf037-71fd-4e83-95f0-4a8e7c3f851b?mode=deep",
+    "timestamp": "2026-01-09 22:18:16.480847",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Tick()] [Lost updates] Between lines 100-101, if multiple Tick() calls occur simultaneously, can they all Load() the same count value and all try to subtract it, causing the uncounted field to go deeply negative and corrupting all future rate calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d180e7cc-d0ad-4eeb-8ce1-031eea6ced30?mode=deep",
+    "timestamp": "2026-01-09 22:18:37.891868",
+    "report_generated": false
   }
 ]
