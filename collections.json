@@ -898,5 +898,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_367869c7-b23c-4fcf-bc97-b68a6361523c?mode=deep",
     "timestamp": "2026-01-09 16:08:09.992528",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: UnmarshalJSON()] [Race Condition] If multiple goroutines call UnmarshalJSON on the same Argument instance concurrently, can race conditions during Type initialization corrupt the argument structure and cause unpredictable unpacking behavior? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eb435a9c-7881-44bf-9c9c-928ff69f1f2b?mode=deep",
+    "timestamp": "2026-01-09 16:09:46.582844",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: UnmarshalJSON()] [Type Size Overflow] Can crafted Type strings with extremely large array dimensions cause integer overflow in getTypeSize() calculations during subsequent packing/unpacking operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d47e47c4-7d3c-47d5-b394-572356e665fc?mode=deep",
+    "timestamp": "2026-01-09 16:09:59.562744",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: UnmarshalJSON()] [InternalType Mismatch] Can inconsistencies between Type and InternalType fields create type confusion that allows malicious contracts to bypass type checking and corrupt blockchain state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4f4f515a-3421-4108-82bc-4014bc8c3e07?mode=deep",
+    "timestamp": "2026-01-09 16:10:13.096805",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: NonIndexed()] [Slice Mutation] Can concurrent access to the underlying arguments slice while NonIndexed() is filtering cause race conditions that lead to inconsistent NonIndexed argument lists across nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0de21255-57e4-4126-b01d-81fb789eddcd?mode=deep",
+    "timestamp": "2026-01-09 16:10:26.840282",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: NonIndexed()] [Memory Allocation] Can an attacker create Arguments with millions of Indexed=false entries causing NonIndexed() to allocate excessive memory and crash validator nodes during event log processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_966883ba-a1e2-480c-9ee8-1edd2074ae31?mode=deep",
+    "timestamp": "2026-01-09 16:10:41.550160",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: NonIndexed()] [Empty Return] If NonIndexed() returns an empty slice but caller expects non-empty, can this cause index out-of-bounds panics in subsequent unpacking operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c52a9785-639c-4bd3-8b61-9cb7586a45bb?mode=deep",
+    "timestamp": "2026-01-09 16:10:57.231509",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: NonIndexed()] [Append Reallocation] Can repeated calls to NonIndexed() with different argument sets cause slice reallocation inefficiencies that enable DoS through memory fragmentation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7748dc2b-0dd6-4255-8f11-25bab43c38c1?mode=deep",
+    "timestamp": "2026-01-09 16:11:13.983368",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: isTuple()] [Length Check] Can an Arguments slice with length exactly 1 be misclassified as non-tuple when it should be handled as tuple, causing incorrect unpacking logic and potential state corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e82203f6-66b3-4c88-b707-bc862728eff0?mode=deep",
+    "timestamp": "2026-01-09 16:11:32.809515",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: isTuple()] [Empty Arguments] Does isTuple() returning false for empty Arguments cause issues in Pack/Unpack operations where empty data should be handled differently? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6ad17faa-8fe5-4271-b284-76a78b898f50?mode=deep",
+    "timestamp": "2026-01-09 16:11:53.555644",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: isTuple()] [Concurrent Modification] Can the length check at line 76 race with concurrent slice modifications, leading to inconsistent tuple detection across transaction processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5eacf8e8-4570-470b-b049-d520e91a1d31?mode=deep",
+    "timestamp": "2026-01-09 16:12:15.229651",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: Unpack()] [Empty Data Bypass] Can an attacker send transactions with empty data that bypass argument validation at line 82-84, potentially allowing execution of functions with missing required parameters? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3f3aba32-b642-4fe0-bdbd-b549f37c86eb?mode=deep",
+    "timestamp": "2026-01-09 16:12:37.255411",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: Unpack()] [NonIndexed Filter] Can malicious event logs manipulate Indexed flags such that NonIndexed() returns unexpected results, causing Unpack to process wrong data subset and corrupt event parsing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_318c3dbe-d325-498b-9fa7-d9a778db21df?mode=deep",
+    "timestamp": "2026-01-09 16:13:00.875332",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: Unpack()] [Error Message Info Leak] Does the error message at line 83 reveal internal argument structure information that could help attackers craft targeted exploits? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bb45f6dc-b009-4901-8f6a-8c3869beb92f?mode=deep",
+    "timestamp": "2026-01-09 16:13:25.714418",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: Unpack()] [UnpackValues Delegation] Can errors from UnpackValues() at line 87 be exploited to create inconsistent state if error handling differs between Unpack and direct UnpackValues calls? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d844e09c-97d1-4ca8-b900-035744a914d9?mode=deep",
+    "timestamp": "2026-01-09 16:13:52.246923",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: Unpack()] [Empty Slice Allocation] Can the empty interface slice allocation at line 85 cause memory issues when processing extremely large numbers of empty unpacking operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6e79400e-86f1-40a8-98e2-eb890ea69a41?mode=deep",
+    "timestamp": "2026-01-09 16:14:19.504336",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: UnpackIntoMap()] [Nil Map Check] Can the nil map check at line 93-95 be bypassed with an empty but non-nil map, later causing issues when keys are unexpectedly absent? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_94fd4e80-176c-4522-91e2-613e0dca3ffa?mode=deep",
+    "timestamp": "2026-01-09 16:14:46.939626",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: UnpackIntoMap()] [Map Key Collision] Can duplicate argument names in NonIndexed() cause map key collisions at line 107, potentially overwriting earlier unpacked values and corrupting transaction data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_78776d0b-b2e0-4fae-9af0-f73762866642?mode=deep",
+    "timestamp": "2026-01-09 16:15:15.714558",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: UnpackIntoMap()] [Empty Name Attack] Can Arguments with empty Name fields cause issues in map population where empty string keys might collide or be treated specially? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e416a214-e131-4d99-88c3-7c9d468a2175?mode=deep",
+    "timestamp": "2026-01-09 16:15:44.210890",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: UnpackIntoMap()] [Race Condition] If multiple goroutines call UnpackIntoMap with the same map concurrently, can race conditions during map writes at line 107 corrupt the unpacked data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1c023cff-63b7-4687-ad00-9aaec127f993?mode=deep",
+    "timestamp": "2026-01-09 16:16:13.356220",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: UnpackIntoMap()] [Index Mismatch] Can the loop at line 106 accessing marshalledValues[i] go out-of-bounds if UnpackValues returns fewer elements than NonIndexed() arguments? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3c3227ef-cf1e-45d9-8451-7ef83cdb370c?mode=deep",
+    "timestamp": "2026-01-09 16:16:41.459386",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: UnpackIntoMap()] [Memory Exhaustion] Can an attacker craft ABIs with thousands of named arguments causing UnpackIntoMap to create enormous maps that exhaust validator node memory? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_98df0c4e-e36e-46ad-844f-4719f056952d?mode=deep",
+    "timestamp": "2026-01-09 16:17:09.053842",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: UnpackIntoMap()] [Type Assertion] Can mismatched types between marshalledValues[i] and expected map value types cause runtime panics or silent type conversion errors? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4d280492-afa8-4ecb-b3d5-8df9313614dc?mode=deep",
+    "timestamp": "2026-01-09 16:17:36.730560",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: UnpackIntoMap()] [Empty Data Path] Does the empty data check at line 96-100 properly handle edge cases where data is non-empty but contains only padding, potentially bypassing validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fde9921b-52d9-4cf5-b5b7-a77e9be2ccdd?mode=deep",
+    "timestamp": "2026-01-09 16:18:02.995021",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: Copy()] [Pointer Check] Can the pointer kind check at line 115-117 be bypassed using reflect values created from unsafe.Pointer, allowing non-pointer targets and causing memory corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_68fcd6a9-3c5c-4770-a774-492fb88eed8a?mode=deep",
+    "timestamp": "2026-01-09 16:18:26.978371",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/argument.go] [Function: Copy()] [Empty Values] If len(values)==0 but NonIndexed() returns non-zero, does the check at line 118-122 properly prevent attempts to copy missing data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4f95e80f-2425-4a38-91c5-5f670d3678fd?mode=deep",
+    "timestamp": "2026-01-09 16:18:50.093725",
+    "report_generated": false
   }
 ]
