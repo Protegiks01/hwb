@@ -4498,5 +4498,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2707c1e2-8ebe-4fdb-920f-50b0006bc5c9?mode=deep",
     "timestamp": "2026-01-09 20:12:03.947845",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/event.go] [Function: NewEvent()] [Cross-chain replay] When processing burn events from external chains (Ethereum/Tron), does the Event.ID validation (line 88) account for potential differences in how different chains canonicalize type names? Could an event that's valid on Ethereum produce a different ID on Whitechain, allowing replay attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_adba8a01-0cd4-482c-a19f-31dc4a15f30b?mode=deep",
+    "timestamp": "2026-01-09 20:13:23.598717",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/event.go] [Struct: Event] [Event matching] The Event.ID field is used to match log topics to event definitions - if an attacker can find two events with the same ID through hash collision or type confusion, can they cause the mint contract to misinterpret a non-mint event as a mint event, leading to unauthorized token creation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eca4a07b-2403-4d34-a0bc-37096fa0c591?mode=deep",
+    "timestamp": "2026-01-09 20:13:36.682597",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/event.go] [Function: NewEvent()] [Parameter extraction] If the mint contract's 'Mint' event parameters (amount, burnTxHash, burnTxNetwork) are incorrectly parsed due to name sanitization issues (lines 68-76), can this cause minting with wrong amounts or crediting to wrong addresses? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2c38610c-f58f-476d-885e-02bd28cd50df?mode=deep",
+    "timestamp": "2026-01-09 20:13:50.223699",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/event.go] [Function: NewEvent()] [Type canonicalization] The signature uses input.Type.String() (line 83) for type representation - does Type.String() always return canonical forms (e.g., 'int256' not 'int', 'uint256' not 'uint')? Can non-canonical types cause Event.ID mismatches between nodes, leading to consensus failures when validating mint contract events? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_03a10383-4c5d-4b55-a610-bcf95f2a3db4?mode=deep",
+    "timestamp": "2026-01-09 20:14:03.852041",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/event.go] [Function: NewEvent()] [Whitespace handling] The signature construction (line 87) joins types with commas - does this handle whitespace consistently if Type.String() returns types with spaces? Can inconsistent whitespace cause different Event.ID hashes for the same logical event signature? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d431e971-5331-4ed6-bcc5-3cef65bf58d2?mode=deep",
+    "timestamp": "2026-01-09 20:14:18.503296",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/event.go] [Function: NewEvent()] [Array notation] For array types, does Type.String() consistently use canonical notation (e.g., 'uint256[]' vs 'uint256[ ]')? Can array notation inconsistencies cause Event.ID collisions or mismatches affecting mint contract event validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6b50e18e-83ca-47eb-83f8-d2749f630286?mode=deep",
+    "timestamp": "2026-01-09 20:14:34.096505",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/event.go] [Function: NewEvent()] [Tuple handling] For tuple/struct types, does the signature generation (line 87) properly represent nested tuples in canonical form? Can tuple canonicalization issues cause event signature mismatches when processing complex mint contract events? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_59b5686a-831d-4845-8515-93642395dc1b?mode=deep",
+    "timestamp": "2026-01-09 20:14:51.378986",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/event.go] [Function: NewEvent()] [No error return] The NewEvent function doesn't return an error even though it performs operations that could fail (e.g., Type.String() could panic) - can this mask critical parsing failures that should prevent event matching, allowing malformed events to be processed by the mint contract? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d731330e-eaad-4fc4-ac27-fac17e22cd6b?mode=deep",
+    "timestamp": "2026-01-09 20:15:11.366085",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/event.go] [Function: NewEvent()] [Panic propagation] If input.Type.String() panics at line 83, will the panic propagate up and crash the node? Should there be panic recovery to prevent node crashes when parsing malicious ABI definitions targeting validators? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5042b93b-e4a8-47f9-ac11-70ad7cda10b4?mode=deep",
+    "timestamp": "2026-01-09 20:15:32.540908",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/event.go] [Function: NewEvent()] [Zero value handling] What happens if NewEvent is called with empty strings for name and rawName? Does this produce a valid Event with empty Name and RawName fields that could match any event signature, enabling event spoofing attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0aa5fb15-8f9e-4a65-86f4-04cf2ce76a43?mode=deep",
+    "timestamp": "2026-01-09 20:15:54.684346",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/event.go] [Function: NewEvent()] [Nil inputs] If the inputs argument is nil, the function will create empty slices for names and types (lines 65-66) but never iterate - does this produce a valid Event with an Event.ID that could collide with other events that also have no parameters? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_53b8dd0d-0815-4ed9-88fe-a093dd331100?mode=deep",
+    "timestamp": "2026-01-09 20:16:17.495445",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/event.go] [Function: NewEvent()] [Chain compatibility] When verifying burn events from Ethereum or Tron networks, does the Event.ID computation (line 88) produce identical hashes for events defined identically on different chains, or can chain-specific quirks in Keccak256 implementations cause validation mismatches? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6c3c17a6-b528-4621-92aa-82504a100296?mode=deep",
+    "timestamp": "2026-01-09 20:16:42.289230",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/event.go] [Struct: Event] [Event verification] The Event.ID is used to verify that log topics[0] matches the expected event - but if an attacker controls a contract on the external chain, can they emit events with arbitrary topics[0] that match the mint contract's expected Event.ID while containing malicious data? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_930ec7f8-7244-4f9a-ba37-0c830f1da9eb?mode=deep",
+    "timestamp": "2026-01-09 20:17:08.485922",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/event.go] [Function: NewEvent()] [Signature compatibility] The signature format (line 87) must match exactly how external chains (Ethereum/Tron) compute event signatures - are there any formatting differences that could cause the same logical event to produce different Event.ID values across chains? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_31c366b1-66ed-4fc5-aff8-7d6e7583f7b9?mode=deep",
+    "timestamp": "2026-01-09 20:17:35.113053",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/event.go] [Function: NewEvent()] [Large input arrays] Can an attacker provide an inputs array with thousands or millions of parameters, causing excessive memory allocation in the names and types slices (lines 65-66) and potentially exhausting node memory during ABI parsing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c568927a-0527-4db3-8c19-ecfe6f316d0a?mode=deep",
+    "timestamp": "2026-01-09 20:18:02.749631",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/event.go] [Function: NewEvent()] [Long names] If rawName or input names are extremely long strings (megabytes), can the string concatenation operations (lines 78-80, 86-87) cause memory exhaustion or slow performance that could be exploited for DoS attacks against validators? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8adfd585-47d0-4ffb-9c2f-2f0b097fde60?mode=deep",
+    "timestamp": "2026-01-09 20:18:31.636933",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/event.go] [Function: NewEvent()] [Recursive types] If input.Type represents a recursive or deeply nested type structure, can Type.String() (line 83) cause stack overflow or infinite recursion, leading to node crashes when parsing malicious ABI definitions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c1268b8c-de99-476d-b53e-023c0dfc1c57?mode=deep",
+    "timestamp": "2026-01-09 20:19:00.030090",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/event.go] [Function: String()] [Repeated calls] The String() method (line 101) returns a precomputed string (line 95), but if this string is extremely large and String() is called repeatedly in logging or debugging code, can this cause performance degradation that affects node operation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9a5de8f1-6227-459d-a84f-d4d179e3c124?mode=deep",
+    "timestamp": "2026-01-09 20:19:29.932473",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/event.go] [Function: NewEvent()] [Loop index overflow] The for loop iterates with index i (line 67) - if len(inputs) is close to MaxInt and additional logic uses i in calculations, can integer overflow cause incorrect indexing into names/types arrays leading to out-of-bounds access? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a9a5e565-2eca-42e9-b919-1eec39584cd8?mode=deep",
+    "timestamp": "2026-01-09 20:19:58.763452",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/event.go] [Function: NewEvent()] [Format string overflow] When creating synthetic argument names 'arg%d' (line 70), if i is a very large integer, can the fmt.Sprintf operation cause unexpected behavior or create extremely long names that break downstream parsing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e60a4fef-74ef-4da6-b14d-1cfc97fee8fb?mode=deep",
+    "timestamp": "2026-01-09 20:20:26.225882",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/event.go] [Struct: Event] [Field consistency] The Event struct has multiple related fields (Name vs RawName, Sig vs str, ID) - can inconsistent initialization where some fields are set but others aren't lead to invalid Event objects that cause parsing errors in mint contract event validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_aee06cb9-2ec0-4892-b4e5-4af55cdf5d5e?mode=deep",
+    "timestamp": "2026-01-09 20:20:54.730395",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/event.go] [Function: NewEvent()] [Determinism] Are the Event.ID and Event.Sig computations deterministic across all nodes regardless of platform, endianness, or Go version? Non-determinism could cause different nodes to compute different Event.IDs for the same event, breaking consensus on mint contract event validation. (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9777b882-8ce4-40f9-9a1e-c742c9547ce4?mode=deep",
+    "timestamp": "2026-01-09 20:21:23.449874",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/event.go] [Function: NewEvent()] [Input mutation side effects] Since NewEvent mutates the inputs slice (lines 69-76), if the caller reuses this slice, can the mutations cause confusion where subsequent NewEvent calls see already-sanitized inputs, leading to incorrect event signatures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d03730c3-36f9-4349-b585-55be2aa2b20d?mode=deep",
+    "timestamp": "2026-01-09 20:21:51.165867",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/event.go] [Function: NewEvent()] [Type validation] The Argument.Type field (lines 69-75) is copied without validation - can malformed Type objects with invalid internal state cause crashes or incorrect signature generation when Type.String() is called at line 83? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_01678ed7-2c7e-4151-bfb7-901e75306849?mode=deep",
+    "timestamp": "2026-01-09 20:22:18.006036",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/event.go] [Function: NewEvent()] [Type aliasing] When copying input to inputs[i] (lines 69-75), the Type field is copied by value - if Type contains pointers to shared state, can modifications to one Event's input Types affect other Events, leading to non-deterministic event signatures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_23afeb0b-d31f-42e1-8670-dfa2c4029368?mode=deep",
+    "timestamp": "2026-01-09 20:22:45.332956",
+    "report_generated": false
   }
 ]
