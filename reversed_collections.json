@@ -2698,5 +2698,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a8e21a45-b93b-47c1-8a19-3ff68733c1d0?mode=deep",
     "timestamp": "2026-01-09 18:02:15.605951",
     "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: MarshalJSON()] [Unicode Handling] If metric names or values contain invalid UTF-8 sequences, can json.Marshal on line 12 produce invalid JSON that crashes downstream parsers or monitoring systems? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1c2a03a2-2713-406f-8e0e-a23f642cef77?mode=deep",
+    "timestamp": "2026-01-09 18:03:34.898818",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSONOnce()] [Encoding Buffer] json.NewEncoder on line 26 may buffer data internally - if w blocks or errors, can partial JSON be written, corrupting the output stream for subsequent monitoring tools? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2c4ea650-7318-4eb2-8294-b93a6cf70292?mode=deep",
+    "timestamp": "2026-01-09 18:03:47.898043",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: MarshalJSON()] [Invalid JSON Types] If GetAll() returns metric values that aren't JSON-serializable (e.g., channels, functions), can json.Marshal on line 12 panic or produce invalid JSON? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_68b9b69e-958c-4c30-8b7d-c891595e0f41?mode=deep",
+    "timestamp": "2026-01-09 18:04:01.087877",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: MarshalJSON()] [Recursive Structures] If registry metrics contain circular references or deeply nested structures, can json.Marshal on line 12 enter infinite recursion, causing stack overflow and node crash? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a2a17d28-d927-4aed-b613-7e44ff16586c?mode=deep",
+    "timestamp": "2026-01-09 18:04:15.403212",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSON()] [Panic Recovery] None of the functions have panic recovery - if any panic occurs in GetAll(), json.Marshal, or Encode, can it crash the entire node process rather than just terminating the metrics goroutine? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fbec1628-66be-4298-b287-2fccc7be6110?mode=deep",
+    "timestamp": "2026-01-09 18:04:29.903994",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSONOnce()] [Nil Registry] If Registry r is nil on line 25, will Encode(r) on line 26 cause nil pointer dereference in the encoding logic, crashing the metrics export goroutine? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_aff86d88-81e3-4be3-b4e0-b60cc56b44b7?mode=deep",
+    "timestamp": "2026-01-09 18:04:45.571103",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSONOnce()] [Nil Writer] If io.Writer w is nil on line 25, will json.NewEncoder(w).Encode(r) on line 26 panic immediately, crashing any goroutine calling this function? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_38cf07c7-f991-4022-bbf9-e288d4f4d523?mode=deep",
+    "timestamp": "2026-01-09 18:05:02.777864",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: PrefixedRegistry.MarshalJSON()] [Nil Underlying] If PrefixedRegistry p has nil underlying registry on line 29, will p.GetAll() on line 30 panic when attempting to delegate, crashing the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b69f1edf-181f-4f6d-b442-4c8ae0bf717d?mode=deep",
+    "timestamp": "2026-01-09 18:05:21.514094",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: MarshalJSON()] [Nil Receiver] If StandardRegistry pointer r is nil on line 11, will r.GetAll() on line 12 cause nil pointer dereference panic that crashes the node during metrics collection? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c83d198e-abde-4454-9bf5-fc46da043489?mode=deep",
+    "timestamp": "2026-01-09 18:05:42.766848",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSON()] [Periodic Disclosure] The periodic export on line 18-20 continuously publishes metrics - can an attacker monitoring this stream correlate metric changes with blockchain events to deanonymize validators or predict future block production? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_357f1675-a919-492c-9166-b19230ec5e89?mode=deep",
+    "timestamp": "2026-01-09 18:06:05.118755",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSONOnce()] [Unencrypted Export] Line 26 writes JSON to arbitrary io.Writer without encryption - if w is a network connection, can plaintext metrics expose validator node topology, block production patterns, or other intelligence useful for coordinating 51% attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_da7e34a8-a94f-4779-a6ea-14e97634cf16?mode=deep",
+    "timestamp": "2026-01-09 18:06:27.576021",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: MarshalJSON()] [Sensitive Data Exposure] Line 12 marshals ALL metrics via GetAll() - can this expose sensitive blockchain internals like validator identities, peer connections, private transaction pool contents, or other data that aids attacks against the PoA consensus? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c5a1eec4-bc57-4334-9d99-8a3c9b76a5e9?mode=deep",
+    "timestamp": "2026-01-09 18:06:51.862797",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: GetAll() interaction] [Nil Metric Values] If GetAll() encounters nil metric values in the registry map, can json.Marshal on line 12 panic or produce invalid JSON that crashes downstream monitoring parsers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a99c25f0-7744-4c4c-badf-d34e4162b7a1?mode=deep",
+    "timestamp": "2026-01-09 18:07:16.446754",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: GetAll() interaction] [Type Assertion Panic] GetAll() at registry.go:120 performs type assertions on metric interfaces - if a maliciously crafted metric type is registered, can the type switch fail, causing json.Marshal on line 12 to panic and crash the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_adbb4db1-f553-4d9f-8bae-45caa19161ae?mode=deep",
+    "timestamp": "2026-01-09 18:07:42.385826",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: PrefixedRegistry.MarshalJSON()] [Prefix Mismatch] Line 30 calls p.GetAll() which delegates to underlying registry, but PrefixedRegistry filters by prefix in Each() - can this cause GetAll() to return metrics without prefix filtering, exposing internal metrics not meant for export? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c405d0c0-571c-42b9-9e99-924a272e6f23?mode=deep",
+    "timestamp": "2026-01-09 18:08:08.215514",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: MarshalJSON()] [Inconsistent Snapshot] Line 12's GetAll() iterates metrics using Each() which acquires and releases mutex per iteration - can metrics be added/removed mid-iteration, causing the JSON output to represent an inconsistent state that never actually existed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f0500ebb-5dde-4eac-905f-fdc9da5534eb?mode=deep",
+    "timestamp": "2026-01-09 18:08:32.864868",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSON()] [Nanosecond Precision] Duration d is in nanoseconds - if set to 1 nanosecond, can this cause effectively continuous ticking and JSON marshaling, creating a DoS condition that prevents all other node operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5db0c010-bcce-438f-9360-41dc8911468a?mode=deep",
+    "timestamp": "2026-01-09 18:08:57.824653",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSON()] [Duration Overflow] If d is time.Duration(math.MaxInt64), can time.Tick exhibit undefined behavior, potentially never ticking or causing integer overflow in internal ticker calculations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_73314359-cec4-4bf3-9205-761e697b7c7d?mode=deep",
+    "timestamp": "2026-01-09 18:09:21.854009",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSON()] [Invalid Duration] Line 18 uses duration d without validation - if d is zero or negative, what behavior does time.Tick exhibit, and can this cause panic, high-frequency ticking, or other undefined behavior that crashes the node? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_de229829-d0be-4540-b308-f4038048397d?mode=deep",
+    "timestamp": "2026-01-09 18:09:47.023993",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSONOnce()] [Buffer Overflow] If w is a fixed-size buffer and JSON output exceeds capacity, can the write on line 26 fail silently or panic, causing metrics collection to stop without alerting operators to consensus monitoring failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8c5417f9-36c6-4d8d-b866-9221222df1de?mode=deep",
+    "timestamp": "2026-01-09 18:10:13.814716",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSON()] [Disk Full] If the io.Writer w points to a log file and disk space is exhausted, can repeated write failures on line 19 cause the ticker goroutine to continuously attempt writes, consuming CPU and I/O bandwidth needed for consensus operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_31936977-f576-40de-ae6b-19d70c003535?mode=deep",
+    "timestamp": "2026-01-09 18:10:40.885913",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSON()] [Network Timeout] WriteJSONOnce() on line 19 writes to w without timeout - if w is a TCP connection to a monitoring server that becomes unresponsive, can each ticker iteration block, causing goroutine accumulation and eventually preventing the node from functioning? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fb591bf2-a2a4-4fa1-bae8-968e2f6d06cc?mode=deep",
+    "timestamp": "2026-01-09 18:11:06.776735",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSONOnce()] [Blocking IO] Line 26 writes to io.Writer w synchronously - if w is a network socket with slow/broken connection, can this block indefinitely, preventing the calling goroutine from proceeding and potentially deadlocking if called while holding other critical locks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6ffde31e-c44c-4e24-9ec4-8befd09b1446?mode=deep",
+    "timestamp": "2026-01-09 18:11:32.958851",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: GetAll() integration] [Snapshot Size] GetAll() builds complete metric snapshots with detailed statistics (percentiles, rates) - if histogram and timer metrics accumulate large sample sets, can the JSON marshal operation on line 12 take seconds to complete, blocking other operations that need the registry mutex? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bf158330-7ba0-4597-9bbb-65a7d3b0bba9?mode=deep",
+    "timestamp": "2026-01-09 18:11:59.262981",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/json.go] [Function: WriteJSONOnce()] [Memory Allocation] Line 26 creates a new JSON encoder each call - if called in a tight loop or with high frequency, can excessive encoder allocations fragment memory and degrade performance during high-load consensus periods (e.g., during chain reorgs)? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6242c283-c4ec-4008-a402-f58275da98ea?mode=deep",
+    "timestamp": "2026-01-09 18:12:27.506764",
+    "report_generated": false
   }
 ]
