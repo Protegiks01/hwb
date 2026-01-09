@@ -148,5 +148,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_734589d2-36f4-40b2-84cd-bf397fab7fcb?mode=deep",
     "timestamp": "2026-01-09 15:16:44.515715",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: UnpackIntoMap()] [Concurrent Map Access] If the map v is accessed concurrently by other goroutines, could the write operations in UnpackIntoMap cause 'concurrent map writes' panic crashing the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a8291602-26dd-40bc-bd69-bdce7a38c980?mode=deep",
+    "timestamp": "2026-01-09 15:17:50.633725",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: UnpackIntoMap()] [Memory Growth] For contracts with many arguments, does repeated unpacking into the same map without clearing cause unbounded memory growth as keys accumulate? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e48e820f-acc6-48ab-af75-4e49e18aafed?mode=deep",
+    "timestamp": "2026-01-09 15:18:03.503871",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: UnmarshalJSON()] [Map Initialization] The function initializes Methods, Events, and Errors maps - if UnmarshalJSON is called multiple times on the same ABI instance, could this cause memory leaks from unreferenced old maps? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_47b648ab-48c2-46e3-85f2-ca62f260da81?mode=deep",
+    "timestamp": "2026-01-09 15:18:16.671316",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: UnmarshalJSON()] [Constructor Validation] When Type is 'constructor', does the function validate that only one constructor is defined, or could multiple constructor definitions cause ambiguous behavior in contract deployment? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fe889144-c18d-4fc0-adab-198272c8fdb3?mode=deep",
+    "timestamp": "2026-01-09 15:18:30.967346",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: UnmarshalJSON()] [Fallback Duplication] The function checks HasFallback() and returns error for duplicate fallbacks - but is this check race-safe if multiple goroutines unmarshal ABIs concurrently, potentially allowing duplicate fallbacks to be registered? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7f11c4a7-50e1-44c6-bf7d-7fc3170ca9b9?mode=deep",
+    "timestamp": "2026-01-09 15:18:45.370686",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: UnmarshalJSON()] [Receive Validation] For 'receive' type, the function validates StateMutability must be 'payable' - but what if StateMutability is empty string or unexpected value, could this bypass validation allowing non-payable receive functions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_398f6d06-6e0a-416c-921b-9a62aec65bea?mode=deep",
+    "timestamp": "2026-01-09 15:19:00.987218",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: UnmarshalJSON()] [Event Name Conflict] The function uses ResolveNameConflict for events - but can an attacker craft JSON with events that intentionally collide forcing name mangling that breaks event log parsing in dependent contracts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d46611b5-09c7-4ad6-bd7e-77fcb421f91d?mode=deep",
+    "timestamp": "2026-01-09 15:19:19.082363",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: UnmarshalJSON()] [Method Name Conflict] Similar to events, method name conflict resolution could be exploited - can an attacker create methods with colliding names that result in the wrong method being called during transaction execution? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4e50f3f2-cf30-4456-b8a2-09e7281f2086?mode=deep",
+    "timestamp": "2026-01-09 15:19:38.120321",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: UnmarshalJSON()] [Type Switch Exhaustion] The switch statement handles constructor, function, fallback, receive, event, error types - but what if a future Solidity version introduces new types, could unhandled types cause the function to skip critical validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dc34a4b3-822c-44ab-b492-e4bf07e6919b?mode=deep",
+    "timestamp": "2026-01-09 15:19:58.579918",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: UnmarshalJSON()] [Error Override] Error types use field.Name directly without conflict resolution - can an attacker create multiple errors with the same name that override each other, hiding critical error conditions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4be29c1d-cf47-4316-a8c9-bed8b425da2d?mode=deep",
+    "timestamp": "2026-01-09 15:20:19.855463",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: UnmarshalJSON()] [Anonymous Field] The Anonymous field is only checked for events - could setting Anonymous on other types cause unexpected behavior in event filtering or method lookup? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6bbae41c-3282-405c-becc-f201f06c8a50?mode=deep",
+    "timestamp": "2026-01-09 15:20:41.788940",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: UnmarshalJSON()] [StateMutability Validation] The function passes StateMutability to NewMethod without validating it's a recognized value ('pure', 'view', 'nonpayable', 'payable') - can invalid values cause incorrect gas estimation or execution behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5712ddd3-551a-49ed-8123-164e0b615973?mode=deep",
+    "timestamp": "2026-01-09 15:21:07.567400",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: UnmarshalJSON()] [Constant/Payable Flags] Both Constant and Payable deprecated flags are passed to NewMethod - can conflicting flag combinations (both true) cause ambiguous method classification leading to incorrect execution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cb628037-e17c-46d0-99db-494c13e906a2?mode=deep",
+    "timestamp": "2026-01-09 15:21:32.939450",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: UnmarshalJSON()] [Inputs/Outputs Validation] Does the function validate that Inputs and Outputs arrays are not excessively large, or could an attacker define methods with thousands of parameters causing memory exhaustion during ABI parsing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cfda723d-c96e-4a4d-a8b3-e11e15b617dc?mode=deep",
+    "timestamp": "2026-01-09 15:21:57.183288",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: UnmarshalJSON()] [JSON Array Processing] The function iterates over fields array without bounds checking - can a maliciously large JSON array cause excessive iteration time leading to DoS during ABI loading? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f64e6ca0-296b-4dc0-bbe6-0fbe1c18d78f?mode=deep",
+    "timestamp": "2026-01-09 15:22:22.742927",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: MethodById()] [Short Data] The function checks len(sigdata) < 4 - but what if sigdata is exactly 4 bytes of all zeros, could this match an unexpected method or cause confusion in method dispatch? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5c159028-7859-4a9b-8cf7-5949eb1eac20?mode=deep",
+    "timestamp": "2026-01-09 15:22:49.383001",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: MethodById()] [Linear Search] The function performs linear search through all methods - can an attacker define contracts with thousands of methods causing O(n) lookup time that degrades transaction processing performance? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4b6c221c-ef8e-4ab1-b52e-9838e5a57eb2?mode=deep",
+    "timestamp": "2026-01-09 15:23:16.397982",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: MethodById()] [Method ID Collision] Does the function detect when multiple methods have the same 4-byte ID (hash collision), or would it return the first match potentially calling the wrong method and causing state corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1aa5618c-729e-4997-a910-709530c46c81?mode=deep",
+    "timestamp": "2026-01-09 15:23:42.541894",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: MethodById()] [Slice Bounds] The sigdata[:4] slice operation - if sigdata length changes between the length check and slice, could this cause out-of-bounds panic in concurrent scenarios? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7ae058b7-213b-4401-b34f-d193ddcf8a3c?mode=deep",
+    "timestamp": "2026-01-09 15:24:09.896938",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: MethodById()] [Return Pointer] The function returns *Method pointer - if the Methods map is modified after lookup, could the returned pointer become invalid leading to use-after-free type bugs? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8cdeef5f-dbb3-405d-aeb7-23f2e2738927?mode=deep",
+    "timestamp": "2026-01-09 15:24:34.901171",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: MethodById()] [Error Format] The error message includes raw sigdata[:4] bytes - could this leak sensitive information about attempted method calls in validator logs? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2aaa54d6-feb4-4b1c-a714-1484b19f6c57?mode=deep",
+    "timestamp": "2026-01-09 15:25:00.341933",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: EventByID()] [Linear Search] Similar to MethodById, linear search through Events map - can contracts with excessive events cause performance degradation in log processing and event filtering? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3a35e961-02f6-4c05-b67d-a1191b38a30c?mode=deep",
+    "timestamp": "2026-01-09 15:25:26.820021",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: EventByID()] [Hash Comparison] The function uses bytes.Equal on full 32-byte hashes - but are there known hash collision attacks on Keccak256 that could cause event confusion? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6e3a0520-8bef-47d5-839d-b36d6aebb311?mode=deep",
+    "timestamp": "2026-01-09 15:25:53.514286",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: EventByID()] [Event ID Collision] If multiple events have the same topic hash (unlikely but possible with hash collisions), does the function detect this or return the first match potentially misparsing event logs? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e1fcfea2-2be5-4b6a-8174-cc6fdcfde514?mode=deep",
+    "timestamp": "2026-01-09 15:26:20.315379",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/abi.go] [Function: EventByID()] [Return Pointer] Returns *Event pointer - if Events map is concurrently modified, could the pointer become invalid causing use-after-free scenarios? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_aac6311a-4489-43ef-92ec-56029297949e?mode=deep",
+    "timestamp": "2026-01-09 15:26:47.565878",
+    "report_generated": false
   }
 ]
