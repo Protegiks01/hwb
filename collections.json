@@ -3898,5 +3898,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3573d044-ad6a-4f4a-9006-e8719273d577?mode=deep",
     "timestamp": "2026-01-09 19:31:24.442627",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: formatSliceString()] [Integer Overflow] Can an attacker provide a malicious ABI type with sliceSize set to math.MaxInt causing integer overflow when formatting the string representation, potentially leading to memory corruption or incorrect type validation that could enable state manipulation attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_89a0da31-9c57-4e6d-9879-37ba76d79467?mode=deep",
+    "timestamp": "2026-01-09 19:32:40.555929",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: formatSliceString()] [Negative Size Exploitation] If sliceSize is set to a negative value other than -1 (e.g., -2, math.MinInt), does the function properly handle it, or could this bypass array size validation allowing oversized arrays to be processed leading to memory exhaustion DoS attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1ccfec45-de42-4d72-bc36-0159b334031c?mode=deep",
+    "timestamp": "2026-01-09 19:32:53.615823",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: formatSliceString()] [Format String Injection] When fmt.Sprintf is called with sliceSize and kind parameters, could a malicious kind value containing format specifiers cause format string vulnerabilities that leak memory contents or cause panics disrupting node operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c1a805dc-c503-485d-ab3f-f9e31dcc2348?mode=deep",
+    "timestamp": "2026-01-09 19:33:06.902821",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: formatSliceString()] [Type Confusion] Can an attacker craft an ABI type where the kind parameter is manipulated to display incorrect type information in error messages, potentially masking type validation failures and allowing invalid data to be processed in contract calls? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7761d768-c1f6-4fec-b565-38b5be2aa7d5?mode=deep",
+    "timestamp": "2026-01-09 19:33:20.655197",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: sliceTypeCheck()] [Type Confusion Attack] When validating val.Kind() against reflect.Slice and reflect.Array, can an attacker provide a reflection value that appears to be a slice but is actually a different type through pointer manipulation, bypassing validation and causing memory corruption during ABI decoding? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b02bc1c9-dae3-497e-b5a2-9a7530b4757a?mode=deep",
+    "timestamp": "2026-01-09 19:33:35.137677",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: sliceTypeCheck()] [Nil Pointer Dereference] If the val parameter is a nil reflect.Value or contains nil data, does val.Kind(), val.Len(), or val.Index(0) trigger a panic causing node crashes and network-wide DoS when processing malicious transaction data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_62115907-80e1-4277-adde-b763945248aa?mode=deep",
+    "timestamp": "2026-01-09 19:33:51.759187",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: sliceTypeCheck()] [Array Size Mismatch Exploitation] On line 53-55, when t.T == ArrayTy and val.Len() != t.Size, the function returns an error, but could an attacker exploit timing differences in this check to perform side-channel attacks revealing private array size information? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d8c85788-efdc-4a41-b503-b89f67e7431b?mode=deep",
+    "timestamp": "2026-01-09 19:34:09.055781",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: sliceTypeCheck()] [Integer Overflow in Size Comparison] When comparing t.Size with val.Len(), if t.Size is set to math.MaxInt, could integer overflow occur in subsequent operations that use this size value, leading to buffer overflows in ABI packing/unpacking operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f802ae68-95b7-446c-a15b-342880ed9dea?mode=deep",
+    "timestamp": "2026-01-09 19:34:28.343047",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: sliceTypeCheck()] [Recursive DoS Attack] On line 57-61, when t.Elem.T is SliceTy or ArrayTy, the function recursively calls sliceTypeCheck, but is there a depth limit? Can an attacker provide deeply nested array types causing stack overflow panics and node crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bfa6189a-0d1b-4bc6-942b-bb0507222408?mode=deep",
+    "timestamp": "2026-01-09 19:34:48.219080",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: sliceTypeCheck()] [Empty Array Bypass] On line 58, the recursive check only occurs if val.Len() > 0, meaning empty arrays skip element type validation. Could an attacker provide an empty array with incorrect element types that passes validation but causes issues when later populated during contract execution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fff70151-2cbb-40d0-8216-893a1bf2ee1a?mode=deep",
+    "timestamp": "2026-01-09 19:35:09.135166",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: sliceTypeCheck()] [Index Bounds Violation] On line 59, val.Index(0) is called without verifying val.Len() > 0 in a thread-safe manner. Could a race condition where another goroutine modifies val between the length check and index access cause out-of-bounds panics crashing the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_22ced0c6-af27-4994-94bd-f231867c0940?mode=deep",
+    "timestamp": "2026-01-09 19:35:31.676563",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: sliceTypeCheck()] [Pointer Dereference on Element Type] When checking t.Elem.T and calling *t.Elem, is there validation that t.Elem is not nil? Could a nil pointer dereference cause panics during validation of malformed ABI types in contract calls? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_29ddb9b4-a9e9-4588-af8a-048c7a9e0e9e?mode=deep",
+    "timestamp": "2026-01-09 19:35:55.319305",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: sliceTypeCheck()] [Type Mismatch Insufficient Validation] On line 63-65, the function checks val.Type().Elem().Kind() against t.Elem.GetType().Kind(), but does this adequately prevent type confusion between compatible kinds (e.g., int vs uint) that could lead to incorrect value interpretation and fund loss in token transfers? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_01a34185-7e42-4770-92f2-a6ff1770e170?mode=deep",
+    "timestamp": "2026-01-09 19:36:19.193137",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: sliceTypeCheck()] [Concurrent Access Race] If sliceTypeCheck is called concurrently on the same Type object from multiple goroutines processing different transactions, could race conditions in accessing t.Elem, t.Size, or t.T cause inconsistent validation results leading to some invalid transactions being accepted? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1cfac01b-a52d-431f-9681-9b4fa269a2be?mode=deep",
+    "timestamp": "2026-01-09 19:36:43.336103",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: sliceTypeCheck()] [Memory Exhaustion via Large Arrays] If an attacker provides an ABI type with an extremely large but valid t.Size (e.g., 2^20 elements), does the validation process consume excessive memory when checking val.Index(0) recursively, enabling memory exhaustion DoS attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a156e571-1851-4418-b115-3cc0f288ac0e?mode=deep",
+    "timestamp": "2026-01-09 19:37:08.081251",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: sliceTypeCheck()] [GetType() Method Exploitation] On line 50 and 64, t.GetType() and t.Elem.GetType() are called, but if these methods can return nil or panic on malformed Type objects, could this cause node crashes during transaction validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a7119e44-e7cc-4a17-bcfe-40807f5401a4?mode=deep",
+    "timestamp": "2026-01-09 19:37:32.930246",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: typeCheck()] [Type Bypass via Delegation] On line 72-74, typeCheck immediately delegates to sliceTypeCheck for SliceTy/ArrayTy without additional validation. Could an attacker craft a Type with T set to SliceTy but with inconsistent internal fields that pass sliceTypeCheck but fail in subsequent operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a71f0314-19c0-40d1-a0c5-4a4f8529d28e?mode=deep",
+    "timestamp": "2026-01-09 19:37:56.843316",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: typeCheck()] [Kind Comparison Weakness] On line 77, the function compares t.GetType().Kind() != value.Kind(), but does Go's reflection Kind comparison handle all edge cases? Could type aliasing or custom type definitions bypass this check allowing incompatible types to pass validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_03fa54d9-6242-4b78-80aa-1ab34184600e?mode=deep",
+    "timestamp": "2026-01-09 19:38:20.992550",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: typeCheck()] [FixedBytes Length Exploitation] On line 79, when t.T == FixedBytesTy, the check t.Size != value.Len() validates length, but if t.Size is negative or zero, could this allow empty or invalid byte arrays to pass validation causing issues in cryptographic operations or address handling? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ef157aae-47e6-46cc-a608-a0079dadb39e?mode=deep",
+    "timestamp": "2026-01-09 19:38:47.058385",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: typeCheck()] [Nil Value Handling] If the value parameter is an invalid or nil reflect.Value, do the checks on line 77 and 79 handle this safely, or could they panic causing node crashes during malicious transaction processing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f166a702-5cc9-470d-bd6e-81ae92c00d90?mode=deep",
+    "timestamp": "2026-01-09 19:39:13.411580",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: typeCheck()] [GetType() Panic Risk] On line 77 and 80, t.GetType() is called, but if Type.GetType() panics on malformed types, could this cause unhandled panics during ABI validation crashing nodes and enabling network-wide DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_edc88adf-1842-463d-a17e-e6b4d012d7d1?mode=deep",
+    "timestamp": "2026-01-09 19:39:41.157180",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: typeCheck()] [Insufficient Type Coverage] The function only explicitly handles SliceTy, ArrayTy, and FixedBytesTy, with other types falling through to basic Kind matching. Could this insufficient validation allow malformed TupleTy, FunctionTy, or custom types to bypass checks and cause state corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cb55665b-9d63-43ae-a3d9-5c2b74ec1ed9?mode=deep",
+    "timestamp": "2026-01-09 19:40:09.069260",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: typeCheck()] [Concurrent Modification] If the Type object t is modified by another goroutine while typeCheck is executing, could race conditions in accessing t.T, t.Size cause inconsistent validation decisions allowing invalid data through? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_de08404c-8891-40c6-b304-cc8af155ec33?mode=deep",
+    "timestamp": "2026-01-09 19:40:35.797332",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: typeCheck()] [Error Propagation] When sliceTypeCheck returns an error on line 73, does the error adequately describe the validation failure, or could vague errors mask critical security issues like type confusion that could lead to fund theft? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b0b639f5-7204-4001-a37c-e8d1140f4722?mode=deep",
+    "timestamp": "2026-01-09 19:41:02.345884",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/error_handling.go] [Function: typeErr()] [Format String Vulnerability] On line 88, fmt.Errorf uses %v formatters with expected and got parameters. If these parameters contain malicious format specifiers or very large data structures, could this cause excessive memory allocation, information leakage, or DoS during error formatting? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f9258107-b66e-4ca7-ae81-83db28bc79f2?mode=deep",
+    "timestamp": "2026-01-09 19:41:31.378253",
+    "report_generated": false
   }
 ]
