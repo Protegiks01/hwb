@@ -4948,5 +4948,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4e18e251-65ca-4631-8d34-921b51b90076?mode=deep",
     "timestamp": "2026-01-09 20:43:10.558530",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Field: Inputs/Outputs] [Slice mutation] The Inputs and Outputs fields at lines 78-79 are Arguments slices. If these slices are modified after Method creation, can concurrent access lead to slice corruption or inconsistent method signatures across nodes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5dd9fc5a-d171-4330-8afd-fc748b5db114?mode=deep",
+    "timestamp": "2026-01-09 20:44:24.888420",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Nil input handling] At line 100-103, if the inputs Arguments slice contains nil elements, calling input.Type or input.Name will cause nil pointer dereference and node panic. Is there validation to prevent nil Arguments in the inputs slice? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2b5abcc4-a8b4-44d2-baa9-66f89ce12821?mode=deep",
+    "timestamp": "2026-01-09 20:44:37.760330",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Nil output handling] At lines 104-109, if outputs slice contains nil elements, accessing output.Type or output.Name will panic. Can malicious ABI definitions inject nil outputs to crash nodes during method construction? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a29d3e71-ab1e-4e0e-992c-09774df7c5a5?mode=deep",
+    "timestamp": "2026-01-09 20:44:51.153965",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Nil crypto package] At line 118, crypto.Keccak256() is called. If the crypto package fails to initialize or returns nil unexpectedly, can this cause panic during method ID computation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_82e6d2bc-2c6a-4fb4-be4c-b438fa5d38bd?mode=deep",
+    "timestamp": "2026-01-09 20:45:04.776461",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: String()] [Nil string] At line 155, if method.str is somehow nil or empty, does returning it cause any issues in callers expecting valid string representation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8960ae5f-afcf-4233-87ef-be9bf2514919?mode=deep",
+    "timestamp": "2026-01-09 20:45:19.473436",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Panic recovery] Lines 94-152 contain no panic recovery. If any operation panics (string formatting, type conversion, slice access), can this crash the entire node rather than returning an error? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_163c0dd6-6068-40a8-b5a7-745068392804?mode=deep",
+    "timestamp": "2026-01-09 20:45:35.194871",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Hash function security] At line 118, Keccak256 is used for method ID. Is this implementation constant-time to prevent timing attacks that could leak information about function signatures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5233be46-4f54-43ae-9190-315ac1abc144?mode=deep",
+    "timestamp": "2026-01-09 20:45:52.734003",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Preimage resistance] Since method IDs are 4-byte truncated hashes, can an attacker perform preimage attacks to find alternative function signatures that hash to the same ID as privileged functions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_393ae9f1-16b4-4b8a-adc3-0155564e182f?mode=deep",
+    "timestamp": "2026-01-09 20:46:11.728559",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Collision resistance] With only 4 bytes (2^32 possible values), the birthday paradox suggests ~65k functions before 50% collision probability. For large contracts with many functions, is this collision resistance sufficient? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_34547b81-ea44-478c-9c47-87d69aaab08d?mode=deep",
+    "timestamp": "2026-01-09 20:46:31.507332",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Hash computation determinism] At line 118, is crypto.Keccak256() guaranteed to produce identical results across different platforms, architectures, and Go versions? Non-deterministic hashing would cause network-wide consensus failures. (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4cc99abc-d3d0-4cf5-b12b-3228df412a1e?mode=deep",
+    "timestamp": "2026-01-09 20:46:52.552756",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Side channel resistance] During Keccak256 computation at line 118, can side-channel attacks (timing, power analysis) leak information about function signatures that could aid in finding collisions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c84490bd-4b2e-400e-a202-0129fb986d8e?mode=deep",
+    "timestamp": "2026-01-09 20:47:15.687548",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Memory leak] At lines 96-98, three slices are allocated. If NewMethod is called repeatedly with large inputs/outputs but the resulting Method is never used, can this cause memory leaks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2a7db686-fc08-44a6-9a4d-91931bf0f8ef?mode=deep",
+    "timestamp": "2026-01-09 20:47:38.913730",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [String concatenation cost] At line 137, fmt.Sprintf creates a potentially large string. If methods have hundreds of input parameters with long names, can repeated string construction cause memory pressure? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f7d88e76-ce5f-454c-bf6c-94d2ca906a0c?mode=deep",
+    "timestamp": "2026-01-09 20:48:01.322510",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Slice capacity] At lines 96-98, slices are created with exact length. If these slices need to grow later, can repeated reallocation cause performance degradation during high-volume transaction processing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3381784a-351c-4cc5-a278-e1a16eb6cbc3?mode=deep",
+    "timestamp": "2026-01-09 20:48:25.516439",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Struct: Method] [Struct size] The Method struct at lines 52-88 contains multiple string fields and slices. For contracts with hundreds of methods, can the cumulative memory usage of Method instances cause memory exhaustion on resource-constrained nodes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_69778b11-08ab-4a7e-9699-841aa1feaad2?mode=deep",
+    "timestamp": "2026-01-09 20:48:51.109711",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Byte slice allocation] At line 118, ID is assigned a slice [:4]. Is this a copy or a reference to crypto.Keccak256's output? If it's a reference, can modification of ID affect the hash computation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b6fab448-6e9b-4650-8e3f-c83d9e44986c?mode=deep",
+    "timestamp": "2026-01-09 20:49:17.716798",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Type canonicalization] At line 102, input.Type.String() should return canonical types (e.g., \\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ee75aa2f-f463-4a0c-b0dd-a7c7beae42c8?mode=deep",
+    "timestamp": "2026-01-09 20:49:43.182513",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Array notation] If input types include arrays (e.g., \\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_38571a41-29ba-4cc1-94b4-e2ffdfee47be?mode=deep",
+    "timestamp": "2026-01-09 20:50:07.058511",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Tuple handling] For complex tuple types in inputs/outputs, does the Type.String() at lines 102/105 correctly format nested tuples? Malformed tuple strings could lead to parsing errors. (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_80ffdb2a-73ca-476c-944e-7598d6d026e3?mode=deep",
+    "timestamp": "2026-01-09 20:50:32.362300",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Type aliasing] Can type aliasing (e.g., using \\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d1ad35be-d0de-467b-9080-b1f49709a552?mode=deep",
+    "timestamp": "2026-01-09 20:50:59.910382",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Custom types] For user-defined types (structs), does Type.String() resolve them to their underlying primitive types? Failure to do so could cause signature mismatches. (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f2a29c6f-463e-4863-8847-8cad0cc793cf?mode=deep",
+    "timestamp": "2026-01-09 20:51:25.110309",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Whitespace handling] At line 117, the signature is constructed with types joined by commas. Are there any spaces or whitespace characters? Extra whitespace could cause signature string mismatches. (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_24df8cc9-8047-4b02-be3e-84acc89a3d83?mode=deep",
+    "timestamp": "2026-01-09 20:51:50.436649",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Name sanitization] Is the rawName parameter at line 117 sanitized to remove or escape special characters? Unescaped characters could break signature parsing. (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_48a3a949-207f-46f9-a460-0a40959e97b7?mode=deep",
+    "timestamp": "2026-01-09 20:52:12.603476",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Empty type handling] If types slice at line 117 is empty (function with no parameters), does strings.Join(types, \\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_44a9fee8-22f3-4d96-bb86-a74fd4ebda25?mode=deep",
+    "timestamp": "2026-01-09 20:52:33.313855",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Trailing comma] When joining types at line 117, can a trailing comma be introduced if the last element is empty, corrupting the signature? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d2a57652-c3c8-45c7-a727-6d0ef25b0e33?mode=deep",
+    "timestamp": "2026-01-09 20:52:54.996599",
+    "report_generated": false
   }
 ]
