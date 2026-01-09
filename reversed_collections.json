@@ -6598,5 +6598,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_62d0b8f2-5e65-4891-862a-5436a43886ff?mode=deep",
     "timestamp": "2026-01-09 22:28:12.468155",
     "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Tick()] [Integer underflow] If uncounted becomes negative due to race conditions or malicious Update(-n) calls, can the Add(-count) operation at line 101 cause further underflow, and does the float64 conversion at line 102 handle negative counts correctly or produce undefined behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_458b6191-e256-4adf-a6d6-28ab840fa40b?mode=deep",
+    "timestamp": "2026-01-09 22:29:31.271971",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Update()] [Integer underflow] Can Update() be called with negative int64 values to decrement the uncounted field, potentially causing it to become negative and making the instantRate calculation at line 102 produce negative rates that bypass transaction rate limiting or cause panic conditions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_66dfacac-a288-452f-9022-9fd1d7dc6b40?mode=deep",
+    "timestamp": "2026-01-09 22:29:44.106721",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Update()] [Integer overflow] If Update() is called with math.MaxInt64 multiple times in rapid succession before Tick() executes, can the accumulated uncounted value overflow beyond int64 limits, causing silent wraparound that makes transaction rates appear artificially low and bypassing DoS protections? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9f50e605-065c-48fc-a284-28984b8bb566?mode=deep",
+    "timestamp": "2026-01-09 22:29:57.679949",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Update()] [Integer overflow] Can an attacker call Update() with extremely large int64 values (near math.MaxInt64) repeatedly to cause the atomic.Int64 uncounted field at line 78 to overflow, wrapping to negative values and causing the rate calculation at line 102 to become negative or produce NaN, crashing the node or bypassing rate limits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_620570e7-1b87-4522-a7f0-f857e6bd7948?mode=deep",
+    "timestamp": "2026-01-09 22:30:11.446365",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Snapshot()] [Race condition] Can Snapshot() at line 93-94 race with concurrent Tick() calls since Snapshot() calls Rate() which acquires the mutex, but the mutex release in Rate() at line 89 could allow Tick() to modify rate before the snapshot is fully constructed? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d879f43e-a9b8-48b7-9e9e-19860ce71433?mode=deep",
+    "timestamp": "2026-01-09 22:30:26.617213",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: StandardEWMA struct] [Race condition] Does the StandardEWMA struct have a data race on the 'init' boolean field at line 81, where Tick() checks and modifies it at lines 105-109 under mutex, but another goroutine could read it without synchronization, potentially causing incorrect initialization state? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_702d26a4-437b-401a-ad12-7a305a887a33?mode=deep",
+    "timestamp": "2026-01-09 22:30:42.470745",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Tick() and Update()] [Race condition] Can simultaneous calls to Update() and Tick() on the same StandardEWMA instance cause the atomic operations on uncounted to race with the Load/Add sequence, potentially losing update events or double-subtracting counts, corrupting the metrics used for DoS protection? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_83602b20-5183-4bae-a947-817a8d242d30?mode=deep",
+    "timestamp": "2026-01-09 22:30:59.773364",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Rate()] [Race condition] Is there a potential race condition where Rate() reads the rate field at line 89 while Tick() is modifying it at line 106 or 109, even with mutex protection, if the mutex is not held during the multiplication by time.Second, causing incorrect rate reporting? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2a755af6-4630-436e-92f7-b26faaf3e1c7?mode=deep",
+    "timestamp": "2026-01-09 22:31:18.050353",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Tick()] [Race condition] Can a race between mutex.Lock() at line 103 and another goroutine accessing rate field cause the rate calculation at line 106 to read stale alpha or instantRate values while the mutex is being acquired, leading to incorrect EWMA calculations used in rate limiting? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5c921aa7-36fa-47cb-b4b7-14eabc1d5aed?mode=deep",
+    "timestamp": "2026-01-09 22:31:38.374551",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Tick()] [Race condition] Does the non-atomic read-modify-write sequence in Tick() (Load at line 100, Add at line 101) allow a window where Update() calls can add events that get double-counted or lost if Tick() runs concurrently, potentially causing incorrect transaction rate metrics that affect mempool acceptance decisions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3027bfe5-529c-48ff-9c97-e6c39024ec2c?mode=deep",
+    "timestamp": "2026-01-09 22:32:01.216338",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Tick()] [Race condition] Can concurrent calls to Tick() cause a race condition between Load() at line 100 and Add(-count) at line 101, where multiple goroutines read the same count value and attempt to subtract it multiple times, leading to negative uncounted values and incorrect rate calculations that could cause metrics-based DoS protection to fail? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_00f6751c-cb7d-48c3-8dc0-cd61f17e6dab?mode=deep",
+    "timestamp": "2026-01-09 22:32:21.740905",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Tick()] [Integer underflow] If uncounted becomes negative due to race conditions or malicious Update(-n) calls, can the Add(-count) operation at line 101 cause further underflow, and does the float64 conversion at line 102 handle negative counts correctly or produce undefined behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ddc4e953-4edc-47d5-b227-0767a46eb73b?mode=deep",
+    "timestamp": "2026-01-09 22:32:45.764494",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Update()] [Integer underflow] Can Update() be called with negative int64 values to decrement the uncounted field, potentially causing it to become negative and making the instantRate calculation at line 102 produce negative rates that bypass transaction rate limiting or cause panic conditions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_67a69496-d8ff-48b3-9e15-f2d43d5d4de3?mode=deep",
+    "timestamp": "2026-01-09 22:33:09.292896",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Update()] [Integer overflow] If Update() is called with math.MaxInt64 multiple times in rapid succession before Tick() executes, can the accumulated uncounted value overflow beyond int64 limits, causing silent wraparound that makes transaction rates appear artificially low and bypassing DoS protections? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_82f64871-6142-468a-9ab3-4afd6950dc21?mode=deep",
+    "timestamp": "2026-01-09 22:33:33.818586",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Update()] [Integer overflow] Can an attacker call Update() with extremely large int64 values (near math.MaxInt64) repeatedly to cause the atomic.Int64 uncounted field at line 78 to overflow, wrapping to negative values and causing the rate calculation at line 102 to become negative or produce NaN, crashing the node or bypassing rate limits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8dc36139-a4e6-438b-b235-c6709f10327f?mode=deep",
+    "timestamp": "2026-01-09 22:33:55.384967",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Snapshot()] [Race condition] Can Snapshot() at line 93-94 race with concurrent Tick() calls since Snapshot() calls Rate() which acquires the mutex, but the mutex release in Rate() at line 89 could allow Tick() to modify rate before the snapshot is fully constructed? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9d9e445c-0b5a-4b84-ad78-7578cd41239a?mode=deep",
+    "timestamp": "2026-01-09 22:34:17.934468",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: StandardEWMA struct] [Race condition] Does the StandardEWMA struct have a data race on the 'init' boolean field at line 81, where Tick() checks and modifies it at lines 105-109 under mutex, but another goroutine could read it without synchronization, potentially causing incorrect initialization state? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4faf9749-2a8d-4935-aacd-c96db143aa74?mode=deep",
+    "timestamp": "2026-01-09 22:34:41.869704",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Tick() and Update()] [Race condition] Can simultaneous calls to Update() and Tick() on the same StandardEWMA instance cause the atomic operations on uncounted to race with the Load/Add sequence, potentially losing update events or double-subtracting counts, corrupting the metrics used for DoS protection? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d5bcb9a3-9f93-4482-b71a-67d9130cda7e?mode=deep",
+    "timestamp": "2026-01-09 22:35:02.612222",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Rate()] [Race condition] Is there a potential race condition where Rate() reads the rate field at line 89 while Tick() is modifying it at line 106 or 109, even with mutex protection, if the mutex is not held during the multiplication by time.Second, causing incorrect rate reporting? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b1cef019-ed53-454c-a632-3513163b30f1?mode=deep",
+    "timestamp": "2026-01-09 22:35:25.117956",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Tick()] [Race condition] Can a race between mutex.Lock() at line 103 and another goroutine accessing rate field cause the rate calculation at line 106 to read stale alpha or instantRate values while the mutex is being acquired, leading to incorrect EWMA calculations used in rate limiting? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1035c473-499a-4944-8e00-a236a6f18053?mode=deep",
+    "timestamp": "2026-01-09 22:35:48.471993",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Tick()] [Race condition] Does the non-atomic read-modify-write sequence in Tick() (Load at line 100, Add at line 101) allow a window where Update() calls can add events that get double-counted or lost if Tick() runs concurrently, potentially causing incorrect transaction rate metrics that affect mempool acceptance decisions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f6afea21-fe04-4a14-b7ad-ba8b27c022ec?mode=deep",
+    "timestamp": "2026-01-09 22:36:12.745203",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Tick()] [Race condition] Can concurrent calls to Tick() cause a race condition between Load() at line 100 and Add(-count) at line 101, where multiple goroutines read the same count value and attempt to subtract it multiple times, leading to negative uncounted values and incorrect rate calculations that could cause metrics-based DoS protection to fail? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_adeaa431-ae3a-4584-8875-d6f8aaf81eda?mode=deep",
+    "timestamp": "2026-01-09 22:36:35.891295",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/disk.go] [Struct: DiskStats] [Type semantics] Are the semantics of 'ReadCount' vs 'ReadBytes' clearly documented to prevent confusion about whether these represent system calls vs actual byte transfers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_51d71298-a10d-49c9-9e47-386a1abcc682?mode=deep",
+    "timestamp": "2026-01-09 22:36:57.225215",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/disk.go] [Struct: DiskStats] [Documentation] Does the struct comment adequately document that these are monotonically increasing counters subject to overflow, or could developers misuse them assuming bounded values? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ceb1892c-f352-46e5-be19-9dffb9157009?mode=deep",
+    "timestamp": "2026-01-09 22:37:19.815251",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/disk.go] [Struct: DiskStats.WriteBytes] [Audit trail] If DiskStats.WriteBytes is used for audit purposes to track state changes, can inaccuracies in this metric allow malicious validators to hide unauthorized state modifications? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5aa09242-4fb4-4a08-9adb-30e6776ed2c6?mode=deep",
+    "timestamp": "2026-01-09 22:37:43.398245",
+    "report_generated": false
   }
 ]
