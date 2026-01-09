@@ -748,5 +748,130 @@
     "question": "core/rawdb/key_length_iterator.go",
     "url": "https://deepwiki.com/search/-generate-150-targeted-securit_4afb2078-1815-42c3-9b92-8d666c783a15?mode=deep",
     "questions_generated": false
+  },
+  {
+    "question": "core/rawdb/schema.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_68e0a930-74da-4919-872a-af8ca9eb69aa?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "core/rawdb/table.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_5916eb7f-842b-4319-90cf-2ffe6c73d1b6?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "core/sender_cacher.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_14f846ba-d45d-40ef-b713-0796271f30f3?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "core/state_prefetcher.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_b448f832-1a16-4dd4-beb4-6c4830cbe138?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "core/state_processor.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_5a3f826f-bc11-4c0a-990c-815b7d4c5bce?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "core/state_transition.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_d0117ea7-a11b-482e-b6e5-1af41a128b6f?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "core/state/access_list.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_f8d054e9-bd1f-49ac-8074-93a4ae778ebf?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "core/state/database.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_afc26cdc-55e4-4899-9135-62f6fe5da890?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "core/state/dump.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_c159bb5e-175b-4785-994e-f23ca9125e81?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "core/state/iterator.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_f2ee5998-0a63-4e34-aaad-b75799fac8c9?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "core/state/journal.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_341742d2-6b71-4f09-9f06-a635a098e53d?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "core/state/metrics.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_f91b688a-a125-4639-8e2e-3904187b05fc?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "core/state/migrations.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_0e6d2353-0c98-4c18-8fbb-4179ea3953b2?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "core/state/migrations/cassiopeia.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_c0c55079-391e-40c9-ba9a-a161b1a4cca6?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "core/state/migrations/mint_contract.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_398c7f41-9e84-4cef-8eeb-12abddc84c21?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "core/state/pruner/bloom.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_ff8991d7-521c-4d55-8c7f-ece7b8418fce?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "core/state/pruner/pruner.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_6813fc86-b623-4d73-8031-0084eea97965?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "core/state/snapshot/account.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_01fb51f9-fde1-4b5d-8ace-ef2bb873b59e?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "core/state/snapshot/context.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_0efb4a1e-27ae-4d72-94eb-b2bb4806ea54?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "core/state/snapshot/conversion.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_23d2bfbc-5ec3-40ed-8bc7-5580de906df4?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "core/state/snapshot/difflayer.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_c75dc117-1b69-4912-96ae-3a15b037ba54?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "core/state/snapshot/disklayer.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_57f84ad6-d19c-465f-ba7a-baa29b6cbe7c?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "core/state/snapshot/generate.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_82876d87-7db1-48cc-9d9a-f878c7b8a277?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "core/state/snapshot/holdable_iterator.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_d88b0891-9700-4e94-bdcd-4332662b6757?mode=deep",
+    "questions_generated": false
+  },
+  {
+    "question": "core/state/snapshot/iterator_binary.go",
+    "url": "https://deepwiki.com/search/-generate-150-targeted-securit_2cfbd652-0618-430e-8bce-82473c2d588e?mode=deep",
+    "questions_generated": false
   }
 ]
