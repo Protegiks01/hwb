@@ -3598,5 +3598,305 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7586f6e0-03aa-4b48-8ea5-05fe166c1f99?mode=deep",
     "timestamp": "2026-01-09 19:01:30.686146",
     "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: run()] [Send concurrent calls] If send() is slow and takes longer than the interval, could the next interval trigger fire while send() is still running, causing concurrent calls to send() and potential race conditions in accessing r.client? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_49bae928-7997-46ef-ba35-a591ef2356cf?mode=deep",
+    "timestamp": "2026-01-09 19:02:46.309577",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: InfluxDBWithTags()] [URL modification] The parsed URL u is dereferenced with *u at line 45 - if the original url string is modified after parsing, does this affect the stored URL, or is it properly isolated? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f70af657-ffa5-4778-8b82-d0452d0b93a3?mode=deep",
+    "timestamp": "2026-01-09 19:02:59.176501",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: run()] [Select statement blocking] The select at line 108 waits for either ticker - if both fire simultaneously, which case is selected, and could this cause unexpected ordering of ping vs send operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_af3fce38-a9f8-43e1-ab57-8a2b69a9cb77?mode=deep",
+    "timestamp": "2026-01-09 19:03:12.329609",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: send()] [Time synchronization] All points use the same timestamp now from line 135 - if send() takes a long time to execute, is it acceptable that all metrics have the same timestamp even though they represent different time periods? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_235ba48b-390b-4d4f-9bce-5cb3e36069a0?mode=deep",
+    "timestamp": "2026-01-09 19:03:26.187679",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: send()] [Empty registry] If the metrics registry is empty, send() creates an empty batch and calls Write() - does InfluxDB client handle empty batches correctly, or could this cause errors? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e8f88a09-040c-4abb-bad9-d40be3d6ec2f?mode=deep",
+    "timestamp": "2026-01-09 19:03:41.048662",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: makeClient()] [Connection retry DoS] If makeClient() is called repeatedly due to ping failures, and InfluxDB is down, could the repeated connection attempts exhaust network resources or cause connection pool exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d711565d-b387-4a0c-865f-e2af72c9831f?mode=deep",
+    "timestamp": "2026-01-09 19:03:57.787762",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: run()] [Error log spam] If send() or ping fails repeatedly, warnings are logged at lines 111 and 116 - could excessive logging fill disk space or slow the node, causing DoS? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c6a96c0c-0b18-471b-9a8d-a2d5cc1b4954?mode=deep",
+    "timestamp": "2026-01-09 19:04:15.864527",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: send()] [Point creation DoS] If NewPoint() at line 140 is expensive (validating tags, measurement names), could an attacker register many metrics to cause send() to take excessive time and block the reporting goroutine? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0ef36654-858e-4a53-a3fe-8af8e8df459b?mode=deep",
+    "timestamp": "2026-01-09 19:04:34.541204",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: send()] [Registry iteration DoS] If an attacker can register metrics with very long names or in large quantities, could the reg.Each() iteration at line 134 take so long that it blocks the intervalTicker goroutine and prevents timely metric sends? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_49638929-77fd-4a8e-b7b7-a090942b5294?mode=deep",
+    "timestamp": "2026-01-09 19:04:54.895266",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: send()] [Snapshot consistency] Some metric types call Snapshot() in readMeter() - if snapshots are expensive to compute, could an attacker register many such metrics to cause DoS during send()? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3163fa14-38b3-4974-9646-4539d3cd5239?mode=deep",
+    "timestamp": "2026-01-09 19:05:14.551951",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: send()] [Type assertion failures] readMeter() performs type assertions on metric interfaces - if a metric has an unexpected type, could the type assertion fail and cause readMeter() to return nil, or worse, panic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b4468a29-3089-47bb-8a57-47e58326292b?mode=deep",
+    "timestamp": "2026-01-09 19:05:34.579696",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: send()] [readMeter nil return] If readMeter() returns nil fields at line 137, the point is skipped with return - but could malicious or malformed metrics cause readMeter() to return nil for all metrics, effectively disabling monitoring? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b1e58f0d-d346-436f-a5d8-acd0f413b8a4?mode=deep",
+    "timestamp": "2026-01-09 19:05:53.617988",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: InfluxDBWithTagsOnce()] [No interval] InfluxDBWithTagsOnce() doesn't set the interval field - if this reporter struct is somehow reused, could this cause unexpected behavior? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d384c322-e4ce-4a02-8d3d-7d07e99ae686?mode=deep",
+    "timestamp": "2026-01-09 19:06:13.371666",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: InfluxDBWithTags()] [Reporter initialization] If the registry r is nil, does the code handle this gracefully, or would reg.Each() at line 134 panic with a nil pointer dereference? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7f2da541-1706-47a6-9bc2-f39f62d3a4ef?mode=deep",
+    "timestamp": "2026-01-09 19:06:34.492137",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: InfluxDB()] [Default tags] When InfluxDB() is called without tags, it passes nil to InfluxDBWithTags() - does the code properly handle nil tags at line 50, or could this cause nil pointer dereferences? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7412fbfd-0395-4065-bc16-808f5e24181a?mode=deep",
+    "timestamp": "2026-01-09 19:06:57.269236",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: send()] [Write response handling] The Write() call at line 144 - if InfluxDB returns a malicious or oversized response, could this cause memory exhaustion or parsing errors in the client library? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_519463c6-15a3-4d29-88d0-c16d89eb8af5?mode=deep",
+    "timestamp": "2026-01-09 19:07:20.834473",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: run()] [Ping timeout] The Ping() call at line 114 uses timeout 0 - does this mean unlimited timeout, and could a slow or malicious InfluxDB server cause the ping to block indefinitely? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bd760a53-ac30-466b-92a2-e86b58701625?mode=deep",
+    "timestamp": "2026-01-09 19:07:45.836548",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: makeClient()] [Client library version] The code uses github.com/influxdata/influxdb1-client/v2 - are there known vulnerabilities in this client library version that could be exploited through malicious InfluxDB responses? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e4728814-ef94-46b3-893d-0cc14f37cce0?mode=deep",
+    "timestamp": "2026-01-09 19:08:12.065851",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Struct: reporter] [Unused cache field] The cache map at line 26 is created but never used - is this wasted memory allocation, and does it indicate incomplete implementation that could cause issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6d9a38e1-9a68-4e27-a41e-ddcecf3fc36b?mode=deep",
+    "timestamp": "2026-01-09 19:08:38.697519",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: run()] [Ping frequency] Pinging every 5 seconds at line 102 - if the network is slow, could ping operations accumulate and cause goroutine or memory exhaustion? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3fcfd553-317c-4590-94b0-c51ab005c6ba?mode=deep",
+    "timestamp": "2026-01-09 19:09:02.758625",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: send()] [Memory allocation] A new BatchPoints structure is allocated every time send() is called - if the interval is very short, could this cause excessive garbage collection pressure and performance degradation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d3a408b0-ec29-4861-93cf-4473ca88b7e5?mode=deep",
+    "timestamp": "2026-01-09 19:09:27.560523",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: send()] [Metric names] Measurement names generated by readMeter() include the namespace and metric name - could these names reveal sensitive information about internal node operations or configuration? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c1f3c902-0290-4189-8728-227349deabb3?mode=deep",
+    "timestamp": "2026-01-09 19:09:52.328602",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: send()] [Timestamp precision] The timestamp now at line 135 uses time.Now() - does this leak precise timing information about node operations that could help attackers correlate events or identify validators? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_23f8806b-5fd6-43e8-9b63-90e98564f398?mode=deep",
+    "timestamp": "2026-01-09 19:10:19.356492",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: send()] [Metric data leakage] Metrics sent to InfluxDB may contain sensitive blockchain operational data - if the InfluxDB credentials are compromised or URL is redirected, could attackers gain insight into validator behavior, transaction patterns, or network topology? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_27635907-197c-4591-b12c-c7ce02e3c931?mode=deep",
+    "timestamp": "2026-01-09 19:10:45.348981",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: InfluxDBWithTags()] [Interval validation] The interval parameter d is not validated - if d is zero or negative, what happens to the ticker behavior at line 101, and could this cause rapid-fire metric sends or division by zero? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2e595e9f-c8ca-406f-835e-0afcd1822dd2?mode=deep",
+    "timestamp": "2026-01-09 19:11:09.993146",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: send()] [Tag injection] The tags map at line 50 is passed directly to NewPoint() - if tag keys or values contain special characters or exceed size limits, could this cause point creation failures or InfluxDB injection attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_595a394c-b696-45ed-bbef-4f1d05e0ce6d?mode=deep",
+    "timestamp": "2026-01-09 19:12:16.382283",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: InfluxDBWithTags()] [Namespace injection] The namespace parameter is used in measurement names by readMeter() - if namespace contains special InfluxDB characters (spaces, quotes, backslashes), could this cause parsing errors or injection attacks in InfluxDB queries? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_728d46b0-6300-466e-af83-d09d50b2bb12?mode=deep",
+    "timestamp": "2026-01-09 19:12:29.304853",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: InfluxDBWithTags()] [Database name injection] The database parameter is passed directly to InfluxDB without validation - can attackers inject special characters or SQL-like commands that cause database operations to fail or behave unexpectedly? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0c60203d-8ec2-4896-847a-746a0f749748?mode=deep",
+    "timestamp": "2026-01-09 19:12:42.753141",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: InfluxDBWithTagsOnce()] [Error wrapping] Errors at lines 65, 79, 83 wrap the original error - could sensitive information from the underlying error be exposed through these wrapped error messages? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e4b4ff93-9830-4931-9545-19fa6647174d?mode=deep",
+    "timestamp": "2026-01-09 19:12:57.031540",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: send()] [NewPoint error ignored] If client.NewPoint() fails at line 140, the error is silently ignored and the point is skipped - could an attacker craft metric names or values that cause all points to fail creation, preventing any metrics from being sent? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7b65c314-7615-499d-971d-badf644a99ab?mode=deep",
+    "timestamp": "2026-01-09 19:13:11.836914",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: send()] [NewBatchPoints error] If client.NewBatchPoints() fails at line 127, the error is returned immediately - but what cleanup happens, and could this leave partial state that causes issues on retry? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_63ab2072-9f91-4890-9594-797b2b98c7bf?mode=deep",
+    "timestamp": "2026-01-09 19:13:27.937437",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: run()] [Ping error handling] When ping fails at line 115, makeClient() is called to recreate - but if makeClient() also fails at line 118, the error is only logged and the old (broken) client remains, causing all future operations to fail silently - is this acceptable? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2d202471-6aaa-4c50-85a9-48a446194cfa?mode=deep",
+    "timestamp": "2026-01-09 19:13:45.663782",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: run()] [Panic propagation] If send() panics due to a bug in readMeter() or metric.Snapshot(), would the panic bring down the entire node, or is there panic recovery to prevent node crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_24cb2f98-aff8-4e4e-aa8c-84d6142a65fb?mode=deep",
+    "timestamp": "2026-01-09 19:14:05.622185",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: InfluxDBWithTags()] [Silent failure] If makeClient() fails at line 53, the function logs a warning and returns without starting the reporter - but does this leave the node in an inconsistent state expecting metrics to be sent when they're not? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b6844e76-3f97-425a-9d63-976f5b19d056?mode=deep",
+    "timestamp": "2026-01-09 19:14:26.733466",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: run()] [Ticker accumulation] If send() blocks for longer than the interval duration, do ticker events accumulate in the channel, potentially causing delayed batch sends or memory growth? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_38c15016-d1e9-4b57-b8e1-9d75e8872655?mode=deep",
+    "timestamp": "2026-01-09 19:14:48.241868",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: send()] [Write blocking] The r.client.Write(bps) call at line 144 could block indefinitely if InfluxDB is unresponsive - can this cause the intervalTicker goroutine to block forever, preventing any further metric sends? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_12392c3f-cc15-4034-8f89-3d6d43fe871a?mode=deep",
+    "timestamp": "2026-01-09 19:15:11.204126",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: send()] [Batch size unbounded] There's no limit on the number of points added to bps at line 141 - if the metrics registry contains millions of metrics, could this cause memory exhaustion when creating the batch points? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a6601fa7-0c48-47b4-8269-45c99b7959aa?mode=deep",
+    "timestamp": "2026-01-09 19:15:34.269858",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: makeClient()] [Connection timeout] The 10-second timeout at line 94 - if InfluxDB is slow to respond, could an attacker cause many concurrent client creation attempts that block goroutines and exhaust resources? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f2a4d57c-8aa3-4063-adcc-a3f4bf1cebe1?mode=deep",
+    "timestamp": "2026-01-09 19:15:58.655557",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: run()] [HTTP client leak] When makeClient() is called at line 118 to recreate the client, is the old client properly closed, or does this leak HTTP connections and goroutines, eventually exhausting file descriptors and causing node failure? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_709dfb95-ac93-421b-b2db-e9aa7ea1cf41?mode=deep",
+    "timestamp": "2026-01-09 19:16:22.475039",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: run()] [Goroutine leak] The run() function contains an infinite loop with no mechanism to stop it - if InfluxDB() is called multiple times, could this create unbounded goroutines that exhaust node resources and cause crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a6de4771-29fb-423a-85dc-6aa8ebb2b7b6?mode=deep",
+    "timestamp": "2026-01-09 19:16:46.732863",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: run()] [Ticker cleanup race] If run() is called multiple times (though unlikely), there's no synchronization preventing multiple tickers from being created and running simultaneously, potentially causing resource exhaustion - is this possible? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f82c431c-5d18-442b-a864-70264e69fe97?mode=deep",
+    "timestamp": "2026-01-09 19:17:10.716176",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Struct: reporter] [Cache race condition] The cache map at line 26 is initialized but never used in the visible code - if it's accessed concurrently without locks elsewhere, could this cause map concurrent access panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4ac9a822-3cd9-44e2-a023-27ad82845780?mode=deep",
+    "timestamp": "2026-01-09 19:17:33.783072",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: send()] [Registry concurrent modification] The reg.Each() call at line 134 iterates over the metrics registry - if the registry is modified concurrently by other goroutines adding/removing metrics, can this cause panics or undefined behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_15e208f8-9213-4cf1-86dc-dfe2c3e79acb?mode=deep",
+    "timestamp": "2026-01-09 19:17:57.205494",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: run()] [Concurrent client access] The r.client field is accessed concurrently by the intervalTicker goroutine (line 110) and pingTicker goroutine (line 114) without synchronization - can this cause data races when reading/writing the client pointer? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b197a045-f2c7-4412-91ea-7f7bd73f63af?mode=deep",
+    "timestamp": "2026-01-09 19:18:19.867743",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: run()] [Client replacement race] When makeClient() is called at line 118 to recreate the client after ping failure, is there a race condition where the old client could still be used by send() simultaneously, causing crashes or data corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4f693c6d-6620-4b44-b6cd-ca033a017ca7?mode=deep",
+    "timestamp": "2026-01-09 19:18:43.529384",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: InfluxDBWithTagsOnce()] [URL format string] Is the URL string properly validated before being included in error messages at line 65, or can attackers inject format string specifiers that could leak stack data or crash the node? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e59effb1-3407-4dcd-bd61-363e00553468?mode=deep",
+    "timestamp": "2026-01-09 19:19:09.337793",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: InfluxDBWithTags()] [URL validation bypass] Does the URL parsing at line 36 validate that the scheme is HTTP/HTTPS, or can attackers use file://, javascript:, or other schemes to cause unexpected behavior or crashes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b348dc4f-f785-4aca-87bf-1d1ce83ef361?mode=deep",
+    "timestamp": "2026-01-09 19:19:34.823793",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: InfluxDBWithTags()] [URL injection] Can an attacker provide a malicious URL string that, when parsed by uurl.Parse(), redirects metrics data to an attacker-controlled InfluxDB server, leaking sensitive blockchain operational data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_af4784b1-f030-4ef1-ba85-1b7354f5e571?mode=deep",
+    "timestamp": "2026-01-09 19:20:01.200856",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: InfluxDBWithTagsOnce()] [Error message leakage] Does the error message at line 65 expose sensitive information about the InfluxDB URL or configuration that could aid attackers in reconnaissance? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2033446d-d9be-468c-8f64-64d0b36de9a9?mode=deep",
+    "timestamp": "2026-01-09 19:20:28.239055",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/influxdb/influxdbv1.go] [Function: makeClient()] [Credential storage] Are credentials stored in the reporter struct in plaintext memory, making them vulnerable to memory dump attacks or process inspection, potentially exposing InfluxDB access? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a7752818-f535-4041-af8a-e93a3aab6152?mode=deep",
+    "timestamp": "2026-01-09 19:20:51.319587",
+    "report_generated": false
   }
 ]
