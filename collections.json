@@ -5248,5 +5248,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_01636c0b-6956-48fb-8e8d-dc7693e49936?mode=deep",
     "timestamp": "2026-01-09 21:03:07.846836",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Output name handling] At lines 106-108, output names are conditionally included. Can this create parsing ambiguity if output names contain special characters? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e6c9d33d-465f-42a0-bdff-e32f0777c610?mode=deep",
+    "timestamp": "2026-01-09 21:04:14.733885",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Empty inputs] At line 96, types slice is allocated with len(inputs). If inputs is empty, creating a zero-length slice, can this cause issues when signature is constructed at line 117? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bf8232fb-831c-46a0-a9d8-d647d4506b6f?mode=deep",
+    "timestamp": "2026-01-09 21:04:27.625457",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Empty outputs] At line 98, if outputs is empty, outputNames is zero-length. Does this affect string representation at line 137? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_787524d0-00b1-44cb-82cc-39fcf9790cec?mode=deep",
+    "timestamp": "2026-01-09 21:04:40.828344",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Slice aliasing] Are the inputs and outputs Arguments passed by reference or copied? If by reference, can external modification affect Method integrity? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ee271c87-fd7a-4525-b842-5316e507d810?mode=deep",
+    "timestamp": "2026-01-09 21:04:54.595576",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Array bounds] Loops at lines 100-103 and 104-109 assume inputs/outputs lengths match allocated slices. Can slice length changes between allocation and iteration cause panics? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_14d45326-b5e3-4a0f-9adb-0d8c9b77cb4b?mode=deep",
+    "timestamp": "2026-01-09 21:05:09.799472",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Slice capacity growth] If Arguments need to be extended after Method creation, can slice reallocation invalidate Method references? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_098fd678-a006-4770-8a89-c16bfad8d817?mode=deep",
+    "timestamp": "2026-01-09 21:05:25.870204",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Method caching] If Methods are cached based on signature, can race conditions in cache insertion/retrieval cause multiple Methods with same signature but different IDs? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f065b834-09c9-4da9-ba66-6cc351f6a17f?mode=deep",
+    "timestamp": "2026-01-09 21:05:43.289318",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Deterministic ordering] If inputs/outputs are iterated in map order rather than deterministic order, can this cause non-deterministic signature generation across nodes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3edef0d8-0d50-4363-8919-09393ed2e7d2?mode=deep",
+    "timestamp": "2026-01-09 21:06:02.742462",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Goroutine safety] Is NewMethod safe to call from multiple goroutines simultaneously? Can shared state in crypto.Keccak256 or string formatting cause race conditions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c7c95074-20dc-4602-b1b8-2e79917891d1?mode=deep",
+    "timestamp": "2026-01-09 21:06:23.923988",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Struct: Method] [Shared references] If multiple Methods share references to the same Arguments slices, can modification of one Method affect others? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1fbe5cdb-7dbf-4a70-8422-4fd6ade75fd2?mode=deep",
+    "timestamp": "2026-01-09 21:06:45.503297",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [ID collision detection] When creating Methods, is there detection of ID collisions? Can two Methods with different signatures end up with same ID in a concurrent environment? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7668e74c-f78e-403f-859e-8d5349108c6e?mode=deep",
+    "timestamp": "2026-01-09 21:07:07.210862",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Struct: Method] [JSON marshaling] The Method struct doesn't have JSON tags. If Methods are serialized to JSON for RPC or storage, can missing tags cause data loss or incorrect deserialization? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5ad7991d-77fb-4957-a90d-14c75f22e129?mode=deep",
+    "timestamp": "2026-01-09 21:07:29.234823",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Struct: Method] [Binary encoding] If Methods are encoded to binary format, does the encoding preserve all fields including ID and Sig? Can truncation cause invalid Methods after deserialization? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ba1e56c6-f5d7-44cd-89a8-3e95fea9f837?mode=deep",
+    "timestamp": "2026-01-09 21:07:52.703897",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Sig field persistence] The Sig field at line 84 stores the signature string. Is this redundant with ID? Can inconsistencies between Sig and ID cause validation issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_56f1f25b-613c-454d-ba15-473aa06d586e?mode=deep",
+    "timestamp": "2026-01-09 21:08:16.015476",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Struct: Method] [Unexported str field] The str field at line 80 is unexported. Can this cause issues when Methods are marshaled/unmarshaled, requiring recreation via NewMethod? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_383e6e6c-8338-43b3-8c4a-7d830e4998e0?mode=deep",
+    "timestamp": "2026-01-09 21:08:40.732971",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Field: ID] [Byte slice encoding] The ID field is []byte. When encoded, is the length preserved? Can variable-length IDs cause parsing errors? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5719521f-ed2a-49ad-9cf6-4280fb624abf?mode=deep",
+    "timestamp": "2026-01-09 21:09:07.159680",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Name collision] At lines 101 and 106-108, input and output names are included in string representation. Can duplicate names across inputs/outputs cause confusion? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6f2267a3-2564-49d0-a1b5-22159e548103?mode=deep",
+    "timestamp": "2026-01-09 21:09:33.642664",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Empty names] If input.Name or output.Name is empty, does this create malformed string representations at lines 101 and 107? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_646bbdfb-0ab2-49f1-bf00-cda3d7fedcba?mode=deep",
+    "timestamp": "2026-01-09 21:10:00.192768",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Reserved names] Are parameter names validated against reserved keywords? Can names like \\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_90161f3b-fcb5-4ccc-9a78-d912daa3a5cd?mode=deep",
+    "timestamp": "2026-01-09 21:10:27.306042",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Name length] Is there a maximum length for parameter names? Extremely long names could cause memory issues in string formatting at lines 101 and 107. (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b9260aff-bc9d-4ce1-9850-0f2c1b61b9fb?mode=deep",
+    "timestamp": "2026-01-09 21:10:54.512346",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Unicode in names] Can parameter names contain Unicode characters? If so, are they handled correctly in string representation and signature computation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_be79bea6-1c2a-4b94-b906-a4b2e5dfb911?mode=deep",
+    "timestamp": "2026-01-09 21:11:21.595824",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Const: FunctionType] [Type validation] The FunctionType enum at lines 29-42 has 4 values. If an out-of-range value is used in NewMethod, can this bypass validation checks at lines 116, 130-136? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_19821f58-7e57-46ef-8862-987725d222ee?mode=deep",
+    "timestamp": "2026-01-09 21:11:49.212354",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Constructor ID] At line 116, constructors don't get method IDs. Is this correct? Can confusion between constructor calls and regular function calls lead to security issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9543c117-9c85-4a5c-8747-9421508e890b?mode=deep",
+    "timestamp": "2026-01-09 21:12:16.368899",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Fallback signature] Fallback functions at line 131 have no signature. Can attackers exploit this to trigger fallback when they shouldn't? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_74ca0f25-05bf-413d-8150-667e22945698?mode=deep",
+    "timestamp": "2026-01-09 21:12:43.882585",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Receive vs Fallback] At lines 132-133, Receive and Fallback are distinct. Can misclassification between these cause ether transfer errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d527de48-c57f-492a-ad69-d08bfa604a3f?mode=deep",
+    "timestamp": "2026-01-09 21:13:12.629779",
+    "report_generated": false
   }
 ]
