@@ -1198,5 +1198,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eb795162-d4a9-4216-a473-2bf5b1f82999?mode=deep",
     "timestamp": "2026-01-09 16:26:17.065813",
     "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: getShortHostname()] [Race condition] Does the check-then-set pattern on line 49 create a time-of-check-time-of-use (TOCTOU) vulnerability where multiple goroutines could simultaneously detect empty shortHostName and all attempt to set it, causing data corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f253b378-fd59-43bb-b984-1496d9941195?mode=deep",
+    "timestamp": "2026-01-09 16:27:28.180410",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: getShortHostname()] [Race condition] Can an attacker trigger multiple concurrent metrics exports to cause race conditions on the shortHostName global variable, potentially corrupting the hostname string and causing malformed OpenTSDB messages or node crashes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0bc1b093-99ca-4de4-b840-172750f47b21?mode=deep",
+    "timestamp": "2026-01-09 16:27:40.885764",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Global variable: shortHostName] [Race condition] Is the global shortHostName variable protected by any synchronization mechanism, or can multiple goroutines simultaneously read/write it during concurrent OpenTSDBWithConfig() calls, causing race detector failures and potential node panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f8f216bf-f44b-416c-b4ff-42151499028b?mode=deep",
+    "timestamp": "2026-01-09 16:27:54.420528",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/opentsdb.go] [Function: getShortHostname()] [Race condition] Can concurrent calls to getShortHostname() from multiple goroutines cause a race condition when checking and setting the global shortHostName variable, potentially leading to data races and undefined behavior that could crash the node? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_49d49106-7706-4f5b-9411-a3b5b967c356?mode=deep",
+    "timestamp": "2026-01-09 16:28:08.169481",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: CollectProcessMetrics()] [Delta calculation] When calculating deltas between current and previous stats, can wraparound in the underlying counters (e.g., disk byte counters) cause negative deltas that corrupt metrics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d6566b59-fce1-46c0-bffe-617f21971028?mode=deep",
+    "timestamp": "2026-01-09 16:28:22.868781",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: CollectProcessMetrics()] [Meter overflow] Can the Mark() calls on meter metrics (lines 201-202, 210-215) overflow or behave incorrectly with very large delta values, corrupting rate calculations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4433adc6-644a-4ac3-890f-4de693447c9d?mode=deep",
+    "timestamp": "2026-01-09 16:28:38.912610",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: CollectProcessMetrics()] [Counter overflow] Can the counter metrics (cpuSysLoadTotal, cpuSysWaitTotal, cpuProcLoadTotal in lines 147-149) overflow after running for extended periods, causing counter resets that break cumulative statistics? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0e7df6d8-772f-4708-896e-5d62a1e48614?mode=deep",
+    "timestamp": "2026-01-09 16:28:56.146023",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: readRuntimeStats()] [Unknown metrics] If new runtime metrics are added in future Go versions but not handled in the switch statement (lines 98-119), are they silently ignored, potentially hiding important new monitoring data? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_569e7940-ff88-412b-8544-7a4e24a4b065?mode=deep",
+    "timestamp": "2026-01-09 16:29:14.916409",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: CollectProcessMetrics()] [Registry initialization] If DefaultRegistry is not properly initialized before CollectProcessMetrics() is called, can the GetOrRegister calls panic or fail silently, preventing all metric collection? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4285fab2-ec23-4b1a-8f46-20176eb8f79e?mode=deep",
+    "timestamp": "2026-01-09 16:29:34.648946",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Global: threadCreateProfile] [pprof initialization] Is `pprof.Lookup(",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bb143e49-e583-4132-aba2-2d6dfb1aee25?mode=deep",
+    "timestamp": "2026-01-09 16:29:56.649902",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: init()] [Init order] Can the init() function run before required dependencies are initialized (e.g., logging system), causing the log.Info calls (lines 45, 51) to panic or produce no output, hiding metrics configuration status? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7eb0d400-d2f2-4c3d-ac53-61178308c5d1?mode=deep",
+    "timestamp": "2026-01-09 16:30:17.274921",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: CollectProcessMetrics()] [Metric leaks] When the Enabled flag is false, the function returns early (line 127) - but if it was previously enabled, are registered metrics properly cleaned up to prevent memory leaks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_882f3562-ef32-434a-b300-2614f374c235?mode=deep",
+    "timestamp": "2026-01-09 16:30:39.025496",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: CollectProcessMetrics()] [Registry exhaustion] If CollectProcessMetrics() is called many times, can the repeated GetOrRegister calls exhaust registry capacity or cause performance degradation in metric lookups? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a911ac44-35fb-4d64-8b35-e022afadf131?mode=deep",
+    "timestamp": "2026-01-09 16:31:01.529968",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: CollectProcessMetrics()] [Name collision] Can the hardcoded metric names (e.g.,",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9a43715a-4a60-4b36-9f9d-7488a9056829?mode=deep",
+    "timestamp": "2026-01-09 16:31:23.536940",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Global: enablerFlags] [Flag injection] Can an attacker modify the `enablerFlags` or `expensiveEnablerFlags` slices (lines 31, 34) to include additional strings that cause unintended metrics enabling through the init() parsing logic? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2619fb68-b86b-4d33-856d-e0c02e2b1614?mode=deep",
+    "timestamp": "2026-01-09 16:31:45.902043",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Global: runtimeSamples] [Sample modification] Can the `runtimeSamples` slice (lines 75-86) be modified after initialization by malicious code, causing incorrect or malicious metrics to be collected that hide node compromise? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_499cc274-dcc4-45ac-934b-69d6518936d6?mode=deep",
+    "timestamp": "2026-01-09 16:32:08.572043",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: CollectProcessMetrics()] [OS compatibility] If disk or CPU statistics are not available on the host OS, can this cause the metrics collection goroutine to crash or behave unpredictably, leaving the validator node without monitoring? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a1de17a7-ac81-488d-852c-761b078719a8?mode=deep",
+    "timestamp": "2026-01-09 16:32:31.753040",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: readRuntimeStats()] [Go version] The comment on line 92-93 mentions metrics are unavailable in older Go versions - can running on an older Go version cause the metrics system to panic or produce incorrect data instead of gracefully degrading? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d8351046-f8bc-45c2-a7b3-1dc217719af4?mode=deep",
+    "timestamp": "2026-01-09 16:32:56.290194",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: CollectProcessMetrics()] [Platform differences] Can ReadCPUStats() and ReadDiskStats() behave differently across platforms (Linux/Windows/Mac), causing inconsistent metric collection that makes cross-platform validator node monitoring unreliable? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_233a1717-bbff-403e-aeaa-9b47ecbbafba?mode=deep",
+    "timestamp": "2026-01-09 16:33:19.712896",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Constant: secondsToNs] [Scale factor] Can the scale factor `const secondsToNs = float64(time.Second)` (line 140) cause precision issues or overflow when converting histogram time values, producing incorrect nanosecond-scale latency metrics? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_98dde7c7-cef8-40d8-bfbe-c52f8779f667?mode=deep",
+    "timestamp": "2026-01-09 16:33:43.129706",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: CollectProcessMetrics()] [SchedLatency update] Can the `cpuSchedLatency.update(rstats[now].SchedLatency)` call (line 198) fail if the histogram data is malformed, causing incorrect scheduling latency metrics that hide performance issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7bfd8388-ce2a-4869-b4f2-228fea9c9f68?mode=deep",
+    "timestamp": "2026-01-09 16:34:05.874665",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: CollectProcessMetrics()] [Histogram update] Can the `memPauses.update(rstats[now].GCPauses)` call (line 199) panic or corrupt data if the GCPauses histogram contains invalid bucket configurations or bucket counts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_828230f8-8050-4531-8615-00fa6268a815?mode=deep",
+    "timestamp": "2026-01-09 16:34:29.074974",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: readRuntimeStats()] [Histogram nil] Can `s.Value.Float64Histogram()` return nil for the GCPauses and SchedLatency histograms (lines 100, 118), and if so, does this cause nil pointer dereferences when these are later accessed in the update calls (lines 198-199)? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_00d3c24d-1e40-4c8e-bfd6-155fb6f999bb?mode=deep",
+    "timestamp": "2026-01-09 16:34:53.291391",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: CollectProcessMetrics()] [Refresh validation] Is there any validation on the `refresh` duration parameter? Can passing extremely large durations (e.g., decades) effectively disable metrics collection by making the loop sleep indefinitely? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_de1a06e2-26da-4d3b-a071-ab1988583581?mode=deep",
+    "timestamp": "2026-01-09 16:35:14.856079",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/metrics.go] [Function: CollectProcessMetrics()] [Zero refresh] If the `refresh` parameter is zero or negative, can the Sleep() call be bypassed or behave unexpectedly, causing the metrics loop to spin at 100% CPU and DoS the validator node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_90bae0d2-44e0-457c-a448-8a3495e26e02?mode=deep",
+    "timestamp": "2026-01-09 16:35:36.432280",
+    "report_generated": false
   }
 ]
