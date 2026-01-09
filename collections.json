@@ -2848,5 +2848,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b0d5bd98-772a-496d-b79d-292fe3fb4706?mode=deep",
     "timestamp": "2026-01-09 18:21:42.252328",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractCaller] [Mint contract bypass] Can CallContract() be used to query or interact with WBT's custom minting contract in ways that bypass normal minting limits or authorization checks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_992220a0-a796-42b6-828a-7082d28a5830?mode=deep",
+    "timestamp": "2026-01-09 18:22:58.836547",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractTransactor] [Unauthorized minting] Can SendTransaction() be exploited to send transactions to the minting contract that mint tokens without proper cross-chain burn verification? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d1058b68-800e-428c-b2c6-ae12b41de910?mode=deep",
+    "timestamp": "2026-01-09 18:23:12.092903",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractFilterer] [Mint event manipulation] Can FilterLogs() or SubscribeFilterLogs() be used to detect and front-run minting operations, enabling MEV extraction from cross-chain bridges? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ef5d6a82-0a95-47b0-a3ec-c950e3cad454?mode=deep",
+    "timestamp": "2026-01-09 18:23:25.667660",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: DeployBackend] [Mint contract deployment] Could the minting contract be redeployed to a different address through this interface, potentially creating unauthorized minting endpoints? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_32cc0fc2-5a1d-486e-97a4-a063540e208a?mode=deep",
+    "timestamp": "2026-01-09 18:23:39.890290",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractCaller] [Empty code] Does CodeAt() return nil or empty slice for accounts without code, and are these cases properly distinguished causing different caller behavior? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ad266568-27b1-4472-b27c-8e8867e61b14?mode=deep",
+    "timestamp": "2026-01-09 18:23:54.574394",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractCaller] [Call revert data] When CallContract() fails, is the revert data properly returned in the error, or is it lost causing difficulty in debugging transaction failures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e1d1b1b2-be9d-4ab5-ad42-4f1a8514f18a?mode=deep",
+    "timestamp": "2026-01-09 18:24:10.639020",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractTransactor] [Zero gas price] Can SuggestGasPrice() or SuggestGasTipCap() return zero values, and if so, do transaction submissions handle this correctly or cause transaction processing failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_58c1bc8d-83c0-4a2b-af3d-dd7aa7987a43?mode=deep",
+    "timestamp": "2026-01-09 18:24:27.417413",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractTransactor] [Gas estimation failure] When EstimateGas() fails (e.g., transaction would revert), is the failure properly reported, or do some implementations return arbitrary gas values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c7c4c20d-ed3d-497f-b2f4-992c5d6f096d?mode=deep",
+    "timestamp": "2026-01-09 18:24:46.183531",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractFilterer] [Empty log results] Does FilterLogs() distinguish between no logs found vs. query error, potentially causing callers to incorrectly assume no events occurred when actually a query failed? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a8e01041-759d-43d8-a2e5-dca6c378e8a6?mode=deep",
+    "timestamp": "2026-01-09 18:25:07.567855",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: DeployBackend] [Pending receipt] Can TransactionReceipt() be called for transactions still in the pending pool, and if so, what is returned - nil, error, or partial receipt? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8ff02ac0-7973-453e-8f12-c9b31e1e8870?mode=deep",
+    "timestamp": "2026-01-09 18:25:30.100430",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractCaller] [Missing authentication] Does the interface require any authentication or authorization for read operations, or can anyone query any contract state without restrictions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5214c5b7-f671-485f-9b2c-409ee411f14c?mode=deep",
+    "timestamp": "2026-01-09 18:25:52.943379",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractTransactor] [Missing rate limiting] Is there any interface-level requirement for rate limiting transaction submissions, or can implementations be overwhelmed by rapid SendTransaction() calls? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_75f3b26f-34b0-498c-aa14-a41ae2354cc0?mode=deep",
+    "timestamp": "2026-01-09 18:26:12.698217",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractFilterer] [Missing pagination] Does FilterLogs() support pagination for large result sets, or can queries returning millions of logs cause memory exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_123df115-e924-46b6-b609-34afd6bd4c03?mode=deep",
+    "timestamp": "2026-01-09 18:26:37.716450",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractTransactor] [Missing balance check] Does SendTransaction() require implementations to verify sender balance before accepting transactions, or can insufficient balance transactions enter the mempool? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a86b7272-33e1-456d-9458-bb20b01e9891?mode=deep",
+    "timestamp": "2026-01-09 18:27:03.745874",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: PendingContractCaller] [Missing consistency guarantee] Does the interface specify whether pending state queries should be atomic with respect to concurrent state changes, or is this implementation-defined causing inconsistent behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eae0736d-543d-44b6-9ed1-d8a437fc8a66?mode=deep",
+    "timestamp": "2026-01-09 18:27:31.387570",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: All] [Thread safety] Does the interface specify whether implementations must be thread-safe for concurrent access, or can concurrent use cause race conditions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0d974f1b-d349-4a69-875e-2558cad22cb1?mode=deep",
+    "timestamp": "2026-01-09 18:28:00.915904",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: All] [Error semantics] Are error return conditions precisely defined, or can different implementations return different error types for the same failure condition causing inconsistent error handling? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c3a4e3f0-098a-498d-9bb1-d24e22473228?mode=deep",
+    "timestamp": "2026-01-09 18:28:31.227909",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: All] [Blocking behavior] Is it specified whether interface methods can block indefinitely, or must they respect context timeouts, potentially causing resource exhaustion in poorly implemented backends? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_83169103-9fc9-46a7-8289-384611a32be3?mode=deep",
+    "timestamp": "2026-01-09 18:29:00.658357",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractCaller] [Mint contract bypass] Can CallContract() be used to query or interact with WBT's custom minting contract in ways that bypass normal minting limits or authorization checks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2ff0063f-4cb3-4dd0-8df9-7e2571569327?mode=deep",
+    "timestamp": "2026-01-09 18:29:30.587695",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractTransactor] [Unauthorized minting] Can SendTransaction() be exploited to send transactions to the minting contract that mint tokens without proper cross-chain burn verification? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d7546852-be2d-4e33-a570-035fb238c47d?mode=deep",
+    "timestamp": "2026-01-09 18:30:00.484504",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractFilterer] [Mint event manipulation] Can FilterLogs() or SubscribeFilterLogs() be used to detect and front-run minting operations, enabling MEV extraction from cross-chain bridges? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2ab7c363-aff1-440b-b4ed-1f0496186e3f?mode=deep",
+    "timestamp": "2026-01-09 18:30:28.092956",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: DeployBackend] [Mint contract deployment] Could the minting contract be redeployed to a different address through this interface, potentially creating unauthorized minting endpoints? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0f6cb39e-2ff8-4629-8d98-5c74f3f1e9e8?mode=deep",
+    "timestamp": "2026-01-09 18:30:55.974340",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractCaller] [Empty code] Does CodeAt() return nil or empty slice for accounts without code, and are these cases properly distinguished causing different caller behavior? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_46bc9f45-65a2-4bfb-ae42-dbe86be8d579?mode=deep",
+    "timestamp": "2026-01-09 18:31:23.027597",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractCaller] [Call revert data] When CallContract() fails, is the revert data properly returned in the error, or is it lost causing difficulty in debugging transaction failures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ae6be26f-3349-4ab6-989f-cc0fca17e501?mode=deep",
+    "timestamp": "2026-01-09 18:31:49.058208",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/bind/backend.go] [Interface: ContractTransactor] [Zero gas price] Can SuggestGasPrice() or SuggestGasTipCap() return zero values, and if so, do transaction submissions handle this correctly or cause transaction processing failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3253f328-1930-4cd7-bbeb-fd8320f8e569?mode=deep",
+    "timestamp": "2026-01-09 18:32:15.787888",
+    "report_generated": false
   }
 ]
