@@ -7798,5 +7798,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_270208df-0657-449f-aad5-49f9e3a5364a?mode=deep",
     "timestamp": "2026-01-09 23:44:27.639602",
     "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cpu_enabled.go] [Function: ReadCPUStats()] [Alert fatigue] If cpu.Times() failures or empty results are transient but frequent, the error logging at lines 32 and 36 could flood logs - could this create alert fatigue causing operators to miss critical security events hidden among metrics collection errors? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b59d067c-94d7-40bd-9895-10c560d1d0d6?mode=deep",
+    "timestamp": "2026-01-09 23:45:42.446146",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cpu_enabled.go] [Function: ReadCPUStats()] [Memory allocation] Each call to cpu.Times() likely allocates a new slice - in the 3-second refresh loop, does this cause memory pressure or GC thrashing that could impact validator block production performance during high load? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ef8173d1-42de-420b-93b8-895a3d2ad182?mode=deep",
+    "timestamp": "2026-01-09 23:45:55.528856",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cpu_enabled.go] [Function: ReadCPUStats()] [Slice reference safety] At line 40, the code takes a reference to timeStats[0] - if the underlying slice is modified or reallocated after this point (unlikely but possible with concurrent access), could timeStat reference invalid memory? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c8002cee-a5cd-4229-8d16-f900e8409ec6?mode=deep",
+    "timestamp": "2026-01-09 23:46:08.811489",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cpu_enabled.go] [Function: ReadCPUStats()] [Unit consistency] The CPUStats comment states 'All values are in seconds' - does getProcessCPUTime() return seconds, and does cpu.Times() return seconds? If there's a unit mismatch (seconds vs milliseconds vs nanoseconds), could this cause GlobalTime and LocalTime to be in different units, breaking percentage calculations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1a75e4a7-2e35-4217-9e21-b05a24fc76e6?mode=deep",
+    "timestamp": "2026-01-09 23:46:22.982588",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cpu_enabled.go] [Function: ReadCPUStats()] [Precision loss] The float64 addition at line 41 combines three time values - for systems with very long uptimes (months/years), could accumulated floating point precision errors in these large values cause metrics drift or inaccuracies? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9b5cb20a-13f6-489f-8e2e-71896cbb10a0?mode=deep",
+    "timestamp": "2026-01-09 23:46:38.328846",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cpu_enabled.go] [Function: ReadCPUStats()] [Time monotonicity] Are the values from cpu.Times() guaranteed to be monotonically increasing? If system time adjustments or NTP corrections occur, could CPU times decrease between calls, causing negative deltas in CollectProcessMetrics calculations at lines 178-180 that result in incorrect metrics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bdf5a6f0-b474-4b6b-8715-a3c5c68ed650?mode=deep",
+    "timestamp": "2026-01-09 23:46:54.902517",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cpu_enabled.go] [Function: ReadCPUStats()] [Partial failure state] If cpu.Times() succeeds but getProcessCPUTime() fails (returning 0), the stats struct will have partially valid data (GlobalTime, GlobalWait valid but LocalTime=0) - could this inconsistent state cause CollectProcessMetrics to compute invalid metrics ratios or percentages? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_773abc2d-2528-4e51-9da9-36c857e52b99?mode=deep",
+    "timestamp": "2026-01-09 23:47:12.350949",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cpu_enabled.go] [Function: ReadCPUStats()] [Missing error return] ReadCPUStats has no return value to indicate success or failure - if metrics collection consistently fails, how does CollectProcessMetrics detect this to alert operators that monitoring is non-functional, potentially hiding attacks or performance issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2f51e09f-bc1e-40fe-9d0a-7c7b2ffbafad?mode=deep",
+    "timestamp": "2026-01-09 23:47:31.654239",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cpu_enabled.go] [Function: ReadCPUStats()] [Syscall dependency] The function depends on gopsutil's cpu.Times() which makes OS syscalls - on systems with strict seccomp filters or sandboxing, could this syscall be blocked causing persistent failures that disable metrics collection entirely? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3abff96f-a9e2-4f75-b5d5-bb704534fee4?mode=deep",
+    "timestamp": "2026-01-09 23:47:51.891077",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cpu_enabled.go] [Function: ReadCPUStats()] [Platform assumptions] The comment at line 39 states 'requesting all cpu times will always return an array with only one time stats entry' - is this assumption validated across all supported Unix platforms (Linux, BSD, macOS), or could some platforms return multiple entries breaking the indexing at line 40? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a159f9f0-b839-4b50-b8c1-322d6989302b?mode=deep",
+    "timestamp": "2026-01-09 23:48:14.801217",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cpu_enabled.go] [Build tag validation] The file uses build tags '!ios && !js' at line 17 - if these build tags are misconfigured or bypassed during compilation, could this cause the cpu.Times() call to fail on unsupported platforms, or conflict with the stub implementation in cpu_disabled.go, causing undefined behavior? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7934013a-af00-4225-a183-9650030549e2?mode=deep",
+    "timestamp": "2026-01-09 23:48:37.623503",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cpu_enabled.go] [Function: ReadCPUStats()] [False metrics] If getProcessCPUTime() at line 43 fails and returns 0 (as seen in cputime_unix.go line 32-33), could this make LocalTime appear to be zero, causing CollectProcessMetrics to report 0% process CPU load even during high activity, masking validator node compromise or attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c3c520fc-1e0a-4d76-8204-c8e1159388bf?mode=deep",
+    "timestamp": "2026-01-09 23:49:00.624024",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cpu_enabled.go] [Function: ReadCPUStats()] [Monitoring bypass] If ReadCPUStats silently fails (returns early at lines 33 or 37), CollectProcessMetrics will use stale CPU values - could this prevent detection of CPU-based DoS attacks where an attacker forces validators to consume excessive CPU to delay block production? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3b012428-9e80-48b2-ac9e-7f496aaac25a?mode=deep",
+    "timestamp": "2026-01-09 23:49:22.948483",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cpu_enabled.go] [Function: ReadCPUStats()] [Resource leak] Does the cpu.Times() call from gopsutil library properly close file handles and release resources? If it leaks file descriptors on each call, could the 3-second refresh loop in CollectProcessMetrics eventually exhaust file descriptors causing node crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f4e319ca-bafa-4af6-be7c-33954124ed17?mode=deep",
+    "timestamp": "2026-01-09 23:49:46.361994",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cpu_enabled.go] [Function: ReadCPUStats()] [DoS vector] If an attacker can cause cpu.Times() to consistently fail or return empty arrays through OS-level attacks (exhausting file descriptors, corrupting /proc filesystem), will the repeated error logging at lines 32 and 36 fill up disk space with log entries, causing disk exhaustion and node failure? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e6210bb1-b1d5-4c0b-8a2a-68488e2d5c3b?mode=deep",
+    "timestamp": "2026-01-09 23:50:11.217318",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cpu_enabled.go] [Function: ReadCPUStats()] [Concurrent mutation] If CollectProcessMetrics passes the same CPUStats struct repeatedly but ReadCPUStats is also called from another goroutine, could the lack of synchronization cause CollectProcessMetrics to calculate incorrect deltas (cpustats[now].GlobalTime - cpustats[prev].GlobalTime) due to partial updates? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c0786214-2e4f-409e-b135-baafde62aeb0?mode=deep",
+    "timestamp": "2026-01-09 23:50:36.577875",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cpu_enabled.go] [Function: ReadCPUStats()] [Race condition] The function calls getProcessCPUTime() at line 43 which may access global state or make syscalls - if this is called concurrently, could race conditions in getProcessCPUTime implementation (from cputime_unix.go) cause incorrect LocalTime values or crashes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_98aa26b3-b2a7-46ec-b2f3-10f7c78e8f17?mode=deep",
+    "timestamp": "2026-01-09 23:51:02.047834",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cpu_enabled.go] [Function: ReadCPUStats()] [Race condition] If ReadCPUStats is called concurrently from multiple goroutines with the same stats pointer (e.g., in CollectProcessMetrics loop), could concurrent writes to stats.GlobalTime, stats.GlobalWait, and stats.LocalTime at lines 41-43 result in torn writes or data races detected by Go's race detector, causing inconsistent metrics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6e5511e7-a64d-434a-8edf-1670a77e6117?mode=deep",
+    "timestamp": "2026-01-09 23:51:27.841232",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cpu_enabled.go] [Function: ReadCPUStats()] [Array bounds] At line 40, the code accesses timeStats[0] after checking len(timeStats) == 0, but doesn't verify len(timeStats) >= 1 - although the comment says 'requesting all cpu times will always return an array with only one time stats entry', could an unexpected gopsutil behavior return an array with length > 1, and should the code validate this assumption? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a6d9ba9d-0cf5-41fc-a3b1-8ee69a9f5470?mode=deep",
+    "timestamp": "2026-01-09 23:51:53.619975",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cpu_enabled.go] [Function: ReadCPUStats()] [NaN/Infinity handling] If cpu.Times() returns NaN or Infinity for any time value (User, Nice, System, Iowait), do lines 41-42 properly handle these special float64 values, or will they propagate through metrics calculations causing panics in integer conversions at CollectProcessMetrics line 182-184? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b89dd698-069d-4219-bad9-fbd8837f8e23?mode=deep",
+    "timestamp": "2026-01-09 23:52:19.634762",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cpu_enabled.go] [Function: ReadCPUStats()] [Negative values] Are the float64 values from cpu.Times() (User, Nice, System, Iowait) guaranteed to be non-negative? Could malicious or buggy system calls return negative values that propagate to stats.GlobalTime or stats.GlobalWait, causing incorrect percentage calculations in CollectProcessMetrics that could hide actual resource usage? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b05635b6-e4cd-4d42-bb82-4960a07e194f?mode=deep",
+    "timestamp": "2026-01-09 23:52:45.539510",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cpu_enabled.go] [Function: ReadCPUStats()] [Integer overflow] At line 41, the calculation 'timeStat.User + timeStat.Nice + timeStat.System' adds three float64 values - if any of these values are extremely large (near float64 max), could overflow or precision loss occur, resulting in incorrect GlobalTime that breaks downstream metrics calculations or monitoring? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_87ac3e24-e339-4d07-8374-3e42b8f436e0?mode=deep",
+    "timestamp": "2026-01-09 23:53:09.957685",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cpu_enabled.go] [Function: ReadCPUStats()] [Unchecked external dependency] The function calls cpu.Times(false) from the gopsutil library without any timeout or resource limits - could a malicious or compromised gopsutil library cause indefinite blocking, CPU exhaustion, or return malicious values that corrupt metrics collection? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9b58c60b-f492-4337-9514-e105a88eaa57?mode=deep",
+    "timestamp": "2026-01-09 23:53:33.706944",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cpu_enabled.go] [Function: ReadCPUStats()] [Silent failure] When len(timeStats) == 0 at line 35-37, the function returns without modifying the stats struct - if CollectProcessMetrics relies on these values for resource monitoring, could an attacker trigger this condition repeatedly to prevent accurate CPU monitoring that would reveal their resource exhaustion attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6fab9e50-b91c-4082-b838-2bff20b9e20b?mode=deep",
+    "timestamp": "2026-01-09 23:53:59.411559",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/cpu_enabled.go] [Function: ReadCPUStats()] [Silent failure] When cpu.Times() returns an error at line 30-31, the function logs and returns without setting any values in the stats struct - could this cause downstream code in CollectProcessMetrics to use uninitialized or stale CPU values, leading to incorrect metrics reporting that masks actual node performance degradation or attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_13997011-3ff9-4d3e-bbd0-d247a00cd155?mode=deep",
+    "timestamp": "2026-01-09 23:54:23.745980",
+    "report_generated": false
   }
 ]
