@@ -5398,5 +5398,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d527de48-c57f-492a-ad69-d08bfa604a3f?mode=deep",
     "timestamp": "2026-01-09 21:13:12.629779",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Const: FunctionType] [Enum ordering] The enum uses iota at line 32, making order significant. Can reordering in future updates break compatibility with stored Method data? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ce444ff9-6846-4ac3-bb93-e473caf5b42c?mode=deep",
+    "timestamp": "2026-01-09 21:14:26.287473",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: IsConstant()] [Dependency on StateMutability] IsConstant() depends on StateMutability string. If StateMutability is modified after Method creation, does IsConstant() return stale results? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_212ab95c-442d-435c-9adf-0966b9c9bba9?mode=deep",
+    "timestamp": "2026-01-09 21:14:39.237407",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: IsPayable()] [Dependency on StateMutability] Similar concern for IsPayable(). Can post-creation modification of StateMutability bypass payment checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_91772d1a-c043-4086-b355-37ee447e3e5c?mode=deep",
+    "timestamp": "2026-01-09 21:14:52.482544",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: String()] [Dependency on str] String() returns pre-computed str. If Method fields are modified, String() becomes inaccurate. Is Method intended to be immutable? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5ae7139a-8188-46d1-b0bb-fbec58b7fdcf?mode=deep",
+    "timestamp": "2026-01-09 21:15:06.294369",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Field: ID] [Dependency on Sig] ID is derived from Sig at line 118. Are they always kept in sync? Can manual modification of one without updating the other cause validation issues? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5500bbc5-3010-46e5-94fe-539858755edc?mode=deep",
+    "timestamp": "2026-01-09 21:15:20.855163",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Struct: Method] [Field interdependencies] Multiple fields (Name, RawName, Type, StateMutability, Constant, Payable) have logical interdependencies. Can invalid combinations cause security issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_66d50003-4ab4-4aec-bbba-6b911eb0dc5d?mode=deep",
+    "timestamp": "2026-01-09 21:15:36.816264",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Zero-length signature] If rawName is empty and types is empty, line 117 produces \\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_adbb3f6d-ccaf-4470-993d-e482a0c83683?mode=deep",
+    "timestamp": "2026-01-09 21:15:53.675692",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Method ID reuse] Can an attacker find multiple function signatures that hash to the same 4-byte ID through brute force? How long would this take? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_55582483-42be-4a35-9daa-aa59337959e2?mode=deep",
+    "timestamp": "2026-01-09 21:16:13.164424",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Signature length limit] Is there a maximum length for the signature string at line 117? Extremely long signatures could cause string allocation failures. (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_696cd11b-2e35-42b5-86d0-0b46c94fae3a?mode=deep",
+    "timestamp": "2026-01-09 21:16:34.802431",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Byte order] When taking [:4] of Keccak256 output at line 118, is byte order consistent across platforms? Endianness differences could cause ID mismatches. (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_59508652-b453-4395-9c66-0c064dd1ede7?mode=deep",
+    "timestamp": "2026-01-09 21:16:56.131507",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Struct: Method] [Exported fields] All Method fields are exported. Can external code modify these fields after creation, violating Method invariants? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_91fa38e1-ae10-44a1-8388-6b7ee11dfd3d?mode=deep",
+    "timestamp": "2026-01-09 21:17:18.740297",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [fmt.Sprintf errors] Can fmt.Sprintf at lines 101, 107, 117, 129, 137 ever return errors or panic? If so, are these handled? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e24972fe-b224-49ca-b2ca-e46bc4e5c52a?mode=deep",
+    "timestamp": "2026-01-09 21:17:41.316196",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Type string errors] If input.Type.String() or output.Type.String() return error strings instead of valid types, can this corrupt signatures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_62c7964a-30b9-4dbd-91ad-3bf8a3771286?mode=deep",
+    "timestamp": "2026-01-09 21:18:05.830417",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Struct: Method] [CallData validation] Method ID is used to route transaction calldata to correct function. If ID is wrong, can transactions execute unintended code paths? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6c9c7afe-aef2-4391-bea3-2b687a7600bc?mode=deep",
+    "timestamp": "2026-01-09 21:18:31.496299",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: IsConstant()] [Gas consumption] Constant functions shouldn't change state. If IsConstant() incorrectly returns true for state-changing functions, can this cause gas estimation errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4bdafc01-434a-452b-b5da-9f6f560ee880?mode=deep",
+    "timestamp": "2026-01-09 21:18:57.087446",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: IsPayable()] [Value transfer] Non-payable functions should reject ether. If IsPayable() is incorrect, can ether be lost or stolen? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_03737eef-fa91-430b-ada2-ee826e0d184d?mode=deep",
+    "timestamp": "2026-01-09 21:19:23.156549",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Struct: Method] [Input encoding] Inputs Arguments are used to encode transaction data. If inputs are corrupted, can this cause transaction failures or unexpected behavior? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_be38b1d4-72fb-4f8d-bcf1-cdbd4c6efd8b?mode=deep",
+    "timestamp": "2026-01-09 21:19:50.201481",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Struct: Method] [Output decoding] Outputs Arguments are used to decode return values. If outputs are wrong, can this cause incorrect data interpretation leading to logic errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_558ab42a-3659-415c-8afe-a33d34c1d88b?mode=deep",
+    "timestamp": "2026-01-09 21:20:17.660388",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Cross-contract calls] Methods are used for encoding cross-contract calls. Can ID collisions cause one contract to unintentionally invoke functions in another? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eec024a4-0e64-4b93-8dba-8c6d3dac818f?mode=deep",
+    "timestamp": "2026-01-09 21:20:44.837047",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Delegate calls] In delegatecall context, Method IDs route to implementation functions. Can ID manipulation cause delegate call to wrong function, bypassing access controls? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2bf43afc-2522-4dac-b49f-86e46e70b2af?mode=deep",
+    "timestamp": "2026-01-09 21:21:10.435849",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Struct: Method] [Proxy patterns] In proxy contracts, Method metadata determines forwarding. Can incorrect Method representation break proxy forwarding logic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2e1e45e8-ddba-434b-a1c3-36d3bfd77fa5?mode=deep",
+    "timestamp": "2026-01-09 21:21:34.583793",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Interface matching] When checking if contracts implement interfaces, Method signatures must match exactly. Can signature variations cause false negatives in interface checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_abf4fa42-baed-4274-947d-d35365ef492d?mode=deep",
+    "timestamp": "2026-01-09 21:21:57.171165",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Struct: Method] [Event confusion] Although this file is for methods, can method names collide with event signatures causing confusion in transaction logs? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d44b382b-53fd-4793-aaf0-5aba783211a9?mode=deep",
+    "timestamp": "2026-01-09 21:22:19.787539",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Function: NewMethod()] [Compiler compatibility] Different Solidity compiler versions may generate different ABIs. Can Method representation from old compilers cause issues with new EVM versions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1d294d2d-caa1-41b2-b80d-f72f627851a5?mode=deep",
+    "timestamp": "2026-01-09 21:22:45.343720",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/method.go] [Struct: Method] [ABI evolution] As Solidity evolves, new mutability types may be added. Is the StateMutability string at line 72 extensible for future types? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3be0c8d7-8288-4b98-a293-f2a3db8697ba?mode=deep",
+    "timestamp": "2026-01-09 21:23:12.396405",
+    "report_generated": false
   }
 ]
