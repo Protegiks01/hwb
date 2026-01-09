@@ -6448,5 +6448,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d180e7cc-d0ad-4eeb-8ce1-031eea6ced30?mode=deep",
     "timestamp": "2026-01-09 22:18:37.891868",
     "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Tick()] [Negative rate] If through any bug or race condition the rate field at line 80 becomes negative, does this propagate through future Tick() calculations at line 106 causing permanently negative rates, and do downstream consumers of Rate() handle negative rates correctly or panic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f7f001c1-1bbc-4b22-b0e4-d0bf295c4d29?mode=deep",
+    "timestamp": "2026-01-09 22:19:45.499766",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: NewEWMA()] [Alpha validation] Does NewEWMA() at line 20-22 validate that alpha is in the valid range [0, 1]? If alpha > 1 or alpha < 0, can the EWMA calculation at line 106 produce diverging or oscillating values that break rate limiting logic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f0689aef-e19c-44d2-a98d-73e1505568a4?mode=deep",
+    "timestamp": "2026-01-09 22:19:58.338728",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: StandardEWMA] [Uninitialized state] If a StandardEWMA is created without using the constructor functions (NewEWMA, etc.) and fields are left at zero values, can operations on this improperly initialized object produce incorrect results or panics, and is this exploitable through reflection or unsafe pointer manipulation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4e666657-f6cb-4f64-a3ad-50c8efeb1bc2?mode=deep",
+    "timestamp": "2026-01-09 22:20:11.418081",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Tick()] [State inconsistency] If a.init is false at line 105 but Tick() is called concurrently from multiple goroutines, can multiple threads all see init=false and set a.rate = instantRate at line 109, causing the last writer to win and potentially initializing with an incorrect instantRate value? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2342037a-8b01-49fe-b3b4-023a857606ed?mode=deep",
+    "timestamp": "2026-01-09 22:20:24.975477",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Tick()] [State corruption] Can the sequence at lines 100-101 (Load then Add(-count)) be interrupted such that count is loaded but never subtracted, causing uncounted to accumulate indefinitely and making all rate calculations progressively more incorrect, eventually overflowing and breaking rate limiting? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_04581573-0571-4f5c-8da1-33ff7e0e9014?mode=deep",
+    "timestamp": "2026-01-09 22:20:39.647815",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Update() loop] [CPU exhaustion] Can an attacker flood the system with events that call Update() millions of times per second, causing the atomic operations to consume excessive CPU cycles and cache thrashing, degrading validator performance during critical consensus operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a74394b3-8794-4794-8dee-abc75a658e82?mode=deep",
+    "timestamp": "2026-01-09 22:20:55.089441",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Tick()] [Timing assumption] The Tick() function at line 98 assumes it's called every 5 seconds - if the calling code has timing bugs or delays causing irregular Tick() intervals, can this make the EWMA calculations completely incorrect, causing rate limiting to fail and allowing transaction flooding attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_63a5fd79-299d-4421-a994-35c5cbfcc939?mode=deep",
+    "timestamp": "2026-01-09 22:21:12.343425",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Snapshot()] [Resource leak] Does calling Snapshot() repeatedly create many EWMASnapshot objects that are never garbage collected, and can this cause memory exhaustion over time in long-running validator nodes that perform frequent metrics snapshots? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c25d64ef-f502-4db9-87ec-7b19da4f3df3?mode=deep",
+    "timestamp": "2026-01-09 22:21:31.180368",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Rate()] [Lock contention] Can frequent Rate() calls from multiple goroutines cause mutex contention at line 87-88, and if metrics are collected frequently during high load, can this create a bottleneck that degrades overall node performance and block processing speed? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0ff47c38-30cf-461c-9edc-31d911920e78?mode=deep",
+    "timestamp": "2026-01-09 22:21:51.355580",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Tick()] [Lock contention] Can an attacker trigger frequent Tick() calls that acquire the mutex at line 103, causing lock contention that blocks all Rate() and Snapshot() calls, delaying metrics collection and preventing DoS detection systems from functioning correctly? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ec9391de-bd29-459b-a7cd-4d77e562ca9d?mode=deep",
+    "timestamp": "2026-01-09 22:22:12.851709",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Update()] [Resource exhaustion] Can an attacker call Update() in a tight loop with large int64 values to cause CPU exhaustion in the atomic Add() operations, and does this starve other critical blockchain operations like block validation or transaction processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_27c45fb1-e1df-40f0-9b9d-cb446faa84de?mode=deep",
+    "timestamp": "2026-01-09 22:22:35.097235",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Update()] [Nil pointer] Can Update() be called on a nil *StandardEWMA pointer, causing a panic when attempting atomic operations on the uncounted field at line 115, and is this exploitable to crash validator nodes processing metrics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a54473de-e367-4ae8-a60b-40c34d1c1db9?mode=deep",
+    "timestamp": "2026-01-09 22:22:58.895471",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Snapshot()] [Nil pointer] Can Snapshot() at line 93-94 be called on a nil *StandardEWMA, causing a nil pointer dereference when calling a.Rate(), and is this exploitable through metrics APIs to crash nodes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1a5ee827-7992-494c-bf1c-a3d1e8e78284?mode=deep",
+    "timestamp": "2026-01-09 22:23:21.683786",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Rate()] [Nil pointer] Can Rate() be called on a nil *StandardEWMA pointer before initialization, causing a nil pointer dereference panic at line 87 when attempting to lock the mutex, crashing validator nodes during startup or metrics collection? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7ca3f6ec-ba41-4fde-84e4-587558d98954?mode=deep",
+    "timestamp": "2026-01-09 22:23:47.129851",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Tick()] [Division by zero] Although unlikely, if time.Second constant is somehow corrupted or modified by memory corruption, can the division at line 102 (count / float64(5*time.Second)) cause a division by zero panic crashing the node? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_87f0f62c-e4d1-44ec-84fe-635cca466778?mode=deep",
+    "timestamp": "2026-01-09 22:24:14.038706",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: EWMASnapshot.Update()] [Panic DoS] Can calling Update() on an EWMASnapshot at line 55-57 cause a panic crash, and if EWMASnapshot objects are returned from Snapshot() and used in concurrent goroutines, can this be exploited to crash validator nodes during critical block production windows? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_45369cc2-da19-4656-b5f4-6e8c8aadddb2?mode=deep",
+    "timestamp": "2026-01-09 22:24:38.105016",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: EWMASnapshot.Tick()] [Panic DoS] Can an attacker obtain an EWMASnapshot reference and call Tick() at line 50-52 to trigger a panic that crashes the entire node, causing network-wide DoS if snapshots are exposed through metrics APIs or used incorrectly in validator code? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3d0cf41b-4cdc-45ae-aff2-94e89cd1ff78?mode=deep",
+    "timestamp": "2026-01-09 22:25:03.473250",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: NewEWMA()] [Float validation] Can NewEWMA() at line 20-22 be called with invalid alpha values (negative, >1, NaN, Inf) that bypass validation, causing unpredictable EWMA behavior such as negative rates, diverging averages, or NaN propagation that breaks rate limiting entirely? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4e11909c-ca29-42b5-8266-bdb9a2851feb?mode=deep",
+    "timestamp": "2026-01-09 22:25:28.581764",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Tick()] [Float denormalization] When rate becomes very small (near float64 min ~5e-324), can gradual denormalization cause the EWMA to lose precision and get stuck near zero even when events are occurring, making the metrics system incorrectly report zero activity during an attack? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b2fbe04a-551d-486e-b2d8-345c8205e7f4?mode=deep",
+    "timestamp": "2026-01-09 22:25:52.728251",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Rate()] [Float overflow] Does the multiplication by time.Second at line 89 risk overflow when rate is near float64 max (1.8e308), producing +Inf and causing comparison-based rate limiting logic to fail, potentially allowing unlimited transaction flooding? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_62eead47-84c1-4c83-a302-74db583ee492?mode=deep",
+    "timestamp": "2026-01-09 22:26:18.047016",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Tick()] [Float precision] Can loss of precision in the float64 rate field at line 80 occur when adding very small alpha*(instantRate-a.rate) values repeatedly, causing the EWMA to get stuck at a certain value and fail to respond to actual rate changes, breaking adaptive rate limiting? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b06be649-9f27-4831-bda8-3abbb7828888?mode=deep",
+    "timestamp": "2026-01-09 22:26:41.525911",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: NewEWMA1/5/15()] [Float precision] Do the alpha calculations at lines 26, 31, 36 using math.Exp() produce sufficiently precise values, or can floating point rounding errors accumulate over many Tick() iterations causing the EWMA to drift significantly from the intended 1/5/15 minute averages, affecting rate limiting accuracy? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_39b40d5b-8438-423d-80ff-12a96e82d1e0?mode=deep",
+    "timestamp": "2026-01-09 22:27:04.116972",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Tick()] [Float overflow] If alpha is set to 1.0 in NewEWMA() at line 21, and instantRate is +Inf, can line 106 produce NaN (Inf - Inf = NaN), corrupting the EWMA state permanently and causing all subsequent Rate() calls to return NaN, breaking rate-based DoS protections? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_82b28ef3-47f9-413d-989a-448aa77e9946?mode=deep",
+    "timestamp": "2026-01-09 22:27:27.258509",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Tick()] [Float overflow] Can the instantRate calculation at line 102 produce +Inf when count is extremely large (e.g., int64 max = 9.2e18 / 5e9 = 1.8e9), and if so, does line 106 (a.rate += a.alpha * (instantRate - a.rate)) correctly handle Inf values or propagate them causing all future rate calculations to be Inf? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_314dd4db-5987-4f57-b022-f8c3330b02d1?mode=deep",
+    "timestamp": "2026-01-09 22:27:49.571972",
+    "report_generated": false
+  },
+  {
+    "question": "[File: metrics/ewma.go] [Function: Tick()] [Integer overflow] Can the uncounted.Load() at line 100 return a value so large that when converted to float64 at line 102 and divided by 5*time.Second (5e9 nanoseconds), it causes float64 overflow to +Inf, and does this break rate limiting logic that depends on finite rate values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_62d0b8f2-5e65-4891-862a-5436a43886ff?mode=deep",
+    "timestamp": "2026-01-09 22:28:12.468155",
+    "report_generated": false
   }
 ]
