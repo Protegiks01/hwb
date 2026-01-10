@@ -10048,5 +10048,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ca0a1e11-a8cd-4a6f-a940-d653ff434358?mode=deep",
     "timestamp": "2026-01-10 12:53:27.721267",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/hd.go] [Constants: Magic Numbers] The constants 0x80000000, 44, 60, 0 appear throughout (lines 31, 36, 41). If these are ever calculated dynamically or loaded from configuration, could arithmetic errors corrupt these critical values and break all key derivation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_39490d25-e022-4faf-b790-71025fbfc490?mode=deep",
+    "timestamp": "2026-01-10 12:54:43.752621",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/hd.go] [Function: ParseDerivationPath()] [Time-of-Check-Time-of-Use] Between validation (line 106) and usage (line 112) of bigval, if there's any possibility of bigval being modified (unlikely with big.Int but consider edge cases), could TOCTOU vulnerabilities exist? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7418542e-6edf-4dc9-8a67-0e500fa51ed7?mode=deep",
+    "timestamp": "2026-01-10 12:54:56.685187",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/hd.go] [Function: DefaultIterator()] [Concurrent Iterator Invocation] If the same iterator function is called from multiple goroutines simultaneously without synchronization, the increment path[len(path)-1]++ (line 162) is a read-modify-write operation. Could this cause lost updates where two goroutines get the same path value, leading to key collisions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c0773a7a-6696-4061-bfef-aed239783b37?mode=deep",
+    "timestamp": "2026-01-10 12:55:09.869142",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/hd.go] [Function: LedgerLiveIterator()] [Component Hardening Corruption] If iterator state is somehow persisted and restored, could the hardened bit (0x80000000) in path[2] be corrupted during serialization/deserialization, causing the iterator to generate unhardened accounts and violate BIP-44 security? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ead67ed5-0dbb-43bc-aa9a-76c77ae92ed8?mode=deep",
+    "timestamp": "2026-01-10 12:55:23.477829",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/hd.go] [Integration: Concurrent Account Generation] If multiple goroutines are generating accounts using the same iterator, without proper locking, could they race on the iterator state causing key reuse or gaps in account numbering? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1db95cff-93c4-466e-8c65-ff58569b0dda?mode=deep",
+    "timestamp": "2026-01-10 12:55:37.854952",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/hd.go] [Function: ParseDerivationPath()] [Locale-Specific Parsing] The big.Int.SetString parsing could be affected by locale-specific number formatting. Could systems with different locales parse the same path string differently, leading to different accounts on different nodes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8e0b7ff0-1adc-47dc-80c5-a408f93840c0?mode=deep",
+    "timestamp": "2026-01-10 12:55:53.492374",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/hd.go] [Function: String()] [Non-Canonical Representations] Could the same DerivationPath have multiple valid string representations (e.g., due to whitespace handling in ParseDerivationPath) that when used as identifiers or keys cause the same path to be treated as different? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_808c1d7c-3f9d-42db-bbdf-ccbdfecede71?mode=deep",
+    "timestamp": "2026-01-10 12:56:10.753262",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/hd.go] [Type: DerivationPath] [Zero-Length Path] Is a DerivationPath with length 0 valid? Would such a path cause panics in iterators (accessing path[len(path)-1]) or other functions expecting at least one component? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_77de1f09-a559-4975-ac52-d30e1bc2fd0a?mode=deep",
+    "timestamp": "2026-01-10 12:56:31.188784",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/hd.go] [Function: ParseDerivationPath()] [Component Count Limits] BIP-32 has depth limitations (typically 255 levels). Does ParseDerivationPath enforce this, or could paths with hundreds of components be created that fail during actual cryptographic derivation but pass parsing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6037bbf1-d7af-4006-96b3-d855e1fef78b?mode=deep",
+    "timestamp": "2026-01-10 12:56:50.057184",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/hd.go] [Global Variables] [Import-Time Initialization] The global variables are initialized at import time (lines 31, 36, 41). Could init() function ordering or circular import dependencies cause these to be uninitialized or have incorrect values when first accessed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eebc6044-f91d-4b77-9f9c-b080df547d00?mode=deep",
+    "timestamp": "2026-01-10 12:57:10.786574",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/hd.go] [Function: UnmarshalJSON()] [Nil Receiver] If UnmarshalJSON is called with a nil receiver (*path is nil), line 150 attempts to dereference and assign, which would panic. Is nil receiver handling needed, or does JSON unmarshaling guarantee non-nil pointers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_07044e6f-6294-40dc-8a5a-310087cf754d?mode=deep",
+    "timestamp": "2026-01-10 12:57:31.975233",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Race Condition - TOCTOU] Can an attacker exploit the time-of-check-to-time-of-use vulnerability between os.ReadDir() at line 43 and the subsequent fi.Info() call at line 67, where a malicious file could be swapped with a symlink targeting validator keys, potentially causing unauthorized key access or node crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5811aa81-378e-43c2-bf8a-d93cddc6fd35?mode=deep",
+    "timestamp": "2026-01-10 12:57:55.258625",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Race Condition - File System] Between reading directory entries at line 43 and checking file metadata at lines 67-77, can an attacker create/delete/modify keystore files to cause inconsistent cache state that leads to validator keys being incorrectly marked as deleted, preventing validator participation and causing network disruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6947ce25-a078-4b56-b770-91905ea88571?mode=deep",
+    "timestamp": "2026-01-10 12:58:18.844950",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Concurrency Bug] The mutex is acquired at line 49 AFTER os.ReadDir() at line 43 - can concurrent scan() calls or external file modifications during this unprotected window cause race conditions where two scans see different filesystem states, leading to inconsistent validator key tracking across nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b9277c2e-750e-4602-840d-1e8fdd80babd?mode=deep",
+    "timestamp": "2026-01-10 12:58:44.655570",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Struct: fileCache] [Concurrent Map Access] The mapset.Set[string] at line 32 is documented as ThreadUnsafe in the scan() method (line 53), but is protected only by fc.mu - can concurrent goroutines calling scan() while other code reads fc.all without locking cause data races and panics that crash validator nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7bea1e85-53cd-4534-9cb6-e05eeaace970?mode=deep",
+    "timestamp": "2026-01-10 12:59:09.261103",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Lock Ordering] The mutex is held from line 49 through line 86 while performing file I/O operations - can a slow/hanging filesystem (NFS, network mount) cause the mutex to be held indefinitely, blocking all keystore operations and preventing validators from signing blocks, leading to network liveness failure? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9ae36c38-8da1-4e52-b16f-1f4e105916a2?mode=deep",
+    "timestamp": "2026-01-10 12:59:34.919956",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Deadlock Risk] If scan() is called recursively or if other keystore functions acquire fc.mu and call scan(), can this create a deadlock scenario where the validator node becomes permanently unresponsive and unable to produce blocks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_83d3231e-dcb4-4423-8a1a-5eea967228ff?mode=deep",
+    "timestamp": "2026-01-10 13:00:01.209179",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Nil Pointer Dereference] If fc.all is nil when scan() is called and deletes := fc.all.Difference(all) is executed at line 82, will this cause a nil pointer dereference panic that crashes the validator node, preventing block production and potentially causing chain halt if multiple validators crash simultaneously? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3682137d-5b89-4d40-a66d-93f9c97b9825?mode=deep",
+    "timestamp": "2026-01-10 13:00:27.200210",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Panic Propagation] If fi.Info() at line 67 panics due to corrupted filesystem state or malicious file attributes, the defer fc.mu.Unlock() at line 50 will execute but the panic will propagate - can an attacker craft malicious keystore files that trigger panics, repeatedly crashing validator nodes to achieve sustained DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4760cac9-4178-4e0b-a85d-601e8ce92767?mode=deep",
+    "timestamp": "2026-01-10 13:00:52.495866",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Panic from Set Operations] The mapset library set operations at lines 82-84 (Difference) could panic if the sets are in invalid states - are there scenarios where corrupted cache state causes panic conditions that crash the node during validator key loading, preventing the validator from participating in consensus? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_92911be1-cdc6-48cc-9f95-5fe51fb00465?mode=deep",
+    "timestamp": "2026-01-10 13:01:15.942581",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: nonKeyFile()] [Panic on DirEntry Methods] If fi.Name(), fi.IsDir(), or fi.Type().IsRegular() at lines 97-101 panic due to corrupted DirEntry state, can an attacker manipulate the filesystem to trigger these panics during keystore scanning, causing validator node crashes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e835f530-bad3-4b3c-9f5e-393196bc879f?mode=deep",
+    "timestamp": "2026-01-10 13:01:40.481116",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Symlink Attack] The nonKeyFile() filter at line 101 checks !fi.Type().IsRegular() to skip symlinks, but this check happens AFTER filepath.Join() at line 58 - can an attacker create symlinks in the keystore directory that pass initial filtering but later redirect to sensitive validator private keys in other directories, enabling key theft? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ce876627-15b6-4812-91dc-db663f34df25?mode=deep",
+    "timestamp": "2026-01-10 13:02:05.378736",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Path Traversal] The filepath.Join(keyDir, fi.Name()) at line 58 concatenates user-controlled directory names - if keyDir contains path traversal sequences (../) or if fi.Name() is manipulated through filesystem race conditions, can an attacker escape the keystore directory to access or overwrite critical system files or validator keys from other validators? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7e2c83b2-75ec-4f93-8029-b36fc31ee194?mode=deep",
+    "timestamp": "2026-01-10 13:02:30.542995",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: nonKeyFile()] [Hidden File Bypass] The function skips files starting with '.' at line 97, but on case-insensitive filesystems or with Unicode normalization attacks, could an attacker name a malicious file '.Key' or use Unicode look-alikes to bypass this filter and inject malicious keystore files that get processed, potentially corrupting validator key loading? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fddc9ac2-0602-4cd0-8add-c7b65c2d8d60?mode=deep",
+    "timestamp": "2026-01-10 13:02:54.134475",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Hard Link Attack] While symlinks are filtered at line 101, hard links pass the IsRegular() check - can an attacker create hard links in the keystore directory pointing to validator keys of other nodes, causing key reuse across validators that violates PoA consensus rules and enables double-signing attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_024a6439-2b7c-4564-afb0-65f05696a02f?mode=deep",
+    "timestamp": "2026-01-10 13:03:17.073992",
+    "report_generated": false
   }
 ]
