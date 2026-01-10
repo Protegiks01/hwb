@@ -12148,5 +12148,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9fd61360-a9fa-49cb-bdb0-0852ce4f041f?mode=deep",
     "timestamp": "2026-01-10 04:32:56.118595",
     "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Resource Management] [Unbounded pending growth] Is there maximum size limit on pool.pending map, or can it grow without bound until memory exhaustion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b3a1243e-9f56-40d3-a788-34bfc8109ac0?mode=deep",
+    "timestamp": "2026-01-10 04:34:04.160113",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Nonce Management] [Nonce consistency with state] If GetNonce() returns higher nonce than state due to pending transactions, but those transactions are then invalidated by new block, can nonce become permanently wrong? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6db850e5-0fb8-4116-90ff-8c221e5376e3?mode=deep",
+    "timestamp": "2026-01-10 04:34:17.437818",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Nonce Management] [Nonce reset on reorg] When reorgOnNewHead() rolls back transactions to pending, are nonces in pool.nonce map correctly reverted, or can they become stale? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9a8546f5-9e5d-41d5-9cce-84fe7f362d3b?mode=deep",
+    "timestamp": "2026-01-10 04:34:30.863791",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Nonce Management] [Cross-account nonce confusion] Can attacker manipulate pool.nonce for victim address by sending high-nonce transactions that fail validation but update nonce map? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_542eab3f-6d78-4358-813b-f39e97997999?mode=deep",
+    "timestamp": "2026-01-10 04:34:44.531929",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Nonce Management] [Nonce gap exploitation] If attacker submits transaction with nonce N+1000 before N, does pool reject it, or accept and block all transactions until nonces 0-999 are filled? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_feb6a1ea-0791-46d9-8c6c-f1adf1e78bdd?mode=deep",
+    "timestamp": "2026-01-10 04:34:59.331372",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Multiple Functions] [Content/RemoveTransactions race] Can Content() iterate pool.pending while RemoveTransactions() deletes entries, causing map concurrent access panic? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_24e36383-5078-4712-8fbf-c4440d8ab4cc?mode=deep",
+    "timestamp": "2026-01-10 04:35:15.076570",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Multiple Functions] [reorgOnNewHead/Add race] Can reorgOnNewHead() move transactions between pending and mined while Add() tries to insert duplicate, causing state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4efcc2d6-95ec-4b74-a477-5f32d936f495?mode=deep",
+    "timestamp": "2026-01-10 04:35:31.942526",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Multiple Functions] [add/checkMinedTxs race] Can add() insert transaction into pool.pending while checkMinedTxs() deletes it after finding in mined block, causing lost transaction? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f501ce1a-4101-4efc-954e-ba29112e3ab3?mode=deep",
+    "timestamp": "2026-01-10 04:35:51.262820",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Multiple Functions] [GetTransaction/RemoveTransactions race] Can GetTransaction() return transaction pointer that is deleted by concurrent RemoveTransactions(), causing use-after-free? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_051f654e-e77c-440a-bb48-e55da011d594?mode=deep",
+    "timestamp": "2026-01-10 04:36:11.826098",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Multiple Functions] [validateTx/setNewHead race] Can validateTx() read pool.head without lock while setNewHead() updates it under lock, causing validation against wrong chain state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_47d7bc6f-033f-4ae1-a212-2b11d8121df1?mode=deep",
+    "timestamp": "2026-01-10 04:36:33.821996",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Multiple Functions] [GetNonce/add race] Can GetNonce() read pool.nonce without lock while add() updates it with lock, causing inconsistent nonce reads and duplicate nonce transactions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7610c94b-9145-4bf6-b38b-0b9233115eaf?mode=deep",
+    "timestamp": "2026-01-10 04:36:55.876684",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: RemoveTx()] [Non-existent transaction] If hash doesn't exist in pool.pending, delete is safe, but relay.Discard() is still called - can this confuse relay backend? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_be00213b-c31d-4b7b-8ca1-b4bb1352301c?mode=deep",
+    "timestamp": "2026-01-10 04:37:19.716863",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: RemoveTx()] [Missing error check] The error from chainDb.Delete() is not checked - if delete fails, database has stale entry while pool is clean? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7957c412-51b4-48ed-8d1a-1eef23c64a29?mode=deep",
+    "timestamp": "2026-01-10 04:37:42.807977",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: RemoveTx()] [Database deletion error] If chainDb.Delete() at line 554 fails, transaction is already removed from pool.pending - can this cause inconsistency? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_00673e50-db16-41ca-8033-4303130589af?mode=deep",
+    "timestamp": "2026-01-10 04:38:06.683764",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: RemoveTransactions()] [Nil transaction] If txs slice contains nil transaction pointer, does tx.Hash() at line 539 panic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_57cbda53-fb3e-409c-82f2-608be43430b9?mode=deep",
+    "timestamp": "2026-01-10 04:38:30.280122",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: RemoveTransactions()] [Duplicate hash handling] If txs slice contains duplicate transactions, are they handled safely, or can this cause issues with relay.Discard()? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cd642c7f-9b4b-418c-b39e-b175c3e74cf0?mode=deep",
+    "timestamp": "2026-01-10 04:38:55.308375",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: RemoveTransactions()] [Missing write error check] The error from batch.Write() is not checked - if write fails silently, database contains stale entries while pool is clean? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a9e4a046-f4e0-4808-8667-986ab8a85a84?mode=deep",
+    "timestamp": "2026-01-10 04:39:20.425794",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: RemoveTransactions()] [Batch write failure] If batch.Write() at line 544 fails, transactions are already removed from pool.pending and relay is notified - can this cause state inconsistency? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_054408e6-825a-4cd5-8bc7-7741efedadc6?mode=deep",
+    "timestamp": "2026-01-10 04:39:45.620315",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: ContentFrom()] [Sender derivation error] If types.Sender() fails at line 521, error is ignored and transaction is skipped - can this hide transactions that should be visible? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ca3ed75f-b862-4c8e-8c23-81c8980eb6c3?mode=deep",
+    "timestamp": "2026-01-10 04:40:10.101381",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: ContentFrom()] [Inefficient filtering] This function iterates all pending transactions even if only one account's transactions are needed - can this be DoS vector if attacker queries repeatedly? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e75239d1-caa6-4c41-902b-bde75148f8f3?mode=deep",
+    "timestamp": "2026-01-10 04:40:37.427475",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: Content()] [Memory exhaustion] If pending has many transactions from many accounts, the unbounded append at line 505 could exhaust memory - is there protection? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2cc72f66-7b8a-4fba-80b3-db093d7f01a7?mode=deep",
+    "timestamp": "2026-01-10 04:41:02.727611",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: Content()] [Non-deterministic grouping] Map iteration order at line 503 is non-deterministic - can this cause different nodes to return content in different orders breaking RPC compatibility? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c9144657-72d7-43ec-93dc-e5c8c7123ec2?mode=deep",
+    "timestamp": "2026-01-10 04:41:28.299557",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: Content()] [Sender derivation error] If types.Sender() at line 504 returns error, it's silently ignored with _ - can transactions with invalid signatures be returned grouped under zero address? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6f3fdaa7-6b77-4b8f-a1c3-543cfa2a3b9b?mode=deep",
+    "timestamp": "2026-01-10 04:41:54.261040",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: GetTransactions()] [Memory allocation] If pool.pending is very large, allocating slice with same size could cause memory exhaustion - is there upper bound? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0c95dbb6-f5d6-4f0f-8a2f-fc8ec0a036d5?mode=deep",
+    "timestamp": "2026-01-10 04:42:20.665532",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: GetTransactions()] [Slice pre-allocation safety] Slice is pre-allocated with len(pool.pending) at line 486, but pool.pending could change size during iteration - can this cause wrong slice size? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6816831e-7d2a-4f18-b6b3-cff1c226c671?mode=deep",
+    "timestamp": "2026-01-10 04:42:46.160989",
+    "report_generated": false
   }
 ]
