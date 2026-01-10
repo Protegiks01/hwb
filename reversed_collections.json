@@ -12748,5 +12748,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a6367284-c0a3-4427-8828-0178fa9ac304?mode=deep",
     "timestamp": "2026-01-10 06:53:24.551519",
     "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: getLists()] [Non-deterministic ordering] The range over map at line 156 produces non-deterministic order - can this cause different nodes to relay mined/rollback lists in different orders, breaking protocol assumptions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9911f7a8-eeb1-4730-a9a3-5ce7338c0878?mode=deep",
+    "timestamp": "2026-01-10 06:54:44.845794",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: setState()] [Logic error] If setState() is called with alternating mined=true/false for same txHash, the delete at line 148 leaves no entry, losing track of transaction state changes - can this cause relay backend to miss critical state updates? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6229764c-c167-4ccc-8383-afc69437b5bf?mode=deep",
+    "timestamp": "2026-01-10 06:54:58.013990",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: GetNonce()] [Missing lock] This function doesn't acquire pool.mu lock - can concurrent access to pool.nonce map during writes in add() cause map concurrent access panics? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a18faf85-545a-4279-ab8f-202e0be851c8?mode=deep",
+    "timestamp": "2026-01-10 06:55:11.160029",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: GetNonce()] [Integer overflow] If state.GetNonce() returns max uint64 and pool.nonce[addr] causes overflow in comparison or arithmetic, can this break nonce ordering logic? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_00673f51-2de6-49a6-b000-5b67963c4c82?mode=deep",
+    "timestamp": "2026-01-10 06:55:25.952249",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: GetNonce()] [Context timeout] If the context times out during state.GetNonce(addr), does the function return 0 and non-nil error, but the nonce map gets updated with stale data from pool.nonce[addr]? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_241412ef-7e65-4120-822f-602c4c954218?mode=deep",
+    "timestamp": "2026-01-10 06:55:41.778525",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: GetNonce()] [Nonce cache poisoning] Can an attacker send transactions with high nonces that get stored in pool.nonce[addr] but never mine, preventing legitimate transactions with correct sequential nonces from being accepted? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_34a209ae-aec4-4d49-9efd-6e19734f6297?mode=deep",
+    "timestamp": "2026-01-10 06:55:57.737729",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: GetNonce()] [State error masking] If state.Error() returns non-nil at line 127-128, the function returns with error, but if state.Error() at line 396 in validateTx() returns error only after validation logic, can inconsistent error handling allow invalid transactions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4250a752-6ee1-45e7-a836-3ad5fffab574?mode=deep",
+    "timestamp": "2026-01-10 06:56:15.534746",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: GetNonce()] [Race condition] Between reading pool.nonce[addr] at line 130 and updating it at line 135, can another goroutine modify the nonce, causing lost updates and nonce desynchronization? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e535eb16-29dd-43e8-a466-e87cef189677?mode=deep",
+    "timestamp": "2026-01-10 06:56:35.596666",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: currentState()] [Race condition] Can concurrent calls to currentState() from multiple goroutines create race conditions in the ODR backend state retrieval, corrupting the returned StateDB? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_678db1c0-aa01-440f-9668-32f0007ef78d?mode=deep",
+    "timestamp": "2026-01-10 06:56:55.877187",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: currentState()] [ODR backend failure] If pool.odr backend fails during state retrieval, does currentState() return a nil StateDB that causes nil pointer dereference panics in validateTx()? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1d50a532-050f-4527-912e-b3dfe6348eb3?mode=deep",
+    "timestamp": "2026-01-10 06:57:18.332262",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: currentState()] [Context handling] Does this function properly handle context cancellation, or can a cancelled context cause NewState() to return partial/corrupted state leading to incorrect transaction validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_490a5892-c0e2-4080-a498-f425109a91a7?mode=deep",
+    "timestamp": "2026-01-10 06:57:41.802612",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: NewTxPool()] [Signer initialization] If types.LatestSigner() returns an incompatible signer for the current fork, can this cause signature validation failures for all transactions, effectively DoSing the transaction pool? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bc37fdc2-69bd-405a-acd5-3e3068dc4e37?mode=deep",
+    "timestamp": "2026-01-10 06:58:06.585010",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: NewTxPool()] [State initialization] Can pool.head be initialized with a stale header hash if CurrentHeader() returns outdated data during CHT syncing, causing all subsequent transaction validations to fail? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5930a104-83b9-42c0-b3db-bfc8bdb52e1c?mode=deep",
+    "timestamp": "2026-01-10 06:58:32.019673",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: NewTxPool()] [Resource leak] If pool.chainHeadSub.Unsubscribe() fails or is never called due to improper shutdown, does the subscription leak memory and resources in the event system? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0b3d4151-7555-4a80-b896-184404337045?mode=deep",
+    "timestamp": "2026-01-10 06:58:57.321024",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: NewTxPool()] [Initialization race] Does the eventLoop() goroutine start before pool initialization completes, potentially accessing uninitialized fields and causing nil pointer dereferences or panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_14ee1510-2eb7-4463-bdf9-7bb4dd5df53e?mode=deep",
+    "timestamp": "2026-01-10 06:59:23.346785",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Struct: TxPool] [Channel exhaustion] Is chainHeadCh bounded at chainHeadChanSize=10, and can block production faster than eventLoop() processing cause channel blocking, stopping all chain head updates and freezing transaction pool state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4a49ad6e-54e8-4764-8341-73d57329bd3f?mode=deep",
+    "timestamp": "2026-01-10 06:59:50.707366",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Struct: TxPool] [Fork indicator race] Can concurrent updates to pool.istanbul, pool.eip2718, pool.shanghai flags during setNewHead() while validateTx() reads them cause validation with wrong fork rules, accepting invalid transactions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4ee16de1-3a88-4e95-bc53-496714e87216?mode=deep",
+    "timestamp": "2026-01-10 07:00:18.205190",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Struct: TxPool] [Integer overflow] Can pool.clearIdx (uint64) overflow after 2^64 blocks, causing incorrect cleanup of mined transactions and potential memory leaks or state corruption? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6bec95f4-095e-40d6-8f93-30a1485526d3?mode=deep",
+    "timestamp": "2026-01-10 07:00:44.953882",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Struct: TxPool] [Nonce manipulation] Can an attacker exploit the pool.nonce map to store artificially high nonces for victim addresses, preventing their legitimate transactions from being accepted even if they have correct on-chain nonces? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_db7ce314-5e49-4c59-935b-c8b635c5bf72?mode=deep",
+    "timestamp": "2026-01-10 07:01:10.396514",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Struct: TxPool] [State inconsistency] If pool.head is updated by setNewHead() while another goroutine reads it in validateTx(), can this race condition cause validation against wrong chain head leading to invalid transaction acceptance? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_895a4a66-8569-4faf-8fb0-02beacfd0186?mode=deep",
+    "timestamp": "2026-01-10 07:01:36.382278",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Struct: TxPool] [Memory exhaustion] Can the pool.mined map grow unboundedly if blocks are produced faster than txPermanent cleanup occurs, leading to memory exhaustion on long-running light clients? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_be78c705-b261-4c4e-8d44-4bc2a81c85eb?mode=deep",
+    "timestamp": "2026-01-10 07:02:03.311361",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Struct: TxPool] [Memory exhaustion] Is there an upper bound on the pool.pending map size, or can an attacker flood the light client with unlimited valid transactions (each with incrementing nonce) to cause memory exhaustion and node crash? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_55307494-f0ba-4dbb-8862-c067cfbc6d31?mode=deep",
+    "timestamp": "2026-01-10 07:02:28.537684",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Struct: TxPool] [Race condition] Can concurrent goroutines access pool.pending map without proper locking during the gap between releasing mu.RUnlock() in Stats() and acquiring mu.Lock() in Add(), potentially causing map concurrent read/write panics that crash the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_36e9e96a-9b96-4775-a85f-7a8556423264?mode=deep",
+    "timestamp": "2026-01-10 07:02:55.145519",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/\n\n### Citations\n\n**File:** light/trie.go (L1-300)\n```go\n// Copyright 2015 The go-ethereum Authors\n// This file is part of the go-ethereum library.\n//\n// The go-ethereum library is free software: you can redistribute it and/or modify\n// it under the terms of the GNU Lesser General Public License as published by\n// the Free Software Foundation, either version 3 of the License, or\n// (at your option) any later version.\n//\n// The go-ethereum library is distributed in the hope that it will be useful,\n// but WITHOUT ANY WARRANTY; without even the implied warranty of\n// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the\n// GNU Lesser General Public License for more details.\n//\n// You should have received a copy of the GNU Lesser General Public License\n// along with the go-ethereum library. If not, see <http://www.gnu.org/licenses/>.\n\npackage light\n\nimport (",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_29d7155d-8817-473c-a964-dbc13f14b17f?mode=deep",
+    "timestamp": "2026-01-10 07:03:21.681500",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Integration] [trie.Database dependency] Does the code properly handle all behaviors of trie.Database, or can unexpected database states cause failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_61f6e9df-343b-4fc8-b629-a621a1d46943?mode=deep",
+    "timestamp": "2026-01-10 07:03:47.734533",
+    "report_generated": false
   }
 ]
