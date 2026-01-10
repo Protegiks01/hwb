@@ -12298,5 +12298,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6816831e-7d2a-4f18-b6b3-cff1c226c671?mode=deep",
     "timestamp": "2026-01-10 04:42:46.160989",
     "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: GetTransactions()] [Non-deterministic ordering] Ranging over pool.pending map at line 488 gives non-deterministic order - can this cause different nodes to process transactions in different orders? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_91ca8038-4a89-4af8-8098-fc77c33a7267?mode=deep",
+    "timestamp": "2026-01-10 04:44:05.822143",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: GetTransaction()] [Pointer aliasing] Returning pointer to transaction from map directly - can caller modify the transaction causing corruption of pool state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0bc3e906-40a7-41d1-a3b2-452810f2679e?mode=deep",
+    "timestamp": "2026-01-10 04:44:19.120426",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: GetTransaction()] [Missing lock] This function accesses pool.pending map without any lock - can concurrent modifications cause map concurrent access panic? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a8115529-5617-4f84-aa2b-f14122908f2e?mode=deep",
+    "timestamp": "2026-01-10 04:44:32.477017",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: AddBatch()] [Validation order dependency] Are transactions validated in order they appear in slice, or can out-of-order validation cause nonce issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c59c84c3-6dc6-44d0-bdf2-12364f7cf1d9?mode=deep",
+    "timestamp": "2026-01-10 04:44:46.408678",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: AddBatch()] [Memory exhaustion] If txs slice is extremely large, can the append at line 462 cause memory exhaustion before relay.Send()? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9257986b-c6a2-452e-88b4-9b566285c86f?mode=deep",
+    "timestamp": "2026-01-10 04:45:00.872012",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: AddBatch()] [Lock contention] The entire batch is processed under single lock - if batch is large, can this cause extended lock hold time DoSing other operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6b0de747-0fb1-4d5c-83d4-09d3d48188ba?mode=deep",
+    "timestamp": "2026-01-10 04:45:16.686789",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: AddBatch()] [No database persistence] Unlike Add(), AddBatch() doesn't persist transactions to database - can this cause loss of batched transactions after node restart? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8943d462-5b16-4221-b9a3-3fff933aa679?mode=deep",
+    "timestamp": "2026-01-10 04:45:33.870095",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: AddBatch()] [Partial batch failure] If some transactions in batch fail validation, only valid ones are relayed - can this cause ordering issues where dependent transactions are relayed out of order? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fc52fd37-c83a-4cf3-990f-54c3ee961b6f?mode=deep",
+    "timestamp": "2026-01-10 04:45:52.926890",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: Add()] [Lock hold during relay] The lock is held during relay.Send() at line 447 - if relay backend blocks, can this DoS all pool operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c7124799-4689-4563-ab5b-61ded2f15c09?mode=deep",
+    "timestamp": "2026-01-10 04:46:13.544984",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: Add()] [Relay send before persistence] Transaction is relayed at line 447 before persisted at line 449 - if node crashes after relay but before persistence, can this cause transaction loss? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5ece2549-db3c-4cd1-8b9f-c0da16eebb4f?mode=deep",
+    "timestamp": "2026-01-10 04:46:35.066820",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: Add()] [MarshalBinary error handling] If tx.MarshalBinary() fails at line 438, error is returned, but was the transaction already validated? Can repeated calls with same tx cause issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_719e382c-3edd-4f65-a47d-a4f83ef0b28b?mode=deep",
+    "timestamp": "2026-01-10 04:46:56.935678",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: Add()] [Missing database error check] The error from chainDb.Put() at line 449 is not checked - if write fails, transaction is in pool but not persisted, causing loss after restart? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7f03aead-6030-4764-8597-fe32c1d6d708?mode=deep",
+    "timestamp": "2026-01-10 04:47:20.862746",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: Add()] [Database persistence failure] If pool.chainDb.Put() at line 449 fails, transaction is already added to pool.pending and relayed - can this cause state inconsistency between memory and disk? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_60c83b17-5096-404a-bfa1-6895e3948c48?mode=deep",
+    "timestamp": "2026-01-10 04:47:45.889218",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: add()] [Race between validation and insertion] Between validateTx() at line 407 and inserting to pool.pending at line 413, can the state change (new block mined) making the transaction invalid? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_88f06e52-054d-4ba7-b79a-4608ff2c09c3?mode=deep",
+    "timestamp": "2026-01-10 04:48:11.801411",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: add()] [Deadlock potential] The comment at lines 422-424 mentions avoiding deadlock by using goroutine for txFeed.Send() - but if the event channel is full/blocked, can goroutines accumulate indefinitely? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9b3f073c-8dbe-4f9e-b88a-01bbc1d3978e?mode=deep",
+    "timestamp": "2026-01-10 04:48:36.703784",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: add()] [Goroutine leak in event send] At line 425, a goroutine is spawned for every transaction added - if transactions are added faster than events can be sent, can this leak goroutines causing memory exhaustion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6f32642d-61b0-41a0-8fb5-a77c3d4bb004?mode=deep",
+    "timestamp": "2026-01-10 04:49:01.718610",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: add()] [Missing nonce gap handling] If transaction with nonce 100 is added but account's current nonce is 50, there's a gap - does pool handle this, or can gaps block all subsequent transactions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f96f7d70-03fc-408b-a1ef-e7a563be226d?mode=deep",
+    "timestamp": "2026-01-10 04:49:28.127254",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: add()] [Nonce increment overflow] At line 415, tx.Nonce() + 1 could overflow if tx.Nonce() is uint64_max - can this wrap to 0 and corrupt nonce tracking? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8116bfc1-f736-4ea4-9124-54ee4df1e625?mode=deep",
+    "timestamp": "2026-01-10 04:49:54.426345",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: add()] [Error masking] If types.Sender() returns error at line 417, it's silently ignored using _ - can this allow transaction with corrupted sender to be added? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7e74e685-c832-4ca5-b959-c77bff55316a?mode=deep",
+    "timestamp": "2026-01-10 04:50:21.738050",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: add()] [Double check redundancy] Transaction hash is checked in pool.pending at both line 404 and 412 - is the second check at line 412 redundant, or can race between them cause issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_346489b6-4012-444d-877f-155d37951afc?mode=deep",
+    "timestamp": "2026-01-10 04:50:51.283137",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: validateTx()] [Access list validation] For transactions with access list, is the access list properly validated, or can malformed access lists cause issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5546f473-0f1a-4391-b142-bf0980e131ad?mode=deep",
+    "timestamp": "2026-01-10 04:51:19.557346",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: validateTx()] [Missing dynamic fee validation] For EIP-1559 transactions, are maxFeePerGas and maxPriorityFeePerGas validated, or can invalid fee transactions pass? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8bb36649-9cfd-496a-96c3-d4d17b256d7c?mode=deep",
+    "timestamp": "2026-01-10 04:51:47.316121",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: validateTx()] [Missing gas price validation] There's no minimum gas price check - can attacker flood pool with zero gas price transactions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_195691a0-f031-4b39-a73f-df486e2a8a75?mode=deep",
+    "timestamp": "2026-01-10 04:52:15.027541",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: validateTx()] [State error check position] The currentState.Error() is only checked at line 396 after all validations - if state had error earlier, were all prior validations done on corrupted state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_982c6550-b44c-4338-95d6-dbdf171e9031?mode=deep",
+    "timestamp": "2026-01-10 04:52:42.356036",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: validateTx()] [Fork flag consistency] The fork flags (istanbul, shanghai) are read at lines 389 without lock while setNewHead() updates them - can race cause validation with wrong fork rules? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0bc89483-e7de-4333-9672-99990cd0ae4e?mode=deep",
+    "timestamp": "2026-01-10 04:53:09.610540",
+    "report_generated": false
   }
 ]
