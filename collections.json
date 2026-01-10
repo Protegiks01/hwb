@@ -14998,5 +14998,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_662cdd10-3321-4359-858b-6cf84987ef1c?mode=deep",
     "timestamp": "2026-01-10 18:26:47.686613",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: Wallets()] [Race Condition] The function calls refreshWallets() then acquires stateLock.RLock(), but refreshWallets() also acquires stateLock - can this ordering cause deadlock if another goroutine holds the write lock during refresh? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9961c4ac-5cf1-4d65-a5d6-f5dc3fc14bdd?mode=deep",
+    "timestamp": "2026-01-10 18:28:08.729531",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: Wallets()] [Memory Exhaustion] The cpy slice is allocated without bounds checking len(hub.wallets) - can an attacker connect thousands of malicious smartcard devices to cause excessive memory allocation and OOM? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f4b0e8e8-a255-4138-a263-8c04c9d3ea50?mode=deep",
+    "timestamp": "2026-01-10 18:28:21.630655",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: Wallets()] [Race Condition] Between releasing stateLock.RUnlock() and returning, the wallet pointers in cpy could be modified by another goroutine - can this cause the caller to access freed/invalid wallet objects leading to use-after-free? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8a208da0-2840-42eb-a80e-94aa8a0d4eaa?mode=deep",
+    "timestamp": "2026-01-10 18:28:35.598368",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: refreshWallets()] [Race Condition] The elapsed time check reads hub.refreshed without holding the lock, then releases the lock before the actual refresh - can concurrent refreshWallets() calls still execute simultaneously, bypassing the throttling mechanism? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dff51b79-df2b-481b-8c46-fecfbadc93a1?mode=deep",
+    "timestamp": "2026-01-10 18:28:49.232597",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: refreshWallets()] [DoS] The ListReaders() call to enumerate card readers can block indefinitely if the PC/SC daemon is unresponsive - can an attacker cause the PC/SC daemon to hang, freezing all refreshWallets() calls and preventing wallet updates? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d588b87e-43b5-4a60-8185-28ee42c1a414?mode=deep",
+    "timestamp": "2026-01-10 18:29:03.084439",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: refreshWallets()] [Error Handling] The specific error string 'scard: Cannot find a smart card reader.' is checked to suppress errors, but error messages may vary by locale or PC/SC version - can this cause legitimate errors to be silently swallowed, hiding system issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0e7b5ad7-7212-46c7-9e59-c21df2969e93?mode=deep",
+    "timestamp": "2026-01-10 18:29:18.755327",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: refreshWallets()] [Race Condition] The stateLock.Lock() is acquired after enumerating readers but before checking existing wallets - can readers disappear between enumeration and lock acquisition, causing wallet operations on disconnected devices? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9d6e98c0-6775-4069-a8fb-ceeb650f223e?mode=deep",
+    "timestamp": "2026-01-10 18:29:36.102742",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: refreshWallets()] [Resource Leak] If wallet.ping() fails but wallet.Close() panics or hangs, the card connection may leak - can an attacker use a malicious smartcard that causes Close() to hang, leaking card connections until system exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e05aa1f5-7cfa-444c-bdcd-e070b04067dc?mode=deep",
+    "timestamp": "2026-01-10 18:29:55.713129",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: refreshWallets()] [State Inconsistency] A wallet is deleted from hub.wallets and a WalletDropped event is sent before attempting to connect a new card on the same reader - can the timing window allow operations on the dropped wallet reference to fail? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_028b0705-45fb-4f99-b01d-bdce6e78d082?mode=deep",
+    "timestamp": "2026-01-10 18:30:16.762126",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: refreshWallets()] [DoS] For each reader, Connect() and wallet.connect() are called while holding stateLock - can an attacker insert a malicious slow card that causes these operations to block, preventing all other wallet operations during the lock hold? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8a320e42-2b54-4892-964d-8fc59da1f6fd?mode=deep",
+    "timestamp": "2026-01-10 18:30:38.219193",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: refreshWallets()] [Resource Leak] If wallet.connect() fails after Connect() succeeds, card.Disconnect() is called, but if Disconnect() fails or panics, the card connection leaks - can this exhaust PC/SC card slots over time? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_154d09b1-2b37-4f3d-9427-66652ddba5cf?mode=deep",
+    "timestamp": "2026-01-10 18:31:00.007338",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: refreshWallets()] [Race Condition] The events slice is built and sent after releasing stateLock, but wallet pointers in the events may have been modified - can concurrent operations cause the event recipients to receive events for stale wallet objects? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6d82c3fa-97b2-4e27-85b8-323bf3609d3c?mode=deep",
+    "timestamp": "2026-01-10 18:31:23.457433",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: refreshWallets()] [Time Manipulation] The hub.refreshed timestamp is set after releasing stateLock - can concurrent refreshWallets() calls both pass the throttle check and update the timestamp incorrectly? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3285401b-a420-4f2b-8bc6-1b8e05e4c711?mode=deep",
+    "timestamp": "2026-01-10 18:31:47.824096",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: Subscribe()] [Race Condition] The stateLock is held while tracking the subscription, but the updateScope.Track() and updateFeed.Subscribe() operations may not be atomic - can this cause subscription leaks or missed events? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_46da360d-f33e-4175-a3a2-804f61017246?mode=deep",
+    "timestamp": "2026-01-10 18:32:13.882501",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: Subscribe()] [Resource Leak] If hub.updating is false, a new updater() goroutine is started, but if the goroutine panics immediately, hub.updating remains true - can this prevent any future updater goroutines from starting, breaking all wallet event delivery? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_534575cc-cae8-48cf-b0c4-099e62f6eca5?mode=deep",
+    "timestamp": "2026-01-10 18:32:38.443560",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: Subscribe()] [DoS] There is no limit on the number of subscriptions - can an attacker create thousands of subscriptions to exhaust memory and slow down event delivery to all subscribers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2d44d4cf-0ff8-48ed-a6fb-bb77a3fd40bd?mode=deep",
+    "timestamp": "2026-01-10 18:33:04.973737",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: Subscribe()] [Deadlock] If the sink channel provided by the caller is unbuffered and never read, can the updateFeed.Send() in refreshWallets() block forever while holding stateLock, deadlocking the entire hub? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f4baa5cf-39fc-4dd2-a1e0-8cb6309a3df0?mode=deep",
+    "timestamp": "2026-01-10 18:33:33.472567",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: updater()] [Race Condition] The updateScope.Count() check and hub.updating flag update are protected by stateLock, but there's a timing window where multiple updater goroutines could be running - can this cause multiple concurrent updaters, thrashing the refresh logic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0832403f-ebce-4e97-a7e3-695db28d1a68?mode=deep",
+    "timestamp": "2026-01-10 18:34:00.321459",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: updater()] [Resource Leak] If the goroutine exits due to panic, hub.updating remains true and no new updater will ever start - can a malicious smartcard trigger a panic in refreshWallets(), permanently breaking wallet event delivery? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7624c93b-8f89-4a17-a6f2-2c93aba7eeb0?mode=deep",
+    "timestamp": "2026-01-10 18:34:25.902528",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: updater()] [CPU Exhaustion] The refreshCycle is a constant 1 second, and refreshWallets() is called unconditionally every second - can an attacker connect many slow smartcards to cause refreshWallets() to take longer than 1 second, causing CPU exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_86f86323-a410-4a94-b904-9f7344bd6ca9?mode=deep",
+    "timestamp": "2026-01-10 18:34:50.929053",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: updater()] [Goroutine Leak] The updater() goroutine has no explicit termination mechanism via hub.quit channel - can this cause the updater to run indefinitely even after the hub should be shut down, leaking goroutines? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7d5d994e-55c7-4d58-b20f-29cc3446bba1?mode=deep",
+    "timestamp": "2026-01-10 18:35:15.038603",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Struct: smartcardPairing] [Integer Overflow] The PairingIndex is a uint8 allowing only 256 pairings - can an attacker pair 256 cards to cause index wraparound, overwriting pairing 0 with pairing 256, leading to authentication bypass? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3d39f3f3-e434-4649-bbf1-177a497a6d1a?mode=deep",
+    "timestamp": "2026-01-10 18:35:39.582905",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Struct: smartcardPairing] [Memory Exhaustion] The Accounts map has no size limit - can an attacker derive millions of accounts on a single smartcard to cause excessive memory usage when loading pairings? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_de91a5b1-aba8-4f44-aed6-63c7c0221a77?mode=deep",
+    "timestamp": "2026-01-10 18:36:05.021040",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Struct: smartcardPairing] [Cryptographic Material] The PairingKey is stored in plaintext in the JSON file - can an attacker with read access to smartcards.json extract pairing keys and impersonate hardware wallets to sign unauthorized transactions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6d5a1f59-60ee-42d6-9243-2c7ad14b8fa0?mode=deep",
+    "timestamp": "2026-01-10 18:36:31.002520",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Struct: Hub] [Resource Leak] The context field holds a *pcsc.Client but there's no Close() or cleanup method for the Hub - can shutting down the node without properly releasing the PC/SC context cause resource leaks in the system daemon? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_07fbc125-d005-4739-a2f9-8e09c66b017e?mode=deep",
+    "timestamp": "2026-01-10 18:36:54.820553",
+    "report_generated": false
   }
 ]
