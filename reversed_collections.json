@@ -22036,5 +22036,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5e556f18-3707-45bf-857c-c0512b93f2da?mode=deep",
     "timestamp": "2026-01-10 18:05:55.580630",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [State corruption] [Stats desync] If rtStats and lastRtStats become inverted (last > current), can this permanently corrupt statistics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_63da7c8a-8478-469f-a81c-7f470d68e24f?mode=deep",
+    "timestamp": "2026-01-10 18:07:11.516571",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [State corruption] [Basket inconsistency] Can basket.basket and basket.reqValues become desynchronized due to race conditions, causing value calculation errors? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d0c42c59-96f6-4ecf-a95f-485b3ad96844?mode=deep",
+    "timestamp": "2026-01-10 18:07:24.501867",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Memory] [Mappings growth] Can vt.mappings array grow unbounded with version changes, exhausting memory? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c0e82dc2-20ef-4bae-9659-a95ee95c5adc?mode=deep",
+    "timestamp": "2026-01-10 18:07:37.555090",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Memory] [Connected map] Can vt.connected map accumulate dead entries if Unregister() is never called, causing memory leak? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5869b8fd-fc20-46f6-b653-967109346bcc?mode=deep",
+    "timestamp": "2026-01-10 18:07:52.191138",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Memory] [Basket items] Can basketItem arrays grow unbounded in refBasket causing memory issues in long-running nodes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5a3d51d6-2be7-404c-bf23-4765d665dfdf?mode=deep",
+    "timestamp": "2026-01-10 18:08:06.985399",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Memory] [Slice growth] Can reqCosts and reqValues slices grow unbounded if reqTypeCount increases, causing memory exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b523158d-2f6d-48ef-98c3-89a2a3c84525?mode=deep",
+    "timestamp": "2026-01-10 18:08:23.011720",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Time] [updatePeriod zero] If updatePeriod is zero, can clock.After(updatePeriod) behavior cause immediate or never triggering, breaking periodic updates? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_af55f49a-8f1f-45e3-ac4a-b8eaa53bb217?mode=deep",
+    "timestamp": "2026-01-10 18:08:40.371374",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Time] [AbsTime overflow] Can mclock.AbsTime overflow after long uptime, causing dt calculations to wrap and break statistics? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d8fe695b-8b92-4421-8450-7241a062170a?mode=deep",
+    "timestamp": "2026-01-10 18:08:59.558950",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Time] [Clock drift] Can drift between mclock.Clock and time.Now() used in different places cause ExpOffset calculation errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a11e22e9-ffc0-4c87-9bf2-9a2cbc09622a?mode=deep",
+    "timestamp": "2026-01-10 18:09:20.289512",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Time] [Clock monotonicity] If mclock.Clock is not monotonic, can time going backwards break all dt calculations in transferStats()? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3c12719e-4043-46ed-9624-987b4ff447cb?mode=deep",
+    "timestamp": "2026-01-10 18:09:41.670007",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Database] [Encoding compatibility] If RLP encoding changes between versions, can old data become unreadable causing statistics loss? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7899e441-ec92-4910-99bb-cccd24c37c63?mode=deep",
+    "timestamp": "2026-01-10 18:10:04.968155",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Database] [Transaction atomicity] Are saveToDb() and saveNode() calls atomic? Can crashes between them cause inconsistent state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4868793f-b67b-4527-8e07-bc4c49944dff?mode=deep",
+    "timestamp": "2026-01-10 18:10:29.304997",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Database] [Key length limit] Can enode.ID length exceeding database key limits cause truncation in 'append(vtNodeKey, id[:]...)' causing key collisions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ed4b82dc-64f9-45dd-bbba-4ed85e50996e?mode=deep",
+    "timestamp": "2026-01-10 18:10:55.405005",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Database] [Corrupted RLP] If database returns corrupted RLP that partially decodes, can this cause silent data corruption instead of errors? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3313f091-88a3-4ab8-b348-a6ac0d3179fa?mode=deep",
+    "timestamp": "2026-01-10 18:11:22.927627",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Float arithmetic] [Denormal numbers] Can very small transferRate values cause denormal number handling issues degrading performance? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3aa98626-bba7-4dc2-b8d2-874a7e929c10?mode=deep",
+    "timestamp": "2026-01-10 18:11:51.180243",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Float arithmetic] [Precision loss] In scaleValues calculation line 186, can repeated multiplication/division cause cumulative precision loss breaking basket ratios? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fa74a39b-2efd-4816-b13e-cc09502585ec?mode=deep",
+    "timestamp": "2026-01-10 18:12:20.533294",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Float arithmetic] [Infinity handling] Can transferRate or offlineExpRate being set to infinity cause math.Expm1() to return infinity, breaking basket transfers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f58e77e2-4291-4008-946f-8de9093c45ce?mode=deep",
+    "timestamp": "2026-01-10 18:12:52.791421",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Float arithmetic] [NaN propagation] If any reqValue becomes NaN due to corrupted calculations, can it propagate through value += nv.reqValues[r.ReqType] * float64(r.Amount) corrupting all statistics? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5e4e4d47-a533-476f-85dc-8bc27e984c94?mode=deep",
+    "timestamp": "2026-01-10 18:13:18.977793",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Integer arithmetic] [uint32 Amount overflow] Can uint32 Amount overflow in ServedRequest cause incorrect service accounting when accumulated? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_29d7bc77-542d-402c-8d1e-7224a66b2294?mode=deep",
+    "timestamp": "2026-01-10 18:13:45.597698",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Integer arithmetic] [uint to int conversion] If currentMapping exceeds int max, can conversions at lines 293, 309 cause truncation errors? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6642ffeb-910c-4461-8b55-a082dafb26ab?mode=deep",
+    "timestamp": "2026-01-10 18:14:10.932219",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Integer arithmetic] [uint64 overflow] In Served() line 114, can 'nv.reqCosts[r.ReqType]*uint64(r.Amount)' silently overflow causing incorrect cost tracking? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c8f95311-3aeb-4f8b-84b0-579bd6e639db?mode=deep",
+    "timestamp": "2026-01-10 18:14:36.378543",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Concurrency] [Map concurrent read/write] Can RtStats() at line 458 call periodicUpdate() which modifies vt.connected while other threads read it, causing map concurrent access panic? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_144652b1-3c55-48e5-9deb-0536800944c3?mode=deep",
+    "timestamp": "2026-01-10 18:15:02.235305",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Concurrency] [Atomic access] Should statsExpFactor be accessed atomically instead of with RWLock to prevent torn reads on 32-bit systems? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_17f7d12b-0aae-4d4f-82ec-bfa51d612ebc?mode=deep",
+    "timestamp": "2026-01-10 18:15:28.184198",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Concurrency] [RWLock ordering] Can switching from RLock to Lock on statsExpLock create priority inversion where writers starve due to continuous readers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b64814b5-2589-4ea4-acf7-cfe319c7eab7?mode=deep",
+    "timestamp": "2026-01-10 18:15:52.271250",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Concurrency] [Lock leak] If panic occurs while holding vt.lock or nv.lock, can this permanently lock the mutex causing deadlock in other goroutines? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8d8b3878-d30c-4ede-9cfd-849303e56fd2?mode=deep",
+    "timestamp": "2026-01-10 18:16:17.194485",
+    "report_generated": false
   }
 ]
