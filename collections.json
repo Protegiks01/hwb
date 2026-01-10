@@ -10348,5 +10348,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6f5ed944-2c4e-4d4a-8a8b-38eae2040d7a?mode=deep",
     "timestamp": "2026-01-10 13:13:35.416976",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Unicode Normalization Attack] File names from os.ReadDir() at line 43 may contain non-normalized Unicode - can an attacker create files with equivalent but differently-encoded names to bypass the nonKeyFile() filter or cause the same key to appear multiple times with different paths? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_65e7e6ad-f520-4af1-94f5-db2eb0a071e5?mode=deep",
+    "timestamp": "2026-01-10 13:14:54.200209",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: nonKeyFile()] [Name Length Attack] There's no check on fi.Name() length before strings.HasSuffix/HasPrefix at lines 97-98 - can extremely long filenames cause performance issues or buffer overruns in underlying string operations during keystore scans? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_29be0522-cb9f-4398-8789-96061d7457b0?mode=deep",
+    "timestamp": "2026-01-10 13:15:07.567508",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Empty Directory Handling] If keyDir is an empty directory, all sets will be empty - but if fc.all previously contained entries, will 'deletes' report all keys as removed, causing all validator keys to be unloaded even though the directory might just be temporarily unmounted? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3286e111-7899-4fd1-b4fb-492f2a4ea557?mode=deep",
+    "timestamp": "2026-01-10 13:15:21.053244",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Timing Side Channel] The time.Sub() logging at line 90 reveals exact filesystem scan timing - can an attacker observe these logs to infer when new validator keys are added/removed, enabling targeted attacks during key rotation windows when security may be temporarily weakened? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f8cd419b-8b54-4b36-b30b-304745abefe5?mode=deep",
+    "timestamp": "2026-01-10 13:15:34.784503",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Path Disclosure] The full file paths are stored in mapset and logged via log.Trace at line 61 - do these logs expose sensitive filesystem structure information that could help attackers locate validator keys or identify the node's configuration? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7382bcb3-ddd5-4fcd-91c6-7aa0637317ec?mode=deep",
+    "timestamp": "2026-01-10 13:15:49.337305",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Scan Pattern Leakage] The t0, t1, t2, t3 timing measurements at lines 40, 47, 79, 87 reveal internal performance characteristics - can an attacker use timing analysis to determine the number of keys, directory structure, or filesystem type, aiding in sophisticated attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_251c1a19-9e31-49cd-a8e9-ab129e06c693?mode=deep",
+    "timestamp": "2026-01-10 13:16:05.235401",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Maximum Files Limit] There's no limit on the number of files processed - can an attacker create 2^63 files (max int) causing integer overflow in set size counters or exhausting all available file descriptors, crashing the validator node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_98b6e68b-0ff1-4987-a927-e8ad4d296774?mode=deep",
+    "timestamp": "2026-01-10 13:16:22.053935",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Empty File Name] If os.ReadDir() returns a DirEntry with empty Name(), filepath.Join at line 58 will produce the keyDir path itself - will this cause the directory to be processed as a file, potentially exposing directory metadata or causing unexpected behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8c9b40ed-07aa-4e92-95b9-d3a6f98a17fe?mode=deep",
+    "timestamp": "2026-01-10 13:16:40.551595",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Maximum Path Length] If keyDir + fi.Name() exceeds OS path length limits (typically 4096 bytes), filepath.Join may silently truncate or fail - can this cause legitimate validator key files with long names to be ignored or misidentified? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_aa3d4355-51bc-4a01-b531-cc8052d9b3eb?mode=deep",
+    "timestamp": "2026-01-10 13:17:00.152532",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: nonKeyFile()] [Special Characters] Files named with special characters like newlines, tabs, or control characters might confuse string operations at lines 97-98 - can an attacker use these to bypass the filter or cause parsing errors when the keystore attempts to load these files? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_37f89b9b-0917-4502-8ea8-379dd00c0f6d?mode=deep",
+    "timestamp": "2026-01-10 13:17:21.036655",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Concurrent Directory Modification] If the keystore directory is deleted and recreated between os.ReadDir() and fi.Info() calls, can this cause fi.Info() to fail with confusing errors that aren't properly handled, leaving the cache in an undefined state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_48ccbdf6-1624-46a0-acb3-d09a5bfe74ea?mode=deep",
+    "timestamp": "2026-01-10 13:17:42.954360",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Set Size Mismatch] If fc.all becomes desynchronized from actual filesystem (due to previous errors), the Difference operations at lines 82-84 will produce incorrect creates/deletes/updates - can this cascading error cause validators to progressively lose track of which keys are valid? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_03e0afa9-5e22-4c2d-a432-5e3727ca278c?mode=deep",
+    "timestamp": "2026-01-10 13:18:06.810969",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Set Capacity Growth] The mapset.NewThreadUnsafeSet doesn't specify initial capacity - can repeated additions of millions of files cause expensive reallocation operations under mutex lock, creating lock contention that delays validator block signing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d2cf6565-2ddc-4585-b6c6-65dba16f6522?mode=deep",
+    "timestamp": "2026-01-10 13:18:30.547948",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Set Equality Bug] The set Difference operation assumes string path equality, but filesystem case sensitivity varies by OS - can the same file appear in both fc.all and 'all' with different casing, causing it to incorrectly appear in both 'deletes' and 'creates' sets? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0447a0bc-56e2-4beb-a6e4-d1cae2723c3d?mode=deep",
+    "timestamp": "2026-01-10 13:18:54.591086",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Set Ownership] After scan() returns the create/delete/update sets, are these sets owned by the caller or shared with fc.all? If shared, modifications by the caller could corrupt the cache - is this a memory safety issue? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_16648bf0-538e-438c-9dc9-50c23ffb6c8a?mode=deep",
+    "timestamp": "2026-01-10 13:19:19.359663",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Filesystem Type Dependence] The behavior of os.ReadDir(), fi.Info(), and ModTime() varies across filesystems (ext4, NTFS, NFS, tmpfs) - can filesystem-specific quirks cause validator keys to be misidentified or timestamps to be unreliable on certain node configurations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f746fc44-359f-49e3-88a4-8ffd6977db4c?mode=deep",
+    "timestamp": "2026-01-10 13:19:43.884800",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Network Filesystem Delay] If keyDir is on NFS or similar network filesystem, the os.ReadDir() and fi.Info() calls at lines 43 and 67 may have high latency - can network delays while holding the mutex cause validator nodes to miss their block production slots? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b1e923a3-188c-4ade-82ba-81db835316b1?mode=deep",
+    "timestamp": "2026-01-10 13:20:08.914617",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Containerization Issues] In containerized environments, the keystore directory might be a volume mount - can container orchestration operations (volume remounting, container migration) cause the directory to temporarily disappear during scan(), triggering false key deletion events? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_572f94fd-eb2e-43b1-bc8d-25b1cb5e407d?mode=deep",
+    "timestamp": "2026-01-10 13:20:33.752072",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Inode Reuse] On Unix systems, if a file is deleted and a new file is created quickly, it might reuse the same inode - can this cause ModTime comparisons to be unreliable, leading to validator key updates being missed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0a01c05d-9c23-445e-a3df-dc48fcec0096?mode=deep",
+    "timestamp": "2026-01-10 13:20:58.509394",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Debug Log Verbosity] The log.Debug call at line 90 outputs timing information on every scan - if scans happen frequently, can excessive logging fill disk space causing node crashes or reveal performance patterns to attackers monitoring logs? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f5260398-a0a6-4db0-9f9d-e004f70db9c1?mode=deep",
+    "timestamp": "2026-01-10 13:21:23.902600",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Trace Log Information Leak] The log.Trace call at line 61 outputs full file paths - in production environments with centralized logging, can this leak sensitive validator key file locations to unauthorized parties with log access? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d7c8a686-22a8-4778-a106-4291d64d02ab?mode=deep",
+    "timestamp": "2026-01-10 13:21:50.056298",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Error Log Absence] When fi.Info() fails at line 68-69, the error is propagated but not logged - will this make it difficult to diagnose validator key loading failures, allowing attackers to silently cause key management issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5c4491de-8f22-4a72-bff1-623c3fc60c26?mode=deep",
+    "timestamp": "2026-01-10 13:22:15.031232",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Struct: fileCache] [Memory Leak] The fc.all set grows indefinitely as files are scanned - if the keystore directory accumulates files over time, can the set consume unbounded memory eventually causing OOM conditions on long-running validator nodes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5daabde2-1713-4426-97c3-1017cdc5f4b2?mode=deep",
+    "timestamp": "2026-01-10 13:22:40.737910",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Temporary Set Allocation] The 'all' and 'mods' sets created at lines 53-54 are allocated on each scan - if scans are triggered frequently by file monitoring, can this cause memory churn and GC pressure that degrades validator performance? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bcddae72-8641-4a6c-bb1d-9d7fea3252c6?mode=deep",
+    "timestamp": "2026-01-10 13:23:07.421685",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [String Interning] File paths are stored as strings in the set - are these strings interned or does each scan create duplicate path strings consuming unnecessary memory, especially problematic for validators running on resource-constrained hardware? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f7be3fc3-bdfb-4086-a9db-f5f548c8b5f3?mode=deep",
+    "timestamp": "2026-01-10 13:23:33.196395",
+    "report_generated": false
   }
 ]
