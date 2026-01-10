@@ -20836,5 +20836,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a8c7ba1c-8aac-4338-810a-10244b988d2b?mode=deep",
     "timestamp": "2026-01-10 16:42:16.622564",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Memory: Big.Int Allocation] Each IntOrInf contains a big.Int Value. For capacity queries with many tokens, can the cumulative memory allocation of multiple big.Ints cause memory pressure, especially if values are very large arbitrary precision integers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5dca89aa-0c00-4d7b-bee1-81604dc69f44?mode=deep",
+    "timestamp": "2026-01-10 16:43:35.703147",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Memory: Params Slice Reuse] Are Params []byte slices reused or shared between requests? Can this cause memory aliasing bugs where modifying one request's Params affects another request, leading to data corruption? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d0df140f-c3cf-472d-8485-40eb536aedd5?mode=deep",
+    "timestamp": "2026-01-10 16:43:48.576977",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Memory: Unbounded Growth] Since there's no cleanup mechanism for old request/reply batches, can long-lived connections accumulate unbounded request history causing memory leaks, especially if batches are retained for retransmission or logging? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4a73b3e0-4e7f-42b0-bade-c1965ec05f04?mode=deep",
+    "timestamp": "2026-01-10 16:44:02.221113",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Concurrency: Request Batch Processing] During batch request processing, if requests are processed concurrently by multiple worker goroutines, can this cause replies to be written out of order, breaking the index-based request-reply mapping? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e8f4a083-a97d-43f2-8b9d-21bd435a57c3?mode=deep",
+    "timestamp": "2026-01-10 16:44:16.648654",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Concurrency: IntOrInf Shared Access] If IntOrInf objects are shared across goroutines and one calls SetBigInt() while another calls BigInt(), can this cause races on Type and Value fields leading to inconsistent reads or corrupted big.Int values? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dc228a1d-4d6c-4f52-b2f0-5cb762c23252?mode=deep",
+    "timestamp": "2026-01-10 16:44:31.331574",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Concurrency: Replies Slice Reading] If one goroutine calls Get() while another modifies the Replies slice, can this cause data races, panics from bounds check changes, or reading partially written reply bytes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3d2334e8-dfab-4d53-bda8-1a3d3c6cbff7?mode=deep",
+    "timestamp": "2026-01-10 16:44:47.012727",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Concurrency: Requests Slice Mutation] If multiple goroutines call Add() on the same *Requests concurrently, can slice append operations cause race conditions, memory corruption, or lost requests due to simultaneous slice reallocation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4ee7795b-2f4b-4068-9600-4d7ea0701c08?mode=deep",
+    "timestamp": "2026-01-10 16:45:04.318613",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [RLP: Big.Int Encoding Attack] When Value field of IntOrInf contains extremely large big.Int, does RLP encoding have size limits, or can attackers create encoded requests that are kilobytes but decode to gigabytes causing memory exhaustion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ddace4bc-454d-4b9d-ae89-ab7879f1d5a6?mode=deep",
+    "timestamp": "2026-01-10 16:45:24.292204",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [RLP: Type Confusion in IntOrInf] When IntOrInf is RLP-encoded, does the encoder properly validate that Type field is 0-3, or can attacker craft RLP data with Type=255 that passes encoding but causes issues during decoding and type interpretation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_33af4907-d97d-4e05-ba2b-7db4e364e7d8?mode=deep",
+    "timestamp": "2026-01-10 16:45:44.862761",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [RLP: List Length Manipulation] Can attackers manipulate RLP list length prefixes in Requests slice to claim 16 elements but actually contain fewer or more, bypassing MaxRequestLength checks or causing buffer overruns in array pre-allocation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b507a5f1-dbe6-4684-8ca9-cb456939a9e3?mode=deep",
+    "timestamp": "2026-01-10 16:46:06.787291",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [RLP: Nested Structure Attack] Since Params is []byte containing RLP-encoded data, can attackers create deeply nested RLP structures (RLP inside RLP inside RLP...) that cause exponential decoding time or stack overflow in recursive RLP parsers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cb9a72e4-23eb-4169-aa6d-4670c9ddcd33?mode=deep",
+    "timestamp": "2026-01-10 16:46:28.921432",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [RLP: Request Encoding] When encoding Request struct, are Service and Name string length limits enforced? Can attackers send RLP-encoded requests with multi-gigabyte strings that consume excessive bandwidth and memory during transmission and parsing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ff2b4cf7-8fa4-436a-9d62-03b7f5e1b110?mode=deep",
+    "timestamp": "2026-01-10 16:46:53.108792",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Integration: Error Propagation] When Add() returns error but the calling code doesn't check it, can subsequent Get() calls with invalid indices cause panics since the request was never actually added to the batch? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_01c8416b-0b15-42c1-bb40-1d0a1fb70e16?mode=deep",
+    "timestamp": "2026-01-10 16:47:17.985546",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Integration: Batch Processing] If a batch contains 16 requests but only 10 replies are received, how does the system detect and handle partial replies? Can attackers exploit partial response handling to cause protocol confusion or state inconsistencies? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3058ce3f-d897-481f-a8ec-007d7956e86b?mode=deep",
+    "timestamp": "2026-01-10 16:47:43.990208",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Integration: Request/Reply Pairing] Is there any cryptographic binding between requests and replies (nonces, signatures), or can attackers perform replay attacks by sending old replies to new requests, causing clients to accept stale capacity values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5ac92d53-0466-43e1-a42d-805a6fab9a52?mode=deep",
+    "timestamp": "2026-01-10 16:48:11.577695",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Integration: Add() + Get()] [Index Consistency] If Add() is called concurrently with Get() on related Requests/Replies, can race conditions cause request-reply index mismatches where reply for request i is actually for a different request due to concurrent modifications? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9c19cd2f-7619-4b23-8b1e-f46af307f882?mode=deep",
+    "timestamp": "2026-01-10 16:48:38.814691",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Type: CapacityQueryReply] [Reply Injection] Since CapacityQueryReply is just []uint64 without authentication, can a man-in-the-middle attacker modify reply values in transit to grant themselves unlimited capacity or deny capacity to legitimate clients? (High - depends on transport security)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6a5f244f-7182-4e3d-b3a7-9743d9d5996e?mode=deep",
+    "timestamp": "2026-01-10 16:49:05.630098",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Type: CapacityQueryReply] [Empty Reply] If CapacityQueryReply is empty array, does client code handle this gracefully or assume non-empty replies, potentially causing index out-of-bounds panics or incorrect zero capacity assignment? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e3e9d42f-62a6-4282-9890-c351c044f69a?mode=deep",
+    "timestamp": "2026-01-10 16:49:31.621452",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Type: CapacityQueryReply] [Uint64 Overflow] Each reply element is uint64. If capacity calculations involve addition that overflows uint64, can attackers manipulate the system to get wraparound to zero or small values, bypassing quota limits? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_65ebcfe4-36cd-4bdb-9c1b-dc5025dc72e9?mode=deep",
+    "timestamp": "2026-01-10 16:49:58.658728",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Type: CapacityQueryReply] [Array Length Mismatch] CapacityQueryReply is []uint64. If reply length doesn't match request AddTokens length, can this cause out-of-bounds access or mismatched capacity values when client processes the reply? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d56a8e60-baf6-4244-9f66-fa45bdef83d2?mode=deep",
+    "timestamp": "2026-01-10 16:50:24.877144",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Struct: CapacityQueryReq] [RLP Encoding Size] Can an attacker craft CapacityQueryReq with minimal encoded size but AddTokens containing IntOrInf values with multi-megabyte big.Int Values, causing RLP decoding to allocate excessive memory and crash the server? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_30432a45-65e7-4c6a-925d-5ad8af6596f8?mode=deep",
+    "timestamp": "2026-01-10 16:50:52.036863",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Struct: CapacityQueryReq] [Negative Token Values] If AddTokens contains IntOrInf with IntNegative or IntMinusInf types, can attackers exploit negative capacity additions to reduce their quota usage or gain unlimited capacity by subtracting capacity they never had? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d302632b-db9a-413f-84bf-d6c17a6541fc?mode=deep",
+    "timestamp": "2026-01-10 16:51:18.982851",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Struct: CapacityQueryReq] [Mixed Infinity and Finite Tokens] If AddTokens contains both finite and infinity IntOrInf values, does the capacity calculation logic handle mixing correctly, or can attackers exploit arithmetic with infinity to cause overflow, underflow, or incorrect capacity grants? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_41c08541-bc90-4e77-9276-24129eeb8140?mode=deep",
+    "timestamp": "2026-01-10 16:51:46.624072",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Struct: CapacityQueryReq] [AddTokens Empty Array] If AddTokens is empty slice or nil, does the server handle this gracefully, or can it cause panics when attempting to iterate or access elements, leading to node crashes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0a9e92b6-66e9-464c-ad73-d1b92253497e?mode=deep",
+    "timestamp": "2026-01-10 16:52:12.332671",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Struct: CapacityQueryReq] [AddTokens Array Size] If AddTokens slice exceeds CapacityQueryMaxLen=16, is there validation before processing? Can attackers send queries with thousands of tokens causing excessive computation or memory allocation in capacity calculation loops? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4756afe1-37de-4450-87ca-aa4045ffdd60?mode=deep",
+    "timestamp": "2026-01-10 16:52:37.777642",
+    "report_generated": false
   }
 ]
