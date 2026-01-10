@@ -11248,5 +11248,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9f711d18-3983-404c-aa9a-29df1e91f94c?mode=deep",
     "timestamp": "2026-01-10 14:13:49.779177",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Lock()] [Double lock] In Lock() at lines 322-331, calling Lock() on an already locked account does nothing (returns nil) - can this mask errors where callers expect explicit feedback about lock state? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b8f54637-b000-4260-8084-828d5930126e?mode=deep",
+    "timestamp": "2026-01-10 14:15:23.489833",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: TimedUnlock()] [Negative duration] In TimedUnlock() at line 340, timeout is time.Duration - can negative duration values cause time.NewTimer() to panic or behave unexpectedly in expire()? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_80205af3-b172-4a54-b16e-8b25d345e2cd?mode=deep",
+    "timestamp": "2026-01-10 14:15:36.673775",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: refreshWallets()] [Empty accounts] In refreshWallets() at line 141, if cache.accounts() returns empty slice, the wallet loop at line 149 never executes but leftover wallets at line 171 are all dropped - is this correct behavior or can it cause all wallets to disappear inappropriately? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_99563c5d-3f4c-4255-a53b-19acfa02bd55?mode=deep",
+    "timestamp": "2026-01-10 14:15:50.733467",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: NewKeyStore()] [Empty keydir] In NewKeyStore() at line 84, if keydir is empty string, filepath.Abs() might return unexpected results - can this cause keys to be stored in wrong location or fail to load existing keys? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_94a0f1bb-c4e1-4a13-82f8-671462ec92e6?mode=deep",
+    "timestamp": "2026-01-10 14:16:04.477843",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Delete()] [Non-existent account] In Delete() at lines 243-248, if getDecryptedKey() fails for non-existent account, the error is returned but is the error distinguishable from wrong passphrase to prevent account enumeration? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5a1772fd-283e-4f9e-8ae0-c30e3cd454bc?mode=deep",
+    "timestamp": "2026-01-10 14:16:19.332309",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Find()] [Ambiguous account] In Find() at line 373, cache.find() is called with account a - if multiple accounts match (same address, different URLs), which one is returned and can this cause confusion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4d283340-a565-44f7-a296-b210cfa07671?mode=deep",
+    "timestamp": "2026-01-10 14:16:35.213832",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Import()] [Nil keyJSON] In Import() at line 438, if keyJSON is nil or empty, does DecryptKey() handle this gracefully or can it cause panics? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_58d74dca-9698-4ca2-85df-3eba538407ab?mode=deep",
+    "timestamp": "2026-01-10 14:16:52.146102",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: ImportECDSA()] [Nil private key] In ImportECDSA() at line 461, if priv is nil, does newKeyFromECDSA() handle this safely or can it cause nil pointer dereference? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cd13888f-7758-42a0-8c07-3dd708140085?mode=deep",
+    "timestamp": "2026-01-10 14:17:12.031423",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: SignHash()] [Empty hash] In SignHash() at line 273, if hash is nil or empty, does crypto.Sign() handle this or can it produce invalid signatures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f880dbb9-cbcc-418f-b934-78b67bcc210b?mode=deep",
+    "timestamp": "2026-01-10 14:17:32.269886",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: NewKeyStore()] [Integer overflow] In NewKeyStore() at line 83, scryptN and scryptP are integers - can extremely large values cause integer overflow in subsequent scrypt calculations leading to weak key derivation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8f0424ce-3357-410a-b110-b69c5f90b087?mode=deep",
+    "timestamp": "2026-01-10 14:17:53.510214",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: TimedUnlock()] [Duration overflow] In TimedUnlock() at line 340, timeout is time.Duration (int64 nanoseconds) - can overflow occur if timeout is close to max int64, causing expire() to misbehave? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_52e1045e-afd5-4a99-96b6-11a661221ee0?mode=deep",
+    "timestamp": "2026-01-10 14:18:16.661238",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Lock()] [Double lock] In Lock() at lines 322-331, calling Lock() on an already locked account does nothing (returns nil) - can this mask errors where callers expect explicit feedback about lock state? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bc4ea8c6-e7a0-488a-888b-c73508ce918a?mode=deep",
+    "timestamp": "2026-01-10 14:18:40.410568",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: TimedUnlock()] [Negative duration] In TimedUnlock() at line 340, timeout is time.Duration - can negative duration values cause time.NewTimer() to panic or behave unexpectedly in expire()? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_43a73258-5b56-4c1e-8c67-041f63a9771f?mode=deep",
+    "timestamp": "2026-01-10 14:19:05.418110",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: refreshWallets()] [Empty accounts] In refreshWallets() at line 141, if cache.accounts() returns empty slice, the wallet loop at line 149 never executes but leftover wallets at line 171 are all dropped - is this correct behavior or can it cause all wallets to disappear inappropriately? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_747f6a1d-3711-4b86-a230-8c8d435b2d6b?mode=deep",
+    "timestamp": "2026-01-10 14:19:29.841602",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: NewKeyStore()] [Empty keydir] In NewKeyStore() at line 84, if keydir is empty string, filepath.Abs() might return unexpected results - can this cause keys to be stored in wrong location or fail to load existing keys? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_32d7f8c8-ec06-49f3-b101-2763b8f1e5c1?mode=deep",
+    "timestamp": "2026-01-10 14:19:55.716016",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Delete()] [Non-existent account] In Delete() at lines 243-248, if getDecryptedKey() fails for non-existent account, the error is returned but is the error distinguishable from wrong passphrase to prevent account enumeration? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_280ee7c9-fd71-4f17-850b-0072f959c942?mode=deep",
+    "timestamp": "2026-01-10 14:20:19.952850",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Find()] [Ambiguous account] In Find() at line 373, cache.find() is called with account a - if multiple accounts match (same address, different URLs), which one is returned and can this cause confusion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_93213ac4-2d36-46c3-80a4-eb4aa51e297c?mode=deep",
+    "timestamp": "2026-01-10 14:20:43.141955",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Import()] [Nil keyJSON] In Import() at line 438, if keyJSON is nil or empty, does DecryptKey() handle this gracefully or can it cause panics? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3fdc4d5a-0f1d-437a-a8ee-9ebf5e523620?mode=deep",
+    "timestamp": "2026-01-10 14:21:05.681895",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: ImportECDSA()] [Nil private key] In ImportECDSA() at line 461, if priv is nil, does newKeyFromECDSA() handle this safely or can it cause nil pointer dereference? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_258367bb-8ddf-4cfd-b957-6786f77fe23b?mode=deep",
+    "timestamp": "2026-01-10 14:21:29.374557",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: SignHash()] [Empty hash] In SignHash() at line 273, if hash is nil or empty, does crypto.Sign() handle this or can it produce invalid signatures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c972fbf4-4475-48cf-8332-8cb5429fe428?mode=deep",
+    "timestamp": "2026-01-10 14:21:54.203563",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: NewKeyStore()] [Integer overflow] In NewKeyStore() at line 83, scryptN and scryptP are integers - can extremely large values cause integer overflow in subsequent scrypt calculations leading to weak key derivation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c9b06555-d3ed-4857-b402-98bd9f0060d2?mode=deep",
+    "timestamp": "2026-01-10 14:22:20.666364",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: TimedUnlock()] [Duration overflow] In TimedUnlock() at line 340, timeout is time.Duration (int64 nanoseconds) - can overflow occur if timeout is close to max int64, causing expire() to misbehave? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_da189051-1f4b-4325-baab-4b4cd61aa45d?mode=deep",
+    "timestamp": "2026-01-10 14:22:46.419235",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: EncryptDataV3()] [Weak KDF Parameters] Can an attacker who obtains an encrypted keyfile perform offline brute-force attacks if the scryptN and scryptP parameters are set too low (e.g., LightScryptN), allowing them to derive validator private keys and gain unauthorized block production capabilities? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_40eff0f0-4976-433c-80c1-dd3192e28011?mode=deep",
+    "timestamp": "2026-01-10 14:23:11.559164",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: EncryptDataV3()] [Integer Overflow] Can an attacker craft malicious scryptN or scryptP parameters that cause integer overflow in the scrypt.Key() call, potentially resulting in weaker-than-expected key derivation or node crashes that enable DoS attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b7d2b1a7-24e6-45f8-93e0-e4d3b0964478?mode=deep",
+    "timestamp": "2026-01-10 14:23:37.373720",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: getKDFKey()] [Type Assertion Panic] Can an attacker supply a maliciously crafted JSON keyfile with non-integer KDF parameters causing the ensureInt() type assertions to panic, crashing validator nodes and causing network disruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9cb2072a-f737-483e-ab79-eecdc0e8865e?mode=deep",
+    "timestamp": "2026-01-10 14:24:02.830046",
+    "report_generated": false
   }
 ]
