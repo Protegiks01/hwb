@@ -22786,5 +22786,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2f9ca80b-3d3b-4301-8710-135432d1dbdd?mode=deep",
     "timestamp": "2026-01-10 18:57:43.598600",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Constant: queryWaitStep] [Slow backoff] Can the queryWaitStep (1.02) at line 44 being much smaller than dialWaitStep (1.5) cause query-failed nodes to be retried too aggressively, wasting resources on non-responsive nodes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_545079b2-34d5-45bc-a5a5-20c4ac9b1141?mode=deep",
+    "timestamp": "2026-01-10 18:58:57.842083",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Constant: queryCost] [Cost imbalance] Can the queryCost (500) at line 43 being much lower than dialCost (10000) incentivize attackers to spam query-only nodes, as failed queries are less penalized than failed dials? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0238f44b-9a92-4fbd-b3cd-2746951127e8?mode=deep",
+    "timestamp": "2026-01-10 18:59:10.611034",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: addPreNegFilter()] [Query hang] Can a query that blocks indefinitely at line 274 cause the goroutine to leak while the node remains stuck in sfQuery state, eventually exhausting all query slots at preNegLimit? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_085a3ff4-0768-467d-bdf7-3f1929f340d2?mode=deep",
+    "timestamp": "2026-01-10 18:59:24.206708",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Constant: preNegLimit] [Limit bypass] Can the preNegLimit of 5 at line 49 be insufficient to prevent query flooding if an attacker provides nodes faster than queries complete, causing unbounded query backlog? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d6db352e-b65c-4325-9966-0ef0a871fd17?mode=deep",
+    "timestamp": "2026-01-10 18:59:38.088834",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: addPreNegFilter()] [Query response timing] Can an attacker respond to queries with exactly q=0 at line 289 (connection not possible) to trigger expensive setRedialWait() calculations while avoiding the cheaper sfCanDial path? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_18456797-fadb-482e-9aca-58484320e1c8?mode=deep",
+    "timestamp": "2026-01-10 18:59:52.634844",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: addPreNegFilter()] [Fail counter manipulation] Can an attacker cause query timeouts to increment queryFails at line 276, eventually reaching maxQueryFails and causing 50% of queries to be skipped, including for legitimate nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1c2d9f0d-bb8a-47b1-9763-48fb54d8a862?mode=deep",
+    "timestamp": "2026-01-10 19:00:08.603812",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: addPreNegFilter()] [Query DOS] Can an attacker flood the system with nodes requiring queries, causing the FillSet to maintain preNegLimit concurrent queries at line 298, exhausting UDP sockets and CPU? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_68b2f387-b162-4dd3-9647-a78f87d0132e?mode=deep",
+    "timestamp": "2026-01-10 19:00:25.753942",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Constant: nodeWeightMul] [Weight inflation] Can the large nodeWeightMul constant (1000000) at line 46 cause weight values to become extremely large, leading to integer overflow in downstream weight-based calculations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0269a943-28a7-4aff-aaa0-74e39b972c55?mode=deep",
+    "timestamp": "2026-01-10 19:00:45.432732",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: RegisterNode()] [Loopback exploit] Can an attacker exploit the loopback check at line 363 by setting up local nodes that always appear to be loopback, getting their addresses stored and preferentially dialed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_359c00a5-ed23-40e1-94dd-306b139cd619?mode=deep",
+    "timestamp": "2026-01-10 19:01:05.891396",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: DialNode()] [Local address spoofing] Can an attacker provide a malicious localAddress ENR at line 595 that causes the client to dial a different address than intended, enabling man-in-the-middle attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c918b208-df73-436c-9c0b-c361dca5c778?mode=deep",
+    "timestamp": "2026-01-10 19:01:27.880820",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: updateWeight()] [Sybil attack] Can an attacker create many nodes with weights just above nodeWeightThreshold, flooding the WrsIterator selection pool and crowding out high-value nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7879307b-646f-49b1-8ab0-e598430446a8?mode=deep",
+    "timestamp": "2026-01-10 19:01:51.083702",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: Start()] [Always connect abuse] Can an attacker get their node added to trustedURLs at line 313-319, ensuring it's always in sfAlwaysConnect state and bypassing all quality checks and wait times? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1b507e8f-062d-46bd-91ea-3f9cb1e1c444?mode=deep",
+    "timestamp": "2026-01-10 19:02:15.614628",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: addPreNegFilter()] [Query bypass] Can an attacker exploit the skip logic at line 264 by causing queryFails to reach maxQueryFails, ensuring their nodes bypass pre-negotiation queries 50% of the time? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8c190d8e-9cee-4906-8a9d-e3388ca09e41?mode=deep",
+    "timestamp": "2026-01-10 19:02:41.067362",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: setRedialWait()] [Exponential growth exploitation] Can an attacker trigger worst-case exponential growth through dialWaitStep (1.5) at line 42 for honest nodes by causing connection failures, while their malicious nodes maintain low wait times? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e6f31eae-b043-4d97-ada3-c4cb119f5990?mode=deep",
+    "timestamp": "2026-01-10 19:03:07.488162",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: addDialCost()] [Cost manipulation] Can an attacker cause their node to always succeed on first dial, keeping dialCost low at line 451-452, artificially inflating their weight compared to nodes that occasionally require redials? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_510f1d48-41e5-4895-aaac-7a95ed380fd3?mode=deep",
+    "timestamp": "2026-01-10 19:03:34.672098",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: setRedialWait()] [Service value gaming] Can an attacker provide minimal sessionValue repeatedly at line 506 to game the weight calculation at line 542-545, keeping their nodes in rotation while legitimate nodes get penalized? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8d8f28f4-6887-4797-9e0b-41b354dd5bbd?mode=deep",
+    "timestamp": "2026-01-10 19:04:03.737817",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: updateWeight()] [Weight manipulation] Can an attacker create nodes that barely meet nodeWeightThreshold at line 483 (weight >= 100), staying in the valuable set while providing minimal service, crowding out better nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_798ffc90-b63b-4b45-86fd-53333e276a69?mode=deep",
+    "timestamp": "2026-01-10 19:04:33.161428",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: setRedialWait()] [Wait threshold bypass] Can the waitThreshold check at line 551 (2000 hours) be reached through gradual exponential growth, but nodes with slightly lower wait times still consume resources indefinitely without being cleaned up? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_51c8ffe0-9d18-418a-920b-ef2c64bcc7d1?mode=deep",
+    "timestamp": "2026-01-10 19:05:03.606303",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: recalTimeout()] [Fake statistic bias] Can the fake statistic added at line 398 (2 seconds, weight 10) inappropriately bias timeout calculations even after thousands of real measurements, keeping timeouts artificially high? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9ec891da-7349-4f73-bbdd-868943389be7?mode=deep",
+    "timestamp": "2026-01-10 19:05:34.954075",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Constant: timeoutRefresh] [Stale timeout] Can the timeoutRefresh interval at line 40 (5 seconds) cause stale timeout values to be used during rapid network condition changes, leading to excessive timeouts or premature disconnections? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a85f22a0-3146-4590-9fa0-b63bd7420ebf?mode=deep",
+    "timestamp": "2026-01-10 19:06:06.516181",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Constant: minTimeout] [Timeout floor attack] Can the minTimeout constant at line 39 (500ms) be too low, allowing attackers to cause timeouts on legitimate slow connections while their fast malicious nodes stay preferred? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e5b47ef6-534c-436f-a1d5-69d2ccc4b510?mode=deep",
+    "timestamp": "2026-01-10 19:06:39.838503",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: addPreNegFilter()] [Timeout bypass] Can the hardcoded timeout at lines 267, 288 (time.Second*10) for sfCanDial be exploited where an attacker provides nodes that respond just before timeout, maximizing resource consumption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8e4093be-e1ec-4064-bc87-f6dcb6b8218d?mode=deep",
+    "timestamp": "2026-01-10 19:07:11.216418",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: NewServerPool()] [Timeout DOS] Can the dial timeout hardcoded at line 189 (time.Second*10) be too long, allowing an attacker to keep nodes in sfWaitDialTimeout state for extended periods and exhaust connection slots? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5cae1d22-feae-4b29-af48-324e6ecb446f?mode=deep",
+    "timestamp": "2026-01-10 19:07:43.525057",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: Start()] [Clock skew attack] Can the check at line 326-330 detecting clock adjustments be bypassed by gradual clock skew, causing wait times to become progressively incorrect over long periods? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a1e5a818-9e6a-45fc-b188-a6c2b3333e3a?mode=deep",
+    "timestamp": "2026-01-10 19:08:13.344814",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: setRedialWait()] [Time manipulation] Can an attacker who controls system time cause unixTime() at line 518 to return manipulated values, breaking the exponential backoff calculation and causing nodes to be redialed too frequently or never? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_78859ad6-7420-429f-9615-ab3e7a373f22?mode=deep",
+    "timestamp": "2026-01-10 19:08:42.388567",
+    "report_generated": false
   }
 ]
