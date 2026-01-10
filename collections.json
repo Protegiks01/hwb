@@ -15448,5 +15448,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d36e927e-60eb-4d38-8fec-4e3fb7f138ad?mode=deep",
     "timestamp": "2026-01-10 19:07:54.282723",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: Pair()] [Unicode Normalization Attack] The pairing password undergoes NFKD normalization at line 84 - can an attacker exploit Unicode normalization inconsistencies by using visually similar but differently normalized passwords to create multiple pairings that appear identical but have different PairingKeys? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_236f27ad-8729-4d8c-afe0-f293827cade4?mode=deep",
+    "timestamp": "2026-01-10 19:19:14.726618",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: Pair()] [Salt Weakness] The pairingSalt constant at line 48 is a fixed string - does using a fixed salt instead of a random per-device salt allow rainbow table attacks against common pairing passwords across all devices? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f63680b1-6dde-4f62-9bac-d5441aa6de6c?mode=deep",
+    "timestamp": "2026-01-10 19:19:27.975989",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: Pair()] [Challenge Randomness] The challenge generation at line 86-89 uses crypto/rand - if this fails and returns an error, does the function properly abort, or can it continue with a zero-filled challenge allowing replay attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2286607b-f220-4df4-9dbb-07fa2db296f9?mode=deep",
+    "timestamp": "2026-01-10 19:19:41.940566",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: Pair()] [Cryptogram Timing Attack] The cryptogram comparison at line 104 uses bytes.Equal - is this a constant-time comparison, or can timing side-channels leak information about the correct cryptogram allowing online brute-force attacks against the pairing password? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a26e943a-9ada-4354-83bf-4245c2e874e1?mode=deep",
+    "timestamp": "2026-01-10 19:19:56.028854",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: Pair()] [Challenge Reuse] Between the two pair() calls at lines 91 and 111, is the challenge properly consumed, or can an attacker replay the same challenge in multiple pairing attempts to learn information about the secretHash? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ef712969-c534-43fa-bc48-208eab196fbc?mode=deep",
+    "timestamp": "2026-01-10 19:20:10.985330",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: Pair()] [Hash State Reuse] The sha256 hash object is reused with md.Reset() at lines 108, 116 - can hash state leakage between resets compromise the cryptographic security of subsequent operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2fa00966-a95d-4f71-a289-2fec7e19a725?mode=deep",
+    "timestamp": "2026-01-10 19:20:27.278249",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: Pair()] [PairingIndex Validation] The PairingIndex is read from response.Data[0] at line 120 without validation - can an attacker provide a malicious PairingIndex value (e.g., 255) that causes issues in subsequent operations using this index? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_94414070-68f9-4ef6-a99f-81cb2803a156?mode=deep",
+    "timestamp": "2026-01-10 19:20:45.514590",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: Pair()] [Response Length Check] The code accesses response.Data[:32] and response.Data[32:64] at lines 101-102 without checking response length - can a short response cause slice out-of-bounds panic crashing the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8ef61ee0-49e7-4363-8379-c82907528ce2?mode=deep",
+    "timestamp": "2026-01-10 19:21:04.826000",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: Pair()] [PairingKey Overwrite] If Pair() is called multiple times, does it properly overwrite the old PairingKey, or can residual key material from previous pairings remain in memory creating a key confusion vulnerability? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4079b524-b6b2-462b-9409-e93c3fbab7c5?mode=deep",
+    "timestamp": "2026-01-10 19:21:25.349972",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: Pair()] [Card Authentication Order] The card authenticates to the host (lines 104-106) before the host authenticates to the card (line 111) - can an attacker impersonate a card to learn the host's cryptogram and use this to perform offline attacks on the pairing password? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_73272fd6-1e08-4263-ac93-c479c287119d?mode=deep",
+    "timestamp": "2026-01-10 19:21:46.465009",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: Pair()] [Partial State on Error] If pair() fails at line 91-94 or 111-114, is the SecureChannelSession left in a partially initialized state where subsequent operations might use uninitialized fields leading to crashes or security issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_09e6c611-5c2c-4a24-83c0-6b6a7c040ae3?mode=deep",
+    "timestamp": "2026-01-10 19:22:08.191908",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: Unpair()] [Nil PairingKey Check] The check at line 127-129 only validates if PairingKey is nil, but can it be an empty byte slice [], which would pass the check but cause issues in transmitEncrypted? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bd050afe-ca24-45ab-9a54-0c6cd065c327?mode=deep",
+    "timestamp": "2026-01-10 19:22:31.548841",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: Unpair()] [Unpair Without Close] After transmitEncrypted succeeds at line 131-134, PairingKey is set to nil at line 135, but what if the transmitEncrypted call succeeds but the card still maintains the pairing - can this cause state desynchronization? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_97cb1102-4670-4c5b-a2b3-8329e6e35cde?mode=deep",
+    "timestamp": "2026-01-10 19:22:55.672843",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: Unpair()] [IV Cleared After Unpair] The IV is set to nil at line 137, but if subsequent operations attempt to use the channel, will they fail gracefully or cause nil pointer dereferences? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_80063972-899e-4528-b7dc-ec21da8d57ba?mode=deep",
+    "timestamp": "2026-01-10 19:23:21.181975",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: Unpair()] [Sensitive Data Cleanup] When PairingKey is set to nil at line 135, is the underlying byte array securely zeroed, or does sensitive key material remain in memory exploitable through memory dumps or garbage collection inspection? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_759a4c2c-8e70-4922-91a0-ff38cc5a2e22?mode=deep",
+    "timestamp": "2026-01-10 19:23:47.350162",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: Unpair()] [Race Condition] Can Unpair() be called concurrently with other operations like transmitEncrypted, causing race conditions where PairingKey or iv are set to nil while another goroutine is reading them? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ad8ae190-c449-4989-92c0-d23e3c619b38?mode=deep",
+    "timestamp": "2026-01-10 19:24:13.500423",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: Open()] [Double Open] The check at line 143-145 verifies if session is already opened by checking iv != nil, but can an attacker intentionally call Open() multiple times to reset the session keys and IV, breaking ongoing encrypted communications? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0fea57ae-eaed-45c1-afa7-032c2aae0b82?mode=deep",
+    "timestamp": "2026-01-10 19:24:40.310006",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: Open()] [Key Derivation] The session keys are derived using SHA-512 at lines 154-160, hashing secret + PairingKey + response data - if any of these inputs are attacker-controlled or weak, can the resulting session keys be predicted? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e0b35a37-9f58-43f0-ad25-db9393849d1c?mode=deep",
+    "timestamp": "2026-01-10 19:25:04.905419",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: Open()] [Response Length Validation] The code accesses response.Data[:scSecretLength] and response.Data[scSecretLength:] at lines 157 and 163 without checking if len(response.Data) >= scSecretLength+ivLength - can a short response cause slice out-of-bounds panic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_50726f46-d2ee-440b-9b58-b84e90f26dd9?mode=deep",
+    "timestamp": "2026-01-10 19:25:30.207408",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: Open()] [IV Predictability] The IV is taken directly from the card's response at line 163 - if the card generates predictable IVs, does this weaken the AES-CBC encryption security by allowing known-plaintext attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c1126b84-9c9c-419d-8eb8-a99fd1682e9b?mode=deep",
+    "timestamp": "2026-01-10 19:25:55.539830",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: Open()] [Mutual Authentication Failure] If mutuallyAuthenticate() fails at line 165, the session keys and IV have already been set - is the session left in an invalid state where an attacker can use the keys without proper mutual authentication? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_14f2f2b3-3779-45a1-bd82-dd86eb60fbe1?mode=deep",
+    "timestamp": "2026-01-10 19:26:18.842371",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: Open()] [PairingKey Required] The Open function uses s.PairingKey at line 156, but there's no check if PairingKey is nil - can calling Open() without first calling Pair() cause nil pointer issues or weak key derivation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_09023cd9-c878-4244-8972-b236c67931b6?mode=deep",
+    "timestamp": "2026-01-10 19:26:41.544405",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: Open()] [Shared Secret Reuse] The shared secret from NewSecureChannelSession is reused in key derivation at line 155 - if the same SecureChannelSession is used for multiple Open operations, are the session keys unique each time or can session key reuse enable replay attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a7c081a5-be84-4b78-a6ee-692383f96428?mode=deep",
+    "timestamp": "2026-01-10 19:27:05.144168",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: mutuallyAuthenticate()] [Challenge Randomness] The authentication data at line 171-174 uses crypto/rand for 32 bytes - if this random generation fails, does the function continue with zero-filled data allowing authentication bypass? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7fdd3916-778a-48dc-bbef-8fa7ef209aa9?mode=deep",
+    "timestamp": "2026-01-10 19:27:30.204069",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: mutuallyAuthenticate()] [Response Validation] The function checks Sw1/Sw2 status at line 180-182 but doesn't validate what the actual response data contains - can the card return arbitrary data that passes status checks but fails to properly authenticate? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2c198df4-446d-4cc6-a1d9-9455da4ba9d2?mode=deep",
+    "timestamp": "2026-01-10 19:27:56.068902",
+    "report_generated": false
   }
 ]
