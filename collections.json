@@ -7498,5 +7498,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_51375e53-35ae-4c73-b797-a8f17719ed9d?mode=deep",
     "timestamp": "2026-01-10 08:23:01.778633",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: forTupleUnpack()] [Static Tuple Bypass] At lines 210-213, can an attacker exploit the static tuple handling to bypass dynamic type checks, causing virtualArgs miscalculation that corrupts subsequent tuple elements in validator voting transactions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_84e3c79b-4f00-468c-9b55-2d8320fc8f8c?mode=deep",
+    "timestamp": "2026-01-10 08:24:18.678478",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: forTupleUnpack()] [Field Index Out of Bounds] Can an attacker provide a Type with more TupleElems than the actual struct fields, causing retval.Field(index) at line 215 to panic and crash validator nodes during mint contract call processing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5cf79658-0885-4682-a0e7-e29c0906497d?mode=deep",
+    "timestamp": "2026-01-10 08:24:31.646801",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: forTupleUnpack()] [Type Mismatch Set] Can an attacker craft marshalledValue at line 194 with an incompatible type that causes retval.Field(index).Set at line 215 to panic, disrupting block validation and causing validator node crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_37a13508-144f-44bc-9e73-776d350d083b?mode=deep",
+    "timestamp": "2026-01-10 08:24:45.131201",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: forTupleUnpack()] [Array Size Underflow] At line 209, can an attacker provide elem types where getTypeSize(*elem)/32 - 1 underflows, causing virtualArgs to become negative (when stored in int) and corrupting index calculations in subsequent iterations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e12a6a04-1e1a-4f6c-9486-1f5768e2d482?mode=deep",
+    "timestamp": "2026-01-10 08:24:58.879232",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: forTupleUnpack()] [Reflection Allocation] Can an attacker exploit reflect.New(t.GetType()).Elem() at line 191 by providing a Type with massive struct definitions, causing memory exhaustion that crashes validator nodes during transaction pool validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_82f60104-5190-483d-b60c-e3145a960d1c?mode=deep",
+    "timestamp": "2026-01-10 08:25:13.594136",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: toGoType()] [Bounds Check Bypass] At lines 223-225, can an attacker provide index+32 > len(output) that triggers the error but gets handled inconsistently across validators, causing some to reject and others to accept transactions, leading to chain splits? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a363925f-b21c-446f-a004-5a36710db316?mode=deep",
+    "timestamp": "2026-01-10 08:25:29.233239",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: toGoType()] [Length Prefix Attack] Can an attacker craft malicious length prefix data at line 235 that causes lengthPrefixPointsTo to return manipulated begin/length values, allowing out-of-bounds reads that leak validator private keys or consensus secrets? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6adf4730-aa7d-4f7a-9f3c-553e235b60e4?mode=deep",
+    "timestamp": "2026-01-10 08:25:46.628950",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: toGoType()] [Recursive Depth DoS] Can an attacker create deeply nested tuple/array structures that cause toGoType to recursively call itself at lines 250 and 177, exhausting stack space and crashing validator nodes during block validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d3452a14-7119-46c6-927b-a1de6157b8cc?mode=deep",
+    "timestamp": "2026-01-10 08:26:05.666706",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: toGoType()] [Dynamic Tuple Offset] At lines 245-250, can an attacker manipulate the tuple offset returned by tuplePointsTo to point to attacker-controlled data regions, bypassing mint contract validation and enabling unauthorized token creation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3748e812-4981-451e-bea7-b7ec8ceebd59?mode=deep",
+    "timestamp": "2026-01-10 08:26:25.700574",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: toGoType()] [Static Tuple Bypass] At line 252, can an attacker exploit the output[index:] slice to access memory beyond intended boundaries when isDynamicType(t) returns false, corrupting validator state during consensus operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_41712767-130d-4aca-b139-5394a0430a09?mode=deep",
+    "timestamp": "2026-01-10 08:26:47.594514",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: toGoType()] [Array Offset Overflow] At lines 256-261, can an attacker craft the offset value to be extremely large, causing offset > uint64(len(output)) check to pass on some architectures but fail on others due to integer size differences, creating consensus divergence? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_62150e6d-e3b3-40c6-9ebe-658865d18468?mode=deep",
+    "timestamp": "2026-01-10 08:27:09.602249",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: toGoType()] [String Length Attack] At line 265, can an attacker manipulate begin and length values from lengthPrefixPointsTo such that begin+length exceeds output bounds but the check was bypassed, causing out-of-bounds read and validator crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_333aab02-6739-4606-83c4-85e355fcd116?mode=deep",
+    "timestamp": "2026-01-10 08:27:34.631560",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: toGoType()] [Type Switch Bypass] Can an attacker provide a Type.T value not covered by the switch statement at lines 243-282, reaching the default case at line 281 and causing error returns that are handled differently across validators, leading to consensus failure? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_010484db-8c88-4bc4-8a1e-68aff75db511?mode=deep",
+    "timestamp": "2026-01-10 08:28:00.240608",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: toGoType()] [Return Output Aliasing] At line 240, can an attacker exploit the returnOutput slice aliasing the output slice to cause modifications in recursive calls that corrupt parent data structures, affecting subsequent transaction validations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_55250d54-1b39-4cfb-a87e-10af3bafc133?mode=deep",
+    "timestamp": "2026-01-10 08:28:26.853445",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: toGoType()] [Integer Type Confusion] At line 267, can an attacker provide data that gets processed as both UintTy and IntTy in different code paths, causing ReadInteger to return different values based on execution order, leading to non-deterministic mint amounts? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_46e81fc3-64f8-4bfd-8c2f-ef3f15fb83f1?mode=deep",
+    "timestamp": "2026-01-10 08:28:54.268713",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: lengthPrefixPointsTo()] [Offset Overflow] Can an attacker craft output[index:index+32] at line 287 such that bigOffsetEnd.Add at line 288 overflows, bypassing the boundary check at line 291 and allowing arbitrary memory reads that expose validator secrets? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4710c777-48d1-4708-af2e-a6ec747ef95c?mode=deep",
+    "timestamp": "2026-01-10 08:29:20.256407",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: lengthPrefixPointsTo()] [Big32 Manipulation] At line 288, can an attacker exploit the Add(bigOffsetEnd, common.Big32) operation to create integer overflow that wraps around, causing the comparison at line 291 to pass incorrectly and enable out-of-bounds access? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9b0f3ba9-6d6d-46a0-8bdc-8bb6d89da439?mode=deep",
+    "timestamp": "2026-01-10 08:29:46.908471",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: lengthPrefixPointsTo()] [BitLen Check Bypass] At line 295, can an attacker provide values where BitLen() returns exactly 63 but the subsequent Uint64() conversion at line 299 overflows or produces unexpected results on different architectures, causing consensus divergence? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5cb5adf4-5f85-4d34-b8bf-259204a7b3f7?mode=deep",
+    "timestamp": "2026-01-10 08:30:14.919195",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: lengthPrefixPointsTo()] [Length Manipulation] Can an attacker craft output[offsetEnd-32:offsetEnd] at line 300 to contain a huge length value that passes the BitLen check at line 303 but causes totalSize overflow at line 302, bypassing bounds validation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_142ebafc-4cac-4240-946a-d8c74d68fb74?mode=deep",
+    "timestamp": "2026-01-10 08:30:43.006446",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: lengthPrefixPointsTo()] [Total Size Overflow] At line 302, can an attacker manipulate bigOffsetEnd and lengthBig such that their sum overflows big.Int internal representation, causing the BitLen() check at line 303 to incorrectly pass and enable memory exhaustion attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_314356b1-1c28-4748-9f27-3ec326491b3c?mode=deep",
+    "timestamp": "2026-01-10 08:31:11.054946",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: lengthPrefixPointsTo()] [Negative Offset] Can an attacker cause offsetEnd-32 at line 300 to underflow by providing small offset values, leading to negative slice indices that panic and crash validator nodes during transaction processing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e0194173-5940-40cf-9715-1403a6e97eaf?mode=deep",
+    "timestamp": "2026-01-10 08:31:38.532226",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: lengthPrefixPointsTo()] [Array Bounds Read] Can an attacker provide index values such that output[index:index+32] at line 287 reads beyond output boundaries, causing panics that crash validator nodes and disrupt block production? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6a513004-301a-4380-b362-d2d2c594f34e?mode=deep",
+    "timestamp": "2026-01-10 08:32:04.588214",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: lengthPrefixPointsTo()] [Uint64 Conversion] At lines 299 and 311, can an attacker exploit differences in how Uint64() behaves on 32-bit versus 64-bit systems, causing validators running different architectures to calculate different start/length values and diverge in consensus? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_346a91e6-7de7-4a97-85ae-fb3edd783be0?mode=deep",
+    "timestamp": "2026-01-10 08:32:30.096980",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: lengthPrefixPointsTo()] [Length Bounds Race] Can an attacker exploit race conditions where len(output) changes between the checks at lines 291 and 307, causing TOCTOU vulnerabilities that enable out-of-bounds reads in concurrent transaction processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e1122d94-a07e-4d3c-8ed8-3e13916e5a19?mode=deep",
+    "timestamp": "2026-01-10 08:32:56.302779",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: tuplePointsTo()] [Offset Boundary] At line 317, can an attacker craft output[index:index+32] to contain offset values that exceed outputLen at line 320, but exploit integer overflow in the big.Int comparison to bypass the check and access arbitrary memory? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5cb366aa-e559-4049-b5c0-55f3074f341e?mode=deep",
+    "timestamp": "2026-01-10 08:33:21.080900",
+    "report_generated": false
   }
 ]
