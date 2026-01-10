@@ -14398,5 +14398,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4327e510-42e2-4dd3-b233-bf6e7bbd317d?mode=deep",
     "timestamp": "2026-01-10 17:45:39.842380",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: merge()] [Binary search complexity] sort.Search at line 250 is O(log n), but is called for each wallet in O(m) loop - can an attacker maximize m*log(n) cost by adding many wallets simultaneously? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_33d9ce02-ab18-4cc7-bb95-0e6eb794a338?mode=deep",
+    "timestamp": "2026-01-10 17:47:03.051888",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: drop()] [Slice append race] Similar to merge, the append at line 269 modifies slice structure - can concurrent drop calls on the same slice cause corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2230291c-73f0-4cbd-8bc8-86ba3dbdf631?mode=deep",
+    "timestamp": "2026-01-10 17:47:16.123641",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: drop()] [Wrong wallet removal] At line 269, slice[n+1:] is used assuming exact match, but sort.Search only guarantees >=, not equality - can this remove the wrong wallet if multiple wallets have similar URLs? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b82b2c16-47f8-486c-ab9d-55fbea08edc6?mode=deep",
+    "timestamp": "2026-01-10 17:47:29.260329",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: drop()] [Silent failure] If wallet not found (n == len(slice) at line 265), the code continues silently - can this hide critical failures where expected wallets aren't removed, leaving stale state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ac18b07a-b9e6-493e-a6a5-215c02126ba9?mode=deep",
+    "timestamp": "2026-01-10 17:47:43.161058",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: drop()] [slice[n+1:] out of bounds] If n is the last index (n == len(slice)-1), is slice[n+1:] an empty slice or can this cause an out of bounds issue in edge cases? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fa44230e-3025-4e5c-856e-b703e3039c70?mode=deep",
+    "timestamp": "2026-01-10 17:47:57.851361",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: drop()] [URL comparison panic] Like merge, if wallet.URL() or Cmp() panics at line 264, this crashes the update() goroutine, breaking all wallet tracking? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_45d97cb9-9026-4857-8d12-16563948108b?mode=deep",
+    "timestamp": "2026-01-10 17:48:14.848334",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: drop()] [Order preservation failure] After dropping at line 269, if the append doesn't maintain order, subsequent merge/drop operations will fail due to broken sort invariant - is order guaranteed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9a94d4d3-4092-4e28-86d3-f41e07ee319d?mode=deep",
+    "timestamp": "2026-01-10 17:48:31.950612",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: drop()] [Multiple wallet drop] When dropping multiple wallets, each drop modifies the slice and indices shift - can this cause subsequent drops to target wrong indices, removing incorrect wallets? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_086fd062-af63-4c51-829d-02824097ca02?mode=deep",
+    "timestamp": "2026-01-10 17:48:50.782809",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Struct: Manager] [backends map race] The backends map at line 51 is accessed with lock at line 171 but modified at line 92 without lock - can initialization race with Backends() calls? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7dafc8b1-a0aa-42d8-827b-9ca637b73103?mode=deep",
+    "timestamp": "2026-01-10 17:49:11.110811",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Struct: Manager] [updaters slice race] am.updaters is appended at line 153 under lock, but defer at line 125 iterates without checking if am.updaters was modified - can this cause index out of bounds? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_33ca522a-a817-469b-bc8e-b7fa06f89db0?mode=deep",
+    "timestamp": "2026-01-10 17:49:33.447187",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Struct: Manager] [updates channel close] The updates channel is never explicitly closed - when should it be closed, and can sends on a closed channel occur if backends try to send after Manager termination? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f4583e42-d969-4f8f-a869-5cc1b6c8143e?mode=deep",
+    "timestamp": "2026-01-10 17:49:56.230933",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Struct: Manager] [newBackends channel close] The newBackends channel at line 85 is never closed - can this cause goroutine leaks if senders block after Manager termination? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f5b1b0a1-d66e-475f-822a-2dbe70ec0a59?mode=deep",
+    "timestamp": "2026-01-10 17:50:19.850967",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Struct: Manager] [quit channel reuse] The quit channel uses chan chan error pattern - if Close() is called multiple times, can the second call create a new errc channel that never receives a response? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_04d93518-a0e0-478d-8fa6-7f1402bdb4ed?mode=deep",
+    "timestamp": "2026-01-10 17:50:43.539649",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Struct: Manager] [term channel multiple close] The term channel is closed at line 163 - can concurrent Close() calls cause multiple close attempts on term, panicking with",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fc0770c4-8713-45fb-adaa-614c9529d969?mode=deep",
+    "timestamp": "2026-01-10 17:51:06.905084",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Struct: Manager] [RWMutex fairness] The lock uses sync.RWMutex - under heavy read load (Wallets() calls), can write locks (update() modifications) be starved, preventing wallet updates from being processed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a107e780-ded5-4f20-97ce-6dea742aadd4?mode=deep",
+    "timestamp": "2026-01-10 17:51:31.780648",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Struct: Manager] [feed Send blocking] feed.Send() at line 147 may block if subscribers are slow - can this block the update() goroutine indefinitely, preventing all Manager operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4138eda5-6865-4173-b7e6-9125e30ea230?mode=deep",
+    "timestamp": "2026-01-10 17:51:56.779937",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Struct: Config] [InsecureUnlockAllowed race] The Config.InsecureUnlockAllowed field at line 37 is read without synchronization - can concurrent modifications cause data races? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a45862c8-c6f7-4ede-8eb0-bcebd454b8b0?mode=deep",
+    "timestamp": "2026-01-10 17:52:22.150688",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: Config()] [Config pointer validity] Config() at line 107 returns am.config pointer - if Manager is freed, can this return a dangling pointer causing use-after-free? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_020a9750-fec5-468c-b3e4-c3c0c277c77b?mode=deep",
+    "timestamp": "2026-01-10 17:52:48.701502",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Resource leak] [Subscription cleanup] If backend.Subscribe() succeeds but later operations fail, subscriptions in am.updaters at line 76 are never cleaned up until Manager.Close() - can this leak resources in error scenarios? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1183b68a-16de-4e7b-95f9-ea5516bfe185?mode=deep",
+    "timestamp": "2026-01-10 17:53:15.483196",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Resource leak] [Goroutine termination] The update() goroutine at line 94 only terminates on quit signal - if quit channel is never sent on due to programming error, does this goroutine leak? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_72c9db47-5f95-4b9b-b63f-f1d5fd136fa0?mode=deep",
+    "timestamp": "2026-01-10 17:53:42.062792",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Resource leak] [Channel buffer] The updates channel buffer holds up to 50 events - if these events contain references to large wallet objects, can this hold memory that should be freed? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_04bcf9e6-2bcb-48f9-b352-4efd9be7b517?mode=deep",
+    "timestamp": "2026-01-10 17:54:08.044570",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Resource leak] [Backend references] Backends are stored in am.backends map but never explicitly removed - can backends be garbage collected or do these references prevent cleanup? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0608f871-63e6-4659-a342-26cbcb6216da?mode=deep",
+    "timestamp": "2026-01-10 17:54:34.782428",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Memory growth] [Unbounded wallets slice] The am.wallets slice at line 55 grows with merge() but has no maximum size - can an attacker exhaust memory by registering unlimited wallets? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4ebde37c-2638-46df-b73a-fa63767fbdd1?mode=deep",
+    "timestamp": "2026-01-10 17:55:03.104694",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: NewManager()] [No error return] NewManager() doesn't return error even though backend.Subscribe() could fail - how are subscription failures communicated, or are they silently ignored? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a3d0c22a-6bfa-48cc-b945-baaded2dcdc5?mode=deep",
+    "timestamp": "2026-01-10 17:55:30.193432",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: Close()] [Error from errc] Close() returns error from errc at line 103, but update() always sends nil at line 160 - under what conditions would Close() return non-nil error? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_16f696ae-be68-4426-9aeb-6eca60b786ce?mode=deep",
+    "timestamp": "2026-01-10 17:55:55.935873",
+    "report_generated": false
   }
 ]
