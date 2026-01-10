@@ -21286,5 +21286,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_79aacce9-a012-4470-a13b-baa91128d857?mode=deep",
     "timestamp": "2026-01-10 17:13:10.088022",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Integration] [Node state manipulation] Can vulnerabilities in NodeStateMachine's state management be exploited through this iterator to corrupt the peer selection process? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_179fc8e9-5547-493b-9029-c66751094350?mode=deep",
+    "timestamp": "2026-01-10 17:14:33.383441",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Integration] [Client pool poisoning] Can an attacker use iterator behavior to poison the client pool with malicious servers, causing widespread service degradation across light clients? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8f3f9b8a-d1e4-4837-9835-f4fb6dee7acb?mode=deep",
+    "timestamp": "2026-01-10 17:14:46.844589",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Integration] [vflux incentive manipulation] If weights are based on vflux value flow incentives, can an attacker game the incentive system to artificially inflate their weight and dominate peer selection? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fc136db8-d1cb-414d-9acc-85eb2419ecf0?mode=deep",
+    "timestamp": "2026-01-10 17:15:00.102150",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Integration] [LES protocol exploitation] Since this iterator is used for LES light client server selection, can an attacker exploit the weighted selection to force light clients to connect only to malicious LES servers providing false chain data? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c5fd695a-fac8-4000-98ca-bae19291614c?mode=deep",
+    "timestamp": "2026-01-10 17:15:14.219027",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: chooseNode()] [Censorship via selection] Can an attacker manipulate selection probabilities to ensure honest nodes are rarely selected, effectively censoring them from network participation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a65de609-1165-4dbe-bd96-7c6613e5ad02?mode=deep",
+    "timestamp": "2026-01-10 17:15:30.169900",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Struct: WrsIterator] [Eclipse attack enablement] By controlling the weighted selection, can an attacker ensure a light client only connects to malicious peers, enabling eclipse attacks that feed false blockchain data? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f3d9a526-cdb5-4c91-9c6d-4a9444a017b7?mode=deep",
+    "timestamp": "2026-01-10 17:15:46.186717",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Struct: WrsIterator] [Sybil attack amplification] If an attacker controls multiple node identities, can they add all of them to wrs with high weights to amplify their selection probability beyond fair share? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5571ba13-e436-4682-a130-00efea4c1db6?mode=deep",
+    "timestamp": "2026-01-10 17:16:03.011746",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: SubscribeState callback] [State flag manipulation] Can an attacker manipulate their node's state flags to rapidly switch between selectable and non-selectable to evade detection or exhaust resources? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3556b6ad-0478-44b5-a599-b0089ffc8104?mode=deep",
+    "timestamp": "2026-01-10 17:16:21.958052",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: chooseNode()] [Predictable selection] Is the WeightedRandomSelect algorithm cryptographically secure, or can an attacker predict which nodes will be selected and position malicious nodes accordingly? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_91ed05da-7037-4a75-a9a4-3ace632602ea?mode=deep",
+    "timestamp": "2026-01-10 17:16:42.426521",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: weight function] [Weight gaming] Can an attacker manipulate their node's weight field to always be selected first, allowing them to conduct eclipse attacks by monopolizing peer selection? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a5468075-cfa4-4225-88ed-3d186de95c97?mode=deep",
+    "timestamp": "2026-01-10 17:17:04.480367",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: NewWrsIterator()] [Malicious node registration] Can an attacker register malicious nodes with maximum weights to dominate the selection probability, effectively choosing which peers the light client connects to? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5e212640-5225-46ca-a705-7a7c59091030?mode=deep",
+    "timestamp": "2026-01-10 17:17:28.056755",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: Node()] [Node() before Next()] If Node() is called before Next() is ever called, w.nextNode is nil - is this documented behavior or should it panic? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5c578f02-1898-445d-acd3-6202c7e20016?mode=deep",
+    "timestamp": "2026-01-10 17:17:52.267621",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: Close()] [Close during selection] If Close() is called while chooseNode() is executing between lines 106-109, can this cause nil to be returned even though closed=true wasn't checked? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b9c82b49-b196-44e8-9093-5968d37b0e09?mode=deep",
+    "timestamp": "2026-01-10 17:18:17.981753",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: SubscribeState callback] [Callback execution order] If multiple state changes occur rapidly, can callbacks execute out of order relative to actual state transitions, causing incorrect wrs updates? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3f914d46-72a1-4fc4-abb0-6c1c41dff077?mode=deep",
+    "timestamp": "2026-01-10 17:18:44.244664",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: SubscribeField callback] [Signal before Wait] If w.cond.Signal() at line 63 occurs before chooseNode() reaches w.cond.Wait() at line 98, the signal is lost - can this cause indefinite waiting? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8714c6d1-6324-4ad5-90a5-bdbacb673988?mode=deep",
+    "timestamp": "2026-01-10 17:19:11.577265",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: NewWrsIterator()] [Subscription vs initial state] Subscriptions are set up after creation - are pre-existing matching nodes in NodeStateMachine automatically added to wrs, or does the iterator miss them? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1a4ddd81-dc31-4443-afd6-81481323ea76?mode=deep",
+    "timestamp": "2026-01-10 17:19:39.736375",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Struct: WrsIterator] [Callback vs iterator state] Between callbacks updating wrs and chooseNode() selecting from it, the NodeStateMachine state may have changed - how is this inconsistency handled? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9315f302-0c27-4392-bc72-757a0b2b97d5?mode=deep",
+    "timestamp": "2026-01-10 17:20:09.015987",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Struct: WrsIterator] [wrs vs ns consistency] The wrs selection pool can become out-of-sync with actual NodeStateMachine state - if a node is removed from ns but remains in wrs, can it be selected leading to nil returns? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_23cc32f2-ba87-4728-a26b-390333198dca?mode=deep",
+    "timestamp": "2026-01-10 17:20:39.749398",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: chooseNode()] [Select after remove] After removing selected node at line 108, if callbacks immediately re-add it before GetNode() is called at line 109, can the same node be returned again, violating the",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d43b21a1-68db-4732-ab4c-1d873fc67570?mode=deep",
+    "timestamp": "2026-01-10 17:21:10.820519",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: SubscribeState callback] [Remove non-existent] If the callback at line 78 calls Remove() for a node not in wrs, does Remove() handle this gracefully or could it corrupt internal state? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_feacc991-8939-473b-893b-1541acc0e866?mode=deep",
+    "timestamp": "2026-01-10 17:21:41.001228",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: SubscribeField callback] [Duplicate adds] If the callback at line 61 calls Update() for a node already in wrs, does Update() handle duplicates correctly or can it cause the same node to be selected multiple times? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6159c17f-cfbc-436b-b02d-3f1c606f36b7?mode=deep",
+    "timestamp": "2026-01-10 17:22:10.199485",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: Close()] [Signal panic] If w.cond.Signal() at line 119 panics (unlikely but possible with corrupted state), does this prevent proper cleanup? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7611fd69-31a1-44df-b4e3-e6e4f539cd0c?mode=deep",
+    "timestamp": "2026-01-10 17:22:35.833499",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: chooseNode()] [Choose panic] If w.wrs.Choose() at line 106 panics due to internal corruption, does this crash the goroutine running Next()? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2bb07dba-5376-42b4-a739-374a168afad5?mode=deep",
+    "timestamp": "2026-01-10 17:23:02.465004",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: SubscribeState callback] [Remove panic] If w.wrs.Remove() at line 78 panics when removing non-existent node, does this crash the callback system? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4151ad0c-a258-4735-8ebc-340fd9e49317?mode=deep",
+    "timestamp": "2026-01-10 17:23:30.168424",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: SubscribeField callback] [Update panic] If w.wrs.Update() at line 61 panics due to internal errors, does this crash the callback goroutine and potentially the entire NodeStateMachine? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7d89db33-4c8d-4205-95d2-6c00f2c2252a?mode=deep",
+    "timestamp": "2026-01-10 17:23:59.009116",
+    "report_generated": false
   }
 ]
