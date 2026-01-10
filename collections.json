@@ -14098,5 +14098,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b6341d8a-3139-49b9-83d5-5440e3eb9dca?mode=deep",
     "timestamp": "2026-01-10 17:24:47.472023",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: NewManager()] [Goroutine leak] The update() goroutine is started at line 94 without checking if initialization succeeded - if Manager creation fails after this point, can the goroutine continue running indefinitely consuming resources on validator nodes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7a8e23f6-e1c8-44d6-8caa-2eeeef4f177d?mode=deep",
+    "timestamp": "2026-01-10 17:26:15.522328",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: NewManager()] [Panic propagation] If backend.Wallets() or backend.Subscribe() panics during initialization (lines 69-77), will the panic propagate and crash the node without proper recovery, potentially causing validator downtime? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4bedfdb5-fcd0-4cf9-9738-39ed154456d1?mode=deep",
+    "timestamp": "2026-01-10 17:26:28.408095",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: NewManager()] [State inconsistency] If two backends return wallets with identical URLs during merge() at line 70, can this create duplicate wallet entries in the Manager's cache, causing account operation failures or double-spending attempts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_593fe0aa-5e8c-4b68-ac8e-729837dc6d62?mode=deep",
+    "timestamp": "2026-01-10 17:26:41.943182",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: NewManager()] [Backend registration race] The backends map is populated at lines 90-93 without the lock held - can concurrent AddBackend() calls during initialization cause lost backend registrations or map corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_92e048f9-187f-4921-9388-c1fe47f3ecec?mode=deep",
+    "timestamp": "2026-01-10 17:26:55.580344",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: NewManager()] [Channel buffer overflow] The updates channel is created with managerSubBufferSize=50 buffer at line 73 - can a burst of >50 wallet events during initialization cause backend subscriptions to block indefinitely, hanging node startup? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_54cce728-f568-4bbd-b548-991fb9b29ba9?mode=deep",
+    "timestamp": "2026-01-10 17:27:10.158538",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: Close()] [Double close vulnerability] Can Close() be called multiple times concurrently, and if so, does sending to am.quit channel twice at line 102 cause a panic or deadlock when the update() loop has already terminated? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_69ce0035-f68c-4fff-a25d-0af75bfd8d61?mode=deep",
+    "timestamp": "2026-01-10 17:27:25.843660",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: Close()] [Deadlock] If Close() is called while AddBackend() is blocked waiting on newBackends channel, can this create a deadlock where Close() waits for update() loop termination but update() is blocked on channel send? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1bcb32eb-809f-490e-ba17-efd7f24a975f?mode=deep",
+    "timestamp": "2026-01-10 17:27:43.080415",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: Close()] [Resource leak] After Close() returns, are all wallet event subscriptions guaranteed to be cleaned up, or can subscription goroutines continue receiving events if Unsubscribe() fails at line 126? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8ecfee73-0a55-4817-a30b-6916b869a5cc?mode=deep",
+    "timestamp": "2026-01-10 17:28:02.207612",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: Close()] [Race after close] After Close() completes, can concurrent Wallets() or Find() calls still execute on the now-closed Manager, potentially accessing cleaned-up resources or causing panics? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6676f739-00dd-44ff-8430-29cc79b667db?mode=deep",
+    "timestamp": "2026-01-10 17:28:22.187592",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: Close()] [Channel close race] The term channel is closed at line 163 after returning nil on errc - can this create a race where new operations start after Close() begins but before term is closed, causing goroutines to miss the termination signal? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c9a81205-ae04-4ee8-92e3-9ccff023555c?mode=deep",
+    "timestamp": "2026-01-10 17:28:43.823463",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: AddBackend()] [Deadlock on close] If AddBackend() is called while Close() is executing, sending on newBackends channel at line 115 could block forever if update() loop has terminated - can this hang the calling goroutine indefinitely? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f0b40f3b-db72-40f7-ba71-c6100d6cb108?mode=deep",
+    "timestamp": "2026-01-10 17:29:06.229466",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: AddBackend()] [Channel blocking] AddBackend() blocks waiting on the done channel at line 116 - if the update() loop panics or is stuck processing another event, can this cause the caller to hang indefinitely during critical operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_41bf6249-641f-4f29-a92e-7ae4013813cd?mode=deep",
+    "timestamp": "2026-01-10 17:29:29.879591",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: AddBackend()] [Nil backend] If a nil Backend is passed to AddBackend(), will the code panic when calling backend.Wallets() at line 152, crashing the validator node? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_71c80cef-327e-46e8-98cf-6e0549856474?mode=deep",
+    "timestamp": "2026-01-10 17:29:54.983645",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: AddBackend()] [Duplicate backend registration] Can the same backend instance be added multiple times via AddBackend(), causing duplicate subscriptions and redundant event processing that wastes resources? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_da091c96-3223-4b15-be9a-fa6e2d16001a?mode=deep",
+    "timestamp": "2026-01-10 17:30:20.890182",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: AddBackend()] [Backend type collision] If two different backend instances have the same reflect.Type at line 154, they get stored in the same slice - can this cause backend confusion where operations target the wrong backend instance? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6fa721c5-0486-49f7-acef-d63f8d212d7d?mode=deep",
+    "timestamp": "2026-01-10 17:30:47.278968",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: AddBackend()] [Subscription failure] If backend.Subscribe() fails at line 153, the backend is still added to am.backends and its wallets merged - can this create a state where wallets exist but updates are never received, causing stale wallet state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4d8b0ba7-26ef-4267-8a56-b078845e90b1?mode=deep",
+    "timestamp": "2026-01-10 17:31:15.543288",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: AddBackend()] [Event ordering violation] The processed channel is closed at line 157 before feed.Send could propagate WalletArrived events - can callers observe the backend as added before wallet arrival events are sent, breaking event ordering guarantees? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_311787b3-489f-4f31-96b4-30e964cd82da?mode=deep",
+    "timestamp": "2026-01-10 17:31:42.621644",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: update()] [Race on updaters access] The defer at line 125 locks and iterates am.updaters, but concurrent AddBackend() at line 153 appends to am.updaters while holding the lock - is there a window where iteration and append race? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_89270f89-8978-41f7-a70a-81ee73b5e500?mode=deep",
+    "timestamp": "2026-01-10 17:32:10.639761",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: update()] [Panic recovery] The update() goroutine has no panic recovery - if merge(), drop(), or feed.Send() panics, will the entire Manager become non-functional with no event processing, breaking wallet tracking? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0278457a-088c-4621-a527-0a897df893ae?mode=deep",
+    "timestamp": "2026-01-10 17:32:37.466101",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: update()] [Channel close panic] If a backend's subscription sends on updates channel after Manager termination, can this send to a closed channel (if updates is closed elsewhere) causing a panic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b43c6369-0070-4bd0-a018-920a3e2a6670?mode=deep",
+    "timestamp": "2026-01-10 17:33:03.220071",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: update()] [Lock ordering deadlock] At line 137, lock is acquired to handle wallet events, then feed.Send() is called at line 147 which may block - if feed subscribers acquire the same lock, can this cause a deadlock? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c9b8b34d-194d-47c7-89e0-bc05af680ecc?mode=deep",
+    "timestamp": "2026-01-10 17:33:30.187481",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: update()] [Starvation] The select statement at line 134 has no prioritization - can a flood of wallet events (from malicious backends) starve newBackends or quit channels, preventing backend addition or clean shutdown? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f83de7ff-5ba8-40d2-b8f2-571e6cee6bbf?mode=deep",
+    "timestamp": "2026-01-10 17:33:57.971140",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: update()] [Event loss during lock] Between releasing lock at line 144 and sending event at line 147, if Close() is called, can the event be sent to feed after subscribers expect no more events? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c3d9df15-25e2-4ef8-a3f4-f0ffed1cfac7?mode=deep",
+    "timestamp": "2026-01-10 17:34:24.794448",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: update()] [WalletEvent validation] No validation is performed on the incoming WalletEvent at line 135 - can malicious backends send invalid events (nil Wallet, unknown Kind) causing panics in merge/drop? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_22fd8d01-e2c1-489e-8f96-d89b64eceb5b?mode=deep",
+    "timestamp": "2026-01-10 17:34:50.175577",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: update()] [Subscription cleanup failure] If Unsubscribe() at line 126 blocks or fails, can this prevent the defer from completing, leaking resources and preventing update() goroutine from terminating? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_34b7531e-fe87-4af7-8980-7ae5f49ebccc?mode=deep",
+    "timestamp": "2026-01-10 17:35:14.388572",
+    "report_generated": false
   }
 ]
