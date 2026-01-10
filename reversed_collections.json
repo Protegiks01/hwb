@@ -13642,5 +13642,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_084035b4-2460-4eff-ade0-731908c1adf8?mode=deep",
     "timestamp": "2026-01-10 07:58:47.440272",
     "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: GetStorage()] [Key manipulation] Does GetStorage() validate the key parameter before hashing, or can oversized keys cause hash function failures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2319bc35-8f46-46e2-9454-64d873238a5c?mode=deep",
+    "timestamp": "2026-01-10 08:00:09.717866",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: GetStorage()] [Race condition] Can concurrent GetStorage() calls on the same odrTrie lead to race conditions in the shared t.trie field? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_694d296a-5926-43eb-9668-5a8cc4a105ca?mode=deep",
+    "timestamp": "2026-01-10 08:00:22.759135",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: GetStorage()] [Error masking] If do() encounters errors during ODR retrieval, does GetStorage() properly propagate them, or can error masking lead to reading uninitialized storage? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_727c34ab-5105-446f-af2d-ed616b148943?mode=deep",
+    "timestamp": "2026-01-10 08:00:35.885661",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: GetStorage()] [Nil trie access] If t.trie is nil when GetStorage() is called and do() fails to initialize it, can the function return incorrect empty values instead of errors? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3ffcf378-09a4-4bf8-b2dc-4ee92e9839b1?mode=deep",
+    "timestamp": "2026-01-10 08:00:49.763036",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: GetStorage()] [Address parameter ignored] The address parameter is ignored (underscore) - can this lead to reading storage from wrong contracts if the trie ID is misconfigured? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_94ae5f85-f6be-49d2-ae36-121548404681?mode=deep",
+    "timestamp": "2026-01-10 08:01:04.288058",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: GetStorage()] [Key collision] GetStorage() hashes the key with Keccak256 - can attackers find key collisions to read storage slots belonging to other contracts? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5edbaaac-6efe-4a9c-84b0-490aa200d1e7?mode=deep",
+    "timestamp": "2026-01-10 08:01:20.092541",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: TrieDB()] [Missing functionality] Does the nil return from TrieDB() prevent critical trie pruning or garbage collection operations, leading to memory leaks and eventual node failure? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_91a95001-10fe-439e-abd4-28ffb12bc62c?mode=deep",
+    "timestamp": "2026-01-10 08:01:37.230047",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: DiskDB()] [Panic DoS] DiskDB() intentionally panics with 'not implemented' - can an attacker trigger code paths that call DiskDB() to cause node crashes and network-wide DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_86313b97-87f7-4b6a-b17d-0df6134e18f7?mode=deep",
+    "timestamp": "2026-01-10 08:01:56.091613",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: TrieDB()] [Nil return exploit] TrieDB() always returns nil - can code that expects a valid trie database panic or behave incorrectly when receiving nil, causing node crashes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e5f23921-fbdc-4fbe-9bfe-d733ae86031b?mode=deep",
+    "timestamp": "2026-01-10 08:02:16.641082",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: ContractCodeSize()] [Caching inconsistency] If code is cached but later modified or corrupted, can ContractCodeSize() return stale size information causing EVM execution errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_718109d7-f2e4-49e0-bcf2-2607ad890e3f?mode=deep",
+    "timestamp": "2026-01-10 08:02:38.344765",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: ContractCodeSize()] [Integer overflow] When ContractCodeSize() returns len(code), can extremely large code (>2^31 bytes on 32-bit systems) cause integer overflow in size calculations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c36abd18-5a57-47f6-aa3e-14b6fa4ba1b0?mode=deep",
+    "timestamp": "2026-01-10 08:03:01.123558",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: ContractCodeSize()] [Size validation] Can ContractCodeSize() return incorrect sizes if the underlying ContractCode() is manipulated, leading to gas calculation errors and DoS attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9a6e246b-356c-400a-85f2-8eec408512a1?mode=deep",
+    "timestamp": "2026-01-10 08:03:24.862826",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: ContractCode()] [Error handling] If Retrieve() fails, does ContractCode() properly propagate the error, or can error masking allow execution to proceed with missing code? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_20fa4ea5-4fe6-4ac9-83f8-16745bbe9606?mode=deep",
+    "timestamp": "2026-01-10 08:03:50.093252",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: ContractCode()] [Size limit bypass] Does ContractCode() enforce maximum contract code size limits, or can a malicious ODR backend provide arbitrarily large code causing memory exhaustion DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d5aa511f-9a68-42d4-9aa2-66477d35e79f?mode=deep",
+    "timestamp": "2026-01-10 08:04:16.121491",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: ContractCode()] [Context cancellation] If the context is cancelled during ODR Retrieve(), does the function handle this gracefully, or can it leave the node in an inconsistent state with partially retrieved code? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_08613f4b-c5f8-4f65-8c8b-50b9ac35a746?mode=deep",
+    "timestamp": "2026-01-10 08:04:42.067515",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: ContractCode()] [AccKey manipulation] The function sets id.AccKey to addrHash - can an attacker provide a mismatched addrHash that doesn't correspond to the actual contract address, causing code retrieval for wrong contracts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_66916e85-4227-48a4-bbbf-2a28de737212?mode=deep",
+    "timestamp": "2026-01-10 08:05:08.545199",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: ContractCode()] [Cache poisoning] If malicious code is retrieved and cached in the database, can subsequent calls to ContractCode() return this poisoned code, allowing persistent execution of malicious bytecode? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dd61a3bc-1a0d-4985-977d-343af4f31b7e?mode=deep",
+    "timestamp": "2026-01-10 08:05:35.911305",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: ContractCode()] [Nil code handling] When codeHash equals sha3Nil, ContractCode() returns nil without error - can this be exploited to make contracts appear to have no code when they actually do, bypassing security checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7f127335-29e9-411c-a561-028668982974?mode=deep",
+    "timestamp": "2026-01-10 08:06:04.666162",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: ContractCode()] [Hash validation bypass] Does ContractCode() validate that the retrieved code actually hashes to the provided codeHash, or does it trust the ODR backend blindly, allowing execution of unauthorized code? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_30f30746-5b08-427c-b6b0-268c57ea3883?mode=deep",
+    "timestamp": "2026-01-10 08:06:35.266125",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: ContractCode()] [Code substitution] When ContractCode() retrieves code through ODR (CodeRequest), can a malicious ODR backend provide different code than what's committed to by the codeHash, enabling code substitution attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d91aaf0e-a4ff-4006-9bae-a44a1cf97e55?mode=deep",
+    "timestamp": "2026-01-10 08:07:06.433394",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: CopyTrie()] [Database reference] Does the copied trie share the same db reference as the original, and can this lead to unintended side effects when both tries interact with the same ODR backend? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_84d72309-5476-4ee1-b3b5-477a70d96b84?mode=deep",
+    "timestamp": "2026-01-10 08:07:37.170049",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: CopyTrie()] [Concurrent copy] If CopyTrie() is called while another goroutine is modifying the source trie, can race conditions lead to partial or corrupted copies that cause state inconsistencies? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0622183a-06f8-4c0a-a3fd-01e41d5e6315?mode=deep",
+    "timestamp": "2026-01-10 08:08:08.590627",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: CopyTrie()] [Nil trie handling] If the trie field in odrTrie is nil when CopyTrie() is called, does the copy correctly preserve this nil state, or can it lead to inconsistent behavior in the copied trie? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_887147d8-b539-4403-81b0-aac1c5ce0bf5?mode=deep",
+    "timestamp": "2026-01-10 08:08:36.306590",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: CopyTrie()] [Type confusion] The panic in CopyTrie() for unknown trie types could be triggered by an attacker who manages to pass a malicious trie implementation - can this lead to DoS by causing node crashes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b03a7776-3fb9-4c34-a7ee-d339400bb404?mode=deep",
+    "timestamp": "2026-01-10 08:09:03.683926",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: CopyTrie()] [Shallow copy vulnerability] When CopyTrie() copies an odrTrie, does it perform deep copying of all referenced data, or can modifications to the copy affect the original trie, leading to state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0c689482-1c64-4956-9d9b-32718f4cef37?mode=deep",
+    "timestamp": "2026-01-10 08:09:33.775699",
+    "report_generated": false
   }
 ]
