@@ -16486,5 +16486,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d5217de6-d6be-42a3-b1b7-66ba1e4b8ba7?mode=deep",
     "timestamp": "2026-01-10 11:41:22.756884",
     "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: NodeList.Store()] [Unbounded iteration] Does Store() iterate over all nodes in the list (line 132) without any limits, allowing an attacker who created a huge NodeList to cause a DoS by making Store() take arbitrarily long? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6f52843b-4c04-4980-8366-281e019c2a49?mode=deep",
+    "timestamp": "2026-01-10 11:42:39.913083",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: NodeList()] [Slice capacity] When creating the values slice (line 110), it starts with zero capacity and grows through append, causing multiple reallocations if the node set is large - can this cause memory fragmentation and DoS? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0b6a8cce-dcae-4818-ba03-7976dcf96080?mode=deep",
+    "timestamp": "2026-01-10 11:42:52.673422",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: Put()] [Slice growth] Does the order slice grow unboundedly through append() at line 57, and when it needs to reallocate, could this cause a large memory spike that triggers OOM even if total dataSize is within limits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c13866fe-aafe-4e83-b7f1-bce10fcbbddf?mode=deep",
+    "timestamp": "2026-01-10 11:43:05.741580",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: Put()] [Lock granularity] Does Put() hold write lock for the entire operation including CopyBytes (line 48-60), allowing a malicious peer to slow down all Put() operations by sending huge nodes that take long to copy? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_807bf38c-84c4-43cb-a906-b750f94a87c5?mode=deep",
+    "timestamp": "2026-01-10 11:43:19.475862",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: NodeList()] [Read lock only] Does NodeList() acquire RLock (line 107) while building the values slice, but concurrent Delete() could remove keys from nodes map that exist in order slice, causing nil entries? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_00a99020-72ce-4ee2-a887-f8f7f6eca67e?mode=deep",
+    "timestamp": "2026-01-10 11:43:34.151504",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: Store()] [Read lock only] Does Store() only acquire RLock (line 119) while iterating and writing to target database, allowing concurrent Put() calls to modify nodes map during iteration causing race conditions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_04ba04da-ec92-491c-8f72-1fc6d0fab807?mode=deep",
+    "timestamp": "2026-01-10 11:43:50.140875",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: NodeList.Put()] [Interface semantics] Does NodeList.Put() ignoring the key parameter violate caller expectations from ethdb.KeyValueWriter interface, potentially causing silent data corruption when used through interface? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_07d173bc-b05a-4731-a097-ab32cb63d32e?mode=deep",
+    "timestamp": "2026-01-10 11:44:08.006752",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: NodeList.Delete()] [Interface violation] Does the panic in NodeList.Delete() violate the ethdb.KeyValueWriter interface contract, causing any code that expects Delete to work to crash the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3ffe5c7b-ed8b-4178-bb87-9f34c50a9a0c?mode=deep",
+    "timestamp": "2026-01-10 11:44:26.616448",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: NodeSet.Has()] [Performance DoS] Does Has() call Get() which acquires RLock, then return based on error (lines 84-87), but this pattern means an attacker can cause lock contention by spamming Has() calls for non-existent keys? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d99d0b44-01e6-4d7b-a059-118c8386335a?mode=deep",
+    "timestamp": "2026-01-10 11:44:46.697277",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: NodeList.Put()] [Key ignored] Does NodeList.Put() completely ignore the key parameter (line 145-147) and only append the value, breaking the ethdb.KeyValueWriter interface contract and causing data loss? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ca9dd199-de64-4ca1-ac81-1c251a3de39f?mode=deep",
+    "timestamp": "2026-01-10 11:45:07.718779",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: Store()] [Type conversion corruption] When converting map keys from string back to []byte at line 123, can binary data corruption occur if the string contained non-UTF8 sequences, causing wrong keys to be written to the database? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6a371648-87eb-4b9d-8402-062e9b6a8348?mode=deep",
+    "timestamp": "2026-01-10 11:45:28.631639",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: Put()] [String conversion overhead] Does converting []byte keys to strings twice (lines 51, 54) cause unnecessary allocations and GC pressure, enabling DoS through rapid Put() calls that exhaust heap memory? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ef264f62-48b5-4197-946e-64e973d6e1b6?mode=deep",
+    "timestamp": "2026-01-10 11:45:51.503905",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: KeyCount()] [Count mismatch] Does KeyCount() return len(db.nodes) while ignoring that order slice may contain duplicate or deleted keys, giving incorrect node counts? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7b21505e-33f9-4ccc-8450-4918f0348c98?mode=deep",
+    "timestamp": "2026-01-10 11:46:15.473252",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: Put()] [Duplicate detection] Can the duplicate check at line 51 be bypassed if the key is modified between the check and the actual insert, allowing duplicate entries and data corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6aac180f-4bd8-4832-99f7-c02213dd092b?mode=deep",
+    "timestamp": "2026-01-10 11:46:39.381955",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: Delete()] [Incomplete cleanup] Does Delete() only remove from the nodes map (line 68) without removing from the order slice or decrementing dataSize, causing permanent memory leaks and incorrect size accounting? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4aa30b2d-628c-4552-8454-01d74ee27bb8?mode=deep",
+    "timestamp": "2026-01-10 11:47:03.255440",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: NodeList()] [Nil pointer] If db.order slice contains a key that doesn't exist in db.nodes map (due to Delete bug), will accessing db.nodes[key] at line 112 return nil, causing NodeList to include nil entries? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_af60de83-9d5f-447c-a9a3-3feafe25df26?mode=deep",
+    "timestamp": "2026-01-10 11:47:28.641092",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: Put()] [Silent failure] Does Put() silently return nil (line 52) when key already exists without updating the value, potentially causing stale node data to persist when newer versions should replace old ones? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_33e0ee78-a1bb-42c9-bd57-781dc192ebb4?mode=deep",
+    "timestamp": "2026-01-10 11:47:54.104085",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: Get()] [Error handling] Does Get() return a generic 'not found' error (line 80) without distinguishing between legitimate misses and corrupted state, making debugging state corruption issues impossible? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_34461e45-0a5a-4fa9-80c9-7311b436ca29?mode=deep",
+    "timestamp": "2026-01-10 11:48:20.354314",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: NodeList.Delete()] [Panic DoS] Does NodeList.Delete() unconditionally panic (line 152) when called, allowing an attacker who can trigger this method through the ethdb.KeyValueWriter interface to crash any light client node? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fb595717-c13b-4ade-8c9b-960973a17a4e?mode=deep",
+    "timestamp": "2026-01-10 11:48:46.354097",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: Get()] [Data exposure] Does Get() return the internal byte slice directly (line 78) without copying, allowing external modification of cached trie nodes and potential state corruption across the light client? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d7ec8a0b-7b5d-4d27-aa54-712f26aa22b6?mode=deep",
+    "timestamp": "2026-01-10 11:49:14.308846",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: NodeList.Store()] [Cryptographic hash collision] Does NodeList.Store() use crypto.Keccak256(node) as the key (line 133), but if an attacker can craft nodes with colliding Keccak256 hashes, could they overwrite legitimate trie nodes causing state corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d88868ee-3ad0-4a7b-abb9-cf9049dea1d3?mode=deep",
+    "timestamp": "2026-01-10 11:49:41.724745",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: Store()] [Data corruption] Does Store() convert string keys back to []byte(key) at line 123, but if the original key contained non-UTF8 bytes, could this round-trip conversion corrupt the key and store nodes under wrong keys in the target database? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c30073a5-aee3-4682-8a23-c35316deaf0c?mode=deep",
+    "timestamp": "2026-01-10 11:50:10.567311",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: Put()] [Data corruption] Can string(key) conversion at lines 51 and 54 cause issues if key contains null bytes or invalid UTF-8, potentially creating map keys that don't match the original byte keys? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f32c3313-2b51-4723-8aba-6e59744ae6c9?mode=deep",
+    "timestamp": "2026-01-10 11:50:39.746400",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: Delete()] [Data inconsistency] Does Delete() leave stale entries in the order slice (line 68 only deletes from map) causing NodeList() to attempt accessing deleted keys and return nil values or panic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_03f69017-53ae-4963-aae8-57f2c3204a83?mode=deep",
+    "timestamp": "2026-01-10 11:51:08.860150",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: NodeList.DataSize()] [Integer overflow] Can the size accumulation in NodeList.DataSize() (lines 157-161) overflow when summing lengths of millions of large nodes, returning an incorrect size that bypasses resource limits? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f1b146ef-eb00-4bbb-a0fe-c575ca23328d?mode=deep",
+    "timestamp": "2026-01-10 11:51:38.917922",
+    "report_generated": false
   }
 ]
