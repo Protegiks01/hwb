@@ -18136,5 +18136,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5a199aa4-d987-4925-8e10-c191642e28d2?mode=deep",
     "timestamp": "2026-01-10 13:34:31.030082",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: invertPriority()] [Integer Overflow] At line 267, negating a priority value with '-p' can overflow if p is math.MinInt64, but the check at line 264-266 prevents this. However, are there code paths that bypass this check? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_68e4f28b-9788-430c-bcf2-6f4d8e0d5af5?mode=deep",
+    "timestamp": "2026-01-10 13:35:46.225743",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: getPoint()] [Integer Overflow] At line 657, 'cp.freeCap += e2.freeCap - e1.freeCap' can overflow if e2.freeCap is very large, or underflow if e1.freeCap > e2.freeCap, causing incorrect capacity calculations in the curve. Can this be exploited? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_02e6264f-c822-4d3c-b169-dbd9c9518136?mode=deep",
+    "timestamp": "2026-01-10 13:35:59.495128",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: maxCapacity()] [Integer Overflow] At line 687, the expression '(minc + maxc + 1) / 2' can overflow if minc and maxc are both near maxUint64, potentially causing incorrect binary search results. Can this grant incorrect capacity to nodes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1b9f9f7b-8c82-4a67-af6c-7b2fd84ca47f?mode=deep",
+    "timestamp": "2026-01-10 13:36:12.768106",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: getCapacityCurve()] [Integer Underflow] At line 600, 'pp.activeCap -= tempCap' can underflow if tempCap > pp.activeCap due to calculation errors, wrapping activeCap to a huge value and breaking the curve calculation. Can this be triggered? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b8bc7d09-0f67-46ae-a447-e441919bd387?mode=deep",
+    "timestamp": "2026-01-10 13:36:26.825403",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: getCapacityCurve()] [Integer Overflow] At line 589, 'pp.activeCap += tempCap' can overflow if activeCap is near maxUint64, causing incorrect capacity curve calculations. Can this lead to incorrect capacity grants exceeding actual limits? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_562f62fb-b962-4812-af43-5941ce5541f8?mode=deep",
+    "timestamp": "2026-01-10 13:36:41.607623",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: setTempCapacity()] [Integer Overflow] When activeCount is incremented at line 386 or decremented at line 389, can repeated calls cause activeCount to overflow (wrap to 0) or underflow (wrap to maxUint64), bypassing the maxCount limit? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a673e9f9-0bb0-45ed-bf0e-ab94f74fd436?mode=deep",
+    "timestamp": "2026-01-10 13:36:57.820895",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: enforceLimits()] [Integer Division by Zero] At line 430, if c.stepDiv is 0, the division 'c.tempCapacity / c.stepDiv' will cause a panic. Can an attacker set stepDiv to 0 through setTempStepDiv() to crash the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b1359252-bdd1-48f0-8a80-fed0c55acd8d?mode=deep",
+    "timestamp": "2026-01-10 13:37:14.625856",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: enforceLimits()] [Integer Underflow] At line 435, if c.tempCapacity < c.minTarget, the subtraction 'c.tempCapacity - c.minTarget' will underflow, potentially causing sub to wrap to a huge value. Can this crash the node or cause incorrect capacity reductions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_85d61c02-842d-42f9-aca3-18c95f43dd78?mode=deep",
+    "timestamp": "2026-01-10 13:37:34.381381",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: setTempCapacity()] [Integer Underflow] At line 384, if cap < c.tempCapacity, the subtraction 'cap - c.tempCapacity' will underflow (wrapping to a large positive value in uint64 arithmetic), causing activeCap to increase instead of decrease. Can this be exploited to bypass maxCap limits? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_66c3baf2-509f-4310-8e91-263eae6e8bf8?mode=deep",
+    "timestamp": "2026-01-10 13:37:54.475475",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: setTempCapacity()] [Integer Overflow] At line 384, the expression 'pp.activeCap += cap - c.tempCapacity' can overflow if cap is very large (near math.MaxUint64) and tempCapacity is small, causing activeCap to wrap around and bypass capacity limits. Can an attacker exploit this? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b03f9685-78a9-47c8-80c9-1ebb650a37eb?mode=deep",
+    "timestamp": "2026-01-10 13:38:17.006396",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: newPriorityPool()] [Race Condition] The SubscribeField and SubscribeState callbacks at lines 118-151 can execute concurrently - can this cause race conditions when accessing the queueField or modifying node states without proper synchronization? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_30ee192d-6c1d-4cec-a4a1-259e7d7894d4?mode=deep",
+    "timestamp": "2026-01-10 13:38:39.877067",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: getCapacityCurve()] [Race Condition] The getCapacityCurve() function modifies pp.activeCap at lines 589 and 600 while the lock is held - can concurrent calls cause activeCap to become negative or overflow if multiple curves are being calculated simultaneously? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5cb61dd8-2f64-4fa9-be92-dcec2cb88f1b?mode=deep",
+    "timestamp": "2026-01-10 13:39:03.503540",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: finalizeChanges()] [Race Condition] If finalizeChanges() is called with commit=false to revert changes, but another goroutine has already started using the committed capacity values, can this create capacity accounting mismatches? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_aa551720-2137-4745-b796-f35eb04018de?mode=deep",
+    "timestamp": "2026-01-10 13:39:27.766042",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: activeQueue.Refresh()] [Race Condition] The activeQueue.Refresh() calls at lines 162, 198, 307, 324, 526 occur after acquiring the lock - can queue state changes during refresh operations create inconsistencies if callbacks modify shared state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_553238cd-53df-4035-ac6d-8689d4745e83?mode=deep",
+    "timestamp": "2026-01-10 13:39:53.800123",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: updatePriority()] [Race Condition] Between the lock release at line 539 and updateFlags() execution at line 540, can another goroutine modify the node state causing the updates slice to contain stale capacity values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ecd510e4-f3f1-4be3-96a8-f14d386ca669?mode=deep",
+    "timestamp": "2026-01-10 13:40:21.464181",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: disconnectNode()] [Race Condition] Can concurrent calls to disconnectNode() for the same node cause removeFromQueues() at line 330 to be called twice, potentially accessing invalid queue indices and causing a panic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cd4b2561-bf49-4789-a11b-41d31b59d201?mode=deep",
+    "timestamp": "2026-01-10 13:40:49.217761",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: connectNode()] [Race Condition] Can the connected flag check at line 308 and the subsequent set at line 312 create a TOCTOU (Time-Of-Check-Time-Of-Use) vulnerability if the same node is connected/disconnected concurrently, causing double insertions into inactiveQueue? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ef272dcf-9fea-423a-9cde-b46056ffafaf?mode=deep",
+    "timestamp": "2026-01-10 13:41:16.672720",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: SetLimits()] [Race Condition] When SetLimits() is called concurrently with requestCapacity(), can the ns.Operation() wrapper at line 212 execute after another operation has already modified node states, causing stale updates to be applied? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2cbcb677-f885-4e8c-b531-2f1066f86073?mode=deep",
+    "timestamp": "2026-01-10 13:41:45.598595",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: requestCapacity()] [Race Condition] If multiple goroutines call requestCapacity() simultaneously and the lock is released at line 190-191 before updateFlags() executes, can this allow activeCount to exceed maxCount during the window where flags haven't been updated yet? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c62bc6ee-e449-4f5c-9f24-1b3a29da51d3?mode=deep",
+    "timestamp": "2026-01-10 13:42:12.994904",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: requestCapacity()] [Race Condition] Can concurrent calls to requestCapacity() for different nodes create a race condition where pp.activeCap or pp.activeCount are inconsistent due to the lock being released before updateFlags() completes, potentially allowing capacity limits to be exceeded? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_68e58f6a-dbf9-44cb-ad86-784a5b1ee739?mode=deep",
+    "timestamp": "2026-01-10 13:42:40.443174",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/metrics.go] [Variable: totalActiveCapacityGauge] [Unit Ambiguity] Is the capacity value in totalActiveCapacityGauge dimensionless, in bytes, or in some vflux-specific unit, and can unit confusion cause monitoring threshold misconfiguration? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9c9f3d5d-45a6-4d11-847b-a5279ab0b3da?mode=deep",
+    "timestamp": "2026-01-10 13:43:07.735275",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/metrics.go] [All Variables] [Export Format] If these metrics are exported to monitoring systems (Prometheus, InfluxDB, etc.), can type mismatches or unit inconsistencies cause silent data corruption or misinterpretation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6a0434e6-4070-4354-aaec-74b18b05af14?mode=deep",
+    "timestamp": "2026-01-10 13:43:35.847420",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/metrics.go] [No Comments] [Maintenance Risk] Without any documentation comments explaining the purpose and semantics of each metric, can future maintainers misunderstand how to correctly update these metrics, introducing bugs? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cab9656f-cb6d-4ae6-84f8-1b3da5a1a8df?mode=deep",
+    "timestamp": "2026-01-10 13:44:04.519324",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/metrics.go] [Variable Naming] [Ambiguous Semantics] Does the name 'totalActiveCapacityGauge' clearly indicate whether it tracks allocated capacity, requested capacity, or actually-used capacity, and can this ambiguity lead to incorrect operational decisions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cc74dca0-6a0e-4fca-91e3-4497c579e48e?mode=deep",
+    "timestamp": "2026-01-10 13:44:32.664539",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/metrics.go] [Variable: clientConnectedMeter] [Rate Aggregation] When aggregating clientConnectedMeter rates across multiple nodes, can timing differences cause double-counting or undercounting of connection events? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e1780f78-a1f5-42d9-b394-d94f6eb17869?mode=deep",
+    "timestamp": "2026-01-10 13:45:01.564519",
+    "report_generated": false
   }
 ]
