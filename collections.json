@@ -15298,5 +15298,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7fad0929-963d-41b9-a790-68782245ca96?mode=deep",
     "timestamp": "2026-01-10 18:57:26.905019",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Line 294-299] [Race Condition] updateScope.Count() is checked, hub.updating is set, and stateLock is released/reacquired - can this create a window for race conditions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ca6ad808-ca49-46a3-9acb-18255d9c441e?mode=deep",
+    "timestamp": "2026-01-10 18:58:53.130262",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [General] [Memory Safety] No bounds checking on byte slices in smartcardPairing - can malformed pairing data with extreme slice lengths cause memory exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0ab8160f-a65a-471c-9573-a4ef60d8f2f7?mode=deep",
+    "timestamp": "2026-01-10 18:59:05.963647",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [General] [Cryptographic Validation] PublicKey bytes are used directly without validation - can invalid curve points or malformed keys cause cryptographic operation failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b95bf862-a17f-48f4-a5c5-3b92d2e02ddc?mode=deep",
+    "timestamp": "2026-01-10 18:59:19.065613",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [General] [Path Traversal] The datadir path isn't validated or sanitized - can relative paths like '../../../' access unintended directories? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2be73759-8170-4317-b59b-cd4210d51fcc?mode=deep",
+    "timestamp": "2026-01-10 18:59:32.639715",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [General] [Symlink Attack] smartcards.json path isn't protected against symlinks - can attackers redirect the pairing file to read/write arbitrary locations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0ba75ac7-b2d0-4571-98af-b0778cb16fe8?mode=deep",
+    "timestamp": "2026-01-10 18:59:47.077635",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [General] [File Permission Race] Pairing file permissions (0755) allow world-read access - can local attackers extract cryptographic material? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_34a4050a-3ada-4796-a089-1015b4c88207?mode=deep",
+    "timestamp": "2026-01-10 19:00:03.775968",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [General] [DoS] No rate limiting on refreshWallets() calls - can an attacker spam Wallets() to trigger excessive PC/SC operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_acc8ca53-be49-49f1-ad77-d05697a8d37d?mode=deep",
+    "timestamp": "2026-01-10 19:00:20.272119",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [General] [Goroutine Leak] The updater() goroutine has no explicit shutdown mechanism - can hub shutdown leave dangling goroutines? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a247c04f-c826-44ea-9224-a5ac9b500bff?mode=deep",
+    "timestamp": "2026-01-10 19:00:39.058867",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [General] [Panic Recovery] No panic recovery in any function - can malicious smartcard operations crash the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_15b4d55e-5169-479d-84d6-f6838fa2e609?mode=deep",
+    "timestamp": "2026-01-10 19:00:59.397033",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [General] [Resource Cleanup] No Close() or Shutdown() method for Hub - can improper shutdown leak PC/SC resources? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7995b630-23bb-4fba-a476-92a357b9cf56?mode=deep",
+    "timestamp": "2026-01-10 19:01:20.963870",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [General] [Event Blocking] updateFeed.Send() can block if subscribers don't read - can slow subscribers freeze wallet operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9a107eee-a0d2-48f8-aa15-7399465c6474?mode=deep",
+    "timestamp": "2026-01-10 19:01:44.417476",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [General] [Map Iteration] hub.wallets and hub.pairings are iterated without holding locks in some paths - can this cause map iteration panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_75344708-e911-48c1-bdb0-3c395da82ceb?mode=deep",
+    "timestamp": "2026-01-10 19:02:08.484161",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [General] [Nil Dereference] Wallet pointers are stored and dereferenced without nil checks - can disconnected wallets cause nil pointer panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4cb37278-1cee-4c3f-8870-1d22d34b37a9?mode=deep",
+    "timestamp": "2026-01-10 19:02:33.543398",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [General] [Integer Overflow] PairingIndex is uint8 - can wrapping from 255 to 0 cause pairing overwrites? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ffe2688f-6b8b-48e0-b8b3-0b75494bd229?mode=deep",
+    "timestamp": "2026-01-10 19:02:59.969388",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [General] [Deserialization] JSON unmarshaling doesn't validate data integrity - can malformed JSON cause panics or unexpected behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f9bc6aa3-b592-4aa7-b75e-6b70ffc2303c?mode=deep",
+    "timestamp": "2026-01-10 19:03:27.896827",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [General] [Time-based Race] refreshThrottling uses time.Since() which can be affected by system time changes - can NTP adjustments bypass throttling? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d74789e9-7aba-4edb-840e-1c84269322ad?mode=deep",
+    "timestamp": "2026-01-10 19:03:56.908309",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: NewSecureChannelSession()] [Weak Key Generation] Does the ECDSA key generation at line 66 use a cryptographically secure random number generator, or can an attacker predict the private key through insufficient entropy, allowing them to compute the shared secret and decrypt all communications? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_380450d1-7887-49cf-8800-99767d8ba6a6?mode=deep",
+    "timestamp": "2026-01-10 19:04:26.032110",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: NewSecureChannelSession()] [Point Validation] When unmarshaling the card's public key at line 70, is there validation that the point lies on the S256 curve, or can an attacker provide an invalid curve point leading to invalid group attacks that compromise the shared secret? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_46990d34-6e8d-4890-84ab-62a17512a57d?mode=deep",
+    "timestamp": "2026-01-10 19:04:55.142954",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: NewSecureChannelSession()] [Small Subgroup Attack] In the ScalarMult operation at line 74, is there validation against small subgroup attacks where the card provides a public key with small order, allowing an attacker to drastically reduce the shared secret space? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a33d95d5-5b40-446c-b35a-78781db537ff?mode=deep",
+    "timestamp": "2026-01-10 19:05:23.462482",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: NewSecureChannelSession()] [Zero Secret] Can the ScalarMult at line 74 result in a zero or identity point if malicious keyData is provided, causing the shared secret to be predictable and breaking all encryption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bb94807e-4c8f-41ed-8bf5-49fb589a9bf6?mode=deep",
+    "timestamp": "2026-01-10 19:05:50.399669",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: NewSecureChannelSession()] [Shared Secret Leakage] The shared secret is stored as secret.Bytes() at line 77 - does this properly handle leading zeros in the scalar result, or can variation in byte length leak information about the shared secret through timing or length observations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1a3931fd-b98e-4246-9e7e-f1613522817c?mode=deep",
+    "timestamp": "2026-01-10 19:06:16.773344",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: NewSecureChannelSession()] [Public Key Marshalling] The public key is marshaled using elliptic.Marshal at line 78 - does this use compressed or uncompressed format, and can format confusion lead to different peers deriving different shared secrets? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9a92484a-f10f-4ae0-bc09-e8f3aebbf373?mode=deep",
+    "timestamp": "2026-01-10 19:06:42.729274",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: NewSecureChannelSession()] [Nil Card Handle] If the card parameter is nil at line 64, will subsequent operations cause nil pointer dereference panics crashing the node? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_88c01883-f830-4af8-b885-570431664944?mode=deep",
+    "timestamp": "2026-01-10 19:07:07.598096",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: NewSecureChannelSession()] [Error Handling] When crypto.UnmarshalPubkey fails at line 70-73, is the partially initialized SecureChannelSession properly cleaned up, or can sensitive key material remain in memory? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5431e97a-b662-4796-a5d0-ba409e508158?mode=deep",
+    "timestamp": "2026-01-10 19:07:31.182496",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: Pair()] [PBKDF2 Weakness] The PBKDF2 at line 84 uses 50,000 iterations with SHA-256 - is this sufficient against GPU/ASIC cracking, or can an attacker who captures the pairing cryptogram brute-force weak pairing passwords to derive the PairingKey and decrypt all future sessions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d36e927e-60eb-4d38-8fec-4e3fb7f138ad?mode=deep",
+    "timestamp": "2026-01-10 19:07:54.282723",
+    "report_generated": false
   }
 ]
