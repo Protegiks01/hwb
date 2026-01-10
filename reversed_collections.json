@@ -24436,5 +24436,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_99b3c30f-aa2c-4887-b403-6f5dfc09b110?mode=deep",
     "timestamp": "2026-01-10 21:03:15.328293",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/fillset.go] [Function: SetTarget()] [Deadlock] If the state subscription callback (lines 50-62) attempts to acquire an external lock while holding fs.lock, and SetTarget() at lines 90-91 holds fs.lock while waiting for that external lock, can this create a lock ordering deadlock that halts all FillSet operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1f9a29b9-cae2-4329-a983-3adf72d7d593?mode=deep",
+    "timestamp": "2026-01-10 21:04:46.290062",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/fillset.go] [Function: readLoop()] [Deadlock] At line 74 where fs.cond.Wait() releases and reacquires the lock, if SetTarget() or Close() fail to call Signal() due to a panic or early return, can readLoop deadlock indefinitely waiting for a signal that never comes, causing permanent node set freeze? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f15ff42d-2c6a-4f47-964b-c9473c73605f?mode=deep",
+    "timestamp": "2026-01-10 21:04:59.577076",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/fillset.go] [Function: NewFillSet()] [Race condition] Can the state subscription callback at lines 50-62 be invoked before NewFillSet returns, potentially accessing uninitialized FillSet state if other goroutines trigger state changes during construction? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7b75279a-b093-4cb1-a800-60e328025c88?mode=deep",
+    "timestamp": "2026-01-10 21:05:12.718165",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/fillset.go] [Function: readLoop()] [Race condition] Between releasing the lock at line 77 and calling fs.input.Next() at line 78, if Close() is called and sets closed=true, can readLoop miss this and continue iterating, potentially adding nodes after the FillSet should have stopped? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e18f3ea5-d928-4ebd-9932-ee5163d1ae13?mode=deep",
+    "timestamp": "2026-01-10 21:05:27.265917",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/fillset.go] [Struct: FillSet] [Race condition] Is there any guarantee that fs.closed at line 36 is atomically read/written? Without atomic operations, can readLoop at line 73 read a torn value of closed, causing it to miss the Close() signal and continue running indefinitely? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5c7b66ae-1b29-4ab6-a1e0-012716934960?mode=deep",
+    "timestamp": "2026-01-10 21:05:42.024668",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/fillset.go] [Function: SetTarget()] [Race condition] Can an attacker rapidly call SetTarget() with alternating high and low values while readLoop executes, creating a race where nodes are added based on stale target values, potentially exceeding intended limits and causing resource exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7dd4e159-cec3-459f-ae3f-28c5eee70254?mode=deep",
+    "timestamp": "2026-01-10 21:05:58.291122",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/fillset.go] [Function: readLoop()] [Race condition] At line 78 where fs.input.Next() is called without holding the lock, can a concurrent Close() call at line 105 close the input iterator while Next() is executing, causing a panic or undefined behavior in the iterator implementation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8199786e-e87a-4e98-a6f9-7fd938323d27?mode=deep",
+    "timestamp": "2026-01-10 21:06:15.428721",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/fillset.go] [Function: NewFillSet()] [Race condition] In the state subscription callback (lines 50-62), if multiple state changes occur simultaneously for different nodes, can concurrent execution of the callback lead to race conditions in count manipulation even though each individual callback execution is protected by lock? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_76cbc3fe-3ba4-4d16-8a5f-3c480fd289ea?mode=deep",
+    "timestamp": "2026-01-10 21:06:34.926605",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/fillset.go] [Function: readLoop()] [Race condition] Between lines 72-77 when fs.lock is released after checking conditions and line 81 when SetState is called, can concurrent SetTarget() or Close() calls cause the readLoop to proceed with stale state values, potentially adding nodes when target is already met or after Close() is called? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b458943b-e55d-4a34-b5d2-1a1ca8ad658d?mode=deep",
+    "timestamp": "2026-01-10 21:06:55.795287",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/fillset.go] [Function: NewFillSet()] [Race condition] Can an attacker trigger a race condition between the state subscription callback (lines 50-62) and readLoop() goroutine where count increments/decrements occur without proper synchronization, leading to incorrect node count tracking and potential DoS through unlimited node additions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9eb4d7ea-bdac-4111-aea6-9e828afce4bf?mode=deep",
+    "timestamp": "2026-01-10 21:07:18.792003",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/api.go] [Function: Value()] [Duration conversion] When converting timeout*float64(time.Second) to time.Duration at line 97, if the result exceeds MaxInt64, does Go silently wrap/overflow or produce an error? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_197edb12-852e-46f0-a94d-866e29aa5f34?mode=deep",
+    "timestamp": "2026-01-10 21:07:42.134674",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/api.go] [Function: Timeout()] [Duration overflow] time.Duration is int64 nanoseconds - if RtStats().Timeout() somehow returns MaxInt64 or near MaxInt64, can the division by time.Second at line 85/88 produce incorrect float64 results due to precision loss? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e39f2d76-227f-43c2-8bfc-23ab3e02efb0?mode=deep",
+    "timestamp": "2026-01-10 21:08:06.668135",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/api.go] [Function: Distribution(), Timeout(), Value()] [Recently disconnected nodes] If a node just disconnected and was unregistered, but API methods are called with its ID before the unregistration completes, can this return stale data or cause race conditions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bb72f1b3-d8e4-4b1a-9ffe-6d417d013d55?mode=deep",
+    "timestamp": "2026-01-10 21:08:31.429177",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/api.go] [Function: Distribution(), Timeout(), Value()] [Unregistered nodes] If GetNode() is called for a node that was never registered, does it create a new empty NodeValueTracker? If so, can attackers query arbitrary node IDs to pollute the internal node map? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_09b1ca4e-8d29-4f41-8b20-5e59f786f15a?mode=deep",
+    "timestamp": "2026-01-10 21:08:58.521508",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/api.go] [Function: Value()] [ExpFactor validity] Is there validation that ExpFactor(LogOffset) produces reasonable values? Can extreme LogOffset values cause ExpFactor to be zero, negative, or extremely large, breaking value calculations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7f9a39f5-8751-47e1-a51f-3d17540b9ed9?mode=deep",
+    "timestamp": "2026-01-10 21:09:25.960999",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/api.go] [Function: Distribution()] [Expiration inconsistency] When normalized=false, expFactor is calculated once at line 64, but Statistics might expire between that calculation and the Distribution() call at line 67/70 - can this cause stale expFactor to be used? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0d6ba0ef-9269-4d5e-a9d8-df377c4e486f?mode=deep",
+    "timestamp": "2026-01-10 21:09:54.673960",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/api.go] [Function: Value(), Distribution()] [Clock monotonicity] Does mclock.Now() guarantee monotonicity? If not, can non-monotonic time values cause expFactor to be invalid or cause statistics expiration logic to malfunction? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ac83067c-7c71-4a26-840f-5bd06e337741?mode=deep",
+    "timestamp": "2026-01-10 21:10:24.522188",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/api.go] [Function: Distribution(), Value()] [mclock.Now() timing] Both functions call mclock.Now() to get current time - if the system clock jumps backward or forward significantly, can this cause incorrect expFactor calculations and corrupted statistics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0cf8c7bd-4f29-4bd2-84ea-ec4c2228745f?mode=deep",
+    "timestamp": "2026-01-10 21:10:55.941167",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/api.go] [Function: All API methods] [Return value semantics] When errors occur, methods return zero values (0, empty struct) plus error - but zero can also be a valid result - can this cause API consumers to misinterpret errors as valid zero results if they don't check errors properly? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1c98f170-76bb-4867-a884-062a5173b28d?mode=deep",
+    "timestamp": "2026-01-10 21:11:27.727697",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/api.go] [Function: Distribution()] [Boolean flag] The 'normalized' parameter changes the semantics significantly - can API consumers misunderstand this and make incorrect decisions based on wrongly interpreted distribution data? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_50c2e4ba-5207-4333-81dc-a71ac9e64528?mode=deep",
+    "timestamp": "2026-01-10 21:12:00.036049",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/api.go] [Struct: PrivateClientAPI] [Access control] Why is this called \\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ebea0da7-d7c0-4e3e-b33d-f75ca61cfe13?mode=deep",
+    "timestamp": "2026-01-10 21:12:33.560861",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/api.go] [Function: All API methods] [Panic recovery] None of the API methods have panic recovery - if underlying ValueTracker or statistics methods panic, will this crash the entire node or just the RPC request handler? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_af0ab2e7-6a4e-4a9a-98f7-b201be846113?mode=deep",
+    "timestamp": "2026-01-10 21:13:07.157032",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/api.go] [Function: Distribution(), Timeout(), Value()] [Error wrapping] When parseNodeStr() fails, the error is returned as-is - does this leak sensitive information about internal node ID format or validation logic through error messages? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e452c93b-8911-4b16-bfd3-2e8e80c6c80d?mode=deep",
+    "timestamp": "2026-01-10 21:13:42.058094",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/api.go] [Function: Value()] [Negative timeout] If timeout is negative, does the function reject it or silently produce incorrect weight functions that could invert service value calculations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ebea70e8-e7e4-4395-a070-c141dc6a785f?mode=deep",
+    "timestamp": "2026-01-10 21:14:17.563784",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/api.go] [Function: Value()] [Zero timeout] If timeout parameter is exactly 0.0, does TimeoutWeights(0) produce a valid weight function, or can it cause division by zero in the weight calculation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a0d8e432-1853-49bc-9537-6fa06df0c6e1?mode=deep",
+    "timestamp": "2026-01-10 21:14:54.378802",
+    "report_generated": false
   }
 ]
