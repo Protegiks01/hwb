@@ -16648,5 +16648,305 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_22acb485-fc63-4c0e-9957-3d67f27909f9?mode=deep",
     "timestamp": "2026-01-10 20:41:24.301060",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Function: TerminalString()] [Information Leakage] The truncation at 32 characters with '..' may leak sensitive information - if account paths contain secrets, private keys, or validator identifiers in positions 0-31, does this expose them in logs while hiding the distinguishing suffix that would indicate different accounts? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_435a8a88-184a-45ad-9743-09705fc31af2?mode=deep",
+    "timestamp": "2026-01-10 20:42:40.785640",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Function: TerminalString()] [Length Calculation] Does the len(url) calculation properly handle multi-byte UTF-8 characters, or can an attacker craft URLs with multi-byte characters at position 31-32 that cause incorrect truncation, potentially exposing more data than intended or cutting through character boundaries causing display corruption? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_00512527-383b-4cb5-a8ca-561a29766df8?mode=deep",
+    "timestamp": "2026-01-10 20:42:53.610703",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Function: TerminalString()] [Collision Attack] Can an attacker generate multiple different URLs that all truncate to the same 32-character prefix, causing confusion in terminal logs and making it impossible to distinguish between different accounts or backends in incident response scenarios? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1d70ce82-e52f-4152-94fa-9458541cd704?mode=deep",
+    "timestamp": "2026-01-10 20:43:07.483300",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Function: MarshalJSON()] [JSON Injection] Does the json.Marshal(u.String()) properly escape all special characters in Scheme and Path, or can an attacker inject JSON metacharacters (quotes, backslashes, control characters) that break JSON structure when the URL is serialized into configuration files or API responses? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_df0770db-0488-4b5a-b8f8-8ba917b0c2af?mode=deep",
+    "timestamp": "2026-01-10 20:43:21.150111",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Function: MarshalJSON()] [Infinite Recursion] If the URL struct is embedded in another struct that also implements MarshalJSON, can circular references or recursive marshaling cause stack overflow panics that crash the node? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a6414e77-5185-4102-aa13-b18d0613e5fa?mode=deep",
+    "timestamp": "2026-01-10 20:43:35.584917",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Function: MarshalJSON()] [Error Handling] The function returns errors from json.Marshal but are these errors properly handled by callers, or can marshaling failures during critical operations (e.g., validator configuration export) cause silent failures or data corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8cd72ffe-274f-4f4e-9118-a04ff2e69776?mode=deep",
+    "timestamp": "2026-01-10 20:43:51.434991",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Function: UnmarshalJSON()] [Type Confusion] Can an attacker provide non-string JSON input (e.g., numeric, boolean, object, array) that causes json.Unmarshal to fail in unexpected ways, potentially leaving the URL object in a partially-initialized state with corrupted Scheme/Path values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fb5eb10a-413d-4700-9c03-65c91ce58322?mode=deep",
+    "timestamp": "2026-01-10 20:44:08.959297",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Function: UnmarshalJSON()] [State Corruption on Error] If parseURL returns an error, the function has already called json.Unmarshal which may have modified the textURL variable - can error paths leave the URL receiver (*u) in an inconsistent state where Scheme and Path are partially updated, potentially mixing data from old and new URLs? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3c7676de-cb84-4768-95d9-42edcffeb357?mode=deep",
+    "timestamp": "2026-01-10 20:44:28.494119",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Function: UnmarshalJSON()] [Deserialization DoS] Can an attacker provide extremely large JSON strings or deeply nested JSON that causes excessive CPU/memory consumption during unmarshaling, leading to node resource exhaustion and denial of service affecting validator operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f71763a3-b8f9-4fda-a263-c0535888b9cd?mode=deep",
+    "timestamp": "2026-01-10 20:44:48.213261",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Function: UnmarshalJSON()] [Invalid UTF-8 Handling] If the JSON input contains invalid UTF-8 sequences, does json.Unmarshal handle them safely or can this cause panics or incorrect string parsing that corrupts the URL object? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b94caa03-1c7e-44a1-abe0-fead78104e39?mode=deep",
+    "timestamp": "2026-01-10 20:45:10.014398",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Function: UnmarshalJSON()] [Nil Pointer Dereference] If UnmarshalJSON is called on a nil *URL pointer, does it properly handle this case or will the assignments to u.Scheme and u.Path at lines 88-89 cause a panic that crashes the node? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_622adca7-2924-47e0-b8d8-9b5d56917968?mode=deep",
+    "timestamp": "2026-01-10 20:45:32.776665",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Function: UnmarshalJSON()] [Atomic Update Violation] The function updates u.Scheme and u.Path in two separate statements - if another goroutine reads the URL between these updates, can it observe a temporarily inconsistent URL state with mismatched scheme and path from different sources? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e917d559-4faf-44fa-bd80-9453edd664bf?mode=deep",
+    "timestamp": "2026-01-10 20:45:56.155088",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Function: UnmarshalJSON()] [Error Disclosure] Do error messages returned by json.Unmarshal or parseURL leak sensitive information about internal paths, schemes, or system structure that could aid attackers in reconnaissance? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5fad22d2-bbd9-462b-b59c-e771b94b8644?mode=deep",
+    "timestamp": "2026-01-10 20:46:21.765329",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Function: Cmp()] [Inconsistent Ordering] Can the comparison logic produce non-transitive results (where A < B, B < C, but A >= C) if special characters or Unicode normalization differences exist in Scheme or Path fields, breaking sorted data structures and causing lookup failures for accounts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_beb45ae6-1bf1-44db-9fa9-7ce908ca85e4?mode=deep",
+    "timestamp": "2026-01-10 20:46:46.951975",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Function: Cmp()] [Locale-Dependent Comparison] Does strings.Compare use locale-sensitive comparison that could produce different results on nodes with different system locales, causing inconsistent URL ordering across the validator network and potential consensus failures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_24612287-affa-4249-ad4d-0d9bc7b43d53?mode=deep",
+    "timestamp": "2026-01-10 20:47:12.922907",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Function: Cmp()] [Case Sensitivity Issues] The comparison is case-sensitive - can attackers exploit this to create URLs that should be considered identical but compare as different, enabling duplicate account registration or cache poisoning? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2cedc756-f632-4beb-8bd4-6e00d931003e?mode=deep",
+    "timestamp": "2026-01-10 20:47:39.244324",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Function: Cmp()] [Unicode Collation Attack] Can attackers use Unicode characters with special collation properties that cause unexpected comparison results, potentially reordering URLs in sorted lists to place malicious URLs before legitimate ones in processing queues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3237a391-e686-46e4-b76b-87260fb57320?mode=deep",
+    "timestamp": "2026-01-10 20:48:07.423659",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Function: parseURL + UnmarshalJSON] [Double Parsing Inconsistency] Since UnmarshalJSON calls parseURL on already JSON-unmarshaled text, can differences between JSON string escaping and the URL parsing logic create attack vectors where the same input produces different URL objects depending on whether it's parsed directly or through JSON? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_094b315c-89c6-4c80-8fb0-08cf733b593c?mode=deep",
+    "timestamp": "2026-01-10 20:48:35.309452",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Function: String + parseURL] [Round-Trip Inconsistency] If a URL is converted to string via String() and then re-parsed via parseURL(), is the result guaranteed to be identical, or can edge cases in formatting/parsing create drift that causes URLs to mutate over serialization cycles, corrupting account references? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8dd6938f-d68f-42b2-a86e-e8dc96034f73?mode=deep",
+    "timestamp": "2026-01-10 20:49:04.876001",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Function: MarshalJSON + UnmarshalJSON] [Serialization Round-Trip Attack] Can an attacker craft a URL that marshals to JSON, but when unmarshaled, produces a different URL object with different Scheme/Path values, enabling signature bypass or account confusion attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6deb6e0e-3e88-416d-80ee-78dddf4cee84?mode=deep",
+    "timestamp": "2026-01-10 20:49:33.528548",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Missing: Input Sanitization] The file performs no explicit validation of Scheme or Path content beyond checking for '://' presence - can this allow injection of command metacharacters, SQL commands, or shell escape sequences that get executed when URLs are used in system calls or database queries by backend implementations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a60d5b46-e8a0-48c6-91aa-7b8968feeec8?mode=deep",
+    "timestamp": "2026-01-10 20:50:02.851176",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Missing: Length Limits] There are no length restrictions on Scheme or Path fields - can attackers provide extremely long values that cause buffer overflows in C integrations, excessive memory consumption, or performance degradation in string operations across the codebase? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e70bd015-08c1-424b-9741-649a1cf4db75?mode=deep",
+    "timestamp": "2026-01-10 20:50:32.160653",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Missing: Character Whitelist] The code doesn't validate that Scheme contains only alphanumeric characters or that Path contains only valid filesystem characters - can this allow injection of control characters, ANSI escape sequences, or terminal manipulation codes that compromise logging systems or admin terminals? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cf7c8715-0ecb-4671-823f-521d43488d03?mode=deep",
+    "timestamp": "2026-01-10 20:51:03.807315",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Missing: Canonicalization] Unlike standard url.URL, this implementation doesn't perform URL encoding/decoding - can this create inconsistencies where different backend implementations interpret special characters differently, leading to account access violations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_91d11d67-1343-48d1-9719-4e5754e2d4d9?mode=deep",
+    "timestamp": "2026-01-10 20:51:33.298896",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Missing: Thread Safety] The URL struct has no mutex or synchronization primitives - if URLs are accessed concurrently in account management operations, can race conditions cause corruption of Scheme/Path fields during wallet operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5b143c40-ca1c-439a-bd5f-6bbacbaa6f8d?mode=deep",
+    "timestamp": "2026-01-10 20:52:03.342478",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Integration: Validator Accounts] If validator nodes use URL structs to identify their signing accounts, can URL parsing vulnerabilities allow an attacker to redirect a validator to use a different account for block signing, potentially enabling unauthorized block production or signature forgery? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0c88fb77-bb18-448f-9e6f-714bc72f15af?mode=deep",
+    "timestamp": "2026-01-10 20:53:13.243321",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Integration: Account Backend Selection] When the accounts package uses URL.Scheme to select between keystore, hardware wallet, or other backends, can scheme injection or case manipulation cause the wrong backend to be selected, potentially exposing encrypted keys through a less secure backend? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9483a874-f002-494d-9f96-0c115ce25583?mode=deep",
+    "timestamp": "2026-01-10 20:53:25.995833",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Integration: Configuration Files] If URLs are serialized to JSON configuration files that control validator settings or account access, can JSON injection in MarshalJSON enable attackers to modify adjacent configuration values or inject malicious settings? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b59719b1-922d-4eef-bad1-111fb58a6121?mode=deep",
+    "timestamp": "2026-01-10 20:53:39.492918",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Integration: RPC APIs] If URLs are exposed through RPC APIs for account enumeration or management, can URL manipulation enable unauthorized account discovery, enumeration attacks, or access to accounts belonging to other validators? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6e52f65f-dc6d-459e-9d54-2ad8457285f3?mode=deep",
+    "timestamp": "2026-01-10 20:53:53.179984",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Integration: File System Operations] If the Path field is used directly in file system operations (e.g., to locate keystore files), can path traversal attacks in parseURL enable reading arbitrary files, including validator private keys or node configuration? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_74afaaee-0953-4d61-9c8e-c58796afff94?mode=deep",
+    "timestamp": "2026-01-10 20:54:08.016762",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Integration: Logging Systems] URLs are likely logged extensively - can injection of special characters in Scheme or Path enable log injection attacks that hide malicious activity, forge audit entries, or exploit log parsing vulnerabilities in monitoring systems? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e3f45367-2140-4340-8c49-49b374b1d101?mode=deep",
+    "timestamp": "2026-01-10 20:54:23.758270",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Error: parseURL] The function returns a zero-value URL{} on error - can calling code fail to check the error and proceed with an empty URL, potentially accessing a default account or causing nil pointer dereferences in backend lookups? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_97f1504a-ca7c-491e-8682-1e2676fc3d08?mode=deep",
+    "timestamp": "2026-01-10 20:54:41.126628",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Error: UnmarshalJSON] If JSON unmarshaling fails silently in production, can this cause account configuration changes to be ignored, leaving validators operating with outdated or incorrect account references that affect consensus participation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0f555dc5-116b-4b0d-bd04-7ad903454f16?mode=deep",
+    "timestamp": "2026-01-10 20:54:58.718919",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Edge Case: Empty URL] Can an empty URL{} with both Scheme and Path as empty strings pass validation checks and be used in operations, causing unexpected behavior like accessing default accounts or causing nil pointer dereferences? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_00d0b8a2-20cc-4f4c-9045-7ea439a80969?mode=deep",
+    "timestamp": "2026-01-10 20:55:17.663565",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Edge Case: Extremely Long Path] If Path contains millions of characters, do operations like String() concatenation or TerminalString() slicing cause excessive memory allocation or CPU consumption that degrades node performance during high-load scenarios? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_19771846-d8bd-4219-a350-85b817a60413?mode=deep",
+    "timestamp": "2026-01-10 20:55:37.703064",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Go: String Slice Bounds] In TerminalString(), the slice operation url[:31] doesn't check if len(url) >= 31 before slicing - can this cause a panic if the logic is wrong and len(url) < 31, crashing the node when URLs are logged? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_abcf715e-8c91-4803-b984-a77199689e23?mode=deep",
+    "timestamp": "2026-01-10 20:55:58.346394",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Go: String Builder Efficiency] The String() method uses fmt.Sprintf which allocates new strings - in high-frequency operations like account lookups during block validation, can this cause excessive garbage collection pauses affecting consensus timing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b46d4735-7680-4d88-9e91-28e935c3c21b?mode=deep",
+    "timestamp": "2026-01-10 20:56:21.193275",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Go: Panic in JSON Operations] If json.Marshal or json.Unmarshal encounter unexpected data types or encoding issues, can they panic instead of returning errors, crashing validator nodes during account configuration updates? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d0ee7c57-f341-487f-89da-d8a724ea14ce?mode=deep",
+    "timestamp": "2026-01-10 20:56:44.619202",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Go: String Immutability Violation] Although Go strings are immutable, if URL fields are constructed through unsafe operations elsewhere in the codebase, can the underlying byte arrays be modified after URL creation, corrupting account references? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7e1d7b8a-5724-4bea-b846-3c1264203cbe?mode=deep",
+    "timestamp": "2026-01-10 20:57:09.079830",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [PoA: Validator Account Confusion] Can an attacker craft URLs that appear identical in truncated logs (via TerminalString) but point to different accounts, enabling them to trick administrators into configuring the wrong validator signing key during node setup? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2a59cb77-2446-4351-859b-15a475c62db4?mode=deep",
+    "timestamp": "2026-01-10 20:57:35.341150",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [PoA: Account Enumeration] Can URL comparison logic in Cmp() be exploited to enumerate all validator accounts on a node through timing attacks, revealing the complete validator set and enabling targeted attacks against specific validators? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2d18a060-728a-4091-b036-3d586c336053?mode=deep",
+    "timestamp": "2026-01-10 20:58:02.134367",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [PoA: Configuration Injection] If validator configuration files use serialized URLs, can JSON injection in MarshalJSON enable attackers to add unauthorized accounts to the validator's account list, potentially enabling them to use the validator's node for unauthorized signing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8e519936-bc5d-451f-adca-be006fbd8123?mode=deep",
+    "timestamp": "2026-01-10 20:58:30.167017",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Attack: URL Squatting] Can attackers register accounts with URLs that differ only in subtle ways (e.g., trailing spaces, Unicode lookalikes) from legitimate validator accounts, causing confusion and potential misdirection of transactions or signatures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_45db4029-8c45-46fa-8145-ed27a4b52f12?mode=deep",
+    "timestamp": "2026-01-10 20:58:59.002282",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Attack: Denial of Account Service] By repeatedly creating URLs with extremely long Scheme or Path values, can an attacker exhaust memory or cause performance degradation that prevents legitimate account operations during critical consensus periods? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_534f06e0-860d-4238-942b-7228b4784485?mode=deep",
+    "timestamp": "2026-01-10 20:59:30.171180",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Race: Concurrent JSON Operations] If multiple goroutines call MarshalJSON and UnmarshalJSON on the same URL object simultaneously, can race conditions cause corruption of the serialized output or deserialized input, affecting account configuration integrity? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d0be434b-a4c1-4f85-b5e4-89e1b50154c1?mode=deep",
+    "timestamp": "2026-01-10 21:00:01.661194",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Validation: Scheme Format] The code accepts any non-empty scheme - can attackers use this to register accounts with scheme names that match internal system commands or reserved keywords, causing conflicts or unexpected behavior in account backend routing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_939bf3d6-bad0-48b5-be87-bb1acc1978c3?mode=deep",
+    "timestamp": "2026-01-10 21:00:33.241600",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Memory: String Interning] Does Go's string interning mechanism mean that multiple URLs with identical Scheme or Path values share memory, and can this be exploited to cause unexpected mutations if string immutability assumptions are violated elsewhere? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bc67c8be-2577-4d14-95e0-1dca37245580?mode=deep",
+    "timestamp": "2026-01-10 21:01:05.652229",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: newHub()] [Platform check bypass] Can an attacker bypass the usb.Supported() check at line 112 to initialize a Hub on an unsupported platform, causing undefined behavior or panics when USB operations are attempted later? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7c46d545-d77a-4238-ae2e-9bc280527aa5?mode=deep",
+    "timestamp": "2026-01-10 21:01:39.317303",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: newHub()] [Resource leak] If refreshWallets() at line 124 panics or fails during initialization, is the quit channel properly cleaned up, or does it leak leading to goroutine resource exhaustion over multiple initialization attempts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1c2fe72c-6b5e-4f9b-9c89-b6052e25c4ce?mode=deep",
+    "timestamp": "2026-01-10 21:02:13.974223",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Struct: Hub] [Integer overflow] Can the enumFails counter (uint32 at line 68) overflow after 2^32 failed enumerations, wrapping back to 0 and bypassing the enumeration failure limit check at line 154, causing continued USB thrashing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8de5b6b3-d28a-43fb-a0e9-e140f698e7f4?mode=deep",
+    "timestamp": "2026-01-10 21:02:49.922412",
+    "report_generated": false
   }
 ]
