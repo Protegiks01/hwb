@@ -23236,5 +23236,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5960aceb-e6c4-49d2-8def-2d3ef85b7a0b?mode=deep",
     "timestamp": "2026-01-10 19:38:30.613819",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: addDialCost()] [Integer comparison error] Can the check at line 450-452 (totalDialCost < dialCost) incorrectly evaluate when totalDialCost wraps due to overflow, forcing totalDialCost to be set to dialCost and discarding actual cost history? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9aaec455-e52b-47ff-b49e-3cebaabe2eeb?mode=deep",
+    "timestamp": "2026-01-10 19:39:52.194333",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: setRedialWait()] [Arithmetic error] At line 542-545, can the formula a < b*nextTimeout suffer from floating point precision errors when totalValue and sessionValue are very small, incorrectly reducing nextTimeout and causing aggressive redialing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a79d3423-a9a2-45c8-8cfa-4d63d9456ef1?mode=deep",
+    "timestamp": "2026-01-10 19:40:04.858702",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: setRedialWait()] [Float to int conversion] Can the conversion from float64 nextTimeout to time.Duration at line 550 lose precision or overflow when nextTimeout is extremely large, causing incorrect wait times or even negative durations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4d3fe2e5-d8a3-4603-be1a-a7f86e8a0d4f?mode=deep",
+    "timestamp": "2026-01-10 19:40:18.543375",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: setRedialWait()] [Integer underflow] Can the calculation at line 532 (unixTime - n.redialWaitStart) underflow to a negative value if system time is adjusted backwards, causing actualWait to become negative and breaking the exponential backoff logic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4eedc3e5-76b8-4223-87fc-e37ef7a758d0?mode=deep",
+    "timestamp": "2026-01-10 19:40:32.254261",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: setRedialWait()] [Division by zero] Can sessionValue being zero at line 543-545 cause a division by zero panic when calculating nextTimeout = a / b if b (float64(totalDialCost) * sessionValue) equals zero? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7ae1991b-9664-4f35-8c2d-029d2cb475fb?mode=deep",
+    "timestamp": "2026-01-10 19:40:46.818911",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: setRedialWait()] [Integer overflow] Can the calculation at line 553 (unixTime + int64(nextTimeout)) overflow when nextTimeout is very large, causing redialWaitEnd to wrap to a negative value and the node to be immediately redialed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_07906fe0-a398-4fe3-bdf8-8d374228aac3?mode=deep",
+    "timestamp": "2026-01-10 19:41:02.386673",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: addDialCost()] [Integer overflow] Can the dialCost ExpiredValue accumulation lead to overflow in the internal representation when a node is dialed repeatedly over a very long period, causing totalDialCost to wrap around and corrupt weight calculations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_362c83f9-352c-4e5e-9c69-a601169aabeb?mode=deep",
+    "timestamp": "2026-01-10 19:41:19.945474",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: updateWeight()] [Integer overflow] Can the weight calculation at line 482 (uint64(totalValue * nodeWeightMul / float64(totalDialCost))) overflow when totalValue is extremely large, wrapping to a small value and causing valuable nodes to be incorrectly discarded from the hasValue set? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bd80ac8e-7e93-4270-9b23-167040a57838?mode=deep",
+    "timestamp": "2026-01-10 19:41:38.369817",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: Start()] [Race condition] Can the ForEach iteration at line 322-334 and concurrent RegisterNode() calls result in race conditions when both try to modify the same node's state, potentially causing state machine corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_877f7c05-5b54-4228-8ca2-b9016004d686?mode=deep",
+    "timestamp": "2026-01-10 19:41:57.451152",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Struct: ServerPool] [Race condition] Can concurrent access to s.queryFails via atomic operations and the mixer field without synchronization lead to inconsistent view of node selection state across goroutines? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8be4c912-c0d8-46d4-a0bd-07435d6dc7c4?mode=deep",
+    "timestamp": "2026-01-10 19:42:18.369730",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: recalTimeout()] [Race condition] Can the check at line 389 (time.Duration(now-refreshed) < timeoutRefresh) be subject to TOCTOU where two goroutines both pass the check but only one should recalculate, wasting CPU on redundant calculations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a5a9a4f3-9b16-446b-a872-00cfb56f8794?mode=deep",
+    "timestamp": "2026-01-10 19:42:40.194232",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: addPreNegFilter()] [Race condition] In the subscription callback at line 251-295, can a race occur where SetStateSub operations are called while another goroutine is reading node state, leading to inconsistent sfQuery, sfCanDial flag states? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_63479eb7-e064-48db-8ae8-22f9d79884fc?mode=deep",
+    "timestamp": "2026-01-10 19:43:03.243721",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: NewServerPool()] [Race condition] Can the subscription setup at line 176-182 miss state transitions if nodes transition states before the subscription is fully installed, leading to nodes stuck in sfWaitDialTimeout state indefinitely? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e24fb901-6a17-442c-a47a-53dbb96a51bf?mode=deep",
+    "timestamp": "2026-01-10 19:43:27.230894",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: Stop()] [Race condition] Can a race condition between Stop() calling fillSet.Close() and ongoing pre-negotiation queries in the goroutine at line 273 lead to operations on a closed FillSet causing panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c7ebec74-a7b6-4406-b48d-e49511cd731b?mode=deep",
+    "timestamp": "2026-01-10 19:43:51.023633",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: updateWeight()] [Race condition] Can multiple goroutines calling updateWeight() for the same node simultaneously result in race conditions when checking weight >= nodeWeightThreshold and setting/unsetting sfHasValue flag, leading to inconsistent node state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_12fd196d-a08b-45e0-9fd6-b491cfa647fc?mode=deep",
+    "timestamp": "2026-01-10 19:44:16.293435",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: serviceValue()] [Race condition] Can concurrent calls to serviceValue() and UnregisterNode() result in accessing a nil NodeValueTracker when GetNode() returns non-nil but Unregister() completes before RtStats() is called, causing a nil pointer dereference panic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_49e25a1f-f144-4581-8f59-dae318f20229?mode=deep",
+    "timestamp": "2026-01-10 19:44:43.495685",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: addDialCost()] [Race condition] Can a race condition in addDialCost() where n.dialCost.Add() and n.dialCost.Value() are called separately without synchronization lead to inconsistent totalDialCost values being returned when multiple goroutines update the same node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d6899b4a-aa24-42c9-8c30-3d209f9a5ce9?mode=deep",
+    "timestamp": "2026-01-10 19:45:12.603814",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: setRedialWait()] [Race condition] Can concurrent calls to setRedialWait() for the same node from different goroutines result in corrupted nodeHistory due to the ExpiredValue.Add() operation not being atomic, leading to incorrect dial cost calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8f00fd14-821d-4ade-9d1f-9fa14415a48e?mode=deep",
+    "timestamp": "2026-01-10 19:45:40.932169",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: RegisterNode()] [Race condition] Can a race condition occur between checking atomic.LoadUint32(&s.started) at line 356 and the ns.Operation() block at line 360-366, where Stop() is called in between, causing RegisterNode to operate on a stopped NodeStateMachine? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d13bfcd2-1fd9-443b-83c8-d88bd9c29df8?mode=deep",
+    "timestamp": "2026-01-10 19:46:07.733677",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: addPreNegFilter()] [Race condition] In the goroutine spawned at line 273-294, can a race condition occur between checking atomic.LoadUint32(&s.queryFails) and incrementing it with atomic.AddUint32, allowing multiple goroutines to all read the same fail count and skip queries incorrectly? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3be8f065-841a-42df-a550-0f20ebf933c7?mode=deep",
+    "timestamp": "2026-01-10 19:46:33.492929",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: Start()] [Race condition] Can concurrent calls to Start() from multiple goroutines cause the mixer.AddSource() to be called multiple times for the same sources, leading to duplicate node selection and potential DoS through connection exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7ad63adf-7821-4e15-872c-2bbbc1d8a292?mode=deep",
+    "timestamp": "2026-01-10 19:46:58.873748",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: getTimeoutAndWeight()] [Race condition] Can a race condition occur where recalTimeout() updates s.timeout and s.timeWeights between when getTimeoutAndWeight() reads them, resulting in mismatched timeout/weight pairs being returned that corrupt service value calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b43a6634-2346-43bf-9578-218ce4c0fd65?mode=deep",
+    "timestamp": "2026-01-10 19:47:25.806179",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: recalTimeout()] [Race condition] Can concurrent calls to recalTimeout() from multiple goroutines result in inconsistent timeout values being read by GetTimeout() due to the RWMutex lock being released between reading timeoutRefreshed and updating timeout, potentially causing stale timeout values to be used by clients? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0fdb2ba3-bb7c-48e6-a29c-696bcbd949a3?mode=deep",
+    "timestamp": "2026-01-10 19:47:53.440992",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: addDialCost()] [Integer comparison error] Can the check at line 450-452 (totalDialCost < dialCost) incorrectly evaluate when totalDialCost wraps due to overflow, forcing totalDialCost to be set to dialCost and discarding actual cost history? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_21d4e9d3-4160-42c6-b37f-aac05542fc8b?mode=deep",
+    "timestamp": "2026-01-10 19:48:18.080293",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/serverpool.go] [Function: setRedialWait()] [Arithmetic error] At line 542-545, can the formula a < b*nextTimeout suffer from floating point precision errors when totalValue and sessionValue are very small, incorrectly reducing nextTimeout and causing aggressive redialing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5651eb2d-9902-42c4-bc03-da65b837b664?mode=deep",
+    "timestamp": "2026-01-10 19:48:41.774172",
+    "report_generated": false
   }
 ]
