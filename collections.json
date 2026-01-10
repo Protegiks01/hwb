@@ -16498,5 +16498,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c24325fa-514c-493a-9645-06eed6e0571b?mode=deep",
     "timestamp": "2026-01-10 20:30:33.785093",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/sort.go] [Function: AccountsByURL.Less()] [Duplicate URLs] If multiple accounts have identical URLs (URL.Cmp() returns 0), can this cause the sort algorithm to behave unpredictably, potentially changing the relative order of accounts with equal URLs in a way that affects account selection? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0cfb8488-856a-4a51-a71d-a1e156214b4e?mode=deep",
+    "timestamp": "2026-01-10 20:31:58.951840",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/sort.go] [Function: WalletsByURL.Less()] [Nil comparison] If both wallets at positions i and j have nil or empty URLs, does Less() handle this gracefully, or can it cause panics or undefined behavior during comparison? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4f1e8bcc-ec9e-47e1-9abc-0d3e728da1e8?mode=deep",
+    "timestamp": "2026-01-10 20:32:11.813481",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/sort.go] [Function: AccountsByURL.Less()] [URL scheme bypass] If URL.Cmp() prioritizes Scheme over Path, can an attacker register accounts with schemes designed to always sort before legitimate schemes (e.g., '!' or '\\x00'), gaining unauthorized priority? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7d07a7df-4772-45ba-94c5-1077a69a3fb9?mode=deep",
+    "timestamp": "2026-01-10 20:32:25.089384",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/sort.go] [Function: WalletsByURL.Less()] [URL injection] Can an attacker inject special characters or escape sequences into URL.Path that cause strings.Compare() to behave unexpectedly, manipulating wallet sort order to prioritize malicious wallets? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f199deac-6084-490a-a9f5-bde256bd3ee7?mode=deep",
+    "timestamp": "2026-01-10 20:32:38.867643",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/sort.go] [Function: AccountsByURL.Less()] [Internationalization] If URL paths contain internationalized domain names or unicode characters, can different unicode normalization forms (NFC vs NFD) cause identical-looking URLs to sort differently, creating confusion in account selection? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b70931ce-4f6a-4275-857a-528c4f22ff47?mode=deep",
+    "timestamp": "2026-01-10 20:32:53.663794",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/sort.go] [Function: WalletsByURL.Less()] [Backend consistency] If wallets from different backends (hardware, software, remote) return URLs with different formatting or conventions, can this cause inconsistent sorting behavior that affects which wallet type is preferred for operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_80e6ed64-f7de-4574-96f0-81ac18dccb8e?mode=deep",
+    "timestamp": "2026-01-10 20:33:09.272744",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/sort.go] [Function: WalletsByURL.URL()] [Hardware wallet latency] If hardware wallet URL() calls involve USB communication delays, can sorting a large wallet list cause unacceptable latency in time-critical validator operations like block production deadlines? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_56e6e85a-84da-47e1-9951-0e5e9cb80b09?mode=deep",
+    "timestamp": "2026-01-10 20:33:25.601592",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/sort.go] [Function: AccountsByURL.Swap()] [Aliasing] If the underlying Account slice shares memory with another data structure (through unsafe operations elsewhere), can Swap() operations modify unintended memory locations, corrupting other blockchain state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_09285073-8a5d-42b4-a6a5-01d7d398ba56?mode=deep",
+    "timestamp": "2026-01-10 20:33:44.782329",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/sort.go] [Function: WalletsByURL.Swap()] [Shallow copy] If Wallet interfaces contain pointers to mutable state, does swapping the interfaces create shared ownership issues where modifying one wallet affects the other at its swapped position? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_23458b8c-be79-4170-9998-b76ad21d3112?mode=deep",
+    "timestamp": "2026-01-10 20:34:04.800576",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Function: parseURL()] [Input Validation] Can an attacker provide a URL string with multiple '://' delimiters (e.g., 'scheme://path://extra') that causes the function to only validate the first occurrence while leaving malformed data in the Path field, potentially leading to backend confusion or injection attacks when the URL is used to identify wallet backends? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_89986c63-7ba8-4920-9211-039f83ee16fb?mode=deep",
+    "timestamp": "2026-01-10 20:34:25.964045",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Function: parseURL()] [DoS Attack] Can an attacker supply an extremely long URL string (e.g., gigabytes of data) that causes excessive memory allocation during strings.Split() operation, leading to memory exhaustion and node crash affecting validator operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e845fd2d-ae6d-4c7d-a189-9ef5a1bdf9b6?mode=deep",
+    "timestamp": "2026-01-10 20:34:48.531949",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Function: parseURL()] [Protocol Injection] Does the function properly validate the Scheme field for malicious characters or command injection sequences, or can an attacker craft a scheme like 'file://' or 'javascript://' that could be exploited when the URL is processed by backend handlers, potentially allowing unauthorized file access or code execution? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cc15ef5c-b3e0-4be9-b7a9-a736b74880cb?mode=deep",
+    "timestamp": "2026-01-10 20:35:12.438041",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Function: parseURL()] [Path Traversal] Can an attacker inject path traversal sequences (e.g., '../../') in the Path component that are not validated or sanitized, potentially allowing access to unauthorized wallet files or account data when the URL is resolved by the backend? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0c576591-d419-4764-909f-eb6e4330cff8?mode=deep",
+    "timestamp": "2026-01-10 20:35:37.601568",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Function: parseURL()] [Empty Validation Bypass] The function only checks if parts[0] == '' but not parts[1] - can an attacker provide a URL like 'validscheme://' (empty path) that passes validation but causes unexpected behavior in backend handlers expecting non-empty paths, potentially leading to null pointer dereferences or default account access? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_515da706-b04e-44e4-9b48-39981b22a983?mode=deep",
+    "timestamp": "2026-01-10 20:36:03.405774",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Function: parseURL()] [Unicode Normalization Attack] Does the function handle Unicode characters properly, or can an attacker exploit Unicode normalization differences (e.g., using homoglyphs or combining characters) to create URLs that appear identical but resolve to different backends, enabling account confusion attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9b7a3dc2-b164-4a0f-bbd3-fbc2c52f61a9?mode=deep",
+    "timestamp": "2026-01-10 20:36:30.556096",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Function: parseURL()] [Null Byte Injection] Can an attacker inject null bytes (%00) into the URL string that truncate strings in subsequent processing, potentially bypassing security checks or accessing restricted account backends? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f92a574a-b908-490d-b817-170acb0258a3?mode=deep",
+    "timestamp": "2026-01-10 20:36:58.787073",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Function: parseURL()] [Case Sensitivity] Are scheme comparisons case-sensitive throughout the codebase, or can an attacker use mixed-case schemes (e.g., 'KeyStore://' vs 'keystore://') to bypass backend type checks or access control mechanisms? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0728f288-a5aa-4973-a40f-5d08fa380cce?mode=deep",
+    "timestamp": "2026-01-10 20:37:27.902801",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Function: parseURL()] [Whitespace Handling] Does the function trim or validate whitespace in scheme and path components, or can an attacker inject leading/trailing whitespace that causes string comparison failures in backend lookups, potentially leading to wallet access denial or wrong backend selection? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c726efdc-40e9-461a-88a6-3364f6e1b386?mode=deep",
+    "timestamp": "2026-01-10 20:37:56.373632",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Function: parseURL()] [Special Character Injection] Can special characters (e.g., newlines, carriage returns, tabs) in the URL string cause parsing inconsistencies or injection vulnerabilities when the URL is later used in logging, file operations, or command execution contexts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1e4b3dc5-cfc2-420b-aeed-11939fac814d?mode=deep",
+    "timestamp": "2026-01-10 20:38:24.859923",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Struct: URL] [Concurrent Access] Is the URL struct accessed concurrently by multiple goroutines without synchronization, and can race conditions during simultaneous read/write operations corrupt the Scheme or Path fields, leading to accounts being accessed with wrong credentials or backends? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ce8681cb-03b2-4fcb-9e87-f3fbbb6a26e6?mode=deep",
+    "timestamp": "2026-01-10 20:38:54.293880",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Struct: URL] [Value Copy Safety] The documentation states URL contains 'value-copyable components only' - but if URLs are copied while being modified in another goroutine, can this lead to partially-copied URL objects with mismatched Scheme/Path combinations pointing to wrong accounts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_992aa33c-31b5-4e75-b8fc-f3ad8d192a4d?mode=deep",
+    "timestamp": "2026-01-10 20:39:23.926773",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Struct: URL] [Memory Aliasing] When URL structs are passed by value in functions, are there scenarios where the string fields (Scheme, Path) could share underlying memory with external data, allowing external modifications to affect URL integrity? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1fb39100-1b17-4a0a-b2a3-b9eac22838ac?mode=deep",
+    "timestamp": "2026-01-10 20:39:54.039404",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Function: String()] [Injection in Formatted Output] The String() method uses fmt.Sprintf without any escaping - can malicious data in Scheme or Path fields inject format string vulnerabilities or special characters that break logging, storage, or display systems consuming this output? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_af11aac4-1de7-43da-85ed-8fe6af342633?mode=deep",
+    "timestamp": "2026-01-10 20:40:23.537036",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Function: String()] [Empty Scheme Handling] When Scheme is empty, the function returns only Path - can this cause confusion in systems expecting the '://' delimiter, potentially leading to misinterpretation of the path as a scheme+path combination in downstream parsing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bf66db0e-1b2b-4766-8bcb-a42d7ef877f2?mode=deep",
+    "timestamp": "2026-01-10 20:40:53.379546",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/url.go] [Function: String()] [Canonical Form Violation] Can an attacker create two different URL objects that have different Scheme/Path values but produce identical String() outputs through careful manipulation, breaking the 'one canonical form' design goal and enabling signature bypass or cache poisoning attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_22acb485-fc63-4c0e-9957-3d67f27909f9?mode=deep",
+    "timestamp": "2026-01-10 20:41:24.301060",
+    "report_generated": false
   }
 ]
