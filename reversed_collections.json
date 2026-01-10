@@ -25486,5 +25486,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2b1a0a00-9516-4a9a-bceb-94a30fc10b40?mode=deep",
     "timestamp": "2026-01-10 22:19:35.346090",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: wrsNode.setWeight()] [Integer Underflow] At line 152, when calculating diff = weight - oldWeight, if weight < oldWeight for a uint64, does this cause an integer underflow that wraps around to a very large positive number, corrupting sumCost and weights throughout the tree and potentially causing system-wide peer selection failure? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6caa4e30-844e-4769-ba20-a438402a302d?mode=deep",
+    "timestamp": "2026-01-10 22:21:02.239336",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: setWeight()] [Overflow Clamping] At line 65, when weight is clamped to math.MaxInt64 - w.root.sumCost, can an attacker exploit the fact that the clamped weight differs from the intended weight returned by wfn(), causing inconsistencies between the weight stored in the tree and the actual weight calculation in Choose(), potentially leading to unfair peer selection? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e84ad8f1-69b7-4aa9-bcaa-335f758abf4b?mode=deep",
+    "timestamp": "2026-01-10 22:21:15.139686",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: setWeight()] [Integer Overflow Recovery] When the overflow protection at lines 60-66 triggers recursion by calling setWeight(item, 0), can an attacker exploit this recursive call path to cause a stack overflow by alternating between high-weight additions and removals, leading to node crash and DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d9170e85-a61b-417c-af18-eb59cf03f549?mode=deep",
+    "timestamp": "2026-01-10 22:21:28.467997",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: setWeight()] [Integer Overflow] In the overflow check at line 60, can an attacker repeatedly add items with weights approaching math.MaxInt64 to eventually cause sumCost to overflow despite the check, potentially corrupting the tree structure and causing node selection bias in peer selection for light clients? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_04f733f1-5e6b-4858-9ea4-17b3c48155df?mode=deep",
+    "timestamp": "2026-01-10 22:21:43.243159",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: Add()] [Signaling] At line 216, l.cond.Signal() is called when first node is added, but is this signal lost if processLoop hasn't reached Wait() yet? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bfcf7b45-45d7-4c8b-a2fe-3dc2ee271d08?mode=deep",
+    "timestamp": "2026-01-10 22:21:58.727064",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: NewLimiter()] [Initialization] At line 139, processLoop() goroutine starts immediately - can this cause races if Add() is called before initialization completes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7a980a11-e23a-4418-9a22-2e854d6ce875?mode=deep",
+    "timestamp": "2026-01-10 22:22:14.829309",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: NewLimiter()] [Initialization] The Limiter struct is created with empty maxValue and maxCost - can first requests cause division by zero in selectionWeights()? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8096d865-b5e0-4c1c-a760-de077a4622d9?mode=deep",
+    "timestamp": "2026-01-10 22:22:32.578957",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: NewLimiter()] [Initialization] At lines 130-140, if sumCostLimit is 0, can this break the limit enforcement logic at line 225? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9b4020d8-9076-4293-ac53-f6ed231ec64a?mode=deep",
+    "timestamp": "2026-01-10 22:22:51.928110",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: addressGroup.update()] [Logic] At line 97, groupWeight = sumFlatWeight / len(ag.nodes) uses current length, but should it check if len is 0 first? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_95cd2cc2-d780-47d4-8198-996530278b6c?mode=deep",
+    "timestamp": "2026-01-10 22:23:12.880736",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: addressGroup.add()] [Logic] At line 84, groupWeight = sumFlatWeight / (l+1) - should this be (l+1) or l since l is the old length? Is there an off-by-one error? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c0d217d4-92d4-48bf-a733-22b2c6c227a0?mode=deep",
+    "timestamp": "2026-01-10 22:23:34.568780",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: dropRequests()] [Logic] At lines 388-401, the function drops requests from lowest priority first, but continues until sumCost <= sumCostLimit/2 - can this drop more than necessary? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b06bb7e9-c352-4798-ae0d-569ced94e5d0?mode=deep",
+    "timestamp": "2026-01-10 22:23:57.629372",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: choose()] [Logic] At lines 282-290, alternating between address and value selection - can attackers predict this pattern and time requests to exploit selection bias? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_59166c9c-edcb-4033-89ca-c4f47f7fcad3?mode=deep",
+    "timestamp": "2026-01-10 22:24:21.898045",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: selectionWeights()] [Logic] At lines 159-163, the weight function gives maximum weight to requests with relCost <= 0.001 - can this threshold be exploited by attackers using costs just below threshold? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f96c09dc-6ce5-4788-8eac-e4a9f9e6df95?mode=deep",
+    "timestamp": "2026-01-10 22:24:47.329822",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: flatWeight()] [Type assertion] At line 71, type assertion to *nodeQueue has no error handling - can incorrect interface type cause panic? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cf3f11a1-a700-4ed9-9aa6-1468b1626243?mode=deep",
+    "timestamp": "2026-01-10 22:25:12.595850",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: addressGroup.choose()] [Type assertion] At line 126, type assertion to *nodeQueue has no ok check - can this panic if nodeSelect returns wrong type? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ec8c3893-5605-400c-a37d-c3177fd0d9ba?mode=deep",
+    "timestamp": "2026-01-10 22:25:38.364394",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: choose()] [Type assertion] At line 288, type assertion to *nodeQueue uses underscore to ignore ok, so if assertion fails, nq is nil - is nil return properly handled? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f139645b-5c0c-49b8-aa1c-9b778a26d5a1?mode=deep",
+    "timestamp": "2026-01-10 22:26:01.507348",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: choose()] [Type assertion] At line 283, type assertion to *addressGroup with ok check is safe, but at line 285 calling ag.choose() without nil check - can ag be nil? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e4ab58fd-b111-4852-8661-a667788b5adc?mode=deep",
+    "timestamp": "2026-01-10 22:26:23.937072",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: Add()] [Memory safety] At line 207, a new nodeQueue is allocated and added to maps - if subsequent operations fail, is this memory leaked? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4dc0a0bb-ae31-4d8d-a056-6378269237cd?mode=deep",
+    "timestamp": "2026-01-10 22:26:46.635251",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: processLoop()] [Memory safety] At line 314, nq.queue = nq.queue[1:] creates a slice referencing the old backing array - can this prevent GC of processed requests? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_385bc4ff-1c7a-4aae-be06-fb3b2a9217b6?mode=deep",
+    "timestamp": "2026-01-10 22:27:07.762548",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: addressGroup.remove()] [Memory safety] At line 114, ag.nodes is sliced to [:l], but is the removed element properly dereferenced to allow GC, or does it leak? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c1da8c2a-9030-4f4c-8fb0-200996fa887b?mode=deep",
+    "timestamp": "2026-01-10 22:27:30.688069",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: update()] [Concurrency] At lines 232-244, multiple selector updates happen, but can partial completion leave selectors in inconsistent states visible to other threads? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_97caf208-a45e-437f-888f-a77ff7a0df80?mode=deep",
+    "timestamp": "2026-01-10 22:27:54.324191",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: dropRequests()] [Concurrency] The function iterates l.nodes without preventing new nodes from being added - can this cause inconsistent iteration results? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9212d04c-b8a1-4e83-a7cd-5a4a3fae036e?mode=deep",
+    "timestamp": "2026-01-10 22:28:19.213219",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: processLoop()] [Concurrency] At line 309, l.cond.Wait() releases and reacquires lock, but can signal be lost if sent between quit check at line 299 and Wait()? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cfea3251-2158-45dc-9142-0dbe0dc1c41b?mode=deep",
+    "timestamp": "2026-01-10 22:28:45.815896",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: Add()] [Concurrency] When l.quit is checked at line 182 without holding the lock long enough, can another thread set quit=true causing race in queue initialization? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_62e6b656-3ebe-4457-b674-590b0bb35df5?mode=deep",
+    "timestamp": "2026-01-10 22:29:12.522158",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Impact: Consensus disruption] If LES server crashes due to limiter bugs prevent light clients from syncing, can this delay consensus finality or enable eclipse attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c6ae7c69-0e1a-4e4e-8a05-ab2b514c1348?mode=deep",
+    "timestamp": "2026-01-10 22:29:40.018775",
+    "report_generated": false
   }
 ]
