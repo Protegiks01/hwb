@@ -17536,5 +17536,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d2f8ce00-4c9a-435a-8b69-20f63813daa5?mode=deep",
     "timestamp": "2026-01-10 12:52:46.137297",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/service.go] [Function: Serve()] [Request length validation] The check at line 80 validates reqLen against vflux.MaxRequestLength (16), but could an attacker manipulate the length field in RLP encoding to bypass this check while still decoding to a larger slice? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4b0d8e16-a13b-45f8-a3ce-214ff1d84c66?mode=deep",
+    "timestamp": "2026-01-10 12:54:03.719550",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/service.go] [Function: ServeEncoded()] [Nil pointer dereference] After RLP decoding at line 106, are individual Request fields properly validated before being passed to Serve()? Could nil Service or Name strings cause panics in downstream processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2b08b097-c06f-4910-97a5-33c1f26f0a43?mode=deep",
+    "timestamp": "2026-01-10 12:54:16.675599",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/service.go] [Function: ServeEncoded()] [Integer overflow] If the RLP decoder at line 106 produces a Requests slice with length near MaxInt, could subsequent operations cause integer overflow when calculating costs or delays? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_736b1c17-aacc-49bd-a0ce-62615700965e?mode=deep",
+    "timestamp": "2026-01-10 12:54:29.817705",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/service.go] [Function: ServeEncoded()] [Memory exhaustion] Can an attacker craft an RLP-encoded request with extremely large nested structures that consume excessive memory during decoding at line 106, leading to OOM crashes and node DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_33a4148c-0fae-4255-9c58-a66f2d62aa78?mode=deep",
+    "timestamp": "2026-01-10 12:54:43.535324",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/service.go] [Function: ServeEncoded()] [Input validation bypass] Can an attacker send a malformed RLP-encoded request that causes rlp.DecodeBytes() at line 106 to panic, crashing the server node and causing network-wide DoS if exploited against multiple nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3a9acb7f-07a8-4e34-b614-3c4ae4ab0cad?mode=deep",
+    "timestamp": "2026-01-10 12:54:58.349291",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: SetLimits()] [Limit Decrease] At line 200, dec is true if limits decrease. Can setting both limits to 0 simultaneously cause all nodes to be deactivated at once creating service disruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7980ea04-3db9-4d8e-8547-779e871a3016?mode=deep",
+    "timestamp": "2026-01-10 12:55:14.172553",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: SetLimits()] [Zero Limits] At line 201, maxCount and maxCap can be set to 0. Can zero limits cause division by zero or allow no nodes to be active breaking the service? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cdd96d13-fe28-4761-b45c-7843f79ee6bc?mode=deep",
+    "timestamp": "2026-01-10 12:55:30.817940",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: requestCapacity()] [Bias Validation] At line 170-172, bias is clamped to activeBias minimum. Can extreme bias values cause time duration overflow or unexpected behavior? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a50c563f-bcc7-41c8-974d-e718b244b973?mode=deep",
+    "timestamp": "2026-01-10 12:55:51.229241",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: requestCapacity()] [Negative Capacity] At lines 164-169, capacity values are adjusted but there's no check for overflow when converting to uint64. Can negative values wrap to large positive values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_842f5cc5-ff15-4288-9a5a-4b5a85bfe878?mode=deep",
+    "timestamp": "2026-01-10 12:56:11.639462",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: newPriorityPool()] [Parameter Validation] Parameters minCap, activeBias, capacityStepDiv, fineStepDiv are passed without validation. Can zero or extreme values cause division by zero or other errors? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_75924e13-4ed5-41c6-a7ee-8bfd5396ee67?mode=deep",
+    "timestamp": "2026-01-10 12:56:33.513299",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: SubscribeState()] [State Transition Edge Cases] At lines 142-144, newState.IsEmpty() determines if node should be disconnected. Can rapid state transitions cause connectNode/disconnectNode to be called out of order? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e713ba13-60fe-46a6-80a0-1d66c1d282c9?mode=deep",
+    "timestamp": "2026-01-10 12:56:55.385935",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: SubscribeState()] [Empty Flag Check] At line 139, oldState.IsEmpty() is checked. Can the empty state check be false negative due to uninitialized flag values? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3d08d28f-c7f3-4ca7-b58d-d1390f9019c6?mode=deep",
+    "timestamp": "2026-01-10 12:57:19.523549",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: newPriorityPool()] [Setup Field Access] At lines 104, 106, 108-111, setup fields are accessed. Are these fields guaranteed to be initialized, or can nil setup cause panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a5f06ace-212d-4d57-9d7a-115c7be45305?mode=deep",
+    "timestamp": "2026-01-10 12:57:44.518065",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: updateFlags()] [Capacity Field Nil] At line 494, capacityField is set to nil when newCap is 0. Can subsequent code that expects a non-nil capacity value panic or misbehave? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ffce29e7-7941-4238-b7a3-7f4438548343?mode=deep",
+    "timestamp": "2026-01-10 12:58:11.198582",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: updateFlags()] [Flag Ordering] At lines 489-497, flags are set in a specific order (active before clearing inactive, etc.). Can incorrect ordering cause nodes to have both flags set or neither flag set temporarily? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5392399a-1847-42ed-82bc-82ad3b5967a5?mode=deep",
+    "timestamp": "2026-01-10 12:58:38.422256",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: SetStateSub()] [Flag Race] At lines 127, 129, 490, 493, state flags are set. Can concurrent flag setting operations race causing flags to be in inconsistent states? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8f336550-35ee-415a-8cbb-af958d27c6c2?mode=deep",
+    "timestamp": "2026-01-10 12:59:07.301818",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: SetFieldSub()] [Field Overwrite] At line 126, queueField is set for a new node. If the field was already set for a previous instance, can this overwrite existing data causing corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e21470f2-e2d9-4c13-a218-f261750cd853?mode=deep",
+    "timestamp": "2026-01-10 12:59:35.439480",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: SubscribeState()] [Type Assertion] At line 138, GetField with type assertion can fail. Is the failure silently ignored, or should it be an error? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0ffdca6f-fafd-41b0-a3ac-ee6cd8259b93?mode=deep",
+    "timestamp": "2026-01-10 13:00:05.359539",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: SubscribeField()] [Type Assertion Panic] At line 130, GetField result is type-asserted to *ppNodeInfo without checking. Can type assertion failure cause panic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_912f8e4c-8db5-4577-b59a-fb7d3ed294a4?mode=deep",
+    "timestamp": "2026-01-10 13:00:34.240584",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: SubscribeField()] [Type Assertion Panic] At line 122, newValue is type-asserted to nodePriority without checking. Can an incorrect type cause a panic crashing the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ce518931-dbe5-4718-b024-bd717e29a1c1?mode=deep",
+    "timestamp": "2026-01-10 13:00:59.670757",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: LazyQueue Refresh] At line 32, lazyQueueRefresh is set to 10 seconds. Can frequent Refresh() calls at lines 162, 198, 307, 324, 526 cause excessive CPU usage recalculating priorities? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3d4a32c3-1dda-410c-a178-123be1b6dfa7?mode=deep",
+    "timestamp": "2026-01-10 13:01:24.933678",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: SubscribeField()] [Callback Leak] At line 118, a callback is subscribed but never unsubscribed. Can this cause memory leaks if priorityPool instances are created and destroyed repeatedly? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2cf09a75-3c4a-4e53-9201-0fe38f627d6c?mode=deep",
+    "timestamp": "2026-01-10 13:01:50.026809",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: tryActivate()] [Activation Loop] At line 503, the loop tries to activate all inactive nodes. If inactiveQueue has thousands of nodes, can this cause performance degradation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b1cab77d-97b3-4ec1-976f-35284a3f39e0?mode=deep",
+    "timestamp": "2026-01-10 13:02:14.659652",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: MultiPop] [Excessive Popping] At line 423, MultiPop can pop many nodes. If the callback is expensive and many nodes need deactivation, can this cause extended lock hold times creating DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_80ccafa1-97e5-4483-a5e1-07e5ca91fd0c?mode=deep",
+    "timestamp": "2026-01-10 13:02:40.657834",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: activeMaxPriority()] [CPU Exhaustion] At line 281-285, future time is calculated and passed to estimatePriority. Can expensive priority estimation functions cause CPU exhaustion when called frequently? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8b11c49e-193b-407c-b549-adf33ab15e96?mode=deep",
+    "timestamp": "2026-01-10 13:03:05.813507",
+    "report_generated": false
   }
 ]
