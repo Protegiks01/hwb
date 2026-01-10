@@ -14842,5 +14842,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2a8dba22-4596-4a9b-b18a-8e779b294248?mode=deep",
     "timestamp": "2026-01-10 09:24:13.548175",
     "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: BlockRequest] [Uncle hash mismatch] If the uncles in Rlp don't hash to Header.UncleHash, can this cause consensus failures when the block is validated? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_80a9fc67-ffc0-4f76-b649-c56cbebf31a1?mode=deep",
+    "timestamp": "2026-01-10 09:25:31.727872",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Cryptographic assumptions] [Hash function weaknesses] If Keccak256 is found to have preimage or collision vulnerabilities, what ODR components would be affected and how? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3c5f24e6-4c3c-4ceb-82e0-fb9580b7266f?mode=deep",
+    "timestamp": "2026-01-10 09:25:44.650977",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: CodeRequest] [Hash preimage validation] Is req.Data validated to actually hash to req.Hash using the correct hash function (Keccak256), or can hash collisions be exploited? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cd269cda-10b0-4356-bff2-d7893a79af84?mode=deep",
+    "timestamp": "2026-01-10 09:25:58.466145",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: TrieRequest.Proof] [Merkle proof validation] Does the Proof NodeSet undergo complete Merkle proof verification before storage, including validating all intermediate hashes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_60d27835-f163-4c6b-ad9f-56e7f83ad8a8?mode=deep",
+    "timestamp": "2026-01-10 09:26:12.157782",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [All hash fields] [Hash length validation] Are common.Hash fields validated to be exactly 32 bytes, or can truncated or extended hashes cause issues in Merkle proof verification? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_14d8b187-3fdd-4fe2-840c-22988255fc7f?mode=deep",
+    "timestamp": "2026-01-10 09:26:26.728428",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: ChtRequest] [Block number arithmetic] When deriving CHT section from BlockNum, can integer division/modulo operations produce unexpected results with edge case values? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_62a5f3c1-31bc-49b0-bfad-6357c5f9c2e5?mode=deep",
+    "timestamp": "2026-01-10 09:26:42.601917",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: BloomRequest] [Section calculation overflow] In StoreResult(), the calculation (sectionIdx+1)*req.Config.BloomTrieSize-1 could overflow if values are large - is this checked? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_882f9fe7-cb44-4f27-a3bf-3c187c5aa4c1?mode=deep",
+    "timestamp": "2026-01-10 09:26:59.907998",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: TrieID.BlockNumber] [Overflow in calculations] When BlockNumber is used in arithmetic operations (like comparing blocks or calculating CHT positions), can overflow cause incorrect results? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2dec9e46-62b3-4b48-8a61-290b38c9df50?mode=deep",
+    "timestamp": "2026-01-10 09:27:18.303214",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Slice operations] [Bounds checking] When accessing slices like BloomRequest.BloomBits[i] or TxStatusRequest.Status[i], is proper bounds checking performed to prevent panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cd64680a-d836-483e-87ca-ce735dee7fce?mode=deep",
+    "timestamp": "2026-01-10 09:27:38.928389",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Large data fields] [Memory exhaustion] For fields like CodeRequest.Data, BlockRequest.Rlp, BloomRequest.BloomBits, are maximum sizes enforced to prevent memory exhaustion attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_da40379d-ab43-40a1-baa8-f3c5cc5ad056?mode=deep",
+    "timestamp": "2026-01-10 09:28:01.003892",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [All request types] [Unbounded growth] Are there limits on how many concurrent ODR requests can be active, or can memory grow unbounded if requests arrive faster than they're processed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2392b57c-922f-4d50-acc2-48963197212d?mode=deep",
+    "timestamp": "2026-01-10 09:28:24.801782",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: TrieID.AccKey] [Slice aliasing] Since AccKey is assigned from addrHash[:] in StorageTrieID, if the caller modifies the original addrHash array, does this corrupt all TrieIDs that reference it? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0d7f4093-5a8a-49c4-9b21-59dc4cd68f25?mode=deep",
+    "timestamp": "2026-01-10 09:28:48.135345",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Request lifecycle] [Use-after-free] After StoreResult() completes, if the request struct is reused or its fields are accessed, can this cause issues if the underlying data was freed or modified? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5dbacf24-4d99-4ca8-9e7a-d7a760ca70f4?mode=deep",
+    "timestamp": "2026-01-10 09:29:13.811355",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [State management] [Read-modify-write races] When ODR requests read existing database state, modify it, and write it back, are these operations atomic, or can concurrent requests cause lost updates? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3dff1409-8d4a-4469-ae96-064f40ac899e?mode=deep",
+    "timestamp": "2026-01-10 09:29:41.129388",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [All StoreResult methods] [Concurrent database writes] If multiple goroutines call StoreResult() concurrently for overlapping data (same keys), are writes properly serialized by the underlying database, or can partial writes occur? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_31fef067-0535-4351-8a0d-32ce86af1b58?mode=deep",
+    "timestamp": "2026-01-10 09:30:07.832894",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [All request types] [Concurrent field access] If request struct fields (like TrieRequest.Proof or CodeRequest.Data) are modified by the ODR backend while another goroutine reads them, can data races corrupt the data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_397e1fe6-4c3a-4eb0-b7b2-bba5c2164167?mode=deep",
+    "timestamp": "2026-01-10 09:30:33.955982",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Error propagation] [Silent failures] Since StoreResult() methods don't return errors, how are database write failures detected and handled to prevent silent state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_54a7aca7-41cf-412c-b537-1e081f402c45?mode=deep",
+    "timestamp": "2026-01-10 09:31:01.655608",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Context handling] [Timeout attacks] If no timeouts are set on contexts passed to Retrieve(), can malicious peers cause requests to hang indefinitely? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b55c1807-1e23-4ba1-bcfd-54d00521ec4f?mode=deep",
+    "timestamp": "2026-01-10 09:31:30.220737",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Var: ErrNoPeers] [DoS handling] When ErrNoPeers is returned, does the caller implement proper backoff and retry logic, or can repeated immediate retries cause resource exhaustion? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ab47c98d-5d4c-40ed-bb26-546684f169e5?mode=deep",
+    "timestamp": "2026-01-10 09:31:57.488052",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Var: NoOdr] [Misuse detection] If NoOdr context is used when actual ODR service is required, is there detection and proper error reporting, or can this cause silent failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d13754e5-26b1-45a2-9cdd-798bbd2d1a11?mode=deep",
+    "timestamp": "2026-01-10 09:32:23.964316",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Interface: OdrRequest] [Missing validation interface] Should OdrRequest include a Validate() method that's called before StoreResult(), or is validation assumed to happen elsewhere where it might be bypassed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3a9558cf-664d-4925-9256-ba6a88472e04?mode=deep",
+    "timestamp": "2026-01-10 09:32:50.150238",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Interface: OdrRequest.StoreResult()] [Database injection] Since StoreResult() receives a database handle directly, can malicious implementations write arbitrary data to arbitrary database keys? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4e89d2b7-095b-4927-a65c-765e2a38af97?mode=deep",
+    "timestamp": "2026-01-10 09:33:17.181580",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Interface: OdrRequest] [Type confusion] Can an attacker implement a malicious type that satisfies the OdrRequest interface and inject it into the ODR system to bypass validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b2381f05-353a-429f-b186-4c6e63be4ee9?mode=deep",
+    "timestamp": "2026-01-10 09:33:44.578561",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Multiple request types] [Request amplification] Can an attacker cause a single malicious request to trigger cascading additional ODR requests, amplifying the DoS impact? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1908450d-aeb2-4e52-9813-3ab7573ee3f1?mode=deep",
+    "timestamp": "2026-01-10 09:34:14.169639",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [All request types] [Context cancellation] If the context passed to Retrieve() is cancelled mid-request, is cleanup properly performed, or can partially processed requests corrupt state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_92b100f2-0321-4afb-9fe8-e96a36b4d0e0?mode=deep",
+    "timestamp": "2026-01-10 09:34:43.774337",
+    "report_generated": false
   }
 ]
