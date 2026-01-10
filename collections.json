@@ -10648,5 +10648,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8795b909-b669-4b9c-9cec-37c7f12804dd?mode=deep",
     "timestamp": "2026-01-10 13:33:21.463661",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Lock()] [Race condition] In Lock() at lines 322-331, the mutex is unlocked before calling expire(), allowing another goroutine to re-unlock the same address between the unlock and expire call, potentially causing the wrong unlocked key to be expired or double-free of memory? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ead234d1-8631-4c78-9f1d-50aa550e86de?mode=deep",
+    "timestamp": "2026-01-10 13:34:37.807072",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: expire()] [Race condition] In expire() at lines 387-405, the pointer equality check at line 399 (ks.unlocked[addr] == u) is performed after acquiring the mutex, but can a TOCTOU race allow another TimedUnlock to change the pointer between the check and the delete, causing valid keys to be erroneously zeroed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b00a51a4-d920-4f91-80c1-0687a8a2fd6e?mode=deep",
+    "timestamp": "2026-01-10 13:34:50.725738",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: refreshWallets()] [Race condition] In refreshWallets() at lines 138-181, the mutex is held during wallet event generation but released before sending events at line 179, can concurrent refreshWallets() calls cause wallet events to be sent in incorrect order or duplicate wallet arrival/removal events? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_76b9ad03-6a51-450e-86e6-0c1a5e5727bf?mode=deep",
+    "timestamp": "2026-01-10 13:35:04.142983",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: SignHash()] [Race condition] In SignHash() at lines 263-274, the RLock is held while reading from ks.unlocked map, but can the key be removed by expire() in another goroutine after the found check but before the crypto.Sign() call, causing a nil pointer dereference or use-after-free? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2465f7b4-de6f-4cd8-a697-abe18f7eb867?mode=deep",
+    "timestamp": "2026-01-10 13:35:17.808609",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: SignTx()] [Race condition] In SignTx() at lines 277-289, similar to SignHash(), can the unlocked key be expired between the map lookup and the SignTx() call, potentially causing transaction signing to use freed/zeroed private key data leading to invalid signatures or crash? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f35886c3-7b7e-454c-9e8e-84006560987d?mode=deep",
+    "timestamp": "2026-01-10 13:35:32.554676",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: updater()] [Goroutine leak] In updater() at lines 206-225, if the updateScope.Count() check at line 218 races with new Subscribe() calls, can the updater goroutine exit prematurely while subscribers still exist, causing wallet updates to stop being processed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b2fa06be-3b30-461d-9155-016c7fc37688?mode=deep",
+    "timestamp": "2026-01-10 13:35:48.561173",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Subscribe()] [Race condition] In Subscribe() at lines 185-199, the mutex protects the updating flag check and updater goroutine launch, but can multiple concurrent Subscribe() calls race to start multiple updater() goroutines if the updating flag update is not atomic with the goroutine launch? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4f8aedef-029d-48ca-8f01-e7b20a0e25ef?mode=deep",
+    "timestamp": "2026-01-10 13:36:05.897502",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: TimedUnlock()] [Race condition] At lines 356-357, when an abort channel is closed to terminate an old expire goroutine, can a race between close(u.abort) and the select in expire() cause a double-close panic if multiple TimedUnlock calls occur simultaneously? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c8694f28-6ec9-4d22-a4d6-441132849c98?mode=deep",
+    "timestamp": "2026-01-10 13:36:24.292100",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Delete()] [Race condition] In Delete() at lines 239-259, the key is zeroed at line 245 before checking the error, but can concurrent SignHash/SignTx operations using the same key cause use-after-zero if they read the key after zeroing but before cache.delete()? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0732b1c1-a148-4e03-8df1-99400e68030e?mode=deep",
+    "timestamp": "2026-01-10 13:36:44.371772",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: zeroKey()] [Memory sanitization] In zeroKey() at lines 510-515, only the big.Int bits are zeroed, but does this properly sanitize all copies of the private key from memory including potential copies in freed heap memory, CPU caches, or swap space, allowing key recovery through memory dumping? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a6ee6036-e69d-482d-b809-a1143270dbaf?mode=deep",
+    "timestamp": "2026-01-10 13:37:05.283704",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: SignHashWithPassphrase()] [Key exposure] In SignHashWithPassphrase() at lines 294-301, the private key is decrypted and used, with defer zeroKey() for cleanup, but if crypto.Sign() panics before the defer executes, does the private key remain in memory unzeroed, potentially leaking through crash dumps? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d54fb409-f554-49e9-b06c-937d4a512b28?mode=deep",
+    "timestamp": "2026-01-10 13:37:26.973229",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: SignTxWithPassphrase()] [Key exposure] In SignTxWithPassphrase() at lines 305-314, similar to SignHashWithPassphrase(), if types.SignTx() panics or the function is interrupted, can the decrypted private key persist in memory without being zeroed, exposing it to memory scanning attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_aa62734d-0a85-41d9-b676-37ec0a13faaa?mode=deep",
+    "timestamp": "2026-01-10 13:37:49.491383",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: TimedUnlock()] [Key exposure] In TimedUnlock() at lines 340-367, if timeout is 0 (indefinite unlock), the unlocked struct at line 363 has abort=nil, meaning the key stays in memory indefinitely until program exit - can this be exploited by an attacker who gains temporary access to trigger memory dumps of long-running validator nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fb6f069d-4a29-42aa-8326-5c0cd467f65a?mode=deep",
+    "timestamp": "2026-01-10 13:38:13.127824",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Delete()] [Key exposure] In Delete() at line 245, zeroKey is called only if key != nil, but the getDecryptedKey() call at line 243 may have already placed the key in memory before the check - can error conditions leave decrypted keys in memory without zeroing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0ef6a8c5-0e32-408d-855c-bd113c617cfe?mode=deep",
+    "timestamp": "2026-01-10 13:38:35.531763",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Export()] [Key exposure] In Export() at lines 422-434, the key is decrypted but never explicitly zeroed after EncryptKey() completes - does the private key persist in memory until garbage collection, creating a window for memory dumping attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4fb3abe9-1f3b-4d2a-ba8b-d15a15de57be?mode=deep",
+    "timestamp": "2026-01-10 13:39:00.121265",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Import()] [Key exposure] In Import() at lines 437-454, the defer zeroKey at line 440 only executes if key.PrivateKey is not nil, but can DecryptKey() leave partial key material in memory even on error, and does the deferred zeroing handle all error paths correctly? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6a2e55c2-7f22-4dd7-a68e-0eb16ef4e2ef?mode=deep",
+    "timestamp": "2026-01-10 13:39:23.534135",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Update()] [Key exposure] In Update() at lines 481-487, the decrypted key from getDecryptedKey() at line 482 is never explicitly zeroed after StoreKey() completes - does this leave the old and new decrypted keys in memory, potentially exposing both passphrases through memory analysis? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_00c45001-740e-4bb8-a1ad-21362023a227?mode=deep",
+    "timestamp": "2026-01-10 13:39:48.476351",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: expire()] [Memory leak] In expire() at line 400, zeroKey() is called before deleting from the map, but can the unlocked struct itself (containing the Key pointer) remain in memory after map deletion, creating a reference that prevents garbage collection? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0a0fd6aa-4945-472d-8ee6-ff4301b8b1b0?mode=deep",
+    "timestamp": "2026-01-10 13:40:12.963880",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: getDecryptedKey()] [Key exposure] In getDecryptedKey() at lines 378-385, if ks.storage.GetKey() succeeds but returns a key, is there any guarantee the key is zeroed on all error paths in the calling function, or can failed Find() leave decrypted keys in memory? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a7cf1274-8b60-4b1a-9318-d0d5687af7ad?mode=deep",
+    "timestamp": "2026-01-10 13:40:37.791193",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: SignHash()] [Authorization bypass] In SignHash() at lines 263-274, the function only checks if the address exists in ks.unlocked map but doesn't verify the caller has authority to sign - can an attacker with RPC access call SignHash() on any unlocked account belonging to other users/validators? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_02fd8b67-8041-40a6-94f9-d0f4eddd1ae1?mode=deep",
+    "timestamp": "2026-01-10 13:41:01.569663",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: SignTx()] [Authorization bypass] In SignTx() at lines 277-289, similar to SignHash(), there's no caller authentication - can a malicious validator node operator or attacker with RPC access sign transactions for other unlocked validator accounts, enabling unauthorized block signing? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_280782b8-167c-42e6-9639-81585b779025?mode=deep",
+    "timestamp": "2026-01-10 13:41:24.841053",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Unlock()] [Authentication weakness] In Unlock() at line 317-319, calling TimedUnlock with timeout=0 unlocks indefinitely, but is there any rate limiting or brute force protection on passphrase attempts, allowing attackers to repeatedly attempt passphrases until successful? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5586aaf7-2c1f-4eef-b738-2b02e775d9d7?mode=deep",
+    "timestamp": "2026-01-10 13:41:48.429760",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: TimedUnlock()] [Authorization bypass] In TimedUnlock() at lines 340-367, if an account is already unlocked indefinitely (u.abort == nil at line 350), subsequent unlock attempts with shorter timeouts are ignored and return nil - can this be exploited to prevent legitimate lock operations by pre-unlocking with infinite timeout? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c381fa30-8cd5-420b-84ff-694592a2f37d?mode=deep",
+    "timestamp": "2026-01-10 13:42:13.185014",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Delete()] [Authorization weakness] In Delete() at lines 239-259, account deletion only requires the correct passphrase but no additional authentication - can an attacker who obtains a passphrase through social engineering delete critical validator keys causing network disruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5fb32c11-665f-412b-90df-31a3e0cd810e?mode=deep",
+    "timestamp": "2026-01-10 13:42:38.919665",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Lock()] [Authorization bypass] In Lock() at lines 322-331, any caller can lock any address without authentication - can an attacker repeatedly lock validator accounts forcing them to unlock repeatedly, creating a DoS condition on block production? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c43d7839-5ef2-4590-8b44-bfde5e8f656e?mode=deep",
+    "timestamp": "2026-01-10 13:43:03.129256",
+    "report_generated": false
   }
 ]
