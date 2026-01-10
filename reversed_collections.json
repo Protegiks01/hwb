@@ -13192,5 +13192,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bacad877-8e51-4690-a956-50e8bdce8ada?mode=deep",
     "timestamp": "2026-01-10 07:26:59.431857",
     "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: Error()] [Nil NodeIterator] If it.NodeIterator is nil, does calling Error() on it cause a panic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b8ce2429-014b-448c-80e4-60bfadfc2774?mode=deep",
+    "timestamp": "2026-01-10 07:28:19.534394",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: Error()] [Error precedence] Error() returns it.err first before checking NodeIterator.Error() - can this hide underlying iterator errors? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_564f2574-35c8-4ab6-b599-29d27c43acd6?mode=deep",
+    "timestamp": "2026-01-10 07:28:32.356982",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: nodeIterator.do()] [Error persistence] The it.err field is set but never cleared - can stale errors persist across multiple do() calls? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_149870d3-76d0-4a69-8795-6255c68d8617?mode=deep",
+    "timestamp": "2026-01-10 07:28:45.888912",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: nodeIterator.do()] [MissingNodeError type assertion] Can the type assertion to *trie.MissingNodeError fail in unexpected ways causing panics? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_196c0f35-a9c3-421c-a0a8-58dd746d7d65?mode=deep",
+    "timestamp": "2026-01-10 07:28:59.758638",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: nodeIterator.do()] [Context handling] Does nodeIterator.do() respect context cancellation during ODR retrievals, or can cancelled operations continue? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_47e8769e-918b-452d-b81e-9ea9deb7efdb?mode=deep",
+    "timestamp": "2026-01-10 07:29:14.677193",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: nodeIterator.do()] [Path to key conversion] Does nibblesToKey() correctly convert missing.Path, or can path manipulation cause retrieval of wrong trie nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5df352f0-b7ae-48e0-8a6d-ef71c3084e1a?mode=deep",
+    "timestamp": "2026-01-10 07:29:30.824084",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: nodeIterator.do()] [Missing node hash manipulation] Can an attacker manipulate missing.NodeHash to always be different from lasthash, preventing loop detection and causing DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cd97dee5-c688-422f-a559-29e4df085bba?mode=deep",
+    "timestamp": "2026-01-10 07:29:47.616010",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: nodeIterator.do()] [Infinite retrieve loop] Can the lasthash check at line 269-272 fail to detect retrieve loops if hashes are cyclically different, causing infinite retry loops? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_44b52fc9-6894-4659-a9ab-3cb8c564d6fb?mode=deep",
+    "timestamp": "2026-01-10 07:30:06.513156",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: Next()] [NodeIterator nil check] Does Next() check if NodeIterator is nil before calling Next() on it, preventing panic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f69519ea-66b4-4192-a254-21bcbdbc6365?mode=deep",
+    "timestamp": "2026-01-10 07:30:26.770708",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: Next()] [Error state persistence] If Next() encounters errors, does it properly prevent further iteration, or can iteration continue in error state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4af1671c-43e0-46eb-855a-6fd783be6e96?mode=deep",
+    "timestamp": "2026-01-10 07:30:48.845090",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: Next()] [Ok variable race] The ok variable is set in the do() callback - can race conditions cause incorrect return values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9256e0ea-8cc6-4155-be03-cc64a755824a?mode=deep",
+    "timestamp": "2026-01-10 07:31:11.484197",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: Next()] [Descend parameter manipulation] Can the descend boolean be manipulated to skip or repeat trie nodes, causing incomplete or incorrect state enumeration? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4407e8e2-2e20-4409-8ccd-78047b591964?mode=deep",
+    "timestamp": "2026-01-10 07:31:35.501353",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: newNodeIterator()] [TrieID construction duplication] The TrieID construction logic is duplicated between do() and newNodeIterator() - can inconsistencies cause bugs? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5530bad7-9c49-4a82-ba8c-f8ccd01f06f7?mode=deep",
+    "timestamp": "2026-01-10 07:32:00.166645",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: newNodeIterator()] [Startkey validation] Does newNodeIterator() validate the startkey parameter, or can malformed keys cause iterator crashes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_740d6f70-16d7-41d9-9a4e-0e31b9b30502?mode=deep",
+    "timestamp": "2026-01-10 07:32:25.782084",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: newNodeIterator()] [Trie initialization failure] If trie.New() fails in newNodeIterator(), does it properly propagate errors, or can iteration proceed with nil trie? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d7753ed0-ceeb-4871-b335-f8c5d2df052b?mode=deep",
+    "timestamp": "2026-01-10 07:32:53.103327",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: newNodeIterator()] [Error field race] The nodeIterator.err field is accessed without synchronization - can concurrent access cause race conditions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_aef24d38-aefe-482c-aa73-47afb941b49e?mode=deep",
+    "timestamp": "2026-01-10 07:33:21.693711",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: newNodeIterator()] [Double initialization] If newNodeIterator() is called when t.trie already exists, can double initialization cause resource leaks or state corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9ea7046c-79c5-4852-990c-3668f9bd41d1?mode=deep",
+    "timestamp": "2026-01-10 07:33:49.159009",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: do()] [StateRoot vs Root confusion] The code uses both StateRoot and Root from TrieID - can confusion between these cause wrong trie initialization? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e07e9e62-24eb-41c6-9d49-c7e90e249c24?mode=deep",
+    "timestamp": "2026-01-10 07:34:17.637399",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: do()] [Database reference] Does do() validate that t.db.backend.Database() returns a valid database before using it, or can nil database cause panics? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9a651200-4b67-403a-b7b7-8bdadec2e8aa?mode=deep",
+    "timestamp": "2026-01-10 07:34:46.575829",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: do()] [Retrieve failure handling] If backend.Retrieve() fails, does do() properly clean up partially initialized tries, or can failures leave corrupted state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5d662a12-e5ec-44d2-b233-79223b760fc8?mode=deep",
+    "timestamp": "2026-01-10 07:35:15.578253",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: do()] [TrieRequest manipulation] When creating TrieRequest with t.id and key, can malicious values in these fields cause the ODR backend to return wrong or malicious data? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8077b113-27c0-4177-b13c-8f33148c17c8?mode=deep",
+    "timestamp": "2026-01-10 07:35:44.374180",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: do()] [Error type confusion] If an error implements both MissingNodeError interface and another error type, can the type assertion at line 210 cause unexpected behavior? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_773fe9f3-0d54-4586-8e03-d6cee6435cb0?mode=deep",
+    "timestamp": "2026-01-10 07:36:11.867798",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: do()] [Context cancellation ignored] Does do() check if the context is cancelled during its retry loop, or can cancelled operations continue indefinitely? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0a0be8d1-4957-4c47-9277-ce1798421ac3?mode=deep",
+    "timestamp": "2026-01-10 07:36:38.228327",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: do()] [MissingNodeError exploitation] Can an attacker cause specific nodes to be",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6ca38d10-fdb3-41f9-8363-d2033c8c6659?mode=deep",
+    "timestamp": "2026-01-10 07:37:05.486891",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: do()] [TrieID validation] Does do() validate that t.id contains valid StateRoot and AccKey values before constructing trie.ID, or can malicious values cause crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3ee2200d-bbe9-4d49-9acd-33b6531c4d45?mode=deep",
+    "timestamp": "2026-01-10 07:37:33.885473",
+    "report_generated": false
   }
 ]
