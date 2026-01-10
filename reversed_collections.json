@@ -14992,5 +14992,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_92b100f2-0321-4afb-9fe8-e96a36b4d0e0?mode=deep",
     "timestamp": "2026-01-10 09:34:43.774337",
     "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [All StoreResult methods] [Database error handling] None of the StoreResult() methods return errors - if database writes fail, how is this communicated, and can silent failures cause state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6c42f2ac-e336-4fad-b08a-b3bceb3ef6ea?mode=deep",
+    "timestamp": "2026-01-10 09:36:11.194684",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Multiple request types] [Partial failure handling] If some requests in a batch succeed and others fail, is the database state rolled back to prevent partial updates, or can inconsistent state remain? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1aa31f17-f8c4-4cae-8da6-a4f7e679ed1e?mode=deep",
+    "timestamp": "2026-01-10 09:36:24.318901",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Multiple request types] [Cache poisoning] If a malicious peer responds first with invalid data that gets cached, can this prevent the light client from ever getting correct data from honest peers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_02ccdd7f-1a1e-4686-9540-c3df88842e2b?mode=deep",
+    "timestamp": "2026-01-10 09:36:38.010517",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Multiple request types] [Request ordering] If requests are processed out of order (e.g., receipts before block body), can this cause references to non-existent data causing panics or errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_61465d54-13a0-4601-93aa-589d48e6fe1b?mode=deep",
+    "timestamp": "2026-01-10 09:36:52.035417",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Multiple request types] [Time-of-check-time-of-use] Between validating an ODR request and calling StoreResult(), can the underlying data be modified by another goroutine, causing inconsistent state to be stored? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3986f0ee-4dcb-40ea-af2a-c7dc8499e208?mode=deep",
+    "timestamp": "2026-01-10 09:37:07.646285",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Multiple request types] [Atomic consistency] When a light client retrieves multiple related pieces of data (e.g., block header, body, and receipts), is there validation that all pieces are consistent and from the same canonical chain view? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f9d7948a-9141-46fe-a403-94a0e65173d0?mode=deep",
+    "timestamp": "2026-01-10 09:37:23.780289",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: TxStatusRequest] [Concurrent status updates] If multiple goroutines update the Status slice concurrently for the same request, can race conditions cause corrupted status data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_644fd5bf-7d4b-4348-a053-47bb267f963c?mode=deep",
+    "timestamp": "2026-01-10 09:37:41.106383",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: TxStatusRequest] [Duplicate hash handling] If the Hashes slice contains duplicate transaction hashes, can this cause incorrect status reporting or resource waste? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d1485e1c-c910-41dd-ab35-6562243ffd5d?mode=deep",
+    "timestamp": "2026-01-10 09:38:00.676123",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: TxStatus.Lookup] [Nil lookup handling] If Lookup is nil (as indicated by rlp:'nil' tag), is this properly handled in code that accesses transaction lookup information? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1a7f0bef-ece1-449a-bef1-e78d0c8e5f78?mode=deep",
+    "timestamp": "2026-01-10 09:38:21.073001",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: TxStatusRequest] [Memory exhaustion] Can an attacker request status for huge numbers of transaction hashes, exhausting memory when the Status slice is allocated? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_23e8385e-335c-440d-bfb1-7e6a4300bf6c?mode=deep",
+    "timestamp": "2026-01-10 09:38:42.783901",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: TxStatus] [Status enum validation] Is the Status field validated to be one of the valid txpool.TxStatus values, or can out-of-range values cause issues in status checking logic? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_25f1dfd5-4fa1-43fe-ba99-96e37a7ff436?mode=deep",
+    "timestamp": "2026-01-10 09:39:06.202936",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: TxStatus] [Error field manipulation] Can the Error string field be manipulated to hide actual transaction failures or fabricate false errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5fbe8845-2479-4ad4-a453-7722b3ab9976?mode=deep",
+    "timestamp": "2026-01-10 09:39:30.673135",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: TxStatusRequest.StoreResult()] [Empty store implementation] The StoreResult() method is empty - does this mean transaction status is never cached locally, causing repeated requests that could be DoSed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9cdcdd8a-27b9-4700-a9cf-84699d21901d?mode=deep",
+    "timestamp": "2026-01-10 09:39:55.985565",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: TxStatusRequest] [Hash-status mismatch] If len(Hashes) != len(Status), can this cause out-of-bounds access or mismatched transaction-status associations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_105e0c6e-3b5c-4b5e-a28a-fa81b0a45ec3?mode=deep",
+    "timestamp": "2026-01-10 09:40:22.895029",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: TxStatusRequest] [Lookup entry forgery] Can the Lookup field (LegacyTxLookupEntry) be manipulated to point to wrong blocks or transaction indices, causing transaction retrieval to return wrong data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b8b7a494-a46b-43ed-a8ad-0819cbeca229?mode=deep",
+    "timestamp": "2026-01-10 09:40:50.557632",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: TxStatusRequest] [Status fabrication] Can a malicious peer provide false TxStatus values showing transactions as confirmed when they're actually pending or vice versa? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4c09b0b5-5dc8-4142-9899-e89ae6c840cc?mode=deep",
+    "timestamp": "2026-01-10 09:41:19.279662",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: BloomRequest.StoreResult()] [Nil bloom bits] If any entry in BloomBits slice is nil, can this cause nil pointer issues during WriteBloomBits? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c3c2e203-430b-439b-8160-6b0b40fa6eae?mode=deep",
+    "timestamp": "2026-01-10 09:41:47.717068",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: BloomRequest] [Concurrent bloom writes] If multiple BloomRequests write to the same BitIdx and section indices concurrently, can race conditions corrupt bloom filter data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5e5e943d-c895-4b38-85b3-53d58f5adfa5?mode=deep",
+    "timestamp": "2026-01-10 09:42:15.617602",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: BloomRequest.BloomTrieRoot] [Root manipulation] If BloomTrieRoot is fake, can the entire bloom filter data be falsified, breaking all log filtering for light clients? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_badb901f-e0e6-428b-9862-b60ab7c7bc77?mode=deep",
+    "timestamp": "2026-01-10 09:42:43.935801",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: BloomRequest] [Bloom trie number validation] Is BloomTrieNum validated to be consistent with the section indices being requested, or can mismatched trie references be used? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8b68a0c6-2639-47f9-832b-b03a34cf4795?mode=deep",
+    "timestamp": "2026-01-10 09:43:12.777112",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: BloomRequest.StoreResult()] [Canonical hash fallback] The comment mentions storing with zero sectionHead if canonical hash is unavailable - can this cause bloom bits to be stored in wrong locations and never retrieved? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_61fc8c05-bccf-4334-8e37-9ef015bdf1eb?mode=deep",
+    "timestamp": "2026-01-10 09:43:39.460659",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: BloomRequest] [Config bloom trie size] If Config.BloomTrieSize is zero or manipulated, can the section head calculation overflow or point to wrong blocks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2fe56451-9f38-4efe-980c-9d7ac8915b45?mode=deep",
+    "timestamp": "2026-01-10 09:44:05.899182",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: BloomRequest.StoreResult()] [Array length mismatch] If len(BloomBits) != len(SectionIndexList), can this cause out-of-bounds access when iterating and storing bloom bits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d257e722-9a63-4d8f-a2b1-40dc19f80449?mode=deep",
+    "timestamp": "2026-01-10 09:44:33.563986",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: BloomRequest] [BitIdx overflow] Can BitIdx exceed the valid range (0-2047 for Ethereum bloom filters), causing incorrect bloom filter indexing and false negatives in log searches? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dc3e3f5d-8924-45a9-8e07-e3dd97b492b4?mode=deep",
+    "timestamp": "2026-01-10 09:45:01.809159",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: BloomRequest.StoreResult()] [Section index validation] Is there validation that SectionIndexList entries are within valid ranges, or can out-of-bounds section indices cause database corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ead1e84d-3702-419a-ad43-4abfe0e47ad1?mode=deep",
+    "timestamp": "2026-01-10 09:45:29.515945",
+    "report_generated": false
   }
 ]
