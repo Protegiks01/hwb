@@ -25036,5 +25036,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_152acae6-ea8e-4129-8c28-3401fd63fc78?mode=deep",
     "timestamp": "2026-01-10 21:48:12.472773",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: Remove()] [Incomplete Removal] At line 50, Remove() calls setWeight(item, 0) which should remove the item - but if concurrent Choose() at line 98 obtains the item before setWeight completes, then calls wfn at line 99 which returns non-zero, can the item be re-added immediately, making removal ineffective? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_549b418f-98f3-476a-8c84-1ceb8bdf4177?mode=deep",
+    "timestamp": "2026-01-10 21:49:32.040378",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: wrsNode.setWeight()] [Partial Update] If wrsNode.setWeight() at line 162 recursively calls down the tree but panics or is interrupted mid-recursion, can parent nodes have updated weights while child nodes retain old weights, creating inconsistent tree state that biases selection? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_baaa1198-8382-4f30-ad3b-c35c247267fb?mode=deep",
+    "timestamp": "2026-01-10 21:49:44.933753",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: setWeight()] [Reentrant Modification] At line 45 and 99, wfn(item) is called which could theoretically call back into Update() or Remove() on the same WeightedRandomSelect - can this reentrancy cause deadlocks, infinite recursion, or state corruption since there's no reentrancy protection? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cc545ce5-0bff-4f81-9e60-e79e983f8c6f?mode=deep",
+    "timestamp": "2026-01-10 21:49:58.113845",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: setWeight()] [State Inconsistency] Between lines 70-73, if setWeight(idx, weight) succeeds but delete(w.idx, item) fails or is interrupted, can the tree and map fall out of sync, with idx map entries pointing to removed tree items or vice versa? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2d7e852a-c79e-472d-960f-44807548c9dc?mode=deep",
+    "timestamp": "2026-01-10 21:50:11.900930",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: wrsNode.setWeight()] [Signed Integer Confusion] At line 152, diff is uint64 but represents a signed difference - when weight < oldWeight, diff wraps to large positive value - at lines 163-164, adding this huge diff to uint64 values causes further overflow - can this cascading overflow propagate through the entire tree creating completely invalid weight distributions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_59f792db-f6c3-458c-b962-206381d2fadc?mode=deep",
+    "timestamp": "2026-01-10 21:50:26.529894",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: Choose()] [Int63 Conversion] At line 103, lastWeight (uint64) is cast to int64 - if lastWeight exceeds MaxInt64 due to corrupted tree state, can this cast produce negative values, causing panic in rand.Int63n()? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d1c3fe0a-643e-4aea-89e8-89008ae45050?mode=deep",
+    "timestamp": "2026-01-10 21:50:42.312229",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: Choose()] [Int63 Conversion] At line 97, w.root.sumCost (uint64) is cast to int64 for rand.Int63n() - if sumCost > math.MaxInt64, can this cast produce negative values, causing rand.Int63n() to panic with 'invalid argument', crashing the node during peer selection? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cb57f58a-edac-4232-9f12-d21bf867b920?mode=deep",
+    "timestamp": "2026-01-10 21:50:58.972039",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: setWeight()] [Overflow Check Bypass] At line 60, the check 'weight > math.MaxInt64-w.root.sumCost' uses MaxInt64, but sumCost and weight are uint64 - can values between MaxInt64 and MaxUint64 bypass this check and cause overflow when added to sumCost, corrupting the tree? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_096e83e4-3b23-41aa-b175-ebb5cf9c533d?mode=deep",
+    "timestamp": "2026-01-10 21:51:18.611840",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Context: LES Trust Model] The weighted selection gives no consideration to validator authorization or trust - can malicious actors with unauthorized but high-weight servers exploit this to position themselves as preferred peers for light clients, bypassing validator security mechanisms? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_37f43e6a-287f-43af-8d77-abcda2b7316f?mode=deep",
+    "timestamp": "2026-01-10 21:51:39.873073",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Context: LES Peer Distribution] If weights represent server response times or reliability metrics, can an attacker perform timing attacks to infer which servers a light client is connected to by observing changes in selection probability distributions through repeated Update() calls? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_920fc961-ce3f-4754-9ce6-26f9d97fd63c?mode=deep",
+    "timestamp": "2026-01-10 21:52:00.364661",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Context: LES Server Selection] Since there's no upper bound on individual weights, can a malicious server report extremely high capacity/quality weights to dominate the selection pool, causing light clients to overload that server while honest servers remain underutilized, enabling selective DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f6969521-3f5b-430f-a065-9a3df43d8b33?mode=deep",
+    "timestamp": "2026-01-10 21:52:22.252242",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Context: LES Server Selection] If this weighted selection is used for choosing LES servers for light clients, can an attacker who controls malicious servers with high weights manipulate the selection to force light clients to connect only to attacker-controlled servers, enabling eclipse attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f683031c-0f37-4b72-81dc-797e0af33e86?mode=deep",
+    "timestamp": "2026-01-10 21:52:46.808443",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: Update()] [Expensive WeightFn] At line 45, wfn(item) is called without timeout or resource limits - if wfn performs expensive operations (network calls, complex calculations), can an attacker force many Update() calls to cause CPU/network resource exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_db0ac188-fafb-4a81-9b5d-7c2c9be88607?mode=deep",
+    "timestamp": "2026-01-10 21:53:13.470835",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: setWeight()] [Recursive Overhead] At line 62, recursive setWeight calls occur on overflow - can an attacker repeatedly add and remove items with overflow-triggering weights to cause excessive function call overhead, slowing down peer management operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_932a837a-848c-4dd4-8eaf-5a37adb8479b?mode=deep",
+    "timestamp": "2026-01-10 21:53:41.531624",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: wrsNode.choose()] [Linear Scan] At lines 173-181, choose() performs a linear scan through branches - with wrsBranches=8, can an attacker craft weight distributions that always place selected items in the last branch, causing worst-case O(n) performance on every selection? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c5aa30ff-e400-4c40-9cf7-251ad98cab7e?mode=deep",
+    "timestamp": "2026-01-10 21:54:08.719088",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: Choose()] [Retry Storm] If wfn consistently returns decreasing weights, the loop at lines 93-106 can iterate many times - can an attacker craft weights that force thousands of iterations per Choose() call, causing CPU exhaustion and node slowdown during peer selection? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_256e39d2-c0bc-4e16-b602-8de3462d598d?mode=deep",
+    "timestamp": "2026-01-10 21:54:35.276313",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: wrsNode.setWeight()] [Silent Corruption] If diff calculation at line 152 underflows, there's no error checking - the corrupted diff silently propagates up the tree - can this silent corruption go undetected for extended periods, gradually biasing peer selection toward malicious actors? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_03ac74d3-956e-47ad-891a-59b432e047d2?mode=deep",
+    "timestamp": "2026-01-10 21:55:00.305059",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: All panic(nil)] [No Recovery] Panics at lines 125 and 182 use panic(nil) instead of panic with error message - if calling code attempts to recover() from these panics, can the nil value cause recover() to miss the panic or handle it incorrectly, leaving the system in corrupt state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_683012c6-1980-4931-b523-9d91513edbd9?mode=deep",
+    "timestamp": "2026-01-10 21:55:25.339626",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: setWeight()] [Error Logging Only] At line 64, overflow errors are only logged but execution continues with clamped weight - can an attacker repeatedly trigger these errors to flood logs, causing disk space exhaustion or log analysis difficulties, while also corrupting selection weights? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_466a8a4a-8061-4b03-8bd4-5b44f869662f?mode=deep",
+    "timestamp": "2026-01-10 21:55:51.846657",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: wrsNode.insert()] [Branch Selection Logic] At lines 122-123, branches are selected by checking if they're full - if concurrent operations cause the same branch to be selected by multiple goroutines simultaneously, can they both increment itemCnt and insert items, causing itemCnt to exceed maxItems? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c5feba7f-67a4-4518-bbf6-b9ff859f1268?mode=deep",
+    "timestamp": "2026-01-10 21:56:19.539438",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: wrsNode.setWeight()] [Diff Propagation] At lines 148-168, diff values propagate up the tree - if diff wraps around due to uint64 underflow at line 152, can this cause ancestor nodes to have wildly incorrect sumCost values while appearing mathematically consistent, systematically biasing selection? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8ba3fe26-eb52-4b1b-91d7-5e3d64d1ab9a?mode=deep",
+    "timestamp": "2026-01-10 21:56:46.834957",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: setWeight()] [Index Orphaning] At line 83, idx[item] is set to the returned index from insert() - if concurrent Remove() operations modify the tree structure between insert() returning and idx assignment, can the stored index become orphaned, pointing to a different item or invalid location? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_10d1d889-91ca-48e6-b142-2920576fd2de?mode=deep",
+    "timestamp": "2026-01-10 21:57:14.286572",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: WeightFn] [Oracle Attack] If the WeightFn implementation leaks information about peer quality through timing or side channels, can an attacker repeatedly call Update() or Choose() to probe the network topology and identify high-value peers to target for attack? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f76e8f37-4185-4866-9970-b0098a0fa71e?mode=deep",
+    "timestamp": "2026-01-10 21:57:43.217109",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: Choose()] [Deterministic Attack] Since math/rand is deterministic if seeded predictably, can an attacker who knows or influences the seed predict the exact sequence of peer selections, allowing them to position malicious peers at predicted selection points to compromise light client security? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b4fd4e3e-a1f5-4dd3-9def-f9c5f14893ac?mode=deep",
+    "timestamp": "2026-01-10 21:58:11.473061",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: Choose()] [Selection Bias] The probabilistic rejection at line 103 gives items with decreased weights a 'weight/lastWeight' chance - can an attacker exploit this to create selection bias by repeatedly decreasing weights of honest peers, causing the light client to disproportionately select malicious peers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8c2f3c41-0b04-4ec1-99b7-c61c9bde0b9e?mode=deep",
+    "timestamp": "2026-01-10 21:58:38.343682",
+    "report_generated": false
   }
 ]
