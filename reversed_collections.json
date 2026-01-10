@@ -9898,5 +9898,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_13a5cba2-a30d-4bf2-a196-1a029769a2ac?mode=deep",
     "timestamp": "2026-01-10 02:04:19.628665",
     "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: LvlFromString()] [Error handling] Does the error returned at line 86 contain user-controlled lvlString input that could be used for log injection attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_498648fc-91b1-483e-9156-612f52babbba?mode=deep",
+    "timestamp": "2026-01-10 02:05:36.876928",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: LvlFromString()] [Configuration attack] Can attackers manipulate configuration files to set invalid log levels that get silently converted to LvlDebug, enabling verbose logging that fills disk space? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5783be44-8af8-4ac4-b5b6-cf79a65700f6?mode=deep",
+    "timestamp": "2026-01-10 02:05:49.905840",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: LvlFromString()] [Input validation] Does LvlFromString() validate input length, or can extremely long strings cause memory issues before comparison? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7210bf03-a067-4f60-bd53-974731135e09?mode=deep",
+    "timestamp": "2026-01-10 02:06:03.066132",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: LvlFromString()] [Case sensitivity] Is the string matching at lines 72-84 case-sensitive, allowing attackers to bypass log level restrictions by using mixed-case strings? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b5eefa4d-94c4-40ae-8444-491762b01a8d?mode=deep",
+    "timestamp": "2026-01-10 02:06:16.938934",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: LvlFromString()] [Default fallback] Does LvlFromString() returning LvlDebug for unknown strings at line 86 create security issues where critical errors are logged at debug level and missed by operators? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8a57dc71-c4be-4456-ad05-e903b495411d?mode=deep",
+    "timestamp": "2026-01-10 02:06:31.789296",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Struct: Lazy] [Resource exhaustion] Can Lazy functions allocate unbounded memory or open file handles that aren't cleaned up, causing resource leaks during high-frequency logging? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_40b7d9cb-27ba-4a14-ad41-448f7ab9dad5?mode=deep",
+    "timestamp": "2026-01-10 02:06:47.920179",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Struct: Lazy] [Panic in lazy function] If a Lazy function panics during evaluation in the handler, can it crash the entire validator node or is it properly recovered? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ba85c063-afe5-4c72-b2b0-f58e3ed243fb?mode=deep",
+    "timestamp": "2026-01-10 02:07:04.534411",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Struct: Lazy] [Infinite execution] Does Lazy function evaluation have timeouts, or can attackers pass functions that run indefinitely, blocking log handlers and causing validator unresponsiveness? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b9ccf862-8a5a-44b6-9db9-8e64f740879e?mode=deep",
+    "timestamp": "2026-01-10 02:07:24.158046",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Struct: Lazy] [Deferred execution risks] Can Lazy functions capture sensitive data in closures that gets logged later when context has changed, potentially exposing validator secrets at wrong privilege levels? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1e042fe1-2f9a-46e3-91e1-f5ad2219822c?mode=deep",
+    "timestamp": "2026-01-10 02:07:44.370283",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Struct: Lazy] [Type safety] Is Lazy.Fn validated to be a function type before evaluation, or can attackers pass non-function interfaces causing type assertion panics in handlers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_91d58a09-a41c-4eb5-8d8f-4c313286461a?mode=deep",
+    "timestamp": "2026-01-10 02:08:06.114313",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: toArray()] [Race condition] Can concurrent reads/writes to Ctx map during toArray() iteration cause race detector failures or incorrect key-value extraction in production? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c28ffb52-2c24-4f96-8626-d0c57064dee7?mode=deep",
+    "timestamp": "2026-01-10 02:08:28.501541",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: toArray()] [Nil map] Does toArray() handle nil Ctx maps, or will accessing range over nil cause panics at line 284 during logging operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_617626ba-45e5-4727-bb58-ecc74b6f8557?mode=deep",
+    "timestamp": "2026-01-10 02:08:52.742751",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: toArray()] [Array bounds] Does toArray() properly bounds-check the arr slice indices at lines 285-286, or can concurrent map modifications cause slice bounds panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6cd709ba-ad72-4e40-9d77-fac44899953f?mode=deep",
+    "timestamp": "2026-01-10 02:09:18.450901",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: toArray()] [Slice allocation] Can len(c)*2 at line 281 cause integer overflow if Ctx map has MaxInt/2 entries, leading to incorrect slice allocation and potential buffer overflows? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_13700e66-6e74-4f37-a67d-48b82b7f0790?mode=deep",
+    "timestamp": "2026-01-10 02:09:43.720013",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Type: Ctx] [Map iteration order] Does Ctx.toArray() at lines 280-291 rely on map iteration order which is non-deterministic in Go, potentially causing inconsistent log output that makes forensic analysis difficult during security incidents? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e441a9ce-0397-4169-9939-9b39016e6b4e?mode=deep",
+    "timestamp": "2026-01-10 02:10:09.637103",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: write()] [Ctx reference] Is the Ctx slice at line 184 properly copied or does it share references with the caller, allowing post-log modification of logged data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2cecc12a-4c79-41a1-971d-b764a6539a8d?mode=deep",
+    "timestamp": "2026-01-10 02:10:33.917833",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Struct: RecordKeyNames] [Key collision] Can KeyNames fields at lines 186-190 collide with user-provided context keys, causing ambiguity in log parsing and potentially hiding malicious activity? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5666496e-e6f2-4644-97df-9406dd640e90?mode=deep",
+    "timestamp": "2026-01-10 02:10:58.443040",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: write()] [Time source] Is time.Now() at line 181 using a trusted time source, or can clock manipulation attacks cause incorrect timestamps that break log ordering during forensic analysis of validator attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_580fa6c0-4ad7-41cf-97ae-a957ddf26f25?mode=deep",
+    "timestamp": "2026-01-10 02:11:25.434593",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Struct: Record] [Field validation] Does the Record struct validate that Lvl, Msg, and Ctx fields contain expected values before passing to handlers, or can malformed records cause handler crashes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ffeb9f2e-907b-4d80-8b6b-0f14f58fbd27?mode=deep",
+    "timestamp": "2026-01-10 02:11:49.835012",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Struct: Record] [Uninitialized fields] When creating a Record at line 180, are all fields properly initialized, or can uninitialized memory leak through to log handlers potentially exposing sensitive data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c713a0da-7d51-49f5-a650-cee8ef5e365d?mode=deep",
+    "timestamp": "2026-01-10 02:12:15.754118",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: write()] [Call validation] Does write() validate that stack.Caller returns a valid Call object, or can invalid/zero Call values cause issues in downstream log handlers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9cfca1da-5944-4ed7-93cc-e55aacf3d5c5?mode=deep",
+    "timestamp": "2026-01-10 02:12:38.575042",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: write()] [Stack overflow] Can deeply nested function calls cause stack.Caller(skip) to fail or panic if the call stack is corrupted during consensus attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bdeb481e-ef85-431f-bb77-98e472ea7aaa?mode=deep",
+    "timestamp": "2026-01-10 02:13:02.276489",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Constant: skipLevel] [Configuration attack] Is skipLevel=2 at line 16 hardcoded safely, or can it be overridden by attacker-controlled configuration causing stack.Caller to return wrong call sites and obscure the source of malicious operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7d35f2b5-e621-40b1-90a6-acbb8ee1b0b5?mode=deep",
+    "timestamp": "2026-01-10 02:13:27.093580",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: write()] [Stack manipulation] Can stack.Caller(skip) at line 185 be exploited if skipLevel constant is manipulated, causing incorrect stack traces that mislead debugging during consensus failures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_028c60ba-5bde-4166-a8d3-bb78c1a594c6?mode=deep",
+    "timestamp": "2026-01-10 02:13:49.625641",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: write()] [Message sanitization] Are log messages sanitized to prevent logging of account addresses, transaction hashes, or other identifying information that could violate privacy requirements? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d59e8cb1-7d6e-4584-a2ff-666587f22f36?mode=deep",
+    "timestamp": "2026-01-10 02:14:12.864843",
+    "report_generated": false
   }
 ]
