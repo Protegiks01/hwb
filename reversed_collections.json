@@ -21886,5 +21886,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dfb20209-fff8-4072-9e1e-697b15ea9a27?mode=deep",
     "timestamp": "2026-01-10 17:55:31.487100",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: SubscribeField callback] [Nil node injection] If ns.GetNode(i.(enode.ID)) returns nil in the weight function at line 44 but the callback at line 61 still calls w.wrs.Update(n.ID()), can this lead to nodes with zero weight being selectable, causing Next() to repeatedly select invalid nodes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_60dfabef-117b-4dfe-a3e4-5241968e1636?mode=deep",
+    "timestamp": "2026-01-10 17:56:56.506493",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: SubscribeField callback] [State inconsistency] Between checking state.HasAll(requireFlags) && state.HasNone(disableFlags) at line 59 and calling w.wrs.Update(n.ID()) at line 61, can the node's state change such that an invalid node gets added to the selection pool, violating invariants? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_176be434-da74-4578-a1cc-7e8f7f2547ad?mode=deep",
+    "timestamp": "2026-01-10 17:57:09.827168",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: SubscribeField callback] [Signal storm DoS] If an attacker controls multiple nodes and can trigger rapid weight field updates, can they cause excessive w.cond.Signal() calls at line 63, creating a signal storm that keeps waking up the chooseNode() goroutine unnecessarily and causing CPU exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2d1a1ee2-3033-44c0-bb70-72b6f4f8dd5c?mode=deep",
+    "timestamp": "2026-01-10 17:57:23.944486",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: SubscribeField callback] [Race condition] In the weight field callback at lines 58-64, the sequence of checking state flags (line 59), locking (line 60), updating wrs (line 61), unlocking (line 62), and signaling (line 63) can be interrupted - can an attacker exploit the gap between flag check and lock acquisition to inject invalid nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cd9980ae-8ea7-4f57-b39c-714788a41948?mode=deep",
+    "timestamp": "2026-01-10 17:57:38.047336",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: NewWrsIterator()] [Concurrent callback execution] Are the callbacks registered at lines 58 and 67 guaranteed to not execute concurrently on the same WrsIterator instance, or can simultaneous state/field changes trigger parallel callback execution that races on w.lock and w.wrs? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_591dd6de-3413-4c42-9a50-73abbe3e52f6?mode=deep",
+    "timestamp": "2026-01-10 17:57:52.773347",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: NewWrsIterator()] [Logic error] The requireFlags and disableFlags matching logic at line 59 uses HasAll and HasNone - if an attacker can manipulate node flags such that they briefly satisfy both conditions during state transitions, can they cause the same node to be added multiple times to wrs, corrupting the selection pool? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2314f06d-c3fb-48d3-85a2-8b8e066a5e10?mode=deep",
+    "timestamp": "2026-01-10 17:58:08.859074",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: NewWrsIterator()] [Deadlock risk] If the NodeStateMachine's callback execution holds internal locks and attempts to synchronously call back into WrsIterator methods, can this create a deadlock scenario with the w.lock mutex acquired at lines 60, 74? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_613a6f3a-9f48-4194-bee0-785c69942015?mode=deep",
+    "timestamp": "2026-01-10 17:58:26.405976",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiteiterator.go] [Function: NewWrsIterator()] [DoS via weight manipulation] Can an attacker craft node state updates that cause the weight function at lines 43-50 to be called excessively, triggering repeated expensive operations and overwhelming the node with computational load? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a6b09ef4-0279-4a42-a4e9-32d19ca3eea2?mode=deep",
+    "timestamp": "2026-01-10 17:58:46.484150",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: NewWrsIterator()] [Type assertion panic] In the weight function at line 48, the type assertion wt, _ := ns.GetField(n, weightField).(uint64) uses blank identifier to ignore the bool result - can this lead to zero weights being silently used when the field is not actually uint64, allowing nodes with incorrect weight types to participate in selection? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fb621893-e0e3-4e47-864c-02869b3206c7?mode=deep",
+    "timestamp": "2026-01-10 17:59:07.583153",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: NewWrsIterator()] [Resource leak] If NewWrsIterator() is called multiple times without proper cleanup, do the SubscribeField and SubscribeState callbacks at lines 58-82 accumulate without being unsubscribed, causing memory leaks and eventual node resource exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5e21a15e-3af6-423f-bb42-f307882dce2f?mode=deep",
+    "timestamp": "2026-01-10 17:59:29.711885",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: NewWrsIterator()] [Race condition] Between the creation of WrsIterator at line 52-55 and the subscription setup at lines 58-82, can concurrent access to the iterator cause race conditions if another goroutine calls Next() before subscriptions are fully initialized, potentially selecting invalid nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_71e68edb-d31f-430d-947d-d004f904f35e?mode=deep",
+    "timestamp": "2026-01-10 17:59:52.787458",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: NewWrsIterator()] [Nil pointer dereference] If NodeStateMachine ns parameter is nil when passed to NewWrsIterator(), can this cause a panic when attempting to call ns.GetNode() in the weight function at line 44, leading to node crash and service disruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3384e784-9f59-4b35-8f3c-0a2efeb63604?mode=deep",
+    "timestamp": "2026-01-10 18:00:15.568950",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Edge case] [Negative expRate] Can negative statsExpRate or offlineExpRate cause unexpected expiration behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ae91fdae-f23f-4c6f-ad54-da85fa2f6ba9?mode=deep",
+    "timestamp": "2026-01-10 18:00:40.824597",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Edge case] [Zero transfer rate] If transferRate is zero, can math.Expm1(0) behavior break basket transfers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_39f92c00-2163-4a15-b72e-6dee19ec9416?mode=deep",
+    "timestamp": "2026-01-10 18:01:07.603406",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Edge case] [Max uint64 costs] Can reqCosts approaching UINT64_MAX cause overflow in cost calculations during Served()? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4971e676-c503-4319-b8de-26d0c3fc0cee?mode=deep",
+    "timestamp": "2026-01-10 18:01:36.023728",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Edge case] [Single request type] If only one request type exists, can this cause edge cases in value factor calculations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0b2e6f82-3d03-4668-8d4f-e4e19b19133d?mode=deep",
+    "timestamp": "2026-01-10 18:02:03.518709",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Edge case] [Empty basket] If all basket items have zero amount, can normalize() cause division by zero? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0cf25936-b991-4c3a-bf97-a76276a50a24?mode=deep",
+    "timestamp": "2026-01-10 18:02:31.940593",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Economic] [Stats expiration] Can expired statistics unfairly penalize long-running honest nodes compared to new malicious nodes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_81887103-b044-4500-9fa6-0dbf0c6a33aa?mode=deep",
+    "timestamp": "2026-01-10 18:02:59.003702",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Economic] [Transfer rate exploitation] Can attacker manipulate transferRate to cause rapid basket changes, destabilizing service value calculations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_898d8b60-6056-471b-b43d-285f52ae8ac3?mode=deep",
+    "timestamp": "2026-01-10 18:03:24.288421",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Economic] [Cost manipulation] Can malicious server provide fake reqCosts in UpdateCosts() to manipulate value calculations in their favor? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_01177c65-28a2-4b48-933d-e8f54aafdf19?mode=deep",
+    "timestamp": "2026-01-10 18:03:49.862345",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Economic] [Value manipulation] Can malicious server repeatedly call Served() with zero respTime to artificially inflate value, gaining unfair service priority? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f24c0ebb-a607-4880-8457-f926510363c4?mode=deep",
+    "timestamp": "2026-01-10 18:04:14.046575",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Initialization] [Empty RequestInfo] If NewValueTracker receives empty reqInfo slice, can this cause panic in basket initialization? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6b177155-b197-41be-9702-cb0c711994cb?mode=deep",
+    "timestamp": "2026-01-10 18:04:39.422391",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Initialization] [Zero reqTypeCount] If reqTypeCount is zero, can this cause division by zero in basket operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_22adc45e-ef41-4a59-8d88-841652db494d?mode=deep",
+    "timestamp": "2026-01-10 18:05:04.792469",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Initialization] [Nil vt reference] If NodeValueTracker is created with nil vt reference, can this cause nil pointer panics in UpdateCosts()? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_37f3000a-013c-42d2-86f2-3143ec67a4fc?mode=deep",
+    "timestamp": "2026-01-10 18:05:30.445610",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [State corruption] [Mapping mismatch] Can currentMapping index becoming invalid cause all basket operations to use wrong mappings? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5e556f18-3707-45bf-857c-c0512b93f2da?mode=deep",
+    "timestamp": "2026-01-10 18:05:55.580630",
+    "report_generated": false
   }
 ]
