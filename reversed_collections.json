@@ -21136,5 +21136,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c4627445-9dbb-48a4-a31d-03e7b455109b?mode=deep",
     "timestamp": "2026-01-10 17:02:54.851095",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Struct: IntOrInf] [Type-Value Mismatch] Can an attacker send IntOrInf with Type=IntNonNegative but Value containing a negative big.Int (by manipulating raw bytes), causing inconsistent state where type and value contradict each other? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_faf5b823-5602-4761-9333-f9131e1d3394?mode=deep",
+    "timestamp": "2026-01-10 17:04:14.866902",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Function: Int64()] [Type Validation Missing] For invalid Type values, Int64() returns 0. In time-based capacity calculations involving bias (seconds), can returning 0 instead of error cause timestamp manipulation attacks or bypass time-based rate limiting? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_31aee538-627c-44d8-935e-657c5c266bee?mode=deep",
+    "timestamp": "2026-01-10 17:04:28.051546",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Function: Inf()] [Type Validation Missing] For invalid Type values, Inf() returns 0. Can this be exploited in capacity calculation logic where 0 (finite) vs 1 (infinite) distinction is critical, allowing attackers to bypass infinite capacity checks or cause incorrect resource allocation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fb60cef5-3ea9-4a30-9f87-13ff536df273?mode=deep",
+    "timestamp": "2026-01-10 17:04:41.223785",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Function: BigInt()] [Type Validation Missing] For invalid Type values (>= 4), BigInt() returns &big.Int{} (zero value). Can attackers exploit this by sending invalid types that silently convert to zero in capacity calculations, potentially breaking capacity quota enforcement and allowing unlimited resource usage? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_60414ba0-12e3-4df3-b24b-20626b1e6f64?mode=deep",
+    "timestamp": "2026-01-10 17:04:54.866193",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Struct: IntOrInf] [Invalid Type Field] The Type field is uint8 with only 4 valid values (0-3). Can an attacker send RLP-encoded IntOrInf with Type >= 4, and do all conversion functions handle invalid types safely or do they cause undefined behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3e55f08e-adda-46f9-b1c7-c3965bff2bbd?mode=deep",
+    "timestamp": "2026-01-10 17:05:09.295166",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Function: Get()] [Reply Reordering Attack] Since Get() uses simple array indexing, if an attacker controls reply ordering and swaps reply positions in the array, can they cause requests to be paired with wrong replies, leading to protocol confusion or incorrect state updates? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_faa4354f-d367-4bf2-a5f4-7f524834c882?mode=deep",
+    "timestamp": "2026-01-10 17:05:25.115645",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Function: Get()] [ErrNoReply Handling] If calling code doesn't properly handle ErrNoReply, can attackers exploit this by intentionally sending incomplete reply sets that cause protocol-level errors, state inconsistencies, or client confusion about missing data? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_53b65a72-c129-46c2-9556-f858d1fd1ab8?mode=deep",
+    "timestamp": "2026-01-10 17:05:42.242899",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Function: Get()] [Negative Index Attack] While the function checks i < 0, can an attacker exploit integer overflow in the calling code such that a very large unsigned integer wraps to appear as a small positive i, bypassing both bounds checks and accessing out-of-bounds memory? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ed715276-c5a1-4611-8e51-a594c9d3f9fc?mode=deep",
+    "timestamp": "2026-01-10 17:06:01.518342",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Function: Get()] [Array Bounds Race] If one goroutine is reading replies via Get(i) while another goroutine is modifying the Replies slice concurrently, can this cause a TOCTOU (time-of-check-time-of-use) race where the bounds check passes but len(r) changes before r[i] access, causing panic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_050bb298-9ae4-4733-a454-08f4a13fd624?mode=deep",
+    "timestamp": "2026-01-10 17:06:25.277929",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Function: Get()] [Nil Reply Handling] If r[i] is nil or empty byte slice, does rlp.DecodeBytes() handle it gracefully, or can this cause unexpected panics or incorrect zero-value initialization that breaks protocol assumptions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2ab0356e-32c7-43cb-a5a0-f7b764d5b5b0?mode=deep",
+    "timestamp": "2026-01-10 17:06:46.422555",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Function: Get()] [RLP Malformed Data] Can an attacker send replies with malformed RLP encoding that exploits known RLP parsing vulnerabilities (e.g., incorrect list length prefixes) to trigger panics or undefined behavior in the RLP decoder? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_832a2c02-0317-42c6-b969-8b05771e8710?mode=deep",
+    "timestamp": "2026-01-10 17:07:09.813365",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Function: Get()] [RLP Type Confusion] If the RLP-encoded reply data doesn't match the expected type of val interface{}, does rlp.DecodeBytes() fail safely or can it cause type confusion vulnerabilities where incorrect data types are interpreted as valid, leading to state corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c58e3773-a0ea-4079-99d2-49671899f1b1?mode=deep",
+    "timestamp": "2026-01-10 17:07:32.847002",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Function: Get()] [RLP Decoding Memory Bomb] Can an attacker send malicious replies where r[i] contains RLP-encoded data that expands to enormous size during rlp.DecodeBytes(), exhausting memory and crashing the light client node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d25f6c18-fc4d-44c4-be1a-a3c40b05bcc0?mode=deep",
+    "timestamp": "2026-01-10 17:07:57.205435",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Function: Add()] [RLP Encoding Error Handling] When rlp.EncodeToBytes() returns an error, the function returns -1 as index. Can this -1 return value be exploited by callers who don't properly check for errors, potentially using -1 as an array index elsewhere causing panics? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9c658b60-bb61-44b2-b953-5635e6dc7823?mode=deep",
+    "timestamp": "2026-01-10 17:08:24.026666",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Function: Add()] [RLP Encoding DoS] Can an attacker pass specially crafted val interface{} objects that cause rlp.EncodeToBytes() to consume excessive CPU or memory, such as deeply nested structures or circular references, leading to node DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8a07f56f-6270-469c-b8bc-10d5c6ad8ec6?mode=deep",
+    "timestamp": "2026-01-10 17:08:48.880239",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Function: Add()] [Concurrent Modification Race] If multiple goroutines call Add() on the same Requests slice concurrently without synchronization, can this cause race conditions leading to corrupted request batches, lost requests, or incorrect index returns? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_972eaed6-17f6-453c-b0c2-03848ef7d95f?mode=deep",
+    "timestamp": "2026-01-10 17:09:14.556253",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Function: Add()] [Index Return Overflow] The function returns len(*r) - 1 as the index. If an attacker somehow causes len(*r) to be 0 after append, can the subtraction cause integer underflow resulting in returning -1 incorrectly (though currently guarded by error check)? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ae392d7f-effe-4da3-ac2b-cb9df2167df1?mode=deep",
+    "timestamp": "2026-01-10 17:09:40.052799",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Struct: Request] [Params Field Overflow] Can an attacker send a Request with Params byte slice exceeding available memory by encoding a malicious RLP structure that unpacks to exponentially larger size than the encoded bytes, causing node crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b0a64acc-129c-4027-8dbc-dc9f2b7538d3?mode=deep",
+    "timestamp": "2026-01-10 17:10:06.271933",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Struct: Request] [String Length DoS] Since Service and Name fields are unbounded strings, can an attacker send requests with extremely long service/name strings (e.g., millions of characters) to cause memory exhaustion or slow down string comparison operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0daf71d2-8f4f-47a3-9a07-31155a5e7388?mode=deep",
+    "timestamp": "2026-01-10 17:10:31.461897",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Constant: CapacityQueryMaxLen] [DoS - Array Size Attack] Can an attacker craft a CapacityQueryReq with AddTokens slice exceeding CapacityQueryMaxLen=16, and if so, does the server validate this limit before processing to prevent excessive computation or memory allocation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0eb26d14-b227-4738-b5cb-c7309f26dcc1?mode=deep",
+    "timestamp": "2026-01-10 17:10:56.613530",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Constant: MaxRequestLength] [DoS - Resource Exhaustion] Is the MaxRequestLength=16 limit sufficient to prevent resource exhaustion attacks where malicious clients send maximum-sized batches continuously, or should there be additional rate limiting per peer connection? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_08211e25-08ed-4bb9-8c57-9e7b485bd801?mode=deep",
+    "timestamp": "2026-01-10 17:11:22.643506",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Function: Add()] [Memory Exhaustion] If an attacker adds 16 requests each with extremely large RLP-encoded parameters (multi-megabyte byte arrays), can they exhaust server memory since there's no size limit on individual request Params fields beyond RLP encoding limits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_aa3ae842-2d91-4426-9bd5-cb6ff6a11d5c?mode=deep",
+    "timestamp": "2026-01-10 17:11:48.029811",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/requests.go] [Function: Add()] [DoS - Batch Size Bypass] Can an attacker send requests that exceed MaxRequestLength=16 before the batch size check is enforced, potentially causing memory exhaustion or processing delays on LES servers handling multiple concurrent clients? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1050b227-0abb-496e-abf6-819783a9b127?mode=deep",
+    "timestamp": "2026-01-10 17:12:13.968440",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: NewWrsIterator()] [Zero weightField] If weightField is the zero value of nodestate.Field, does GetField() return valid weights or always zero, causing all nodes to be unselectable? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_21f1ac7a-7efc-4361-8c62-3bd80138c555?mode=deep",
+    "timestamp": "2026-01-10 17:12:41.966539",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Integration] [Subscription order dependency] If the order of SubscribeField and SubscribeState matters but isn't enforced, can an attacker exploit race conditions in subscription setup to bypass selection criteria? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_79aacce9-a012-4470-a13b-baa91128d857?mode=deep",
+    "timestamp": "2026-01-10 17:13:10.088022",
+    "report_generated": false
   }
 ]
