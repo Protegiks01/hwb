@@ -21436,5 +21436,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7d89db33-4c8d-4205-95d2-6c00f2c2252a?mode=deep",
     "timestamp": "2026-01-10 17:23:59.009116",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: weight function] [GetNode panic] If ns.GetNode() at line 44 panics (e.g., nil receiver), this will crash the callback goroutine - are callbacks protected with recover()? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2ef2dd15-ed67-40cb-86f1-518392eacdda?mode=deep",
+    "timestamp": "2026-01-10 17:25:24.556556",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: weight function] [Type assertion panic] The i.(enode.ID) type assertion at line 107 will panic if wrs contains a non-enode.ID type - is there validation preventing incorrect types from being added? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a7245e7a-a020-445d-9742-7c4be584f3d6?mode=deep",
+    "timestamp": "2026-01-10 17:25:37.545669",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Struct: WrsIterator] [Field type changes] If weightField changes type from uint64 to something else during runtime, the type assertion at line 48 silently returns zero - can this cause all nodes to have zero weight and iterator starvation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b4e71f64-007c-4fbe-a94f-be54e0de24b6?mode=deep",
+    "timestamp": "2026-01-10 17:25:50.693344",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Struct: WrsIterator] [NodeStateMachine lifecycle] If NodeStateMachine is stopped or closed while WrsIterator is active, can callbacks still fire causing panics or memory corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ee048027-7e0b-434c-ab65-93897bb4b66e?mode=deep",
+    "timestamp": "2026-01-10 17:26:05.405287",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: chooseNode()] [GetNode race] At line 109, GetNode() is called after removing from wrs - if the node is simultaneously removed from NodeStateMachine, GetNode() returns nil which is returned to caller without validation. (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b02ef72f-afb0-4aa5-9273-bbd2b1cf1a52?mode=deep",
+    "timestamp": "2026-01-10 17:26:20.187667",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: SubscribeField callback] [State at callback time] The callback checks state at line 59 but this might differ from state when the field change occurred - can this race cause incorrect wrs updates? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e0177471-6a08-4a36-9dae-604096bf66cb?mode=deep",
+    "timestamp": "2026-01-10 17:26:36.021420",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: weight function] [GetField race] At line 48, ns.GetField() is called without locks - if the field is being updated concurrently, can this return a partial/corrupt weight value? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_963a2c8e-3caf-4b03-8a16-b48e3361cce2?mode=deep",
+    "timestamp": "2026-01-10 17:26:53.372928",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: NewWrsIterator()] [Callback ordering] If both SubscribeField and SubscribeState callbacks fire for the same node simultaneously, can they execute in an order that causes inconsistent wrs state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cf690249-94e5-4e12-8ff0-7a94ef2ed65f?mode=deep",
+    "timestamp": "2026-01-10 17:27:12.713912",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: NewWrsIterator()] [Subscription timing] Subscriptions are set up at lines 58 and 67 after iterator creation - can nodes matching the criteria exist before subscriptions are active, causing them to be missed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_08a2ad4a-537c-4fc1-a429-1c8f76d9b5c1?mode=deep",
+    "timestamp": "2026-01-10 17:27:33.978819",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Struct: WrsIterator] [Reusability] After Close() is called and Next() returns false/nil, can the iterator be reused by calling Next() again, or is it permanently closed? This ambiguity could cause bugs. (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c4ee80ea-5a68-4590-b052-b1df7d90d920?mode=deep",
+    "timestamp": "2026-01-10 17:27:56.504958",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: Next()] [Boolean return ignored] Next() returns a boolean indicating success, but if callers ignore this and call Node() anyway, they get nil - should Next() panic on failure for fail-fast behavior? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8f3d4262-68a3-4f0a-bef0-bea1f54b4b6d?mode=deep",
+    "timestamp": "2026-01-10 17:28:19.496169",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: chooseNode()] [Choose returning nil] The comment at lines 103-105 states Choose() might return nil if all weights are zero, but the code continues looping - should there be a maximum retry count to prevent infinite loops? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_63d6b53e-bf15-4614-b58f-ac9a987e1835?mode=deep",
+    "timestamp": "2026-01-10 17:28:44.012151",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: SubscribeState callback] [Same state transition] If oldState equals newState (no actual change), the early return at lines 70-71 is correct, but can this miss important internal state changes that should trigger updates? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_50d28e77-c7dd-4b2d-b0c3-df0fd36bedc9?mode=deep",
+    "timestamp": "2026-01-10 17:29:09.455392",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: NewWrsIterator()] [Empty disableFlags] If disableFlags is zero (no disables), does state.HasNone(disableFlags) at line 59 always return true, potentially allowing disabled nodes to be selected? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_115d5157-1949-4296-b46d-f3a70168f947?mode=deep",
+    "timestamp": "2026-01-10 17:29:36.072518",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: NewWrsIterator()] [Empty requireFlags] If requireFlags is zero (no requirements), does the condition state.HasAll(requireFlags) at line 59 always return true, allowing any node to be selected regardless of its state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1106977a-d98f-43c4-8ac3-bc5740837a5b?mode=deep",
+    "timestamp": "2026-01-10 17:30:03.112287",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: weight function] [Weight manipulation] Can an attacker set a legitimate-looking weight that causes integer operations in Choose() algorithm to overflow, breaking randomness and allowing predictable selection? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_83b091c3-3bcd-4d99-a168-769ddc7a55b0?mode=deep",
+    "timestamp": "2026-01-10 17:30:30.924007",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: weight function] [Zero weight bypass] If all nodes set weight to 0, does the WeightedRandomSelect handle this gracefully or can it divide-by-zero or enter infinite loops? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_596d62a6-4068-45ac-8ffb-6534751cfcdb?mode=deep",
+    "timestamp": "2026-01-10 17:30:59.001715",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: weight function] [uint64 overflow] The weight returned at line 48 is uint64 - can an attacker set weightField to MaxUint64 causing overflow in WeightedRandomSelect's internal calculations when summing weights? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_028bc3bc-0889-4108-982a-671550dc30fc?mode=deep",
+    "timestamp": "2026-01-10 17:31:26.513939",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Struct: WrsIterator] [CPU exhaustion] Can an attacker cause the iterator to repeatedly wake from cond.Wait(), check conditions, and go back to waiting, creating a busy-wait loop that consumes 100% CPU? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bd1a78eb-2dbd-4d53-b447-9ee7595937af?mode=deep",
+    "timestamp": "2026-01-10 17:31:56.041587",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Struct: WrsIterator] [Memory exhaustion] Can an attacker cause many nodes to be added to wrs without being removed, eventually exhausting node memory with the WeightedRandomSelect data structure growing unbounded? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_893687d6-acb1-4b3e-998d-e4d9dd6e38f9?mode=deep",
+    "timestamp": "2026-01-10 17:32:26.315039",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: Next()] [Blocking DoS] If chooseNode() blocks indefinitely due to empty wrs and no signals, calling Next() from the main goroutine can freeze the entire node - is there a timeout mechanism? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2e9a7089-12c1-469d-8679-a5d792fc374b?mode=deep",
+    "timestamp": "2026-01-10 17:32:59.194337",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: chooseNode()] [Lock hold time] If w.wrs.Choose() at line 106 or w.ns.GetNode() at line 109 are slow operations, holding w.lock for their duration can block all callbacks from updating wrs - can this be exploited for DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b2647785-3488-4ea6-928d-0e0fc9d42d5c?mode=deep",
+    "timestamp": "2026-01-10 17:33:28.416221",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: chooseNode()] [Selection starvation] If an attacker ensures all nodes have zero weight, the infinite loop at lines 96-111 with nil returns from Choose() at line 106 never exits - can this cause the iterator to spin forever without selecting nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_337b1bdc-2fc0-4d83-9b45-22e9f84523fb?mode=deep",
+    "timestamp": "2026-01-10 17:33:53.381816",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: SubscribeState callback] [State transition flood] Can an attacker cause rapid state flag transitions triggering the callback at lines 67-82 repeatedly, causing excessive Update/Remove operations and lock contention that DoS the iterator? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a6b7a450-a207-4da7-99b8-387a13d7af89?mode=deep",
+    "timestamp": "2026-01-10 17:34:16.813336",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: SubscribeField callback] [Callback flood DoS] Can an attacker trigger rapid weight field updates causing the callback at lines 58-64 to execute thousands of times per second, overwhelming the node with lock contention and signal processing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_841aad31-f063-4205-bca0-fe977faed76a?mode=deep",
+    "timestamp": "2026-01-10 17:34:39.989401",
+    "report_generated": false
   }
 ]
