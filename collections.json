@@ -15898,5 +15898,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2c509bb8-4302-4a82-acb9-a8996077a126?mode=deep",
     "timestamp": "2026-01-10 19:48:13.952811",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Constants] [maxPayloadSize] The maxPayloadSize=223 at line 36 seems arbitrary - is this based on smartcard APDU limits, and can sending data near this limit cause buffer issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_567d3aec-09c6-4fc6-97f2-a60213fefaff?mode=deep",
+    "timestamp": "2026-01-10 19:49:39.900487",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Constants] [pairingSalt] The pairingSalt at line 48 is a fixed string constant - should this be a random per-device or per-session salt to prevent rainbow table attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e41ffff5-95c1-4116-9ad8-7c28aea10d14?mode=deep",
+    "timestamp": "2026-01-10 19:49:52.899159",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Cross-Function] [Session Reuse] If a SecureChannelSession is used for Open(), Unpair(), then Open() again, can stale cryptographic material from the first session leak into the second session compromising security? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7018a1b6-4dc6-4d3e-a289-bc9927a4e028?mode=deep",
+    "timestamp": "2026-01-10 19:50:06.059700",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Cross-Function] [Error Recovery] If transmitEncrypted() fails after updating the IV at line 226, subsequent retry attempts will use a different IV than the card expects - will this permanently desynchronize the channel requiring full re-pairing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e54b8728-93bb-4005-89bd-e1655bab0973?mode=deep",
+    "timestamp": "2026-01-10 19:50:19.917500",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Cross-Function] [Partial Initialization] Can Pair() be called after Open(), or Open() called before Pair(), leaving the session in an inconsistent state with some fields initialized and others nil? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cfe2d139-1ff5-4802-8730-45ba50bb552f?mode=deep",
+    "timestamp": "2026-01-10 19:50:34.421438",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Cross-Function] [Key Confusion] The sessionEncKey and sessionMacKey are derived from the same hash output at lines 159-160 - could there be key commitment issues if one key is compromised leading to compromise of the other? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e416221d-6c2d-4961-850e-872784c00726?mode=deep",
+    "timestamp": "2026-01-10 19:50:50.316579",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Cross-Function] [Replay Prevention] Is there any sequence number or nonce to prevent replay of old encrypted messages, or can an attacker replay captured transmitEncrypted calls? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bfeee756-33a9-467e-a602-aebb3114aafe?mode=deep",
+    "timestamp": "2026-01-10 19:51:07.599896",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Protocol] [ECDH Key Reuse] The same ECDH public key (s.publicKey) is sent in every open() call at line 198 - should this be ephemeral per session to provide forward secrecy? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0e2e9253-700a-4f11-8796-5d6d23920e33?mode=deep",
+    "timestamp": "2026-01-10 19:51:27.068142",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Protocol] [No Forward Secrecy] If the long-term PairingKey is compromised, can an attacker decrypt all past and future sessions, or is there forward secrecy through ephemeral key exchanges? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0e524384-fa9b-4a73-a8b1-827975e4b526?mode=deep",
+    "timestamp": "2026-01-10 19:51:47.932839",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Protocol] [Key Derivation Domain Separation] The key derivation at lines 154-160 hashes secret+PairingKey+response without domain separation - can this lead to key commitment issues or related-key attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_41edc8c9-43cb-45be-8c27-69740591622b?mode=deep",
+    "timestamp": "2026-01-10 19:52:09.048662",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Protocol] [Encrypt-then-MAC vs MAC-then-Encrypt] The protocol uses encrypt-then-MAC (encrypt at line 283, MAC via updateIV at line 226) - is this implementation correct, or are there subtle ordering issues that enable attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8b8b072f-5182-4fc9-9651-067393fc0f4e?mode=deep",
+    "timestamp": "2026-01-10 19:52:32.421069",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Protocol] [CBC Mode Choice] Why use AES-CBC instead of modern authenticated encryption modes like AES-GCM that provide confidentiality and authenticity in one operation reducing implementation complexity? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_48763b07-51e2-4b1b-a274-9c82ca13a764?mode=deep",
+    "timestamp": "2026-01-10 19:52:56.158460",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Protocol] [Message Ordering] Is there any protection against message reordering attacks where an attacker reorders encrypted messages in a valid sequence? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ccdd6ff9-f77d-41ee-8d46-8df6547be045?mode=deep",
+    "timestamp": "2026-01-10 19:53:21.835045",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Protocol] [Downgrade Attacks] Are there protocol version fields to prevent downgrade attacks where an attacker forces use of weaker cryptographic parameters? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0b151e64-69b9-4aae-8791-1089619a3283?mode=deep",
+    "timestamp": "2026-01-10 19:53:47.911953",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Go-Specific] [Slice Aliasing] Multiple functions return slices of internal buffers (e.g., unpad at line 317) - can external modification of these slices corrupt internal session state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_629a65b6-20bf-493a-b077-93e37c87d40c?mode=deep",
+    "timestamp": "2026-01-10 19:54:15.253606",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Go-Specific] [Defer and Error Handling] None of the functions use defer for cleanup - if a panic occurs mid-function, can sensitive key material remain in a partially initialized state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_02caa1b1-64e6-4d41-b6a2-0454707b70bf?mode=deep",
+    "timestamp": "2026-01-10 19:54:41.637284",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Go-Specific] [Big.Int Bytes] The secret.Bytes() call at line 77 - does this handle negative values or special cases that could leak key material through length or content variations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b3ca0ab2-5117-44a0-8945-729daa520004?mode=deep",
+    "timestamp": "2026-01-10 19:55:07.692509",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Go-Specific] [Crypto/rand Failure] Multiple rand.Read() calls (lines 87, 172) check errors, but are failures properly propagated or can they be silently ignored in some code paths? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9daa8ced-ee6b-4c2b-8b5b-ea85ac0422e3?mode=deep",
+    "timestamp": "2026-01-10 19:55:34.636948",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Go-Specific] [Buffer Pool Reuse] Are any internal buffers reused from pools without proper zeroing between uses potentially leaking data between different sessions or cards? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d689bd4b-b800-48c2-9179-b7c9b976b926?mode=deep",
+    "timestamp": "2026-01-10 19:56:01.055988",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Go-Specific] [Error Wrapping] Errors use fmt.Errorf for wrapping (e.g., line 72) - can sensitive data in error messages leak through logging or error returns? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e861b5f6-4279-4756-a058-ed9f6e52a28b?mode=deep",
+    "timestamp": "2026-01-10 19:56:25.707292",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Side-Channel] [Timing - PBKDF2] The PBKDF2 computation at line 84 takes constant time based on iteration count, but can an attacker measure total Pair() execution time to distinguish between card failures and cryptogram mismatches? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5dd328c2-cfab-4d95-95d0-eb07c2fd5b4b?mode=deep",
+    "timestamp": "2026-01-10 19:56:51.483822",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Side-Channel] [Timing - Signature Verification] Various bytes.Equal comparisons (lines 104, 256) may not be constant-time - can attackers use response time variations to leak secret values bit-by-bit? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d244552f-c986-4b7e-98a3-aa193ae8b0f2?mode=deep",
+    "timestamp": "2026-01-10 19:57:16.591223",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Side-Channel] [Cache Timing] Do the AES operations use hardware AES-NI or table-based implementations that could leak key material through cache-timing side-channels? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f9ce2a51-f21e-4247-a82c-f53c94a9acfc?mode=deep",
+    "timestamp": "2026-01-10 19:57:39.749663",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Side-Channel] [Power Analysis] While this is software, if running on hardware wallets, could power consumption during cryptographic operations (AES, ECDH) leak key material? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6bc29cc6-a707-4d09-9f89-b2c4468aa73c?mode=deep",
+    "timestamp": "2026-01-10 19:58:02.990011",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Side-Channel] [Error Timing] Different error paths (e.g., lines 219, 258, 265) may take different execution times - can this leak information about which validation failed enabling adaptive attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b12c5607-192e-43ba-9b72-cd89ef602b18?mode=deep",
+    "timestamp": "2026-01-10 19:58:26.419532",
+    "report_generated": false
   }
 ]
