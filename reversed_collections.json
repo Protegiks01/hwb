@@ -10048,5 +10048,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d59e8cb1-7d6e-4584-a2ff-666587f22f36?mode=deep",
     "timestamp": "2026-01-10 02:14:12.864843",
     "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: Record struct] [Timestamp leak] Can Record.Time at line 181 expose precise timing information that helps attackers correlate validator activities, deduce validator identities, or perform timing attacks on consensus operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0b0f945e-9143-47cd-8be9-4f7e793af630?mode=deep",
+    "timestamp": "2026-01-10 02:15:34.995481",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: write()] [Stack trace exposure] Does stack.Caller(skip) at line 185 expose internal code paths and function names that could help attackers understand validator implementation details and find vulnerabilities? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4a3b8a78-0d5f-43d7-b468-761e8438c80d?mode=deep",
+    "timestamp": "2026-01-10 02:15:47.965349",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: New()] [Context inheritance] When New() inherits parent context at line 196, does it create deep copies or share references, potentially causing child loggers to expose parent's sensitive context data across security boundaries? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2b92751d-8c4d-478c-9286-26f94745ea7a?mode=deep",
+    "timestamp": "2026-01-10 02:16:01.061695",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: write()] [Information leak] Does write() sanitize the Ctx array at line 184 before logging, or can sensitive data like private keys, validator secrets, or internal state be accidentally logged and exposed to log files or network log collectors? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_776eb056-435c-46df-96a3-e37b5821612f?mode=deep",
+    "timestamp": "2026-01-10 02:16:14.825004",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: normalize()] [Modulo operation] Does len(ctx)%2 check at line 255 handle edge cases where len(ctx) is MaxInt, potentially causing unexpected behavior in the modulo operation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a4d57f75-4906-427b-b14a-5ed7907d8ac9?mode=deep",
+    "timestamp": "2026-01-10 02:16:29.487794",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: normalize()] [Key-value mismatch] If normalize() adds nil for odd-length arrays at line 256, can this cause downstream handlers to misinterpret key-value pairs, potentially logging sensitive validator information to wrong keys? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1eaf7f22-9ed4-4588-9676-c13efa26f5c4?mode=deep",
+    "timestamp": "2026-01-10 02:16:45.337998",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: normalize()] [Type confusion] Does normalize() properly validate that ctx[0] is a Ctx map at line 245 before type assertion, or can an attacker cause panic by passing non-Ctx types that pass the ok check but fail later? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_920e8545-5c67-41f4-8551-e29827ea0a4e?mode=deep",
+    "timestamp": "2026-01-10 02:17:02.750863",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: normalize()] [Context pollution] Can an attacker craft context arrays where the appended errorKey at line 256 collides with legitimate context keys, causing confusion in log analysis and masking real security events? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f145f768-8a49-49b8-a2f9-6b05eeaf478d?mode=deep",
+    "timestamp": "2026-01-10 02:17:21.392030",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: normalize()] [Data injection] If ctx contains odd-length arrays, normalize() appends nil and errorKey at line 256 - can an attacker exploit this to inject error messages into logs that mislead operators about system state during validator attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8e45733e-0970-42a0-901d-e1b7af75eb1a?mode=deep",
+    "timestamp": "2026-01-10 02:17:41.756972",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: newContext()] [Slice bounds] Can negative lengths or extremely large lengths in copy operations at lines 204-205 cause slice bounds panics if prefix or normalizedSuffix slices are maliciously crafted? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_85e8216c-12b5-4078-bb0e-5c5d7c510a02?mode=deep",
+    "timestamp": "2026-01-10 02:18:02.837559",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: write()] [Context allocation] Does write() calling newContext(l.ctx, ctx) at line 184 on every log call cause excessive allocations during high-frequency logging scenarios like transaction validation, potentially causing GC pauses that delay block production? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_785c9a05-7f8b-4e45-b828-6966f35c8cf3?mode=deep",
+    "timestamp": "2026-01-10 02:18:25.899751",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: New()] [Resource leak] Does creating child loggers via New() at line 195 properly manage the lifecycle of swapHandlers, or can repeated New() calls leak handler resources causing memory exhaustion over time? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_276611f2-c348-4aa8-9962-fc3a894ace3a?mode=deep",
+    "timestamp": "2026-01-10 02:18:49.637447",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: newContext()] [Integer overflow] Can len(prefix)+len(normalizedSuffix) at line 203 cause integer overflow if an attacker creates deeply nested child loggers with massive context arrays, leading to incorrect memory allocation and potential buffer overflows? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_de27fed0-c40c-45ed-ba0b-c07c84f327a1?mode=deep",
+    "timestamp": "2026-01-10 02:19:13.404605",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: newContext()] [Memory exhaustion/DoS] Can an attacker repeatedly call New() with large context arrays causing unbounded memory growth through make([]interface{}, len(prefix)+len(normalizedSuffix)) at line 203, eventually exhausting validator node memory and causing OOM crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6147cfe0-f5bb-44e6-b8fd-5e31dbabf8cc?mode=deep",
+    "timestamp": "2026-01-10 02:19:37.455825",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: New()] [Handler initialization] When New() creates a child logger at line 196 with new(swapHandler), is the swapHandler properly initialized before SetHandler() is called, or can race conditions cause writes to uninitialized handlers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_00920225-f665-473e-87dc-311a6dfbebed?mode=deep",
+    "timestamp": "2026-01-10 02:20:02.139867",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: write()] [Handler nil check] Does write() verify that l.h is not nil before calling l.h.Log() at line 180, or can uninitialized logger instances cause nil pointer dereferences crashing validator nodes during block production? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8af60bfe-a4f7-4535-b965-34e1f7c94b79?mode=deep",
+    "timestamp": "2026-01-10 02:20:27.603682",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: GetHandler()] [Race condition] Can GetHandler() at line 234 have race conditions with SetHandler() where the returned handler is immediately invalidated, causing use-after-free style bugs if the handler is closed/freed while still in use? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7e3df9da-9704-433b-95d7-3ed88d8f316f?mode=deep",
+    "timestamp": "2026-01-10 02:20:53.105833",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: SetHandler()] [Race condition] Does SetHandler() at line 238 calling l.h.Swap(h) have race conditions with concurrent write() calls where the handler is swapped mid-logging, potentially causing logs to be lost or written to wrong destinations during consensus operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f74adbc8-ccc9-4554-9d21-adf587d2a8e5?mode=deep",
+    "timestamp": "2026-01-10 02:21:18.294025",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: write()] [Race condition] Can concurrent calls to write() at line 179 while SetHandler() is executing cause race conditions where l.h.Log() is called on a nil or partially initialized handler, causing nil pointer dereference panics? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b03b1745-7523-4837-8281-12ea5a18294c?mode=deep",
+    "timestamp": "2026-01-10 02:21:44.926073",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: Crit()] [Validator manipulation] Can a malicious validator intentionally trigger Crit() conditions to force honest validator nodes to crash via os.Exit(1), reducing network security below the 51% threshold? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_874bffd9-700c-4943-8780-87b6be10d123?mode=deep",
+    "timestamp": "2026-01-10 02:22:12.219888",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: Crit()] [Data loss] Can Crit() being called during state trie updates cause incomplete disk writes due to immediate os.Exit(1), corrupting the blockchain database and requiring full resync? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_501a0b6a-185e-4a5f-aa77-6d4cf5b60277?mode=deep",
+    "timestamp": "2026-01-10 02:22:37.972035",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: Crit()] [Resource leak] Does os.Exit(1) at line 231 skip deferred cleanup functions, potentially leaving file handles, network connections, or database locks open, causing resource exhaustion if nodes repeatedly crash and restart? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3394fef0-b7a6-4a85-9304-34101175213e?mode=deep",
+    "timestamp": "2026-01-10 02:23:04.147493",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: Crit()] [Consensus failure] Can an attacker trigger Crit() logs during consensus-critical operations to force immediate os.Exit(1), causing validators to crash before committing valid blocks and potentially causing chain splits? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_91201327-eaae-4494-97a6-d926537e6222?mode=deep",
+    "timestamp": "2026-01-10 02:23:29.095703",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: Crit()] [Improper shutdown/State corruption] Does Crit() calling os.Exit(1) at line 231 prevent proper cleanup of in-flight transactions, potentially causing state corruption if a validator crashes mid-block-production after logging a critical error? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b8b6b03e-44de-4c2f-91f7-416205e8e25b?mode=deep",
+    "timestamp": "2026-01-10 02:23:54.623811",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: String()] [Type safety/Panic] If Lvl type casting is performed unsafely elsewhere in the codebase, can an attacker inject arbitrary integer values causing the String() method to panic at line 65 during transaction validation logging? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d5701ce0-1cee-4852-a712-64ce4c2f51a8?mode=deep",
+    "timestamp": "2026-01-10 02:24:19.867208",
+    "report_generated": false
   }
 ]
