@@ -8548,5 +8548,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c3d13992-413b-434e-924d-6efb62e9365c?mode=deep",
     "timestamp": "2026-01-10 09:34:53.685185",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/accounts.go] [Interface: Wallet.Status()] [Sensitive info disclosure] Can Status return values leak sensitive wallet information (private key derivation paths, hardware device serial numbers) that aids attackers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ddcbef22-2b2f-468b-9a49-d00dac4b19eb?mode=deep",
+    "timestamp": "2026-01-10 10:37:13.730318",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/accounts.go] [Interface: Wallet.URL()] [URL validation] Does the interface enforce that returned URLs follow a consistent format, or can implementations return arbitrary strings that cause parsing errors in wallet managers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3276a9f6-a733-4753-8bb0-149d1792e4de?mode=deep",
+    "timestamp": "2026-01-10 10:37:26.928771",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/accounts.go] [Interface: Backend.Wallets()] [Race condition] If Wallets is called concurrently while wallet arrival/departure events occur, can this return inconsistent wallet lists or cause concurrent map access panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f606d194-7cc3-457a-8c35-7c52962da367?mode=deep",
+    "timestamp": "2026-01-10 10:37:40.432406",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/accounts.go] [Interface: Backend.Wallets()] [Sorting vulnerability] Line 167 mentions alphabetical sorting by URL - can attackers create wallets with crafted URLs that appear first in sorted order to hijack account lookups? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_929eba67-eaa3-496b-9048-2bbaf7efc7dd?mode=deep",
+    "timestamp": "2026-01-10 10:37:54.285248",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/accounts.go] [Interface: Backend.Subscribe()] [Channel buffer] Does the subscription channel need buffering, or can slow consumers cause goroutine blocking that prevents wallet discovery/removal from proceeding? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1e810b80-2e5f-4aca-af9b-fca5fe3f5ecc?mode=deep",
+    "timestamp": "2026-01-10 10:38:09.104785",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/accounts.go] [Interface: Backend.Subscribe()] [Subscription leak] If callers don't properly unsubscribe, can this cause goroutine leaks that accumulate over time and crash the node? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_da2833b2-07c6-412a-8b85-f525fea33ca4?mode=deep",
+    "timestamp": "2026-01-10 10:38:24.969165",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/accounts.go] [Interface: Backend.Subscribe()] [Event ordering] Are wallet events guaranteed to be delivered in order, or can race conditions cause arrival events to arrive after usage attempts, causing 'unknown wallet' errors? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ae2b4076-b89c-4912-87a3-1497c703dc5f?mode=deep",
+    "timestamp": "2026-01-10 10:38:41.853761",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/accounts.go] [Constants: MIME types] [Type confusion] Can implementations confuse MimetypeDataWithValidator, MimetypeTypedData, and MimetypeClique, causing signatures intended for typed data to be accepted as validator blocks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_77a3fe3b-03c0-4281-bd19-afe4611dd16e?mode=deep",
+    "timestamp": "2026-01-10 10:39:00.823812",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/accounts.go] [Constants: MimetypeClique] [Consensus attack] If MimetypeClique='application/x-clique-header' is used to sign block headers, can attackers request signatures for arbitrary data with this MIME type to forge validator blocks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7947d71f-ae65-49a0-9f10-07693409e159?mode=deep",
+    "timestamp": "2026-01-10 10:39:21.224560",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/accounts.go] [Constants: MimetypeDataWithValidator] [Validator bypass] Does MimetypeDataWithValidator provide additional security context, or can it be misused to sign non-validator data that appears to have validator authority? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_64cec953-1e76-48a9-93d4-f39a09304c6b?mode=deep",
+    "timestamp": "2026-01-10 10:39:43.009623",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/accounts.go] [Constants: MimetypeTypedData] [EIP-712 vulnerability] Is MimetypeTypedData used for EIP-712 typed structured data signing? If so, can domain separator collisions between WBT and other chains enable cross-chain replay? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d58e49e5-da1e-4bdc-9d13-936b7c492d40?mode=deep",
+    "timestamp": "2026-01-10 10:40:05.888498",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/accounts.go] [Constants: MimetypeTextPlain] [Downgrade attack] Can attackers force signing operations to use MimetypeTextPlain instead of typed data formats, bypassing structured signature protections? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_996848bb-ba68-434f-9bc3-57688d4dd757",
+    "timestamp": "2026-01-10 10:40:30.281774",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/accounts.go] [Type: WalletEventType] [Event injection] Can malicious code inject fake WalletArrived events that cause the system to load attacker-controlled wallet implementations with backdoored signing operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a470d5a2-3600-4f59-a272-12310c8814ba?mode=deep",
+    "timestamp": "2026-01-10 10:40:55.742692",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/accounts.go] [Type: WalletEventType] [Event replay] If WalletArrived events are replayed, can this cause duplicate wallet registration that leads to inconsistent account state or double-spending of signing operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_32a8e0e0-d0bf-4b01-af5a-2bf87a8056c6?mode=deep",
+    "timestamp": "2026-01-10 10:41:22.249089",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/accounts.go] [Struct: WalletEvent] [Wallet interface validation] Does the WalletEvent struct validate that the Wallet field implements the Wallet interface correctly, or can malicious events contain invalid wallet implementations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3eb31d93-64c7-4494-97e3-1767ee09031e?mode=deep",
+    "timestamp": "2026-01-10 10:41:49.700215",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/accounts.go] [Type: WalletDropped] [Resource cleanup] When WalletDropped events fire, do all implementations guarantee proper cleanup of resources, or can dropped wallets leave open file handles or hardware connections? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_354e85a6-8813-4128-b8c9-2ad57ef1f3c4?mode=deep",
+    "timestamp": "2026-01-10 10:42:19.512899",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/accounts.go] [Type: WalletOpened] [Multiple open events] Can receiving multiple WalletOpened events for the same wallet cause initialization logic to run multiple times, leading to state corruption or resource leaks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_759b0e53-e8d2-4dec-9a67-3f4a6bbe6cd7?mode=deep",
+    "timestamp": "2026-01-10 10:42:47.315787",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/accounts.go] [General: Interface contracts] [Implementation variance] Since this file only defines interfaces, can different wallet backend implementations interpret interface contracts differently, causing security inconsistencies across wallet types? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9ae65e7e-42e1-4dc0-8446-1cfe5d564655?mode=deep",
+    "timestamp": "2026-01-10 10:43:16.371987",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/accounts.go] [General: Error handling] [Silent failures] Do interface methods that return errors guarantee that critical security failures (invalid signatures, authentication failures) always return errors rather than silently succeeding? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_535e8b58-d502-414f-bec8-13fb71ba375a?mode=deep",
+    "timestamp": "2026-01-10 10:43:46.077704",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/accounts.go] [General: Concurrency] [Thread safety] Do the interfaces require implementations to be thread-safe, or can concurrent access to wallet methods cause race conditions, data corruption, or private key leakage? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f9c17262-e5e6-4a37-802b-0bf0bfa381fa?mode=deep",
+    "timestamp": "2026-01-10 10:44:13.674279",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/accounts.go] [General: Authentication] [AuthNeededError bypass] Can implementations incorrectly handle AuthNeededError returns, allowing signing operations to proceed without proper authentication when they should fail? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_975201b9-0a55-45ba-897c-023a72752fbe?mode=deep",
+    "timestamp": "2026-01-10 10:44:40.863858",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/accounts.go] [General: Memory safety] [Sensitive data] Do interface contracts require implementations to use secure memory for private keys and passphrases (pinned memory, zeroing after use), or can keys leak through garbage collection? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3ecec27f-34f9-49c5-a8a5-4aa4a9a63e05?mode=deep",
+    "timestamp": "2026-01-10 10:45:07.375162",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/accounts.go] [General: Validation] [Input sanitization] Do interfaces enforce input validation (address format, path bounds, data size), or is validation delegated to implementations creating inconsistent security postures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_98c74eb5-c168-4d2d-89da-b060068471d8?mode=deep",
+    "timestamp": "2026-01-10 10:45:36.716515",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/accounts.go] [Integration: Validator signing] When validator nodes use Wallet.SignData with MimetypeClique to sign block headers, can missing chainID validation enable validators to sign blocks for multiple chains simultaneously? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_15244cce-2d53-4813-8d88-f58ad47b7f90?mode=deep",
+    "timestamp": "2026-01-10 10:46:04.912983",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/accounts.go] [Integration: Account derivation] If validators use HD wallets with SelfDerive, can chain state manipulation cause validators to use incorrect signing keys, invalidating blocks and causing consensus failure? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e2fcbe36-b4aa-4c57-8205-188f99dc5a60?mode=deep",
+    "timestamp": "2026-01-10 10:46:31.644008",
+    "report_generated": false
   }
 ]
