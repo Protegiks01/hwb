@@ -11698,5 +11698,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ee1a147e-6cd7-41a3-8bba-7cfed01150f1?mode=deep",
     "timestamp": "2026-01-10 04:03:04.442559",
     "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: logfmt()] [Context iteration] The loop assumes ctx has even length (key-value pairs) - what happens if ctx has odd length? Does line 170 access beyond bounds? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d84da269-196b-4d7e-b849-7c345a6ef67a?mode=deep",
+    "timestamp": "2026-01-10 04:04:20.132495",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: logfmt()] [Padding logic] Lines 183-189 update fieldPadding only if padding < length && length <= termCtxMaxPadding - can this logic be exploited to force unbounded padding growth? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_48e074dc-ebd2-4310-8628-e9b5033dcf56?mode=deep",
+    "timestamp": "2026-01-10 04:04:33.088285",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: TerminalFormat()] [Padding calculation] Line 124 calculates align-len(location) - can this underflow if location is longer than align, causing panic or incorrect padding? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_526223f8-6b83-4215-9d0c-23ac0ec90e8f?mode=deep",
+    "timestamp": "2026-01-10 04:04:46.202042",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: TerminalFormat()] [Padding overflow] Line 142 calculates termMsgJust-length without checking if termMsgJust < length - can negative values cause panics in bytes.Repeat? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f218c80b-dccf-42f2-a639-6ae069d3b474?mode=deep",
+    "timestamp": "2026-01-10 04:05:00.780795",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: logfmt()] [Padding overflow] Line 198 calculates padding as padding-length without checking if padding < length - can negative padding values cause panics when passed to bytes.Repeat? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3a542364-989e-4d7f-a9ef-a3b51099815d?mode=deep",
+    "timestamp": "2026-01-10 04:05:15.595066",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: JSONFormatOrderedEx()] [Silent failure] Lines 240-243 return error map but lose the original record - can this cause loss of critical audit trail during security incidents? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9ff52305-a7fd-4b27-855d-448743e05901?mode=deep",
+    "timestamp": "2026-01-10 04:05:31.541351",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: JSONFormatEx()] [Silent failure] Line 280 returns a minimal error map on marshaling failure - can this hide critical errors that occurred during consensus state logging? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_11ce8812-584f-491f-8c70-c0058cbae3eb?mode=deep",
+    "timestamp": "2026-01-10 04:05:48.776680",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: formatShared()] [Panic recovery] Lines 295-302 use panic/recover - can this hide serious bugs that should crash the node immediately, potentially allowing corrupted state to persist? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_327a553c-465a-4de1-8603-b3028bee4e6b?mode=deep",
+    "timestamp": "2026-01-10 04:06:07.590279",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: TerminalFormat()] [UTF-8 counting] Line 140 uses utf8.RuneCountInString(msg) - can invalid UTF-8 in messages cause incorrect justification and malformed log output? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f41d3f12-03af-4b17-8699-82462ae9eda7?mode=deep",
+    "timestamp": "2026-01-10 04:06:27.704593",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: logfmt()] [UTF-8 counting] Line 182 uses utf8.RuneCountInString which assumes valid UTF-8 - can invalid UTF-8 in log values cause incorrect padding calculations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0ee44d8d-452a-4e76-b9f4-a45d4fd3f257?mode=deep",
+    "timestamp": "2026-01-10 04:06:49.120120",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: escapeString()] [UTF-8 validation] The function iterates over runes but doesn't validate UTF-8 - can invalid UTF-8 sequences cause panics or incorrect escaping? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e460a2b2-8e34-4530-ba52-4f064fdb69da?mode=deep",
+    "timestamp": "2026-01-10 04:07:11.429607",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: TerminalFormat()] [Time format] Line 128/134 uses termTimeFormat without timezone - can this cause confusion when correlating logs across nodes in different timezones during incident response? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_742823c3-2d92-4fc0-b226-860cba482798?mode=deep",
+    "timestamp": "2026-01-10 04:07:35.360992",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: formatLogfmtValue()] [Time format] Line 341 formats time.Time with timeFormat - can timezone issues cause log timestamps to be incorrect, making attack timelines impossible to reconstruct? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_71957fcf-5f97-4bc7-9aff-9e7a9d66f03b?mode=deep",
+    "timestamp": "2026-01-10 04:07:59.863179",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: formatLogfmtUint64()] [Fixed buffer] Uses maxLength=26 constant (line 424) - is this sufficient for all uint64 values with comma separators, or can larger values overflow? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4f84a425-3e4f-4ec1-9e48-99eb7666e905?mode=deep",
+    "timestamp": "2026-01-10 04:08:23.749530",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: logfmt()] [Buffer growth] The buffer grows dynamically as data is written - can extremely long log contexts cause excessive buffer reallocations and memory fragmentation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e2d01d34-8625-4645-8692-33c760805f76?mode=deep",
+    "timestamp": "2026-01-10 04:08:46.813932",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: TerminalFormat()] [Buffer reuse] A new bytes.Buffer is allocated each time (line 110) - could buffer pooling reduce allocation pressure, and does lack of pooling enable memory exhaustion attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_14cbb25b-46ca-4ec8-bb4b-fbf8b63ef6f1?mode=deep",
+    "timestamp": "2026-01-10 04:09:08.455039",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: PrintOrigins()] [Atomic operation] Uses atomic.StoreUint32 but readers use atomic.LoadUint32 - is this sufficient memory ordering for all architectures, or can reordering cause inconsistent behavior? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b45add35-a0cd-4030-a2a6-7c47ced860bd?mode=deep",
+    "timestamp": "2026-01-10 04:09:32.932172",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: TerminalFormat()] [Non-atomic update] Lines 119-122 perform check-then-act on locationLength without proper synchronization - can race conditions cause locationLength to be set incorrectly, breaking log alignment? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_457ed41d-db55-435c-8a9f-b9dc32914e64?mode=deep",
+    "timestamp": "2026-01-10 04:09:57.251340",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: formatJSONValue()] [Type loss] Line 326 converts all non-primitive types to strings via fmt.Sprintf - can important type information be lost, making it impossible to reconstruct consensus state from logs? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0cb8e46d-2797-4589-be5e-0b40eefa4d45?mode=deep",
+    "timestamp": "2026-01-10 04:10:19.830199",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: JSONFormatOrderedEx()] [Marshaling error] Lines 238-243 handle marshaling errors silently - can this hide critical consensus failures if the error occurs while logging validator state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ed3ef61e-be65-415c-9767-72fa3840b660?mode=deep",
+    "timestamp": "2026-01-10 04:10:41.711536",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: JSONFormatEx()] [Marshaling error] Lines 278-283 handle json.Marshal errors but return a minimal error map - can marshaling failures during critical events cause loss of important diagnostic information? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c0c96fac-c871-4159-88ea-4e071026fca0?mode=deep",
+    "timestamp": "2026-01-10 04:11:05.492385",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: escapeString()] [Unicode handling] The escape check at line 518 uses rune comparison - can attackers use unicode normalization attacks to bypass escaping and inject control characters? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a2d155b2-ccde-4bf4-98eb-ce87ffbeb8aa?mode=deep",
+    "timestamp": "2026-01-10 04:11:28.871759",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: escapeMessage()] [Log injection] By allowing \\n and \\r (lines 536-537), can attackers inject fake log lines that appear to come from validators, creating false evidence of consensus violations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ee6d6784-c11f-4a3f-8840-fe88aa77b4f5?mode=deep",
+    "timestamp": "2026-01-10 04:11:52.501640",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: escapeMessage()] [Escape bypass] Lines 536-537 allow CR/LF/TAB without quoting - can attackers inject newlines to forge fake log entries that make attack detection impossible? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b1eedc2c-07f9-4d45-94e0-38cb934eab6d?mode=deep",
+    "timestamp": "2026-01-10 04:12:14.126904",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: escapeString()] [Escape bypass] Line 518 checks for characters <= '\\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c746e3ff-16ca-4c50-98c0-2e99070e9f7e?mode=deep",
+    "timestamp": "2026-01-10 04:12:35.437152",
+    "report_generated": false
   }
 ]
