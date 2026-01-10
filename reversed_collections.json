@@ -13492,5 +13492,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c2dcef75-8797-4906-b034-bdb6e916868b?mode=deep",
     "timestamp": "2026-01-10 07:47:56.350463",
     "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: DeleteStorage()] [Tombstone handling] After deletion, does the trie properly handle the tombstone state, or can deleted slots be resurrected causing state inconsistencies? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d1d0dc19-b9db-46f2-85bd-848ae17eb0bd?mode=deep",
+    "timestamp": "2026-01-10 07:49:06.613230",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: DeleteStorage()] [Key existence check] Does DeleteStorage() verify the key exists before deletion, or can non-existent key deletions cause unnecessary ODR requests and DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9c1b7a2d-c285-4a7b-a298-c1279f5cb5e2?mode=deep",
+    "timestamp": "2026-01-10 07:49:19.596174",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: DeleteStorage()] [Address verification] Since the address parameter is ignored, can storage be deleted from wrong contracts if the trie ID is misconfigured? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d222c21e-dc79-494c-b4e6-773bd67ca181?mode=deep",
+    "timestamp": "2026-01-10 07:49:32.628140",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: DeleteStorage()] [Unauthorized deletion] Can DeleteStorage() be called to delete storage slots from contracts without proper authorization checks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_52f9cf79-b443-42ac-9b8c-caa746412cab?mode=deep",
+    "timestamp": "2026-01-10 07:49:46.419363",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: UpdateStorage()] [Do() error handling] If do() fails permanently, does UpdateStorage() properly revert any partial changes, or can incomplete storage updates corrupt contract state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3e46032f-c40d-4b54-9f2d-bd33af35fb5c?mode=deep",
+    "timestamp": "2026-01-10 07:50:00.992831",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: UpdateStorage()] [Concurrent writes] Can race conditions during concurrent UpdateStorage() calls to the same storage slot cause lost updates or corrupted storage? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_318831e7-37fa-4a1e-b37c-670fe30ef5b3?mode=deep",
+    "timestamp": "2026-01-10 07:50:17.793546",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: UpdateStorage()] [Nil value handling] What happens if value is nil or empty - does it delete the storage slot or set it to empty, and can this ambiguity be exploited? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5d050449-c4cf-43b8-8de8-47869591ed6f?mode=deep",
+    "timestamp": "2026-01-10 07:50:35.413549",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: UpdateStorage()] [Key collision exploit] Since keys are hashed, can attackers find collisions to overwrite arbitrary storage slots in other contracts? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2029bc9a-542a-4aab-acd9-6fc946a2cf5e?mode=deep",
+    "timestamp": "2026-01-10 07:50:54.201439",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: UpdateStorage()] [Value size limit] Does UpdateStorage() enforce maximum value sizes for storage slots, or can arbitrarily large values cause memory exhaustion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c7d0557b-1223-4586-861b-be2c9073f975?mode=deep",
+    "timestamp": "2026-01-10 07:51:15.047259",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: UpdateStorage()] [Address parameter ignored] UpdateStorage() ignores the address parameter - can storage updates affect wrong contracts if the trie context is incorrect? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_807bb1bc-e8a1-4d8c-a94c-d4ad28edcccf?mode=deep",
+    "timestamp": "2026-01-10 07:51:36.643099",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: UpdateAccount()] [Do() retry exploitation] If do() retries multiple times due to MissingNodeError, can the account be updated multiple times causing nonce or balance inconsistencies? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_44a22bd1-391b-4a19-ac04-06f9a332a3ce?mode=deep",
+    "timestamp": "2026-01-10 07:51:59.452911",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: UpdateAccount()] [Code hash bypass] Can UpdateAccount() set an arbitrary CodeHash without validating that corresponding code exists, allowing contracts to reference non-existent code? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bf8b29ce-3e90-434e-bd6b-58dd03e1c30d?mode=deep",
+    "timestamp": "2026-01-10 07:52:23.358522",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: UpdateAccount()] [Storage root manipulation] Can the StorageRoot field in StateAccount be manipulated to point to unauthorized storage, breaking storage isolation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6bbafac6-da3b-4a21-b4a7-04235befdacd?mode=deep",
+    "timestamp": "2026-01-10 07:52:48.703028",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: UpdateAccount()] [Concurrent updates] If multiple UpdateAccount() calls happen concurrently for the same address, can race conditions lead to lost updates or corrupted account state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d62b0e54-1e8c-4548-afff-03631aa1f32f?mode=deep",
+    "timestamp": "2026-01-10 07:53:15.719114",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: UpdateAccount()] [Error message typo] The error message says 'decoding error in account update' but should say 'encoding error' - can this misleading error message hide the true nature of attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_500b0133-cb70-4a1f-9c32-6c0fe295d2ca?mode=deep",
+    "timestamp": "2026-01-10 07:53:43.257273",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: UpdateAccount()] [Root hash update] After UpdateAccount(), is the trie root hash properly updated to reflect the change, or can stale roots be used causing state inconsistencies? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0c4238a9-f658-41dd-a11d-e347f24c5484?mode=deep",
+    "timestamp": "2026-01-10 07:54:11.926904",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: UpdateAccount()] [Nonce rollback] Can UpdateAccount() be used to roll back account nonces, enabling replay attacks of old transactions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b9f7f528-8122-42a2-b36a-f01b94511dcb?mode=deep",
+    "timestamp": "2026-01-10 07:54:41.311714",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: UpdateAccount()] [RLP encode overflow] When encoding the account with rlp.EncodeToBytes(), can malicious StateAccount fields cause integer overflows in the encoding size calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fa535bfe-2dcb-42ce-b79b-0d0a0f07d709?mode=deep",
+    "timestamp": "2026-01-10 07:55:13.144599",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: UpdateAccount()] [Balance manipulation] Can UpdateAccount() be called with a crafted StateAccount containing negative balances or overflow values that corrupt the blockchain state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6ea966b6-49e1-4eba-bac5-f47cedd99480?mode=deep",
+    "timestamp": "2026-01-10 07:55:44.376362",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: GetAccount()] [Concurrent access] Can multiple goroutines calling GetAccount() on the same odrTrie cause race conditions in the underlying trie access? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f41941d7-1f8d-4dae-96ed-b7d934a510ae?mode=deep",
+    "timestamp": "2026-01-10 07:56:14.177091",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: GetAccount()] [Memory allocation] Does GetAccount() properly bound the size of decoded StateAccount data, or can malicious trie data cause excessive memory allocation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_495eff14-cdfa-4480-9c82-3dcb43d1e8a9?mode=deep",
+    "timestamp": "2026-01-10 07:56:44.422131",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: GetAccount()] [Decode error handling] If rlp.DecodeBytes fails, the function returns the uninitialized res variable along with error - can callers misuse the invalid StateAccount data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0f27756f-049c-47b8-9342-b086e78421fc?mode=deep",
+    "timestamp": "2026-01-10 07:57:15.404920",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: GetAccount()] [Address hashing] Does Keccak256(address.Bytes()) produce unique hashes for all addresses, or can address collisions allow reading wrong accounts? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_400ac05e-2049-4fee-ba62-632e5c33f387?mode=deep",
+    "timestamp": "2026-01-10 07:57:46.443458",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: GetAccount()] [Nil value handling] When trie.Get() returns nil (account doesn't exist), GetAccount() returns a zero-initialized StateAccount - can this be confused with a legitimate empty account causing balance errors? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_63e48b19-76e5-4025-925f-a91ed2376aa7?mode=deep",
+    "timestamp": "2026-01-10 07:58:16.848592",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: GetAccount()] [RLP decode bypass] If the RLP decoding of retrieved account data fails, does GetAccount() return a partially initialized StateAccount that could have invalid balance or nonce? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_084035b4-2460-4eff-ade0-731908c1adf8?mode=deep",
+    "timestamp": "2026-01-10 07:58:47.440272",
+    "report_generated": false
   }
 ]
