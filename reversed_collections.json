@@ -10348,5 +10348,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a2b85fde-f23b-4d12-8e4d-10c999988707?mode=deep",
     "timestamp": "2026-01-10 02:34:19.952769",
     "report_generated": false
+  },
+  {
+    "question": "[File: log/handler.go] [Function: LazyHandler()] [Type assertion] Does the type assertion at line 277 handle unexpected types safely, or can malformed context cause panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_92c52f20-05b9-4e8a-88cd-84cb46e92e9a?mode=deep",
+    "timestamp": "2026-01-10 02:35:37.916310",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/handler.go] [Function: LazyHandler()] [Slice bounds] The loop at line 276 uses i+=2 - if r.Ctx has odd length, can accessing r.Ctx[i] at line 277 cause out-of-bounds panic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f2a927ae-a52e-4474-9cd8-138af26b0cb2?mode=deep",
+    "timestamp": "2026-01-10 02:35:50.994225",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/handler.go] [Function: BufferedHandler()] [Memory exhaustion] Can an attacker trigger rapid logging that fills the bufSize channel at line 258, then causes blocking and memory growth? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cec99b27-aaf3-45c7-9051-cf06ca28dc23?mode=deep",
+    "timestamp": "2026-01-10 02:36:04.488306",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/handler.go] [Function: BufferedHandler()] [Panic in handler] If h.Log(m) at line 261 panics, does this crash the background goroutine silently stopping all async logging? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0ac6faea-8cea-4778-82bb-7bc5b3b682cb?mode=deep",
+    "timestamp": "2026-01-10 02:36:18.224612",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/handler.go] [Function: BufferedHandler()] [Channel close] If the channel recs is never closed, does the goroutine at line 259-263 leak forever consuming resources? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6e656bbb-1e19-4833-8e5a-d27eb0b4da40?mode=deep",
+    "timestamp": "2026-01-10 02:36:32.804454",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/handler.go] [Function: BufferedHandler()] [Error suppression] The wrapped handler errors are ignored at line 261 with '_ =' - can critical logging failures go completely unnoticed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1f8e9fe5-600f-46f1-ad35-c81e3de6c3d8?mode=deep",
+    "timestamp": "2026-01-10 02:36:48.322743",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/handler.go] [Function: BufferedHandler()] [Goroutine leak] The goroutine started at line 259 never exits - can this leak goroutines if BufferedHandler is created repeatedly? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_184fce6c-2546-40f7-a237-8b2f0131c56a?mode=deep",
+    "timestamp": "2026-01-10 02:37:05.085596",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/handler.go] [Function: BufferedHandler()] [Buffer overflow] Does BufferedHandler at line 258 handle the case where more than bufSize records are produced faster than consumed, or can this cause blocking? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8db14498-3f3f-4a6f-ab10-027965fd008d?mode=deep",
+    "timestamp": "2026-01-10 02:37:24.638718",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/handler.go] [Function: ChannelHandler()] [Nil channel] If a nil channel is passed to ChannelHandler at line 245, does the send at line 247 block forever causing node hang? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c820fb10-9a77-4fad-a439-3a6a884f8221?mode=deep",
+    "timestamp": "2026-01-10 02:37:44.096136",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/handler.go] [Function: ChannelHandler()] [Panic on closed channel] If the channel recs is closed while ChannelHandler at line 247 tries to send, does this panic and crash the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0c015e48-5190-4467-9eda-24f5664ed6a2?mode=deep",
+    "timestamp": "2026-01-10 02:38:06.328569",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/handler.go] [Function: ChannelHandler()] [Goroutine leak] If the channel consumer stops reading, can the send at line 247 block forever, leaking goroutines over time? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7daa0724-79c6-4475-b265-ded719733db9?mode=deep",
+    "timestamp": "2026-01-10 02:38:27.934665",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/handler.go] [Function: ChannelHandler()] [Channel blocking] The send operation at line 247 blocks if the channel is full - can this cause the entire node to hang if the receiving goroutine stops processing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d64efb57-df58-4db5-b575-3d614b018abc?mode=deep",
+    "timestamp": "2026-01-10 02:38:52.146187",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/handler.go] [Function: FailoverHandler()] [Index safety] The format string 'failover_err_%d' at line 235 uses index i - can this cause integer overflow if many failovers occur? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_59bce05d-7c2b-4822-b128-f13f4f2bfc0b?mode=deep",
+    "timestamp": "2026-01-10 02:39:17.313547",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/handler.go] [Function: FailoverHandler()] [Cascading failures] If all handlers in the failover chain at line 230-234 fail, does this cause any side effects beyond returning an error? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_14a65a99-321f-4381-925c-d371e2eb2434?mode=deep",
+    "timestamp": "2026-01-10 02:39:41.419208",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/handler.go] [Function: FailoverHandler()] [Error masking] Does the failover logic at line 228-239 properly preserve the original error, or can critical error details be lost during failover? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_74710dd4-3ee1-4aa4-b97a-a47ce0cc48fd?mode=deep",
+    "timestamp": "2026-01-10 02:40:06.275449",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/handler.go] [Function: FailoverHandler()] [Context pollution] The append at line 235 adds error context to r.Ctx - can this cause unbounded context growth if failover repeatedly fails? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_da68d5d1-44bb-487b-924d-c53e57e2c397?mode=deep",
+    "timestamp": "2026-01-10 02:40:30.542933",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/handler.go] [Function: MultiHandler()] [Resource exhaustion] Can an attacker trigger slow operations in multiple handlers at line 204-207 causing multiplicative performance degradation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9327a8ec-77d1-4de1-ae18-d8602d20cf90?mode=deep",
+    "timestamp": "2026-01-10 02:40:54.712514",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/handler.go] [Function: MultiHandler()] [Panic propagation] If one handler h.Log() at line 206 panics, does this prevent subsequent handlers from executing, causing partial log loss? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_79cf9776-96a4-4e8d-8e50-31c483c94303?mode=deep",
+    "timestamp": "2026-01-10 02:41:18.998766",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/handler.go] [Function: MultiHandler()] [Partial writes] If some handlers in the loop at line 204-207 succeed and others fail, is there any consistency guarantee, or can logs appear in some outputs but not others? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bb9ae01b-0580-4c63-aa17-f4c19c2bf749?mode=deep",
+    "timestamp": "2026-01-10 02:41:41.126832",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/handler.go] [Function: MultiHandler()] [Error suppression] The comment at line 205 indicates failures are ignored - can this cause critical security logs to be silently dropped if one handler fails? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9da01370-7144-4694-878b-f378dfaa7118?mode=deep",
+    "timestamp": "2026-01-10 02:42:03.446522",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/handler.go] [Function: LvlFilterHandler()] [Type safety] Does the Lvl type used at line 190 have proper validation, or can invalid values bypass the filter? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_27dc88d7-4cc4-40ec-9bce-95d9a2029bc6?mode=deep",
+    "timestamp": "2026-01-10 02:42:26.893919",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/handler.go] [Function: LvlFilterHandler()] [Level bypass] Can the log level comparison at line 190 be exploited to log Critical messages as Debug, hiding security events from monitoring? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_298a024a-73a0-4caf-ba04-55a95018ef09?mode=deep",
+    "timestamp": "2026-01-10 02:42:49.947574",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/handler.go] [Function: MatchFilterHandler()] [Slice access safety] Does the access r.Ctx[i+1] at line 175 properly check bounds, or can it panic if context length is manipulated? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5f717b9a-2d64-4e21-bbb5-4b57f02413c9?mode=deep",
+    "timestamp": "2026-01-10 02:43:12.611095",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/handler.go] [Function: MatchFilterHandler()] [Array bounds] The loop at line 173 iterates with i+=2 - can this cause out-of-bounds access if r.Ctx has odd length, leading to panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eafe46c0-e537-44e5-93b3-0be3c155ee13?mode=deep",
+    "timestamp": "2026-01-10 02:43:36.210253",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/handler.go] [Function: MatchFilterHandler()] [Type confusion] Does the equality comparison at line 166/168/170 handle type mismatches safely, or can type confusion allow filter bypass? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_79a3d269-4dd3-411a-a019-9180f53920d8?mode=deep",
+    "timestamp": "2026-01-10 02:43:59.613718",
+    "report_generated": false
   }
 ]
