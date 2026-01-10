@@ -17698,5 +17698,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_db1d0030-f7d7-4fe2-900e-56328dd7a26b?mode=deep",
     "timestamp": "2026-01-10 21:56:06.452368",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: Open()] [Passphrase injection] At line 147 when PassphraseAck is sent, can an attacker inject malicious control characters or excessively long passphrases to exploit buffer overflows in the Trezor firmware or cause unexpected device behavior? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_14fc097b-e10f-46c1-b616-425abcdbfeca?mode=deep",
+    "timestamp": "2026-01-10 21:57:30.079485",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: Open()] [State transition bypass] Between lines 121-131, the switch statement handles Ping responses - can an attacker manipulate the response index 'res' by causing trezorExchange to return unexpected values, bypassing PIN or passphrase requirements? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_23c4659d-95e4-49ef-907c-68d294b5aa20?mode=deep",
+    "timestamp": "2026-01-10 21:57:42.968267",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: Open()] [Phase confusion] If pinwait is true but passphrase is non-empty at line 134, can this mixed state cause the device to accept the passphrase as a PIN, or vice versa, leading to authentication bypass? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f105926a-c7e1-4fbc-b3f4-d12aefd55002?mode=deep",
+    "timestamp": "2026-01-10 21:57:56.242162",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: Open()] [Passphrase state race] At line 142 when res == 1, passphrasewait is set to true but pinwait was already set to false at line 135 - can rapid state transitions be exploited to skip passphrase validation entirely? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ef3b4321-a71c-4e73-91b5-2217f7949295?mode=deep",
+    "timestamp": "2026-01-10 21:58:09.842522",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: Open()] [Device initialization bypass] The Initialize message at line 107 establishes the connection - can an attacker send a malformed Initialize causing features to contain manipulated version or label data that bypass security checks later? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4d2fd7b3-54b3-4508-9d6c-5cf47e3a4334?mode=deep",
+    "timestamp": "2026-01-10 21:58:24.411070",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorSign()] [Signature malleability] After extracting signature components at lines 252-255, the code constructs the signature but doesn't validate that R and S values are in the correct range - can an attacker exploit ECDSA signature malleability to create alternative valid signatures for the same transaction? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_31f97faa-0e3b-4292-9ea8-81a96b82150d?mode=deep",
+    "timestamp": "2026-01-10 21:58:40.020127",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorSign()] [V value manipulation] At line 264, signature[64] is modified by subtracting chainID-based offset - can integer underflow occur if chainID.Uint64()*2 + 35 > 255, causing the V value to wrap around and create invalid or exploitable signatures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1d69bd71-f36d-454d-ade1-7ae66fbc43f5?mode=deep",
+    "timestamp": "2026-01-10 21:58:57.012657",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorSign()] [Nil chainID handling] When chainID is nil at line 259, HomesteadSigner is used - can this be exploited to sign transactions that are valid on multiple chains (replay attacks) if validators don't properly enforce EIP-155 protection? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f98b8ac3-73db-4e43-955e-3f22f65816bc?mode=deep",
+    "timestamp": "2026-01-10 21:59:15.489064",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorSign()] [Transaction data chunking] At lines 229-233, if data length > 1024, it's chunked - can an attacker provide a transaction where len(data) is manipulated to cause the chunking logic to send incorrect data portions, resulting in signing a different transaction than intended? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_56dd8352-025f-4521-9ba5-0c244dd390fb?mode=deep",
+    "timestamp": "2026-01-10 21:59:36.039618",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorSign()] [Empty signature validation] At line 252, the code checks if signature components are empty - but what if they contain all zeros or other invalid values? Can this lead to signing transactions with invalid signatures that could be exploited? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f4309308-f8bd-47a3-a6cf-f9139b24ade4?mode=deep",
+    "timestamp": "2026-01-10 21:59:57.622703",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorSign()] [ChainID overflow] At line 235, chainID.Int64() is cast to uint32 - if chainID exceeds 32-bit range, can truncation occur causing transactions to be signed with incorrect chainID, enabling replay attacks on unintended chains? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f2e2a937-fad0-4d1d-a9b4-c362183d62f5?mode=deep",
+    "timestamp": "2026-01-10 22:00:20.707432",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorSign()] [Nonce overflow] At line 217, tx.Nonce() (uint64) is converted to big.Int then to bytes - can very large nonce values cause buffer issues or be serialized incorrectly, leading to transaction replay or nonce confusion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_46a11efe-da1f-4db2-bfb6-8a89e6148adf?mode=deep",
+    "timestamp": "2026-01-10 22:00:44.821509",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorSign()] [Gas price manipulation] At line 218, tx.GasPrice() bytes are sent directly - can an attacker cause the big.Int bytes representation to be ambiguous or non-canonical, leading the Trezor to display different gas prices than actually signed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5cd39888-cb05-45a3-aba5-301a98daaa48?mode=deep",
+    "timestamp": "2026-01-10 22:01:10.912178",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorSign()] [Gas limit overflow] Line 219 converts tx.Gas() (uint64) to big.Int bytes - can large gas values be serialized in a way that causes the Trezor to misinterpret the actual gas limit, allowing DoS or economic attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5d1f72ed-b251-4e57-b6a4-49b42f3878d5?mode=deep",
+    "timestamp": "2026-01-10 22:01:36.039194",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorSign()] [Value overflow] At line 220, tx.Value() bytes are sent - can extremely large value amounts cause big.Int serialization issues or overflow in the Trezor firmware, potentially signing transactions that transfer more funds than displayed? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_23915c83-3958-4366-8fef-bdd9f48063fa?mode=deep",
+    "timestamp": "2026-01-10 22:02:02.001994",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorSign()] [To address confusion] Lines 223-228 handle both hex and binary formats for recipient address - can inconsistencies between ToHex and ToBin allow an attacker to make the Trezor display one address while actually signing for another? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d2397e1e-b50e-47a9-b9cf-0e8b9a544ba2?mode=deep",
+    "timestamp": "2026-01-10 22:02:29.787760",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorSign()] [Contract creation confusion] When tx.To() is nil (contract creation), request.ToHex and request.ToBin remain unset - can this be exploited to make users unknowingly sign contract creation transactions when they expect regular transfers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c2c02f65-8e1d-4009-bdd1-0145ec063de2?mode=deep",
+    "timestamp": "2026-01-10 22:02:57.040766",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorSign()] [Data length mismatch] At line 221, DataLength is set to len(data) as uint32 - if actual data is modified after this point but before sending, can the length mismatch cause the Trezor to process incorrect data while thinking it's processing the original transaction? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1a4278ef-8b58-4818-ba76-354915e72312?mode=deep",
+    "timestamp": "2026-01-10 22:03:23.022538",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorSign()] [Chunk boundary exploit] The loop at lines 243-250 processes data chunks based on response.DataLength - can a malicious Trezor device (or MitM) send manipulated DataLength values causing slice bounds errors or sending wrong data chunks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cf42b359-43ff-451c-9b8f-c1efeba09a62?mode=deep",
+    "timestamp": "2026-01-10 22:03:48.371385",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorSign()] [Incomplete data transmission] If the loop at line 243 exits early due to response.DataLength being nil or data being exhausted prematurely, can partial transaction data be signed, creating an invalid or exploitable transaction? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_affa8bcf-75ee-4411-b170-8bf294a1e35f?mode=deep",
+    "timestamp": "2026-01-10 22:04:14.701361",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorSign()] [Signature assembly] At line 255, signature is assembled by concatenating R, S, and V - can incorrect byte ordering or missing validation allow signature component injection or manipulation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_edc28d79-ccd7-4a67-bfa9-6edc6b550d2b?mode=deep",
+    "timestamp": "2026-01-10 22:04:40.757017",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorSign()] [Signer validation bypass] After creating the signed transaction at line 268, types.Sender() is called at line 272 - but if signature validation is weak, can an attacker create transactions with forged signatures that still pass validation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_33d76027-8f5f-4c03-9474-7d0c922ba293?mode=deep",
+    "timestamp": "2026-01-10 22:05:08.101972",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: SignTx()] [Device closed check] At lines 182-184, the code checks if w.device == nil - but this check happens before trezorSign is called, can a race condition cause device to be set to nil between the check and actual signing operation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ab18b37e-7ecf-4803-8478-60ab7c450277?mode=deep",
+    "timestamp": "2026-01-10 22:05:35.085321",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: SignTypedMessage()] [Unsupported feature] This function always returns ErrNotSupported at line 189 - can this limitation be exploited if the WBT blockchain requires EIP-712 typed message signing for critical operations like validator management? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c0f268d8-bbce-429a-b344-2f28eb80284e?mode=deep",
+    "timestamp": "2026-01-10 22:06:03.702905",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorDerive()] [Path injection] The derivationPath uint32 array is sent directly to the Trezor at line 196 without validation - can an attacker provide malicious derivation paths that access keys for other users or bypass hardware wallet protections? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_14c04914-65d9-4a23-b335-2a9b9da849d4?mode=deep",
+    "timestamp": "2026-01-10 22:06:32.734796",
+    "report_generated": false
   }
 ]
