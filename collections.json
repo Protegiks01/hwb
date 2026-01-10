@@ -12298,5 +12298,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e54d6537-0c20-475d-a219-00b1a601a019?mode=deep",
     "timestamp": "2026-01-10 15:24:25.261337",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: aesCTRXOR()] [IV Reuse CTR] If the same key and IV are used for multiple aesCTRXOR() calls, does this break the CTR mode security by reusing keystream? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8297b2d5-dfa5-4776-88ae-5fe72597bb76?mode=deep",
+    "timestamp": "2026-01-10 15:25:47.016786",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: aesCTRXOR()] [Memory Aliasing] Are there any memory aliasing issues between key, inText, iv, and outText that could cause corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6a4c379f-27bb-4dd1-932f-08a6f661ac3f?mode=deep",
+    "timestamp": "2026-01-10 15:25:59.989396",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: aesCBCDecrypt()] [Key Length CBC] Does aes.NewCipher() in CBC mode validate the key length? Can wrong key lengths cause weak encryption or panics? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e986d23b-6e24-41e4-b903-9c0a28e83746?mode=deep",
+    "timestamp": "2026-01-10 15:26:13.314841",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: aesCBCDecrypt()] [IV Length CBC] Does cipher.NewCBCDecrypter() validate that IV is exactly 16 bytes? Can incorrect IV length cause panics or incorrect decryption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d32cde92-417c-44a9-8a9d-d7bdf6a6b718?mode=deep",
+    "timestamp": "2026-01-10 15:26:27.110255",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: aesCBCDecrypt()] [Block Alignment] Does CryptBlocks() require that cipherText length is a multiple of block size (16 bytes)? If not aligned, can this cause buffer overruns or panics? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_060fce17-182a-4c58-acb8-05df89026b8b?mode=deep",
+    "timestamp": "2026-01-10 15:26:41.584604",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: aesCBCDecrypt()] [Empty Ciphertext CBC] What happens if cipherText is empty? Does CryptBlocks() handle this gracefully, or return garbage data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_effee5f7-bec9-4274-88e3-0a5c7b3916ef?mode=deep",
+    "timestamp": "2026-01-10 15:26:57.161906",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: aesCBCDecrypt()] [Output Buffer Size] The paddedPlaintext buffer is created with len(cipherText). Is this always safe, or can mismatched sizes cause issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_af495e6e-e93a-4f88-bdab-0a12b88bc77c?mode=deep",
+    "timestamp": "2026-01-10 15:27:14.314164",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: aesCBCDecrypt()] [CryptBlocks Panic] Can CryptBlocks() panic if the buffers are not properly aligned or sized? Are there any error cases not caught? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_14520796-1cf3-493e-91d6-a5086338f2fd?mode=deep",
+    "timestamp": "2026-01-10 15:27:33.804720",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: aesCBCDecrypt()] [Padding Validation Timing] Does pkcs7Unpad() execute in constant time regardless of padding validity? Can timing differences enable padding oracle attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9bc55a81-cffa-46be-b087-3250bced6c1e?mode=deep",
+    "timestamp": "2026-01-10 15:27:53.778437",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: aesCBCDecrypt()] [ErrDecrypt Generic] The function returns ErrDecrypt for padding failures. Does this generic error prevent attackers from distinguishing padding errors from other decryption errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c587f416-ca65-49f2-995c-627c6029c772?mode=deep",
+    "timestamp": "2026-01-10 15:28:15.357428",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: aesCBCDecrypt()] [Plaintext Nil Check] When pkcs7Unpad() returns nil, is the paddedPlaintext properly cleared before returning error? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_88b5f173-f1dd-4ccf-8bcd-7a3d40468be2?mode=deep",
+    "timestamp": "2026-01-10 15:28:36.806283",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: aesCBCDecrypt()] [Memory Safety CBC] Are there any buffer overflow risks in the CryptBlocks() operation if buffer sizes are miscalculated? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1e01c00b-0ffc-4791-934b-08732d162d14?mode=deep",
+    "timestamp": "2026-01-10 15:29:00.349892",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: pkcs7Unpad()] [Empty Input] The function returns nil for empty input. Is this the correct behavior, or should it return an error or empty slice? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f898403a-1372-4aa4-bc57-eade5a116ca1?mode=deep",
+    "timestamp": "2026-01-10 15:29:24.087113",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: pkcs7Unpad()] [Padding Value Zero] If padding byte is 0, the function returns nil. Is this correct per PKCS7, or can valid plaintexts ending in 0 be incorrectly rejected? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8dda7c3a-2fd5-4408-87bf-a1820522a5b1?mode=deep",
+    "timestamp": "2026-01-10 15:29:48.755411",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: pkcs7Unpad()] [Padding Too Large] If padding value exceeds len(in), the function returns nil. Can this check be bypassed with carefully crafted input? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0c943414-8474-42bb-89d6-54c581db1c7b?mode=deep",
+    "timestamp": "2026-01-10 15:30:13.278860",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: pkcs7Unpad()] [Padding Exceeds Block] If padding > aes.BlockSize (16), the function returns nil. Is this check sufficient, or can edge cases bypass it? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7fb51699-184d-4c2b-82b3-a17b4cc357b6?mode=deep",
+    "timestamp": "2026-01-10 15:30:38.244462",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: pkcs7Unpad()] [Padding Verification Loop] The loop checks if all padding bytes equal the padding value. Does this execute in constant time to prevent timing attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4f250f6f-bdb9-4d3e-918c-b5852b14788f?mode=deep",
+    "timestamp": "2026-01-10 15:31:03.551460",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: pkcs7Unpad()] [Early Return Timing] The function has multiple return nil paths. Do these execute in the same time regardless of which condition fails, preventing timing attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0d3213e1-e60b-41b1-a703-babf587604d9?mode=deep",
+    "timestamp": "2026-01-10 15:31:28.600938",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: pkcs7Unpad()] [Loop Bounds] The loop runs from len(in)-1 down to len(in)-int(padding)-1. Can integer overflow in the loop bounds cause incorrect padding validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_21a64c8a-527b-46ec-b565-a4730229956a?mode=deep",
+    "timestamp": "2026-01-10 15:31:53.270119",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: pkcs7Unpad()] [Negative Padding] If padding is cast to int and causes negative values, can the loop bounds become invalid causing out-of-bounds access? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f5deeb33-d598-453d-8ba7-0f4e1218bcdc?mode=deep",
+    "timestamp": "2026-01-10 15:32:16.922034",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: pkcs7Unpad()] [Slice Bounds] The final slice operation in[:len(in)-int(padding)] - can this ever produce negative length causing panic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0301f295-dbd6-40d3-9930-5b8228bf95e6?mode=deep",
+    "timestamp": "2026-01-10 15:32:40.803789",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: pkcs7Unpad()] [Single Byte Padding] Is single-byte padding (0x01) handled correctly? Can this edge case cause issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_71a08480-ecb1-4c28-89bd-301f5ab3e1ce?mode=deep",
+    "timestamp": "2026-01-10 15:33:01.283376",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: pkcs7Unpad()] [Full Block Padding] Is full block padding (16 bytes of 0x10) handled correctly? Does this work when entire last block is padding? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ece49cb4-352a-481e-a70a-dd18beb331ba?mode=deep",
+    "timestamp": "2026-01-10 15:33:23.693911",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: pkcs7Unpad()] [Inconsistent Padding] If padding bytes don't all match (e.g., 0x03 0x03 0x02), the function correctly returns nil, but does it leak timing information about which byte mismatched? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c0314bc5-4b36-4e5b-ba5e-f4a9bbe3af0e?mode=deep",
+    "timestamp": "2026-01-10 15:33:44.779656",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey() calling aesCBCDecrypt()] [Error Propagation] When aesCBCDecrypt() returns an error, is it properly propagated with sufficient context, or does it mask the true error type? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1acae09c-d21e-4fbf-b759-d197957fe583?mode=deep",
+    "timestamp": "2026-01-10 15:34:08.972848",
+    "report_generated": false
   }
 ]
