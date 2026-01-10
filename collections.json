@@ -17098,5 +17098,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4cb49c6f-c973-4136-b0ff-193fcb331f1a?mode=deep",
     "timestamp": "2026-01-10 21:13:57.701082",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: refreshWallets()] [Event slice growth] The events slice at line 204 has no capacity hint - can it grow unbounded if many wallet changes occur, causing memory spikes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6cbc71ea-4abd-4d52-9f47-f7152d151c21?mode=deep",
+    "timestamp": "2026-01-10 21:15:27.875335",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: refreshWallets()] [URL comparison] The URL comparison hub.wallets[0].URL().Cmp(url) at lines 214 and 222 calls a method on hub.wallets[0] - can this panic if hub.wallets[0] is nil or invalid? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ebc5811a-91b6-48a6-ba6a-0b99821000df?mode=deep",
+    "timestamp": "2026-01-10 21:15:40.826281",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: refreshWallets()] [Wallet status check] The failure check at line 213 calls hub.wallets[0].Status() - can a malicious wallet implementation cause this to hang or panic, blocking all wallet operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_22a334fb-ec0e-4aa9-bfc6-09f0ce3676cb?mode=deep",
+    "timestamp": "2026-01-10 21:15:54.110548",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: refreshWallets()] [Wallet drop logic] In the wallet dropping loop at lines 211-220, if hub.wallets[0].URL().Cmp(url) >= 0 OR failure == nil, we break - can this logic error cause legitimate wallets to be incorrectly dropped? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d948074e-0029-4e49-9800-8b368bdf9af0?mode=deep",
+    "timestamp": "2026-01-10 21:16:07.927816",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: refreshWallets()] [Event ordering] The WalletDropped event is appended at line 218 before the wallet is removed from hub.wallets at line 219 - can subscribers receiving this event still access the wallet through Wallets() causing a use-after-drop race? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2613f9d1-a540-454d-b58d-43a1fad972c1?mode=deep",
+    "timestamp": "2026-01-10 21:16:22.699974",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: refreshWallets()] [Wallet creation] When creating a new wallet at line 224, if makeDriver(logger) panics or returns a malicious driver, can this crash the node or compromise wallet security? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8029b4ed-fc22-4eb4-95ea-afe26520ddc7?mode=deep",
+    "timestamp": "2026-01-10 21:16:38.899456",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: refreshWallets()] [Device info pointer] The &url and device passed to the wallet constructor at line 224 - is the device struct (usb.DeviceInfo) passed by value or reference, and can it be modified after wallet creation causing state corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ed70c744-6633-4353-b716-abb34acac8a5?mode=deep",
+    "timestamp": "2026-01-10 21:16:55.274206",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: refreshWallets()] [Comparison bypass] The URL comparison len(hub.wallets) == 0 || hub.wallets[0].URL().Cmp(url) > 0 at line 222 - can an attacker craft URLs that compare unexpectedly to bypass wallet detection? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_11b6c39a-5add-4cdf-894b-9140fa676706?mode=deep",
+    "timestamp": "2026-01-10 21:17:14.425393",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: refreshWallets()] [Event duplication] If the same device URL appears multiple times in the devices list, can duplicate WalletArrived events be generated at line 226, confusing subscribers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cef0d4e8-feb3-42de-8ca3-c5a829310b80?mode=deep",
+    "timestamp": "2026-01-10 21:17:35.108253",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: refreshWallets()] [Wallet reuse] When hub.wallets[0].URL().Cmp(url) == 0 at line 231, the existing wallet is reused - can stale state in the reused wallet cause security issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fc1cdb05-c2f9-424c-bda4-a6f10ebc5d90?mode=deep",
+    "timestamp": "2026-01-10 21:17:57.552781",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: refreshWallets()] [Slice manipulation] The hub.wallets = hub.wallets[1:] operations at lines 219, 233 - can these cause slice aliasing issues where old slices still reference dropped wallets? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b8614921-7373-4ab4-b85d-eba99accb041?mode=deep",
+    "timestamp": "2026-01-10 21:18:20.125866",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: refreshWallets()] [Leftover wallet leak] The loop at lines 238-240 appends WalletDropped events for leftover wallets - are the wallet objects themselves properly cleaned up or do they leak memory? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b48eaded-182f-47c6-9571-282ef371a20e?mode=deep",
+    "timestamp": "2026-01-10 21:18:44.445282",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: refreshWallets()] [Time stamp race] The hub.refreshed = time.Now() at line 241 is set before releasing stateLock - can there be a race where another goroutine checks hub.refreshed while it's being updated? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_69e1b01e-f24c-440e-bc47-6913f0806ed2?mode=deep",
+    "timestamp": "2026-01-10 21:19:09.832121",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: refreshWallets()] [State consistency] Between releasing stateLock at line 243 and sending events at lines 246-248, can another goroutine call Wallets() and get an inconsistent view where the wallet list doesn't match the events being sent? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_df27b3e4-7b4d-4285-aa33-b20cbe36265e?mode=deep",
+    "timestamp": "2026-01-10 21:19:35.816095",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: refreshWallets()] [Event send blocking] The hub.updateFeed.Send(event) at line 247 - can this block if subscribers are slow to process events, causing refreshWallets() to hang and delay all wallet operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8b6298c5-5c94-4d5c-9a42-c975c50c6df0?mode=deep",
+    "timestamp": "2026-01-10 21:20:03.066951",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: refreshWallets()] [Panic in event handler] If a subscriber's event handler panics while processing an event sent at line 247, does the panic propagate back to refreshWallets() and crash the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_183b3d40-0750-46c3-9d5d-1b614e440165?mode=deep",
+    "timestamp": "2026-01-10 21:20:31.514468",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: Subscribe()] [Lock ordering] The stateLock.Lock() at line 255 is held while calling hub.updateScope.Track() and hub.updateFeed.Subscribe() at line 259 - can these operations acquire internal locks creating a deadlock? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2064059d-31c9-49f1-976f-f8e326fa89ad?mode=deep",
+    "timestamp": "2026-01-10 21:21:00.518631",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: Subscribe()] [Goroutine leak] If hub.updating is false at line 262, a new updater goroutine is started at line 264 - but if Subscribe() is called concurrently, can multiple updater goroutines be started causing resource leaks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fdc2024e-6976-4d16-988a-0ab2d9b86399?mode=deep",
+    "timestamp": "2026-01-10 21:21:30.369211",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: Subscribe()] [Race on updating flag] The hub.updating check and set at lines 262-263 are inside stateLock, but can a race occur if updater() sets hub.updating = false at line 283 between the check and go hub.updater() call? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d9a2fc3b-3960-45a9-beea-7119a2a26bd5?mode=deep",
+    "timestamp": "2026-01-10 21:22:01.718778",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: Subscribe()] [Channel write deadlock] If the quit channel (hub.quit) is being written to while Subscribe() is processing, can this cause a deadlock since Subscribe() holds stateLock? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5e25461a-c85b-4199-b719-3f456d5b9529?mode=deep",
+    "timestamp": "2026-01-10 21:22:34.315065",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: Subscribe()] [Subscription leak] If the returned subscription at line 266 is never unsubscribed, does the updater goroutine continue running forever causing a resource leak? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3cedf1bc-5e29-41f2-8b66-6b126bc11f6c?mode=deep",
+    "timestamp": "2026-01-10 21:23:06.880752",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: updater()] [Goroutine leak] The infinite loop at line 272 only exits when updateScope.Count() == 0 at line 282 - can a stuck subscription prevent the goroutine from ever exiting? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2641e2d2-fe14-4390-97eb-488c1f13705d?mode=deep",
+    "timestamp": "2026-01-10 21:23:42.296419",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: updater()] [Sleep timing] The time.Sleep(refreshCycle) at line 275 is 1 second - can this be exploited by an attacker who repeatedly connects/disconnects USB devices to cause the updater to constantly sleep, missing events? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ed27639c-a0b5-434e-81cc-09c6ac7bbc7a?mode=deep",
+    "timestamp": "2026-01-10 21:24:16.127383",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: updater()] [Refresh panic] If refreshWallets() at line 278 panics, does the panic terminate the updater goroutine permanently, leaving subscribers without updates? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0fde5e54-6990-45ad-8ccd-6d8f432a9594?mode=deep",
+    "timestamp": "2026-01-10 21:24:49.248475",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: updater()] [Lock contention] The stateLock.Lock() at line 281 is acquired repeatedly every refresh cycle - can this cause contention with other operations that hold stateLock for extended periods? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7b556ac3-351a-46f8-80b2-b50f9110a18f?mode=deep",
+    "timestamp": "2026-01-10 21:25:21.639104",
+    "report_generated": false
   }
 ]
