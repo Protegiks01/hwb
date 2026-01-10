@@ -14242,5 +14242,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_05c374fc-2b95-480c-90b6-5af81c642c6a?mode=deep",
     "timestamp": "2026-01-10 08:41:19.511504",
     "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: NewBloomTrieIndexer()] [Size validation] If size < parentSize or size is not a multiple of parentSize, can this cause incorrect bloomTrieRatio and indexing failures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_26e96ce4-fefb-47e3-a4d6-25d09f563e7e?mode=deep",
+    "timestamp": "2026-01-10 08:42:43.772447",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: NewBloomTrieIndexer()] [Division by zero] Can parentSize=0 cause division-by-zero panic when calculating backend.bloomTrieRatio = size / parentSize? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_69aa06bd-062c-4138-8fab-a2ca9c723bcb?mode=deep",
+    "timestamp": "2026-01-10 08:42:56.940213",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Struct: BloomTrieIndexerBackend] [Concurrent field access] Are sectionHeads and other backend fields protected from concurrent access during Process(), Commit(), and Reset()? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4a52cd84-eea8-4d5b-a140-80cab6c23eff?mode=deep",
+    "timestamp": "2026-01-10 08:43:10.273847",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Struct: BloomTrieIndexerBackend] [Bloom trie ratio calculation] Can size/parentSize division result in zero or extremely large values that cause incorrect indexing behavior? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dc57a72b-4cac-491b-a551-36d7bf161eb3?mode=deep",
+    "timestamp": "2026-01-10 08:43:25.166100",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Struct: BloomTrieIndexerBackend] [Section heads array] Can the sectionHeads array be accessed out-of-bounds if bloomTrieRatio calculation is incorrect or if Process() is called with invalid block numbers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4b92d8e4-890f-411a-9f80-71a266d46b8a?mode=deep",
+    "timestamp": "2026-01-10 08:43:40.280729",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: StoreBloomTrieRoot()] [Concurrent writes] Can concurrent StoreBloomTrieRoot() calls for the same section create race conditions in the underlying database? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ebdade66-62bc-41c6-8de5-a38e1bb631fa?mode=deep",
+    "timestamp": "2026-01-10 08:43:56.278583",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: StoreBloomTrieRoot()] [Write failure ignored] No error checking on db.Put() - can silent write failures cause bloom trie verification to fail on node restart? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2a2870c3-0600-462b-a29b-675aeeb417ab?mode=deep",
+    "timestamp": "2026-01-10 08:44:14.848293",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: GetBloomTrieRoot()] [Error suppression] Ignoring the error from db.Get() can cause zero hash returns for missing roots to be treated as valid - does this allow unverified bloom trie acceptance? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d39b1f45-7893-4c43-af1c-c9b9eff59206?mode=deep",
+    "timestamp": "2026-01-10 08:44:33.933984",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: GetBloomTrieRoot()] [Key construction collision] Can the key construction (BloomTriePrefix + encNumber + sectionHead) collide with CHT keys or other database keys, causing wrong data retrieval? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_19552703-0ede-4953-be94-55556fc1d9fc?mode=deep",
+    "timestamp": "2026-01-10 08:44:54.230883",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Prune()] [Final batch write] If the final batch.Write() fails after successful intermediate writes, does this leave the pruning incomplete with no recovery mechanism? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_71035739-f44e-44ab-8744-b723010c00f9?mode=deep",
+    "timestamp": "2026-01-10 08:45:15.871873",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Prune()] [DeleteBlockWithoutNumber side effects] Can DeleteBlockWithoutNumber fail for some blocks, and does this leave partially pruned data that confuses subsequent operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a8848bbd-ae64-4240-9350-34ca77ee9449?mode=deep",
+    "timestamp": "2026-01-10 08:45:38.969718",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Prune()] [Start value increment] The start = numbers[len(numbers)-1] + 1 can skip blocks if ReadAllCanonicalHashes returns non-contiguous ranges - can this leave unpruned old data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2240040a-671e-41cf-b7c6-07340d881863?mode=deep",
+    "timestamp": "2026-01-10 08:46:03.318487",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Prune()] [Batch size management] The IdealBatchSize check writes batch and resets - can repeated write failures cause the batch to grow unbounded, leading to memory exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_892426c7-6e6c-4ec3-b6c1-bc049d331383?mode=deep",
+    "timestamp": "2026-01-10 08:46:28.871301",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Prune()] [Hash mapping preservation] The code preserves hash<->number mapping but deletes canonical hash - can this cause API inconsistencies where GetReceipt works but block lookup fails? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a8b482d2-6e4d-4d8a-851f-4a594ce2a59a?mode=deep",
+    "timestamp": "2026-01-10 08:46:54.026326",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Prune()] [Canonical hash reading] Does ReadAllCanonicalHashes properly handle database corruption or missing entries, or can this cause incorrect number/hash pairs to be deleted? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_501eb541-8d10-437c-8017-6d879e9508b8?mode=deep",
+    "timestamp": "2026-01-10 08:47:19.956776",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Prune()] [Genesis deletion protection] The code keeps genesis (start=1) but can off-by-one errors or incorrect threshold values cause deletion of genesis+1 blocks that are still needed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1322d280-cca6-4bd3-874f-87f1b91be5a0?mode=deep",
+    "timestamp": "2026-01-10 08:47:45.312442",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Prune()] [Threshold calculation overflow] Can (threshold+1)*c.sectionSize overflow for large threshold values, causing incorrect end boundary and deletion of active chain data? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_924c1eed-9feb-4b14-915c-3f6fc9e9ef99?mode=deep",
+    "timestamp": "2026-01-10 08:48:12.276353",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Prune()] [Pruning bypass] If disablePruning is false but gets modified during execution, can partial pruning occur leaving the database in an inconsistent state? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f9135e01-fcaf-46c5-b087-3804f2030fc9?mode=deep",
+    "timestamp": "2026-01-10 08:48:39.609737",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Commit()] [Concurrent commit calls] Can multiple goroutines call Commit() concurrently, causing race conditions on trie state or database writes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_643a2a31-f04b-4a55-b135-306b016032c0?mode=deep",
+    "timestamp": "2026-01-10 08:49:06.769421",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Commit()] [StoreChtRoot timing] StoreChtRoot is called after all other operations - if the node crashes between trie commit and StoreChtRoot(), does this create inconsistency requiring re-indexing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_10e50df1-34cd-4a99-813b-9138419ff23e?mode=deep",
+    "timestamp": "2026-01-10 08:49:34.364151",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Commit()] [Batch write failure] If batch.Write() fails after multiple Delete() operations, are the deletions rolled back, or can this cause inconsistent pruning state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_18b1277b-7921-4e63-afb1-e46368d234d9?mode=deep",
+    "timestamp": "2026-01-10 08:50:02.321018",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Commit()] [Prefix trimming vulnerability] Can malicious database keys that don't start with ChtTablePrefix but have HashLength after trimming be incorrectly deleted during pruning? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_957d2907-57b3-4213-8c7f-5a260ac0b9ab?mode=deep",
+    "timestamp": "2026-01-10 08:50:30.413015",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Commit()] [Iterator resource leak] If the iterator it.Release() is not called due to early return on error, can this leak database resources causing memory/handle exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_aca5e145-cc66-47db-8d28-daef31c77c43?mode=deep",
+    "timestamp": "2026-01-10 08:50:58.480437",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Commit()] [Hash collision in pruning] Can hash collisions in the hashes map cause legitimate trie nodes to be incorrectly identified as orphaned and deleted, corrupting the trie? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9d4d05a1-66f0-4583-bd1e-6e6989d3f11d?mode=deep",
+    "timestamp": "2026-01-10 08:51:26.392420",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Commit()] [Pruning deletion errors] If batch.Delete() operations fail during pruning, can this leave orphaned trie nodes that accumulate over time causing disk space exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8b8fc190-36f4-4802-9000-973f96156b58?mode=deep",
+    "timestamp": "2026-01-10 08:51:53.321797",
+    "report_generated": false
   }
 ]
