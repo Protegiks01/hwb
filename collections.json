@@ -17398,5 +17398,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f1a4803a-e07c-4b4f-85a7-22e9dbe0b886?mode=deep",
     "timestamp": "2026-01-10 21:35:56.891260",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Goroutine leak] [Updater lifecycle] If all subscriptions are removed but updater() panics before exit at line 285, does a zombie goroutine remain? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c6307980-bb85-4220-8f27-5ed69c52890c?mode=deep",
+    "timestamp": "2026-01-10 21:37:25.292146",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Error handling] [USB enumerate failure] When usb.Enumerate() fails at line 174, only enumFails is incremented - are there cascading failures that should be handled? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3d213265-ad0f-4a56-bdb2-3509359085fc?mode=deep",
+    "timestamp": "2026-01-10 21:37:38.461709",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Error handling] [Driver creation failure] If makeDriver(logger) at line 224 returns nil or a broken driver, is this detected or does it cause panics later? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8ab90e33-cc24-41d1-933f-79f106c5542d?mode=deep",
+    "timestamp": "2026-01-10 21:37:52.067666",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Edge case] [Empty device list] If usb.Enumerate() returns an empty infos slice at line 173, does the wallet sync logic at lines 207-236 handle this correctly? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c97de2fe-3c00-4291-a56b-b55c880e74a4?mode=deep",
+    "timestamp": "2026-01-10 21:38:06.066042",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Edge case] [Duplicate devices] If the same USB device appears multiple times in the enumeration results, can this cause duplicate wallets to be created? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_45a3dd0d-b997-4615-b33d-8eff76ee83a8?mode=deep",
+    "timestamp": "2026-01-10 21:38:21.791773",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Edge case] [Clock skew] If the system clock jumps backward between setting hub.refreshed at line 241 and checking elapsed at line 147, can this break throttling logic? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f4222570-5591-43a5-9fca-b24a65c099cc?mode=deep",
+    "timestamp": "2026-01-10 21:38:38.492361",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Platform] [Linux-specific locking] The Linux-specific commsLock logic at lines 160-197 - can this be exploited on Linux to cause different behavior than other platforms? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_205e2bac-a417-4841-859e-c7c0c338e5bc?mode=deep",
+    "timestamp": "2026-01-10 21:38:55.475959",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Platform] [MacOS usage matching] MacOS uses UsagePage matching at line 189 - can malicious USB devices on MacOS exploit this differently than Interface matching on Linux? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4c8d9f1d-9e93-4683-924a-dc9636452787?mode=deep",
+    "timestamp": "2026-01-10 21:39:14.110417",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Platform] [Windows enumeration] Without Linux-specific locking, can Windows USB enumeration race with active wallet operations causing corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5750233b-ebf9-4c43-8569-d540c0c61186?mode=deep",
+    "timestamp": "2026-01-10 21:39:35.054435",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Platform] [Runtime.GOOS check] The runtime.GOOS ==",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e5263391-d78a-41f8-bfd7-100c64039fd4?mode=deep",
+    "timestamp": "2026-01-10 21:39:56.409338",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Atomic] [LoadUint32 race] The atomic.LoadUint32(&hub.enumFails) at line 154 - can the loaded value become stale immediately after loading if another goroutine modifies it? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0fc4c1b1-edba-4fd9-bc2f-111ff4b7e14b?mode=deep",
+    "timestamp": "2026-01-10 21:40:19.399699",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Atomic] [AddUint32 overflow] The atomic.AddUint32(&hub.enumFails, 1) at line 175 - can this overflow uint32 and wrap to 0, bypassing the > 2 check? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c933d5d3-84f3-4df9-9bde-3e2359adf4a8?mode=deep",
+    "timestamp": "2026-01-10 21:40:44.338051",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Atomic] [StoreUint32 visibility] The atomic.StoreUint32(&hub.enumFails, 0) at line 184 - is this immediately visible to other goroutines or can there be a delay? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f736049c-b81e-4e63-aa43-30979b70c745?mode=deep",
+    "timestamp": "2026-01-10 21:41:09.239814",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Atomic] [Non-atomic commsPend] The commsPend counter at line 66 is checked at line 168 but is int not atomic - can concurrent increments/decrements corrupt this counter? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0d95b624-9518-4dd0-868e-bf6dce602d9c?mode=deep",
+    "timestamp": "2026-01-10 21:41:33.884795",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Subscription] [Feed blocking] If updateFeed.Send() at line 247 blocks due to slow subscribers, can this cause cascading delays affecting all wallet operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ee0ff0f3-910e-4625-97ef-d3a33fb6b4ed?mode=deep",
+    "timestamp": "2026-01-10 21:41:59.847661",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Subscription] [Scope tracking] The updateScope.Track() at line 259 - can malformed subscriptions bypass proper tracking causing count inconsistencies? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c7b3a1a7-adc4-4a63-89dc-cec2ce8c43b4?mode=deep",
+    "timestamp": "2026-01-10 21:42:24.521577",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Event] [Event buffer] Are events buffered in updateFeed, and if so, can a subscriber that never reads cause unbounded event accumulation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6d6f2d18-7b31-4d01-a411-8d4036371d14?mode=deep",
+    "timestamp": "2026-01-10 21:42:50.397839",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Event] [Event ordering] Can events sent at line 247 be received out of order by subscribers causing wallet state inconsistencies? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eec4cf59-88c3-4b35-9f43-ae8e5dcd705d?mode=deep",
+    "timestamp": "2026-01-10 21:43:17.201184",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Event] [WalletArrived/Dropped] Can rapid connect/disconnect cycles cause WalletArrived and WalletDropped events to overlap causing race conditions in subscribers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ad891ecd-9968-47a2-89ed-be9b216a90b9?mode=deep",
+    "timestamp": "2026-01-10 21:43:44.653613",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [URL] [Cmp() implementation] The URL.Cmp() calls at lines 214, 222, 231 - if the comparison function has bugs, can wallet ordering be corrupted? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3d7c2bcc-443d-4cb1-957f-c101914ed40e?mode=deep",
+    "timestamp": "2026-01-10 21:44:11.341223",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [URL] [Path construction] The URL construction accounts.URL{Scheme: hub.scheme, Path: device.Path} at line 208 - can device.Path contain malicious characters causing URL injection? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2a887ffc-857b-4e40-b195-58908d4b696e?mode=deep",
+    "timestamp": "2026-01-10 21:44:36.830265",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Device] [DeviceInfo mutation] The device variable at line 207 is of type usb.DeviceInfo - can this struct be mutated after wallet creation affecting wallet behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4ad8bd4e-9d7e-4e52-a909-aa0ff293de70?mode=deep",
+    "timestamp": "2026-01-10 21:45:00.773811",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Device] [Path uniqueness] Is device.Path guaranteed to be unique per device, or can path collisions cause wallet confusion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a8823485-54b2-478a-8cc9-1a12b9dc6ddb?mode=deep",
+    "timestamp": "2026-01-10 21:45:24.730915",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [DoS] [Enumeration flooding] Can an attacker rapidly connect/disconnect USB devices to force continuous refreshWallets() calls overwhelming the system? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_94fd2936-3905-4d50-8691-6e8a2a664f80?mode=deep",
+    "timestamp": "2026-01-10 21:45:48.669989",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [DoS] [Subscription flooding] Can an attacker create many subscriptions via Subscribe() to exhaust memory or cause updateScope.Count() to overflow? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b1f55933-4504-467c-92be-2faf7794f6dc?mode=deep",
+    "timestamp": "2026-01-10 21:46:13.970880",
+    "report_generated": false
   }
 ]
