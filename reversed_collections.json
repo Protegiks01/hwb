@@ -20086,5 +20086,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f4a481b2-591b-4560-b983-15c968abfeb5?mode=deep",
     "timestamp": "2026-01-10 15:49:45.639261",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/balance_tracker.go] [NodeStateMachine dependency] [Operation atomicity] Multiple functions should run inside NodeStateMachine operations but enforcement is via comments only - can violations cause non-atomic state updates visible to other components? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bfe96766-618b-42ea-9712-7289daa8b346?mode=deep",
+    "timestamp": "2026-01-10 15:50:58.072858",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/balance_tracker.go] [ValueExpirer dependency] [Expiration calculation correctness] The code heavily relies on posExp and negExp ValueExpirer implementations - if these have bugs in Value(), LogOffset(), or SetRate(), can balances be incorrectly expired or preserved? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_19e2eecc-43a0-4784-b39c-c720e56ee10e?mode=deep",
+    "timestamp": "2026-01-10 15:51:10.882765",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/balance_tracker.go] [nodeDB dependency] [Database implementation assumptions] The code assumes nodeDB operations are atomic and consistent, but if the underlying ethdb.KeyValueStore doesn't provide these guarantees, can concurrent operations corrupt state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ba5aca3c-b1f2-4b6e-8d44-bd6ac1287bc2?mode=deep",
+    "timestamp": "2026-01-10 15:51:24.170448",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/balance_tracker.go] [General] [No balance caps] While maxBalance is defined in balance.go, there are no checks preventing unlimited balance accumulation in the tracker - can this cause integer overflow in total calculations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1aeef00c-c4cd-432d-906c-f2476d2c6d5f?mode=deep",
+    "timestamp": "2026-01-10 15:51:37.741572",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/balance_tracker.go] [General] [No rate limiting] There's no visible rate limiting on operations like BalanceOperation or TotalTokenAmount - can these be abused to cause DoS through computational exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e6ab9eb2-1520-4121-8fbc-d8c37d0ea64b?mode=deep",
+    "timestamp": "2026-01-10 15:51:52.208366",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/balance_tracker.go] [General] [No metrics/logging] There are no visible logging or metrics calls - can operators detect when balances are being manipulated, when thresholds are hit, or when economic attacks are occurring? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b252e999-81a6-4818-9a95-d6935924f1ba?mode=deep",
+    "timestamp": "2026-01-10 15:52:08.089194",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/balance_tracker.go] [SetExpirationTCs()] [Zero time constant handling] When pos or neg is 0, SetRate is called with 0 at line 201/206 - is this properly handled by the ValueExpirer implementation, or can it cause division by zero elsewhere? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_37d46f29-8a82-4ae5-a393-67942138df57?mode=deep",
+    "timestamp": "2026-01-10 15:52:25.806082",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/balance_tracker.go] [canDropBalance()] [Time boundary] If 'now' parameter is zero or far in the past/future, can Value() calculations return unexpected results, causing incorrect drop decisions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9d18ffa8-f285-4ce4-9605-4a390e7be3d9?mode=deep",
+    "timestamp": "2026-01-10 15:52:45.775638",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/balance_tracker.go] [GetPosBalanceIDs()] [MaxCount boundary] If maxCount is negative or zero, the function returns early at line 178 - but are negative values properly validated before the <=0 check, or can integer overflow cause unexpected behavior? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5e275ef7-0403-46ad-af4b-906a6e686955?mode=deep",
+    "timestamp": "2026-01-10 15:53:06.083390",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/balance_tracker.go] [GetPosBalanceIDs()] [Start/stop parameter validation] The function takes start and stop enode.ID parameters but doesn't validate them - can invalid or equal values cause database iteration errors or unexpected results? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e16f5db4-3977-437f-bf0b-14be8a7eaaec?mode=deep",
+    "timestamp": "2026-01-10 15:53:26.434379",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/balance_tracker.go] [newNodeBalance()] [Field dependency] The function is called from clientField subscription (line 108) but depends on setup.balanceField being properly configured - can improper initialization order cause nil pointer dereferences? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_af514b2f-8327-40e8-bd38-0905a4f327e2?mode=deep",
+    "timestamp": "2026-01-10 15:53:48.825325",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/balance_tracker.go] [Field subscriptions] [Unsubscribe handling] There's no visible unsubscription code - if the balance tracker is stopped and restarted, can duplicate subscriptions accumulate, causing callbacks to fire multiple times? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eff0b0e2-0df9-423a-aeb0-774d3bcaa04d?mode=deep",
+    "timestamp": "2026-01-10 15:54:12.961520",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/balance_tracker.go] [Field subscriptions] [Subscription ordering] The capacityField and clientField subscriptions are registered at lines 85 and 103 - can race conditions occur if both fields change simultaneously for the same node? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6367a82a-cfc5-45df-9f90-337eb7da3b6e?mode=deep",
+    "timestamp": "2026-01-10 15:54:37.470266",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/balance_tracker.go] [General] [Balance inflation through precision] Do ExpiredValue calculations use sufficient precision to prevent rounding errors that could be exploited to slowly inflate balances over many operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_350e96fb-ef6a-430a-b187-22e034cb775e?mode=deep",
+    "timestamp": "2026-01-10 15:55:04.000441",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/balance_tracker.go] [SetExpirationTCs()] [Expiration manipulation] Can rapidly changing expiration time constants cause some clients' balances to expire much faster than others who connected at different times, creating unfair priority distribution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_88a98cba-6ef9-48d1-98fb-519e03c79fea?mode=deep",
+    "timestamp": "2026-01-10 15:55:30.354929",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/balance_tracker.go] [SetDefaultFactors()] [Factor manipulation timing] If price factors can be changed while clients are connected, can a client be charged different rates before and after the change for the same services, causing economic unfairness? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_71ed4393-6dc3-49f1-959e-3ff39cc8ff8d?mode=deep",
+    "timestamp": "2026-01-10 15:55:57.201373",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/balance_tracker.go] [newNodeBalance()] [Priority gaming] A client can disconnect and reconnect to potentially reset their balance to a more favorable state - can rapid connect/disconnect cycles be exploited to maintain artificially high priority? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_561b857e-628f-4a25-a1c2-e8796b61dfae?mode=deep",
+    "timestamp": "2026-01-10 15:56:24.468844",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/balance_tracker.go] [General] [Clock consistency] Multiple clock.Now() calls throughout the file - if the clock is not monotonic, can backwards time jumps cause negative durations, incorrect expiration calculations, or other temporal inconsistencies? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e3b3a17d-a6e9-4de3-a742-43b4e17406a2?mode=deep",
+    "timestamp": "2026-01-10 15:56:52.590198",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/balance_tracker.go] [updateTotalBalance()] [Active/inactive misclassification] If a nodeBalance's active flag changes during the callback execution at line 287, can the subsequent balance adjustment at line 290-298 add/subtract from the wrong total? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cc23532b-e785-4ada-9d6a-99d95067e7b3?mode=deep",
+    "timestamp": "2026-01-10 15:57:19.993447",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/balance_tracker.go] [TotalTokenAmount()] [Snapshot consistency] The function recalculates bt.active from all connected nodes - between snapshot time and final calculation, can node connections/disconnections cause the total to be inconsistent with actual state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ae5a776d-d1c1-4704-9b93-ef829c810aa4?mode=deep",
+    "timestamp": "2026-01-10 15:57:47.704557",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/balance_tracker.go] [General] [UpdateTimer resource usage] The balanceTimer (line 57, initialized at line 71) - can its internal state grow unbounded with frequent updates, or are old timer events properly cleaned up? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8a14ee50-dbe7-4a75-bc0f-423c59c896a7?mode=deep",
+    "timestamp": "2026-01-10 15:58:15.306442",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/balance_tracker.go] [newBalanceTracker()] [Database iteration memory] The forEachBalance call at line 80-83 processes all persisted balances - can a corrupted database with invalid entries cause infinite loops or memory exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2e62a7c7-2acd-493c-8040-06768ea6edd8?mode=deep",
+    "timestamp": "2026-01-10 15:58:41.631430",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/balance_tracker.go] [General] [ExpiredValue memory] ExpiredValues are accumulated in bt.active and bt.inactive (line 56) - do these data structures have bounded size, or can unbounded growth cause memory exhaustion over time? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cd81f652-8a48-4b46-9b09-13ad79afa21c?mode=deep",
+    "timestamp": "2026-01-10 15:59:08.671179",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/balance_tracker.go] [stop()] [Panic in iteration] If the ForEach callback at line 146-153 panics when processing a corrupted nodeBalance, can the panic prevent clean shutdown and database close? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9510e4d4-2a85-4ec6-a900-3e374c44a8b0?mode=deep",
+    "timestamp": "2026-01-10 15:59:33.644098",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/balance_tracker.go] [GetPosBalanceIDs()] [Error propagation] The function at line 179 delegates to ndb.getPosBalanceIDs() but doesn't handle potential errors - can database errors cause panics or return incomplete/corrupted ID lists? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bda0b336-75ad-4c4f-9d03-8ecdf1e342a4?mode=deep",
+    "timestamp": "2026-01-10 15:59:59.024492",
+    "report_generated": false
   }
 ]
