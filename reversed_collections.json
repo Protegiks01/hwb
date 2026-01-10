@@ -22336,5 +22336,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_58e62af2-a277-4a7d-a87b-c025ac9bcd9e?mode=deep",
     "timestamp": "2026-01-10 18:26:24.936370",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Function: Unregister()] [Race on connected map] Can concurrent Unregister() and Register() for same ID cause race where node is both added and deleted, leaving inconsistent state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_57383f03-fa1b-4f34-a224-c9886070eaed?mode=deep",
+    "timestamp": "2026-01-10 18:27:49.191952",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Function: Unregister()] [Panic in saveNode] If saveNode() panics due to database errors, can this prevent delete(vt.connected, id) causing permanent node tracking? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_46676b69-3476-45b5-8675-dab4b87888bc?mode=deep",
+    "timestamp": "2026-01-10 18:28:01.581270",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Function: Register()] [Memory exhaustion] Can attacker register thousands of nodes to exhaust memory by accumulating NodeValueTracker objects in vt.connected map? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bb9a8582-79b7-4644-a5f9-a766b79f2747?mode=deep",
+    "timestamp": "2026-01-10 18:28:15.543584",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Function: Register()] [Race on refBasket] Can concurrent periodicUpdate() modify vt.refBasket.reqValues while Register() reads it at line 359, causing data race? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0bcab435-3b11-433f-9e55-dd660aeb950e?mode=deep",
+    "timestamp": "2026-01-10 18:28:29.462591",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Function: Register()] [Array size mismatch] If len(vt.refBasket.reqValues) changes between line 356 and 359, can nv.reqCosts allocation size mismatch cause bounds errors? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_80af83e8-3e6a-4684-a134-7827566beeb8?mode=deep",
+    "timestamp": "2026-01-10 18:28:44.027826",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Function: Register()] [Double registration] If same enode.ID calls Register() twice concurrently, can this create two NodeValueTracker instances with only one being tracked, causing memory leak? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d898d12d-95d4-415d-9867-7dc1bcbcd16d?mode=deep",
+    "timestamp": "2026-01-10 18:28:59.984779",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Function: Register()] [Nil check bypass] After checking vt.connected == nil at line 351, if Stop() is called before line 362, can this cause write to nil map panic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b16ba134-339f-4dda-b5d8-346445eefb6d?mode=deep",
+    "timestamp": "2026-01-10 18:29:17.760197",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Function: Stop()] [Database corruption] If saveToDb() fails but Stop() returns successfully, can this cause statistics loss on next restart? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bcbb5584-b9f2-437c-95a4-078b0568c16b?mode=deep",
+    "timestamp": "2026-01-10 18:29:37.482990",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Function: Stop()] [Resource leak] After setting vt.connected = nil, are there any lingering references to NodeValueTracker objects that prevent garbage collection? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_025a58fd-7d70-47b4-8ae1-472f6d762896?mode=deep",
+    "timestamp": "2026-01-10 18:29:58.565442",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Function: Stop()] [Double stop] If Stop() is called twice concurrently, can sending to vt.quit twice cause panic or undefined behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_88560e5f-a979-48c9-8c8d-25f37bed49d0?mode=deep",
+    "timestamp": "2026-01-10 18:30:20.156906",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Function: Stop()] [Panic in saveNode] If saveNode() panics for any connected node, can this prevent remaining nodes from being saved and corrupt the database state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_36a9d456-2b09-43d4-b952-d04c1b9dc822?mode=deep",
+    "timestamp": "2026-01-10 18:30:43.467326",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Function: Stop()] [Channel deadlock] If the goroutine is stuck in periodicUpdate() holding vt.lock, can Stop() deadlock when trying to acquire vt.lock while goroutine waits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_45d45c91-2b97-49f3-969b-281e2a8b99ca?mode=deep",
+    "timestamp": "2026-01-10 18:31:07.640626",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Function: saveToDb()] [Time race] Between getting clock.Now() at line 312 and time.Now() at line 313, can time drift cause ExpOffset calculations to be inconsistent? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a96e401f-a537-4915-bd23-311026438c5f?mode=deep",
+    "timestamp": "2026-01-10 18:31:32.008684",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Function: saveToDb()] [Partial write] If db.Put() writes enc1 but fails before writing enc2 due to disk full, can this corrupt the database requiring manual recovery? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_89041b43-9b32-4363-b443-7a0eabce88fe?mode=deep",
+    "timestamp": "2026-01-10 18:31:57.467216",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Function: saveToDb()] [Race condition] Is saveToDb() called with vt.lock held? If not, can concurrent modifications to vt.mappings or vt.refBasket during encoding cause corrupted database writes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f25ec74a-3f92-4003-81f3-1173d1fb5dc0?mode=deep",
+    "timestamp": "2026-01-10 18:32:21.885878",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Function: saveToDb()] [Data loss] If rlp.EncodeToBytes() fails silently (line 320-323), can this cause permanent data loss with only error logging, requiring full statistics rebuild? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7f1c23fe-44ea-4a57-bcab-d69db066d3cd?mode=deep",
+    "timestamp": "2026-01-10 18:32:47.130504",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Function: loadFromDb()] [Loop complexity] Can the nested loops at line 277-288 cause O(n²) performance degradation with many mappings, creating DoS during startup? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dc161409-7965-4781-8b5e-5f270c9a18c6?mode=deep",
+    "timestamp": "2026-01-10 18:33:11.879081",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Function: loadFromDb()] [Mapping corruption] If convertMapping() fails silently with invalid mappings, can this result in mismatched reqType indices causing wrong service value calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_64f3a567-098d-4afe-9849-dc4d3a58fbd6?mode=deep",
+    "timestamp": "2026-01-10 18:33:36.077819",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Function: loadFromDb()] [RLP injection] Can malicious database content with crafted RLP cause rlp.Decode() to allocate excessive memory, leading to OOM and node crash? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3626b083-69a5-4a30-a6df-7bc12be43f73?mode=deep",
+    "timestamp": "2026-01-10 18:34:02.181573",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Function: loadFromDb()] [Array bounds] If vte.RefBasketMapping >= len(vt.mappings) (line 296), can the error path leave vt.refBasket in corrupted state that breaks subsequent operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b64046f1-acd8-4a24-ad0a-4e2577f4ba69?mode=deep",
+    "timestamp": "2026-01-10 18:34:30.150595",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Function: loadFromDb()] [Time manipulation] Can attacker manipulate system time.Now() to create negative dt, causing logOffset to decrease and artificially inflating old statistics? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_155d9d02-198e-4614-adf7-c7d57eeab627?mode=deep",
+    "timestamp": "2026-01-10 18:34:55.027305",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Function: loadFromDb()] [Integer overflow] In line 270, can 'float64(dt) * vt.offlineExpRate / math.Log(2)' overflow when dt is extremely large (years offline), causing logOffset corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b1049f81-d191-4583-90f5-52fc89d89310?mode=deep",
+    "timestamp": "2026-01-10 18:35:19.386889",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Function: loadFromDb()] [Version mismatch] If version != vtVersion (line 258), the function returns error but doesn't reset state - can this leave vt in partially initialized state causing subsequent operations to fail? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_310d7abb-a448-4ce2-8445-315cd096ace3?mode=deep",
+    "timestamp": "2026-01-10 18:35:46.026874",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Function: StatsExpFactor()] [Nil pointer] If StatsExpFactor() is called before NewValueTracker() completes initialization, can statsExpirer be in invalid state causing panic? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_df3ef4ba-aa32-40be-9400-15662f351d71?mode=deep",
+    "timestamp": "2026-01-10 18:36:10.200282",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/valuetracker.go] [Function: StatsExpFactor()] [Race condition] Can reading statsExpFactor with RLock while periodicUpdate() writes it with Lock cause torn reads on 64-bit platforms, resulting in invalid ExpirationFactor values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bb57f114-ab56-4461-93c7-0e9a4f90a77d?mode=deep",
+    "timestamp": "2026-01-10 18:36:36.154720",
+    "report_generated": false
   }
 ]
