@@ -15148,5 +15148,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_07fbc125-d005-4739-a2f9-8e09c66b017e?mode=deep",
     "timestamp": "2026-01-10 18:36:54.820553",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Struct: Hub] [Race Condition] The updating bool flag is protected by stateLock but read/written in updater() with lock release between check and update - can multiple updater goroutines start simultaneously? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d6d624af-5150-49bf-96fd-215e160d2a5b?mode=deep",
+    "timestamp": "2026-01-10 18:48:33.763175",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Struct: Hub] [Channel Deadlock] The quit channel is defined but never used - can this indicate incomplete shutdown logic that prevents graceful termination, leaving goroutines and resources dangling? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3824cc44-2a6f-4df3-b8f3-eb722aa892d5?mode=deep",
+    "timestamp": "2026-01-10 18:48:46.625335",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Line 91-96] [TOCTOU] The readPairings() checks os.IsNotExist but then opens the file - can an attacker create the file between the existence check and open, injecting malicious pairing data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_41717154-53fb-4a82-b990-9c180fa157ae?mode=deep",
+    "timestamp": "2026-01-10 18:49:00.817177",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Line 99-102] [Resource Leak] The pairingFile is not explicitly closed if io.ReadAll fails - can repeated read failures leak file descriptors? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4b61cd82-0550-4f5f-8858-c874fb5321ae?mode=deep",
+    "timestamp": "2026-01-10 18:49:15.570742",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Line 108-110] [Key Collision] Pairing keys are indexed by string(pairing.PublicKey) without checking for duplicates - can two pairings with identical PublicKey values overwrite each other, causing pairing loss? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_81717afe-a62d-45c1-8040-37d068bee45d?mode=deep",
+    "timestamp": "2026-01-10 18:49:31.775179",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Line 115-119] [Atomic Write] OpenFile with O_RDWR|O_CREATE doesn't truncate - if the new data is shorter than the old file, can old data remain at the end, corrupting the JSON? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cc597f61-434c-47ec-8f2a-7869fd6db71f?mode=deep",
+    "timestamp": "2026-01-10 18:49:49.112344",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Line 131-133] [Partial Write] If Write() writes fewer bytes than len(pairingData), the remaining bytes are lost - can disk full conditions cause truncated pairing files? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c5633d42-2720-4e91-9679-491ddcba9c08?mode=deep",
+    "timestamp": "2026-01-10 18:50:07.100376",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Line 138-142] [Race Condition] The pairing() function reads hub.pairings without locking - can concurrent writes corrupt the read? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_81692daf-f405-47ca-89c1-113f304f0ce5?mode=deep",
+    "timestamp": "2026-01-10 18:50:26.420072",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Line 145-151] [Atomicity] The setPairing modifies hub.pairings then calls writePairings - if writePairings fails, the memory state diverges from disk state - can node restart lose pairing data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4dc212d4-e588-4e29-8a91-4bfa3beeb670?mode=deep",
+    "timestamp": "2026-01-10 18:50:47.669506",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Line 156-159] [Error Propagation] EstablishContext errors are returned but context cleanup isn't performed - can partial initialization leave the pcsc library in an inconsistent state? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b636c955-2abb-4740-ac1c-b8a8fd7224a9?mode=deep",
+    "timestamp": "2026-01-10 18:51:08.548401",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Line 167-169] [Error Handling] If readPairings fails, the hub is still returned with potentially corrupt state - can this allow the node to start with missing pairings, losing wallet access? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bb031f1a-c295-4fc8-9455-e867a9257f1e?mode=deep",
+    "timestamp": "2026-01-10 18:51:30.563714",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Line 170] [Panic Risk] refreshWallets() is called without panic recovery - can a malicious card cause a panic during initial scan, crashing the node? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2f2cab0d-1399-494b-a7c6-53505df42abb?mode=deep",
+    "timestamp": "2026-01-10 18:51:52.397930",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Line 177-178] [TOCTOU] refreshWallets() is called before acquiring lock - can wallet state change between refresh and lock acquisition? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5033093a-2133-4783-bcda-60163a024537?mode=deep",
+    "timestamp": "2026-01-10 18:52:17.896365",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Line 194-200] [Race Condition] elapsed is calculated while holding RLock, but stateLock is released before the throttle return - can multiple goroutines all pass the throttle check? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7dbf633d-a01e-4f1f-8781-45bbb715392e?mode=deep",
+    "timestamp": "2026-01-10 18:52:41.890001",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Line 203-211] [DoS] ListReaders() can block indefinitely - can a hanging PC/SC daemon freeze wallet operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9f2f2320-162a-445f-a006-e8d337460e48?mode=deep",
+    "timestamp": "2026-01-10 18:53:07.380279",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Line 219-230] [State Inconsistency] Wallet is deleted and event sent before attempting to connect new card - can operations on the dropped wallet fail in the window? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_be610594-9088-4250-a3b9-824dea46d2b8?mode=deep",
+    "timestamp": "2026-01-10 18:53:34.228459",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Line 224-230] [Resource Leak] If wallet.Close() panics, the wallet remains in hub.wallets but is unusable - can malicious cards cause accumulated dead wallet objects? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1fc8c429-daf4-43da-a9c0-0c65b85e9bbc?mode=deep",
+    "timestamp": "2026-01-10 18:53:58.464012",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Line 233-242] [Blocking I/O] Connect() and wallet.connect() can block while holding stateLock - can slow cards freeze all wallet operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c7865ed8-5113-4c65-a895-ec139fbe0304?mode=deep",
+    "timestamp": "2026-01-10 18:54:23.949748",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Line 239-242] [Resource Leak] If wallet.connect() fails, card.Disconnect() may fail silently - can this leak card connections? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b12891e1-e497-4d52-a31d-203e4f26504b?mode=deep",
+    "timestamp": "2026-01-10 18:54:50.704109",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Line 249-255] [Resource Leak] wallet.Close() may fail or panic when removing absent wallets - can this leak resources? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a3cd932c-3fbe-495f-9574-efa8abe95136?mode=deep",
+    "timestamp": "2026-01-10 18:55:16.411282",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Line 259-261] [Race Condition] Events are sent after releasing stateLock - can the wallet pointers in events be invalidated? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_763865de-f4d5-444c-b435-e2040408d1b5?mode=deep",
+    "timestamp": "2026-01-10 18:55:41.851802",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Line 268-269] [Lock Ordering] stateLock is acquired before calling updateFeed.Subscribe() - can the subscription mechanism also acquire locks, causing deadlock? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_15da69b3-655d-474f-b54d-f8e48cf818d1?mode=deep",
+    "timestamp": "2026-01-10 18:56:07.257794",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Line 272] [Subscription Leak] updateScope.Track() may fail to track the subscription properly - can subscriptions leak memory over time? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2bfe4c78-7341-4c3d-991a-05d15e350cab?mode=deep",
+    "timestamp": "2026-01-10 18:56:33.017383",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Line 275-278] [Race Condition] hub.updating flag is checked and set while holding lock, but the updater() goroutine starts after releasing - can multiple updater goroutines start? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_866b2f11-c623-4df9-bf1f-556191ab37f8?mode=deep",
+    "timestamp": "2026-01-10 18:56:59.605354",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Line 288] [Resource Exhaustion] time.Sleep(refreshCycle) always sleeps 1 second regardless of how long refreshWallets() took - can slow refreshWallets() cause accumulated delays and CPU exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7fad0929-963d-41b9-a790-68782245ca96?mode=deep",
+    "timestamp": "2026-01-10 18:57:26.905019",
+    "report_generated": false
   }
 ]
