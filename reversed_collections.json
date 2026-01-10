@@ -21586,5 +21586,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_841aad31-f063-4205-bca0-fe977faed76a?mode=deep",
     "timestamp": "2026-01-10 17:34:39.989401",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: Close()] [Incomplete cleanup] Close() doesn't clear internal state or deallocate resources - can closed iterators still consume significant memory if not garbage collected promptly? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_187ff5cd-ab17-4edc-9ef2-10ddc34ebcb3?mode=deep",
+    "timestamp": "2026-01-10 17:36:00.822116",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Struct: WrsIterator] [Memory leak in wrs] As nodes are added via Update() but never removed (if Remove callbacks don't fire), can w.wrs grow unbounded causing memory exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_306f1110-0edc-401c-9101-9ada540f218d?mode=deep",
+    "timestamp": "2026-01-10 17:36:13.812008",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: chooseNode()] [Goroutine leak] If chooseNode() blocks at w.cond.Wait() line 98 and Close() is never called or signal is lost, does the goroutine leak forever? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_39c8c3f8-df40-4978-9989-2eb819fb51e6?mode=deep",
+    "timestamp": "2026-01-10 17:36:26.957666",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: NewWrsIterator()] [Subscription leak] The SubscribeField at line 58 and SubscribeState at line 67 register callbacks but there's no corresponding Unsubscribe in Close() - do these subscriptions leak memory if many iterators are created? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ebfd1035-b55e-441d-8bb2-49e4333797cf?mode=deep",
+    "timestamp": "2026-01-10 17:36:40.700658",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Struct: WrsIterator] [Nil cond field] The w.cond is initialized at line 56, but if NewWrsIterator is called with a zero-value WrsIterator, w.cond would be nil causing panic at line 98 - is this possible? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5b4ae885-5605-40c1-97e1-8eb351a1c33e?mode=deep",
+    "timestamp": "2026-01-10 17:36:55.386743",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Struct: WrsIterator] [Nil wrs field] If w.wrs is somehow nil (though initialized at line 54), calls to IsEmpty(), Choose(), Update(), Remove() will panic - is there any code path that could set wrs to nil? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e2f7e6ea-3304-4ec7-bee9-110cbc8d2f7b?mode=deep",
+    "timestamp": "2026-01-10 17:37:11.396596",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: Node()] [Nil nextNode] Node() can return nil w.nextNode when Next() returned false - if callers assume non-nil node, can this cause nil pointer panics in node connection logic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a254c19d-97f2-4306-8c02-efbec42d897b?mode=deep",
+    "timestamp": "2026-01-10 17:37:29.598507",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: chooseNode()] [Nil from GetNode] At line 109, w.ns.GetNode(id) can return nil if node was removed - this nil is returned to caller without check, can this cause panics in peer selection code? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8cdb9de9-20c3-4b5f-bcaf-b30aefa93312?mode=deep",
+    "timestamp": "2026-01-10 17:37:48.406247",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: weight function] [Nil node from GetNode] At line 44, if ns.GetNode(i.(enode.ID)) returns nil, returning 0 weight at line 46 is safe, but can the nil node be added to wrs causing issues later? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b8be7949-d672-42e7-abae-9e1de1a48c5f?mode=deep",
+    "timestamp": "2026-01-10 17:38:08.767246",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: NewWrsIterator()] [Nil ns parameter] If ns parameter to NewWrsIterator() is nil at line 42, the defer at line 44 will panic when calling ns.GetNode() - is there nil validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1bb751b4-e78e-4d0b-80c9-684e4e722f84?mode=deep",
+    "timestamp": "2026-01-10 17:38:30.329040",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Struct: WrsIterator] [Goroutine leak] If Next() is called spawning a goroutine that blocks in chooseNode(), and Close() doesn't properly wake it up, can unclosed iterators leak goroutines causing memory exhaustion over time? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f2dfaba2-73db-4f76-9c48-fb420d3ee99d?mode=deep",
+    "timestamp": "2026-01-10 17:38:52.833712",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Struct: WrsIterator] [No happens-before relationship] Between callback execution updating wrs and chooseNode() reading wrs, is there a proper happens-before relationship via the lock, or can chooseNode() see inconsistent wrs state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e45d2c3c-6058-40e2-a730-cf7df176e1ea?mode=deep",
+    "timestamp": "2026-01-10 17:39:17.179105",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Struct: WrsIterator] [Concurrent WeightedRandomSelect access] The w.wrs field is accessed from multiple goroutines (callbacks and chooseNode()) - if WeightedRandomSelect is not thread-safe, can concurrent Update/Remove/Choose calls cause data corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_aec9e6dd-3150-4cdb-b90f-bbcd96e661bd?mode=deep",
+    "timestamp": "2026-01-10 17:39:41.802382",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Struct: WrsIterator] [Condition variable misuse] The w.cond condition variable is signaled from callbacks (lines 63, 81) and Close() (line 119) without holding w.lock - is this safe, or can signals be lost leading to permanent waits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4aca0376-1537-4a50-8e76-8d276d8a56cb?mode=deep",
+    "timestamp": "2026-01-10 17:40:07.662049",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Struct: WrsIterator] [Lock ordering deadlock] If external code holds locks while calling WrsIterator methods, and WrsIterator holds w.lock while calling NodeStateMachine methods, can lock ordering mismatches cause deadlocks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d003a497-470f-42d6-9a94-df881b548dea?mode=deep",
+    "timestamp": "2026-01-10 17:40:35.121678",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Struct: WrsIterator] [Data race on nextNode] The w.nextNode field is written at line 88 without lock but read at line 126 with lock - is there a data race on the pointer value that could cause memory corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_02f7d32c-7674-45f1-b57f-4888730bc35f?mode=deep",
+    "timestamp": "2026-01-10 17:41:00.326933",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Struct: WrsIterator] [Data race on closed] The w.closed bool flag is accessed from multiple goroutines (lines 97, 100, 117) but only the write at line 117 is protected by lock - do the reads at lines 97 and 100 inside chooseNode() while holding lock prevent data races? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8991c4a3-6009-473e-a0e2-ab13c5735d56?mode=deep",
+    "timestamp": "2026-01-10 17:41:24.753020",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: Node()] [Lock overhead] Every call to Node() acquires and releases w.lock at lines 124-125 - can high-frequency Node() calls cause lock contention that degrades performance or enables timing attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1cd90e36-1415-4394-83ca-8ae7efcab6ae?mode=deep",
+    "timestamp": "2026-01-10 17:41:50.979852",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: Node()] [Nil node usage] Node() returns w.nextNode which can be nil (when Next() returns false) - if callers don't check for nil, can this cause widespread nil pointer panics in node selection code? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_acfc6479-9653-447b-ae76-04b32c67e3b7?mode=deep",
+    "timestamp": "2026-01-10 17:42:18.505049",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: Node()] [Stale node return] If Node() is called multiple times without calling Next(), it returns the same cached w.nextNode - can this node become stale if it's removed from NodeStateMachine, leading to use-after-free scenarios? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_46c94cac-51af-4c54-8a48-e3438202638e?mode=deep",
+    "timestamp": "2026-01-10 17:42:48.714065",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: Node()] [Race condition] Node() acquires w.lock at line 124 and returns w.nextNode at line 126, but Next() sets w.nextNode at line 88 without lock - can this create a data race detectable by Go's race detector? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5f3c673a-362d-46fe-a43c-24aaf1431b4e?mode=deep",
+    "timestamp": "2026-01-10 17:43:15.785042",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: Close()] [Panic during close] If Close() is called while callback functions are executing and holding w.lock, can this cause a deadlock where Close() blocks forever waiting for lock at line 116? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_777a1837-a626-4f03-8560-996f16d0c63d?mode=deep",
+    "timestamp": "2026-01-10 17:43:44.215743",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: Close()] [Missing cleanup] Close() doesn't clear w.wrs or w.nextNode - if the iterator is accessed after close, can stale data cause incorrect behavior or security issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_580327d8-5da6-46e0-8d70-2d0676ec0f09?mode=deep",
+    "timestamp": "2026-01-10 17:44:10.694906",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: Close()] [Race on signal] The sequence of setting w.closed at line 117, releasing lock at line 118, then signaling at line 119 creates a gap - can a goroutine wake up from the signal, check w.closed before it's set, and continue waiting? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_af62cf09-42a8-430f-a79d-ed3ecbd70f54?mode=deep",
+    "timestamp": "2026-01-10 17:44:37.071372",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/wrsiterator.go] [Function: Close()] [Resource leak] Close() sets w.closed=true but doesn't unsubscribe the callbacks registered in NewWrsIterator() - do these callbacks continue executing and updating wrs even after close, causing resource leak and memory growth? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_33042761-a761-4253-89a0-46469c560278?mode=deep",
+    "timestamp": "2026-01-10 17:45:03.258873",
+    "report_generated": false
   }
 ]
