@@ -14698,5 +14698,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_309a4f01-0fc1-4875-8fd3-d725e835874c?mode=deep",
     "timestamp": "2026-01-10 18:06:22.093666",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Security] [Wallet tracking] All wallet operations are tracked via feed events - can an attacker monitor these events to track validator wallet activity and correlate with block production? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_71805000-a15c-408d-be57-efd7db1235ad?mode=deep",
+    "timestamp": "2026-01-10 18:07:51.051326",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Security] [InsecureUnlockAllowed] Config field at line 37 allows insecure unlocking - if this is enabled, can it be exploited to unlock validator accounts in production environments? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6082331b-dff1-4f56-bb62-4bd47b13012b?mode=deep",
+    "timestamp": "2026-01-10 18:08:04.024879",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Security] [Backend trust] The Manager fully trusts all backends - can a malicious backend be registered that leaks private keys, blocks operations, or manipulates wallet state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c3975214-6929-43e5-b24f-4968352be336?mode=deep",
+    "timestamp": "2026-01-10 18:08:17.548255",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Edge case] [Empty backends] If NewManager is called with zero backends, does the Manager function correctly, or can operations on empty structures cause issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b42c4031-933c-4e67-8395-64ef1a8c20bf?mode=deep",
+    "timestamp": "2026-01-10 18:08:31.276718",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Edge case] [Backend returns empty Wallets] If a backend's Wallets() returns empty slice, does merge() handle this correctly without panics or state corruption? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7ba7ebb2-0b4f-4550-8b89-3289dc19b31d?mode=deep",
+    "timestamp": "2026-01-10 18:08:45.890157",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Edge case] [Concurrent Close() calls] If two goroutines call Close() simultaneously, can this cause double-send on quit channel, panic on term close, or other race conditions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_db14ae97-8d44-448b-9551-91cb12f382f8?mode=deep",
+    "timestamp": "2026-01-10 18:09:01.594600",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Edge case] [AddBackend after Close] If AddBackend() is called after Close() has completed, will it deadlock trying to send on newBackends to a terminated update() loop? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b37472a6-ade0-49e0-8fee-03c715d6e271?mode=deep",
+    "timestamp": "2026-01-10 18:09:19.489199",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Edge case] [Subscribe after Close] If Subscribe() is called after Close(), does the returned subscription work correctly or can it cause issues with the closed feed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ee6503ce-ab62-4419-b6af-8121c1d6c90e?mode=deep",
+    "timestamp": "2026-01-10 18:09:38.664597",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Edge case] [All backends removed] If all backends are removed via WalletDropped events, does Manager enter an invalid state or continue functioning correctly? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bea23397-a144-40dd-90f2-9b72eaaa853e?mode=deep",
+    "timestamp": "2026-01-10 18:09:58.898089",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Edge case] [Rapid backend add/remove] If backends are added and removed rapidly via AddBackend and WalletDropped, can the state become inconsistent due to event ordering? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f5c38f98-d9e8-4918-9c0c-f1ea626707dc?mode=deep",
+    "timestamp": "2026-01-10 18:10:20.974556",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Edge case] [Wallet with empty URL] If a wallet returns empty or default URL value, can this cause comparison failures in merge/drop or multiple wallets to be treated as duplicates? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3779a47f-a612-45b3-afa5-327e7a26a065?mode=deep",
+    "timestamp": "2026-01-10 18:10:44.276416",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Performance] [Linear wallet search] Both Wallet() and Find() use O(n) linear search - for validators with hundreds of wallets, can this create performance bottlenecks during transaction signing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4d8cde49-8ed0-4aec-a9f2-c9b0a7739994?mode=deep",
+    "timestamp": "2026-01-10 18:11:08.708365",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Performance] [Lock contention] The single RWMutex at line 61 protects all state - under high concurrency (many Wallets() calls + update events), can lock contention degrade performance? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8120adee-03c9-4a8b-abb6-a6b00a4e1b84?mode=deep",
+    "timestamp": "2026-01-10 18:11:34.127683",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Performance] [Quadratic merge cost] merge() is O(m*log(n)) where m is wallets to add and n is existing wallets - can an attacker maximize this cost by adding many wallets to a large existing set? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e43ce87c-c299-4f3b-acf0-22e3d36edabf?mode=deep",
+    "timestamp": "2026-01-10 18:12:00.163636",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Performance] [Slice copy overhead] walletsNoLock() copies entire wallet slice on every call - for frequent reads of large wallet sets, can this cause excessive allocation and GC pressure? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6220832b-8e3d-4226-ad62-c48a14bf1c08?mode=deep",
+    "timestamp": "2026-01-10 18:12:25.596616",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Performance] [Channel buffer size] managerSubBufferSize=50 may be insufficient under burst load - can this cause backend subscriptions to block, delaying wallet event processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d31ef160-d75d-4900-923a-49519254cb5f?mode=deep",
+    "timestamp": "2026-01-10 18:12:51.169919",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Attack vector] [Backend resource exhaustion] A malicious backend could return millions of wallets from Wallets(), exhausting memory when merged into am.wallets - is there any limit? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1b2cdde2-0836-408f-9444-ca61b51f11b1?mode=deep",
+    "timestamp": "2026-01-10 18:13:17.221895",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Attack vector] [Event storm] A compromised backend could send rapid WalletArrived/Dropped events alternating for the same wallet, causing constant merge/drop operations - can this DoS the update loop? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ccacabd7-1854-44b5-9bbe-a9dd8b632bf2?mode=deep",
+    "timestamp": "2026-01-10 18:13:43.461213",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Attack vector] [Subscription leak] An attacker repeatedly calls Subscribe() without ever consuming events from the returned subscription - can this exhaust memory and degrade performance? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c98d46da-f3d7-4b6b-9316-b07c4b3856a7?mode=deep",
+    "timestamp": "2026-01-10 18:14:10.096552",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Attack vector] [URL collision] Can an attacker craft wallet URLs that collide or cause comparison failures, breaking the sort invariant and corrupting wallet list? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a6c86fa5-7fc3-4ba3-bcae-f1ef8951f137?mode=deep",
+    "timestamp": "2026-01-10 18:14:35.866098",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Attack vector] [Backend timing] A malicious backend's Subscribe() or Wallets() methods could intentionally delay, hanging NewManager() or AddBackend() calls - is there any timeout? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_72f86831-5cbe-4f21-84c9-ec4e0f36ac29?mode=deep",
+    "timestamp": "2026-01-10 18:15:02.398315",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Attack vector] [Wallet interface abuse] Since Wallet is an interface, a malicious backend could return wallets with harmful implementations of URL(), Accounts(), or Contains() - is there any validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a4c68309-a50d-469a-8f2a-3c69354c249e?mode=deep",
+    "timestamp": "2026-01-10 18:15:29.394504",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Validator concern] [Account manager crash] If Manager crashes due to any of the above issues, does this prevent validators from signing blocks, causing missed block slots and consensus degradation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7848e2ac-be60-4a51-99d2-87b20f7684cf?mode=deep",
+    "timestamp": "2026-01-10 18:15:54.028894",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Validator concern] [Wallet unlock timing] If wallet events cause lock contention, can this delay validator account unlocking during critical block signing windows? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d204442a-1631-4152-8f40-e6e76367a15d?mode=deep",
+    "timestamp": "2026-01-10 18:16:20.217122",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Validator concern] [Account enumeration leak] Accounts() method could reveal validator account addresses to attackers - can this be used to target specific validators? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_acf1caa0-3429-4fdb-88c5-05c5101dc73d?mode=deep",
+    "timestamp": "2026-01-10 18:16:46.521239",
+    "report_generated": false
   }
 ]
