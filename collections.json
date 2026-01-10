@@ -8098,5 +8098,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8e2b15f7-afc0-4024-a699-2509038dbfed?mode=deep",
     "timestamp": "2026-01-10 09:04:19.303689",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Non-Atomic Name Generation] Since the loop (lines 35-38) checks and generates names non-atomically, can concurrent contract deployments result in two contracts getting methods with identical names but different implementations, breaking contract execution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9414b5c3-f4ad-46f7-895e-91b96781fc46?mode=deep",
+    "timestamp": "2026-01-10 09:05:36.097515",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Empty String Input] If rawName is an empty string (line 33), will the function generate names like '0', '1', '2', etc., and can these numeric-only method names cause issues when calling contracts through the ABI, potentially breaking contract interaction? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7a98aa99-4532-4f68-b71b-360827e48af6?mode=deep",
+    "timestamp": "2026-01-10 09:05:49.082166",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Special Character Handling] If rawName contains special characters like null bytes, newlines, or Unicode control characters (line 33), does fmt.Sprintf (line 36) properly handle them, or can they create malformed method names that bypass validation or cause parsing errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_942263e5-b063-4f97-a356-3d2b9c7ecfc1?mode=deep",
+    "timestamp": "2026-01-10 09:06:02.158724",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Unicode Normalization] If rawName contains Unicode characters with different normalization forms (NFC vs NFD), can an attacker create two methods that appear different but resolve to the same name after processing, causing method collision attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3797e030-1d4e-4f1f-b8d9-e72190cd37a9?mode=deep",
+    "timestamp": "2026-01-10 09:06:15.811344",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Maximum String Length] Is there a limit on how long the resolved name can be after appending idx? Can an attacker provide a very long rawName combined with high idx values to create method names exceeding system limits, causing buffer overflows or allocation failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_99e65895-c252-4f75-9b7d-2464454db3c2?mode=deep",
+    "timestamp": "2026-01-10 09:06:30.240665",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [String Formatting Edge Cases] If rawName contains format string specifiers like '%s' or '%d' (line 33), could fmt.Sprintf (line 36) misinterpret them when combined with idx, potentially causing unexpected behavior or injection attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_326af4af-9d32-4293-a558-a91a5c1555fa?mode=deep",
+    "timestamp": "2026-01-10 09:06:45.891224",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [ABI Method Collision] When resolving function name conflicts (used in abi.go line 167), if the naming algorithm produces 'method0' for an overloaded function but another legitimate function is already named 'method0', can this cause method resolution ambiguity leading to wrong function calls and potential fund loss? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0173b250-33f1-4073-b484-a97ea9816da0?mode=deep",
+    "timestamp": "2026-01-10 09:07:03.416298",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Event Name Collision] When used for event name resolution (abi.go line 187), can name collisions between resolved event names cause events to be logged incorrectly, breaking off-chain indexers and potentially hiding malicious contract activity? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9c6b2ae2-d977-4c7c-a7ae-a095b8c2b442?mode=deep",
+    "timestamp": "2026-01-10 09:07:22.568944",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Determinism Violation] Does ResolveNameConflict produce deterministic results across all nodes? If different nodes resolve the same ABI differently due to timing or map iteration order in the 'used' function, could this cause consensus failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6df4b440-9576-4019-9099-05ee43c74e2a?mode=deep",
+    "timestamp": "2026-01-10 09:07:42.735464",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Cross-Platform Inconsistency] On different platforms (Linux/Windows/Mac) or architectures (32-bit/64-bit), could the int type for idx (line 35) have different sizes, leading to different name resolution results and breaking consensus? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a8a87d63-7372-46b3-b2bc-1fccb8fc2642?mode=deep",
+    "timestamp": "2026-01-10 09:08:04.032969",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Bind Generation Attack] When called from bind.go during Go binding generation (line 387), if struct field name conflicts are resolved incorrectly, can this generate Go code that doesn't match the actual ABI, causing silent failures when interacting with contracts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_57620569-9fda-42ef-ba30-815e405f1d9a?mode=deep",
+    "timestamp": "2026-01-10 09:08:26.239739",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Type Resolution Confusion] When used in type.go for tuple field names (line 181), can incorrect name resolution cause struct fields to be ordered differently than expected, leading to incorrect ABI encoding/decoding and potential fund transfers to wrong addresses? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_db30f69f-7fb5-4781-8e30-aa14e5254977?mode=deep",
+    "timestamp": "2026-01-10 09:08:49.844476",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Method Signature Mismatch] If the resolved name differs from the original method name in abi.go (line 167), does the ABI still maintain the correct mapping to the original Solidity function signature for method ID calculation, or can this break contract calls? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_54b505df-9c26-405f-b76c-cefed33fe699?mode=deep",
+    "timestamp": "2026-01-10 09:09:14.374129",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Callback Side Effects] If the 'used' callback function has side effects (modifying state, writing to files, network calls), can repeated invocations during the loop (lines 34, 37) cause unintended consequences like resource leaks or state corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f137e2da-a4b0-4dba-bfd8-6049900f0b87?mode=deep",
+    "timestamp": "2026-01-10 09:09:39.545650",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [String Allocation DoS] Each iteration of the loop (line 36) allocates a new string via fmt.Sprintf - for contracts with hundreds of overloaded methods, can this cause excessive heap allocations triggering garbage collection storms and degrading validator performance? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4aaa84f6-e09f-400a-8fbc-441133c9c594?mode=deep",
+    "timestamp": "2026-01-10 09:10:06.613438",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Memory Leak] Are the intermediate strings created in each loop iteration (line 36) properly garbage collected, or can long-running nodes accumulate memory from repeated ABI parsing during high contract deployment activity? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5be660d9-3193-4250-b6c5-8d06815c99e4?mode=deep",
+    "timestamp": "2026-01-10 09:10:33.133583",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [String Interning] Does Go's string interning help with the repeated string allocations (line 36), or does each iteration create a unique string object that persists in memory even after the function returns? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9f3c8a9e-fe27-44f0-b0d5-eda509ce5973?mode=deep",
+    "timestamp": "2026-01-10 09:11:00.367221",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Format String Injection] The fmt.Sprintf call (line 36) uses '%s%d' format - if rawName contains format specifiers or escape sequences, could this cause the formatted string to behave unexpectedly or crash the node? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5f6405ad-1a8b-4fb7-ae3a-1df8d82ba3da?mode=deep",
+    "timestamp": "2026-01-10 09:11:28.563360",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [String Concatenation Safety] Is fmt.Sprintf the safest method for concatenating rawName and idx, or could alternative approaches like string builder avoid potential format string issues while improving performance? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_21edbb01-5188-40e7-bf6e-66b4cfdd30a3?mode=deep",
+    "timestamp": "2026-01-10 09:11:56.284686",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Caller State Corruption] When called from abi.go's method registration (line 167), if this function returns a name that was already used due to race conditions or overflow, will the caller detect the collision, or will it silently overwrite the existing method causing execution confusion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a01bca55-4c54-4250-b707-a331883873c0?mode=deep",
+    "timestamp": "2026-01-10 09:12:22.532055",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Event System Impact] When used for event name resolution (abi.go line 187), if duplicate event names are generated, can this cause events to be dropped or misrouted, breaking contract monitoring and potentially hiding security incidents? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f136530d-b839-4e51-b2b3-1b377cf48aee?mode=deep",
+    "timestamp": "2026-01-10 09:12:49.576664",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Struct Field Ordering] When resolving tuple field names in type.go (line 181), if name resolution produces inconsistent results across nodes, could this cause different struct field orderings leading to ABI encoding mismatches and consensus failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c11d7e27-3389-4ea3-baa3-f66c51512841?mode=deep",
+    "timestamp": "2026-01-10 09:13:14.241719",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Initial Check Bypass] The initial check at line 34 evaluates 'used(name)' before entering the loop - if this check fails but the loop is entered anyway, can this create an off-by-one error where the returned name is 'rawName0' instead of 'rawName'? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_daa1fc13-4dcb-4250-94dc-3ed6cb59cec8?mode=deep",
+    "timestamp": "2026-01-10 09:13:39.889651",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Loop Termination] The loop condition 'ok' (line 35) depends on the 'used' function returning false - if 'used' implementation has a bug and always returns true, is there any circuit breaker or maximum iteration limit to prevent infinite loops? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_470b9c4e-f75a-4b07-9475-81882f7337b7?mode=deep",
+    "timestamp": "2026-01-10 09:14:04.607323",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Off-by-One Naming] The loop starts idx at 0 (line 35), so if rawName is 'send' and 'send' is used, it returns 'send0' - but if there's already a method named 'send0' in the original ABI, does this create ambiguity? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b9036bac-36f9-47e8-b4e5-5b90cf2a3b6c?mode=deep",
+    "timestamp": "2026-01-10 09:14:27.952478",
+    "report_generated": false
   }
 ]
