@@ -12148,5 +12148,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7f947b3e-f723-47dc-be36-0eaf3a64d0e4?mode=deep",
     "timestamp": "2026-01-10 15:14:09.381477",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Keccak256 Input Length] Are there any constraints on the plainText length before hashing? Can extremely long or short plaintexts cause issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b399be83-f892-46dd-b4de-339555ddd477?mode=deep",
+    "timestamp": "2026-01-10 15:15:30.864034",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [ToECDSAUnsafe Usage] The code uses crypto.ToECDSAUnsafe() which does not validate the private key. Can this accept invalid private keys (e.g., zero, exceeding curve order) that could lead to signature vulnerabilities or fund loss? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1c28d1dd-7574-45c5-a01a-dc5521efba52?mode=deep",
+    "timestamp": "2026-01-10 15:15:43.731249",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Curve Parameter Validation] Does ToECDSAUnsafe() ensure the resulting key is on the secp256k1 curve? Can an attacker craft a plaintext that results in an off-curve point? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_669e7a19-be74-49f6-bad9-09da378e275d?mode=deep",
+    "timestamp": "2026-01-10 15:15:57.117005",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Private Key Zero] If the Keccak256 hash (ethPriv) is all zeros or equals the curve order, does ToECDSAUnsafe() handle this gracefully, or does it create an invalid key? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_72aa04ba-2610-40e7-b5fe-19ab95818844?mode=deep",
+    "timestamp": "2026-01-10 15:16:11.057485",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Public Key Derivation] Is the public key derivation from the private key in crypto.PubkeyToAddress() implemented correctly? Can errors in public key computation lead to address mismatches? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_40c9ea83-3668-465d-8f0b-5b581e987270?mode=deep",
+    "timestamp": "2026-01-10 15:16:25.602750",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Address Format] The derivedAddr uses hex.EncodeToString() without the '0x' prefix, while expectedAddr comes from JSON. Can case differences or prefix mismatches cause valid keys to be rejected? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a30cc678-c417-4fd2-905a-f05b1d8ecceb?mode=deep",
+    "timestamp": "2026-01-10 15:16:41.441582",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Case Sensitivity] Is the address comparison case-sensitive? Can an attacker provide EthAddr in different cases to bypass validation or cause confusion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cdcaf9e6-c145-44f2-a77f-ed689344d90d?mode=deep",
+    "timestamp": "2026-01-10 15:16:59.107965",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Address Checksum] Are EIP-55 checksummed addresses validated? Can an attacker provide a non-checksummed address that matches but represents a different address? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0c2006a7-7391-4726-a989-d8d7116f0a32?mode=deep",
+    "timestamp": "2026-01-10 15:17:18.746542",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Wrong Address Success] If derivedAddr != expectedAddr, the function returns the key with an error. This means a key with the wrong address is still returned - can this cause security issues if the caller ignores the error? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9b6222ce-4049-4888-8d1d-2909244bf984?mode=deep",
+    "timestamp": "2026-01-10 15:17:39.115105",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Address Truncation] Are leading zeros in the address handled correctly? Can address truncation or padding issues cause mismatches? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7d137549-2283-4f6b-a69a-9c01a0d7859b?mode=deep",
+    "timestamp": "2026-01-10 15:18:00.928945",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Empty Address] What happens if EthAddr is empty or missing in the JSON? Is this validated before comparison? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bee5b9b7-9fb6-47d0-9c7f-564644f74b98?mode=deep",
+    "timestamp": "2026-01-10 15:18:22.485914",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Error Message Leakage] Does the error message 'decrypted addr not equal to expected addr' leak information about the decryption process that could help an attacker? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8f39b6c2-5bb3-4c9a-a6e8-cc2a66650fb5?mode=deep",
+    "timestamp": "2026-01-10 15:18:46.452572",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Partial Decryption Info] When address validation fails, is the partially decrypted data properly cleared from memory, or does it remain accessible through memory dumps? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0a310d36-86e4-4add-ad3b-7003332e7d2a?mode=deep",
+    "timestamp": "2026-01-10 15:19:11.919928",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Error Path Memory] In all error paths, is the sensitive data (derivedKey, plainText, ethPriv, ecKey) properly zeroed before returning? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6d22c5ef-160f-4f8a-a3d7-4bb83c3c7dc9?mode=deep",
+    "timestamp": "2026-01-10 15:19:38.858651",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Stack Trace Leakage] If a panic occurs during decryption, could the stack trace leak sensitive information about the key derivation or decryption process? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5833ab7f-f809-4a02-9ab3-6cea38836390?mode=deep",
+    "timestamp": "2026-01-10 15:20:06.014317",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Plaintext Retention] Is the plainText from aesCBCDecrypt() properly cleared from memory after Keccak256 hashing, or does it remain in memory indefinitely? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_83b25b78-b899-45ed-8e56-637b837e6b48?mode=deep",
+    "timestamp": "2026-01-10 15:20:34.918017",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Key Material Copies] How many copies of the private key material exist in memory during execution? Are all copies properly cleared? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4d0e840e-b789-43ad-aab3-1d1e3b7bc025?mode=deep",
+    "timestamp": "2026-01-10 15:21:04.063805",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Go Garbage Collection] Since Go's garbage collector doesn't guarantee memory clearing, can sensitive key material be recovered from memory even after the function returns? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_abe43d3e-da3a-4c93-8d52-13daf3ec3c38?mode=deep",
+    "timestamp": "2026-01-10 15:21:30.949307",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Swap File Leakage] If the system swaps memory to disk, can sensitive key material be written to swap files where it persists after node shutdown? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c63c5efa-bdcc-402f-9d7c-81d0e581b8dd?mode=deep",
+    "timestamp": "2026-01-10 15:21:57.367233",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: aesCTRXOR()] [Key Length] Does aes.NewCipher() validate that the key length is exactly 16, 24, or 32 bytes? Can an incorrect key length cause panics or weak encryption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_03b454cb-32cb-4104-ac0f-bd2bf7b80d13?mode=deep",
+    "timestamp": "2026-01-10 15:22:20.972343",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: aesCTRXOR()] [IV Length CTR] Does cipher.NewCTR() validate that the IV is exactly 16 bytes (AES block size)? Can an incorrect IV length cause panics or undefined behavior? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_43c2a24d-bdd9-45e5-8625-f7b3652f53f3?mode=deep",
+    "timestamp": "2026-01-10 15:22:43.521149",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: aesCTRXOR()] [Empty Input] What happens if inText is empty or nil? Does XORKeyStream handle this gracefully, or can it cause panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bce2082f-7dc1-4222-9848-86e4183a10a5?mode=deep",
+    "timestamp": "2026-01-10 15:23:10.392198",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: aesCTRXOR()] [Output Buffer] The output buffer is created with make([]byte, len(inText)). If inText is extremely large, can this cause memory exhaustion or OOM panics? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_93bc2e1f-a642-4402-bff3-4426c4c7cf2d?mode=deep",
+    "timestamp": "2026-01-10 15:23:35.162151",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: aesCTRXOR()] [XORKeyStream Safety] Is XORKeyStream safe if called with overlapping input and output slices? Can this cause data corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_69411bbd-2c83-4b5f-a086-fbd6494e25ef?mode=deep",
+    "timestamp": "2026-01-10 15:24:00.723725",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: aesCTRXOR()] [Counter Overflow] In CTR mode, if the counter overflows, does it wrap around correctly, or can this cause repeated keystream and break encryption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e54d6537-0c20-475d-a219-00b1a601a019?mode=deep",
+    "timestamp": "2026-01-10 15:24:25.261337",
+    "report_generated": false
   }
 ]
