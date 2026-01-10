@@ -10948,5 +10948,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4fa91f90-f862-4d3e-9d28-ed12cb388276?mode=deep",
     "timestamp": "2026-01-10 13:53:21.011688",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: SignTx()] [Chain ID validation] In SignTx() at lines 287-288, types.LatestSignerForChainID() is used - can an attacker provide a malicious chainID that causes signatures to be valid on unintended networks, enabling cross-chain replay attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_90110b8e-a24c-496f-adfb-f0cbd4dabf97?mode=deep",
+    "timestamp": "2026-01-10 13:54:40.692660",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: SignHashWithPassphrase()] [Timing attack] In SignHashWithPassphrase() at lines 294-301, getDecryptedKey() may take variable time based on passphrase correctness - can an attacker use timing analysis to brute force passphrases faster by distinguishing failed decryption from failed Find()? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9e9848d3-cf79-4458-9569-2c7c41ce0652?mode=deep",
+    "timestamp": "2026-01-10 13:54:53.776114",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: SignTxWithPassphrase()] [Nonce manipulation] In SignTxWithPassphrase() at lines 305-314, the transaction is signed without validating its nonce - can an attacker trick the keystore into signing transactions with incorrect nonces that enable replay or ordering attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3ab91f55-cc28-4032-8744-b1391a80d1e8?mode=deep",
+    "timestamp": "2026-01-10 13:55:07.566779",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: getDecryptedKey()] [Weak passphrase] In getDecryptedKey() at line 383, ks.storage.GetKey() decrypts the key, but is there any minimum passphrase complexity enforcement, allowing weak passphrases vulnerable to brute force? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c3054ded-e064-4450-b9fd-d340df87d7e9?mode=deep",
+    "timestamp": "2026-01-10 13:55:21.262632",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: NewAccount()] [Weak key generation] In NewAccount() at line 410, storeNewKey() uses crand.Reader for key generation - is this CSPRNG properly seeded on all platforms, or can predictable keys be generated on systems with low entropy? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e464f249-0bc6-4e4c-a328-30ea971f73e9?mode=deep",
+    "timestamp": "2026-01-10 13:55:35.904927",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Import()] [Key validation] In Import() at lines 438-443, DecryptKey() decrypts the key but is there validation that the resulting key is a valid secp256k1 key and not malformed data that could cause signing failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9944f55f-4925-4525-a037-7cb3a79cf3e2?mode=deep",
+    "timestamp": "2026-01-10 13:55:51.689980",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: ImportECDSA()] [Key validation] In ImportECDSA() at line 461, newKeyFromECDSA() creates a key from the provided private key - is there validation that the private key is within valid secp256k1 range and not a zero key? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_03ec288c-9eac-40b0-b01d-cdfcf62cda89?mode=deep",
+    "timestamp": "2026-01-10 13:56:09.059843",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Export()] [Downgrade attack] In Export() at lines 427-432, scryptN and scryptP parameters are taken from the existing storage or defaults - can an attacker export keys with weaker scrypt parameters than originally used, making exported keys easier to brute force? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b57da21a-ebbc-47ff-8fe0-14708997206a?mode=deep",
+    "timestamp": "2026-01-10 13:56:26.861046",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: zeroKey()] [Incomplete zeroing] In zeroKey() at lines 510-515, only k.D.Bits() is zeroed - does this miss the public key components (X, Y coordinates) that might also need sanitization to prevent information leakage? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c984c66a-8841-4936-a714-0f92cfa1bfde?mode=deep",
+    "timestamp": "2026-01-10 13:56:46.880386",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: TimedUnlock()] [Invalid timeout] In TimedUnlock() at lines 340-367, timeout duration is used directly without validation - can negative timeout values cause integer underflow or unexpected behavior in time.NewTimer() at line 388? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_22f88bbc-ff04-4225-935a-4cca69b91503?mode=deep",
+    "timestamp": "2026-01-10 13:57:07.849645",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: NewKeyStore()] [Invalid parameters] In NewKeyStore() at line 83, scryptN and scryptP are passed without validation - can invalid values (zero, negative, or extremely large) cause panics or create weak key derivation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_08f82331-71f4-4691-a9db-a04b387ae954?mode=deep",
+    "timestamp": "2026-01-10 13:57:30.245366",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Delete()] [Error masking] In Delete() at lines 247-249, if getDecryptedKey() returns an error, it's returned immediately without indicating whether the error was due to wrong passphrase or missing file - can this leak information about account existence? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ac798cb1-5f3d-4d90-a72c-89b74c2ed59a?mode=deep",
+    "timestamp": "2026-01-10 13:57:54.472400",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: SignHash()] [Hash validation] In SignHash() at line 263, the hash []byte is accepted without length validation - can oversized or undersized hash inputs cause panics in crypto.Sign() or produce invalid signatures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_05fe405a-2744-442e-819f-f7b68c38e184?mode=deep",
+    "timestamp": "2026-01-10 13:58:19.553879",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Find()] [Error handling] In Find() at lines 370-376, cache.find() error is returned directly - can error messages leak sensitive information about keystore structure or account details? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9cae73fe-8e56-4897-ae43-bfd6b56183c1?mode=deep",
+    "timestamp": "2026-01-10 13:58:43.939827",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Import()] [JSON validation] In Import() at line 438, DecryptKey() processes untrusted keyJSON - are there sufficient validation checks to prevent JSON-based exploits like billion laughs attack or deeply nested structures causing stack overflow? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fc330f8f-c109-4ab1-9310-a3c4d7668167?mode=deep",
+    "timestamp": "2026-01-10 13:59:10.088009",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: importKey()] [Error path] In importKey() at lines 472-473, if StoreKey() fails, the function returns error but doesn't rollback any partial state changes - can this leave the keystore in an inconsistent state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_406793f8-7ac3-49c3-984b-477e3f599e9d?mode=deep",
+    "timestamp": "2026-01-10 13:59:36.499727",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Update()] [Rollback failure] In Update() at lines 481-487, if StoreKey() fails with new passphrase, the old key file may already be corrupted - is there an atomic update mechanism or can accounts be permanently lost? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e71324ee-9738-416e-acb3-66983b5c3836?mode=deep",
+    "timestamp": "2026-01-10 14:00:04.542627",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: refreshWallets()] [Panic handling] In refreshWallets() at lines 138-181, if wallet URL comparison panics due to malformed URLs, does this crash the entire refresh process affecting all accounts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6aeffa09-fd87-4c76-befe-edf6fb12e99f?mode=deep",
+    "timestamp": "2026-01-10 14:00:32.272026",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: updater()] [Panic propagation] In updater() at lines 206-225, if refreshWallets() panics, does this terminate the updater goroutine permanently, preventing future wallet updates? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d944d11b-4b86-46c8-a3af-bf20b2df9c01?mode=deep",
+    "timestamp": "2026-01-10 14:00:59.093256",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: TimedUnlock()] [State inconsistency] In TimedUnlock() at lines 356-358, closing the abort channel of an existing unlock and starting a new expire goroutine - can the old expire goroutine still be executing after the new one starts, causing both to compete for map deletion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3546c45f-fba1-4e5c-be80-95a55eea0847?mode=deep",
+    "timestamp": "2026-01-10 14:01:24.886650",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: refreshWallets()] [Event ordering] In refreshWallets() at lines 178-180, wallet events are sent in the order they're generated - can out-of-order events cause wallet state machines in subscribers to become inconsistent? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_03563109-58c0-417a-a963-0ccce928849d?mode=deep",
+    "timestamp": "2026-01-10 14:01:49.041013",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Delete()] [Cache sync] In Delete() at lines 254-256, cache.delete() is called after file removal - if cache.delete() fails or is interrupted, can the cache believe an account exists when the file is deleted, causing subsequent operations to fail? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b56121d2-b2b4-4a9f-8f5d-5d71c0af76a5?mode=deep",
+    "timestamp": "2026-01-10 14:02:11.891543",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: NewAccount()] [Cache sync] In NewAccount() at lines 416-417, cache.add() is called immediately after account creation - if refreshWallets() at line 417 fails, can this cause cache inconsistency where the account is in cache but not in wallets list? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b4209aaf-f17c-489a-8234-9390163259b7?mode=deep",
+    "timestamp": "2026-01-10 14:02:33.732270",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Import()] [Duplicate prevention] In Import() at lines 448-451, hasAddress() check and importKey() are not atomic under importMu - can two concurrent imports of the same address both pass the check and create duplicate accounts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b471222e-d67d-4853-8126-46b45474f914?mode=deep",
+    "timestamp": "2026-01-10 14:02:56.603370",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: ImportECDSA()] [Duplicate check] In ImportECDSA() at lines 462-465, similar to Import(), the hasAddress() check is not atomic with importKey() under importMu - can race conditions allow duplicate imports? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9d988802-da8e-4ce7-812f-62cf06614b16?mode=deep",
+    "timestamp": "2026-01-10 14:03:19.929727",
+    "report_generated": false
   }
 ]
