@@ -13942,5 +13942,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ddb7fd3c-0ba9-453f-bfa9-7d9b91a00259?mode=deep",
     "timestamp": "2026-01-10 08:20:28.821404",
     "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Cross-function: Atomic operations] Are multi-step operations (commit trie + store root, update + commit, delete + write batch) properly atomic, or can partial completions corrupt state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8c6b1812-f818-4c05-b98c-d831a30bc19c?mode=deep",
+    "timestamp": "2026-01-10 08:21:44.811630",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Cross-function: Resource cleanup] Do all functions properly clean up resources (database batches, iterators, goroutines) on error paths, or can error conditions leak resources? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1a440388-85ab-4977-bd28-08c56b3d712a?mode=deep",
+    "timestamp": "2026-01-10 08:21:57.653345",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Cross-function: Error propagation] Are errors from database operations, trie operations, and ODR retrievals properly propagated up the call stack, or can silent failures corrupt indexer state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0a53dada-cc64-4023-85cf-133de5eb6ca7?mode=deep",
+    "timestamp": "2026-01-10 08:22:11.394350",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Cross-function: ODR trust model] Do both CHT and BloomTrie indexers properly validate data received from ODR peers, or can malicious peers exploit trust to inject invalid trie nodes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_68371930-e90e-411e-b3ca-bf98134df3bb?mode=deep",
+    "timestamp": "2026-01-10 08:22:25.183231",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Cross-function: Database consistency] If a node crashes between Commit() completing and the next Reset(), can the database be left in an inconsistent state requiring manual recovery? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ea8d5080-7bb9-48f4-b296-9594cacd08bc?mode=deep",
+    "timestamp": "2026-01-10 08:22:39.721444",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Cross-function: Indexer lifecycle] Can race conditions occur between concurrent calls to Reset(), Process(), Commit(), and Prune() if the ChainIndexer doesn't properly serialize these operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_46cfebc9-66ff-4ba0-8c34-bf8c93fb6166?mode=deep",
+    "timestamp": "2026-01-10 08:22:55.455166",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Prune() - BloomTrie] [Pruning error handling] If DeleteBloombits fails for some bit indices, does pruning continue or abort, and can partial pruning corrupt the bloom filter state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e687c2b5-499a-4c46-8039-e70bc7c21b94?mode=deep",
+    "timestamp": "2026-01-10 08:23:12.864353",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Prune() - BloomTrie] [Bloom bit length iteration] Can types.BloomBitLength changes cause incomplete or excessive pruning? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_14fd28fd-0a67-4aca-92d8-03ce51333239?mode=deep",
+    "timestamp": "2026-01-10 08:23:31.992416",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Prune() - BloomTrie] [DeleteBloombits range] Does DeleteBloombits(i, 0, threshold*b.bloomTrieRatio+b.bloomTrieRatio) correctly handle edge cases, or can off-by-one errors delete active bloom bits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8a4434f7-fb8e-404a-93bb-377fcbcedb4d?mode=deep",
+    "timestamp": "2026-01-10 08:23:52.138955",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Prune() - BloomTrie] [Threshold calculation overflow] Can threshold*b.bloomTrieRatio+b.bloomTrieRatio overflow, causing incorrect pruning boundaries and deletion of active bloom data? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6bfcf124-e0bf-41d6-91ab-7173b0743a22?mode=deep",
+    "timestamp": "2026-01-10 08:24:14.037978",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Prune() - BloomTrie] [Pruning disabled bypass] Can disablePruning flag be modified during execution causing inconsistent pruning behavior? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3aaf830b-0d11-4a76-9ae5-829863f82697?mode=deep",
+    "timestamp": "2026-01-10 08:24:35.964021",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Commit() - BloomTrie] [StoreBloomTrieRoot timing] Root stored after all operations - if crash occurs before StoreBloomTrieRoot(), does this require re-indexing the entire section? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_26028fd5-da77-4773-8ee7-e3561869c0c2?mode=deep",
+    "timestamp": "2026-01-10 08:25:00.360256",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Commit() - BloomTrie] [Compression ratio logging] Can float64(compSize)/float64(decompSize) division cause panic if decompSize is 0? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ee9629af-ef69-4b78-b9a3-1e7caa03668e?mode=deep",
+    "timestamp": "2026-01-10 08:25:25.536927",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Commit() - BloomTrie] [Section heads boundary] Accessing b.sectionHeads[b.bloomTrieRatio-1] - can b.bloomTrieRatio=0 cause underflow and out-of-bounds access? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_998396b6-dbd1-411e-8471-bedf97742dd9?mode=deep",
+    "timestamp": "2026-01-10 08:25:50.471227",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Commit() - BloomTrie] [Pruning deletion errors] If batch.Delete() or batch.Write() fail during pruning, can this leave orphaned nodes or incomplete pruning? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_386703e6-16ea-4690-89c6-2e5651817e65?mode=deep",
+    "timestamp": "2026-01-10 08:26:18.214446",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Commit() - BloomTrie] [Iterator resource leak] If early return occurs before it.Release(), can this leak iterator resources? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1c28b845-0ee9-4d15-ade2-28e8d5e2cd33?mode=deep",
+    "timestamp": "2026-01-10 08:26:47.377765",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Commit() - BloomTrie] [Pruning race conditions] Can concurrent pruning operations corrupt the hashes map or cause race conditions during iterator operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4d957071-b03d-4dc5-b414-429b075edfc8?mode=deep",
+    "timestamp": "2026-01-10 08:27:17.745144",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Commit() - BloomTrie] [Trie recreation failure] If trie.New() after commit fails, the function returns error but has already called StoreBloomTrieRoot() - does this create inconsistency? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_798314a2-f275-49c5-b37b-72b6c750c407?mode=deep",
+    "timestamp": "2026-01-10 08:27:48.835311",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Commit() - BloomTrie] [Database update atomicity] If triedb.Update() succeeds but triedb.Commit() fails, can this cause trie database inconsistency? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_43be7448-72b3-4122-9a36-6230934297d5?mode=deep",
+    "timestamp": "2026-01-10 08:28:20.153069",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Commit() - BloomTrie] [Trie commit failure] If b.trie.Commit(false) fails, are previous trie updates rolled back, or does this leave partially committed state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6e8cd7af-5b78-40aa-84fc-7fd8bb33ee3f?mode=deep",
+    "timestamp": "2026-01-10 08:28:49.194418",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Commit() - BloomTrie] [Trie update/delete errors] Are errors from b.trie.Update() and b.trie.Delete() properly handled, or can failed operations leave the trie in inconsistent state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_65c7002f-01d7-4508-929d-031af0262a87?mode=deep",
+    "timestamp": "2026-01-10 08:29:17.143728",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Commit() - BloomTrie] [Compression failure] Can bitutil.CompressBytes fail or produce empty output, and is the len(comp) > 0 check sufficient to handle all error cases? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7afc9d9b-cb66-4708-b44f-ca9918fe2786?mode=deep",
+    "timestamp": "2026-01-10 08:29:42.061817",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Commit() - BloomTrie] [Decomp slice append] Repeatedly appending to decomp slice - can this cause memory exhaustion for large bloomTrieRatio values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c2b27723-bcf7-453f-877b-89161a647744?mode=deep",
+    "timestamp": "2026-01-10 08:30:08.647451",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Commit() - BloomTrie] [Decompression size mismatch] If decompressed data size doesn't match parentSize/8, can this cause incorrect bloom data or subsequent compression issues? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_49b072b0-225b-498b-8062-a68488229dc1?mode=deep",
+    "timestamp": "2026-01-10 08:30:34.625992",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Commit() - BloomTrie] [Decompression buffer overflow] Can bitutil.DecompressBytes with size parameter parentSize/8 overflow or cause buffer issues for malicious compressed data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f9479e56-d203-4466-9fd3-70954a5476be?mode=deep",
+    "timestamp": "2026-01-10 08:31:01.297787",
+    "report_generated": false
   }
 ]
