@@ -19198,5 +19198,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_687da018-5d6d-4e53-9a91-633b9d1f7823?mode=deep",
     "timestamp": "2026-01-10 23:39:15.061242",
     "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: encodeTransactions()] [Encoding inconsistency] Can different nodes produce different MarshalBinary outputs for the same transaction due to non-deterministic encoding, causing block hash mismatches across the network? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3ab0c92f-600e-42b3-b589-61eeeb9025d5?mode=deep",
+    "timestamp": "2026-01-10 23:40:45.411900",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: encodeTransactions()] [Integer overflow] When creating enc slice at line 133 with len(txs), can an attacker provide txs with length approaching max int causing overflow in memory allocation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e88c65f4-90ba-4121-87b9-1868b8931c96?mode=deep",
+    "timestamp": "2026-01-10 23:40:58.717499",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: encodeTransactions()] [Partial encoding] If MarshalBinary fails for some transactions but not others, does the function return a partially encoded set that could cause consensus issues when decoded by other nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c79a0390-0f67-4c00-923a-2fbb64c73674?mode=deep",
+    "timestamp": "2026-01-10 23:41:12.490889",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: encodeTransactions()] [Race condition] If txs slice is being concurrently modified while encodeTransactions iterates at line 134, can this cause data races or produce inconsistent encodings? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1c27f178-7465-484c-9c26-7196bb229246?mode=deep",
+    "timestamp": "2026-01-10 23:41:27.499599",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: encodeTransactions()] [Transaction mutation] Does MarshalBinary at line 135 mutate the transaction object, and if so, could concurrent encoding of the same transaction cause data corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ed1c6bae-ba04-4265-94f6-d27f88c94de7?mode=deep",
+    "timestamp": "2026-01-10 23:41:43.329812",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: BlockToExecutableData()] [Nil pointer dereference] If the block parameter at line 212 is nil, will accessing block.Hash() at line 214 cause nil pointer dereference panic crashing the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c95b5193-3bb4-491c-951d-b1a181cfb61b?mode=deep",
+    "timestamp": "2026-01-10 23:42:00.628525",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: BlockToExecutableData()] [Nil block fields] Does the function handle cases where block.BaseFee() at line 221 returns nil, potentially causing issues in downstream processing expecting non-nil BaseFeePerGas? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c4cac8cc-0c2d-4a34-85ad-384afb58fafb?mode=deep",
+    "timestamp": "2026-01-10 23:42:19.586004",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: BlockToExecutableData()] [Data truncation] When converting block.NumberU64() at line 218, can extremely large block numbers (near uint64 max) cause issues or unexpected behavior in the ExecutableData structure? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b6be4fd8-c03c-481b-9972-4a012c9e2df1?mode=deep",
+    "timestamp": "2026-01-10 23:42:38.475466",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: BlockToExecutableData()] [Memory exhaustion] Can an attacker create a block with maximum transactions causing encodeTransactions at line 225 to allocate excessive memory when building ExecutableData? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_79718040-ecf2-4aff-a4e0-724b723d0cc5?mode=deep",
+    "timestamp": "2026-01-10 23:42:59.689416",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: BlockToExecutableData()] [Nil fees parameter] Does the function properly handle when fees parameter at line 212 is nil, or will this cause nil pointer issues when assigned to BlockValue at line 230? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8b1435de-de29-4ca4-aec4-f4a6d3611dae?mode=deep",
+    "timestamp": "2026-01-10 23:43:22.642348",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: BlockToExecutableData()] [Withdrawals handling] If block.Withdrawals() at line 228 returns nil versus empty slice, does this create inconsistency in how ExecutableData is interpreted by different nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0cda6f16-cb0d-433e-a3c1-052ddf65c5d4?mode=deep",
+    "timestamp": "2026-01-10 23:43:46.302407",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: BlockToExecutableData()] [Bloom conversion] Does block.Bloom().Bytes() at line 224 always produce exactly 256 bytes, or could malformed bloom filters cause LogsBloom to have incorrect length? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a9bf2a60-e3d9-4c7b-a33e-08c911f75c7b?mode=deep",
+    "timestamp": "2026-01-10 23:44:07.226153",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: BlockToExecutableData()] [Extra data overflow] Does block.Extra() at line 227 respect the 32-byte limit enforced in ExecutableDataToBlock, or can blocks with oversized ExtraData be converted causing inconsistency? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7908c93b-60c3-4259-8b93-86eb4e9b8df9?mode=deep",
+    "timestamp": "2026-01-10 23:44:32.780660",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: BlockToExecutableData()] [Race condition] If the block object is being modified concurrently while BlockToExecutableData reads its fields (lines 214-228), can this cause data races or inconsistent ExecutableData? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ef467a66-09b1-4fd3-807c-b1ead3089fc3?mode=deep",
+    "timestamp": "2026-01-10 23:45:01.304169",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: BlockToExecutableData()] [Transaction encoding failure] If encodeTransactions at line 225 silently drops transaction encoding errors, will the returned ExecutableData be missing transactions causing consensus mismatch? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_919918f2-1101-441c-b5b1-6f7b9ae7502e?mode=deep",
+    "timestamp": "2026-01-10 23:45:30.744436",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: PayloadID.UnmarshalText()] [Input validation] Can an attacker provide input at line 114 that is not exactly 8 bytes after hex decoding, bypassing the UnmarshalFixedText validation and corrupting the PayloadID? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7f21f971-31e3-4716-9ff3-e675a95aec37?mode=deep",
+    "timestamp": "2026-01-10 23:46:02.812133",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: PayloadID.UnmarshalText()] [Nil pointer dereference] If the receiver b at line 113 is nil, will accessing b[:] at line 114 cause nil pointer dereference panic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_332c8186-a213-4509-9921-8d34631fadd1?mode=deep",
+    "timestamp": "2026-01-10 23:46:35.101125",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: PayloadID.UnmarshalText()] [Error wrapping] Does the error wrapping at line 116 properly prevent information leakage about internal state through overly detailed error messages? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6720250d-0225-4de3-83bb-d7c3cb9246a2?mode=deep",
+    "timestamp": "2026-01-10 23:47:08.009335",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: PayloadID.MarshalText()] [Encoding consistency] Does MarshalText at line 109-110 produce deterministic output for the same PayloadID, or could encoding variations cause payload identification issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2e63a916-0876-4874-a4d1-35cf59946ed1?mode=deep",
+    "timestamp": "2026-01-10 23:47:41.560256",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: PayloadID.String()] [Buffer overflow] Does hexutil.Encode at line 106 properly handle the 8-byte PayloadID without buffer overflow or out-of-bounds access? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7aadbfd9-b6f2-4a8b-8fef-ee9e0f25e67d?mode=deep",
+    "timestamp": "2026-01-10 23:48:14.639687",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Struct: PayloadAttributes] [Timestamp manipulation] Can an attacker set Timestamp field at line 34 to an arbitrary past or future value enabling time-based consensus manipulation or block ordering attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0fdfac36-2c0f-47f7-9b9a-7383a358bab9?mode=deep",
+    "timestamp": "2026-01-10 23:48:46.825434",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Struct: PayloadAttributes] [Random manipulation] Does the Random field at line 35 (prevRandao) get properly validated for randomness, or can an attacker provide predictable/controlled values affecting validator selection or block production? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_461e143a-3740-4f6c-b3ad-134bf22c895d?mode=deep",
+    "timestamp": "2026-01-10 23:49:19.830811",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Struct: PayloadAttributes] [Fee recipient exploitation] Can an attacker set SuggestedFeeRecipient at line 36 to arbitrary addresses (including contracts) enabling fee theft or reentrancy attacks during fee distribution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_49189e2b-9973-4b39-a6ed-283832db62d4?mode=deep",
+    "timestamp": "2026-01-10 23:49:50.275352",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Struct: PayloadAttributes] [Withdrawals manipulation] Can an attacker provide malicious Withdrawals array at line 37 with duplicate withdrawals, excessive amounts, or invalid addresses causing fund loss or state corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_53e0e41f-2625-435d-b44f-6f5863aba491?mode=deep",
+    "timestamp": "2026-01-10 23:50:19.513173",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Struct: PayloadAttributes] [Nil withdrawals handling] Does the code properly distinguish between nil Withdrawals and empty slice, or does this create consensus issues between nodes interpreting withdrawals differently? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fe34a864-9290-4407-8713-d3a3fc5b0901?mode=deep",
+    "timestamp": "2026-01-10 23:50:46.339627",
+    "report_generated": false
   }
 ]
