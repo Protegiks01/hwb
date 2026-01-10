@@ -13048,5 +13048,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_93828ab5-bfee-4145-abf1-64511ff15dfa?mode=deep",
     "timestamp": "2026-01-10 16:14:55.797425",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: signHash()] [Memory leakage] When signHash() at line 87-94 fails, does it properly clean up any temporary buffers or cryptographic material from memory? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4f1dda71-cea1-40a7-98cf-d1419984810b?mode=deep",
+    "timestamp": "2026-01-10 16:16:17.610142",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: SignDataWithPassphrase()] [Key zeroing] After SignDataWithPassphrase() at line 102-109 completes (success or failure), is the decrypted private key properly zeroed from memory to prevent recovery? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_04336556-4f24-4c20-af49-fe00b58c419a?mode=deep",
+    "timestamp": "2026-01-10 16:16:30.544448",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: SignTxWithPassphrase()] [Passphrase in memory] Does SignTxWithPassphrase() at line 143-150 keep the passphrase string in memory longer than necessary, increasing the window for memory dump attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8e69bcf3-73a6-44d3-a400-bdd60bd240d0?mode=deep",
+    "timestamp": "2026-01-10 16:16:43.831815",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Struct: keystoreWallet] [Account copy] When keystoreWallet at line 30-33 stores the account by value, does this create unnecessary copies of account data in memory? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_04b8904d-96fe-4127-bdc3-3b7050602783?mode=deep",
+    "timestamp": "2026-01-10 16:16:57.687664",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: Status()] [Concurrent status] If Status() at line 42-50 is called concurrently with Lock/Unlock operations on the keystore, can this lead to inconsistent status reports? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_43cea87c-1321-429f-bb57-4af8eeb711ec?mode=deep",
+    "timestamp": "2026-01-10 16:17:12.694835",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: SignTx()] [Concurrent signing] If multiple goroutines call SignTx() at line 132-139 simultaneously for the same account, can this cause nonce confusion or signature race conditions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_de9976a2-3a30-4659-8f07-66f7fc5506e6?mode=deep",
+    "timestamp": "2026-01-10 16:17:28.544485",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: Accounts()] [Concurrent modification] If Accounts() at line 62-64 is called while the wallet's account is being updated, can this return stale or corrupted account information? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_87b5d7bd-b180-429d-9f17-bc50a3cb8cd7?mode=deep",
+    "timestamp": "2026-01-10 16:17:45.370286",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: SignTx()] [Multi-chain safety] When SignTx() at line 132-139 receives different chainID values, does it prevent accidental signing of transactions for testnets with mainnet keys? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bbf30ae7-6488-4d13-9b28-372193d7bdfb?mode=deep",
+    "timestamp": "2026-01-10 16:18:04.376768",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: SignTxWithPassphrase()] [Chain ID zero] In SignTxWithPassphrase() at line 143-150, if chainID is zero or negative, can this bypass chain-specific protections and enable cross-chain replay? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4f144978-e62d-4590-a892-9173c4978283?mode=deep",
+    "timestamp": "2026-01-10 16:18:24.677968",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: SignData()] [Cross-chain data] Does SignData() at line 97-99 include any chain-specific context in the signed data to prevent cross-chain signature replay? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c3cdd245-41a0-4d05-a6ba-c9eeb01f14a5?mode=deep",
+    "timestamp": "2026-01-10 16:18:46.852662",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: Status()] [Lock state race] Between checking Status() at line 42-50 as 'Unlocked' and actually performing a signing operation, can the account be locked by another thread, causing the signing to fail unexpectedly? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6451bb5d-8eea-4488-83bb-637135c304cb?mode=deep",
+    "timestamp": "2026-01-10 16:19:10.370178",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: signHash()] [Lock timeout] If signHash() at line 87-94 is called on an account with a timed unlock, can the timeout expire during signing, causing partial signature generation and key material leakage? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b0126701-af23-4dfb-9e0e-be637df5f879?mode=deep",
+    "timestamp": "2026-01-10 16:19:34.694391",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: SignData()] [Block withholding] If a malicious validator uses SignData() at line 97-99 to sign blocks but never broadcasts them, can this be detected, or does it enable block withholding attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_05e64ac3-98d8-45e3-861c-2dcc8881a9cf?mode=deep",
+    "timestamp": "2026-01-10 16:19:59.172952",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: SignTx()] [Censorship] Can a compromised validator using SignTx() at line 132-139 selectively refuse to sign transactions from certain addresses, enabling censorship attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_571e6951-625e-45d2-a6bf-acc4b6b55c43?mode=deep",
+    "timestamp": "2026-01-10 16:20:23.478738",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: SignDataWithPassphrase()] [Validator impersonation] If an attacker obtains the passphrase for a validator's account, can they use SignDataWithPassphrase() at line 102-109 to impersonate the validator and sign malicious blocks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bc07cde1-34cf-4425-9b7b-4dd8863b68e0?mode=deep",
+    "timestamp": "2026-01-10 16:20:49.116804",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: SignText()] [Prefix manipulation] In SignText() at line 113-115, can an attacker craft text input that, when prefixed with the Ethereum message prefix, collides with a valid transaction hash? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7b5d10a7-9613-44f6-a576-7725decec042?mode=deep",
+    "timestamp": "2026-01-10 16:21:15.844490",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: SignData()] [Hash length] Does SignData() at line 97-99 validate that crypto.Keccak256(data) returns exactly 32 bytes before passing to signHash(), or can unexpected hash lengths cause issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f29a5827-72b0-46cc-bfe2-e459e32f0d13?mode=deep",
+    "timestamp": "2026-01-10 16:21:42.298150",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: signHash()] [Signature length] When signHash() at line 87-94 receives a signature from crypto.Sign(), does it validate the signature is exactly 65 bytes (R + S + V)? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_08594d85-854d-4d5b-8ca1-557d3ef4231f?mode=deep",
+    "timestamp": "2026-01-10 16:22:08.282956",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Struct: keystoreWallet] [Field exposure] Are the account and keystore fields at line 31-32 properly encapsulated, or can external packages access and modify them directly? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0f613129-f281-4ed3-9d45-35d04f3a4d78?mode=deep",
+    "timestamp": "2026-01-10 16:22:35.280813",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: URL()] [Direct field return] URL() at line 36-38 returns w.account.URL directly - should this return a copy to prevent external mutation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_09292a07-a902-410a-9090-1740c1698528?mode=deep",
+    "timestamp": "2026-01-10 16:23:02.083682",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: SignTextWithPassphrase()] [Passphrase comparison] In SignTextWithPassphrase() at line 119-126, does the passphrase comparison in the underlying keystore use constant-time comparison to prevent timing attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c38cdfc3-380b-4982-9a61-03522c09dd42?mode=deep",
+    "timestamp": "2026-01-10 16:23:28.598910",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: SignDataWithPassphrase()] [Empty passphrase] Does SignDataWithPassphrase() at line 102-109 allow empty passphrases, potentially enabling unauthorized access to accounts with weak security? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_421bb360-3c7d-4a90-b6fa-576477627b68?mode=deep",
+    "timestamp": "2026-01-10 16:23:55.502721",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: SignTx()] [Gas price] Does SignTx() at line 132-139 validate the transaction's gas price is reasonable before signing, or can validators be tricked into signing transactions with exploitative gas prices? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fa2fc414-4390-4bbd-b524-ebbbec705c5d?mode=deep",
+    "timestamp": "2026-01-10 16:24:21.051883",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: SignTxWithPassphrase()] [Transaction type] In SignTxWithPassphrase() at line 143-150, does the function validate the transaction type (legacy, EIP-2930, EIP-1559) matches the chainID and network configuration? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8c598bb8-74af-495d-b2a1-1a2e9d23cc5b?mode=deep",
+    "timestamp": "2026-01-10 16:24:46.196105",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: SignTx()] [Value validation] Does SignTx() at line 132-139 check if the account has sufficient balance to cover the transaction value and gas, preventing signing of transactions that will certainly fail? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5ae6ece8-26bf-4478-a230-36ca57be9497?mode=deep",
+    "timestamp": "2026-01-10 16:25:12.782967",
+    "report_generated": false
   }
 ]
