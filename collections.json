@@ -11398,5 +11398,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9cb2072a-f737-483e-ab79-eecdc0e8865e?mode=deep",
     "timestamp": "2026-01-10 14:24:02.830046",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: getKDFKey()] [Missing Validation] Does the function validate that scryptN, scryptR, and scryptP parameters are within safe ranges before calling scrypt.Key(), or can an attacker supply extreme values causing memory exhaustion DoS attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6259351b-f59b-445c-8b19-620966036b2e?mode=deep",
+    "timestamp": "2026-01-10 14:25:23.555571",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: ensureInt()] [Type Conversion Error] Can the float64-to-int conversion in ensureInt() lose precision for very large KDF parameters, resulting in weaker key derivation than expected and enabling offline brute-force attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_792dc671-530c-4e14-8fea-dcec688f1aa6?mode=deep",
+    "timestamp": "2026-01-10 14:25:36.286145",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: getKDFKey()] [KDF Downgrade] Can an attacker modify a V3 keyfile to use pbkdf2 instead of scrypt with weak iteration counts, downgrading the key derivation strength and enabling faster brute-force attacks on validator keys? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c616698f-9530-45d2-a0b6-aa4fdae22e85?mode=deep",
+    "timestamp": "2026-01-10 14:25:49.338666",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Constants] [Hardcoded KDF Parameters] Are the StandardScryptN and LightScryptN constants still appropriate for modern hardware, or can attackers with specialized hardware (GPUs/ASICs) brute-force passwords faster than the intended 1s/100ms timeframes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_70903dc6-7044-4694-817d-7d3ad99b15a1?mode=deep",
+    "timestamp": "2026-01-10 14:26:03.134702",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: getKDFKey()] [Salt Validation] Does the function validate that the salt length is sufficient (32 bytes), or can an attacker craft keyfiles with short salts making rainbow table attacks feasible? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1d4fe07b-493e-4c5e-8c1a-cc2a9b881573?mode=deep",
+    "timestamp": "2026-01-10 14:26:17.797498",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: EncryptDataV3()] [IV Reuse] If rand.Reader fails or is compromised, could the IV generation produce predictable or repeated values, enabling known-plaintext attacks on the AES-CTR encryption and exposing validator private keys? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_35af576f-3f43-4e08-b9b4-b646cfc2c23c?mode=deep",
+    "timestamp": "2026-01-10 14:26:33.418472",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: EncryptDataV3()] [Panic on RNG Failure] When rand.Reader fails during IV or salt generation, the function panics instead of returning an error - can an attacker trigger RNG exhaustion causing validator node crashes and network disruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1603708a-9d0f-4173-8e9f-acad40743702?mode=deep",
+    "timestamp": "2026-01-10 14:26:49.997868",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: EncryptDataV3()] [Salt Reuse] If salt generation produces predictable values, can an attacker precompute derived keys for common passwords and perform rapid brute-force attacks on multiple validator keyfiles? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f1b6eb31-3b61-4ba3-83a7-c52fc1f1fc5d?mode=deep",
+    "timestamp": "2026-01-10 14:27:08.571531",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: DecryptDataV3()] [Timing Attack on MAC] Does the bytes.Equal() comparison at line 265 operate in constant time, or can an attacker use timing side-channels to validate MAC guesses and mount a padding oracle attack to decrypt validator keys? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f893b722-d357-435a-8af5-6626af27401e?mode=deep",
+    "timestamp": "2026-01-10 14:27:29.042627",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: EncryptKey()] [Key Truncation] Does math.PaddedBigBytes() correctly handle private keys of varying sizes, or can edge cases result in truncated keys being encrypted, leading to validator keys that don't match the original? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ce22354e-0cb1-412a-8ac2-97ad7cbee1f4?mode=deep",
+    "timestamp": "2026-01-10 14:27:50.990894",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: DecryptDataV3()] [Cipher Validation] Can an attacker modify the cipher field in the JSON to an unsupported value and bypass the check at line 241, potentially causing the decryption to proceed with incorrect parameters? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3ac13bcf-cda6-48d2-938c-6f08ee59c039?mode=deep",
+    "timestamp": "2026-01-10 14:28:14.097818",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: DecryptDataV3()] [MAC Coverage] Does the MAC calculation at line 264 cover all necessary fields (IV, ciphertext, KDF params), or can an attacker modify uncovered fields to perform a cryptographic downgrade attack? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_229a5966-32a2-4b15-b8aa-74664055cfa9?mode=deep",
+    "timestamp": "2026-01-10 14:28:38.523920",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: aesCTRXOR()] [Key Size Validation] Does the function validate that the encryption key is exactly 16 bytes before calling aes.NewCipher(), or can incorrect key sizes cause panics or weak encryption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3595d065-4446-4a37-ac67-671e0a373229?mode=deep",
+    "timestamp": "2026-01-10 14:29:04.036578",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: DecryptKey()] [Memory Leakage] Are the decrypted keyBytes and auth password properly zeroed from memory after use, or do they remain in memory where they could be extracted via memory dumps or swap files, exposing validator private keys? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_96092a69-c27b-4e52-b6a4-c8a4a302dccf?mode=deep",
+    "timestamp": "2026-01-10 14:29:30.424738",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: EncryptKey()] [Key Material in Memory] Does the keyBytes variable at line 185 remain in memory after encryption, potentially exposing private keys through memory inspection or crash dumps? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0cf99e4e-e4fb-4a17-88d3-f9b82620bf3b?mode=deep",
+    "timestamp": "2026-01-10 14:29:57.519511",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: DecryptDataV3()] [Derived Key Leakage] Is the derivedKey at line 259 zeroed after use, or does it persist in memory allowing attackers to decrypt the ciphertext without knowing the password if they gain memory access? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_368d1634-1e86-4bc1-aa48-b0f60d92204e?mode=deep",
+    "timestamp": "2026-01-10 14:30:25.146831",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: getKDFKey()] [Password String Conversion] Does converting the password to []byte at line 331 create immutable string copies in memory that cannot be zeroed, potentially leaking passwords through memory dumps? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f7204289-6c17-445d-83c9-65a4d43d5393?mode=deep",
+    "timestamp": "2026-01-10 14:30:54.306211",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: DecryptKey()] [Plaintext Key in Error Path] If decryption fails after keyBytes are decrypted, are the partial key bytes properly cleared from memory before returning the error, or could they leak sensitive information? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e23f3662-20d0-47d3-a70b-3d000d013f85?mode=deep",
+    "timestamp": "2026-01-10 14:31:22.035535",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: EncryptDataV3()] [Encryption Key Leakage] Is the encryptKey slice at line 149 (derivedKey[:16]) independent or does it share the underlying array with derivedKey, potentially preventing proper memory clearing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a04c51ed-e9c2-4ffe-866b-95c03d6efcb2?mode=deep",
+    "timestamp": "2026-01-10 14:31:48.761005",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: StoreKey()] [TOCTOU Race Condition] Between writing the temporary keyfile at line 111 and verifying it at line 117, can an attacker replace the file with a malicious version, causing verification to pass but the final file to contain attacker-controlled data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_68525190-cf3e-4ae1-97ef-186fab2a0e5b?mode=deep",
+    "timestamp": "2026-01-10 14:32:14.438950",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: GetKey()] [File Swap Attack] Does the address verification at line 93 adequately prevent attacks where an attacker swaps keyfiles between addresses, potentially causing validators to sign with wrong keys? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cfe78cbd-ced9-4987-a513-8ea9bd428634?mode=deep",
+    "timestamp": "2026-01-10 14:32:37.881944",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: StoreKey()] [Temporary File Exposure] Can the temporary file created by writeTemporaryKeyFile() be accessed by other processes or users before it's renamed, allowing attackers to steal validator private keys? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c948213d-42e5-4152-91ca-4d55ad154e78?mode=deep",
+    "timestamp": "2026-01-10 14:33:01.265154",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: StoreKey()] [Rename Atomicity] Is os.Rename() at line 129 atomic on all platforms, or can race conditions during rename leave keyfiles in inconsistent states that could be exploited? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_29c847e0-1bb6-4f23-a799-2f252352cdba?mode=deep",
+    "timestamp": "2026-01-10 14:33:25.797271",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: StoreKey()] [Skip Verification Flag] Can the skipKeyFileVerification flag at line 79 be enabled in production, bypassing critical security checks and allowing corrupted or malicious keyfiles to be stored? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cfcd6d49-df9f-4fad-a44b-42ba4be38f7e?mode=deep",
+    "timestamp": "2026-01-10 14:33:50.895402",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: GetKey()] [Symlink Attack] Does os.ReadFile() at line 84 follow symlinks, potentially allowing an attacker to trick the node into reading and decrypting arbitrary files on the system? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_577add90-11d8-4a07-80e8-8dad67a5d770?mode=deep",
+    "timestamp": "2026-01-10 14:34:15.868239",
+    "report_generated": false
   }
 ]
