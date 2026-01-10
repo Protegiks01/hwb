@@ -6748,5 +6748,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e95ae8d5-2540-48ae-8ec5-7103bc469210?mode=deep",
     "timestamp": "2026-01-10 07:33:45.111248",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Edge Case: Type Limits] [Maximum Tuple Size] Can tuples with 1000+ parameters be parsed successfully, and if so, do they cause issues in memory allocation or subsequent processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7bfc32d9-89cd-482e-9c67-f1177e3d97d6?mode=deep",
+    "timestamp": "2026-01-10 07:34:56.814895",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Edge Case: Array Dimensions] [Maximum Nesting] What is the maximum supported array dimension nesting (e.g., uint256[][][][][]...) and is it properly validated to prevent resource exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_95c9875a-4643-425c-b117-d9e944177ffc?mode=deep",
+    "timestamp": "2026-01-10 07:35:09.780514",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Edge Case: Type Names] [Reserved Keywords] Can Solidity reserved keywords or EVM-specific type names cause conflicts or unexpected behavior when used as function/parameter names? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_aa98a326-70e2-43d4-892b-d0013429fc48?mode=deep",
+    "timestamp": "2026-01-10 07:35:23.027521",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Performance: String Operations] [Allocation Overhead] The extensive string concatenation and slicing operations - can these cause garbage collection pressure under high transaction load affecting validator performance? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_71aa6c81-2e46-4dc9-aaee-8fdabd960a28?mode=deep",
+    "timestamp": "2026-01-10 07:35:36.810650",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Performance: Recursive Depth] [Stack Usage] Deeply nested recursive calls consume stack space - can this become a bottleneck or crash risk on systems with limited stack size? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d12dbd9c-d3cd-4ae6-bf96-4932f5a35cc1?mode=deep",
+    "timestamp": "2026-01-10 07:35:51.407556",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Performance: Slice Growth] [Reallocation] The result slice in parseCompositeType and arguments in assembleArgs grow via append - can frequent reallocations cause performance degradation with complex selectors? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6a6210e9-b84d-4985-9499-c53e79d1ec29?mode=deep",
+    "timestamp": "2026-01-10 07:36:07.316319",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Resource: Memory Leaks] [Cleanup] If parsing fails partway through complex structures, are intermediate allocations properly released, or can repeated failures cause memory leaks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6885869e-1bb9-42c8-9cc9-82724ec6d3d2?mode=deep",
+    "timestamp": "2026-01-10 07:36:25.016602",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [WBT Context: Validator DoS] [Block Production] Can a malicious validator include transactions with crafted selectors that cause other validators' nodes to crash or hang during block validation, disrupting consensus? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ad47c6d8-4d31-4d9c-920b-5eb2927bf8ac?mode=deep",
+    "timestamp": "2026-01-10 07:36:44.075689",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [WBT Context: Network Spam] [Transaction Flooding] Can attackers flood the network with transactions containing pathological selectors that consume excessive CPU/memory during parsing, degrading network performance? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_847996d6-7d2d-4bb2-9df0-0aedde4d1966?mode=deep",
+    "timestamp": "2026-01-10 07:37:04.779544",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [WBT Context: Mint Contract] [Custom Functions] Does the custom WBT minting contract use function selectors that could be vulnerable to parsing edge cases, potentially affecting cross-chain bridging security? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_debb67ee-b214-4792-b3bd-8233136106b8?mode=deep",
+    "timestamp": "2026-01-10 07:37:26.343429",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [WBT Context: Cross-Chain] [Bridge Validation] If selector parsing is used to validate bridge contract calls, can parsing vulnerabilities enable unauthorized minting or fund theft? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a971f29c-c0c8-492e-bf14-06b8b2eb061c?mode=deep",
+    "timestamp": "2026-01-10 07:37:49.327834",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: MakeTopics()] [Buffer Overflow] In the common.Address case at line 42, when copying address bytes to topic hash, can an attacker provide a malformed Address with length > common.AddressLength causing out-of-bounds write to the topic array and potentially corrupting adjacent memory, leading to node crash or state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1c8dedc3-877c-411c-98a0-1e981236a31f?mode=deep",
+    "timestamp": "2026-01-10 07:38:12.984927",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: MakeTopics()] [Integer Overflow] In the *big.Int case at line 44, when calling rule.Bytes(), can an attacker provide an extremely large *big.Int value that produces a byte slice longer than common.HashLength (32 bytes), causing the copy operation at line 45 to write beyond topic buffer bounds and corrupt memory? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0e11895c-c921-4258-a010-5e25632c244e?mode=deep",
+    "timestamp": "2026-01-10 07:38:38.038707",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: MakeTopics()] [Nil Pointer Dereference] In the *big.Int case at line 43-45, if the rule pointer is nil, will calling rule.Bytes() cause a panic that crashes the node during event filtering, enabling a DoS attack by submitting malicious filter queries? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_86919004-3f5b-4086-8913-77062259aaf3?mode=deep",
+    "timestamp": "2026-01-10 07:39:02.924685",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: MakeTopics()] [Type Confusion] In the type switch at lines 38-76, can an attacker craft a rule value that matches multiple type cases through interface wrapping or type aliasing, causing inconsistent topic generation and enabling event filter bypass to hide malicious contract activity? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d26402e7-199e-4fdb-ab7b-dfcf743e5bd6?mode=deep",
+    "timestamp": "2026-01-10 07:39:28.152691",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: MakeTopics()] [Integer Overflow] For uint8/uint16/uint32/uint64 cases at lines 58-69, when converting to *big.Int and calling Bytes(), can providing maximum uint64 value (2^64-1) cause unexpected behavior in big.Int.Bytes() length calculation, leading to incorrect topic encoding that breaks event filtering? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_470fa450-7c79-4c14-9410-f51d7018005d?mode=deep",
+    "timestamp": "2026-01-10 07:39:52.487490",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: MakeTopics()] [Slice Bounds] In the copy operation at line 45 for *big.Int, when blob length is calculated and used as offset (common.HashLength-len(blob)), can negative blob lengths or zero-length blobs cause incorrect array indexing leading to out-of-bounds access? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3e735231-18e5-4c84-8563-02316d3c17e1?mode=deep",
+    "timestamp": "2026-01-10 07:40:15.403744",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: MakeTopics()] [Cryptographic Weakness] At lines 71-72 and 74-75, when hashing string and []byte inputs using crypto.Keccak256Hash, can an attacker exploit Keccak256 collision vulnerabilities or length extension attacks to generate identical topics for different event parameters, enabling event forgery or filter evasion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8e7aad71-3e33-4c7d-8fac-081987d0d180?mode=deep",
+    "timestamp": "2026-01-10 07:40:37.858088",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: MakeTopics()] [Input Validation] In the string case at line 71, if the string rule contains invalid UTF-8 sequences or extremely long strings (>2GB), will the []byte conversion and Keccak256 hashing consume excessive memory or CPU, enabling DoS attacks against nodes processing event filters? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5abd6a7d-6ddd-4553-bb13-4c52031f69d4?mode=deep",
+    "timestamp": "2026-01-10 07:41:01.481865",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: MakeTopics()] [Reflection Vulnerability] At lines 86-90, when using reflect.ValueOf(rule) and reflect.Copy for static byte arrays, can an attacker exploit reflection to access or modify protected fields, bypass type safety, or cause panics through invalid reflect operations during event topic generation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ac375650-d6e0-429a-89a4-20e2f31ea894?mode=deep",
+    "timestamp": "2026-01-10 07:41:25.527210",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: MakeTopics()] [Array Bounds] At line 90, when checking val.Kind() == reflect.Array and copying with reflect.Copy(reflect.ValueOf(topic[:val.Len()]), val), if val.Len() returns a value > common.HashLength (32), will this cause out-of-bounds write to the topic slice corrupting memory? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a182db9b-7edf-4f00-9467-45b1037240fb?mode=deep",
+    "timestamp": "2026-01-10 07:41:50.833458",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: MakeTopics()] [Type Safety] In the default case at line 92, when returning error for unsupported types, can an attacker bypass this check by wrapping unsupported types in supported interface types, causing unhandled type conversion that leads to incorrect topic generation or panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_be2956db-c127-4438-bf66-a11f63794248?mode=deep",
+    "timestamp": "2026-01-10 07:42:15.191183",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: MakeTopics()] [Memory Exhaustion] At line 32, when creating topics slice with make([][]common.Hash, len(query)), can an attacker provide extremely large query slice causing excessive memory allocation (e.g., len(query) = MaxInt), leading to OOM condition and node crash? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6398d612-8c6b-4a3c-a96f-a91b1768c56d?mode=deep",
+    "timestamp": "2026-01-10 07:42:40.354601",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: MakeTopics()] [Nested Loop DoS] In the nested loops at lines 33-34, can an attacker provide a query with many filters each containing many rules, causing O(n*m) iteration complexity that consumes excessive CPU time during topic generation, enabling DoS against event filtering operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_818ac571-e14a-4572-9403-2d7871312286?mode=deep",
+    "timestamp": "2026-01-10 07:43:05.646304",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: MakeTopics()] [Slice Append] At line 95, when appending topic to topics[i], can repeated appends with large query inputs cause excessive slice reallocation and copying, leading to memory fragmentation or performance degradation that impacts node stability? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b73b2866-ec54-44ed-af1b-cd994814b4a6?mode=deep",
+    "timestamp": "2026-01-10 07:43:33.023961",
+    "report_generated": false
   }
 ]
