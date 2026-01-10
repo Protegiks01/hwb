@@ -26386,5 +26386,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_11bf8a7e-b7e5-46ba-bac4-660413982184?mode=deep",
     "timestamp": "2026-01-10 23:22:04.519465",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [RLP: LinearExpiredValue.Rate omission] Rate is marked rlp:",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1104b6e6-7649-4ed7-bc79-397c362de71b?mode=deep",
+    "timestamp": "2026-01-10 23:23:39.451812",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [RLP: ExpiredValue serialization] ExpiredValue fields (Base, Exp) are serialized by RLP by default (line 45 comment). Can malicious RLP data deserialize into invalid ExpiredValues with extreme Base/Exp that cause overflow in subsequent operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d9fe1550-9ffd-40d6-9407-a8fab096a16c?mode=deep",
+    "timestamp": "2026-01-10 23:23:52.881408",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Float64: Comparison after arithmetic] After extensive float64 arithmetic, comparing results with == may fail due to precision errors. If code elsewhere compares ExpiredValue results with exact values, can this cause incorrect branching? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7819b06f-f13b-4e38-a568-c7c51c5a2fba?mode=deep",
+    "timestamp": "2026-01-10 23:24:06.198251",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Float64: Rounding modes] Go uses IEEE 754 default rounding (round to nearest, ties to even). Can attackers exploit rounding behavior to bias calculations in their favor over many operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4a4ce384-a908-4829-a52b-8a2e48eaf5ca?mode=deep",
+    "timestamp": "2026-01-10 23:24:20.276501",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Float64: Subnormal handling] When Factor or base becomes subnormal (very close to zero), are arithmetic operations significantly slower, potentially causing DoS through carefully crafted ExpiredValues that trigger subnormal arithmetic? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2a022dd8-ea72-42d8-b93e-d7c43c1b519d?mode=deep",
+    "timestamp": "2026-01-10 23:24:35.292886",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Float64: Infinity propagation] If any operation produces +Inf or -Inf (from overflow or division), does this propagate through subsequent calculations, causing all future Value() results to be incorrect? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d1c74243-f804-48e0-9ae8-93a8e5c8c5ca?mode=deep",
+    "timestamp": "2026-01-10 23:24:51.807333",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Integer Arithmetic: Division rounding] When converting mclock.AbsTime to offset via division (line 149, 164), integer division truncates. Can attackers exploit the rounding to game rate limiting by timing operations just before offset increments? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fd795020-0950-42c3-9fcc-e3c546277b1f?mode=deep",
+    "timestamp": "2026-01-10 23:25:09.578084",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Integer Arithmetic: Int64 min negation] If amount is math.MinInt64 (-9223372036854775808), negating it with -amount overflows (produces MinInt64 again in two's complement). Can this break the negative amount checks in Add() methods? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_85dbb6a0-f2a3-4976-b7f0-3de898da5ad5?mode=deep",
+    "timestamp": "2026-01-10 23:25:29.447141",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Integer Arithmetic: Uint64 max boundary] When Base or Val is at uint64 max (18446744073709551615), adding any positive amount overflows. Are there checks to prevent this, or can overflow wrap the value to a small number? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6a4b7b0c-4181-494d-b576-18e61014efad?mode=deep",
+    "timestamp": "2026-01-10 23:25:50.253632",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Integer Arithmetic: Right shift by 64] When shift amount equals 64 or more, Go right shift of uint64 produces 0. Can an attacker force shift amounts >= 64 in AddExp/SubExp to zero out values intentionally? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_182305f8-291a-48ab-9ff2-fc3dfd2d4eeb?mode=deep",
+    "timestamp": "2026-01-10 23:26:12.210084",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [LES Context: Distributed expiration] If different LES nodes calculate expiration at slightly different times (unsynchronized clocks), can they arrive at different Value() results for the same ExpiredValue, causing consensus issues in the LES protocol? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_81aceda5-bdbc-4beb-bada-b358499ed847?mode=deep",
+    "timestamp": "2026-01-10 23:26:36.711115",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [LES Context: Priority queue ordering] If expired values are used to order peer priorities, can an attacker manipulate their ExpiredValue (through timing of operations) to always appear as high priority, stealing resources from legitimate peers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5d1c2aef-5857-4fac-bee3-3a9de70907b2?mode=deep",
+    "timestamp": "2026-01-10 23:27:01.458461",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [LES Context: Token bucket implementation] If ExpiredValue implements a token bucket for resource allocation, can an attacker exploit precision loss in Add() operations to slowly accumulate more tokens than the configured maximum? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a2b8caf1-539b-492c-a696-94ba1fdba102?mode=deep",
+    "timestamp": "2026-01-10 23:27:27.535715",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [LES Context: Request rate limiting] If LinearExpiredValue is used for rate limiting requests, can an attacker exploit the timestamp assumption violation (sending old timestamps) to reset their rate limit counter? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_98512fb7-775f-4624-80f7-e918f849a1d7?mode=deep",
+    "timestamp": "2026-01-10 23:27:54.724067",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [LES Context: Peer capacity tracking] If ExpiredValue is used to track peer capacity/costs in LES, can a malicious peer exploit Add() overflow to reset their cost to near-zero, allowing them to make unlimited requests and DoS the server? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b5ce8fcf-ae3c-4734-b471-65601227ebcf?mode=deep",
+    "timestamp": "2026-01-10 23:28:22.191550",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Memory Safety: Expirer lock copying] If code accidentally copies an Expirer struct by value after it's been used (lock acquired), the copied lock state is invalid. Can this cause subsequent Lock() calls on the copy to deadlock or panic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_113ca427-b971-4787-8cd9-a99a18bacd0d?mode=deep",
+    "timestamp": "2026-01-10 23:28:53.079657",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Memory Safety: Struct alignment] ExpiredValue contains two uint64 fields. Are they always aligned in memory, or can unaligned access on certain architectures cause slowdowns or crashes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_634dc90d-7a03-4f04-9a52-db74383aa152?mode=deep",
+    "timestamp": "2026-01-10 23:29:22.412655",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Memory Safety: Float64 denormalized numbers] When exponential decay causes values to become very small (subnormal float64), does Go's float64 arithmetic handle these correctly, or can they cause slowdowns or incorrect zero comparisons? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_52794200-75b2-4cbd-a59c-a1ea45aec7d8?mode=deep",
+    "timestamp": "2026-01-10 23:29:48.724876",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Edge Case: Concurrent Value() calls] If multiple goroutines call LinearExpiredValue.Value() simultaneously, each call modifies the internal state. Can this cause double-counting of decay, where each goroutine thinks the value expired by the full amount? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4e6c103e-741d-4703-ab1d-575fb2c9ade5?mode=deep",
+    "timestamp": "2026-01-10 23:30:16.064453",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Edge Case: Clock rollback] If system clock rolls back (NTP adjustment, manual change), 'now' in subsequent calls becomes less than lastUpdate. Does this cause dt to be negative, triggering the early return in LogOffset() and freezing expiration until clock catches up? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6a4010da-1cbe-4175-a1d6-2f18da4e7df6?mode=deep",
+    "timestamp": "2026-01-10 23:30:44.453891",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Edge Case: Float64 NaN in calculations] If any intermediate calculation produces NaN (from 0/0, Inf-Inf, etc.), does Go's float64 NaN propagation cause all subsequent operations to become NaN, permanently breaking the ExpiredValue state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_17b94155-71af-4330-821d-57c5791c6a82?mode=deep",
+    "timestamp": "2026-01-10 23:31:13.709407",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Edge Case: Negative Fixed64 in Pow2()] If Fixed64 is very negative (near int64 min), multiplying by fixedToLogFactor and passing to math.Exp could produce denormalized numbers or underflow to zero. Can this cause unexpected value decay behavior? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5998c78b-9f2a-436f-956b-1fdf3b364c20?mode=deep",
+    "timestamp": "2026-01-10 23:31:43.564124",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Edge Case: Expirer with rate=0] When rate is 0, all expiration stops (time multiplied by 0 rate equals no offset change). Is this intended behavior, or can it be exploited to freeze value expiration indefinitely? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e123608f-3a40-47eb-bc37-45c2c5a9ad96?mode=deep",
+    "timestamp": "2026-01-10 23:32:10.752229",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Edge Case: LinearExpiredValue with Val=MaxUint64] If Val is at max and Add() is called with positive amount, line 177's int64 conversion could fail. Can this cause the function to incorrectly zero out Val instead of capping at max? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a6092423-03d0-40f2-9a6f-b02ef59c6e49?mode=deep",
+    "timestamp": "2026-01-10 23:32:34.413202",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Edge Case: ExpiredValue with Exp=MaxUint64] If Exp is uint64 max and logOffset is also large, the subtraction in Value() could underflow. Does this cause incorrect offset calculations that make values appear much larger than they should be? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_77f83272-32fe-4039-bd07-cd8bd8eb206c?mode=deep",
+    "timestamp": "2026-01-10 23:32:59.674387",
+    "report_generated": false
   }
 ]
