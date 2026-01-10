@@ -15442,5 +15442,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fc3e655b-5e2f-4c64-9946-cef89a3ba816?mode=deep",
     "timestamp": "2026-01-10 10:06:51.179084",
     "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Function: StorageTrieID()] [State derivation attack] Can an attacker create a malicious state TrieID and pass it to StorageTrieID() to generate storage TrieIDs that point to arbitrary storage locations, enabling unauthorized storage access? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5e6aa086-9562-4ff6-89f7-9757d1a8b556?mode=deep",
+    "timestamp": "2026-01-10 10:08:07.250884",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Function: StorageTrieID()] [Nil state pointer] If the state parameter is nil, does StorageTrieID() panic causing node crash, or is there defensive nil checking? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_41cf6464-ce0d-47c0-9bb8-5d08b451d602?mode=deep",
+    "timestamp": "2026-01-10 10:08:20.377401",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Function: StateTrieID()] [Root duplication] If StateRoot and Root are both set to header.Root, is this redundancy properly maintained in all code paths, or could inconsistency between these fields cause state retrieval failures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_49dc5bdd-17bc-4d3e-9ac9-de65ec338d75?mode=deep",
+    "timestamp": "2026-01-10 10:08:34.218361",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Function: StateTrieID()] [Hash verification] Does StateTrieID() verify that header.Hash() matches the expected block hash for header.Number, or can desynchronization occur if a malicious peer provides incorrect header-hash mappings? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8d305d2e-ee87-497c-b8a4-518855f733d9?mode=deep",
+    "timestamp": "2026-01-10 10:08:48.102670",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Function: StateTrieID()] [Block number overflow] If header.Number is nil or contains a value that causes Uint64() to panic or overflow, can this crash the light client node? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_55a49705-4c01-47fb-b586-c68206ac88f1?mode=deep",
+    "timestamp": "2026-01-10 10:09:02.993858",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Function: StateTrieID()] [Header validation bypass] Does StateTrieID() validate that the header.Root actually corresponds to a valid state root, or can an attacker provide a header with an arbitrary root hash that doesn't represent valid state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1b5b4fd7-64e4-4e06-be11-85a1bd0d0452?mode=deep",
+    "timestamp": "2026-01-10 10:09:19.179703",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Function: StateTrieID()] [Nil pointer dereference] If a nil header pointer is passed to StateTrieID(), does the function panic causing node crash, or is there proper nil checking to prevent DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c2d0874d-669e-43ea-9f41-ad396b90f807?mode=deep",
+    "timestamp": "2026-01-10 10:09:36.925366",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: TrieID] [Hash collision] If BlockHash is manipulated to collide with another block's hash, can this cause the light client to retrieve and apply state from the wrong block, corrupting its local state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_32333a91-c2ab-47b7-89a0-2301a1317c7c?mode=deep",
+    "timestamp": "2026-01-10 10:09:56.312929",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: TrieID.AccKey] [Memory exhaustion] Is there any limit on the size of the AccKey byte slice, or can a malicious peer provide an extremely large AccKey causing memory exhaustion when multiple TrieIDs are created? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3c696579-2b43-4cff-bc0d-e37a06adf0fc?mode=deep",
+    "timestamp": "2026-01-10 10:10:17.612782",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: TrieID] [Integer overflow] Is the BlockNumber field (uint64) properly validated to prevent overflow attacks where an attacker provides a wrapped-around block number that points to a different block than intended? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0ad2800e-4b23-4a8b-a525-413e5c608abc?mode=deep",
+    "timestamp": "2026-01-10 10:10:40.779548",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: TrieID] [State corruption] Does TrieID validation ensure that BlockHash, BlockNumber, StateRoot, and Root fields are consistent, or can an attacker provide mismatched values that cause the light client to associate incorrect state with wrong blocks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_88e9e6f0-34b6-446e-9480-a014013b8dfd?mode=deep",
+    "timestamp": "2026-01-10 10:11:04.549419",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Interface: OdrBackend] [Indexer manipulation] Can a malicious peer provide corrupted indexer data through ChtIndexer(), BloomTrieIndexer(), or BloomIndexer() that causes the light client to accept invalid canonical chain states? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ee38a0d5-9296-406a-9642-f0cb95fbd90d?mode=deep",
+    "timestamp": "2026-01-10 10:11:28.909907",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Interface: OdrBackend.Database()] [Concurrent access] If multiple goroutines call Database() simultaneously and perform writes through different request types, are there race conditions that could corrupt the underlying database state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1ddb6f12-80ab-4cda-92fa-0d8fba785ccd?mode=deep",
+    "timestamp": "2026-01-10 10:11:53.944986",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Interface: OdrBackend.RetrieveTxStatus()] [Transaction censorship] Can a malicious peer selectively provide false TxStatus responses to hide confirmed transactions from light clients, enabling double-spend attacks or transaction censorship? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e935327f-d4d6-4e54-90da-4eae490a482a?mode=deep",
+    "timestamp": "2026-01-10 10:12:21.183415",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Interface: OdrBackend.Retrieve()] [Resource exhaustion] Is there any rate limiting on the number of concurrent Retrieve() calls, or can an attacker flood the system with ODR requests causing memory exhaustion and node crash? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_454e3315-dae8-4f8a-9ce6-4e2fdc9dba7f?mode=deep",
+    "timestamp": "2026-01-10 10:12:49.313127",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Interface: OdrBackend.Retrieve()] [DoS attack] Can a malicious peer cause the Retrieve() method to block indefinitely by never responding, causing the light client to hang and become unavailable for legitimate requests? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9053d3f5-2736-43ca-a4b6-53aded264cb1?mode=deep",
+    "timestamp": "2026-01-10 10:13:18.913116",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Interface: OdrBackend] [Trust boundary violation] Does the OdrBackend interface provide any authentication mechanism to verify that ODR responses come from authorized validators, or can any malicious peer provide crafted responses that corrupt the light client's state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f1fbcc92-fcb1-4725-b69c-2835bfc55cca?mode=deep",
+    "timestamp": "2026-01-10 10:13:46.726456",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Protocol] [Bloom filter false positives] GetBloomBits retrieves bloom data used for log filtering. Can an attacker provide bloom bits with all bits set, causing excessive false positives that force light clients to retrieve all\n\n### Citations\n\n**File:** light/odr_util.go (L1-293)\n```go\n// Copyright 2016 The go-ethereum Authors\n// This file is part of the go-ethereum library.\n//\n// The go-ethereum library is free software: you can redistribute it and/or modify\n// it under the terms of the GNU Lesser General Public License as published by\n// the Free Software Foundation, either version 3 of the License, or\n// (at your option) any later version.\n//\n// The go-ethereum library is distributed in the hope that it will be useful,\n// but WITHOUT ANY WARRANTY; without even the implied warranty of\n// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the\n// GNU Lesser General Public License for more details.\n//\n// You should have received a copy of the GNU Lesser General Public License\n// along with the go-ethereum library. If not, see <http://www.gnu.org/licenses/>.\n\npackage light\n\nimport (",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_31bfa7c2-7374-449c-8cfa-3d0552eb68b1?mode=deep",
+    "timestamp": "2026-01-10 10:14:15.304489",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Protocol] [Eclipse attack facilitation] If all ODR backends a light client connects to are malicious (eclipse attack), can they consistently provide forged but internally consistent data making the light client accept a completely fake chain? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7df59b5d-9dbb-4580-b255-0af9423ec78e?mode=deep",
+    "timestamp": "2026-01-10 10:14:44.606708",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Trust model] [Indexer trust] Functions trust odr.ChtIndexer() and odr.BloomTrieIndexer() to return correct section counts. Can compromised indexers cause light clients to request or accept unverified data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7dc0ba20-6e32-4695-854d-6793ffdf3b4e?mode=deep",
+    "timestamp": "2026-01-10 10:15:15.759604",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Trust model] [Checkpoint sync trust] GetUntrustedBlockLogs explicitly handles untrusted data but doesn't validate it. Can checkpoint sync be exploited to feed completely fabricated historical data to light clients? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bc0fbff1-908c-41e9-b3db-541fb360a0eb?mode=deep",
+    "timestamp": "2026-01-10 10:15:45.850755",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Trust model] [CHT trust boundary] CHT verification at line 57-66 assumes CHT root from GetChtRoot is correct. Can an attacker poison CHT root storage in database to make malicious headers appear verified? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2545f314-62b7-4ecc-b54a-13a1213d2e5f?mode=deep",
+    "timestamp": "2026-01-10 10:16:17.664094",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Trust model] [Local database trust] Functions prefer local database over ODR (e.g., line 42, 72, 102). Can an attacker with filesystem access directly modify database files to inject malicious data that bypasses ODR verification? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_65e05b2e-ab00-4e79-b7c7-e99e6d573dba?mode=deep",
+    "timestamp": "2026-01-10 10:16:48.269770",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Trust model] [ODR backend trust assumption] All functions implicitly trust the ODR backend to return correct data after verification. Can a sophisticated attacker compromise ODR backend verification logic itself (not just data) to bypass all checks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_be3dcf95-164b-4bb8-ada9-215fed1ee3a4?mode=deep",
+    "timestamp": "2026-01-10 10:17:19.058282",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Concurrency] [Context cancellation timing] If context is cancelled exactly during odr.Retrieve() calls, are partial ODR responses properly discarded or can they be partially written to database causing corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_389ca8b6-b0e6-4a39-9516-04712708d001?mode=deep",
+    "timestamp": "2026-01-10 10:17:49.451644",
+    "report_generated": false
   }
 ]
