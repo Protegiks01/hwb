@@ -25336,5 +25336,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_625c8ab9-8215-4d9a-808a-83c7639dc961?mode=deep",
     "timestamp": "2026-01-10 22:09:02.576989",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: wrsNode.setWeight()] [Index Decoding] At lines 160-162, the branch is calculated as 'idx / branchItems' and recursion uses 'idx-branch*branchItems' - can integer overflow in the multiplication cause incorrect branch selection, leading to weight updates on wrong items? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bcc1cd0f-67fc-44b5-8b83-c439632dd90b?mode=deep",
+    "timestamp": "2026-01-10 22:10:38.785884",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: wrsNode.insert()] [Index Calculation] At line 143, the global index is calculated as 'subNode.maxItems*branch + subIdx' - can integer overflow occur here if maxItems and branch are large, causing incorrect index values to be stored in w.idx and breaking subsequent setWeight() operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f30729c6-9428-429c-83e9-932f34cbfe61?mode=deep",
+    "timestamp": "2026-01-10 22:10:51.570825",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: setWeight()] [Recursive Depth] At line 62, setWeight recursively calls itself with weight 0 before retrying - if wfn consistently returns weights that trigger overflow, can this create deep recursion chains that exhaust stack space and crash the node? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0f36ac98-1cd3-42bc-9ba9-f061f4e6e47a?mode=deep",
+    "timestamp": "2026-01-10 22:11:05.067599",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: Choose()] [Probabilistic Rejection] At line 103, the condition 'weight >= lastWeight || uint64(rand.Int63n(int64(lastWeight))) < weight' can reject items with decreased weights - can an attacker exploit this by setting wfn to always return decreasing weights, causing Choose() to repeatedly reject selections and loop excessively, creating a DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6f5c3f3f-15b6-4e6c-820a-264e0d40128a?mode=deep",
+    "timestamp": "2026-01-10 22:11:18.964380",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: Choose()] [Weight Staleness] At lines 99-102, if wfn(choice) returns a different weight than stored, setWeight is called - can an attacker craft a malicious WeightFn that returns random values on each call, causing Choose() to loop indefinitely retrying selection and never settling on a peer? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_aed6ade0-d003-4dff-80a2-11cec00913fb?mode=deep",
+    "timestamp": "2026-01-10 22:11:33.905819",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: Choose()] [Infinite Loop] At lines 93-106, the for loop continues until a valid choice is made - if all items have decreasing weights that fail the probabilistic check at line 103, can this loop run indefinitely, causing a DoS by blocking the goroutine and preventing peer selection? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b26f3c84-de56-4f8e-a2da-91e5b97ca6bd?mode=deep",
+    "timestamp": "2026-01-10 22:11:50.024680",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: Choose()] [Random Range] At line 103, rand.Int63n(int64(lastWeight)) is called - if lastWeight is 0 due to concurrent weight updates, can this cause a panic 'invalid argument to Int63n', crashing the node during peer selection? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_12d22a62-f6bf-4626-911b-18a6f89cf8ef?mode=deep",
+    "timestamp": "2026-01-10 22:12:06.879885",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: Choose()] [Modulo Bias] At line 97, using rand.Int63n(int64(w.root.sumCost)) with large sumCost values, could modulo bias affect the distribution fairness when sumCost approaches math.MaxInt64, giving certain high-weight peers unfair advantages in selection? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b9695289-e541-476b-8636-d93ab38d56ea?mode=deep",
+    "timestamp": "2026-01-10 22:12:25.633015",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: Choose()] [Unseeded Random] The math/rand package is imported but rand.Seed() is never called in this file - if the random generator is not properly seeded elsewhere, could the random selection become predictable across node restarts, allowing attackers to predict and manipulate peer selection patterns? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5bddb0a4-6ec7-4d25-829b-e5a7a4972770?mode=deep",
+    "timestamp": "2026-01-10 22:12:45.725408",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: Choose()] [Weak Random Source] At lines 97 and 103, rand.Int63n() from math/rand is used without cryptographic security - can an attacker who observes previous peer selection outcomes predict future selections and manipulate peer connections to always select malicious servers, compromising light client security? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fde70179-3168-4d69-95a6-fead903f7206?mode=deep",
+    "timestamp": "2026-01-10 22:13:06.925510",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: setWeight()] [Nil Root] If w.root somehow becomes nil (through memory corruption or race condition), line 55 accessing w.root.sumCost and line 70 calling w.root.setWeight() would panic - is there any validation to prevent nil root dereference causing crashes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bc4c0fd7-54a6-4b2c-bdb3-b30d727bcb48?mode=deep",
+    "timestamp": "2026-01-10 22:13:30.664516",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: wrsNode.choose()] [Nil Branch Access] At line 178, if n.items[i] is nil due to tree corruption but n.weights[i] is non-zero, can this cause a nil pointer dereference when calling .(*wrsNode).choose(), crashing the node during peer selection? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e805a09c-3296-4897-a9cc-29f15acfbf4f?mode=deep",
+    "timestamp": "2026-01-10 22:13:53.657590",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: wrsNode.setWeight()] [Nil Branch Access] At line 162, n.items[branch].(*wrsNode).setWeight() is called - if concurrent deletion causes items[branch] to become nil between the type assertion and the method call, can this cause a nil pointer dereference panic crashing the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_def52d63-b3d3-4dec-a9bc-bab2954aad35?mode=deep",
+    "timestamp": "2026-01-10 22:14:19.038579",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: wrsNode.choose()] [Type Assertion Panic] At line 176, n.items[i].(WrsItem) performs an unchecked type assertion - if tree structure corruption causes items[i] to be a *wrsNode instead of a leaf item, can this panic and crash the light client? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c03c253f-a2da-4829-9feb-c2dc3bfe8d09?mode=deep",
+    "timestamp": "2026-01-10 22:14:45.470892",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: wrsNode.choose()] [Type Assertion Panic] At lines 140, 162, and 178, type assertions like .(*wrsNode) are performed without checking - if tree corruption causes items[] to contain wrong types, can these unchecked assertions panic and crash the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9e05d710-d340-404b-b783-58e89c4f1a51?mode=deep",
+    "timestamp": "2026-01-10 22:15:11.042293",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: wrsNode.insert()] [Branch Overflow] The condition at line 122 checks if branch items are full, but what if n.itemCnt < n.maxItems while all existing branches are full due to tree imbalance - could this cause branch to exceed wrsBranches-1 without triggering the panic check properly, leading to array out of bounds access? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_581cfc00-b946-492b-a078-71e1407c26d5?mode=deep",
+    "timestamp": "2026-01-10 22:15:35.203865",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: wrsNode.choose()] [Uncontrolled Panic] At line 182, if the iteration completes without finding a matching branch (which shouldn't happen mathematically), panic(nil) is called - can floating point rounding errors or concurrent modifications cause val to exceed the total weight sum, triggering this panic and crashing the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9adbd11d-74c8-479d-9b94-32ae8db48407?mode=deep",
+    "timestamp": "2026-01-10 22:16:01.168871",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: wrsNode.insert()] [Uncontrolled Panic] At lines 124-126, if branch reaches wrsBranches, the code calls panic(nil) - can an attacker craft a sequence of insertions that causes all branches to be full despite the itemCnt check, triggering this panic and crashing the light client node, causing a DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d40ba49c-aac5-4f4f-a61c-5375bc77210f?mode=deep",
+    "timestamp": "2026-01-10 22:16:28.675962",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: setWeight()] [Delete Race] At line 72, when delete(w.idx, item) is called while another goroutine might be reading idx[item] at line 68, can this cause a race condition where an item is removed mid-check, leading to incorrect weight updates or panic conditions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d301bb99-f57c-4274-b7ff-31093b12a4fb?mode=deep",
+    "timestamp": "2026-01-10 22:16:55.262423",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: wrsNode.insert()] [Structure Mutation] At lines 76-84, when a new root level is added, the existing root is moved to newRoot.items[0] while w.root is reassigned - can a concurrent Choose() or setWeight() operation access the old root pointer during this mutation, leading to inconsistent tree state or nil pointer dereference? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_aa1538e2-dbab-4894-b19c-657030c07a12?mode=deep",
+    "timestamp": "2026-01-10 22:17:21.803943",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: Choose()] [Concurrent Read-Write] At lines 98-101, Choose() reads w.root.sumCost and calls w.root.choose(), then potentially calls w.setWeight() which modifies the tree - if another goroutine is simultaneously calling setWeight(), can the tree structure become corrupted mid-traversal, causing choose() to access invalid memory or panic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0ccc66ae-7a44-47be-8e4c-5d0651623ad5?mode=deep",
+    "timestamp": "2026-01-10 22:17:48.661796",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: setWeight()] [Map Race] At lines 68-73, the idx map is read and potentially written without synchronization - can concurrent calls to setWeight() cause map corruption, leading to the runtime panic 'concurrent map read and map write' that crashes the light client node? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3565217d-0b91-464f-874e-86182037beab?mode=deep",
+    "timestamp": "2026-01-10 22:18:18.182495",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: All methods] [Concurrent Access] The WeightedRandomSelect structure has no mutex or synchronization primitives - if multiple goroutines concurrently call Update(), Remove(), or Choose() on the same instance, can race conditions corrupt the idx map, root tree structure, or sumCost values, leading to panics, incorrect peer selection, or system crashes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_73bd3e62-1376-48c0-a2a2-db6153e8d7e6?mode=deep",
+    "timestamp": "2026-01-10 22:18:44.726206",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: wrsNode.setWeight()] [Recursive Overflow] At lines 163-164, when propagating diff up the tree through n.weights[branch] += diff and n.sumCost += diff, can the uint64 underflow from line 152 cascade up the tree levels, causing systematic corruption of all ancestor node weights and making the entire selection system unreliable? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b2490040-fa83-4b4b-ae83-d6a9ccf9487f?mode=deep",
+    "timestamp": "2026-01-10 22:19:10.738570",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: wrsNode.insert()] [Addition Overflow] At lines 129-130, when incrementing n.sumCost += weight and n.weights[branch] += weight, can an attacker insert items with carefully chosen weights that bypass the parent-level overflow check but still cause overflow at the node level, corrupting the tree structure? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2b1a0a00-9516-4a9a-bceb-94a30fc10b40?mode=deep",
+    "timestamp": "2026-01-10 22:19:35.346090",
+    "report_generated": false
   }
 ]
