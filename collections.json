@@ -17548,5 +17548,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b1f55933-4504-467c-92be-2faf7794f6dc?mode=deep",
     "timestamp": "2026-01-10 21:46:13.970880",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [DoS] [Lock starvation] Can an attacker cause operations that hold stateLock for extended periods to starve other operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_71d48728-7c7f-47b0-a55c-613ef4a769b4?mode=deep",
+    "timestamp": "2026-01-10 21:47:36.198327",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [DoS] [USB enumeration hang] Can malicious USB devices cause usb.Enumerate() at line 173 to hang indefinitely blocking all wallet operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0ee1ed15-c622-4fe1-891f-91ac5864f13a?mode=deep",
+    "timestamp": "2026-01-10 21:47:49.053441",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [DoS] [Driver creation DoS] Can expensive makeDriver() calls at line 224 be triggered repeatedly to cause CPU exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7b542959-9fba-4546-b2b9-6f7fdd74631c?mode=deep",
+    "timestamp": "2026-01-10 21:48:02.210839",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Edge case] [Nil wallet slice] If hub.wallets is nil when accessed in various functions, can this cause nil pointer panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_39d3c013-926c-4019-8995-e372370a1f59?mode=deep",
+    "timestamp": "2026-01-10 21:48:16.570617",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Edge case] [Zero-length productIDs] If productIDs slice is empty, does the matching loop at lines 187-194 behave correctly? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_080fd8ff-92ec-4659-8120-b41a2b98fe67?mode=deep",
+    "timestamp": "2026-01-10 21:48:31.161205",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Edge case] [Quit channel] The quit channel at line 61 is never used in this file - is this dead code or missing cleanup logic? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fba1dc41-6201-4ad8-ae6c-1dd908e72170?mode=deep",
+    "timestamp": "2026-01-10 21:48:46.711890",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Edge case] [Hub reuse] If a Hub is constructed, used, and then attempted to be reused, can stale state cause issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_148fe1c2-cf33-4213-8264-96b65216e76c?mode=deep",
+    "timestamp": "2026-01-10 21:49:03.783106",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Concurrency] [Multiple updater check] The hub.updating flag at line 59 prevents multiple updaters, but can the check-then-set pattern at lines 262-264 create a race window? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f06b8bd1-9ed2-4a70-970c-6c47432bcd8f?mode=deep",
+    "timestamp": "2026-01-10 21:49:22.506435",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [DoS] [Lock starvation] Can an attacker cause operations that hold stateLock for extended periods to starve other operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a136e7c8-0b85-44a4-909a-954b209e0e85?mode=deep",
+    "timestamp": "2026-01-10 21:49:42.743882",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [DoS] [USB enumeration hang] Can malicious USB devices cause usb.Enumerate() at line 173 to hang indefinitely blocking all wallet operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_36e2346e-403a-42d2-b73d-5e6884f446cc?mode=deep",
+    "timestamp": "2026-01-10 21:50:04.245178",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [DoS] [Driver creation DoS] Can expensive makeDriver() calls at line 224 be triggered repeatedly to cause CPU exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3d27d85c-fdba-4f13-bb2c-2d4ca73f217d?mode=deep",
+    "timestamp": "2026-01-10 21:50:26.698946",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Edge case] [Nil wallet slice] If hub.wallets is nil when accessed in various functions, can this cause nil pointer panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0665cbdb-cfd7-413c-87e7-6ae066d6d6df?mode=deep",
+    "timestamp": "2026-01-10 21:50:50.487059",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Edge case] [Zero-length productIDs] If productIDs slice is empty, does the matching loop at lines 187-194 behave correctly? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_30c31fa0-d515-4f5e-96d8-d87cb010dd9f?mode=deep",
+    "timestamp": "2026-01-10 21:51:15.731392",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Edge case] [Quit channel] The quit channel at line 61 is never used in this file - is this dead code or missing cleanup logic? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_96b90265-70c8-46ab-a474-1125cb362ff4?mode=deep",
+    "timestamp": "2026-01-10 21:51:41.328593",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Edge case] [Hub reuse] If a Hub is constructed, used, and then attempted to be reused, can stale state cause issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_907fed1d-7590-40f6-a459-ad4e6680e231?mode=deep",
+    "timestamp": "2026-01-10 21:52:05.791494",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Concurrency] [Multiple updater check] The hub.updating flag at line 59 prevents multiple updaters, but can the check-then-set pattern at lines 262-264 create a race window? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2788bbe6-c0c0-4d1a-ae62-de200cb77e5c?mode=deep",
+    "timestamp": "2026-01-10 21:52:29.722357",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: Open()] [State confusion] Can an attacker cause state confusion by calling Open() multiple times with different passphrase values while pinwait or passphrasewait flags are set, potentially bypassing authentication phases or causing the device to accept unauthorized credentials? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_376b454d-56d7-4c8d-8edb-34cfc221a76d?mode=deep",
+    "timestamp": "2026-01-10 21:52:55.035663",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: Open()] [Race condition] If Open() is called concurrently from multiple goroutines, can race conditions on the pinwait and passphrasewait boolean flags cause authentication bypass where one goroutine's PIN submission is accepted for another goroutine's session? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_806fb75c-1005-4fb9-ac6f-f8d7f60d7a22?mode=deep",
+    "timestamp": "2026-01-10 21:53:21.350402",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: Open()] [Failure state bypass] After w.failure is set in lines 138 or 148, can subsequent Open() calls with w.failure != nil still proceed to set w.device and attempt operations, potentially allowing operations on a compromised device state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e7c5472e-3fb9-4aeb-b460-901de0858c1a?mode=deep",
+    "timestamp": "2026-01-10 21:53:45.725693",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: Open()] [Empty passphrase validation] When passphrase == \\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ee3adbd7-cdb6-43e3-8c39-e4085702b026?mode=deep",
+    "timestamp": "2026-01-10 21:54:11.465728",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: newTrezorDriver()] [Uninitialized state] The driver is created with only the logger initialized - can operations be attempted before Open() is called, leading to nil pointer dereferences on w.device at line 310 or 321 during write/read operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_884eb731-5d22-426d-be42-d196ebb291dc?mode=deep",
+    "timestamp": "2026-01-10 21:54:34.408152",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: Status()] [Information leak] Does the Status() function at lines 72-83 leak sensitive information about PIN wait states or device labels that could aid attackers in social engineering or targeted attacks against specific hardware wallets? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2a22cca8-3762-4c04-b947-02bab64c137e?mode=deep",
+    "timestamp": "2026-01-10 21:54:56.641702",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: Close()] [Incomplete cleanup] The Close() function at lines 158-161 only clears version, label, and pinwait flags but doesn't clear w.device, w.passphrasewait, or w.failure - can this lead to stale state being reused in subsequent Open() calls causing authentication bypass? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e5d575b5-164a-4f9d-ae36-cef3f5368937?mode=deep",
+    "timestamp": "2026-01-10 21:55:20.059700",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: Close()] [Device resource leak] Close() doesn't call any cleanup on w.device (io.ReadWriter) - if the underlying device connection requires explicit cleanup, can repeated Open/Close cycles leak USB device handles causing DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5205fc6b-9829-49fc-a44b-d5dd11f2ed05?mode=deep",
+    "timestamp": "2026-01-10 21:55:43.587472",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: Open()] [PIN replay] When PinMatrixAck is sent at line 136 with the user-provided PIN, is there proper validation that the PIN hasn't been used before, or can an attacker replay a previously captured PIN to unlock the device? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_db1d0030-f7d7-4fe2-900e-56328dd7a26b?mode=deep",
+    "timestamp": "2026-01-10 21:56:06.452368",
+    "report_generated": false
   }
 ]
