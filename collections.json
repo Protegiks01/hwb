@@ -11098,5 +11098,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9d988802-da8e-4ce7-812f-62cf06614b16?mode=deep",
     "timestamp": "2026-01-10 14:03:19.929727",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Lock()] [State check] In Lock() at lines 324-327, if found is false, the function still returns nil success - can this mask errors where callers believe an account was locked but it was never unlocked? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_17ba9a5b-195c-42c5-a9a6-5fac9a358168?mode=deep",
+    "timestamp": "2026-01-10 14:04:50.405081",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Wallets()] [Stale data] In Wallets() at lines 124-134, refreshWallets() is called then RLock is acquired - can the wallet list become stale between the refresh and the lock, returning inconsistent data to callers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_19bc33d4-16e6-42eb-8168-c139cee1aed8?mode=deep",
+    "timestamp": "2026-01-10 14:05:03.451846",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: expire()] [Pointer comparison] In expire() at line 399, pointer equality (==) is used to verify the correct key instance - can this check be fooled if the memory allocator reuses the same memory address for a different key? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_244e262d-c184-466f-b9f5-1a58f3ba7c7a?mode=deep",
+    "timestamp": "2026-01-10 14:05:17.377080",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: init()] [Initialization race] In init() at lines 99-120, runtime.SetFinalizer is set at line 111 but wallets are created after - can the finalizer run before initialization completes if GC pressure is high, closing the cache prematurely? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9b273ea8-93fa-4c32-98da-059e4835b3ec?mode=deep",
+    "timestamp": "2026-01-10 14:05:31.566186",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: SignTx()] [Validator block signing] In SignTx() used for validator block signing, if an attacker can call this function with malicious transaction data, can they trick validators into signing blocks that violate consensus rules, causing the validator to be slashed? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a03ec6a6-df6d-453a-9726-05eba062f12f?mode=deep",
+    "timestamp": "2026-01-10 14:05:46.651505",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: SignHash()] [Double-signing] In SignHash() used for block header signing, is there any protection against signing two different hashes at the same block height, which would constitute double-signing and potentially trigger consensus violations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_889fd53b-fb94-41e6-8d54-4dc018e6f4fc?mode=deep",
+    "timestamp": "2026-01-10 14:06:03.697760",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Unlock()] [Validator exposure] In Unlock() with indefinite unlock for validator accounts, if a node is compromised while validators are unlocked, can attackers sign arbitrary blocks without needing passphrases, enabling sustained block production attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e33119d4-6195-4b36-b1ff-c3bb76cc12b2?mode=deep",
+    "timestamp": "2026-01-10 14:06:20.465904",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: TimedUnlock()] [Auto-lock interference] In TimedUnlock() for validator accounts with short timeouts, if expire() fires during critical block production windows, can this cause validators to miss their block production slot due to signing failures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_51621bac-c157-46c2-8cae-24788ea3de0f?mode=deep",
+    "timestamp": "2026-01-10 14:06:39.892212",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Lock()] [Validator DoS] In Lock(), if an attacker repeatedly locks validator accounts during their designated block production time, can this prevent validators from producing blocks and disrupt network consensus? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a5062b76-641b-4e88-ba21-a2585d09d930?mode=deep",
+    "timestamp": "2026-01-10 14:07:00.279521",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Delete()] [Validator removal] In Delete(), if an attacker obtains a validator's passphrase and deletes their key, can this permanently remove the validator from the network, potentially dropping below the minimum validator threshold? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_217f129a-cc03-40ef-8e76-511e050ee0a6?mode=deep",
+    "timestamp": "2026-01-10 14:07:21.732666",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Update()] [Validator lockout] In Update(), if the passphrase change fails or produces a corrupted key file, can this permanently lock out a validator preventing them from signing blocks and reducing network security? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1f909a8e-459d-438d-a4c3-af996ec23c7e?mode=deep",
+    "timestamp": "2026-01-10 14:07:44.823936",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Export()] [Validator key theft] In Export(), if an attacker exports a validator's key and successfully brute forces the new passphrase offline, can they import the key on their own node and create two validators with the same key, enabling double-signing attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8f1268aa-0810-45d5-bc90-f6fd1ece4923?mode=deep",
+    "timestamp": "2026-01-10 14:08:09.114189",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Import()] [Validator impersonation] In Import(), if an attacker imports a validator's key (obtained through theft or social engineering) onto their node, can they produce valid blocks as that validator while the legitimate validator is still active? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f26fc7a1-e100-4e58-b621-d0f802440a85?mode=deep",
+    "timestamp": "2026-01-10 14:08:33.452416",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: SignTxWithPassphrase()] [Validator compromise] In SignTxWithPassphrase(), if an attacker can submit signing requests with correct passphrases through RPC, can they sign malicious validator transactions without needing the account to be unlocked? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eaaed16a-3f0f-4d36-99f5-848ac20edb9c?mode=deep",
+    "timestamp": "2026-01-10 14:08:58.073618",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: init()] [Finalizer timing] In init() at line 111, runtime.SetFinalizer is used to close the cache, but finalizers are not guaranteed to run - can the cache remain open leaking file handles or locks if the KeyStore is abandoned but not garbage collected? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2636a406-f961-4468-9db0-0429f4370d79?mode=deep",
+    "timestamp": "2026-01-10 14:09:23.078574",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: unlocked map] [Memory growth] The unlocked map at line 66 grows with each unlock but expired entries are removed by goroutines - can rapid unlock/expire cycles cause map growth and fragmentation leading to excessive memory usage? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1db96156-1a00-451a-9c9c-0db7057546e0?mode=deep",
+    "timestamp": "2026-01-10 14:09:49.526340",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: wallets slice] [Unbounded growth] The wallets slice at line 68 grows with each account - is there any limit on the number of accounts that can prevent unbounded memory growth in long-running validator nodes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ff7eccb3-25ac-48eb-bf03-f73ef6ff6835?mode=deep",
+    "timestamp": "2026-01-10 14:10:15.035187",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Subscribe()] [Subscriber leak] In Subscribe(), subscribers are tracked by updateScope but if callers don't properly unsubscribe, can leaked subscriptions accumulate causing memory growth? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2608db42-7943-4433-a393-74ccd6f62aaf?mode=deep",
+    "timestamp": "2026-01-10 14:10:42.042373",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: updater()] [Channel exhaustion] In updater() at line 210, the ks.changes channel is read - if changes are produced faster than refreshWallets() can process them, can the channel buffer fill up blocking cache updates? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6ace2695-ddb4-45a5-9c7f-1200e3a3942d?mode=deep",
+    "timestamp": "2026-01-10 14:11:10.792775",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: TimedUnlock()] [Timer leak] In TimedUnlock() at line 360, expire() creates a time.NewTimer() - if the abort channel is closed before the timer expires, is the timer properly stopped to prevent timer leak? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e5b43160-b950-4aac-9608-fd7603795519?mode=deep",
+    "timestamp": "2026-01-10 14:11:40.027028",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: expire()] [Timer cleanup] In expire() at line 389, defer t.Stop() ensures timer cleanup, but if the goroutine is leaked (abort never fires), does this accumulate timer resources? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b56d8883-16b6-4866-9fd6-5765229713de?mode=deep",
+    "timestamp": "2026-01-10 14:12:07.262777",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: refreshWallets()] [Temporary allocation] In refreshWallets() at lines 144-147, new slices are allocated for wallets and events - in high-frequency refresh scenarios, can this cause excessive GC pressure? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5fbfb2f4-0cdc-4bfc-a463-bf69393402cc?mode=deep",
+    "timestamp": "2026-01-10 14:12:34.072387",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Wallets()] [Copy overhead] In Wallets() at lines 131-132, the entire wallet slice is copied - for nodes with many accounts, can frequent Wallets() calls cause performance degradation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_148ebb3f-0bd9-46a1-9ada-fe6021b94005?mode=deep",
+    "timestamp": "2026-01-10 14:13:00.172281",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: zeroKey()] [Partial cleanup] In zeroKey() at lines 510-515, only the D.Bits() slice is zeroed - are there other fields in the ecdsa.PrivateKey structure that should be zeroed but aren't? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_28dd1f2f-fc56-488a-966d-b1704e31a760?mode=deep",
+    "timestamp": "2026-01-10 14:13:24.845169",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: TimedUnlock()] [Zero timeout edge case] In TimedUnlock() at line 359, if timeout > 0 creates a timed unlock, but if timeout == 0 at line 362-363, the unlock is indefinite with no abort channel - can this edge case be exploited to create unlocks that can never be properly cleaned up? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9f711d18-3983-404c-aa9a-29df1e91f94c?mode=deep",
+    "timestamp": "2026-01-10 14:13:49.779177",
+    "report_generated": false
   }
 ]
