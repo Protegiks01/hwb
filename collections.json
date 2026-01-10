@@ -9898,5 +9898,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_40c7aeed-e712-4c66-858e-3d268af44e1e?mode=deep",
     "timestamp": "2026-01-10 12:43:32.437176",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/hd.go] [Integration: Wallet Backend] If wallet backends use these derivation paths to generate keys, could inconsistencies between parsed paths and actual key derivation lead to users accessing wrong accounts or losing funds? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b89dfac7-ff48-4afd-88c7-99b4e2f945b7?mode=deep",
+    "timestamp": "2026-01-10 12:44:46.751573",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/hd.go] [Integration: Iterator Usage] If multiple components in the system create iterators from the same base path, could they interfere with each other through shared state, causing key collisions or skipped accounts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_04105b6e-b44c-4ca3-b9ee-988f5bf84aff?mode=deep",
+    "timestamp": "2026-01-10 12:44:59.700370",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/hd.go] [Integration: JSON API] If derivation paths are accepted via JSON API (using UnmarshalJSON), could attackers inject malicious paths that exploit parsing vulnerabilities when users import accounts or wallets? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_16907523-fa26-4402-9797-4b6cfb9e910d?mode=deep",
+    "timestamp": "2026-01-10 12:45:13.163450",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/hd.go] [Integration: Configuration Files] If derivation paths are loaded from configuration files, could file corruption, encoding issues, or malicious configuration lead to wrong paths being used, causing permanent fund loss? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d8db029c-0e08-4142-84c5-33f000a819d3?mode=deep",
+    "timestamp": "2026-01-10 12:45:26.697197",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/hd.go] [Function: ParseDerivationPath()] [Trailing Slash] If path ends with trailing slash (e.g., 'm/44'/60'/0'/'), strings.Split creates an empty last component. Does this get filtered out or could it append a zero component, corrupting the path? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0d47558b-fbda-49c4-a02d-1e6f250db035?mode=deep",
+    "timestamp": "2026-01-10 12:45:41.197688",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/hd.go] [Function: ParseDerivationPath()] [Multiple Prefixes] Could a path like 'm/m/44'/60'/0' bypass prefix handling logic and create malformed paths? The first 'm' is removed (line 81), but the second 'm' becomes a component to parse. (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1974dc6e-cad8-4e9d-a937-8c2086b931bc?mode=deep",
+    "timestamp": "2026-01-10 12:45:56.933799",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/hd.go] [Function: ParseDerivationPath()] [Mixed Case] Are path components case-sensitive? Could 'M/44H/60H' vs 'm/44'/60'' cause parsing inconsistencies? The code checks for 'm' specifically (line 80). (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4d43b96d-1bc0-4fb6-a90e-6fef6087445d?mode=deep",
+    "timestamp": "2026-01-10 12:46:14.143145",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/hd.go] [Function: DefaultIterator()] [Reuse After Overflow] After the iterator overflows and wraps to 0, continuing to use it generates previously used paths. Could this lead to undetected key reuse in long-running systems generating millions of addresses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_31560679-78a2-49fa-9016-4e9d6c82bf9d?mode=deep",
+    "timestamp": "2026-01-10 12:46:33.254295",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/hd.go] [Function: ParseDerivationPath()] [Component Separator] Paths use '/' as separator (line 72). Could alternative separators or URL-encoded characters (%2F) bypass splitting logic and create unexpected path structures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_25901143-a5f2-4014-bf24-1939ba3bd3b1?mode=deep",
+    "timestamp": "2026-01-10 12:46:53.097953",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/hd.go] [Function: String()] [Roundtrip Consistency] If a DerivationPath is converted to string via String() and back via ParseDerivationPath(), is the result guaranteed to be identical? Could formatting differences cause non-idempotent conversions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_37f62b3b-bc79-4c33-b608-1d529ea8ad97?mode=deep",
+    "timestamp": "2026-01-10 12:47:14.352967",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/hd.go] [Function: ParseDerivationPath()] [String Allocation] Multiple string operations (Split, TrimSpace, TrimSuffix) create new string allocations. For frequently called parsing in hot paths, could this cause memory pressure or GC overhead leading to performance DoS? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_72fd4b9c-d8f5-415f-b381-b6e254729235?mode=deep",
+    "timestamp": "2026-01-10 12:47:37.132006",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/hd.go] [Function: DefaultIterator()] [Closure Allocation] Each call to DefaultIterator creates a new closure (line 161-164). If many iterators are created and not properly garbage collected, could this cause memory leaks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_73221f4a-9d71-4e84-97e8-1d62e5d3d42f?mode=deep",
+    "timestamp": "2026-01-10 12:48:01.265629",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/hd.go] [Function: String()] [String Concatenation] Line 130 uses fmt.Sprintf which creates new strings. For very long paths, repeated string concatenation could be inefficient. While not a security issue directly, could this be exploited for CPU DoS with extremely long paths? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f123b407-3721-4479-b736-cb4536705c3c?mode=deep",
+    "timestamp": "2026-01-10 12:48:26.329176",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/hd.go] [Global Variables] [Memory Visibility] Are the global DerivationPath variables properly initialized before concurrent access? In Go, could init race conditions cause goroutines to see uninitialized or partially initialized global paths? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4ea8c893-0617-4dbc-9dd3-34de8ed8e8c8?mode=deep",
+    "timestamp": "2026-01-10 12:48:51.516530",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/hd.go] [Type: DerivationPath] [Equality Comparison] Since DerivationPath is a slice, direct equality comparison (==) doesn't work and would cause compile error. Could code that incorrectly compares paths using == lead to logic bugs in account management? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fb533d65-c9b2-47e9-9200-6a85acbeb7e4?mode=deep",
+    "timestamp": "2026-01-10 12:49:16.536125",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/hd.go] [Type: DerivationPath] [Hash Map Keys] If DerivationPath is used as a map key, Go doesn't allow slices as keys. This would cause compile error, but could this limitation force unsafe workarounds like converting to string for map keys, introducing bugs? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_efca0de9-4594-4523-8f73-9370dfeb912e?mode=deep",
+    "timestamp": "2026-01-10 12:49:42.192994",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/hd.go] [Comments: BIP-32/BIP-44 References] The comments reference BIP-32 and BIP-44 specs (lines 46-59). Could discrepancies between the implementation and official specs lead to incompatible key derivation with other compliant wallets? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_26c4a35b-1873-4953-ba9b-98cb3057c48e?mode=deep",
+    "timestamp": "2026-01-10 12:50:07.513242",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/hd.go] [Comments: Ethereum EIP-84] Line 57 mentions EIP-84 is 'not set in stone yet'. If this EIP changes after deployment, could existing derivation paths become incompatible, requiring migration and risk of fund loss? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_21dac270-04c5-4e62-8809-198bd8046601?mode=deep",
+    "timestamp": "2026-01-10 12:50:32.883672",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/hd.go] [Function: ParseDerivationPath()] [Component Loop Bounds] The loop iterating over components (line 90) uses range, which is safe from bounds errors. However, could the slice components be modified during iteration through concurrent access, causing inconsistent iteration behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_20fca5cf-a410-4578-bb9b-282e5f4b3507?mode=deep",
+    "timestamp": "2026-01-10 12:50:58.417545",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/hd.go] [Function: ParseDerivationPath()] [Result Slice Capacity] The result DerivationPath grows via append (line 115). If many appends occur, could slice reallocation and copying cause performance issues or memory fragmentation on resource-constrained nodes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_50634f71-40b3-4dae-b488-a8969d456b91?mode=deep",
+    "timestamp": "2026-01-10 12:51:22.617539",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/hd.go] [Function: ParseDerivationPath()] [Default Path Mutation] After appending DefaultRootDerivationPath to result (line 84), result shares the same underlying array initially. Could subsequent appends cause copy-on-write behavior that masks bugs or causes unexpected aliasing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a659e3a5-0d84-466d-a2f0-3e89c912870c?mode=deep",
+    "timestamp": "2026-01-10 12:51:48.085279",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/hd.go] [Function: ParseDerivationPath()] [Validation Timing] Validation happens after parsing each component (lines 105-111), but could a malformed path with many components cause partial path construction before failure, and could error returns leak partial path data through error messages? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_db29a492-5072-4c12-8967-c9635fecc345?mode=deep",
+    "timestamp": "2026-01-10 12:52:12.082145",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/hd.go] [Function: DefaultIterator(), LedgerLiveIterator()] [Iterator State Persistence] Are iterator closures designed to be stateful across calls (yes, based on implementation). Could improper storage or serialization of iterator closures (e.g., storing the function pointer) cause iterator state to be lost or corrupted? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_34ca6581-e7c5-40c1-8eb6-3966fdc3f11a?mode=deep",
+    "timestamp": "2026-01-10 12:52:37.171441",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/hd.go] [Function: ParseDerivationPath()] [SetString Edge Cases] The big.Int.SetString with base 0 accepts various formats. Could binary ('0b'), octal ('0'), or hex ('0x') prefixes in path components cause unexpected parsing where decimal was intended, leading to vastly different derivation paths? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3832d0e1-8b19-4928-ba27-c0bf9c60a2ee?mode=deep",
+    "timestamp": "2026-01-10 12:53:01.427692",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/hd.go] [Function: UnmarshalJSON()] [Recursive Unmarshaling] If DerivationPath is nested in other JSON structures that also use UnmarshalJSON, could deep nesting cause stack overflow during unmarshaling? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ca0a1e11-a8cd-4a6f-a940-d653ff434358?mode=deep",
+    "timestamp": "2026-01-10 12:53:27.721267",
+    "report_generated": false
   }
 ]
