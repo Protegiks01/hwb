@@ -16948,5 +16948,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8de5b6b3-d28a-43fb-a0e9-e140f698e7f4?mode=deep",
     "timestamp": "2026-01-10 21:02:49.922412",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Struct: Hub] [Integer overflow] Can the commsPend counter at line 66 overflow if incremented without bounds, causing integer wraparound that could bypass the pending operation check at line 168 and lead to concurrent USB access violations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5f0d5536-43e3-4d7e-b66e-30d11ac71cf6?mode=deep",
+    "timestamp": "2026-01-10 21:04:14.356843",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Struct: Hub] [Nil pointer dereference] If makeDriver function pointer at line 53 is nil when Hub is constructed, will calling hub.makeDriver(logger) at line 224 cause a panic that crashes the node? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_919b7bfa-c475-4bda-bc00-ccfcd4e65046?mode=deep",
+    "timestamp": "2026-01-10 21:04:27.159897",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: Wallets()] [Race condition] Between the refreshWallets() call at line 132 and acquiring stateLock.RLock() at line 134, can another goroutine modify hub.wallets causing a race condition where the returned wallet list is inconsistent with the just-refreshed state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7baa2b79-fb9d-4767-9d30-6b908c4e12e9?mode=deep",
+    "timestamp": "2026-01-10 21:04:40.330247",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: Wallets()] [Memory leak] Does the make() and copy() at lines 137-138 create unbounded memory allocations if called repeatedly with a large wallet list, potentially causing memory exhaustion DoS? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5c4a04e9-6a29-4ea1-b6ab-974b14f4bce4?mode=deep",
+    "timestamp": "2026-01-10 21:04:54.242883",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: Wallets()] [Lock ordering] Can concurrent calls to Wallets() from multiple goroutines cause lock contention on stateLock, leading to performance degradation or temporary service unavailability? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_32db14fa-bd56-48bb-a344-d6fa5d75de09?mode=deep",
+    "timestamp": "2026-01-10 21:05:09.913781",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: refreshWallets()] [Time-of-check-time-of-use] Between checking elapsed time at lines 146-148 and the throttling return at line 151, can a race condition allow multiple concurrent refreshWallets calls to proceed simultaneously, bypassing throttling protection? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1fcbd239-ec2c-4793-a488-ee27e96870c2?mode=deep",
+    "timestamp": "2026-01-10 21:05:26.217495",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: refreshWallets()] [Integer comparison] Can time.Since() at line 147 return negative duration in edge cases (system clock adjustment), causing the elapsed < refreshThrottling check to behave unexpectedly and bypass throttling? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_326e3c4c-e706-457e-818e-f228e2162987?mode=deep",
+    "timestamp": "2026-01-10 21:05:44.045899",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: refreshWallets()] [Atomic race] Is the atomic.LoadUint32(&hub.enumFails) at line 154 followed by operations that assume enumFails hasn't changed, creating a race condition where enumFails could be modified between the load and subsequent checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c04fa6c4-58f2-4704-80b0-d7e7993e2001?mode=deep",
+    "timestamp": "2026-01-10 21:06:02.255335",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: refreshWallets()] [DoS threshold bypass] Can an attacker cause exactly 3 enumeration failures to permanently disable wallet refresh (enumFails > 2 check at line 154), creating a persistent DoS where new wallets are never detected? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f1213338-2d44-40f1-86d3-8ca3b28193f2?mode=deep",
+    "timestamp": "2026-01-10 21:06:21.984086",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: refreshWallets()] [Platform-specific deadlock] On Linux, if commsLock.Lock() at line 167 is held and a concurrent operation tries to acquire stateLock while holding commsLock, can this create a deadlock with the stateLock.Lock() at line 200? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_77a96805-7eb1-42a4-9633-bf1353994836?mode=deep",
+    "timestamp": "2026-01-10 21:06:43.563539",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: refreshWallets()] [Race condition] Can the commsPend check at line 168 be subject to a race where commsPend is incremented immediately after the check but before the unlock at line 170, causing the function to return when it shouldn't? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a1f0a49b-c568-4d24-ba63-8d3072cc08cf?mode=deep",
+    "timestamp": "2026-01-10 21:07:06.227555",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: refreshWallets()] [Lock leak] If the function returns early at line 170 on Linux after acquiring commsLock, but then crashes before reaching the unlock at line 197, does this permanently lock commsLock causing all future refreshes to deadlock? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0b045339-44e6-4a43-8ea5-d62182895db6?mode=deep",
+    "timestamp": "2026-01-10 21:07:29.314247",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: refreshWallets()] [Platform inconsistency] Does the Linux-specific locking at lines 167-170 create different behavior on Linux vs other platforms that could be exploited to cause wallet state inconsistencies across a multi-platform network? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3b68e4f8-5232-45b2-88c2-fe499a112b9c?mode=deep",
+    "timestamp": "2026-01-10 21:07:53.651615",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: refreshWallets()] [Panic propagation] If usb.Enumerate() at line 173 panics instead of returning an error, will the panic propagate without releasing commsLock on Linux (line 167), causing a deadlock on all future refresh attempts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d81cd293-5dde-4cb7-b4de-ffba2b5fe006?mode=deep",
+    "timestamp": "2026-01-10 21:08:18.886744",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: refreshWallets()] [Error handling bypass] When usb.Enumerate() fails at line 174, the atomic.AddUint32(&hub.enumFails, 1) at line 175 increments the counter, but can rapid repeated failures cause the counter to increment so fast that it bypasses the > 2 check and continues enumeration? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ed455dcc-0394-420d-9d11-5778d3f4db57?mode=deep",
+    "timestamp": "2026-01-10 21:08:45.560855",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: refreshWallets()] [Resource leak] If usb.Enumerate() returns an error at line 174 after acquiring USB resources internally, are those resources properly released before the function returns at line 182, or can this cause USB resource exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2d18d0dc-06f4-4aa5-b636-fb75a950db97?mode=deep",
+    "timestamp": "2026-01-10 21:09:13.204941",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: refreshWallets()] [Atomic reset vulnerability] The atomic.StoreUint32(&hub.enumFails, 0) at line 184 resets the failure counter on success, but can an attacker cause alternating success/failure patterns to keep enumeration active indefinitely despite persistent failures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dfa53c6d-f898-4be9-91a4-3625af7add8a?mode=deep",
+    "timestamp": "2026-01-10 21:09:42.097749",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: refreshWallets()] [Device spoofing] Can an attacker create a USB device with matching vendorID and productID (lines 187-188) but malicious firmware that exploits the wallet driver when makeDriver() is called at line 224? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_30224039-9901-409e-ab53-2a1841909782?mode=deep",
+    "timestamp": "2026-01-10 21:10:11.620205",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: refreshWallets()] [Filter bypass] In the filtering loop at lines 186-194, can device.UsagePage or device.Interface be manipulated to match hub.usageID or hub.endpointID (line 189) even when the device is not a legitimate hardware wallet? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d5c30a5b-0164-414a-80ad-9114f9121edb?mode=deep",
+    "timestamp": "2026-01-10 21:10:41.998955",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: refreshWallets()] [Platform-specific bypass] Does the OR condition at line 189 (UsagePage on Windows/Mac OR Interface on Linux) allow an attacker to create a device that matches on one platform but behaves differently on another, causing cross-platform inconsistencies? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_046b57b3-ba23-44e9-93a4-c83fdb91048e?mode=deep",
+    "timestamp": "2026-01-10 21:11:13.722796",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: refreshWallets()] [Slice append vulnerability] Can the devices slice append at line 190 grow unbounded if an attacker connects many matching USB devices, causing memory exhaustion DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8270026f-0f67-4b05-95d9-a6ed3ef68929?mode=deep",
+    "timestamp": "2026-01-10 21:11:45.539912",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: refreshWallets()] [Double unlock] After the commsLock.Unlock() at line 197 on Linux, are there any code paths that could attempt to unlock again, causing a panic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e396c543-bc1b-41b9-b71d-f36b26d04671?mode=deep",
+    "timestamp": "2026-01-10 21:12:18.111418",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: refreshWallets()] [Lock ordering deadlock] The stateLock.Lock() at line 200 is acquired after releasing commsLock (line 197), but can other functions acquire these locks in reverse order, creating a deadlock opportunity? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8e387a9e-4bb9-410d-a0c9-53fdd7e1fe5e?mode=deep",
+    "timestamp": "2026-01-10 21:12:51.416720",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: refreshWallets()] [Long critical section] From stateLock.Lock() at line 200 to stateLock.Unlock() at line 243, the critical section spans 43 lines including loops and wallet creation - can this cause excessive lock contention blocking other operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e0099b11-5e48-4c3c-8487-17ac7644265b?mode=deep",
+    "timestamp": "2026-01-10 21:13:23.776032",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: refreshWallets()] [Slice capacity] The wallets slice created with capacity len(devices) at line 203 may be smaller than needed if devices are reused from hub.wallets - can this cause repeated allocations and memory inefficiency? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4cb49c6f-c973-4136-b0ff-193fcb331f1a?mode=deep",
+    "timestamp": "2026-01-10 21:13:57.701082",
+    "report_generated": false
   }
 ]
