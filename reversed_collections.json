@@ -15592,5 +15592,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_389ca8b6-b0e6-4a39-9516-04712708d001?mode=deep",
     "timestamp": "2026-01-10 10:17:49.451644",
     "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Concurrency] [Database read-write races] Functions read from database without visible locking, then make ODR requests, then write back. Can concurrent access cause TOCTOU issues where data changes between read and write? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c845f3c1-7b62-4713-8f4a-f798cc9b044e?mode=deep",
+    "timestamp": "2026-01-10 10:19:04.371619",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Concurrency] [Concurrent GetBlockReceipts] If GetBlockReceipts is called concurrently for the same block, can both calls attempt to derive fields and write receipts at line 181, causing race conditions or duplicate writes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8c6b2939-5bf5-4ee0-9b78-8454da28ec7e?mode=deep",
+    "timestamp": "2026-01-10 10:19:17.253576",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Concurrency] [Goroutine leak] Do any ODR retrieval operations spawn goroutines that might not be cleaned up if context is cancelled, causing goroutine leaks and resource exhaustion over time? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_55c9c39d-67fd-4047-9ad7-0eb978b48ac2?mode=deep",
+    "timestamp": "2026-01-10 10:19:31.072437",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Database] [Genesis configuration tampering] At lines 175-176, genesis hash and chain config are read without verification. Can a corrupted database with wrong genesis config cause consensus divergence through incorrect receipt derivation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1c8ac454-7f2e-4124-a3cc-25700326b79d?mode=deep",
+    "timestamp": "2026-01-10 10:19:44.744999",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Database] [Key generation collisions] Database keys are generated using hash and number. Can hash collisions (different blocks with same hash due to vulnerabilities) cause key collisions leading to data overwrites? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f3fe59f8-54e8-448d-85b6-c3ed2bfe9361?mode=deep",
+    "timestamp": "2026-01-10 10:19:59.614724",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Database] [Canonical mapping consistency] Multiple functions read canonical mappings (ReadCanonicalHash) but don't verify consistency. During reorgs, can stale canonical mappings cause retrieval of wrong blocks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7a2460f1-f1a8-44bb-ba1a-57203a83d834?mode=deep",
+    "timestamp": "2026-01-10 10:20:15.423938",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Database] [Missing data cleanup] If ODR retrieval partially succeeds (e.g., header retrieved but body fails), are partial writes to database cleaned up or can they accumulate causing storage bloat? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dad82268-722c-4fa3-b754-608cee2db900?mode=deep",
+    "timestamp": "2026-01-10 10:20:32.521231",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Database] [Write-read race] At line 181, WriteReceipts writes to database, but concurrent readers might access partially written data. Are database writes atomic, or can races cause corrupted receipt data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9df15ae6-8fe7-4874-8234-2ea1e75b73a2?mode=deep",
+    "timestamp": "2026-01-10 10:20:51.114575",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Consensus] [Bloom filter verification gap] GetBlockReceipts computes derived fields but doesn't verify the receipts' combined bloom matches header.Bloom. Can this cause bloom filter mismatches breaking log filtering? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b5b68c97-d4f8-4fce-9ada-97dd2a52f231?mode=deep",
+    "timestamp": "2026-01-10 10:21:10.586730",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Consensus] [Transaction root verification missing] GetBody retrieves transactions but GetBlock doesn't verify the assembled block's TxRoot matches the header. Can mismatched transactions be assembled into blocks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_10f75ca0-ca1a-450c-8841-90955ceba0d0?mode=deep",
+    "timestamp": "2026-01-10 10:21:31.276306",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Consensus] [Receipt root verification missing] GetBlockReceipts retrieves receipts but doesn't verify they match the header's ReceiptHash. Can this cause light clients to accept invalid receipts different from what full nodes computed? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b5c77747-9184-4e6c-80fd-2d74712bc122?mode=deep",
+    "timestamp": "2026-01-10 10:21:52.467693",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Consensus] [Uncle validation absence] GetBody and GetBlock retrieve and assemble blocks with uncles but don't validate uncle rules (e.g., max 2 uncles, uncles from ancestor blocks). Can invalid uncle blocks be accepted breaking consensus? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4e77525d-e8cf-4623-90dd-5831f6d63694?mode=deep",
+    "timestamp": "2026-01-10 10:22:15.631981",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Consensus] [Fork choice rule bypass] GetHeaderByNumber retrieves headers by number only, not by hash. During chain reorgs, can this cause light clients to retrieve headers from non-canonical forks, breaking consensus with full nodes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_21e0eba9-260c-497f-a31e-2ead47d120e7?mode=deep",
+    "timestamp": "2026-01-10 10:22:39.420935",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Integer arithmetic] [Number parameter validation] Block number parameters are uint64 but not validated for reasonable ranges. Can extremely large numbers cause overflows in downstream calculations or database key generation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_49c1bd06-0e92-4ca3-9b9b-036c16236279?mode=deep",
+    "timestamp": "2026-01-10 10:23:04.516121",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Integer arithmetic] [CHT index underflow] At lines 58-59, chts-1 is used for CHT index. If chts is 0 (shouldn't happen but if logic error), can underflow create uint64 max value causing incorrect CHT lookups or out-of-bounds access? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6d0f1139-7423-4779-9ac9-82ccc937c2bb?mode=deep",
+    "timestamp": "2026-01-10 10:23:30.269126",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Integer arithmetic] [Section calculation overflow] At line 235, (section+1)*odr.IndexerConfig().BloomSize-1 could overflow. If section is close to uint64 max, can addition and multiplication wrap around causing incorrect section head lookups? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a22474d8-8360-470a-8e1f-7c5d0137bbd1?mode=deep",
+    "timestamp": "2026-01-10 10:23:57.150200",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Integer arithmetic] [CHT size multiplication overflow] At line 54, number >= chts*odr.IndexerConfig().ChtSize performs multiplication. If ChtSize is large and chts is large, can this overflow uint64, wrapping to small value and bypassing the check? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_274d9720-f376-4b41-bcd3-a15af12228bc?mode=deep",
+    "timestamp": "2026-01-10 10:24:24.648671",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Memory safety] [Result slice allocation in GetBloomBits] The result slice at line 231 is allocated with len(sections). If sections slice is extremely large (e.g., millions of entries), can this cause out-of-memory errors on resource-constrained light clients? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fea3e573-ebd5-4d64-8cd1-8e4b7d5ab914?mode=deep",
+    "timestamp": "2026-01-10 10:24:52.568785",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Memory safety] [Slice bounds in GetTransaction] At line 289, body.Transactions[pos.Index] accesses slice by index. If pos.Index >= len(body.Transactions) due to malicious Lookup data, can this cause out-of-bounds panic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e2b056f2-94cf-4ebd-a404-f39323851df2?mode=deep",
+    "timestamp": "2026-01-10 10:25:21.437556",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Memory safety] [Nil context] If ctx parameter is nil in any function, can calls to ctx.Done() or ctx.Err() cause nil pointer panics? Are nil contexts handled gracefully or rejected with errors? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9131065f-bbb4-40f8-8262-3ca542641c89?mode=deep",
+    "timestamp": "2026-01-10 10:25:50.548376",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Memory safety] [Nil body components] If body.Transactions or body.Uncles are nil instead of empty slices, can functions like GetBlock (line 147) or GetBlockReceipts (line 178) cause panics when accessing or iterating these fields? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_65f02cd1-220b-4af3-a280-418046afe458?mode=deep",
+    "timestamp": "2026-01-10 10:26:18.937147",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Memory safety] [Nil header dereference] Multiple functions call header.Hash() without nil checks (e.g., line 80, 93, 110). If GetHeaderByNumber returns nil header despite no error, can this cause nil pointer dereferences and panics? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d4debadb-9009-4af6-bc95-7ad2fdcc3f12?mode=deep",
+    "timestamp": "2026-01-10 10:26:47.710651",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [RLP security] [Transaction RLP validation] When body.Transactions are decoded from RLP, are individual transaction RLP structures validated? Can malformed transaction RLP within a valid body RLP cause downstream execution failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3eb8c67e-a67f-40df-b27c-297d86765aa1?mode=deep",
+    "timestamp": "2026-01-10 10:27:17.205394",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [RLP security] [RLP size limits] Is there a maximum size enforced on RLP data before decoding? Can an attacker provide gigabyte-sized RLP payloads causing memory exhaustion in light clients with limited resources? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2ff37a2d-fee4-4d5d-b9eb-982ce02d5339?mode=deep",
+    "timestamp": "2026-01-10 10:27:45.851777",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [RLP security] [Malformed RLP handling] If GetBodyRLP returns RLP that is syntactically valid but semantically invalid (e.g., wrong field count for Body struct), does rlp.Decode fail safely or can it cause panics or data corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c7b50b5a-3bd6-4418-b014-1bc2209da5db?mode=deep",
+    "timestamp": "2026-01-10 10:28:13.085522",
+    "report_generated": false
   }
 ]
