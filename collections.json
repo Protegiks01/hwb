@@ -11848,5 +11848,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9e9e186a-0ce2-4579-bb7d-92a246c440e1?mode=deep",
     "timestamp": "2026-01-10 14:54:03.460063",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: EncryptDataV3()] [Key Derivation Split] Is splitting derivedKey into encryption key (bytes 0-16) and MAC key (bytes 16-32) cryptographically sound, or should independent KDF calls be used? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f2b558fe-1279-4df6-ba03-6fd41f7e935b?mode=deep",
+    "timestamp": "2026-01-10 14:55:20.142885",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: DecryptDataV3()] [MAC-then-Encrypt] Does the implementation follow MAC-then-encrypt or encrypt-then-MAC pattern, and is the chosen pattern secure against chosen-ciphertext attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_56c176ea-7fa1-48d5-8971-47fa0aedec2b?mode=deep",
+    "timestamp": "2026-01-10 14:55:33.366816",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: EncryptDataV3()] [IV Uniqueness] Is there verification that the IV is unique for each encryption operation, or can IV reuse occur if multiple keys are encrypted simultaneously? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7ece8dbf-00bb-4fb9-b579-b359ccf56b52?mode=deep",
+    "timestamp": "2026-01-10 14:55:46.990180",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: getKDFKey()] [Salt Length] Is a 32-byte salt sufficient for security, or should longer salts be used for quantum resistance? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ac7f6e61-4cfd-44ce-9e73-69e1ec2d55ff?mode=deep",
+    "timestamp": "2026-01-10 14:56:01.134552",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: GetKey()] [Validator Key Access] Can timing differences in GetKey() execution reveal whether a keyfile exists, allowing attackers to enumerate validator addresses? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e82b10c2-c4cb-4f70-a53e-6a2daac81ef2?mode=deep",
+    "timestamp": "2026-01-10 14:56:16.889433",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: StoreKey()] [Backup Creation] Does StoreKey() create backup copies of keyfiles, and if so, are they properly secured and cleaned up? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f3a29509-78d5-4792-a294-e123ec3ec656?mode=deep",
+    "timestamp": "2026-01-10 14:56:33.680570",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: StoreKey()] [Key Overwrite] Can an attacker trigger StoreKey() to overwrite an existing validator keyfile with a different key, causing the validator to lose access to their funds? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d0123fb3-c401-44f3-92ad-66cf21597be5?mode=deep",
+    "timestamp": "2026-01-10 14:56:51.963499",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: GetKey()] [Address Verification] Is the address verification at line 93 sufficient to prevent an attacker from tricking a validator into loading the wrong key? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9f79971f-93b1-4303-8955-453753a6ce55?mode=deep",
+    "timestamp": "2026-01-10 14:57:11.220452",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: EncryptKey()] [JSON Format] Is the encryptedKeyJSONV3 format fully compatible with other Ethereum implementations, or can subtle differences cause interoperability issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_daea6b8f-39ef-439e-95ec-0555c9548061?mode=deep",
+    "timestamp": "2026-01-10 14:57:32.054403",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: DecryptKey()] [Format Detection] Can malformed keyfiles that partially match both V1 and V3 formats cause incorrect format detection and decryption failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b433f60a-55ec-4973-b567-600dea2f57f7?mode=deep",
+    "timestamp": "2026-01-10 14:57:53.236663",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: importPreSaleKey()] [Key Theft] Can an attacker provide malicious keyJSON that causes decryptPreSaleKey() to return a valid key with a controlled private key, allowing them to steal funds by importing a key they control into a victim's keystore? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_499c679c-e807-4309-835e-b113cc0f3282?mode=deep",
+    "timestamp": "2026-01-10 14:58:15.413021",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: importPreSaleKey()] [UUID Collision] If uuid.NewRandom() fails or returns a duplicate UUID, can this cause key overwrites in the keystore, potentially leading to loss of access to the original key and fund loss? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a3b1c340-4809-4be4-82b3-a5564cd7fd9d?mode=deep",
+    "timestamp": "2026-01-10 14:58:38.882257",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: importPreSaleKey()] [Race Condition] If importPreSaleKey() is called concurrently with the same keyJSON and password, can race conditions in keyStore.StoreKey() cause key corruption, partial writes, or one import overwriting another? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_61b737be-1c2f-473c-88cf-1dbc34fa69d9?mode=deep",
+    "timestamp": "2026-01-10 14:59:02.726116",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: importPreSaleKey()] [Error Handling] When decryptPreSaleKey() returns an error, is the partially constructed key object properly cleaned from memory, or does it leave sensitive private key material in memory that could be recovered through memory dumps? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a63f638b-9f6c-47db-ae5d-e75012eef05b?mode=deep",
+    "timestamp": "2026-01-10 14:59:27.148342",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: importPreSaleKey()] [Account URL Manipulation] Can an attacker manipulate the keyStore.JoinPath() result to cause the key to be stored at an arbitrary filesystem location outside the keystore directory, potentially overwriting critical system files or enabling directory traversal attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c03022af-80e7-4d4a-9097-b394255a71b2?mode=deep",
+    "timestamp": "2026-01-10 14:59:52.888093",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: importPreSaleKey()] [Partial Import] If keyStore.StoreKey() fails after the Account object is created, does the function properly clean up, or does it leave the account in an inconsistent state where the account exists but has no corresponding key file? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e2cc6b17-a506-4088-8253-527f7f95765c?mode=deep",
+    "timestamp": "2026-01-10 15:00:18.447486",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: importPreSaleKey()] [Memory Leak] When uuid.NewRandom() fails, is the decrypted key properly cleaned from memory, or does the function return leaving the private key material exposed in memory? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d75959fa-9761-4e02-be99-1dd01e2b3557?mode=deep",
+    "timestamp": "2026-01-10 15:00:43.078819",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: importPreSaleKey()] [DoS] Can an attacker repeatedly call importPreSaleKey() with malformed keyJSON that causes expensive decryption operations to fail late in the process, causing CPU/memory exhaustion DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7de291bb-e0c9-4ec9-8a46-51bca257e3e0?mode=deep",
+    "timestamp": "2026-01-10 15:01:08.315586",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [JSON Injection] Can an attacker craft malicious JSON in fileContent that exploits json.Unmarshal() to cause memory corruption, buffer overflows, or panic conditions that crash the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_19e6282e-73eb-4389-bf94-bc02991489c4?mode=deep",
+    "timestamp": "2026-01-10 15:01:36.367311",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [JSON Bomb] Can an attacker provide a deeply nested or extremely large JSON payload that causes json.Unmarshal() to consume excessive memory, leading to OOM and node crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8e967461-f2d8-41a0-84db-0ac7c073746d?mode=deep",
+    "timestamp": "2026-01-10 15:02:01.392563",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Type Confusion] Can the preSaleKeyStruct handle unexpected JSON types (e.g., numbers instead of strings, arrays, objects) without panicking or causing undefined behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6c792597-9d5d-4210-bcc5-eec0d4fd5c7b?mode=deep",
+    "timestamp": "2026-01-10 15:02:26.744580",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Missing Field Validation] Are missing JSON fields (EncSeed, EthAddr, Email, BtcAddr) handled safely, or can nil/empty string values cause crashes or security issues in subsequent processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_21c89a3f-8d87-434c-88a8-ac9060dc0006?mode=deep",
+    "timestamp": "2026-01-10 15:02:54.142507",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Extra Field Injection] Can an attacker inject additional JSON fields that are silently ignored but might interfere with other parts of the system if the struct is passed elsewhere? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1fb2eb48-7161-48bc-98bc-379524e7a228?mode=deep",
+    "timestamp": "2026-01-10 15:03:22.651614",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Invalid Hex] Can an attacker provide EncSeed with invalid hex characters that pass initial validation but cause errors in hex.DecodeString(), and does the error message leak information about the encryption scheme? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0c961640-29ce-4c36-be80-c5036c370b44?mode=deep",
+    "timestamp": "2026-01-10 15:03:49.624935",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Odd Length Hex] What happens if EncSeed has an odd number of hex characters? Does hex.DecodeString() handle this gracefully, or can it cause unexpected byte array lengths? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_db3fb74a-b773-4857-9e2e-f44236e1060b?mode=deep",
+    "timestamp": "2026-01-10 15:04:16.469255",
+    "report_generated": false
   }
 ]
