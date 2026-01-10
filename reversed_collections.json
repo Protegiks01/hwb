@@ -9448,5 +9448,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_49bd7895-51b8-4510-b3fe-5d74dd3a9f15?mode=deep",
     "timestamp": "2026-01-10 01:34:46.067475",
     "report_generated": false
+  },
+  {
+    "question": "[File: log/syslog.go] [Function: SyslogNetHandler()] [Resource leak] If syslog.Dial() succeeds but sharedSyslog() later fails or returns early, is the network connection properly closed, or does this create a connection leak that exhausts network resources over time? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b80fa1c0-60d8-4ce9-854b-93b4bc4145f5?mode=deep",
+    "timestamp": "2026-01-10 01:36:00.572933",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/syslog.go] [Function: SyslogNetHandler()] [DNS rebinding] If the 'addr' parameter contains a hostname rather than an IP address, can DNS rebinding attacks redirect syslog traffic to attacker-controlled servers after initial handler setup, enabling log interception? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dc4d21b6-3a93-49e8-b6ef-9625d000f758?mode=deep",
+    "timestamp": "2026-01-10 01:36:13.612860",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/syslog.go] [Function: SyslogNetHandler()] [Protocol confusion] Can an attacker specify an unexpected network protocol (e.g., 'udp', 'tcp', 'unix', 'unixgram') that causes different security behaviors in syslog.Dial(), potentially bypassing security controls or causing network stack issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e047dc52-7227-4890-9485-a1f10a4ba7ce?mode=deep",
+    "timestamp": "2026-01-10 01:36:26.661102",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/syslog.go] [Function: SyslogNetHandler()] [Connection hijacking] Does SyslogNetHandler() validate the 'net' and 'addr' parameters to prevent connection to attacker-controlled syslog servers, which could lead to sensitive blockchain logs (validator keys, transaction details, consensus state) being exfiltrated to malicious endpoints? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1207a142-63a0-4a8a-a5f0-e52fbe601bee?mode=deep",
+    "timestamp": "2026-01-10 01:36:41.015226",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/syslog.go] [Function: SyslogNetHandler()] [Network DoS] Can an attacker specify a slow or unresponsive network address in the 'addr' parameter that causes syslog.Dial() to block indefinitely during handler initialization, freezing the node's logging system and causing a DoS condition? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b6e6f209-7fcd-445d-a59e-abf4ff7f0d9c?mode=deep",
+    "timestamp": "2026-01-10 01:36:55.803692",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/syslog.go] [Function: SyslogHandler()] [Error handling] When syslog.New() returns an error, does the function properly handle all error cases (permission denied, system unavailable, etc.), or can certain error conditions be exploited to leave the handler in an inconsistent state? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d73cd335-6727-4890-a41e-9adde1d8ab1d?mode=deep",
+    "timestamp": "2026-01-10 01:37:11.640634",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/syslog.go] [Function: SyslogHandler()] [Format validation] Is the Format parameter (fmtr) validated before use, or can a malicious or malformed Format implementation be passed that causes panics, infinite loops, or excessive memory allocation when Format(r) is called in sharedSyslog()? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3623fbe4-b78b-4d6a-810c-30f6fc9984ff?mode=deep",
+    "timestamp": "2026-01-10 01:37:28.594871",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/syslog.go] [Function: SyslogHandler()] [Log injection] Can malicious content in the 'tag' parameter be used to inject special characters or escape sequences that manipulate syslog parsing on the receiving system, potentially causing log spoofing or command injection in downstream log processors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_59f6cffe-010a-46d8-9a32-6954aad8eeed?mode=deep",
+    "timestamp": "2026-01-10 01:37:47.845561",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/syslog.go] [Function: SyslogHandler()] [Privilege escalation] Does SyslogHandler() properly validate the syslog.Priority parameter before passing it to syslog.New(), or can an attacker manipulate the priority to LOG_EMERG or LOG_ALERT to trigger unauthorized system alerts or elevate logging privileges? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0a26e389-494a-47ad-acd4-77c14b75d522?mode=deep",
+    "timestamp": "2026-01-10 01:38:07.860623",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/syslog.go] [Function: SyslogHandler()] [Resource exhaustion] Can an attacker trigger repeated calls to SyslogHandler() with invalid priority or tag parameters to exhaust system resources by opening multiple syslog connections without proper cleanup, leading to file descriptor exhaustion and node DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a07c6007-4190-4cf6-8252-6af2a45d6c58?mode=deep",
+    "timestamp": "2026-01-10 01:38:29.103076",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: New()] [Context ownership] Who owns the context slice created by newContext(), and can improper ownership cause double-frees or use-after-free bugs? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b56c398e-5579-43d5-a674-f1e1e6322d8c?mode=deep",
+    "timestamp": "2026-01-10 01:38:52.095069",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: write()] [Context mutation] Can handlers mutate the Ctx slice in Record, affecting subsequent log operations that share context? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_09a41ebf-d41c-4ea0-8fee-9f05b4795613?mode=deep",
+    "timestamp": "2026-01-10 01:39:16.261215",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: normalize()] [Side effects] Does calling toArray() on the Ctx map at line 246 have any side effects that could affect the original map? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3c21d148-1e3e-4876-b772-f5ab6b18b178?mode=deep",
+    "timestamp": "2026-01-10 01:39:40.921197",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: normalize()] [Ctx type check] Does the type assertion ctx[0].(Ctx) at line 245 properly handle cases where ctx[0] implements the map interface but isn't actually a Ctx? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_432953e3-e0f7-406f-909d-225bef71ddda?mode=deep",
+    "timestamp": "2026-01-10 01:40:03.207946",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: newContext()] [Slice sharing] Does copy() at lines 204-205 create deep copies, or do nested slices/maps in context share references allowing external modification? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0e00feda-adc5-4aa3-b1bd-c86271f353aa?mode=deep",
+    "timestamp": "2026-01-10 01:40:27.048694",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Package: log] [Log correlation attacks] Can attackers use timing and content of logs to correlate validator identities with network peers, enabling targeted attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dab6e88d-04f8-466d-b742-c748127a2aea?mode=deep",
+    "timestamp": "2026-01-10 01:40:51.766619",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: Crit()] [Validator liveness] Can malicious triggering of Crit() during active validator slots cause missed blocks affecting chain liveness and network health metrics? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2fff3814-9358-4116-8944-ebb3d106b2e1?mode=deep",
+    "timestamp": "2026-01-10 01:41:16.193331",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: write()] [Block production interference] Can handlers blocking in Log() call cause write() to delay block production beyond acceptable latency thresholds? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c69a25fc-4e73-4fb4-8e9f-90e54ab686ab?mode=deep",
+    "timestamp": "2026-01-10 01:41:41.272425",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: Error()] [Error correlation] Can error logs be correlated across validators to deduce their network topology and identify targets for network partitioning attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dd16d5a5-057e-4aca-89af-f36543dfb86b?mode=deep",
+    "timestamp": "2026-01-10 01:42:04.656470",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: write()] [Consensus timing] Can excessive logging during consensus-critical sections cause timing delays that break INTURN block production windows, causing validators to miss their turns? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2e37d5ec-227c-4ed0-8d33-eea269a440ab?mode=deep",
+    "timestamp": "2026-01-10 01:42:26.853277",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: write()] [Timestamp manipulation] Can an attacker manipulate system time to cause time.Now() to return incorrect timestamps, breaking log chronology and forensic analysis? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d575faf2-3f6a-4570-82fd-219b612cbf52?mode=deep",
+    "timestamp": "2026-01-10 01:42:47.709208",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: Crit()] [Forced exits] Can an attacker trigger conditions that cause Crit() to be called repeatedly across multiple validators, systematically crashing the network through orchestrated os.Exit(1) calls? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e0213ec0-ade0-4a1e-95f2-0495e6df2044?mode=deep",
+    "timestamp": "2026-01-10 01:43:10.094690",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: New()] [Logger tree] Can an attacker create deeply nested child logger hierarchies through repeated New() calls, exhausting memory with inherited context chains? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8da66cb8-ea8e-41f4-bd5c-7b3a41c669ae?mode=deep",
+    "timestamp": "2026-01-10 01:43:34.509765",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: normalize()] [Context flooding] Can an attacker flood logs with contexts containing single-element Ctx maps that get expanded at line 246, causing excessive memory allocation and GC pressure? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2329b7fc-5d86-4a73-a860-9b768d731e3c?mode=deep",
+    "timestamp": "2026-01-10 01:43:59.470997",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/logger.go] [Function: write()] [Malicious context] Can an attacker inject malicious context values (like functions in Lazy, large byte arrays, or recursive structures) that cause handlers to crash or hang when processing records? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_884cff4e-d94d-4ac1-8a2d-156e2d207e37?mode=deep",
+    "timestamp": "2026-01-10 01:44:25.710214",
+    "report_generated": false
   }
 ]
