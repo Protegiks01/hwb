@@ -14248,5 +14248,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_34b7531e-fe87-4af7-8980-7ae5f49ebccc?mode=deep",
     "timestamp": "2026-01-10 17:35:14.388572",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: update()] [Race on quit channel] Multiple goroutines could theoretically send on am.quit if Close() is called concurrently - can this cause the update() loop to receive multiple quit signals and attempt double cleanup? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_475a842f-2dce-480e-a47b-616e464d4a52?mode=deep",
+    "timestamp": "2026-01-10 17:36:36.378798",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: Wallets()] [Data race] RWMutex is acquired at line 179, but if update() goroutine is modifying am.wallets (lines 140-142), can inconsistent slice headers be read even with the read lock? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4889161d-0be5-4612-8c96-677bcedbdaf9?mode=deep",
+    "timestamp": "2026-01-10 17:36:49.248243",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: walletsNoLock()] [Slice copy race] The copy operation at line 188 copies wallet interfaces - if underlying wallet objects are being modified concurrently (without locks), can this expose internal wallet state inconsistencies? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b9e000e3-cbb0-47f5-a905-d748082fc44b?mode=deep",
+    "timestamp": "2026-01-10 17:37:02.581230",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: walletsNoLock()] [Memory leak] A new slice is allocated at line 187 on every call - for nodes with many wallets and frequent Wallets() calls, can this cause excessive memory allocation and GC pressure? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dfcfa57e-1581-4c42-9b14-abbb0d44cbdb?mode=deep",
+    "timestamp": "2026-01-10 17:37:16.548663",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: Wallet()] [URL parsing DoS] parseURL() is called at line 197 with user-provided input - can maliciously crafted URLs cause parseURL() to panic, hang, or consume excessive resources, DoSing the node? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cafdbda2-994c-4c6d-b7fd-d2304131a96a?mode=deep",
+    "timestamp": "2026-01-10 17:37:31.216862",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: Wallet()] [TOCTOU race] Between parsing URL at line 197 and iterating wallets at line 201, can concurrent update() modify the wallet list causing the found wallet to be removed, returning a now-invalid wallet reference? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_706e0967-6424-46be-960e-427550ceba25?mode=deep",
+    "timestamp": "2026-01-10 17:37:47.264928",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: Wallet()] [Linear search DoS] The search at lines 201-205 is O(n) - can an attacker with many wallets cause performance degradation by repeatedly calling Wallet(), impacting validator performance? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8c888034-3bb6-4650-8a68-994c91421668?mode=deep",
+    "timestamp": "2026-01-10 17:38:04.212154",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: Accounts()] [Unbounded allocation] The addresses slice grows without bounds at line 217 - can a malicious backend register thousands of fake accounts, causing memory exhaustion when Accounts() is called? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5ba5a87a-eda4-45bd-a5c8-37b63da5cec1?mode=deep",
+    "timestamp": "2026-01-10 17:38:22.964415",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: Accounts()] [Wallet.Accounts() panic] No error handling exists for wallet.Accounts() at line 216 - if a malicious backend's Accounts() implementation panics, will this crash the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eaf5a208-6712-452d-b5bb-3293a28a9986?mode=deep",
+    "timestamp": "2026-01-10 17:38:44.196879",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: Accounts()] [Duplicate address handling] If multiple wallets contain the same account address, they're all returned at line 217 - can this cause confusion in transaction signing where the same address is seen multiple times? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e171bf83-46ab-4e57-a751-6cc8236c19ca?mode=deep",
+    "timestamp": "2026-01-10 17:39:05.379978",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: Accounts()] [Data race on wallet iteration] While iterating wallets at line 215, concurrent update() could modify am.wallets - even with read lock, can slice modification cause iteration over inconsistent data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4681e470-1054-4108-9639-64d360baff74?mode=deep",
+    "timestamp": "2026-01-10 17:39:26.934044",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: Find()] [Linear search complexity] Find() iterates all wallets at line 230 calling Contains() - can an attacker cause O(n*m) complexity by registering many wallets with many accounts, DoSing Find() operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_adde4091-269d-41bd-9526-9d3b515311a8?mode=deep",
+    "timestamp": "2026-01-10 17:39:50.324539",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: Find()] [wallet.Contains() side effects] No guarantee that wallet.Contains() is side-effect free - can malicious backend implementations use Contains() calls to trigger state changes or track access patterns? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_586234fb-04b6-42c0-8aed-63f57085c4ac?mode=deep",
+    "timestamp": "2026-01-10 17:40:15.133816",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: Find()] [TOCTOU vulnerability] Between finding the wallet at line 231 and returning it at line 232, can concurrent update() remove the wallet, returning a reference to a now-disconnected wallet that fails on subsequent operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b892b8b3-8805-4632-8fea-60a0fbe66005?mode=deep",
+    "timestamp": "2026-01-10 17:40:40.500799",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: Subscribe()] [Unbounded subscribers] No limit on feed.Subscribe() calls at line 241 - can an attacker create unlimited subscriptions, exhausting memory and creating a DoS condition? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ecf98aac-3e90-4c92-9baa-b25cb609d4fa?mode=deep",
+    "timestamp": "2026-01-10 17:41:06.551189",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: Subscribe()] [Channel not validated] The sink channel is not validated before passing to feed.Subscribe() - can passing a nil channel cause panics in the event feed implementation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_49f4c494-0e5d-4014-a951-db14ad65ae01?mode=deep",
+    "timestamp": "2026-01-10 17:41:31.372139",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: Subscribe()] [Subscriber blocking] If a subscriber's channel becomes full and blocks, can this block the feed.Send() at line 147, preventing all wallet events from being processed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_457c766c-cdc5-45b0-bc97-7ed2e04ce7b1?mode=deep",
+    "timestamp": "2026-01-10 17:41:57.528722",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: Subscribe()] [Event replay attack] No protection against subscribing and immediately receiving stale events - can an attacker subscribe and unsubscribe rapidly to cause event processing overhead? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0ed29cc7-da65-4298-bfd9-a9e58193fa24?mode=deep",
+    "timestamp": "2026-01-10 17:42:24.180836",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: merge()] [Slice append race] Multiple slice append operations at lines 252, 255 create new backing arrays - if called concurrently with the same slice, can this corrupt the slice structure? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_708462fa-287b-42ae-8e6c-75935a94febb?mode=deep",
+    "timestamp": "2026-01-10 17:42:53.150435",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: merge()] [Sort assumption violation] merge() assumes input slice is sorted at line 248 but never validates this - can unsorted input cause incorrect insertion positions, leading to wallet lookup failures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_619ea10d-7ce0-4aab-828e-b2da5127794f?mode=deep",
+    "timestamp": "2026-01-10 17:43:22.533757",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: merge()] [URL.Cmp panic] If wallet.URL() returns nil or invalid URL at line 250, can this cause Cmp() to panic, crashing the update() goroutine? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f0434ccc-bd74-4484-843c-32bb3cfc81c0?mode=deep",
+    "timestamp": "2026-01-10 17:43:50.506805",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: merge()] [Duplicate detection failure] The comparison at line 250 uses >= for insertion point but doesn't check for equality - can identical URLs cause duplicate wallet entries to be inserted? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6b50c06b-1a69-4c2d-8229-e9817f8933b0?mode=deep",
+    "timestamp": "2026-01-10 17:44:18.616693",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: merge()] [Slice growth DoS] Each merge appends wallets without bounds checking - can an attacker registering unlimited wallets cause unbounded slice growth and memory exhaustion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ee4ba913-1406-4421-8bb4-4ee8bc827df8?mode=deep",
+    "timestamp": "2026-01-10 17:44:47.119569",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: merge()] [slice[n:] out of bounds] If len(slice) is 0 and n is 0, the append at line 255 does slice[:0] which is valid, but is there any edge case where n > len(slice) causing out of bounds panic? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b41bb9ee-65ff-410b-b0f6-732f4d4fc350?mode=deep",
+    "timestamp": "2026-01-10 17:45:14.705449",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: merge()] [Inner append allocation] The nested append at line 255 creates temporary slices - can rapid merge operations cause excessive memory allocation and garbage collection pauses affecting validator timing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4327e510-42e2-4dd3-b233-bf6e7bbd317d?mode=deep",
+    "timestamp": "2026-01-10 17:45:39.842380",
+    "report_generated": false
   }
 ]
