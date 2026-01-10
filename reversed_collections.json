@@ -19186,5 +19186,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_319792a6-fc8a-4099-a049-da3185eb9462?mode=deep",
     "timestamp": "2026-01-10 14:47:06.676834",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Function: SetCapacity()] [Priority estimation manipulation] At lines 240-242, estimatePriority() is called with client-controlled addBalance=0. Can a malicious client manipulate their balance externally to make the estimate inaccurate? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_df00ce11-e7f8-4bd7-ac25-19223584a6ea?mode=deep",
+    "timestamp": "2026-01-10 14:48:31.211753",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Function: SetCapacity()] [Capacity curve DoS] At line 239, getCapacityCurve() is called which performs complex calculations. Can an attacker trigger this repeatedly to cause CPU exhaustion DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c909d01f-9a32-4993-ae4c-d1c688cf972a?mode=deep",
+    "timestamp": "2026-01-10 14:48:44.132463",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Function: SetCapacity()] [capReqNode race] At lines 221-228, capReqNode is set without proper synchronization. Can concurrent SetCapacity() calls on different nodes cause capReqNode to leak into the wrong callback? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_949ca170-9005-4c95-ba3f-96b6d247acb1?mode=deep",
+    "timestamp": "2026-01-10 14:48:57.505438",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Function: SetCapacity()] [Early return bypass] At lines 218-220, the function returns if reqCap == capacity. Can this prevent necessary priority updates or callback triggers that should occur even when capacity doesn't change? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ae7b2a71-a4c8-4be0-b581-47ee6c659ff2?mode=deep",
+    "timestamp": "2026-01-10 14:49:11.444951",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Function: SetCapacity()] [Priority check bypass] At lines 214-217, the priority flag check can be bypassed if reqCap == minCap. Can non-priority clients exploit this to maintain minCap indefinitely without proper balance? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5f468a18-7c6a-4df2-83c5-df9b93662189?mode=deep",
+    "timestamp": "2026-01-10 14:49:26.436594",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Function: SetCapacity()] [MinCap bypass] At lines 209-213, reqCap is forced to minCap if below. Can a client request 0 capacity repeatedly to trigger unnecessary state machine operations causing DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bf7b2a31-9d1a-41f7-a385-131963a89967?mode=deep",
+    "timestamp": "2026-01-10 14:49:42.502319",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Function: SetCapacity()] [Capacity zero handling] At lines 204-208, if capacity is 0 (inactive), the function returns early. Can an attacker exploit this by rapidly toggling between active and inactive to avoid capacity reductions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eefce828-0396-4d89-9123-1efe9ffa0ef1?mode=deep",
+    "timestamp": "2026-01-10 14:49:59.761653",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Function: SetCapacity()] [Balance nil check] At lines 198-202, if the balance is nil, the function returns ErrNotConnected. But can a race condition allow the balance to become nil after the check but before capacity operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4218ce1a-7b45-452c-a52a-f881afa24a04?mode=deep",
+    "timestamp": "2026-01-10 14:50:18.942388",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Function: SetCapacity()] [Integer overflow] At line 250, the calculation 'maxTarget - maxTarget/20' could theoretically underflow if maxTarget is very small. Can this cause minTarget > maxTarget leading to incorrect capacity allocation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_40c4c3d5-cf80-431e-b76d-7b2db8cecc2b?mode=deep",
+    "timestamp": "2026-01-10 14:50:39.339657",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Function: SetCapacity()] [Race condition] At lines 191-195, the connectedBias is read without holding the lock during the bias comparison. Can a concurrent SetConnectedBias() call cause the wrong bias value to be used in capacity calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_755ac70a-b45e-45c3-b199-5ceca131611b?mode=deep",
+    "timestamp": "2026-01-10 14:51:00.238010",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Function: SetConnectedBias()] [Negative duration] What happens if a negative or zero bias is set? Can this cause priority calculation errors or allow immediate eviction of connected clients? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fb51d460-4463-45f1-9b24-28cde0d04e31?mode=deep",
+    "timestamp": "2026-01-10 14:51:22.574936",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Function: SetConnectedBias()] [Lock ordering] Does the lock acquisition order (cp.lock then setActiveBias which may acquire other locks) match other functions? Can this cause deadlocks with priorityPool operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ec08b9d6-18ce-4f28-9880-c04130eb71d0?mode=deep",
+    "timestamp": "2026-01-10 14:51:46.810114",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Function: SetConnectedBias()] [Race condition] Can concurrent calls to SetConnectedBias() and SetCapacity() cause inconsistent bias values to be used in capacity calculations, allowing clients to game the priority system? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6e9af96f-ba36-4f6c-9677-ef80e07c95fc?mode=deep",
+    "timestamp": "2026-01-10 14:52:11.581016",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Function: Unregister()] [Cleanup bypass] Does Unregister() properly clear all state machine fields? Can leftover balanceField or capacityField entries cause issues when the node reconnects? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f56d5240-a3b4-456d-ae29-677ee620748e?mode=deep",
+    "timestamp": "2026-01-10 14:52:38.291934",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Function: Unregister()] [Race condition] Can calling Unregister() while SetCapacity() is executing for the same node cause inconsistent state where capacity is updated after the node is unregistered? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3ad83879-ed52-4415-a036-9891e06f5c72?mode=deep",
+    "timestamp": "2026-01-10 14:53:05.715460",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Function: Register()] [Wrapper bypass] The peerWrapper wraps the clientPeer - can an attacker provide a malicious clientPeer implementation that returns inconsistent Node() results to corrupt the internal state mappings? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_74b14e72-4da9-4d8c-a796-1739135c6ed8?mode=deep",
+    "timestamp": "2026-01-10 14:53:33.919192",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Function: Register()] [Double registration] Can a client call Register() multiple times with the same or different clientPeer objects, potentially corrupting the nodestate fields or causing duplicate entries in priority queues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ed455f35-6f1c-4520-aa9a-7c62df391a40?mode=deep",
+    "timestamp": "2026-01-10 14:54:04.188053",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Function: Register()] [Nil balance] What happens if the balance field is nil after registration? Can a malicious client register without a proper balance object causing nil pointer dereferences in capacity calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bdc639f5-1c88-4fc1-8a28-25ba9b2c2378?mode=deep",
+    "timestamp": "2026-01-10 14:54:33.587034",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Function: Stop()] [Callback ordering] After Stop() is called, can pending callbacks in the balanceTracker still execute and call UpdateCapacity() on disconnected clients causing panics or inconsistent state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_48ef5f3c-daa2-43db-8490-9b5bf93d0e9d?mode=deep",
+    "timestamp": "2026-01-10 14:55:02.873240",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Function: Stop()] [Resource leak] Does Stop() properly clean up all registered nodes? Can a race between Stop() and Register() leave nodes in a partially registered state causing memory leaks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0777f815-89ab-41b2-81d2-87e295754c6a?mode=deep",
+    "timestamp": "2026-01-10 14:55:33.602569",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Function: Start()] [Initialization race] If Register() is called before Start() completes, can this cause nodes to be registered in an uninitialized state machine, leading to missing state subscriptions or callbacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2f6797d8-7281-4cd2-8ca8-1860ee6ffaf8?mode=deep",
+    "timestamp": "2026-01-10 14:56:04.379232",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Function: NewClientPool()] [Metrics logic error] At lines 139-143, the metrics logic appears to check oldState instead of newState - can this cause incorrect metric updates that mask DoS attacks or capacity exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b61f2eaf-0a15-40f7-98f1-484ec1777feb?mode=deep",
+    "timestamp": "2026-01-10 14:56:34.167357",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Function: NewClientPool()] [Metrics race condition] At lines 132-149, can concurrent state changes cause the metrics (clientConnectedMeter, activeCount, etc.) to become desynchronized from actual pool state, leading to incorrect capacity allocation decisions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_21897dd6-9e51-4e81-b18c-e111eec23731?mode=deep",
+    "timestamp": "2026-01-10 14:57:02.184129",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Function: NewClientPool()] [Callback reentrancy] In the capacity field subscription at lines 124-129, can the UpdateCapacity() callback trigger state changes that reenter the ClientPool causing deadlocks or inconsistent state updates? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_820e219e-e058-4328-bf68-8faca781f798?mode=deep",
+    "timestamp": "2026-01-10 14:57:30.090026",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Function: NewClientPool()] [Disconnect bypass] At lines 117-121, when both flags are empty, can a client avoid disconnection by rapidly re-registering before the Disconnect() call completes, leading to resource leaks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_795d78de-e919-420a-ad90-b249988db38f?mode=deep",
+    "timestamp": "2026-01-10 14:57:55.220522",
+    "report_generated": false
   }
 ]
