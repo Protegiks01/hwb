@@ -12598,5 +12598,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c15da246-f107-4ff6-a7d5-c049371cb101?mode=deep",
     "timestamp": "2026-01-10 15:44:03.565128",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Tamper Detection] Is there any authentication/MAC to detect if the presale JSON has been tampered with? Can modified EncSeed values be detected? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a9626f2d-e0b9-4e13-8de9-908453d8e87a?mode=deep",
+    "timestamp": "2026-01-10 15:45:18.726120",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Integrity Check] Beyond address comparison, is there any integrity verification of the decrypted seed? Can corrupted but decryptable data be caught? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6bb3b943-5921-49f1-980a-916595b889ec?mode=deep",
+    "timestamp": "2026-01-10 15:45:31.771787",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: importPreSaleKey()] [Duplicate Import] Can the same presale key be imported multiple times creating duplicate key files with different UUIDs but same private key? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a8f30f0e-4538-401b-92e8-b7d7abf97cbb?mode=deep",
+    "timestamp": "2026-01-10 15:45:45.024984",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Presale Format] Is the presale JSON format fully compatible with the original Ethereum presale? Can legacy presale files be imported successfully? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_34ad1cc7-066a-4150-93b9-b461478156ff?mode=deep",
+    "timestamp": "2026-01-10 15:45:58.993921",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Pyethsaletool Compatibility] The comment references pyethsaletool - are there any differences in implementation that could cause incompatibility? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4f75d9e7-c3f3-4a02-9996-7bc6cd2c604e?mode=deep",
+    "timestamp": "2026-01-10 15:46:13.668073",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Endianness] Are there any endianness assumptions in the decryption that could cause issues on different architectures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_20bddb5f-9601-4081-938f-89ec18586a27?mode=deep",
+    "timestamp": "2026-01-10 15:46:28.508761",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Collision Resistance] If two different passwords produce the same derived key (collision in PBKDF2), can both successfully decrypt the same presale key? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9611255b-0c35-4ddc-9d44-eecd118707c9?mode=deep",
+    "timestamp": "2026-01-10 15:46:45.917585",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Weak Seed] If the decrypted seed is weak or has low entropy, does Keccak256 provide sufficient avalanche effect to produce a secure private key? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f17cb614-29f3-4b00-933f-b005a80cdcd8?mode=deep",
+    "timestamp": "2026-01-10 15:47:05.374912",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: importPreSaleKey()] [Path Traversal] Can the keyFileName() function be exploited to create files outside the keystore directory through directory traversal? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b8e9d518-c633-4338-951d-820b70b9755a?mode=deep",
+    "timestamp": "2026-01-10 15:47:26.426285",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: importPreSaleKey()] [Symlink Attack] Can an attacker create symlinks in the keystore directory that cause key files to be written to arbitrary locations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_52283712-8a4b-4ad1-986a-2d76e2bc5e98?mode=deep",
+    "timestamp": "2026-01-10 15:47:48.587247",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: importPreSaleKey()] [Race Condition TOCTOU] Is there a time-of-check-time-of-use race between checking if a key exists and writing it? Can this cause key overwrites? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5fa5b9ab-c985-41c8-ba5e-38fff2b8563c?mode=deep",
+    "timestamp": "2026-01-10 15:48:11.157058",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Email/BtcAddr Fields] The JSON contains Email and BtcAddr fields that are parsed but never used. Can these fields contain malicious data that affects other parts of the system? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_55c1c8b7-8430-4caf-bf6c-b7aa903ce1f9?mode=deep",
+    "timestamp": "2026-01-10 15:48:35.225496",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: aesCTRXOR()] [Stream Cipher Reuse] If aesCTRXOR() is ever used with the same key+IV combination multiple times, does this completely break the encryption security? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f767fa1f-23fc-496a-9666-1430884d3bb3?mode=deep",
+    "timestamp": "2026-01-10 15:48:59.401005",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: aesCBCDecrypt()] [IV Disclosure] Since the IV is prepended to the ciphertext, is it safe to expose the IV to attackers? Does this reduce security? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3627c351-8d06-4ea8-9daa-378a38d07a28?mode=deep",
+    "timestamp": "2026-01-10 15:49:24.420696",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: pkcs7Unpad()] [All-Padding Block] If the last block consists entirely of valid padding bytes, is it correctly removed, or can this cause the entire last block to be incorrectly stripped? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9d47d85b-1c06-485c-aebb-b92c72c36207?mode=deep",
+    "timestamp": "2026-01-10 15:49:49.706730",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Multiple Decrypt Attempts] If an attacker makes multiple decryption attempts with different passwords, does each failure leak information that helps subsequent attempts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c3aaf4b2-b41d-4354-bacd-d2456b1daa3a?mode=deep",
+    "timestamp": "2026-01-10 15:50:16.147953",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: importPreSaleKey()] [Partial Write] If keyStore.StoreKey() fails partway through writing, can this leave a corrupted key file that causes issues on subsequent reads? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_44ff8b07-197e-4088-9cf6-53d38ad47357?mode=deep",
+    "timestamp": "2026-01-10 15:50:42.848034",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Password Normalization] Are passwords normalized (e.g., Unicode normalization) before use? Can equivalent passwords in different representations produce different keys? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_83ec6755-1809-4b04-845a-1361822eb05b?mode=deep",
+    "timestamp": "2026-01-10 15:51:11.119797",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: Contains()] [Authorization bypass] In the Contains() function at line 68-70, the check uses `account.URL == (accounts.URL{})` to allow empty URLs - can an attacker craft an Account with a zero-value URL to bypass the URL matching requirement and gain unauthorized access to sign transactions for any address that matches, potentially enabling cross-account signing attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2073e701-3ecd-4f3c-ba69-52df4f7d1a6f?mode=deep",
+    "timestamp": "2026-01-10 15:51:38.522002",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: Contains()] [Account validation] Does the Contains() function at line 68-70 properly validate that the account.Address is not zero address before comparison, or can an attacker pass a zero address to bypass account ownership checks and sign transactions with any wallet in the keystore? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fdf83cca-c3eb-4647-b995-0601cbddff6d?mode=deep",
+    "timestamp": "2026-01-10 15:52:05.036720",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: signHash()] [Account leakage] In signHash() at line 87-94, the comment mentions 'avoid account leakage' - but does the Contains() check at line 89 properly prevent account leakage when multiple keystoreWallet instances share the same underlying KeyStore, potentially allowing one wallet to sign for accounts in another wallet? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_49e2db81-44cd-4210-98e1-a05d680a2730?mode=deep",
+    "timestamp": "2026-01-10 15:52:26.093531",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: SignTx()] [Account validation] In SignTx() at line 132-139, if an attacker calls this with an account that has the correct Address but incorrect URL, does the Contains() check properly reject it, or can URL manipulation allow signing with the wrong account credentials? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2b19019a-f018-4987-8d95-3f4e2bbea04f?mode=deep",
+    "timestamp": "2026-01-10 15:52:47.601615",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: SignTxWithPassphrase()] [Account validation] In SignTxWithPassphrase() at line 143-150, does the Contains() check at line 145 properly prevent an attacker from signing transactions for accounts not owned by this specific wallet instance when multiple wallets share the same keystore backend? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8ddcf1d5-88b0-467e-a102-3aa5c3131c2b?mode=deep",
+    "timestamp": "2026-01-10 15:53:10.136602",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: Status()] [Race condition] In Status() at line 42-50, the function acquires RLock on w.keystore.mu and checks w.keystore.unlocked map - is there a race condition where an account could be unlocked/locked between the RLock acquisition and map check, leading to incorrect status reporting that could be exploited for timing attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fac17897-0b84-4aef-a9cc-cbe585c1c25d?mode=deep",
+    "timestamp": "2026-01-10 15:53:33.109979",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: Status()] [TOCTOU] Does the Status() function at line 42-50 have a Time-Of-Check-Time-Of-Use vulnerability where status is checked as 'Unlocked' but the account gets locked immediately after, allowing an attacker to make decisions based on stale status information? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7ffa684e-ab41-4622-840e-bd83f60d111e?mode=deep",
+    "timestamp": "2026-01-10 15:53:57.893293",
+    "report_generated": false
   }
 ]
