@@ -11998,5 +11998,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3efae8f5-42a4-4f13-8bf3-8ba6acbd7d0b?mode=deep",
     "timestamp": "2026-01-10 04:22:41.011964",
     "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: JSONFormatEx()] [Array access] Line 275 accesses r.Ctx[i+1] in the loop without proper bounds validation - can this cause index out of bounds panics when logging malformed peer messages, enabling DoS attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_24b32f29-44d0-4325-af87-d8a6fb4e3d6b?mode=deep",
+    "timestamp": "2026-01-10 04:24:06.960674",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: JSONFormatOrderedEx()] [Array access] Line 234 accesses r.Ctx[i+1] without checking if i+1 is within bounds - can malformed log records with odd-length Ctx arrays cause panics that crash nodes during transaction pool operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_42fe3694-656e-4e49-bf19-d5cb97b7bea3?mode=deep",
+    "timestamp": "2026-01-10 04:24:20.244567",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: logfmt()] [Bounds checking] The loop at line 164 accesses ctx[i+1] without bounds checking - can an attacker trigger logging with odd-length context slices causing out-of-bounds access and node crash during validator block signing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f04f11ec-cd0a-4d79-815e-f65a0aa3906d?mode=deep",
+    "timestamp": "2026-01-10 04:24:33.653101",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: formatLogfmtValue()] [Nil pointer] If a nil TerminalStringer is passed (line 360-363), can this cause a panic when TerminalString() is called, crashing nodes during critical block propagation logging? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4379caca-b449-4ef3-a977-4bfb269af0ba?mode=deep",
+    "timestamp": "2026-01-10 04:24:47.175731",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: formatShared()] [Panic handling] The recover() at line 296 catches panics for nil pointer values, but re-panics for other errors (line 300) - can an attacker craft log contexts with specific types that trigger unrecoverable panics, crashing validator nodes during consensus operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_88e26597-cdf9-4ff6-a42a-4c4a2fcb56ef?mode=deep",
+    "timestamp": "2026-01-10 04:25:02.003527",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Global variable] [Race condition] The fieldPadding map is accessed without locks in some code paths - can malicious nodes trigger concurrent map writes causing a panic that crashes the node during critical block validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_caeda83e-52c1-473c-b577-3e362df6accb?mode=deep",
+    "timestamp": "2026-01-10 04:25:18.120088",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: TerminalFormat()] [Race condition] Can concurrent goroutines calling TerminalFormat() cause a race condition when updating atomic locationLength (lines 119-122), resulting in inconsistent log alignment that could hide critical consensus failure messages? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e48974ae-71f5-41cd-839c-6bc3c10658a3?mode=deep",
+    "timestamp": "2026-01-10 04:25:35.790378",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: logfmt()] [Race condition] The fieldPaddingLock is released between RLock (line 178-180) and Lock (line 186-188) - can an attacker trigger concurrent log writes that cause race conditions in fieldPadding map updates, leading to corrupted padding values and malformed logs that obscure validator misbehavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_61366386-4497-4422-af3c-29cc1da87d6f?mode=deep",
+    "timestamp": "2026-01-10 04:25:55.750637",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: PrintOrigins()] [Race condition] Can concurrent calls to PrintOrigins() create a race condition with atomic.LoadUint32(&locationEnabled) checks in TerminalFormat(), potentially causing inconsistent log format output that could mask critical security events during a validator compromise? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6d092b22-ce9d-417d-85ed-7e1eb474451b?mode=deep",
+    "timestamp": "2026-01-10 04:26:16.900393",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Relay Backend] [Relay backend attack] Can malicious relay backend call back into pool methods causing deadlock or reentrancy issues? (\n\n### Citations\n\n**File:** light/txpool.go (L52-74)\n```go\ntype TxPool struct {\n\tconfig       *params.ChainConfig\n\tsigner       types.Signer\n\tquit         chan bool\n\ttxFeed       event.Feed\n\tscope        event.SubscriptionScope\n\tchainHeadCh  chan core.ChainHeadEvent\n\tchainHeadSub event.Subscription\n\tmu           sync.RWMutex\n\tchain        *LightChain\n\todr          OdrBackend\n\tchainDb      ethdb.Database\n\trelay        TxRelayBackend\n\thead         common.Hash\n\tnonce        map[common.Address]uint64            //",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8ba5f079-b3c5-45a7-901f-f3134bcea72d?mode=deep",
+    "timestamp": "2026-01-10 04:26:39.152011",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Relay Backend] [Nil relay backend] If pool is initialized with nil relay, do relay calls panic, or is there nil checking? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8bdc31fa-cf0b-439b-9694-bce9e3bde885?mode=deep",
+    "timestamp": "2026-01-10 04:27:01.821778",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Relay Backend] [Blocking relay backend] If relay.Send(), relay.NewHead(), or relay.Discard() block indefinitely, can this freeze the pool since they're called under lock? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_755f809e-fc7f-47ce-9809-351f5eb59822?mode=deep",
+    "timestamp": "2026-01-10 04:27:25.999482",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Validation] [Signature v value] Is the v value in transaction signature properly validated for EIP-155 and different fork rules? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f1594c61-57f8-4fcc-abf9-d80146c260f3?mode=deep",
+    "timestamp": "2026-01-10 04:27:50.283805",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Validation] [Chain ID validation] Is transaction chain ID validated against current chain config, or can transactions for wrong chain be accepted? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_120fb91e-3add-439d-9bf1-7edaa686a054?mode=deep",
+    "timestamp": "2026-01-10 04:28:15.739350",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Validation] [Contract creation validation] For contract creation transactions (to=nil), are there additional validations beyond normal transactions, or can malformed creation transactions pass? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_97d40e1f-91de-4749-9060-3aa60fe9c87a?mode=deep",
+    "timestamp": "2026-01-10 04:28:41.477418",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Validation] [Max gas limit transactions] Can transactions with gas=block.GasLimit be used to guarantee they can't fit in blocks, permanently occupying pool slots? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_954ce799-10b9-4a75-a63f-229c8378a90e?mode=deep",
+    "timestamp": "2026-01-10 04:29:07.264002",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Validation] [Zero gas price transactions] Are transactions with gasPrice=0 accepted, and can they be used for DoS by filling pool with non-profitable transactions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c5dc1faf-585a-4f62-817c-e8055d1b719e?mode=deep",
+    "timestamp": "2026-01-10 04:29:32.488095",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [State Consistency] [ClearIdx tracking] Can pool.clearIdx drift from actual chain state if reorgs happen at boundaries, causing incorrect cleanup? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1f994c33-01d3-4782-8af1-85972a0fdcc5?mode=deep",
+    "timestamp": "2026-01-10 04:29:57.732549",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [State Consistency] [Head tracking inconsistency] If pool.head doesn't match chain.CurrentHeader() due to failed reorg, can all validations fail permanently? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c5e44018-6d28-4377-baea-27c2b9ef7a27?mode=deep",
+    "timestamp": "2026-01-10 04:30:23.539915",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [State Consistency] [Database/memory divergence] If database operations fail but memory state is updated, can pool become permanently inconsistent after restart? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c7ef8698-5886-4028-a8be-e41536580aca?mode=deep",
+    "timestamp": "2026-01-10 04:30:49.999631",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [State Consistency] [Pending/mined boundary] Can a transaction exist in both pool.pending and pool.mined simultaneously due to race conditions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6243dac6-afc7-4ee3-8cf3-4940b96e7d55?mode=deep",
+    "timestamp": "2026-01-10 04:31:14.661305",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Resource Management] [Database key space exhaustion] Transaction hashes are stored directly as keys - can attacker exhaust database key space with many transactions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_98d1955c-51a4-4c1a-9e68-cba5636cf3fb?mode=deep",
+    "timestamp": "2026-01-10 04:31:40.005001",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Resource Management] [Channel buffer exhaustion] If chainHeadCh buffer (size 10) fills up during rapid block production, what happens to new events? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1939c4bc-159c-4997-8e52-0c80fa557f01?mode=deep",
+    "timestamp": "2026-01-10 04:32:05.003893",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Resource Management] [Goroutine leak from txFeed] Each add() spawns goroutine for txFeed.Send() - if events aren't consumed, do these goroutines leak? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_87e856ad-e0e8-4737-883b-c26bfef31640?mode=deep",
+    "timestamp": "2026-01-10 04:32:29.893257",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Resource Management] [Unbounded mined growth] If cleanup loop in reorgOnNewHead() fails to run (due to number arithmetic issues), can pool.mined grow indefinitely? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9fd61360-a9fa-49cb-bdb0-0852ce4f041f?mode=deep",
+    "timestamp": "2026-01-10 04:32:56.118595",
+    "report_generated": false
   }
 ]
