@@ -15598,5 +15598,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2c198df4-446d-4cc6-a1d9-9455da4ba9d2?mode=deep",
     "timestamp": "2026-01-10 19:27:56.068902",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: mutuallyAuthenticate()] [Response Length] The code checks len(response.Data) != scSecretLength at line 184-186, but doesn't validate if the response data relates to the challenge sent - can an attacker replay old authentication responses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cc192504-d24e-48da-8c60-36b4892ea9a0?mode=deep",
+    "timestamp": "2026-01-10 19:29:22.409661",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: mutuallyAuthenticate()] [One-Way Authentication] The function sends a challenge to the card but doesn't verify a cryptographic relationship between the challenge and response - is this truly mutual authentication or just a liveness check? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a7a87ef4-5222-4ae2-b075-037e3d228529?mode=deep",
+    "timestamp": "2026-01-10 19:29:35.495364",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: mutuallyAuthenticate()] [Missing Host-to-Card Auth] The card verifies the host's knowledge of session keys through transmitEncrypted, but does the host verify the card's response proves the card knows the session keys, or can a MitM attacker relay messages? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c32704b2-a141-4ef8-98b6-2a386e19d6fa?mode=deep",
+    "timestamp": "2026-01-10 19:29:48.898478",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: transmitEncrypted()] [Nil IV Check] The function checks if s.iv == nil at line 217-219, but can iv be an empty slice [] which passes the nil check but causes issues in encryption operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_27c384a3-c155-4a35-a649-9e1580d6e5ba?mode=deep",
+    "timestamp": "2026-01-10 19:30:02.590050",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: transmitEncrypted()] [MAC-then-Encrypt] The code uses encrypt-then-MAC pattern (encrypts at line 221-224, then updates IV/MAC at line 226-228), but the MAC is computed before the final MAC check on response - can this ordering enable chosen-ciphertext attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7fa5f459-728b-4d94-b859-2d8bdc839d0e?mode=deep",
+    "timestamp": "2026-01-10 19:30:17.113846",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: transmitEncrypted()] [IV Mutation During Processing] The IV is updated at line 226 before the message is sent and again at line 253 after receiving response - if transmission fails between these updates, is the IV left in an inconsistent state breaking future message authenticity? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2d014e6d-a1f8-47e0-a190-f660e1a14a98?mode=deep",
+    "timestamp": "2026-01-10 19:30:32.793227",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: transmitEncrypted()] [MAC Verification Timing] The MAC comparison at line 256 uses bytes.Equal - is this constant-time, or can timing side-channels allow an attacker to forge valid MACs through online brute-force bit-by-bit? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4065d99f-b6bf-4b65-ad2f-245015db20b2?mode=deep",
+    "timestamp": "2026-01-10 19:30:50.063028",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: transmitEncrypted()] [Decrypt Before MAC Verify] The response is decrypted at line 248-251 BEFORE MAC verification at line 256 - does this enable padding oracle attacks where an attacker can learn plaintext by observing decryption errors vs MAC errors? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1687f499-7872-4dcf-b2a8-f26b1ab1c3a6?mode=deep",
+    "timestamp": "2026-01-10 19:31:09.768845",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: transmitEncrypted()] [Response Length Manipulation] The rmeta is constructed from len(response.Data) at line 245, and data is accessed at lines 246-247 without validating minimum length - can a malformed response with len < len(s.iv) cause slice out-of-bounds panic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f2a62b7f-dc17-4e79-ba69-662f4c457403?mode=deep",
+    "timestamp": "2026-01-10 19:31:30.210821",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: transmitEncrypted()] [MAC Position] The MAC is extracted from response.Data[:len(s.iv)] at line 246 assuming MAC comes first, but is this position standardized and validated, or can an attacker manipulate the response structure? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_de76d776-dfac-45ea-9b43-4b866c099cda?mode=deep",
+    "timestamp": "2026-01-10 19:31:52.505584",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: transmitEncrypted()] [Status Code Check Order] The status code is checked at line 263-265 AFTER MAC verification - should status codes indicating errors be checked before attempting MAC verification to prevent oracle attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_634027a5-a4d6-4172-8fd8-d7b03284044d?mode=deep",
+    "timestamp": "2026-01-10 19:32:15.509674",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: transmitEncrypted()] [Error Information Leak] Different error messages at lines 219, 258, 265 could leak information about which validation step failed, enabling adaptive chosen-ciphertext attacks - should errors be uniform? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_12a7f59e-9cb8-4bb8-b3c5-66d51ae9a5ba?mode=deep",
+    "timestamp": "2026-01-10 19:32:39.164100",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: transmitEncrypted()] [Concurrent Access] If multiple goroutines call transmitEncrypted simultaneously, can they race on s.iv updates (lines 226, 253) causing IV desynchronization and all future messages failing MAC verification? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bc0e869f-50bb-4608-b535-354fa7c24a1e?mode=deep",
+    "timestamp": "2026-01-10 19:33:04.130591",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: transmitEncrypted()] [IV Overflow] After many messages, can the IV update mechanism cause the IV to reach a predictable or repeated state enabling cryptographic attacks on the AES-CBC cipher? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4fa9cd3b-33c4-4eba-ac14-1d69a3303fa9?mode=deep",
+    "timestamp": "2026-01-10 19:33:30.551302",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: transmitEncrypted()] [Metadata Construction] The meta array at line 225 includes len(data)+scBlockSize - if data length is manipulated to cause integer overflow in the addition, can this create MAC mismatches or bypass MAC verification? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_08869a8a-e785-4a4c-811e-bf77be57d5a4?mode=deep",
+    "timestamp": "2026-01-10 19:33:55.438212",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: encryptAPDU()] [Payload Size Check] The maxPayloadSize check at line 272-274 uses 223 bytes - can an attacker send exactly maxPayloadSize bytes that after padding exceed buffer limits causing issues in subsequent operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_924b3794-c804-4337-b45b-7fcd414baa90?mode=deep",
+    "timestamp": "2026-01-10 19:34:21.101693",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: encryptAPDU()] [Padding Oracle Setup] The padding is applied with pad(data, 0x80) at line 275 - if decryption errors are distinguishable from padding errors, does this create a padding oracle allowing plaintext recovery? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6c9a600b-7ba6-4214-bd96-35f4624546f5?mode=deep",
+    "timestamp": "2026-01-10 19:34:47.061608",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: encryptAPDU()] [IV Reuse] The encryption uses s.iv at line 283, but if the same IV is used for multiple messages (due to IV update failure or race conditions), does this break CBC security by exposing XOR of plaintexts? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_415ddfc4-426d-477a-8297-f5467ef516fa?mode=deep",
+    "timestamp": "2026-01-10 19:35:12.664860",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: encryptAPDU()] [AES Key Validation] The aes.NewCipher at line 279-282 uses s.sessionEncKey - if this key is nil or wrong length, will it return error properly or crash? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1650b385-1482-4902-8f03-6479253f4f5a?mode=deep",
+    "timestamp": "2026-01-10 19:35:37.933260",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: encryptAPDU()] [Return Buffer Reuse] The ret buffer at line 277 is created and encrypted in place - can the underlying buffer be reused in ways that leak plaintext from previous encryptions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_76ef32ea-28ad-488c-a938-bb5cf5bc31c3?mode=deep",
+    "timestamp": "2026-01-10 19:36:03.272708",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: encryptAPDU()] [CBC Mode Weakness] AES-CBC mode is used instead of authenticated encryption (like AES-GCM) - while there's separate MAC, can subtle timing in the MAC-then-encrypt pattern introduce vulnerabilities? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a9cd5789-7015-41c6-a19f-f8a89e91f173?mode=deep",
+    "timestamp": "2026-01-10 19:36:29.002409",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: pad()] [Integer Overflow] The padding calculation (len(data)/16+1)*16 at line 290 - if len(data) is close to MaxInt, can the multiplication overflow causing a small padded buffer and subsequent buffer overflow? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3d411564-9cdd-4157-8a8e-e9dce9c3a09d?mode=deep",
+    "timestamp": "2026-01-10 19:36:53.885502",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: pad()] [Padding Scheme] The padding uses a single terminator byte (0x80) followed by zeros - is this padding scheme standard and unambiguous, or can crafted plaintext create ambiguous padding that decrypts to multiple valid plaintexts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b1d4047a-129b-472a-8a87-624794feefe8?mode=deep",
+    "timestamp": "2026-01-10 19:37:19.617133",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: pad()] [Zero-Length Input] If len(data) == 0, will pad() create a 16-byte block with just the terminator, and is this correctly handled by unpad? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_41151d51-5e55-490c-8e37-9cf6c6538445?mode=deep",
+    "timestamp": "2026-01-10 19:37:41.748059",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: pad()] [Max Padding] The function always pads to the next 16-byte boundary - can an attacker craft input lengths that maximize padding overhead to cause resource exhaustion? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d25c4bae-eaee-49d1-b77e-f010b9d77ee9?mode=deep",
+    "timestamp": "2026-01-10 19:38:04.409209",
+    "report_generated": false
   }
 ]
