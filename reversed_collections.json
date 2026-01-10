@@ -13792,5 +13792,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0c689482-1c64-4956-9d9b-32718f4cef37?mode=deep",
     "timestamp": "2026-01-10 08:09:33.775699",
     "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: OpenStorageTrie()] [TrieID construction] Does StorageTrieID() properly construct unique identifiers, or can hash collisions allow different storage tries to share the same ID, causing storage corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_454e0ec9-f0eb-4b4f-a375-eb173ceb18ec?mode=deep",
+    "timestamp": "2026-01-10 08:10:56.324976",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: OpenStorageTrie()] [State parameter misuse] Can the state parameter (first common.Hash) in OpenStorageTrie() be manipulated to reference incorrect state tries, causing storage operations to affect wrong blockchain states? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d4074be3-29fc-4487-baff-1cd43ec471fd?mode=deep",
+    "timestamp": "2026-01-10 08:11:09.182998",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: OpenStorageTrie()] [Root validation] Does OpenStorageTrie() validate that the provided storage root actually belongs to the specified account, or can attackers provide mismatched roots to corrupt contract storage? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_550b5ba2-3925-4fb5-93cb-3d6dc7cccc08?mode=deep",
+    "timestamp": "2026-01-10 08:11:22.361230",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: OpenStorageTrie()] [Storage isolation bypass] Can an attacker manipulate the addrHash parameter to OpenStorageTrie() to access storage slots belonging to different contracts, violating storage isolation and enabling unauthorized storage reads? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5bd0dcbc-7d52-43d8-80a8-1ceeb59cdadc?mode=deep",
+    "timestamp": "2026-01-10 08:11:36.827739",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: OpenTrie()] [Race condition] If multiple goroutines call OpenTrie() concurrently with the same root, can race conditions in the underlying trie initialization corrupt the shared state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_efd4465b-5cdd-4029-88ea-fc82279bba8b?mode=deep",
+    "timestamp": "2026-01-10 08:11:51.410643",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: OpenTrie()] [Resource leak] When OpenTrie() creates a new odrTrie, does it properly track and release resources, or can repeated calls without proper cleanup cause memory leaks leading to node crashes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_882037c5-572f-4d7f-a211-9bcf35620b79?mode=deep",
+    "timestamp": "2026-01-10 08:12:07.392510",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: OpenTrie()] [State isolation violation] Does OpenTrie() properly isolate different state tries, or can concurrent calls with different roots lead to state leakage where one trie's operations affect another? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eaad15b3-6e34-4ea4-b7a3-8b43d64fbc72?mode=deep",
+    "timestamp": "2026-01-10 08:12:25.160098",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: OpenTrie()] [Root manipulation] Can an attacker call OpenTrie() with an arbitrary root hash that doesn't correspond to any actual state, causing the system to create invalid state tries that corrupt the blockchain state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0bfc57a9-a333-4dc1-a5e5-a3e9281082b8?mode=deep",
+    "timestamp": "2026-01-10 08:12:44.756401",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: NewState()] [State root validation bypass] Does NewState() validate that the provided head.Root corresponds to a valid state root in the blockchain, or can attackers supply arbitrary roots to access or modify unauthorized state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_881d46af-4efa-4ecf-b0d2-89121fc75208?mode=deep",
+    "timestamp": "2026-01-10 08:13:05.772474",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: NewStateDatabase()] [ODR backend manipulation] If a malicious or compromised OdrBackend is passed to NewStateDatabase(), can it return arbitrary trie data that corrupts the local state and enables double-spending attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7e1c5810-3427-43a5-ba5c-6443cd603726?mode=deep",
+    "timestamp": "2026-01-10 08:13:28.104882",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: NewStateDatabase()] [Context manipulation] Can an attacker cancel or manipulate the context passed to NewStateDatabase() during critical state operations to cause incomplete state transitions, leading to state inconsistencies across nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4399d66b-2078-476f-b4c6-151d7174266f?mode=deep",
+    "timestamp": "2026-01-10 08:13:50.475867",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: NewState()] [Nil pointer dereference] If the head parameter is nil when calling NewState(), does the function panic due to accessing head.Root without validation, causing node crashes and network-wide DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_51da42b4-1e66-43d5-a4a4-6c1ea0e37226?mode=deep",
+    "timestamp": "2026-01-10 08:14:14.449145",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/trie.go] [Function: NewState()] [State corruption] Can an attacker provide a malicious Header with a crafted Root hash to NewState() that points to non-existent or corrupted state data, causing the StateDB to return incorrect account balances and enabling theft of funds? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_713ac0d1-0b10-4772-8c29-5c5b8735bbc6?mode=deep",
+    "timestamp": "2026-01-10 08:14:39.446139",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Attack vector: Timing attacks] Can timing differences in trie operations or database lookups leak information about indexer state or stored data? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_982be548-bc8a-4212-b363-ec7d81ca4db0?mode=deep",
+    "timestamp": "2026-01-10 08:15:06.956844",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Attack vector: Resource exhaustion] Can attackers trigger expensive operations (trie rebuilds, massive pruning, ODR retries) repeatedly to exhaust node resources and cause DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_273e763f-d594-4992-b97d-566e23e0ea2d?mode=deep",
+    "timestamp": "2026-01-10 08:15:33.375776",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Attack vector: Network partition] Can network partitions cause different nodes to build different CHT/BloomTrie roots for the same sections, leading to verification incompatibilities? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bc973ec7-4613-4cd4-8a56-fcc9bcbf145c?mode=deep",
+    "timestamp": "2026-01-10 08:16:01.756417",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Attack vector: Database poisoning] Can attackers with write access to the node's database inject malicious trie nodes or roots that bypass indexer validation and corrupt light client verification? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6cc076bc-57fd-4a6c-87fc-8ce28a5d8c4e?mode=deep",
+    "timestamp": "2026-01-10 08:16:31.913318",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Edge case: Rapid reorgs] Can rapid chain reorganizations cause indexers to process the same headers multiple times or process headers out of order, corrupting trie state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6fa7cd8f-85e2-4ef7-9ec3-4f24747d93f7?mode=deep",
+    "timestamp": "2026-01-10 08:17:02.214185",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Edge case: Empty sections] Can sections with zero blocks be processed correctly, or do empty sections cause division-by-zero or other errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_747c1304-9e5f-4e53-a235-d23e51b7bfe8?mode=deep",
+    "timestamp": "2026-01-10 08:17:31.605075",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Edge case: Maximum uint64 values] Can section numbers, block numbers, or size values near UINT64_MAX cause overflow in arithmetic operations throughout the file? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_507e1b98-42cb-4a43-800d-863ae225e03e?mode=deep",
+    "timestamp": "2026-01-10 08:18:02.080945",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Edge case: Zero section handling] Are all functions robust to section=0 case, or can this cause underflows, incorrect array accesses, or database key issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8e4eec41-fa72-49a5-93a6-42f09b5c1218?mode=deep",
+    "timestamp": "2026-01-10 08:18:33.370522",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Light client: Resource exhaustion] Can malicious trie structures with deeply nested nodes cause light clients to exhaust memory when verifying CHT or BloomTrie proofs? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b3867e26-3d74-403f-8e5c-edf20b4efa92?mode=deep",
+    "timestamp": "2026-01-10 08:19:03.075900",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Light client: Synchronization DoS] Can malicious indexer state cause light clients to fail synchronization repeatedly, effectively preventing them from joining the network? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a938b85f-dd30-4100-ba33-1c168e41a647?mode=deep",
+    "timestamp": "2026-01-10 08:19:32.130070",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Light client: Bloom filter poisoning] Can corrupted BloomTrie data cause light clients to incorrectly report presence/absence of log events, enabling censorship or fake event injection? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dc90a2be-3ab1-46a7-89ea-bd9af04aee29?mode=deep",
+    "timestamp": "2026-01-10 08:20:00.865461",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Light client: CHT verification bypass] If malicious CHT roots are stored via StoreChtRoot() without proper validation, can light clients be tricked into accepting invalid chain headers as canonical? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ddb7fd3c-0ba9-453f-bfa9-7d9b91a00259?mode=deep",
+    "timestamp": "2026-01-10 08:20:28.821404",
+    "report_generated": false
   }
 ]
