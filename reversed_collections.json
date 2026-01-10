@@ -23386,5 +23386,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5651eb2d-9902-42c4-bc03-da65b837b664?mode=deep",
     "timestamp": "2026-01-10 19:48:41.774172",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: SubscribeState callback] [Slice sharing] When qi.queue is appended to at line 61 and potentially reallocated, can this cause any issues with goroutines that captured the old slice value before the append? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_addb1b47-970c-4b41-a54d-75645dc724c0?mode=deep",
+    "timestamp": "2026-01-10 19:50:02.251193",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: Next()] [Slice capacity] At lines 100 and 103, qi.queue is re-sliced to remove elements - does the slice capacity remain large even when the length decreases, potentially wasting memory if the queue was once very large? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a45ccaa6-3945-47ac-b249-a5dd88ed8d77?mode=deep",
+    "timestamp": "2026-01-10 19:50:15.082041",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: SubscribeState callback] [Removal fairness] At lines 66-67, when a node is removed, only the first matching ID is removed - if duplicates exist (due to bugs), can the wrong instance be removed, causing the selected node in Next() to not match expectations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_74b88176-b8ab-4a58-8ddd-ed9f2a6ffdc4?mode=deep",
+    "timestamp": "2026-01-10 19:50:28.849587",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: Next()] [Selection fairness] In FIFO mode, nodes that joined earlier are selected first - but can malicious nodes that join and leave rapidly and then rejoin get placed at the front of the queue repeatedly, gaming the selection order? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_727885f7-60f8-4342-b63b-88c77d7f93b1?mode=deep",
+    "timestamp": "2026-01-10 19:50:42.594208",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: SubscribeState callback] [Nil node parameter] At line 50, if the callback is invoked with a nil *enode.Node parameter, can this cause nil pointer dereferences at line 61 or 63 when accessing n or calling n.ID()? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_34a89cf7-78ca-4a22-896a-2c621b8421d0?mode=deep",
+    "timestamp": "2026-01-10 19:50:58.252134",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: NewQueueIterator()] [Nil waitCallback] At line 46, waitCallback can be set to any value including nil - at lines 81-82 and 87-88, there are nil checks before calling waitCallback, but can these checks be racey if waitCallback is modified concurrently? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f5ae91b3-f64e-4615-8c56-94879181cbec?mode=deep",
+    "timestamp": "2026-01-10 19:51:14.131394",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: SubscribeState callback] [Callback execution context] The callback at lines 50-73 is executed by the NodeStateMachine - if this is in a different goroutine or execution context with different semantics, can this cause unexpected behavior or race conditions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cbfdda4d-2c27-4e04-ba1c-5991903b0c25?mode=deep",
+    "timestamp": "2026-01-10 19:51:31.496863",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: NewQueueIterator()] [NodeStateMachine dependency] The iterator depends on ns.SubscribeState working correctly - if the NodeStateMachine has bugs or doesn't fire callbacks as expected, can this cause the iterator to have an incomplete or incorrect view of available nodes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b38c7efa-f6b3-4aa4-878c-82ab001766a5?mode=deep",
+    "timestamp": "2026-01-10 19:51:51.085265",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: NewQueueIterator()] [Condition variable initialization] At line 48, qi.cond is initialized with &qi.lock - but if qi.lock is a zero-value mutex that hasn't been properly initialized, can this cause undefined behavior in condition variable operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eddee00c-c454-4e8e-87ec-6297c362456b?mode=deep",
+    "timestamp": "2026-01-10 19:52:11.747110",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: Close()] [Signal vs Broadcast] At line 114, qi.cond.Signal() only wakes one waiting goroutine - if multiple goroutines are blocked in Next(), can the others remain blocked forever even though the iterator is closed, requiring Broadcast instead? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1191f226-be14-4b00-925f-6ed028c79481?mode=deep",
+    "timestamp": "2026-01-10 19:52:33.832900",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: Next()] [Queue consistency] After removing an element from qi.queue at lines 99-100 or 103, if another goroutine is iterating over qi.queue (hypothetically), can this cause iteration errors or panics? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bdc93ba9-986c-461f-9cc3-ea82013c4d6b?mode=deep",
+    "timestamp": "2026-01-10 19:52:57.304288",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: SubscribeState callback] [Duplicate prevention] When appending nodes at line 61, there's no check to prevent duplicates - if the NodeStateMachine incorrectly fires multiple state change events for the same node transition, can the same node appear multiple times in qi.queue? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8bd9b6cb-274c-49c6-ac5d-2e13c425c453?mode=deep",
+    "timestamp": "2026-01-10 19:53:22.045866",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: Next()] [Wait indefinitely] If no node ever matches the selection criteria (due to incorrect flag configuration or network conditions) and Close() is never called, can goroutines calling Next() wait forever, eventually accumulating and causing goroutine exhaustion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0cab2297-50dc-4797-aba0-163f3128fbed?mode=deep",
+    "timestamp": "2026-01-10 19:53:47.040357",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: SubscribeState callback] [Queue saturation] If an attacker can cause many nodes to simultaneously match the selection criteria, can qi.queue grow to millions of entries, consuming all available memory and crashing the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0b3ecd06-2e34-4c51-8503-0cdb6113e9d5?mode=deep",
+    "timestamp": "2026-01-10 19:54:12.383663",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: SubscribeState callback] [Callback frequency] If state changes occur at very high frequency, can the callback at lines 50-73 be invoked so often that it consumes excessive CPU, preventing other important node operations from executing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3dfb3d9d-c92d-4542-888b-9a3dca1886bc?mode=deep",
+    "timestamp": "2026-01-10 19:54:38.407981",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: Next()] [Callback ordering] At lines 82 and 88, waitCallback is called before and after waiting - if the callback's true and false calls are not properly paired due to panics or early returns, can this cause state inconsistencies in consuming code? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_429f8020-8910-4c20-acef-d69930310df2?mode=deep",
+    "timestamp": "2026-01-10 19:55:04.998066",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: Node()] [Node() before Next()] If Node() is called before Next() has ever been called, qi.nextNode will be nil - can consuming code properly handle this nil return value or will it cause nil pointer dereferences? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b38a0bc0-539d-4188-8606-8d2730a3cd7c?mode=deep",
+    "timestamp": "2026-01-10 19:55:29.533286",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: Next()] [Consecutive Next calls] If Next() is called multiple times in rapid succession without checking the return value, can the queue be drained completely, and what happens when Next() is called on an empty closed iterator multiple times? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_56059889-83f3-45ec-9f4f-4ffc35b77a35?mode=deep",
+    "timestamp": "2026-01-10 19:55:53.264243",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: Close()] [Partial cleanup] At line 112, only qi.closed is set - if qi.queue contains many node references, can these prevent garbage collection even after Close(), causing memory leaks in long-running nodes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b2522df1-579d-4c32-a4e7-ae115d5f93d0?mode=deep",
+    "timestamp": "2026-01-10 19:56:17.793269",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: NewQueueIterator()] [Goroutine leak] If the NodeStateMachine spawns goroutines for callbacks and the iterator is closed without proper cleanup, can goroutines continue running indefinitely causing goroutine leaks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_21738ed4-9283-43ce-8a81-f1368d814d6c?mode=deep",
+    "timestamp": "2026-01-10 19:56:42.394993",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: SubscribeState callback] [Node reference validity] When nodes are stored in qi.queue as pointers at line 61, if the enode.Node objects are garbage collected or modified externally, can this cause stale or invalid references in the queue? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_753d5e5c-df70-4ea9-b2c2-540a48e54682?mode=deep",
+    "timestamp": "2026-01-10 19:57:07.881615",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: Node()] [Stale node reference] After calling Next() which sets qi.nextNode, if the node's state changes in the NodeStateMachine before Node() is called, can Node() return a node that no longer matches the selection criteria? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_72740bfa-1e63-4c62-95ce-06ab379f18af?mode=deep",
+    "timestamp": "2026-01-10 19:57:34.548731",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: SubscribeState callback] [Flag comparison logic] At lines 51-52, the HasAll and HasNone checks determine if a node matches - but if these flag operations have bugs or edge cases, can nodes be incorrectly added or removed from the queue? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1a52cc84-8473-4fb0-b827-b8589e54ac7e?mode=deep",
+    "timestamp": "2026-01-10 19:58:01.470627",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: Next()] [Closed flag check timing] At line 91, qi.closed is checked after the wait loop exits - but can qi.closed be set to true during the check at line 84, causing the function to return false even though nodes were added to the queue? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8b2bbf32-fbac-4b3c-9fa0-6d098610498a?mode=deep",
+    "timestamp": "2026-01-10 19:58:28.753326",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: Next()] [Copy performance] At lines 99, when copying slice elements in FIFO mode, for large queues can this copy operation become a performance bottleneck, degrading peer selection speed? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9269d9cc-d9a5-4729-bac4-6e126852f62a?mode=deep",
+    "timestamp": "2026-01-10 19:58:56.456468",
+    "report_generated": false
   }
 ]
