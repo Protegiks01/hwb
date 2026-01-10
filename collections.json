@@ -17998,5 +17998,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_02a07558-e657-4e43-9c14-e4bbfbe46410?mode=deep",
     "timestamp": "2026-01-10 22:16:18.328906",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorExchange()] [Unexpected response handling] At line 370, if no expected type matches, an error is returned - but has the device state been modified by the unexpected message, requiring cleanup? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_155f1328-65a0-4350-8fda-cd439f0f92ba?mode=deep",
+    "timestamp": "2026-01-10 22:17:44.327469",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: Heartbeat()] [Failure state persistence] At lines 166-169, when Ping fails, w.failure is set - can this persistent failure state prevent recovery even if the device becomes available again? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a6a19f25-2315-4d73-ad30-74dee7bdd509?mode=deep",
+    "timestamp": "2026-01-10 22:17:57.215983",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: Heartbeat()] [Concurrent heartbeat] If Heartbeat() is called concurrently from multiple goroutines, can race conditions on w.failure cause inconsistent device state or false availability reports? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_671849dc-ae60-4a18-9e43-3797ea4d3806?mode=deep",
+    "timestamp": "2026-01-10 22:18:10.358083",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: Open()] [Error state recovery] When errors occur at lines 108, 117, 138, or 148, w.failure is set - but is there any mechanism to clear this failure and allow retry, or is the wallet permanently unusable until restart? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d43f4f82-fabe-4558-8adb-a6d0576c45ab?mode=deep",
+    "timestamp": "2026-01-10 22:18:24.042872",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorSign()] [Sender verification] At line 272, types.Sender() extracts sender from signed transaction - if this doesn't match the expected derivation path, should the signature be rejected? Can this allow signing transactions for wrong accounts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9aca5150-e081-4df4-855c-69ebaa85db85?mode=deep",
+    "timestamp": "2026-01-10 22:18:38.529362",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorSign()] [Response validation] At line 240, trezorExchange is called expecting EthereumTxRequest - but what if the device returns a different message type? Is there proper error handling? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_06e729a8-ba6e-453d-a008-6b49576f4955?mode=deep",
+    "timestamp": "2026-01-10 22:18:54.338470",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Struct: trezorDriver] [Concurrent access] The trezorDriver struct at lines 53-61 has no mutex protection - can concurrent calls to Open(), Close(), SignTx(), Derive(), or Heartbeat() cause data races on device, pinwait, passphrasewait, and failure fields? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_caf55017-813e-4ea7-b360-53015f083159?mode=deep",
+    "timestamp": "2026-01-10 22:19:11.606038",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: Open()] [Reentrancy] Can Open() be called while another Open() is in progress, causing nested authentication flows that corrupt the pinwait/passphrasewait state machine? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c8a2040e-400b-4dcf-b75e-50568013fa90?mode=deep",
+    "timestamp": "2026-01-10 22:19:30.888510",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: SignTx()] [Concurrent signing] If two goroutines call SignTx() simultaneously, can they interfere with each other's trezorExchange communication, causing signatures to be mixed up or corrupted? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_80bb54b2-34fc-45cb-8c15-e1d42efe9411?mode=deep",
+    "timestamp": "2026-01-10 22:19:52.037620",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorExchange()] [Device I/O race] The w.device io.ReadWriter is accessed at lines 310 and 321 without synchronization - can concurrent reads/writes corrupt the USB communication stream? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9137076e-4576-4a09-ad28-946bc92e79f3?mode=deep",
+    "timestamp": "2026-01-10 22:20:14.020198",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: Close()] [Close during operation] If Close() is called while SignTx() or Derive() is executing, can this cause the device to be set to nil mid-operation, leading to nil pointer panics? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_42be7b63-6e46-4c13-9eb9-ae797aa75d10?mode=deep",
+    "timestamp": "2026-01-10 22:20:37.345918",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorExchange()] [Recursion depth] The ButtonRequest handling at line 359 uses recursion - can malicious devices trigger deep recursion through repeated button requests, causing stack overflow? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8c45d0b9-a563-40db-bb0d-b125f2bc47da?mode=deep",
+    "timestamp": "2026-01-10 22:21:01.239197",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorSign()] [Length type conversion] At line 213, len(data) is cast to uint32 - if data length exceeds uint32 max, can truncation occur causing the Trezor to process wrong data length? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8b6cc3b8-fc2e-4dbe-b36c-efa98d4fa82e?mode=deep",
+    "timestamp": "2026-01-10 22:21:26.522548",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorSign()] [Slice arithmetic] At lines 229-232, if len(data) == 1024 exactly, can off-by-one errors in slice operations cause the chunking to fail or send incorrect data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a55cf276-21ef-4b70-b95c-bd7808b2a5a5?mode=deep",
+    "timestamp": "2026-01-10 22:21:53.330547",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorSign()] [DataLength validation] At line 243, *response.DataLength is compared with len(data) - if DataLength pointer is nil or points to very large value, can this cause slice out-of-bounds panic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8d61e1b8-1efd-4d08-981a-3eed2b40efdc?mode=deep",
+    "timestamp": "2026-01-10 22:22:19.759249",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorSign()] [Chunk slice operation] At line 244, data[:*response.DataLength] assumes DataLength <= len(data) - what if device sends malicious DataLength > len(data)? Can this cause runtime panic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a0724ef9-8c8f-4d22-a052-ab6e261184c9?mode=deep",
+    "timestamp": "2026-01-10 22:22:47.128262",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorExchange()] [Payload slice] At lines 301 and 304, payload is sliced assuming len(payload) > 63 or len(payload) <= 63 - can edge cases with payload length cause out-of-bounds access? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0da04a1a-0df9-47c7-8241-714b37ad24df?mode=deep",
+    "timestamp": "2026-01-10 22:23:13.735243",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorExchange()] [Reply capacity calculation] At line 335, reply buffer capacity is set to int(uint32_value) - on 32-bit systems, can very large uint32 values overflow int causing incorrect buffer allocation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a27983b6-278a-4043-a85b-859091357756?mode=deep",
+    "timestamp": "2026-01-10 22:23:39.968761",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorExchange()] [Left calculation] At line 341, 'left' is calculated as cap(reply) - len(reply) - if append operations are buggy, can left become negative causing undefined behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3b5b80e6-412c-47eb-b036-d9ca74cf8c29?mode=deep",
+    "timestamp": "2026-01-10 22:24:06.432109",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: Open()] [Passphrase validation] The passphrase parameter at line 96 is used directly without sanitization - can special characters, null bytes, or very long passphrases cause buffer overflows in Trezor firmware or protocol encoding? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_16df6b5f-6241-40da-838a-cf343c5f6ca0?mode=deep",
+    "timestamp": "2026-01-10 22:24:30.962903",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: SignTx()] [Transaction validation] The tx parameter at line 181 is not validated before signing - can malformed transactions with nil fields or invalid values be sent to Trezor causing device crashes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_33f6ffdd-deae-4281-b191-0397622a3a8c?mode=deep",
+    "timestamp": "2026-01-10 22:24:55.375298",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: SignTx()] [ChainID validation] The chainID parameter at line 181 can be nil - while handled at line 259, can extremely large chainID values cause issues in line 235's int64 conversion or uint32 cast? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4d9e1b43-9df0-4622-950c-875887cea6fc?mode=deep",
+    "timestamp": "2026-01-10 22:25:20.832571",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: Derive()] [DerivationPath validation] The path parameter at line 175 is passed directly to trezorDerive without validation - can empty paths, excessively long paths, or paths with invalid indices cause device errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_de2303e1-0ea9-4a0f-bc2e-bb836a56d9d2?mode=deep",
+    "timestamp": "2026-01-10 22:25:44.773426",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorSign()] [Data length edge case] When tx.Data() length is exactly 1024 at line 229, the slicing creates DataInitialChunk of 1024 bytes and empty remaining data - can this edge case cause protocol errors? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6adadf7e-f052-4a71-8ce4-466964d5a0cd?mode=deep",
+    "timestamp": "2026-01-10 22:26:08.125957",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorSign()] [Signature component validation] At line 252, signature components are only checked for empty/zero - but are R and S validated to be in valid ECDSA range to prevent signature malleability? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3128d858-2263-4762-b695-d0e7f0c92b1b?mode=deep",
+    "timestamp": "2026-01-10 22:26:32.648172",
+    "report_generated": false
   }
 ]
