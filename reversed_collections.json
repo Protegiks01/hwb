@@ -12448,5 +12448,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0bc89483-e7de-4333-9672-99990cd0ae4e?mode=deep",
     "timestamp": "2026-01-10 04:53:09.610540",
     "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: validateTx()] [Intrinsic gas calculation] If core.IntrinsicGas() at line 389 returns error, it's propagated at line 391, but if it returns wrong gas amount without error, can invalid transaction pass validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4198e64a-bd32-47e1-a4e9-05568f5a1276?mode=deep",
+    "timestamp": "2026-01-10 06:34:13.277800",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: validateTx()] [Balance check TOCTOU] Between checking balance at line 384 and adding transaction, can the account spend funds in another transaction causing insufficient funds at execution time? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7cd3113d-c536-482b-9e34-743150f3712c?mode=deep",
+    "timestamp": "2026-01-10 06:34:26.231720",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: validateTx()] [Cost calculation overflow] At line 384, tx.Cost() calculates V + GP * GL - if this overflows big.Int (theoretically possible with max values), can comparison with balance give wrong result? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_35c8bf94-f240-47de-b13d-482377342151?mode=deep",
+    "timestamp": "2026-01-10 06:34:39.813823",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: validateTx()] [Negative value check] The check at line 378 uses tx.Value().Sign() < 0, but is Value() guaranteed to be non-nil, or can nil pointer panic occur? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_17278805-959a-4dfb-a527-84fe58b95eaf?mode=deep",
+    "timestamp": "2026-01-10 06:34:54.317615",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: validateTx()] [GetHeaderByHash failure] If pool.chain.GetHeaderByHash() returns nil header at line 370, accessing header.GasLimit at line 371 causes nil pointer panic - is there nil check? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_adaaa7f9-8c80-4a03-bc11-e2b055ebf64f?mode=deep",
+    "timestamp": "2026-01-10 06:35:09.002990",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: validateTx()] [Gas limit race condition] Reading pool.head at line 370 without lock while setNewHead() updates it - can race cause validation against wrong header gas limit? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2873aa5a-9f33-4973-89c2-3eb7fd20e3b2?mode=deep",
+    "timestamp": "2026-01-10 06:35:24.984937",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: validateTx()] [Missing future nonce check] The function only checks if n > tx.Nonce() but doesn't limit how far in future nonce can be - can attacker submit transactions with nonce=uint64_max causing them to stay pending forever and exhausting memory? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8aa0a7af-f1a0-43b9-ad73-fa9cd0af79fa?mode=deep",
+    "timestamp": "2026-01-10 06:35:41.776538",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: validateTx()] [Nonce too low check race] Between getting currentState nonce at line 364 and comparing at line 364, can the state change if a new block is mined, causing wrong nonce validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ace5b4d5-aed4-48f1-8833-4a99eb4fd366?mode=deep",
+    "timestamp": "2026-01-10 06:36:00.806043",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: validateTx()] [Signature malleability] Does types.Sender() check for signature malleability (s value in lower half), or can attacker submit transaction with malleable signature that passes validation but has different hash? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_94e9dc7e-4098-4bdf-948c-089397417ecb?mode=deep",
+    "timestamp": "2026-01-10 06:36:20.772626",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: validateTx()] [Context cancellation] If context is cancelled during types.Sender() at line 359, does the error get properly propagated or masked, potentially allowing invalid transaction? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_29331ea9-223f-4aab-b964-6a744ce6dff1?mode=deep",
+    "timestamp": "2026-01-10 06:36:42.820519",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: Stats()] [Lock-free read safety] This function only uses RLock() - if Add() or RemoveTransactions() are concurrent, can the length of pool.pending change mid-read causing inconsistent stats? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8f8aa89a-672f-4365-b698-f9981d20669a?mode=deep",
+    "timestamp": "2026-01-10 06:37:06.366755",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: SubscribeNewTxsEvent()] [Subscription leak] If returned subscription is never Unsubscribe()d by caller, does it leak in pool.scope causing memory growth? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_13b80472-ee57-42f7-a9e0-2c5515e9e7f8?mode=deep",
+    "timestamp": "2026-01-10 06:37:29.797476",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: SubscribeNewTxsEvent()] [Channel closure panic] If the subscription channel is closed by subscriber while pool.txFeed.Send() tries to send at line 425, does this panic the sending goroutine? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_81259f2c-cce6-4f1f-9ee6-d2dc37bc123a?mode=deep",
+    "timestamp": "2026-01-10 06:37:54.811805",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: Stop()] [Incomplete cleanup] Are pool.pending and pool.mined maps cleared during Stop(), or do they persist in memory after shutdown causing memory leaks in tests or restart scenarios? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_36ea2c37-6445-46b9-99ae-799aed10dcf3?mode=deep",
+    "timestamp": "2026-01-10 06:38:19.357091",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: Stop()] [Shutdown ordering] Does scope.Close() at line 327 wait for all subscriptions to finish, or can it leave goroutines hanging that try to send on closed channels causing panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_91885b27-6341-4848-94f7-ca6bb0dd64e2?mode=deep",
+    "timestamp": "2026-01-10 06:38:45.314834",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: Stop()] [Double close panic] If Stop() is called multiple times, closing pool.quit channel twice causes panic - is there protection against this? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_520e5534-0999-4e5e-8527-247c991b5fc3?mode=deep",
+    "timestamp": "2026-01-10 06:39:11.322210",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: setNewHead()] [Nil header] If head parameter is nil, does the function panic immediately at line 318 when accessing head.Number? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_07ac5625-fdce-4ddc-a180-741015cd851a?mode=deep",
+    "timestamp": "2026-01-10 06:39:38.289535",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: setNewHead()] [Integer overflow in next block calculation] At line 318, big.NewInt(1) added to head.Number - if head.Number is max big.Int, can overflow cause wrong fork indicator checks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9f6a2d49-4b3c-40ec-88d9-7b795b08bdbf?mode=deep",
+    "timestamp": "2026-01-10 06:40:05.543704",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: setNewHead()] [Fork indicator time dependency] The pool.shanghai flag is set using time.Now().Unix() at line 321 - can system time manipulation cause wrong fork rules to be applied? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f66922ca-7695-4f23-bbed-9b13aec03d9a?mode=deep",
+    "timestamp": "2026-01-10 06:40:33.339281",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: setNewHead()] [Relay backend blocking] If relay.NewHead() at line 315 blocks or is slow, does this extend the lock hold time causing cascading DoS on pool operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6359e647-78eb-4de8-b8ce-d360c4d78d29?mode=deep",
+    "timestamp": "2026-01-10 06:41:01.282799",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: setNewHead()] [Context timeout handling] If reorgOnNewHead() returns error due to context timeout at line 313, the error is silently ignored - can this cause pool to be stuck on old head forever? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fcaf2be6-b280-493e-9362-ad55504d8b46?mode=deep",
+    "timestamp": "2026-01-10 06:41:28.936332",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: setNewHead()] [Lock duration DoS] The mu.Lock() is held during entire reorgOnNewHead() which may take seconds for deep reorgs - can this cause all other pool operations (Add, GetNonce, Stats) to block, effectively DoSing transaction submission? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ac6b9dde-b32f-4035-9c1b-06857a391efa?mode=deep",
+    "timestamp": "2026-01-10 06:41:55.077582",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: eventLoop()] [Panic propagation] If setNewHead() panics, does the eventLoop() goroutine crash without recovering, stopping all future block processing and freezing the pool? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c93dadde-3590-4ae9-bb62-0acb2366d94b?mode=deep",
+    "timestamp": "2026-01-10 06:42:20.807720",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: eventLoop()] [Missing quit channel check] The select doesn't check pool.quit channel - if Stop() is called, does the goroutine exit cleanly or hang waiting for chainHeadSub.Err()? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d462a15f-e65f-4ac2-8f1a-ee1a697c3a9a?mode=deep",
+    "timestamp": "2026-01-10 06:42:47.316233",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: eventLoop()] [Sleep hack DoS] The time.Sleep(time.Millisecond) at line 297 is a hack that causes 1ms delay per block - can rapid block production cause eventLoop to fall behind, accumulating events in channel and causing pool staleness? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8b4ae0c5-ac75-46e5-86a6-fc300e059f45?mode=deep",
+    "timestamp": "2026-01-10 06:43:14.074162",
+    "report_generated": false
   }
 ]
