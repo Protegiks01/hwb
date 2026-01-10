@@ -15142,5 +15142,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ead1e84d-3702-419a-ad43-4abfe0e47ad1?mode=deep",
     "timestamp": "2026-01-10 09:45:29.515945",
     "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: BloomRequest.StoreResult()] [Bloom poisoning] Can malicious BloomBits be stored that cause false positives in log filtering, making the light client believe events occurred that never happened? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d48b3c3b-66df-41a6-a040-4c2b3438c94f?mode=deep",
+    "timestamp": "2026-01-10 09:46:46.692813",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: BloomRequest] [Bloom trie proof forgery] Does BloomRequest validate that Proofs actually prove BloomBits exist at the specified positions in the bloom trie, or can fake bloom data be accepted? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_77c7ac6a-0c2c-41b5-99c6-7d0aaf20b9d5?mode=deep",
+    "timestamp": "2026-01-10 09:46:59.599576",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: ChtRequest.ChtRoot] [Root spoofing] If ChtRoot is manipulated to reference a fake CHT tree controlled by an attacker, can this cause the light client to accept an entirely fabricated canonical chain? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9956eaac-304a-42ac-b724-5a28936a44a7?mode=deep",
+    "timestamp": "2026-01-10 09:47:12.658518",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: ChtRequest] [Proof validation depth] Does the Proof NodeSet validation check the full path from root to leaf, or can partial proofs be accepted that don't fully prove header inclusion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7f55efcd-61d8-4148-a856-4e98767a5782?mode=deep",
+    "timestamp": "2026-01-10 09:47:27.183861",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: ChtRequest] [Nil header handling] If Header is nil when StoreResult() is called, does this cause nil pointer dereference when calling Header.Hash() and Header.Number? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0793fde5-3df7-4b76-85a7-25bfe8f4a922?mode=deep",
+    "timestamp": "2026-01-10 09:47:42.183040",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: ChtRequest] [Td overflow] If Td (*big.Int) contains an impossibly large value, can this cause integer overflow when comparing total difficulties for chain selection? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c5bc8e6c-fa2e-44a5-9fb8-dc4597e56dd6?mode=deep",
+    "timestamp": "2026-01-10 09:47:58.253323",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: ChtRequest] [Config validation] Is the Config's CHT parameters validated to match network parameters, or can mismatched config cause acceptance of proofs from wrong CHT structures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_648c319f-1f22-45ec-9127-0cb5120bf809?mode=deep",
+    "timestamp": "2026-01-10 09:48:15.396397",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: ChtRequest.StoreResult()] [Hash-number mismatch] If Header.Hash() doesn't match the hash proven by the CHT proof, can this cause canonical chain inconsistency? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8521c8d0-e400-40bb-97fd-d316e8c35989?mode=deep",
+    "timestamp": "2026-01-10 09:48:34.038889",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: ChtRequest] [CHT number validation] Are ChtNum and BlockNum validated to be consistent (BlockNum should be in the range covered by ChtNum), or can out-of-range blocks be accepted? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5b6416af-a758-42b6-ae4d-2acaec370e9b?mode=deep",
+    "timestamp": "2026-01-10 09:48:54.740986",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: ChtRequest] [Total difficulty manipulation] If req.Td is provided without validation against actual block difficulty, can this cause incorrect chain selection during reorgs? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5102f8b2-23a6-415c-a8d1-a77e38530a30?mode=deep",
+    "timestamp": "2026-01-10 09:49:17.683373",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: ChtRequest.StoreResult()] [Canonical chain corruption] Can malicious ChtRequest store a fake header as canonical using WriteCanonicalHash, causing the light client to follow an invalid chain? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eff4ac54-adf5-4c9d-bcc3-bef74689152d?mode=deep",
+    "timestamp": "2026-01-10 09:49:40.974689",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: ChtRequest] [CHT proof forgery] Does ChtRequest validate that the Proof actually proves Header exists at BlockNum in the CHT identified by ChtRoot, or can fake canonical chain proofs be accepted? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b69d29ca-cc2c-4134-9873-3d5ba8468cca?mode=deep",
+    "timestamp": "2026-01-10 09:50:05.021300",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: ReceiptsRequest.Untrusted] [Trust model violation] What security properties are violated if untrusted receipts are accidentally stored, and can this lead to accepting invalid transaction outcomes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c40bb618-db26-4c8a-a2a6-88457ae184cf?mode=deep",
+    "timestamp": "2026-01-10 09:50:30.435348",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: ReceiptsRequest] [Status code manipulation] Can receipt Status fields be manipulated to show successful execution for failed transactions or vice versa? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e1205c2e-f455-45ce-b82e-aeb49b208f1a?mode=deep",
+    "timestamp": "2026-01-10 09:50:56.141547",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: ReceiptsRequest] [Nil receipts handling] If Receipts is nil or empty when it should contain receipts, does this cause issues with transaction status queries? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_794793a6-b0f4-4968-8cd3-3de7dcc0e0be?mode=deep",
+    "timestamp": "2026-01-10 09:51:23.588463",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: ReceiptsRequest.StoreResult()] [Hash collision attack] If Hash collides with another block's hash, can receipts be stored for the wrong block causing state confusion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7087d5e5-a97f-47f6-b03d-ac8d94ef0261?mode=deep",
+    "timestamp": "2026-01-10 09:51:51.834870",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: ReceiptsRequest] [Log forgery] Can individual logs within receipts be forged to show false contract events, enabling attacks on applications monitoring specific events? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8e082376-78b6-4b7c-8a13-d60dee9759d1?mode=deep",
+    "timestamp": "2026-01-10 09:52:20.453764",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: ReceiptsRequest] [Gas used validation] Are cumulative gas values in receipts validated to match transaction execution, or can fake gas usage be reported affecting gas limit calculations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8d721d46-9b3d-45d4-b9fa-d75e5eec18d3?mode=deep",
+    "timestamp": "2026-01-10 09:52:47.956732",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: ReceiptsRequest] [Bloom filter manipulation] Can manipulated receipt bloom filters cause log filtering to miss or falsely include events, breaking dApp functionality relying on event logs? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ebc61889-ad69-4f06-8948-6a9084aa876a?mode=deep",
+    "timestamp": "2026-01-10 09:53:17.402939",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: ReceiptsRequest] [Receipt ordering] Are Receipts validated to be in the same order as transactions in the block, or can out-of-order receipts cause mismatched transaction-receipt associations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4419b68c-e7ea-4966-9c94-2a92635599dc?mode=deep",
+    "timestamp": "2026-01-10 09:53:45.410665",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: ReceiptsRequest.StoreResult()] [Untrusted flag bypass] The conditional write based on !req.Untrusted suggests untrusted receipts shouldn't be stored, but what prevents an attacker from setting Untrusted=false for malicious receipts? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5decea23-f9d0-4107-ae56-c0abacabbd58?mode=deep",
+    "timestamp": "2026-01-10 09:54:12.567265",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: ReceiptsRequest] [Receipt forgery] Does ReceiptsRequest validate that the Receipts generate a root hash matching Header.ReceiptHash, or can a malicious peer provide fake receipts showing false transaction outcomes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_57a8d5b6-5223-43a0-9ac3-f5e94d011d10?mode=deep",
+    "timestamp": "2026-01-10 09:54:41.554072",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: BlockRequest.StoreResult()] [Concurrent write race] If multiple BlockRequests for the same block number call StoreResult() concurrently, can race conditions cause partially written or corrupted block bodies? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f854073f-57f7-486d-bfca-c1ae861482cc?mode=deep",
+    "timestamp": "2026-01-10 09:55:09.594266",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: BlockRequest] [Uncle validation bypass] Does the Rlp validation check that uncles follow consensus rules (correct depth, unique), or can invalid uncles be stored? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c41e018a-2954-4e21-adbd-58474fb21bfd?mode=deep",
+    "timestamp": "2026-01-10 09:55:37.521757",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: BlockRequest] [Reorg attack] Can a malicious peer provide an alternative valid block for an existing block number, causing unintended chain reorganization when stored? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2271b141-7f75-4287-9183-8cc9ffd77dcf?mode=deep",
+    "timestamp": "2026-01-10 09:56:09.736279",
+    "report_generated": false
   }
 ]
