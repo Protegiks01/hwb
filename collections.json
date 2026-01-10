@@ -19048,5 +19048,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6c3f01d3-e062-462d-b242-c416ff3e6644?mode=deep",
     "timestamp": "2026-01-10 23:28:09.038920",
     "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: ExecutableDataToBlock()] [State corruption] Does the withdrawalsRoot calculation at line 182-184 handle nil Withdrawals correctly, or can an attacker exploit the difference between nil and empty slice to create inconsistent withdrawal roots across nodes causing chain splits? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1aa3072b-c08a-4a45-bd5b-f79a22f63b8c?mode=deep",
+    "timestamp": "2026-01-10 23:29:52.634497",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: ExecutableDataToBlock()] [Hash manipulation] Can an attacker manipulate the types.DeriveSha calculation at line 182 for withdrawals by providing duplicate withdrawal entries that hash to the same root as valid withdrawals, enabling withdrawal forgery? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a7816d0c-dd21-4bb6-988e-4e4af5a84e6d?mode=deep",
+    "timestamp": "2026-01-10 23:30:05.450617",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: ExecutableDataToBlock()] [State corruption] Does the TxHash derivation at line 190 properly handle empty transaction lists, or can an attacker exploit differences in hash calculation between nil and empty transaction slices to create blocks with inconsistent transaction roots? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0c18cdef-371f-40e9-9061-e64325b1f9a6?mode=deep",
+    "timestamp": "2026-01-10 23:30:18.950234",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: ExecutableDataToBlock()] [Consensus bypass] Can an attacker craft ExecutableData where the computed header fields (TxHash, WithdrawalsHash) don't match the actual transactions/withdrawals, but the final BlockHash validation at line 204-206 still passes due to hash collision? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5c605637-0482-4ece-80c8-88ce89659f96?mode=deep",
+    "timestamp": "2026-01-10 23:30:32.577874",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: ExecutableDataToBlock()] [Integer overflow] Can an attacker provide GasLimit or GasUsed values near uint64 max at lines 195-196 causing overflow in gas calculations when the block is processed, leading to DoS or economic exploitation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9c1d7fa8-10f4-4529-a6f2-2441b77c8f6d?mode=deep",
+    "timestamp": "2026-01-10 23:30:47.005255",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: ExecutableDataToBlock()] [Timestamp manipulation] Does the Timestamp field at line 197 have proper validation against current time and parent block timestamp, or can an attacker craft blocks with arbitrary timestamps enabling time-based attack vectors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_99b3e502-996c-4498-8e45-b26f3db4ca20?mode=deep",
+    "timestamp": "2026-01-10 23:31:02.568609",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: ExecutableDataToBlock()] [Difficulty bypass] The Difficulty is hardcoded to common.Big0 at line 193 for PoS blocks, but does this create issues in WBT's PoA Clique consensus where difficulty has specific meaning (INTURN vs NOTURN), potentially bypassing validator turn checks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9300100e-6c5c-4ea0-b34b-293a7cc9e7bc?mode=deep",
+    "timestamp": "2026-01-10 23:31:20.097902",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: ExecutableDataToBlock()] [Consensus failure] Does setting UncleHash to EmptyUncleHash at line 187 properly validate that no uncles are present, or can an attacker include uncle blocks through another vector causing consensus violations in PoA? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_30b9f4b2-3d81-48f6-bac3-0ad5ed1323f9?mode=deep",
+    "timestamp": "2026-01-10 23:31:38.974241",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: ExecutableDataToBlock()] [State mismatch] Can an attacker provide StateRoot at line 189 that doesn't match the actual post-execution state, relying on delayed state validation to temporarily accept invalid blocks into the chain? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6bba23fc-0cef-43ab-a53c-2c2a3b7ac78f?mode=deep",
+    "timestamp": "2026-01-10 23:31:59.376364",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: ExecutableDataToBlock()] [Receipt manipulation] Does the ReceiptsRoot at line 191 get validated against actual transaction execution receipts, or can an attacker provide mismatched receipt roots that corrupt transaction outcome tracking? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9a4d83dc-6ffc-4f2e-8532-eaed24c34356?mode=deep",
+    "timestamp": "2026-01-10 23:32:21.152856",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: ExecutableDataToBlock()] [Memory exhaustion] Can an attacker provide ExecutableData with maximum allowed transactions (through params.Transactions) causing excessive memory allocation in types.NewBlockWithHeader at line 203, leading to node crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3f4cbd68-587c-4c05-bd30-b034b876e6b5?mode=deep",
+    "timestamp": "2026-01-10 23:32:44.291367",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: ExecutableDataToBlock()] [Nil slice handling] What happens if params.Transactions is nil versus empty slice when passed to decodeTransactions at line 163, can this cause inconsistent behavior or panics in transaction decoding? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fe57b0ae-1a8d-4e06-8cf2-a389d50c745f?mode=deep",
+    "timestamp": "2026-01-10 23:33:08.505308",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: decodeTransactions()] [DoS attack] Can an attacker provide malformed transaction encoding in enc parameter causing UnmarshalBinary at line 144 to consume excessive CPU/memory parsing invalid RLP data, leading to node DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_79e3e6d7-8619-4395-b808-c156d5a6b82c?mode=deep",
+    "timestamp": "2026-01-10 23:33:34.013016",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: decodeTransactions()] [Panic condition] Does UnmarshalBinary at line 144 handle malformed transaction data gracefully, or can specially crafted invalid RLP cause panics in the underlying parsing logic crashing the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a8681470-86ed-4fb7-a707-9927f2a7bad2?mode=deep",
+    "timestamp": "2026-01-10 23:34:00.729628",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: decodeTransactions()] [Transaction injection] Can an attacker craft enc parameter containing transactions with invalid signatures that pass UnmarshalBinary but fail later validation, allowing propagation of invalid transactions through the network? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d3bc94fb-3d74-43b9-a14b-9dab358a2b4d?mode=deep",
+    "timestamp": "2026-01-10 23:34:28.194974",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: decodeTransactions()] [Integer overflow] When iterating over enc at line 142, can an attacker provide an enc slice with length approaching max int causing overflow in slice allocation at line 141 or memory exhaustion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_048fbd71-c322-4952-916e-704e3fc6776c?mode=deep",
+    "timestamp": "2026-01-10 23:34:56.404050",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: decodeTransactions()] [Nil pointer dereference] Does the function properly handle the case where enc[i] is nil at line 143, or could this cause nil pointer dereference when passed to UnmarshalBinary? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_76a138c9-609f-41d0-88eb-555301a429a7?mode=deep",
+    "timestamp": "2026-01-10 23:35:24.724338",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: decodeTransactions()] [Error masking] Does the error message at line 145 properly expose the nature of the unmarshaling failure, or does it mask critical security errors that should halt block processing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2ec22bef-6c46-4436-8387-93e6eba94214?mode=deep",
+    "timestamp": "2026-01-10 23:35:53.027055",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: decodeTransactions()] [Memory leak] If UnmarshalBinary fails partway through the loop at line 144, are previously allocated transactions in txs slice properly cleaned up, or does this cause memory leaks on repeated attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_970a96f8-ac7d-4cbf-ad84-c99c4bc860ab?mode=deep",
+    "timestamp": "2026-01-10 23:36:23.644662",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: decodeTransactions()] [Transaction type confusion] Can an attacker provide transactions with unsupported types (legacy, EIP-2930, EIP-1559) that UnmarshalBinary accepts but cause issues in downstream processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1f11e27e-2c90-49e5-97cf-bc1837916e5e?mode=deep",
+    "timestamp": "2026-01-10 23:36:53.001272",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: decodeTransactions()] [Slice bounds] Is there proper bounds checking when accessing enc[i] at line 143, or can concurrent modification of enc slice cause out-of-bounds panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_31206525-8b30-4863-aeb4-6aea5269d443?mode=deep",
+    "timestamp": "2026-01-10 23:37:22.911289",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: decodeTransactions()] [Gas manipulation] Can an attacker craft transactions within enc that have gas parameters exceeding block gas limits, which UnmarshalBinary accepts but should be rejected at this stage? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_661fa836-a430-4114-9ef9-3011bd7dc074?mode=deep",
+    "timestamp": "2026-01-10 23:37:52.087803",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: encodeTransactions()] [Error suppression] The MarshalBinary error at line 135 is silently ignored with underscore - can this hide critical serialization failures of malformed transactions that should cause validation rejection? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d3a76de3-1882-4885-b3a8-82edc701f2e9?mode=deep",
+    "timestamp": "2026-01-10 23:38:19.863544",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: encodeTransactions()] [Memory exhaustion] Can an attacker trigger a scenario where txs contains an extremely large number of transactions causing the enc slice allocation at line 133 to exhaust available memory? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_46c7267b-bed0-4595-aa9c-55500d766490?mode=deep",
+    "timestamp": "2026-01-10 23:38:47.776561",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Function: encodeTransactions()] [Nil pointer dereference] Does the function handle nil transaction pointers in the txs slice at line 134, or will accessing tx at line 135 cause nil pointer dereference panic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_687da018-5d6d-4e53-9a91-633b9d1f7823?mode=deep",
+    "timestamp": "2026-01-10 23:39:15.061242",
+    "report_generated": false
   }
 ]
