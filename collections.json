@@ -18448,5 +18448,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_71ed15df-d571-49f9-9bc9-8ecdbb2abf04?mode=deep",
     "timestamp": "2026-01-10 22:46:49.849320",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor/trezor.go] [Function: Type()] [Map concurrent read] Is MessageType_value map accessed concurrently from multiple goroutines during transaction signing? While read-only map access is generally safe in Go, could initialization race conditions cause issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_29cbe482-30d9-465c-878f-9316757d5755?mode=deep",
+    "timestamp": "2026-01-10 22:48:08.529596",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor/trezor.go] [Function: Name()] [Map concurrent read] Similar to Type(), is MessageType_name map accessed concurrently, and are there any initialization timing issues that could cause map access before it's fully populated? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d51b00c3-4dea-464f-b3bf-74069f2323e6?mode=deep",
+    "timestamp": "2026-01-10 22:48:21.235093",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor/trezor.go] [Import proto] [Protobuf version] The file imports github.com/golang/protobuf/proto - if there are known vulnerabilities in this protobuf library version, could they affect Type() or Name() functions' security? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e528fc69-3ab6-40ab-af6b-85e045016385?mode=deep",
+    "timestamp": "2026-01-10 22:48:34.896332",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor/trezor.go] [Function: Type()] [Proto message interface] Does Type() validate that msg actually implements the proto.Message interface properly, or does it assume all inputs are valid leading to potential type confusion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_26e22e9c-1554-4028-8543-475f62f27aad?mode=deep",
+    "timestamp": "2026-01-10 22:48:48.640435",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor/trezor.go] [MessageType enum] [Cross-chain confusion] The MessageType includes types for multiple blockchains (Ethereum=58, Tron=252, Cardano=303, etc.) - could Type() confusion between chains cause a user to sign an Ethereum transaction thinking it's for a different chain? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b7b073f4-7ce8-4f61-814e-79cd86bbd5d1?mode=deep",
+    "timestamp": "2026-01-10 22:49:03.357022",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor/trezor.go] [MessageType enum] [Chain-specific validation] Do calling functions validate that Type() returns a message type appropriate for the current blockchain (WBT/Ethereum), or could other blockchain message types be processed leading to protocol confusion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3563f65d-ea28-4b61-a3ed-debb209e5a51?mode=deep",
+    "timestamp": "2026-01-10 22:49:19.446503",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor/trezor.go] [MessageType enum] [Signature message types] For signature-related types (EthereumSignTx=58, SignMessage=38, MessageSignature=40), if Type() returns wrong values, could this cause signatures to be generated for wrong message types compromising transaction security? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3208fae5-d616-4129-8b34-8338cadcd8b3?mode=deep",
+    "timestamp": "2026-01-10 22:49:36.789185",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor/trezor.go] [MessageType enum] [Public key exposure] Types like GetPublicKey=11, EthereumGetPublicKey=450 - if Type() confusion occurs, could private operations be exposed as public or vice versa? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d41019f8-150b-4eac-9c66-c49bf58695dd?mode=deep",
+    "timestamp": "2026-01-10 22:49:55.393289",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor/trezor.go] [go:generate directive] [Protoc code generation] The go:generate directive shows protoc command for generating code - could malicious modifications to .proto files during build process inject malicious message types that Type() would handle incorrectly? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8bf7a5a9-5192-4f40-9a58-481790583d53?mode=deep",
+    "timestamp": "2026-01-10 22:50:14.966515",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor/trezor.go] [Package trezor] [Package scope] Since this is in the 'trezor' subpackage, are there any visibility or access control issues that could allow untrusted code to call Type() or Name() with malicious inputs? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b2b531b5-f06e-432c-b2e5-39cd8fad0012?mode=deep",
+    "timestamp": "2026-01-10 22:50:35.837556",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor/trezor.go] [Function: Type()] [Reflection performance] If Type() is called repeatedly in a tight loop with many messages, could the reflection overhead cause performance degradation or DoS during high transaction volumes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3ff61c92-a9de-4dbb-9591-8913bec6c8d9?mode=deep",
+    "timestamp": "2026-01-10 22:50:57.062426",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor/trezor.go] [Function: Name()] [String allocation] Does Name() allocate new strings for each call due to slicing name[12:], and could repeated calls cause memory pressure during bulk transaction operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c1430a97-97c5-422c-a5d1-5a2650409cb5?mode=deep",
+    "timestamp": "2026-01-10 22:51:19.679754",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor/trezor.go] [Function: Type()] [Unregistered message types] If a new protobuf message type is added to the codebase but not registered in MessageType_value map, will Type() return 0, and could this cause silent failures in new features? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2111fb72-5f50-4501-85a1-fed3de93d105?mode=deep",
+    "timestamp": "2026-01-10 22:51:42.185944",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor/trezor.go] [Function: Name()] [Incomplete MessageType_name] If MessageType_name map is incomplete (missing some int32 keys), will Name() return empty string, and is this handled gracefully in all error reporting paths? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_116ab2d6-faac-4fbf-9758-55ed58a6ff76?mode=deep",
+    "timestamp": "2026-01-10 22:52:03.157779",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor/trezor.go] [Function: Type()] [Custom message types] Could an attacker define custom protobuf message types that implement proto.Message but aren't in MessageType_value, causing Type() to return 0 and be misinterpreted? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c4f3ab38-cc15-4d23-b06e-9cdef7f63536?mode=deep",
+    "timestamp": "2026-01-10 22:52:26.815440",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor/trezor.go] [Function: Name()] [String prefix assumption] The Name() function assumes all entries in MessageType_name start with 'MessageType_' (12 chars) - if this assumption is violated in future protocol updates, could Name() return corrupted strings? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cecd43c9-9a8b-431a-a39d-d9de415957f2?mode=deep",
+    "timestamp": "2026-01-10 22:52:50.477965",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor/trezor.go] [Function: Type()] [Map concurrent read] Is MessageType_value map accessed concurrently from multiple goroutines during transaction signing? While read-only map access is generally safe in Go, could initialization race conditions cause issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d645bda3-f310-47a0-95f9-9f6dccd7dc95?mode=deep",
+    "timestamp": "2026-01-10 22:53:15.032367",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor/trezor.go] [Function: Name()] [Map concurrent read] Similar to Type(), is MessageType_name map accessed concurrently, and are there any initialization timing issues that could cause map access before it's fully populated? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6c8b50e4-471d-457a-b3f7-3dde1bf54448?mode=deep",
+    "timestamp": "2026-01-10 22:53:39.750182",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor/trezor.go] [Import proto] [Protobuf version] The file imports github.com/golang/protobuf/proto - if there are known vulnerabilities in this protobuf library version, could they affect Type() or Name() functions' security? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4ef44f7f-42db-432b-ae12-418637ed9388?mode=deep",
+    "timestamp": "2026-01-10 22:54:00.784180",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor/trezor.go] [Function: Type()] [Proto message interface] Does Type() validate that msg actually implements the proto.Message interface properly, or does it assume all inputs are valid leading to potential type confusion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7f79c63c-53ee-4190-a4c8-f4ec2c2b16c7?mode=deep",
+    "timestamp": "2026-01-10 22:54:24.351998",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor/trezor.go] [MessageType enum] [Cross-chain confusion] The MessageType includes types for multiple blockchains (Ethereum=58, Tron=252, Cardano=303, etc.) - could Type() confusion between chains cause a user to sign an Ethereum transaction thinking it's for a different chain? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_19eafc2e-c280-4b17-b7a7-82ab671f4f79?mode=deep",
+    "timestamp": "2026-01-10 22:54:47.666367",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor/trezor.go] [MessageType enum] [Chain-specific validation] Do calling functions validate that Type() returns a message type appropriate for the current blockchain (WBT/Ethereum), or could other blockchain message types be processed leading to protocol confusion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a1458981-5809-42c3-adfe-468e883f6306?mode=deep",
+    "timestamp": "2026-01-10 22:55:10.758853",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor/trezor.go] [MessageType enum] [Signature message types] For signature-related types (EthereumSignTx=58, SignMessage=38, MessageSignature=40), if Type() returns wrong values, could this cause signatures to be generated for wrong message types compromising transaction security? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5f2fb945-39a8-4018-8323-0cf4b71cdc11?mode=deep",
+    "timestamp": "2026-01-10 22:55:33.517268",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor/trezor.go] [MessageType enum] [Public key exposure] Types like GetPublicKey=11, EthereumGetPublicKey=450 - if Type() confusion occurs, could private operations be exposed as public or vice versa? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8ba95455-3e84-41e7-97dc-cf3310f675c3?mode=deep",
+    "timestamp": "2026-01-10 22:55:54.149325",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor/trezor.go] [go:generate directive] [Protoc code generation] The go:generate directive shows protoc command for generating code - could malicious modifications to .proto files during build process inject malicious message types that Type() would handle incorrectly? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_29c33921-7ac9-4449-9821-e1a4070c65a4?mode=deep",
+    "timestamp": "2026-01-10 22:56:15.213067",
+    "report_generated": false
   }
 ]
