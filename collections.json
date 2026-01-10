@@ -13198,5 +13198,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5ae6ece8-26bf-4478-a230-36ca57be9497?mode=deep",
     "timestamp": "2026-01-10 16:25:12.782967",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: Contains()] [Account mutation] If the account stored in w.account at line 31 is mutated by external code, does Contains() at line 68-70 detect this and reject operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5d9c2247-59ae-43d4-8a32-34bf841399ee?mode=deep",
+    "timestamp": "2026-01-10 16:26:23.777048",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: Accounts()] [Stale accounts] Can Accounts() at line 62-64 return an account that has been deleted from the underlying keystore, leading to operations on non-existent accounts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6812851f-e389-4620-8608-3edc5fe15ac9?mode=deep",
+    "timestamp": "2026-01-10 16:26:36.589442",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: Status()] [Map iteration] In Status() at line 42-50, does the RLock prevent the unlocked map from being modified during the lookup, or can concurrent writes cause map corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f0182342-b357-48d9-8e23-341a5dddcfe5?mode=deep",
+    "timestamp": "2026-01-10 16:26:49.736423",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: signHash()] [Keystore replacement] If the keystore pointer at w.keystore is replaced while signHash() at line 87-94 is executing, can this cause use-after-free or signing with wrong key? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d5c48a80-80d3-4e10-8717-2ae303f6626d?mode=deep",
+    "timestamp": "2026-01-10 16:27:03.619716",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: SignData()] [Nil data] Does SignData() at line 97-99 handle nil data parameter correctly, or will crypto.Keccak256(nil) cause unexpected behavior? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_02270430-613a-4520-a9fe-d7bdf247c097?mode=deep",
+    "timestamp": "2026-01-10 16:27:18.398153",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: SignText()] [Nil text] In SignText() at line 113-115, if text parameter is nil, does accounts.TextHash() handle it safely or could this cause a panic? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5c10f08b-5efd-47f1-9fd9-44ccda0b1c18?mode=deep",
+    "timestamp": "2026-01-10 16:27:33.983918",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: SignTx()] [Nil account] If SignTx() at line 132-139 receives a nil pointer for account parameter, will Contains() catch this or will it cause a nil pointer dereference? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_effa3c4e-0703-48d6-a904-bb24f777bf0c?mode=deep",
+    "timestamp": "2026-01-10 16:27:52.294723",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: Contains()] [Zero address] Does Contains() at line 68-70 reject comparisons with the zero address (0x0), or can an attacker use the zero address to bypass account checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c5613d17-22fc-40d5-ac47-6773de16d593?mode=deep",
+    "timestamp": "2026-01-10 16:28:11.778386",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: signHash()] [Address format] When signHash() at line 87-94 checks account ownership via Contains(), does it validate the address is properly formatted (20 bytes, checksummed)? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_edf13fc4-a57b-4119-bc10-3a9331e566a1?mode=deep",
+    "timestamp": "2026-01-10 16:28:32.000476",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: SignTx()] [EIP compatibility] When SignTx() at line 132-139 signs transactions, does it properly support all Ethereum transaction types (Legacy, EIP-2930, EIP-1559, EIP-4844) based on chainID? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6d7931e6-c6b4-451e-8280-7418cfdc50d4?mode=deep",
+    "timestamp": "2026-01-10 16:28:53.757706",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: SignText()] [EIP-191] Does SignText() at line 113-115 properly implement EIP-191 (signed data standard) through accounts.TextHash(), or are there deviations that could break compatibility? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c52fe222-124c-43b5-9f48-e207bd089161?mode=deep",
+    "timestamp": "2026-01-10 16:29:15.981416",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: SignTx()] [Error propagation] When SignTx() at line 132-139 calls w.keystore.SignTx(), are all possible errors properly propagated to the caller, or are some errors silently suppressed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9be41631-6504-480a-8f24-32e78a0aa02d?mode=deep",
+    "timestamp": "2026-01-10 16:29:38.162113",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: SignDataWithPassphrase()] [Partial failure] If SignDataWithPassphrase() at line 102-109 fails partway through decryption, does it leave the keystore in a consistent state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_10e4e4f7-f8ac-42bc-9962-92daf7ddbb2c?mode=deep",
+    "timestamp": "2026-01-10 16:30:02.549245",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: SignTx()] [Nonce tracking] Does SignTx() at line 132-139 validate the transaction nonce against the account's current nonce to prevent replay attacks within the same chain? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_08f78f1a-1ee9-4fb6-b321-498e00d61d5f?mode=deep",
+    "timestamp": "2026-01-10 16:30:25.303388",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: SignData()] [Nonce inclusion] Does SignData() at line 97-99 include any replay protection mechanisms (like nonce or timestamp) in the signed data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8074747a-95c7-4c44-8a52-29eb69650dc6?mode=deep",
+    "timestamp": "2026-01-10 16:30:48.533434",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: SignData()] [Clique seal] When SignData() at line 97-99 is used to sign Clique block seals, does it enforce INTURN/NOTURN difficulty rules to prevent consensus violations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6b3045c0-f857-48e1-912f-9b5ef69f6680?mode=deep",
+    "timestamp": "2026-01-10 16:31:11.209753",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: SignTx()] [Block production] If SignTx() at line 132-139 is used during block production by validators, can it sign coinbase transactions that violate block reward rules? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_499ce659-4a24-4f8c-8d19-f4821934d443?mode=deep",
+    "timestamp": "2026-01-10 16:31:35.906251",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: SignData()] [Memory allocation] In SignData() at line 97-99, does crypto.Keccak256() allocate unbounded memory for large data inputs, enabling DoS through memory exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5af5f6b0-379d-4e3d-9982-51e76ceb9318?mode=deep",
+    "timestamp": "2026-01-10 16:32:01.693074",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: SignText()] [String construction] Does SignText() at line 113-115 properly handle very large text inputs in accounts.TextHash() without causing stack overflow or excessive memory allocation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dcf2ef35-d7c7-4edc-887d-807209850389?mode=deep",
+    "timestamp": "2026-01-10 16:32:26.421749",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Struct: keystoreWallet] [Backend trust] The keystoreWallet at line 30-33 trusts the keystore backend completely - can a malicious keystore implementation return fake signatures or leak keys? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b5f45368-2459-4322-8826-8019190af79a?mode=deep",
+    "timestamp": "2026-01-10 16:32:51.708329",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: signHash()] [Backend validation] Does signHash() at line 87-94 validate the signature returned from w.keystore.SignHash() before returning it to the caller? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eddf7d69-28dd-4861-bc2d-66682df1b79d?mode=deep",
+    "timestamp": "2026-01-10 16:33:15.920917",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: Accounts()] [Deleted accounts] If the account has been deleted from the keystore filesystem, does Accounts() at line 62-64 still return it, leading to operations on non-existent keys? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d9bbd0cf-81c6-4eb4-9090-372cd2c6ab10?mode=deep",
+    "timestamp": "2026-01-10 16:33:40.207343",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: Contains()] [Account refresh] Does Contains() at line 68-70 check if the account still exists in the keystore, or does it only check the cached account value? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2a79dea8-aa03-4b50-a769-7a71f425ae68?mode=deep",
+    "timestamp": "2026-01-10 16:34:04.592793",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: SignTx()] [Signature recovery] After SignTx() at line 132-139 produces a signed transaction, should it verify the signature can be recovered to the correct address as a sanity check? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5675449e-4953-4b09-9b1b-5aeaf5fc152c?mode=deep",
+    "timestamp": "2026-01-10 16:34:29.511749",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/wallet.go] [Function: SignData()] [Signature format validation] Does SignData() at line 97-99 validate the returned signature is in canonical form to prevent signature malleability? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e291aa64-67b7-4006-bbbd-16c9f9bb11bf?mode=deep",
+    "timestamp": "2026-01-10 16:34:55.447362",
+    "report_generated": false
   }
 ]
