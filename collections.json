@@ -6448,5 +6448,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2a81dc13-5c3a-4644-a3fa-6c77153404fa?mode=deep",
     "timestamp": "2026-01-10 07:14:23.824218",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: parseIdentifier()] [Collision Attack] Can an attacker craft function names with special characters ($, _) that collide with internal function selectors, potentially causing ABI confusion or routing to unintended code paths? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_106b23c7-ac98-4e90-8cd7-0c634d0ecfa3?mode=deep",
+    "timestamp": "2026-01-10 07:15:42.489225",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: parseElementaryType()] [Array Parsing DoS] The loop at lines 70-82 processes array brackets - can an attacker provide input with thousands of consecutive array dimensions (e.g., uint256[][][][]... repeated 10000 times) causing memory exhaustion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_201c2b6e-9792-4182-92fb-0eed7ac4a817?mode=deep",
+    "timestamp": "2026-01-10 07:15:55.524659",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: parseElementaryType()] [Unclosed Bracket] At line 77, if rest[0] != ']', error message at line 78 uses unescapedSelector[0] instead of rest[0] - can this cause incorrect error reporting or mask the actual parsing failure? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_477d4ea1-1eae-4b83-80c0-74070a320162?mode=deep",
+    "timestamp": "2026-01-10 07:16:08.761995",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: parseElementaryType()] [Buffer Underflow] The digit parsing loop at lines 73-76 accesses rest[0] without verifying len(rest) > 0 after rest = rest[1:] at line 72 - can this cause panic with malformed array syntax? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_133ceaf4-6505-4e1d-86f6-d6563ee1ef3b?mode=deep",
+    "timestamp": "2026-01-10 07:16:23.478084",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: parseElementaryType()] [String Concatenation] Lines 71, 74, 80 use string concatenation in a loop - can extremely long array dimension strings (e.g., uint256[99999999999999]) cause quadratic performance degradation and DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_417b6a7e-7b53-4099-bd78-a407c344f056?mode=deep",
+    "timestamp": "2026-01-10 07:16:38.195353",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: parseElementaryType()] [Array Size Validation] The parser accepts any sequence of digits in array bounds (line 73-75) - can an attacker specify astronomically large array sizes that aren't validated until later, causing issues in downstream ABI processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_84a40f8f-bc1d-4867-8fb6-1f6795f7fdf2?mode=deep",
+    "timestamp": "2026-01-10 07:16:53.735461",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: parseElementaryType()] [Empty Array Brackets] Can input like",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ba7d4538-d6fa-4d41-9daf-5a173c7fb5fc?mode=deep",
+    "timestamp": "2026-01-10 07:17:11.652062",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: parseElementaryType()] [Mixed Array Types] Can an attacker mix fixed-size and dynamic arrays (e.g.,",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_67a63ccd-6ead-41c7-8f33-b8414eb62095?mode=deep",
+    "timestamp": "2026-01-10 07:17:30.358018",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: parseCompositeType()] [Recursion Stack Overflow] The function recursively calls parseType at lines 90 and 96 - can an attacker create input with 1000+ nested tuple levels (((((uint256))))) causing stack overflow and node crash? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c66d4bb1-9a7b-48c5-b2ef-b6dea5be2e5f?mode=deep",
+    "timestamp": "2026-01-10 07:17:49.933719",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: parseCompositeType()] [Unbounded Loop] The loop at lines 95-101 continues while rest[0] != ')' - can malformed input without closing parenthesis cause infinite loop, hanging the validator node indefinitely? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4f6358c5-5c9a-4923-ac25-de17f503c35b?mode=deep",
+    "timestamp": "2026-01-10 07:18:10.702882",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: parseCompositeType()] [Type Confusion] The result slice contains []interface{} mixing strings and []interface{} - can type confusion in later processing cause panic when assumptions about element types are violated? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9877d5bb-2947-404d-948e-47e8b8ef20cd?mode=deep",
+    "timestamp": "2026-01-10 07:18:30.445251",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: parseCompositeType()] [Array Suffix Handling] Lines 105-106 check for",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3f898a0a-3bcf-40e8-b932-f46a5c2487df?mode=deep",
+    "timestamp": "2026-01-10 07:18:51.236757",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: parseCompositeType()] [Bounds Check] Line 87 checks unescapedSelector[0] != '(' but line 88 shows the error uses unescapedSelector[0] even when len is 0 - can empty input cause out-of-bounds panic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c4650abd-e901-4cb0-a2ff-eeca612659e6?mode=deep",
+    "timestamp": "2026-01-10 07:19:12.717167",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: parseCompositeType()] [Error Propagation] If parseType returns error at line 91, is the error message at line 92 sufficiently detailed to prevent information leakage while aiding debugging? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fe9fd6b3-370d-4e95-86f9-74fb7a02ea1f?mode=deep",
+    "timestamp": "2026-01-10 07:19:34.090255",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: parseCompositeType()] [Empty Tuple] Can input like",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_745a5ca4-1477-4226-80d9-d48c50d66860?mode=deep",
+    "timestamp": "2026-01-10 07:19:56.995129",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: parseCompositeType()] [Missing Comma] The function increments rest[1:] at lines 96 assuming comma separator - can attacker omit commas creating malformed type sequences that bypass validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f1ca232a-0c80-4a9e-baa2-032574418e3b?mode=deep",
+    "timestamp": "2026-01-10 07:20:21.685628",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: parseCompositeType()] [Memory Allocation] Each parseType call appends to result slice - can extremely long tuple lists (e.g., 1 million elements) cause memory exhaustion through unbounded slice growth? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7e4eaf56-41fd-47a0-9d10-b39b24d3b120?mode=deep",
+    "timestamp": "2026-01-10 07:20:46.739819",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: parseCompositeType()] [Rest Validation] Line 102-103 check rest[0] == ')' but line 103 error message prints entire rest string - can this leak sensitive information if rest contains unexpected data? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0674caf2-be6a-47fd-ab1e-c988eee59f14?mode=deep",
+    "timestamp": "2026-01-10 07:21:11.411090",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: parseType()] [Empty Input] Line 112 checks empty input but can downstream callers (parseCompositeType) pass empty strings after slicing, causing this error to be triggered in unexpected contexts? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d3aef07f-366a-4cfc-a4bd-7a8bdbbf98f8?mode=deep",
+    "timestamp": "2026-01-10 07:21:37.199159",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: parseType()] [Recursion Depth] This function enables mutual recursion between parseCompositeType and itself - is there any depth limit check to prevent stack overflow from deeply nested types? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3248e5b0-5b06-4773-8f10-ef1f542f3759?mode=deep",
+    "timestamp": "2026-01-10 07:22:02.761077",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: parseType()] [Branch Coverage] The if-else at lines 115-119 only checks for '(' character - are there other valid starting characters that should be handled but aren't, potentially causing unexpected behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d0846ccf-9038-44a4-aeeb-86969ff82878?mode=deep",
+    "timestamp": "2026-01-10 07:22:27.321763",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: parseType()] [Return Type] Returning interface{} (either string or []interface{}) creates type ambiguity - can this lead to type assertion panics in assembleArgs? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4504c802-30e3-4700-8717-9469522097f4?mode=deep",
+    "timestamp": "2026-01-10 07:22:52.675670",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: assembleArgs()] [Recursion DoS] The function recursively calls itself at line 130 for nested tuples - combined with parseCompositeType recursion, can total recursion depth exceed Go's stack limits causing crash? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_385b9757-7530-43fc-acb5-d3c5ff687dfb?mode=deep",
+    "timestamp": "2026-01-10 07:23:17.795100",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: assembleArgs()] [Type Assertion Panic] Lines 127 and 129 use type assertions with ok check, but can the else clause at line 140 be reached with unexpected types, causing panic or incorrect error handling? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_acfde5a0-8138-47a8-98bf-b937d96da499?mode=deep",
+    "timestamp": "2026-01-10 07:23:42.460805",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: assembleArgs()] [Array Bounds] Line 135 accesses subArgs[len(subArgs)-1] - can empty subArgs slice cause panic if components list is empty? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5d9fa764-1034-4f27-ba3b-30bfcc9513dd?mode=deep",
+    "timestamp": "2026-01-10 07:24:07.873754",
+    "report_generated": false
   }
 ]
