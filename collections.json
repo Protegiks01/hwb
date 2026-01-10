@@ -17848,5 +17848,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_14c04914-65d9-4a23-b335-2a9b9da849d4?mode=deep",
     "timestamp": "2026-01-10 22:06:32.734796",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorDerive()] [Address format confusion] Lines 199-204 handle both binary and hex address formats from Trezor - can inconsistent firmware versions return both formats simultaneously causing address confusion or using wrong addresses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2215ea07-d7be-4670-bba1-d58ba32e7bac?mode=deep",
+    "timestamp": "2026-01-10 22:07:50.844049",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorDerive()] [Empty address handling] If both GetAddressBin() and GetAddressHex() return empty at lines 199-204, error is returned at line 205 - but can partial address data (non-empty but invalid length) bypass this check and return corrupted addresses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_90fe5368-a32b-458f-b016-eca23c8fb23e?mode=deep",
+    "timestamp": "2026-01-10 22:08:03.635490",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorDerive()] [Binary address conversion] At line 200, common.BytesToAddress(addr) is called - if addr length is not exactly 20 bytes, can this cause truncation or padding issues leading to wrong addresses being derived? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fd8d654a-4d2e-4550-a04e-7d3f740d93fa?mode=deep",
+    "timestamp": "2026-01-10 22:08:17.134392",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorDerive()] [Hex address parsing] At line 203, common.HexToAddress(addr) parses hex string - can malformed hex strings (missing 0x, wrong length, invalid characters) cause panics or return incorrect addresses? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ba984640-4093-4f5b-9a52-6d434bc7994c?mode=deep",
+    "timestamp": "2026-01-10 22:08:30.771302",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: Derive()] [Path wrapper] This function at line 176 directly calls trezorDerive without any validation - should there be checks on path length, values, or format before passing to hardware device? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a4ce0ce8-356b-409f-90ed-2556f6927fb5?mode=deep",
+    "timestamp": "2026-01-10 22:08:45.401308",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorExchange()] [Message marshaling] At line 284, proto.Marshal() is called on req - can malformed or malicious proto.Message implementations cause marshaling to fail silently or produce corrupted data that's sent to the device? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bc9cb10e-09ad-49cd-b194-c34674450a9e?mode=deep",
+    "timestamp": "2026-01-10 22:09:01.131165",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorExchange()] [Payload buffer overflow] At line 288, payload buffer is created with size 8+len(data) - can extremely large marshaled data cause memory exhaustion or integer overflow in buffer allocation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_47f4b3af-1f0a-4a2f-b813-121dc308441b?mode=deep",
+    "timestamp": "2026-01-10 22:09:18.607759",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorExchange()] [Protocol header injection] Lines 289-292 construct the protocol header with magic bytes 0x23, 0x23 - can an attacker manipulate trezor.Type(req) at line 290 to inject malicious message types? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b24d31ff-39e6-478d-b1a2-77cb49305638?mode=deep",
+    "timestamp": "2026-01-10 22:09:37.472322",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorExchange()] [Message type overflow] At line 290, trezor.Type(req) is put as uint16 - can large message type values cause the uint16 to overflow, sending wrong message types to the device? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cca4c397-95d9-4aa0-bb0e-d3ca0d4b9250?mode=deep",
+    "timestamp": "2026-01-10 22:09:57.508999",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorExchange()] [Length field manipulation] At line 291, len(data) is stored as uint32 - if len(data) exceeds uint32 max, can truncation occur causing the Trezor to expect different data length than actually sent? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_49fa24a9-e6bb-46da-9ff1-b62f9d7ae053?mode=deep",
+    "timestamp": "2026-01-10 22:10:18.699702",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorExchange()] [Chunk size assumption] The chunk buffer at line 295 is hardcoded to 64 bytes - can USB implementations that don't respect this size cause data corruption or incomplete transmission? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b4bc3ce9-4743-499a-ae3f-62233c273ec8?mode=deep",
+    "timestamp": "2026-01-10 22:10:41.515001",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorExchange()] [Report ID validation] Chunk[0] is set to 0x3f at line 296 - is this magic number validated anywhere, or can incorrect USB report IDs be sent causing device confusion? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_83ccf519-cf86-4885-9aaf-99c576962ba2?mode=deep",
+    "timestamp": "2026-01-10 22:11:05.261297",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorExchange()] [Payload chunking] At lines 300-307, payload is chunked into 63-byte pieces - can off-by-one errors in slice operations cause data corruption or missing bytes in transmitted payloads? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4a1a1bb3-addb-43d4-9b25-9290787db879?mode=deep",
+    "timestamp": "2026-01-10 22:11:28.735276",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorExchange()] [Zero padding] At line 305, remaining chunk space is zero-padded - can this padding be misinterpreted by the Trezor as actual data if length calculations are incorrect? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0cb98db8-6896-4483-8bee-62c0c9419966?mode=deep",
+    "timestamp": "2026-01-10 22:11:53.237529",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorExchange()] [Write error handling] At line 310, write errors are returned immediately - but are chunks atomic, or can partial writes leave the device in inconsistent state requiring reset? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_547e33e1-2f35-4550-846d-f209512d33cd?mode=deep",
+    "timestamp": "2026-01-10 22:12:18.059090",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorExchange()] [Read timeout] At line 321, io.ReadFull blocks until full chunk is read - can a malfunctioning or malicious device cause indefinite blocking, hanging the entire node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a0817a7f-0d31-4b20-94c8-8aa3323847a0?mode=deep",
+    "timestamp": "2026-01-10 22:12:43.675059",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorExchange()] [Header validation bypass] At line 327, chunk[0] must be 0x3f and first chunk must have 0x23, 0x23 - can these checks be bypassed by carefully crafted responses causing protocol desynchronization? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1daa1a0e-03b4-4616-b39b-d83353d1dd2d?mode=deep",
+    "timestamp": "2026-01-10 22:13:08.612128",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorExchange()] [Reply type confusion] At line 334, message type 'kind' is extracted as uint16 - can type confusion occur if the device sends unexpected message types that match expected types by coincidence? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_000ec7e8-db36-49b0-b13f-1853226d0d98?mode=deep",
+    "timestamp": "2026-01-10 22:13:32.714759",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorExchange()] [Reply length overflow] At line 335, reply buffer is allocated based on uint32 length from device - can extremely large lengths cause memory exhaustion DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_29176c17-41ab-424e-a9fc-a073fc356fe9?mode=deep",
+    "timestamp": "2026-01-10 22:13:57.738883",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorExchange()] [Buffer overflow] At lines 341-346, payload is appended to reply - can logic errors in calculating 'left' variable cause buffer overflows or out-of-bounds writes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_16294d11-8f31-47f9-a2e8-7d6c1577e10a?mode=deep",
+    "timestamp": "2026-01-10 22:14:21.411627",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorExchange()] [Infinite loop] The for loop at line 319 continues until reply buffer is filled - can a malicious device send chunks that never complete the buffer, causing infinite loop and node hang? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_16617ba9-e43a-4258-a816-2216128f289d?mode=deep",
+    "timestamp": "2026-01-10 22:14:44.873054",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorExchange()] [Failure message handling] At lines 349-356, Failure messages are unmarshaled and returned as errors - can malicious failure messages with missing or malformed data cause panics during unmarshal? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d853c756-0eaf-4d11-a139-494d2c06ff75?mode=deep",
+    "timestamp": "2026-01-10 22:15:08.350933",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorExchange()] [Button request recursion] At line 359, ButtonRequest triggers recursive trezorExchange call - can malicious devices send infinite ButtonRequest messages causing stack overflow? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0167f9e8-5b3f-40ac-a41f-fd820b7ac16f?mode=deep",
+    "timestamp": "2026-01-10 22:15:30.531477",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorExchange()] [Result type matching] At lines 361-365, response type is matched against expected results - can type confusion occur if multiple result types have the same numeric value? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_57815355-57df-43e9-b428-c1ecf3263d7b?mode=deep",
+    "timestamp": "2026-01-10 22:15:53.745156",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/trezor.go] [Function: trezorExchange()] [Unmarshal failure] At line 363, proto.Unmarshal is called without checking if the reply data is well-formed - can malformed protobuf data cause panics or silent corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_02a07558-e657-4e43-9c14-e4bbfbe46410?mode=deep",
+    "timestamp": "2026-01-10 22:16:18.328906",
+    "report_generated": false
   }
 ]
