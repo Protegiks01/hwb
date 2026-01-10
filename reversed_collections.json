@@ -15892,5 +15892,149 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d14a24cd-23e1-44b3-839f-2a224d807e01?mode=deep",
     "timestamp": "2026-01-10 10:38:54.065600",
     "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBloomBits()] [Zero section head handling] At lines 237-238, the comment mentions storing with zero section head if unknown. Can an attacker exploit this by providing bloom bits with zero section head that match cached zero-sectionHead entries, causing wrong bloom data to be used? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bffe9fe3-4e81-4cee-8488-b058af03f330?mode=deep",
+    "timestamp": "2026-01-10 10:40:13.217085",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBloomBits()] [Integer overflow in section calculation] At line 235, the calculation (section+1)*odr.IndexerConfig().BloomSize-1 could overflow for large section values. Can this cause incorrect section head lookups or out-of-bounds access in bloom bit storage? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2bca2443-6616-4294-b2ba-85e00b36814c?mode=deep",
+    "timestamp": "2026-01-10 11:00:39.202729",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBloomBits()] [Section head mismatch] At line 235, sectionHead is read but potentially overwritten by the loop variable. Can this cause the wrong section head to be used for bloom bit retrieval, leading to incorrect or unverified bloom data being returned? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9a4d68f4-f278-4cae-abab-7879973ca787?mode=deep",
+    "timestamp": "2026-01-10 11:00:52.093098",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBloomBits()] [Bloom trie verification bypass] Can an attacker compromise the BloomTrieRoot retrieved via GetBloomTrieRoot at line 256, causing bloom bits verification to pass for forged bloom data, enabling false positive log matches or hiding real logs? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_df7526ab-52d0-4c68-8630-3620a6f5a4a7?mode=deep",
+    "timestamp": "2026-01-10 11:01:05.316147",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetUntrustedBlockLogs()] [Database write prevention] Untrusted receipts aren't stored in database at lines 213-214. If the same block is later requested through GetBlockReceipts, will it retrieve from ODR again or use cached untrusted data? Can this cause inconsistent receipt data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c4383c66-23d7-46eb-8c5c-a8d2c1f3f088?mode=deep",
+    "timestamp": "2026-01-10 11:01:19.173573",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetUntrustedBlockLogs()] [Malicious header parameter] The function accepts header as a parameter at line 203. Can an attacker provide a forged header that doesn't match the actual canonical chain, causing retrieval of logs for non-existent or invalid blocks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_683d70cc-ba2c-4c9b-aec8-068455572c23?mode=deep",
+    "timestamp": "2026-01-10 11:01:33.919693",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetUntrustedBlockLogs()] [No derived fields computation] The comment at lines 213-214 states derived fields aren't computed for untrusted receipts. Can missing derived fields (block hash, tx index, log index) cause failures when these logs are used in bloom filters or event queries? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_825e4d4b-e248-4e68-8234-6917c437392f?mode=deep",
+    "timestamp": "2026-01-10 11:01:49.530846",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetUntrustedBlockLogs()] [Receipt validation bypass] Unlike GetBlockReceipts, GetUntrustedBlockLogs doesn't validate receipts against ReceiptHash. Can this be exploited to make light clients accept invalid logs during checkpoint sync, causing divergence from honest nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f2ce83f4-4ccb-4c39-8ad4-860cba76b695?mode=deep",
+    "timestamp": "2026-01-10 11:02:07.469601",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetUntrustedBlockLogs()] [Checkpoint sync poisoning] Since this function is used for checkpoint syncing at line 202, can an attacker provide false logs during checkpoint sync that poison the light client's view of historical events, enabling phishing or false state claims? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e9b66a6c-595d-489b-a1e0-cfd4a3758719?mode=deep",
+    "timestamp": "2026-01-10 11:02:27.019377",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetUntrustedBlockLogs()] [Trust boundary violation] The function explicitly marks data as Untrusted at line 208, but logs are returned without any validation. Can a malicious checkpoint sync peer provide completely fabricated logs that get accepted and used in application logic? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6aebb943-5f64-4afb-894f-d85d23526141?mode=deep",
+    "timestamp": "2026-01-10 11:02:46.982329",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBlockLogs()] [Missing derived fields] If GetBlockReceipts fails to derive fields (e.g., due to error or bypass), can logs returned by GetBlockLogs be missing critical context like block hash, transaction index, causing failures in log filtering? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a9388f5d-5d93-4648-be37-ccbb5e922116?mode=deep",
+    "timestamp": "2026-01-10 11:03:08.719161",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBlockLogs()] [Log index manipulation] Are log indices within receipts validated to be sequential and correct? Can manipulated log indices from forged receipts cause confusion in event tracking or bloom filter generation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2127782e-648c-412f-baaa-098c7c91f542?mode=deep",
+    "timestamp": "2026-01-10 11:03:31.725076",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBlockLogs()] [Nil logs slice] If a receipt has receipt.Logs = nil at line 195, does the assignment logs[i] = receipt.Logs cause issues, or should it be converted to an empty slice to prevent nil pointer issues in log processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_401872a7-3871-4b72-ac99-d50149f7fcac?mode=deep",
+    "timestamp": "2026-01-10 11:03:55.977727",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBlockLogs()] [Receipt corruption propagation] GetBlockLogs calls GetBlockReceipts at line 189. If GetBlockReceipts returns corrupted receipts (from compromised ODR or database), do the extracted logs at line 193 propagate this corruption to log filters and event listeners? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bdb6a90c-793e-4d14-8504-b3a67da7110f?mode=deep",
+    "timestamp": "2026-01-10 11:04:21.955149",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBlockReceipts()] [Empty receipts handling] At line 170, the check len(receipts) > 0 gates the derived fields logic. If receipts is an empty slice (valid for empty blocks), does this bypass derivation when it should occur, or is empty receipts slice handled correctly? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_55b62f54-c54e-49f2-8d8f-5300ab97152d?mode=deep",
+    "timestamp": "2026-01-10 11:04:48.520438",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBlockReceipts()] [WriteReceipts race condition] At line 181, receipts are written to database after derivation. If multiple goroutines call GetBlockReceipts concurrently for the same block, can race conditions cause corrupt or inconsistent receipt data to be written? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6a55f4f0-d136-4892-8e6e-0a587bd5447e?mode=deep",
+    "timestamp": "2026-01-10 11:05:16.179818",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBlockReceipts()] [BaseFee parameter] At line 178, block.BaseFee() is passed to DeriveFields. For pre-EIP1559 blocks, is nil BaseFee handled correctly, or can this cause nil pointer dereferences in derivation logic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_50479880-2e7b-4bf6-92fd-4ade09d59b85?mode=deep",
+    "timestamp": "2026-01-10 11:05:45.392679",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBlockReceipts()] [Receipt count validation] Are the number of receipts validated to match the number of transactions in the block? Can an attacker provide fewer or more receipts causing index out of bounds or missing receipt data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c2d5aa83-6f6e-4c70-b520-3d842cfdee7f?mode=deep",
+    "timestamp": "2026-01-10 11:06:14.517984",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBlockReceipts()] [Block retrieval for derivation] At line 171, GetBlock is called to get transactions for DeriveFields. If the block body was modified between receipt generation and this call, can mismatched receipts be derived and stored? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7d9f1715-c9c8-4eda-a26f-de5e82e80d06?mode=deep",
+    "timestamp": "2026-01-10 11:06:43.564151",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBlockReceipts()] [Untrusted ODR receipts] If receipts come from ODR at line 167, are they validated against the header's ReceiptHash before being used, or can a malicious ODR backend provide arbitrary receipts that get stored in the database at line 181? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_64305b86-82b7-4fb0-8d38-8ac76b9e652b?mode=deep",
+    "timestamp": "2026-01-10 11:07:12.867655",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBlockReceipts()] [DeriveFields failure handling] At line 178, if receipts.DeriveFields returns an error, it's returned to caller. But what if DeriveFields partially modifies receipts before failing? Can this leave receipts in an inconsistent state that gets cached? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_246844f4-393f-4b02-aa75-94dcda377b29?mode=deep",
+    "timestamp": "2026-01-10 11:07:42.764139",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBlockReceipts()] [Genesis config manipulation] At lines 175-176, genesis hash and chain config are read from database. Can a corrupted database provide wrong config leading to incorrect receipt derivation (e.g., wrong fork rules), causing consensus failures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3d1fd065-85df-4b3b-bd0c-9226baeda39a?mode=deep",
+    "timestamp": "2026-01-10 11:08:14.241301",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBlockReceipts()] [Derived fields injection] At line 170, the function checks if TxHash is zero to determine if derived fields need filling. Can an attacker provide receipts with zero TxHash but populated derived fields to bypass recalculation and inject false receipt data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_19be204c-e301-4acb-9d41-bac8a9dab7fd?mode=deep",
+    "timestamp": "2026-01-10 11:08:44.932608",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBlockReceipts()] [Receipt root mismatch] At line 154, receipts are read from database without verifying they match the header's ReceiptHash. Can an attacker with database write access inject forged receipts that don't match the actual transaction executions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0e59dab8-36e7-4eea-b0c0-a769fd02c83e?mode=deep",
+    "timestamp": "2026-01-10 11:09:15.827046",
+    "report_generated": false
   }
 ]
