@@ -12598,5 +12598,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8b4ae0c5-ac75-46e5-86a6-fc300e059f45?mode=deep",
     "timestamp": "2026-01-10 06:43:14.074162",
     "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: eventLoop()] [Event loss] If chainHeadCh is full (size 10) and new ChainHeadEvent arrives, does the event get dropped causing pool to never process new blocks leading to stale state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_087d7942-b53a-497d-bb46-07bbaa493078?mode=deep",
+    "timestamp": "2026-01-10 06:44:26.938202",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: eventLoop()] [Goroutine leak] If chainHeadSub.Err() at line 300 returns before pool.quit is closed, does the goroutine exit cleanly or remain running causing resource leak? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_15f1c83e-d43a-4fcc-ab88-4828a6081cf1?mode=deep",
+    "timestamp": "2026-01-10 06:44:39.936381",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: reorgOnNewHead()] [Relay backend assumptions] Does relay.Discard() at line 273 handle duplicate hashes safely, or can the non-unique hashes slice cause backend corruption? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_37c26f28-fdaa-4f48-9303-63eb55a50808?mode=deep",
+    "timestamp": "2026-01-10 06:44:53.486070",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: reorgOnNewHead()] [Database read failure] If ReadCanonicalHash() at line 267 returns empty hash due to database corruption, does accessing pool.mined[emptyHash] cause incorrect cleanup? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_82f3864f-a948-4308-b509-4f6f29c69a0d?mode=deep",
+    "timestamp": "2026-01-10 06:45:07.112899",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: reorgOnNewHead()] [Integer overflow] If newHeader.Number.Uint64() + txPermanent (500) overflows uint64 at line 263, can the comparison fail causing cleanup to never occur and memory leak? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_847d0c81-9a4f-414c-bade-cb8b867c43f5?mode=deep",
+    "timestamp": "2026-01-10 06:45:21.882837",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: reorgOnNewHead()] [Permanent transaction cleanup race] The cleanup loop at lines 265-277 reads pool.mined without lock while checkMinedTxs() may be writing to it - can this cause map concurrent access panics? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c17f9bfc-c2b7-44ab-8502-ff51df6a78b3?mode=deep",
+    "timestamp": "2026-01-10 06:45:38.080906",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: reorgOnNewHead()] [clearIdx underflow] If oldh.Number.Uint64() at line 245 is less than pool.clearIdx (due to deep reorg), the update at line 246 moves clearIdx backwards - can this cause re-cleaning of already cleaned blocks corrupting state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_95915216-a28e-4de4-9c9b-10cb284b46a0?mode=deep",
+    "timestamp": "2026-01-10 06:45:55.433012",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: reorgOnNewHead()] [Integer underflow] At line 256, newHeader.Number.Uint64()-uint64(i) could underflow if i is manipulated or newHashes length is corrupted - can this cause panic or wrong block number passed to checkMinedTxs()? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f7429bea-b7a6-41f5-9623-69236b1056d5?mode=deep",
+    "timestamp": "2026-01-10 06:46:15.383521",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: reorgOnNewHead()] [Rollback ordering] Are oldHashes rolled back in correct order at lines 249-251, or can incorrect ordering cause transactions to be rolled back in wrong sequence affecting nonce validity? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_85312dc7-e912-4ec3-8e24-2c8a5f5507c4?mode=deep",
+    "timestamp": "2026-01-10 06:46:36.007055",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: reorgOnNewHead()] [Context timeout partial update] If context times out at line 256 during checkMinedTxs(), pool.head is updated to intermediate hash at line 259, but remaining blocks aren't processed - can this leave pool in inconsistent state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_909cea39-0b41-421e-8960-dbfcff75ba51?mode=deep",
+    "timestamp": "2026-01-10 06:46:57.160728",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: reorgOnNewHead()] [Deep reorg DoS] If a deep chain reorganization occurs with thousands of blocks, can the unbounded append to oldHashes/newHashes at lines 233-238 cause memory exhaustion and node crash? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_853725d1-08e2-4203-8003-cfc3df0296c5?mode=deep",
+    "timestamp": "2026-01-10 06:47:19.948665",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: reorgOnNewHead()] [Nil pointer dereference] If GetHeader() returns nil at line 239 and the nil check at line 239 sets newh=oldh, but oldh is also manipulated, can this cause nil pointer panics in subsequent operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5a0b0b0d-e88a-4b88-bb1f-a51090c627cf?mode=deep",
+    "timestamp": "2026-01-10 06:47:44.599822",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: rollbackTxs()] [txStateChanges corruption] If setState() is called with mined=false for a transaction that was never marked as mined=true, does the txStateChanges map get corrupted affecting relay backend notifications? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c8eb4fc2-eaf3-419b-8692-8f6c5d95627a?mode=deep",
+    "timestamp": "2026-01-10 06:48:09.037525",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: rollbackTxs()] [Duplicate transaction handling] If the same transaction exists in both pool.pending and pool.mined[hash] due to prior race condition, does moving it back to pending create duplicate entries? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_05e611f7-5aca-43cf-9d18-65417207d136?mode=deep",
+    "timestamp": "2026-01-10 06:48:36.020832",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: rollbackTxs()] [Race condition] Between reading pool.mined[hash] at line 207 and deleting it at line 214, can another goroutine modify this map entry causing inconsistent rollback? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7c56db26-8656-4fd0-b8e1-2b03b5e30605?mode=deep",
+    "timestamp": "2026-01-10 06:49:01.180099",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: rollbackTxs()] [Missing error check] The batch.Write() at line 216 returns no error that is checked - if write fails, are transactions in inconsistent state between memory and disk? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7c256e3c-19a3-4ae7-906a-e840e89c901c?mode=deep",
+    "timestamp": "2026-01-10 06:49:26.236565",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: rollbackTxs()] [Database inconsistency] If batch.Write() at line 216 fails, transactions are already moved back to pool.pending and removed from pool.mined - can this cause state where pool thinks tx is pending but database still has lookup entries? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c6972696-74ed-472c-a811-ca6275e5406f?mode=deep",
+    "timestamp": "2026-01-10 06:49:51.960875",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: checkMinedTxs()] [Transaction ordering] Are transactions from block.Transactions() iterated in a deterministic order, or can non-deterministic ordering cause different nodes to mark transactions as mined in different sequences? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e05ab165-05da-4ca4-8a28-ff99943b7466?mode=deep",
+    "timestamp": "2026-01-10 06:50:17.504267",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: checkMinedTxs()] [Nil list handling] If pool.mined[hash] is nil and list remains nil after the loop, line 198 stores nil into the map - can this cause issues in rollbackTxs() when ranging over nil slice? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4524a969-f28f-441f-9599-aecd6766b16e?mode=deep",
+    "timestamp": "2026-01-10 06:50:43.493395",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: checkMinedTxs()] [ODR caching issue] The comment at line 188 mentions ODR caches but ignores results - if GetBlockReceipts fails but ODR caches partial data, can this corrupt subsequent receipt lookups? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2b4c6c9c-a192-47da-812c-5c97c4524f98?mode=deep",
+    "timestamp": "2026-01-10 06:51:09.663188",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: checkMinedTxs()] [Database corruption] If WriteTxLookupEntriesByBlock() at line 191 fails silently (no error returned), transactions are marked as mined in pool state but not in database - can this cause permanent state divergence? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d8e43743-6cc4-4e78-b84a-ca09519c2185?mode=deep",
+    "timestamp": "2026-01-10 06:51:36.449792",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: checkMinedTxs()] [Race condition] Between checking pool.pending[tx.Hash()] at line 181 and deleting it at line 195, can the transaction be removed by RemoveTransactions(), causing double-delete or state inconsistency? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ac71c814-fa50-4683-9523-527c070e7c48?mode=deep",
+    "timestamp": "2026-01-10 06:52:02.045439",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: checkMinedTxs()] [Early return vulnerability] The early return at line 171-173 when no pending txs exist prevents writing tx lookup entries - if transactions were pending but cleared between reorg start and checkMinedTxs call, can this cause missing database entries? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0ce33e9c-0869-4b97-9b13-b12a4f6efb9c?mode=deep",
+    "timestamp": "2026-01-10 06:52:28.601113",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: checkMinedTxs()] [Context timeout] If GetBlock() or GetBlockReceipts() times out due to slow ODR backend, the function returns error, but pool.mined[hash] remains partially updated - can this corrupt state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b785fcf5-1479-404c-936c-f70d859fe551?mode=deep",
+    "timestamp": "2026-01-10 06:52:56.488554",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/txpool.go] [Function: getLists()] [Memory allocation] If txStateChanges contains thousands of entries, are the unbounded append operations at lines 158-160 safe from memory exhaustion, or can this DoS the node during large reorgs? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a6367284-c0a3-4427-8828-0178fa9ac304?mode=deep",
+    "timestamp": "2026-01-10 06:53:24.551519",
+    "report_generated": false
   }
 ]
