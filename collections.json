@@ -15748,5 +15748,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d25c4bae-eaee-49d1-b77e-f010b9d77ee9?mode=deep",
     "timestamp": "2026-01-10 19:38:04.409209",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: decryptAPDU()] [Decryption Before Validation] The function decrypts the data at line 306 before any validation - if decryption errors can be distinguished from padding errors in unpad(), does this enable padding oracle attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f59ab11f-437d-4c53-ac32-a35f6189b56a?mode=deep",
+    "timestamp": "2026-01-10 19:39:20.036942",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: decryptAPDU()] [AES Key Issues] If s.sessionEncKey is nil, corrupted, or wrong length at line 298-301, will aes.NewCipher return a clear error or cause subtle decryption failures that leak information? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5bdadb20-404f-4bd9-88d8-e6307570cbf6?mode=deep",
+    "timestamp": "2026-01-10 19:39:32.954803",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: decryptAPDU()] [IV State] The decryption uses s.iv at line 305, but if IV has been corrupted or modified by concurrent operations, will this silently produce wrong plaintext or raise an error? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_53d564f3-f1dc-4cd3-93dc-ad301ea062c4?mode=deep",
+    "timestamp": "2026-01-10 19:39:46.684840",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: decryptAPDU()] [Input Length Validation] There's no check that len(data) is a multiple of 16 bytes before CBC decryption - can non-aligned data cause issues in the CBC decrypter? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_81a22636-47b6-4f9f-968c-39afe90ef828?mode=deep",
+    "timestamp": "2026-01-10 19:40:00.467575",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: decryptAPDU()] [Buffer Reuse] The ret buffer at line 303 is used for in-place decryption - can this create issues if the caller expects the input data slice to remain unchanged? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4be3e9e7-91ac-4ccc-a5c8-f0d0a2141622?mode=deep",
+    "timestamp": "2026-01-10 19:40:15.081219",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: unpad()] [Padding Oracle] The function returns different errors at lines 319 and 322 for invalid padding - can an attacker distinguish these errors to perform padding oracle attacks recovering plaintext bit-by-bit? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ba9b4952-3aa3-4118-ab1d-fc07fe45922c?mode=deep",
+    "timestamp": "2026-01-10 19:40:30.796966",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: unpad()] [Loop Bound] The loop at line 312 iterates up to 16 bytes - if data length is less than 16 bytes, will data[len(data)-i] cause slice out-of-bounds panic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c734c147-73cf-4235-b0c9-df2f5adc293f?mode=deep",
+    "timestamp": "2026-01-10 19:40:48.440092",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: unpad()] [Timing Side-Channel] The loop continues on zero bytes (line 315) but returns on terminator (line 317) - can the number of loop iterations leak information about padding length through timing side-channels? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d4d29b13-902d-4756-be85-ce7239cf9af3?mode=deep",
+    "timestamp": "2026-01-10 19:41:08.093571",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: unpad()] [Invalid Terminator] If the data doesn't contain the expected terminator byte (0x80) and only contains zeros for 16 bytes, the error at line 322 is returned - can this be used to distinguish encrypted messages by padding structure? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ba0cc9a3-cdb6-4a6d-9fdd-ef4f32b8787e?mode=deep",
+    "timestamp": "2026-01-10 19:41:27.964788",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: unpad()] [All-Zero Padding] If encrypted data decrypts to all zeros (no terminator in last 16 bytes), is this treated as an error or does it indicate a deeper encryption failure? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3d880f24-395c-4f0b-a64f-83f9e5de0e7e?mode=deep",
+    "timestamp": "2026-01-10 19:41:49.585209",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: unpad()] [Return Slice Safety] The function returns data[:len(data)-i] at line 317 - is this a slice of the original buffer, and can modifications to the returned slice affect the original decrypted buffer? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_138cce8c-8fdd-4c10-928a-ad3f403969c6?mode=deep",
+    "timestamp": "2026-01-10 19:42:13.946724",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: updateIV()] [IV Update Order] The IV is updated by encrypting meta and data with MAC key at lines 333-335, but if this update fails partway through, is the old IV preserved or can partial updates leave the channel in inconsistent state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_795ef407-0e81-4d06-8d68-7d626f4494c5?mode=deep",
+    "timestamp": "2026-01-10 19:42:37.801164",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: updateIV()] [MAC Key Issues] If s.sessionMacKey is nil or invalid at line 329-332, will aes.NewCipher fail gracefully or cause subsequent operations to use a predictable IV? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_54b4eeaf-c88e-4738-bd78-5011ae05d233?mode=deep",
+    "timestamp": "2026-01-10 19:43:03.120036",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: updateIV()] [Padding Side-Effects] The data is padded with 0x00 terminator at line 328 - can the padding affect MAC computation in ways that enable forgery attacks if the padding is predictable? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f4b5fca8-1784-4ae8-b160-42d702b540f1?mode=deep",
+    "timestamp": "2026-01-10 19:43:27.792687",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: updateIV()] [Zero IV for CBC] A zero IV (make([]byte, 16)) is used for the CBC encrypter at line 333 - is this intentional for MAC computation, or does it weaken the MAC security by using a predictable IV? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4ced146e-6747-4852-a5bd-6507de9edf41?mode=deep",
+    "timestamp": "2026-01-10 19:43:54.297993",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: updateIV()] [MAC Extraction] The MAC is extracted from data[len(data)-32:len(data)-16] at line 337 - if len(data) < 32 after padding, will this cause slice out-of-bounds panic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_163b24af-10c9-45d0-8808-16c133097cb5?mode=deep",
+    "timestamp": "2026-01-10 19:44:20.942850",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: updateIV()] [In-Place Encryption] The meta and data buffers are encrypted in-place at lines 334-335 - can this cause issues if these buffers are later reused by the caller expecting original values? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5173ca9e-4fad-4be7-815b-cb3befb39591?mode=deep",
+    "timestamp": "2026-01-10 19:44:47.226771",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: updateIV()] [IV Assignment Race] The IV is assigned at line 337 (s.iv = ...) without synchronization - can concurrent goroutines race on this assignment causing IV corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_943be0e9-5fd4-4db7-8c55-e84056b9104e?mode=deep",
+    "timestamp": "2026-01-10 19:45:14.590110",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Function: updateIV()] [MAC Position Choice] Why is the MAC extracted from the second-to-last block (len(data)-32:len(data)-16) instead of the last block - is this intentional or can it affect security? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d0c56e23-c7e7-492d-80dc-588e6529e360?mode=deep",
+    "timestamp": "2026-01-10 19:45:40.790778",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Struct: SecureChannelSession] [Concurrent Access] The SecureChannelSession struct at lines 52-61 has no mutex protection - can concurrent goroutines access/modify secret, sessionEncKey, sessionMacKey, iv causing race conditions and cryptographic failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cb562e95-8ccb-4a9b-ac23-520aa147365f?mode=deep",
+    "timestamp": "2026-01-10 19:46:06.047818",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Struct: SecureChannelSession] [Memory Security] Sensitive fields like secret, PairingKey, sessionEncKey, sessionMacKey are stored as []byte slices - are these properly zeroed when no longer needed, or do they remain in memory exploitable through memory dumps? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_64760ad1-a378-45bf-839c-f20300955362?mode=deep",
+    "timestamp": "2026-01-10 19:46:30.856502",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Struct: SecureChannelSession] [Public Key Export] The publicKey field at line 55 is exported and used in Open() - can an attacker modify this public key between NewSecureChannelSession and Open to perform key substitution attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dd324325-6ea4-4d1b-8a65-4e1510df95ec?mode=deep",
+    "timestamp": "2026-01-10 19:46:56.204687",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Struct: SecureChannelSession] [PairingKey Export] PairingKey at line 56 is exported - can external code read or modify this sensitive long-term secret compromising all future sessions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_80d5c5b9-aabd-4743-8547-014a498eb2e2?mode=deep",
+    "timestamp": "2026-01-10 19:47:22.093058",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Struct: SecureChannelSession] [PairingIndex Export] PairingIndex at line 60 is exported - can an attacker modify this to use a different pairing slot potentially with weaker credentials? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d241dfd3-0689-4fe1-90b5-888ce4bafc90?mode=deep",
+    "timestamp": "2026-01-10 19:47:48.183196",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Constants] [scSecretLength] The constant scSecretLength=32 at line 40 is used for key material - is 32 bytes (256 bits) sufficient for long-term security, or should it be larger given potential future cryptographic advances? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2c509bb8-4302-4a82-acb9-a8996077a126?mode=deep",
+    "timestamp": "2026-01-10 19:48:13.952811",
+    "report_generated": false
   }
 ]
