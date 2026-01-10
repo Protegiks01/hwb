@@ -25636,5 +25636,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c6ae7c69-0e1a-4e4e-8a05-ab2b514c1348?mode=deep",
     "timestamp": "2026-01-10 22:29:40.018775",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Impact: Economic attack] Can an attacker exploit the penalty system to DoS legitimate high-value nodes by forcing them into penalty state, degrading service for premium users? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1e2cda98-e7d5-4978-b116-5fc23935cbbc?mode=deep",
+    "timestamp": "2026-01-10 22:31:07.598377",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Impact: Priority manipulation] Can an attacker manipulate selection weights through carefully crafted cost/value parameters to monopolize LES request processing, starving legitimate users? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8d28090b-495a-4caf-8653-d1cdb6eba59e?mode=deep",
+    "timestamp": "2026-01-10 22:31:20.495401",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Impact: Resource exhaustion] Can an attacker exploit unbounded queue growth in Add() to exhaust validator node memory, causing crashes and reducing network security? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3e4ec43f-6a74-4c0a-9e48-1d8db9d70507?mode=deep",
+    "timestamp": "2026-01-10 22:31:33.899437",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Impact: Validator DoS] Can an attacker exploit race conditions in Add() and processLoop() to crash validator nodes running LES servers, reducing network liveness below 51% threshold? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eae6b8ba-efd0-4833-9a52-736d8165947c?mode=deep",
+    "timestamp": "2026-01-10 22:31:47.712801",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Impact: Network DoS] If an attacker exploits integer overflow in sumCost accumulation, can they bypass rate limiting entirely and flood the LES server with unlimited requests, causing network-wide denial of service? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_404c3c99-b0ba-4b89-badc-7c4df683b0b1?mode=deep",
+    "timestamp": "2026-01-10 22:32:02.616394",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: processLoop()] [Edge case] At line 322, checking len(nq.queue) > 0 after lock reacquisition - what if queue was modified to nil between check and access? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_620f0264-cdc0-47cc-be44-eee9d52771d1?mode=deep",
+    "timestamp": "2026-01-10 22:32:18.536073",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: dropRequests()] [Edge case] At lines 375-377, nodes with sumCost==0 are skipped, but can all nodes have sumCost==0 causing empty dropList and no drops? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a23e0296-4755-4dd8-b4d2-96346c3eebdd?mode=deep",
+    "timestamp": "2026-01-10 22:32:35.915112",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: choose()] [Edge case] At line 282, if both selectors are empty, choose() returns nil, but is this case always handled properly by callers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e73a6c58-d2ce-44a5-a1f3-c437e9c13557?mode=deep",
+    "timestamp": "2026-01-10 22:32:54.950043",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: addressGroup.remove()] [Edge case] At lines 116-120, if l==0 (last node), groupWeight is set to 0, but can this break selector logic expecting non-zero weights? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f9fb3780-218f-4fc3-b5d6-03245afc2408?mode=deep",
+    "timestamp": "2026-01-10 22:33:16.121020",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: selectionWeights()] [Edge case] At line 166, if flatWeight calculation results in 0, it's set to 1, but what if uint64 conversion of a tiny float fails? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4854b871-25ff-416e-a963-918052e34531?mode=deep",
+    "timestamp": "2026-01-10 22:33:37.879203",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: Add()] [Edge case] If id and address parameters are empty/zero values, can this cause map key collisions or nil pointer issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8056a679-d69f-4ea0-996a-3f46b7996fc8?mode=deep",
+    "timestamp": "2026-01-10 22:34:00.659585",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: NewLimiter()] [Goroutine leak] At line 139, processLoop() is started but never tracked - if NewLimiter() is called repeatedly without Stop(), do goroutines accumulate? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_39bddadf-9320-4466-99a8-eae1189565f8?mode=deep",
+    "timestamp": "2026-01-10 22:34:24.871156",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: remove()] [Cleanup] At lines 272-277, node removal happens in multiple steps, but if later steps fail, can partial removal leave dangling references? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e94137c5-ef56-4e96-a282-0fb0e639465e?mode=deep",
+    "timestamp": "2026-01-10 22:34:50.226995",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: processLoop()] [Resource leak] At line 318, channels are created but never explicitly closed in all paths - can this cause channel/goroutine leaks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_93c47d89-1a15-4981-aba3-736de15d0679?mode=deep",
+    "timestamp": "2026-01-10 22:35:16.065179",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: Stop()] [Cleanup] At lines 335-341, Stop() sets quit and signals, but does it wait for processLoop() to finish before returning, or can resources leak? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e0839fd0-318d-4414-be1e-9ca50c4bc2e4?mode=deep",
+    "timestamp": "2026-01-10 22:35:42.951288",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: Add()] [Cost accumulation] At line 224, l.sumCost += reqCost accumulates before checking limit - can many concurrent Add() calls bypass limit check by racing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0a6e8952-f987-4701-accb-1e1c6ecb48f8?mode=deep",
+    "timestamp": "2026-01-10 22:36:10.420334",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: NewLimiter()] [Limit validation] At line 130, sumCostLimit is passed but never validated - can a limit of 0 or extremely small value break the limiter logic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8f9daebf-80a3-4d32-a35c-cc057eb3cf74?mode=deep",
+    "timestamp": "2026-01-10 22:36:38.614234",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: dropRequests()] [Limit enforcement] At line 401, dropping stops when sumCost <= sumCostLimit/2, but why half instead of full limit? Can this allow cost to oscillate inefficiently? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_98d0be9c-853f-4d8e-ade7-b829e82d09e4?mode=deep",
+    "timestamp": "2026-01-10 22:37:08.979718",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: Add()] [Limit bypass] At lines 225-227, dropRequests() is only called when sumCost > sumCostLimit, but can sumCost stay just below limit while still causing resource exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9edf8769-0c98-4514-af53-a12d9e6e3789?mode=deep",
+    "timestamp": "2026-01-10 22:37:35.194194",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: processLoop()] [Processing failure] At lines 318-320, if sending to request.process blocks or the receiver panics, does processLoop() hang permanently? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3301d91c-bb55-4a82-99fa-4b17a8aa895d?mode=deep",
+    "timestamp": "2026-01-10 22:38:01.310957",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: Add()] [Queue growth] At line 191, requests are appended to nq.queue without size limit before dropRequests() check - can this cause unbounded memory growth? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6b0a4129-cfbf-4736-baa9-ed2e48c9844b?mode=deep",
+    "timestamp": "2026-01-10 22:38:27.180711",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: processLoop()] [Lock duration] At line 317, the lock is released during request processing, but can long-running requests cause other operations to block excessively? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d4f411e2-6c6c-45f9-8ddb-a96fb5b31fc6?mode=deep",
+    "timestamp": "2026-01-10 22:38:53.245382",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: processLoop()] [Request leak] At lines 300-304, when quit is true, all request.process channels are closed, but are in-flight requests between Add() and processLoop() properly handled? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e04ee762-35fe-4da4-afed-b9768c91edd4?mode=deep",
+    "timestamp": "2026-01-10 22:39:18.923536",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: processLoop()] [Processing order] At lines 307-311, if choose() returns nil, the loop waits, but can high-priority requests starve low-priority ones indefinitely? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_793ec44c-0040-452a-9648-763f46d1684c?mode=deep",
+    "timestamp": "2026-01-10 22:39:44.854919",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: dropRequests()] [Float comparison] At line 379, sumValue > 0 is checked, but can extremely small positive values cause division issues at line 380? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_90f5b137-a57d-4a2e-a10c-d49dbdd5d405?mode=deep",
+    "timestamp": "2026-01-10 22:40:08.782595",
+    "report_generated": false
   }
 ]
