@@ -18886,5 +18886,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f437ed28-2a15-483d-b220-d91e5d8d05d9?mode=deep",
     "timestamp": "2026-01-10 14:25:33.349542",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Integer arithmetic] [Division precision loss] At line 250, integer division 'maxTarget/20' can lose precision. Can this accumulated precision loss allow clients to exceed limits? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_67b4c3ac-35a2-41de-a332-e3d683024b5b?mode=deep",
+    "timestamp": "2026-01-10 14:26:59.057828",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Integer arithmetic] [Priority calculation overflow] When estimatePriority returns int64, can priority calculations overflow in edge cases with maximum balance values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7e9c943f-51a4-4674-b221-97d97c351765?mode=deep",
+    "timestamp": "2026-01-10 14:27:12.216236",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Integer arithmetic] [Bias duration overflow] Can extremely large bias values (time.Duration is int64) cause overflow when multiplied or added in capacity calculations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_647864e6-c59c-49df-be22-fded4f47380a?mode=deep",
+    "timestamp": "2026-01-10 14:27:25.884973",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Integer arithmetic] [uint64 overflow in capacity] Can capacity calculations overflow when multiple nodes request maximum capacity simultaneously? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_668408c7-8919-4d3c-947d-c2ffbdc50a58?mode=deep",
+    "timestamp": "2026-01-10 14:27:40.374585",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [DoS] [Metrics update overhead] Can the metrics subscriptions at lines 132-149 add significant overhead during high-frequency state changes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_659b2035-0d56-4966-9cb5-ba43fb3976be?mode=deep",
+    "timestamp": "2026-01-10 14:27:55.250758",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [DoS] [State transition thrashing] Can rapidly changing node states (active/inactive/priority) cause excessive callback execution and state machine overhead? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2f931d91-31ce-4fb4-9e2b-67412dd24299?mode=deep",
+    "timestamp": "2026-01-10 14:28:11.702650",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [DoS] [SetCapacity spam] Can clients repeatedly call SetCapacity with slightly different values to trigger expensive capacity curve recalculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_53c20dc9-865c-4625-b016-6ef753f04e57?mode=deep",
+    "timestamp": "2026-01-10 14:28:29.027098",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [DoS] [Capacity query flood] Can rapid serveCapQuery calls with maximum length AddTokens arrays cause CPU exhaustion through repeated priority estimation calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_23c6fcb6-f4fc-47f3-902a-ac5082a3a1fb?mode=deep",
+    "timestamp": "2026-01-10 14:28:48.908442",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [DoS] [Registration flood] Can an attacker rapidly register and unregister nodes to exhaust memory or CPU resources through state machine churn? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b03be3c8-acb7-4073-9cb4-12ac446356ae?mode=deep",
+    "timestamp": "2026-01-10 14:29:09.017915",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Concurrency] [Subscription callback goroutines] Do the state machine subscription callbacks spawn goroutines that could outlive the ClientPool? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a15249dc-a919-42bc-9f6e-249b10c7f056?mode=deep",
+    "timestamp": "2026-01-10 14:29:31.562527",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Concurrency] [Goroutine leak] Are all goroutines properly cleaned up when Stop() is called? Can pending operations or callbacks leak goroutines? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ca00a3a4-3231-4b90-955b-de81f8d20f22?mode=deep",
+    "timestamp": "2026-01-10 14:29:54.865267",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Concurrency] [State machine operation blocking] Can a long-running SetCapacity Operation block other critical operations like disconnect or priority updates? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a1f2dfdf-aafd-45ed-a5df-fe1eb69373fc?mode=deep",
+    "timestamp": "2026-01-10 14:30:19.083236",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Concurrency] [capReqNode data race] The capReqNode field is set without holding any lock. Can concurrent SetCapacity calls cause data races detected by Go's race detector? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6d5ff1cd-ed1a-4301-8ede-0b2f43e6ef9d?mode=deep",
+    "timestamp": "2026-01-10 14:30:43.089100",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Concurrency] [Lock-free read in SetCapacity] At lines 191-195, connectedBias is read with RLock but used after RUnlock. Can this value change before being used in the Operation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ee0e562f-4868-4b12-8685-3935e6d049ad?mode=deep",
+    "timestamp": "2026-01-10 14:31:08.788298",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Balance tracker] [Negative balance exploitation] Can nodes exploit the positive/negative balance mechanism to maintain capacity with only negative balance by timing their requests? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b593f40a-7e1f-4629-a50b-ed4d1f7d42d6?mode=deep",
+    "timestamp": "2026-01-10 14:31:36.300668",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Balance tracker] [Balance overflow] What happens if balance operations overflow? Can the balance tracker return invalid nodeBalance objects that cause capacity calculation errors? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4b828d58-fc9e-40b5-8cbf-82b0a5db510b?mode=deep",
+    "timestamp": "2026-01-10 14:32:04.208152",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Balance tracker] [Balance persistence race] Can a node disconnect and reconnect rapidly enough that balance updates are lost, allowing them to consume more resources than their balance allows? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_332731a4-cd3b-4111-a823-288a78068392?mode=deep",
+    "timestamp": "2026-01-10 14:32:33.108159",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Priority pool] [Active bias synchronization] When connectedBias is updated via SetConnectedBias(), is the priorityPool's activeBias always properly synchronized? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_95390e85-33d3-45ce-a84e-9699a5a02fff?mode=deep",
+    "timestamp": "2026-01-10 14:33:02.242412",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Priority pool] [Min capacity enforcement] The minCap is set in the constructor and used throughout. Can priorityPool and ClientPool have different views of minCap causing inconsistent capacity allocation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2135dd37-34c2-4504-a849-9651f19649af?mode=deep",
+    "timestamp": "2026-01-10 14:33:32.757122",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Priority pool] [Capacity limit inconsistency] Can the priorityPool's requestCapacity() return a capacity that violates ClientPool's expectations, causing active nodes to have zero capacity? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c5ac9085-19e8-4ca6-ad1a-5aa5a27e6e34?mode=deep",
+    "timestamp": "2026-01-10 14:34:03.020953",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [State machine callbacks] [Priority flag timing] When priority is gained (line 108), the timeout is removed, but is there a window where the node could be disconnected before the priority flag propagates? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9a8f51e9-257f-40a6-9901-92f62033d47d?mode=deep",
+    "timestamp": "2026-01-10 14:34:34.772076",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [State machine callbacks] [Node removal race] If a node is removed (both flags cleared) while callbacks are pending, can those callbacks still execute and try to access freed resources? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e19e2ac1-3016-4cba-bd0f-4fba7c534740?mode=deep",
+    "timestamp": "2026-01-10 14:35:04.261528",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [State machine callbacks] [Recursive callbacks] Can state changes triggered by callbacks cause recursive callback chains that exhaust the stack or cause deadlocks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f7bc5287-a700-4bfb-8d49-fe7584d8bd79?mode=deep",
+    "timestamp": "2026-01-10 14:35:32.929473",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [State machine callbacks] [Callback ordering] Can the ordering of state subscriptions in NewClientPool() cause callbacks to execute in unexpected order, leading to capacity being updated before priority flags are set? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_16ec737c-9d50-4f4c-8a38-3e4d7ea7c4de?mode=deep",
+    "timestamp": "2026-01-10 14:36:00.928235",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Function: Handle()] [Request amplification] Can an attacker send many Handle requests to amplify load on the capacity query system causing DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_71e4061a-362a-4efb-adcf-958052eabc6d?mode=deep",
+    "timestamp": "2026-01-10 14:36:29.194175",
+    "report_generated": false
   }
 ]
