@@ -6898,5 +6898,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b73b2866-ec54-44ed-af1b-cd994814b4a6?mode=deep",
     "timestamp": "2026-01-10 07:43:33.023961",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: MakeTopics()] [Signed Integer] For int8/int16/int32/int64 cases at lines 50-57, when calling genIntType with int64 conversion, can integer overflow during conversion (e.g., int32 > MaxInt64) cause incorrect topic generation that breaks event filter matching? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3abcd242-a8ee-47bd-95a3-3aff4b3a1580?mode=deep",
+    "timestamp": "2026-01-10 07:44:41.551391",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: MakeTopics()] [Boolean Edge Case] At lines 46-49, for bool type, only the true case sets topic byte to 1, but false case leaves topic zero-initialized. Can this asymmetric handling cause confusion with other zero-value types (uint8(0), int8(0)) leading to filter collision attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3f85b815-75f7-4c85-bc14-3b96a527f9a9?mode=deep",
+    "timestamp": "2026-01-10 07:44:54.373644",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: MakeTopics()] [Interface Confusion] When iterating over filter rules at line 34 with type []interface{}, can an attacker inject nil interface values that aren't caught by the type switch, causing nil pointer dereference in subsequent operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_573cd642-5bf2-451d-be2f-88ac8c1caeb2?mode=deep",
+    "timestamp": "2026-01-10 07:45:07.551420",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: MakeTopics()] [Copy Safety] In multiple copy operations (lines 40, 42, 45, 60, 63, 66, 69, 72, 75), if source and destination slices overlap in memory, can this cause undefined copy behavior leading to data corruption in topic generation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ba83ab61-4250-4e0c-bd0e-b48c534be5f8?mode=deep",
+    "timestamp": "2026-01-10 07:45:21.055511",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: MakeTopics()] [Big.Int Edge Cases] At line 44-45 for *big.Int handling, if rule is negative big.Int, will Bytes() encode it as two's complement incorrectly since big.Int.Bytes() only returns magnitude without sign, causing negative values to appear as large positive values in topics? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8be8ae0c-8624-44b8-b2d4-04fa44e01758?mode=deep",
+    "timestamp": "2026-01-10 07:45:35.675507",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: MakeTopics()] [Reflect Array Type] At line 89, when checking reflect.TypeOf(rule).Elem().Kind() == reflect.Uint8 for byte arrays, can an attacker provide arrays of other uint types (uint16, uint32) that pass some checks but cause type confusion in the copy operation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5e5e1dec-2056-496a-bd7d-e35a15369343?mode=deep",
+    "timestamp": "2026-01-10 07:45:51.075304",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: genIntType()] [Integer Overflow] At line 109, when computing byte(rule >> (i * 8)), if size parameter is manipulated to be > 8, will the right shift operation overflow causing incorrect byte extraction from the int64 value? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_47417104-048a-484c-b0bf-32840f7a9e22?mode=deep",
+    "timestamp": "2026-01-10 07:46:08.527222",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: genIntType()] [Two's Complement] At lines 103-106, when rule is negative and topic is initialized to all 0xFF bytes for two's complement representation, can edge case values (MinInt64) cause incorrect two's complement encoding that breaks signed integer topic matching? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_47aa4068-cf1c-4ef2-b968-0e075fc9f5f4?mode=deep",
+    "timestamp": "2026-01-10 07:46:27.091262",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: genIntType()] [Array Bounds] At line 109, when accessing topic[common.HashLength-i-1], if the loop variable i reaches or exceeds common.HashLength due to incorrect size parameter, will this cause out-of-bounds write to the topic array? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f7e3c30c-e0d0-4daa-81e6-561d29cc5565?mode=deep",
+    "timestamp": "2026-01-10 07:46:48.319417",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: genIntType()] [Size Parameter Validation] The size parameter at line 101 is not validated before use in the loop at line 108. Can an attacker calling MakeTopics with custom int types cause size > 8 or size = 0, leading to incorrect topic generation or array access violations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cb781980-35cb-4eea-b2aa-878c0ee73426?mode=deep",
+    "timestamp": "2026-01-10 07:47:09.485018",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: genIntType()] [Bit Shift] At line 109, when performing rule >> (i * 8), if i is near uint maximum and i * 8 overflows, will the shift operation produce undefined results causing incorrect byte extraction? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9f09998f-6293-4700-8f52-3924cb266447?mode=deep",
+    "timestamp": "2026-01-10 07:47:31.891652",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: genIntType()] [Sign Extension] For negative int64 values, after setting all bytes to 0xFF at line 106 and then overwriting lower bytes in the loop, can this cause incorrect sign extension for values that don't fit in the specified size parameter? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5a851468-708f-4fe3-a726-2fdfd0b69ce0?mode=deep",
+    "timestamp": "2026-01-10 07:47:56.711731",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: genIntType()] [Return Slice] At line 111, returning topic[:] creates a slice reference to the array. Can modifications to this returned slice affect the original array, causing unintended side effects in concurrent topic generation operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bbb883d8-78ed-41ed-a337-6693c7967b38?mode=deep",
+    "timestamp": "2026-01-10 07:48:20.244138",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: genIntType()] [Type Size Mismatch] When called from MakeTopics with size=1 for int8, size=2 for int16, etc., if rule contains value outside the representable range (e.g., int64(256) with size=1), will only the lower bytes be extracted causing value truncation and filter mismatch? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_09ad8371-93d6-4e35-9e18-9486cd73189e?mode=deep",
+    "timestamp": "2026-01-10 07:48:45.124825",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: ParseTopics()] [Reflection Safety] At line 118, when calling reflect.ValueOf(out).Elem().FieldByName(), if out is not a pointer to struct or the field name from ToCamelCase(arg.Name) doesn't exist, will this panic crash the node during event parsing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8b136df4-2086-481e-801d-8110aab17862?mode=deep",
+    "timestamp": "2026-01-10 07:49:09.660109",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: ParseTopics()] [Nil Pointer] At line 118, if out parameter is nil pointer, will reflect.ValueOf(out).Elem() panic before field lookup, enabling DoS by parsing events with nil output struct? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b83c501f-ed37-4b13-9af1-06d501661500?mode=deep",
+    "timestamp": "2026-01-10 07:49:34.425818",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: ParseTopics()] [Field Name Collision] At line 118, when using ToCamelCase(arg.Name) for field lookup, can an attacker craft event arguments with names that collide after camel-case conversion (e.g.,",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d4368e3f-ad2e-48c1-9cf0-7b2611d7cce5?mode=deep",
+    "timestamp": "2026-01-10 07:49:58.643361",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: ParseTopics()] [Type Mismatch] At line 119, when calling field.Set(reflect.ValueOf(reconstr)), if reconstr type doesn't match field type, will this panic during event parsing causing node crash? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_369d669b-804c-4b07-98eb-169ed70cd131?mode=deep",
+    "timestamp": "2026-01-10 07:50:23.142892",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: ParseTopics()] [Unexported Field] If the struct field found at line 118 is unexported (lowercase first letter), will field.Set() panic due to inability to set unexported fields via reflection? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f7891b9d-5cd8-42ad-af6d-169c1105f90b?mode=deep",
+    "timestamp": "2026-01-10 07:50:47.465878",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: ParseTopics()] [Interface Wrapping] When passing reconstr to reflect.ValueOf at line 119, can interface wrapping cause type information loss leading to incorrect type assignments to struct fields? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a54338b8-fc81-4477-ae4d-bc62e4aa7508?mode=deep",
+    "timestamp": "2026-01-10 07:51:11.189640",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: ParseTopicsIntoMap()] [Nil Map] At line 127, if out map parameter is nil, will the assignment out[arg.Name] = reconstr panic, enabling DoS through event parsing with nil map? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_73a29e5d-42de-44cb-9dfc-cdf085589fe9?mode=deep",
+    "timestamp": "2026-01-10 07:51:36.216647",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: ParseTopicsIntoMap()] [Map Key Collision] At line 127, if multiple arguments have the same name, will later assignments overwrite earlier ones in the map, causing event data loss or incorrect state reconstruction? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f8e5bbdc-973e-4a56-b4e5-5ba33b3fc2d6?mode=deep",
+    "timestamp": "2026-01-10 07:51:59.049158",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: ParseTopicsIntoMap()] [Concurrent Map Access] If multiple goroutines call ParseTopicsIntoMap with the same map concurrently, will the map writes at line 127 cause concurrent map write panics crashing the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0b6dfd67-45d9-4f6d-9488-32d68a1a76a6?mode=deep",
+    "timestamp": "2026-01-10 07:52:21.915268",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: ParseTopicsIntoMap()] [Map Memory] When inserting reconstr values into map at line 127, if reconstr contains large objects (e.g., common.Hash for dynamic types), can repeated insertions cause excessive map memory growth leading to OOM? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_42828f38-ef75-4073-9260-40529776d799?mode=deep",
+    "timestamp": "2026-01-10 07:52:46.556620",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: parseTopicWithSetter()] [Length Mismatch] At lines 138-140, when checking len(fields) != len(topics), can an attacker provide mismatched lengths that pass this check through integer overflow or manipulation, then access topics out-of-bounds in the loop at line 142? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f0a34f41-792c-44a2-b2ff-beab4c135432?mode=deep",
+    "timestamp": "2026-01-10 07:53:12.358133",
+    "report_generated": false
   }
 ]
