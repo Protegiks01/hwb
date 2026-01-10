@@ -15292,5 +15292,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2271b141-7f75-4287-9183-8cc9ffd77dcf?mode=deep",
     "timestamp": "2026-01-10 09:56:09.736279",
     "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: BlockRequest] [Nil Header handling] If Header is nil when processing BlockRequest, can this cause nil pointer dereference panics in validation logic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0327c289-a175-4d00-bdc1-3397f65c01e0?mode=deep",
+    "timestamp": "2026-01-10 09:57:27.357497",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: BlockRequest] [Number overflow] Is req.Number validated to be within reasonable bounds, or can an attacker provide a very large number causing issues with database indexing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_43a55605-e962-467f-8409-3d2b1688c916?mode=deep",
+    "timestamp": "2026-01-10 09:57:40.418262",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: BlockRequest.Rlp] [RLP bomb attack] Can a malicious peer provide specially crafted RLP that causes excessive CPU/memory usage during decoding, enabling DoS attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d18caf03-afec-45b9-bd82-86b96e61f817?mode=deep",
+    "timestamp": "2026-01-10 09:57:54.651770",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: BlockRequest] [Header validation bypass] Is the Header field validated to ensure it matches Hash and Number before storing, or can an attacker provide inconsistent header-body pairs? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b78fb71d-20d0-44ef-b350-5f739c99671f?mode=deep",
+    "timestamp": "2026-01-10 09:58:08.430506",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: BlockRequest.StoreResult()] [Hash-number mismatch] If req.Hash doesn't match the actual hash of the block defined by req.Rlp, can this cause canonical chain corruption when WriteBodyRLP stores it at req.Number? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2d95bc57-4ba9-42b5-9947-c6923400ea11?mode=deep",
+    "timestamp": "2026-01-10 09:58:23.043626",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: BlockRequest] [Block body forgery] Does BlockRequest validate that the Rlp decodes to transactions and uncles that match the Header's TxHash and UncleHash, or can a malicious peer provide mismatched block bodies? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_118ae774-b5be-475e-9e44-1c8b9784f6b9?mode=deep",
+    "timestamp": "2026-01-10 09:58:38.862737",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: CodeRequest] [Concurrent store conflict] If two CodeRequests with the same Hash but different Data values call StoreResult() concurrently, which value wins, and can this cause non-deterministic code execution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d1c19306-3939-4e3f-9c11-95394e035d29?mode=deep",
+    "timestamp": "2026-01-10 09:58:56.628743",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: CodeRequest] [Nil Data handling] If Data is nil when StoreResult() is called, does WriteCode handle this gracefully, or could it cause issues differentiating nil from empty code? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c068bcae-aa5b-44af-87c8-44b5297085d6?mode=deep",
+    "timestamp": "2026-01-10 09:59:15.538748",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: CodeRequest.Id] [Trie reference validation] Is the Id field actually used to verify that the code belongs to the correct account in the state trie, or is only the Hash checked? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_17fa806b-0ef8-48d1-a00b-57183329ca12?mode=deep",
+    "timestamp": "2026-01-10 09:59:36.576944",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: CodeRequest] [Empty code handling] If Data is empty (length 0), does this correctly represent the empty code hash, or can this cause inconsistencies with accounts that should have no code? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d694b54a-2545-4bbf-9ef7-4279be541dd2?mode=deep",
+    "timestamp": "2026-01-10 09:59:58.009543",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: CodeRequest.Data] [Memory exhaustion] Can a malicious peer provide extremely large Data payloads in multiple CodeRequests simultaneously, exhausting the light client's memory? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8334c7d0-47d9-406b-b624-ea253b1b1ce7?mode=deep",
+    "timestamp": "2026-01-10 10:00:21.087654",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: CodeRequest] [Code size limit bypass] Is there validation that Data doesn't exceed maximum contract code size (24KB), or can oversized code be stored causing issues during EVM execution? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f727acf2-f1c9-472a-95d2-2360030b19af?mode=deep",
+    "timestamp": "2026-01-10 10:00:45.256209",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: CodeRequest.StoreResult()] [Hash collision attack] If req.Hash collides with another contract's code hash (through preimage attack), can this cause the wrong code to be executed when the contract is called? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b44bda9e-5c54-40ce-8ee6-854bdf0c2838?mode=deep",
+    "timestamp": "2026-01-10 10:01:10.412791",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: CodeRequest] [Code injection] Does CodeRequest validate that the retrieved Data actually hashes to req.Hash, or can a malicious peer provide arbitrary bytecode that gets stored under the wrong hash? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_99840a88-c902-4beb-a719-4bfcae32a36e?mode=deep",
+    "timestamp": "2026-01-10 10:01:35.722255",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: TrieRequest.Id] [TrieID reuse attack] If the same TrieID is reused across multiple TrieRequests with different Keys, can this cause cache poisoning where wrong values are associated with keys? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5ccf8569-c5b0-4dc0-ad1b-88f25aa5b51a?mode=deep",
+    "timestamp": "2026-01-10 10:02:02.338962",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: TrieRequest] [Concurrent proof modification] If multiple goroutines modify the same TrieRequest's Proof concurrently, can race conditions cause the stored proof to be inconsistent or corrupted? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_96b6e82a-d0ac-4598-ad56-c86a58098297?mode=deep",
+    "timestamp": "2026-01-10 10:02:27.265452",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: TrieRequest] [Proof size exhaustion] Is there a maximum size limit on the Proof NodeSet, or can a malicious peer provide an extremely large proof causing memory exhaustion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4f6f9c6f-c08f-4284-ace2-287576063d28?mode=deep",
+    "timestamp": "2026-01-10 10:02:53.802390",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: TrieRequest] [Nil proof handling] If Proof is nil when StoreResult() is called, does this cause a nil pointer dereference panic crashing the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ab684a03-4947-4038-879d-11a487e102de?mode=deep",
+    "timestamp": "2026-01-10 10:03:21.527681",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: TrieRequest] [Key validation] Is there validation that the Key byte slice has appropriate length and format for the trie type being accessed, or can arbitrary keys cause trie traversal errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eb0c12b6-e54c-43aa-81fc-5ccc158d97c5?mode=deep",
+    "timestamp": "2026-01-10 10:03:50.266168",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: TrieRequest.StoreResult()] [Database corruption] If req.Proof is malformed or malicious, can calling req.Proof.Store(db) corrupt the database by writing invalid trie nodes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_756c5b34-9960-4f9f-b554-fd18a802ea9c?mode=deep",
+    "timestamp": "2026-01-10 10:04:20.310200",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: TrieRequest] [Proof validation bypass] Does TrieRequest validate that the Proof NodeSet actually proves the Key exists in the trie identified by Id, or can a malicious peer provide an invalid proof that gets stored? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_60d36c15-3ffb-44ba-8e6f-e1279c23c8f5?mode=deep",
+    "timestamp": "2026-01-10 10:04:50.897768",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Function: StorageTrieID()] [Block context inconsistency] If the state TrieID refers to one block but the storage root provided belongs to a different block, can this cause acceptance of time-inconsistent storage states? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f52ca5e1-d012-4c23-aa2d-16aa84318587?mode=deep",
+    "timestamp": "2026-01-10 10:05:21.671465",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Function: StorageTrieID()] [AccKey slice mutation] Since AccKey is set to addrHash[:], if the addrHash slice is later modified by the caller, does this cause the TrieID.AccKey to be mutated, potentially corrupting ongoing ODR requests? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c7090def-adb7-4d56-b282-bf8045bafae9?mode=deep",
+    "timestamp": "2026-01-10 10:05:51.613136",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Function: StorageTrieID()] [Root manipulation] If the root parameter doesn't match the actual storage root for the account specified by addrHash, can this cause the light client to accept invalid storage proofs? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dc14df3c-819e-489e-ab84-48794d1b0a75?mode=deep",
+    "timestamp": "2026-01-10 10:06:21.206405",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Function: StorageTrieID()] [Address hash collision] If addrHash is crafted to collide with another account's hash, can this cause the light client to retrieve storage from the wrong account, enabling theft or state corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fc3e655b-5e2f-4c64-9946-cef89a3ba816?mode=deep",
+    "timestamp": "2026-01-10 10:06:51.179084",
+    "report_generated": false
   }
 ]
