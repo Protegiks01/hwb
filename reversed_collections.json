@@ -11548,5 +11548,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_96b9cd45-73b7-40e4-b607-18f79d46a28b?mode=deep",
     "timestamp": "2026-01-10 03:53:16.476832",
     "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: logfmt()] [Byte operations] Multiple WriteByte and WriteString calls - can these fail silently, causing incomplete log entries? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_27a98b14-aa43-4f26-9cc9-c709fc83f680?mode=deep",
+    "timestamp": "2026-01-10 03:54:27.205088",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: TerminalFormat()] [String interpolation] Lines 114-131 build strings with fmt.Fprintf - can extremely large values cause buffer growth issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_25125c80-b713-46f1-9757-444d22f17d0c?mode=deep",
+    "timestamp": "2026-01-10 03:54:40.597314",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: formatLogfmtUint64()] [Slice bounds] Line 445 returns string(out[i+1:]) - if i wraps around or goes negative, can this cause panic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_24f01510-82ac-4a48-ba1f-ac9f09d98c73?mode=deep",
+    "timestamp": "2026-01-10 03:54:53.828547",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: formatLogfmtUint256()] [Slice bounds] Line 509 returns string(buf[i+1:]) - similar to formatLogfmtBigInt, can i+1 go out of bounds? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3c20c0f7-88da-4b51-b02c-b2068516535c?mode=deep",
+    "timestamp": "2026-01-10 03:55:07.575908",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: formatLogfmtBigInt()] [Slice bounds] Line 479 returns string(buf[i+1:]) - can i+1 be negative or out of bounds for certain big.Int values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0a269fdb-285e-461b-937f-095ab7470b24?mode=deep",
+    "timestamp": "2026-01-10 03:55:22.516145",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Global: fieldPadding] [Memory leak] There's no mechanism to remove old keys from fieldPadding - can this cause gradual memory leak in long-running validator nodes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_145b3fc6-648b-499a-9493-14e3b0c07220?mode=deep",
+    "timestamp": "2026-01-10 03:55:38.754497",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Global: fieldPadding] [Unbounded growth] The fieldPadding map at line 52 has no size limits or cleanup - can long-running nodes accumulate millions of keys causing memory exhaustion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e59812cf-ff62-43c6-8261-47117c87194c?mode=deep",
+    "timestamp": "2026-01-10 03:55:56.520483",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: formatLogfmtBigInt()] [Performance] Converts big.Int to string and back - can repeated formatting of large big.Int values cause CPU bottlenecks during transaction logging? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_69da65b8-047b-4629-b316-184000372974?mode=deep",
+    "timestamp": "2026-01-10 03:56:16.727193",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: escapeMessage()] [Performance] Similar to escapeString, iterates all runes - can this cause performance degradation during high-frequency logging of block data? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dff23977-9231-4bda-a0f8-a55167d49c72?mode=deep",
+    "timestamp": "2026-01-10 03:56:36.820811",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: escapeString()] [Performance] The loop at line 516 iterates all runes to check if quoting is needed - can extremely long strings cause CPU exhaustion in hot logging paths? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_69125b02-376b-489e-bab4-c9d9bb00762f?mode=deep",
+    "timestamp": "2026-01-10 03:56:59.079783",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: formatLogfmtValue()] [TerminalStringer] Lines 360-363 check TerminalStringer interface - can malicious implementations of TerminalString() cause crashes or inject malicious content? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b6485b64-3f39-4913-af97-587cfefcce85?mode=deep",
+    "timestamp": "2026-01-10 03:57:21.760556",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: formatLogfmtValue()] [Interface nil] Lines 343-357 handle *big.Int and *uint256.Int nil checks - what about other types that implement fmt.Stringer but are nil? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_29dbac31-4032-4440-8932-3facbc97b344?mode=deep",
+    "timestamp": "2026-01-10 03:57:44.681195",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: formatShared()] [Interface handling] Lines 305-317 type-switch on value - can malicious types implement multiple interfaces to exploit type precedence and cause unexpected behavior? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_568fd571-b7b3-4fbd-84b2-6f2843f26fba?mode=deep",
+    "timestamp": "2026-01-10 03:58:09.253505",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Global state] [Deadlock potential] fieldPaddingLock protects fieldPadding map - can recursive logging calls cause deadlock if logging occurs while holding the lock? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3878c06d-f172-4319-95ff-84c5991918aa?mode=deep",
+    "timestamp": "2026-01-10 03:58:34.137684",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: logfmt()] [Lock ordering] RLock is released at line 180 and then Lock is acquired at line 186 - can this cause lock ordering issues if another goroutine holds Lock while waiting for something this goroutine holds? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_470e65b0-da5b-4069-81ba-5923988c5697?mode=deep",
+    "timestamp": "2026-01-10 03:59:00.417167",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: formatShared()] [Nil check] Lines 297-298 check if pointer is nil using reflection - can typed nil values bypass this check and cause panics later? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a9f17bee-52dd-4773-ad2b-db772a4b0dca?mode=deep",
+    "timestamp": "2026-01-10 03:59:26.384827",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: formatShared()] [Reflection panic] Line 297 uses reflect.ValueOf(value) - can malicious types cause reflection panics that crash nodes during logging? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_94eec712-320a-4793-a06a-1cad3a9b9d54?mode=deep",
+    "timestamp": "2026-01-10 03:59:50.980229",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: formatLogfmtUint64()] [Comma placement] The comma logic at lines 432-439 adds commas every 3 digits - is this correct for all locales, or can incorrect comma placement confuse international users? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_54a4a3d6-ed89-4772-aab5-12cbd06d5a03?mode=deep",
+    "timestamp": "2026-01-10 04:00:15.280527",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: FormatLogfmtInt64()] [Integer overflow] Line 404 negates n for negative values: uint64(-n) - can this overflow for n = math.MinInt64, causing incorrect formatting? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9f3e8c46-3604-4d61-a225-c6823cfc322e?mode=deep",
+    "timestamp": "2026-01-10 04:00:40.206925",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: formatLogfmtUint64()] [Negative handling] Lines 417-418 handle negative int64 by negating and setting neg=true - can this cause integer overflow for MinInt64 value? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a31b2d02-f322-4f2f-8b27-367c81eae5f7?mode=deep",
+    "timestamp": "2026-01-10 04:01:04.773056",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: formatLogfmtBigInt()] [Sign handling] Lines 467-468 handle minus sign specially - can negative big.Int values be formatted incorrectly, causing confusion in balance logs? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b229c6f9-2312-4e8e-a049-79cb5d9ce64c?mode=deep",
+    "timestamp": "2026-01-10 04:01:29.710612",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: logfmt()] [ANSI injection] Line 191 injects color codes based on color parameter - can malicious color values cause terminal corruption or security UI spoofing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f92e629b-24aa-4ac1-882d-3b122f93aa77?mode=deep",
+    "timestamp": "2026-01-10 04:01:56.071822",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: TerminalFormat()] [ANSI injection] Lines 128, 134 inject ANSI color codes (\\\\x1b[%dm) - can attackers inject escape sequences in msg or location to manipulate terminal output and hide attack evidence? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_70854200-75f1-4f97-a117-c7c32920e129?mode=deep",
+    "timestamp": "2026-01-10 04:02:21.463970",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: JSONFormatOrderedEx()] [Context length] Line 227 creates ctx slice with len(r.Ctx) but then line 228 iterates i += 2 - is this off by one for odd-length contexts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_103ae6fd-2c2d-4b84-ad11-0f2ac6d4c1ab?mode=deep",
+    "timestamp": "2026-01-10 04:02:42.817218",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: JSONFormatEx()] [Context iteration] Loop at line 270 iterates i += 2 but accesses i+1 - if len(r.Ctx) is odd, does this cause out of bounds access? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ee1a147e-6cd7-41a3-8bba-7cfed01150f1?mode=deep",
+    "timestamp": "2026-01-10 04:03:04.442559",
+    "report_generated": false
   }
 ]
