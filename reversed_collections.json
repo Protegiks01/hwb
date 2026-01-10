@@ -17836,5 +17836,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d61a6231-1ce4-4288-b037-1cec36a1fff0?mode=deep",
     "timestamp": "2026-01-10 13:13:47.123725",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: SubscribeField Callback] [Panic in Subscription] At lines 118-136, if the callback panics (e.g., due to nil node or invalid type assertion), can this crash the node state machine or leave it in an inconsistent state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6589b231-dc5b-45c8-b0a6-99bbfae18668?mode=deep",
+    "timestamp": "2026-01-10 13:15:12.966202",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: MultiPop Callback] [Panic in Callback] At line 423, the MultiPop callback can panic if any of the operations fail. Is the panic properly recovered, or will it crash the entire node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bc904d01-0ca3-405e-8344-c4fc9dd195f3?mode=deep",
+    "timestamp": "2026-01-10 13:15:26.055083",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: getCapacityCurve()] [Nil next Node] At line 601-604, if next is nil after enforceLimits(), an error is logged and the loop breaks. But can activeCap be left in an inconsistent state if the loop breaks early? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1b8f05a4-731d-4dba-910e-35cfca1c2062?mode=deep",
+    "timestamp": "2026-01-10 13:15:40.237670",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: enforceLimits()] [Nil lastNode] At line 442, lastNode is returned which may be nil if no nodes were popped. Do callers handle nil lastNode properly, or can this cause a panic? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a9f406bc-bdb6-4e91-83b6-7e4ffb79c39e?mode=deep",
+    "timestamp": "2026-01-10 13:15:54.580673",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: setTempCapacity()] [Panic on Wrong State] At lines 380-383, if tempState is false, an error is logged but execution continues. Can accessing tempCapacity at line 384 cause issues if the node is not properly initialized? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_970852d1-4109-4f91-8a28-eeb0a971950e?mode=deep",
+    "timestamp": "2026-01-10 13:16:10.292200",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: updatePriority()] [Nil Node Info] At line 527, if GetField returns nil and c is nil, line 528 checks for nil but allows execution to continue to line 539. Can the lock still be held if an early return occurs? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_596cd313-b3e2-4831-b3c1-bac230108370?mode=deep",
+    "timestamp": "2026-01-10 13:16:27.285312",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: disconnectNode()] [Nil Node Info] Similar to connectNode, at line 322 if c is nil, accessing c.connected at line 325 will panic. Is there proper nil checking in the caller? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3b8401a1-a31a-47c7-b183-53ce55f53ff0?mode=deep",
+    "timestamp": "2026-01-10 13:16:46.642109",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: connectNode()] [Nil Node Info] At line 305, there's no nil check after calling connectNode(c). If c is nil due to a prior error, can this cause a panic when accessing c.connected at line 308? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_03905dc3-728c-41e5-ada2-c381088226ca?mode=deep",
+    "timestamp": "2026-01-10 13:17:07.086681",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: requestCapacity()] [Early Return Missing] After logging the error at line 175, the function returns 0 at line 177. Is this early return always reached, or can control flow continue with nil c causing a crash? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6a96291c-d7c7-4dcd-9026-d796b321718f?mode=deep",
+    "timestamp": "2026-01-10 13:17:28.992209",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: requestCapacity()] [Nil Pointer Dereference] At line 173, if GetField returns nil, c will be nil and the error is logged but execution continues. Can accessing c.capacity or other fields at line 180+ cause a nil pointer panic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_76c403e3-9906-41b9-85c6-36b40e4e5691?mode=deep",
+    "timestamp": "2026-01-10 13:17:50.689902",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: newPriorityPool()] [ActiveBias Clamp] At lines 113-115, activeBias is clamped to minimum 1. Can this clamp to time.Duration(1) (1 nanosecond) effectively disable the bias, allowing rapid state changes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fc1be684-2402-4d6c-9c5f-9a7f6de821d5?mode=deep",
+    "timestamp": "2026-01-10 13:18:12.097330",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: newPriorityPool()] [MinCap Zero] At line 108, minCap is passed as a parameter. If minCap is 0, can this allow nodes to be active with 0 capacity, breaking assumptions throughout the code? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_241345a3-e772-4cbc-970b-c181e028f634?mode=deep",
+    "timestamp": "2026-01-10 13:18:34.529549",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: tryActivate()] [Activation Without Limits Check] At lines 510-512, if tempCapacity > 0 after enforceLimits(), the node is activated. Can this activate too many nodes if enforceLimits() doesn't properly reduce capacity due to a bug? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_afbe8f85-5a86-4209-a9d3-79eb1f8f8e8d?mode=deep",
+    "timestamp": "2026-01-10 13:18:57.639136",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: requestCapacity()] [Capacity Range Bypass] The condition at line 189 checks if tempCapacity is within the minTarget-maxTarget range. Can crafting specific values cause this check to succeed when it shouldn't, granting incorrect capacity? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6bd6baf3-2b3e-4f4f-a356-1778dc6361c5?mode=deep",
+    "timestamp": "2026-01-10 13:19:21.021105",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: requestCapacity()] [MinTarget Validation] At lines 164-169, minTarget and maxTarget are adjusted, but if minTarget > maxTarget initially, maxTarget is clamped to minTarget. Can this allow requests to bypass intended capacity limits? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f6d68bd5-0e8d-4d9e-905f-6da4766f81a0?mode=deep",
+    "timestamp": "2026-01-10 13:19:45.903461",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: SetLimits()] [Enforcement Order] At lines 204-210, limits are enforced before trying to activate if decreased, then activated if increased. Can this ordering be exploited to temporarily exceed limits during the transition? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e7639ad2-4ac5-405c-a05f-6eee1f7db2fe?mode=deep",
+    "timestamp": "2026-01-10 13:20:09.209428",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: SetLimits()] [Atomic Update Missing] At line 201, maxCount and maxCap are updated separately. Can a race condition between these updates cause temporary inconsistent state where one limit is new and one is old? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b60c0210-091b-45e2-9e66-8197dc95966a?mode=deep",
+    "timestamp": "2026-01-10 13:20:33.427134",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: enforceLimits()] [MinTarget Bypass] At line 427, if tempCapacity equals minTarget, the node is fully deactivated. Can nodes set minTarget to 0 to avoid being deactivated even when limits are exceeded? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c5955071-a616-4883-8fe4-19a9b9fd98e9?mode=deep",
+    "timestamp": "2026-01-10 13:20:58.403638",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: enforceLimits()] [Capacity Reduction Bug] At lines 430-437, capacity is reduced by 'sub' which is calculated as capacity/stepDiv or 1. Can stepDiv manipulation cause sub to be too large, aggressively removing capacity and causing service disruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_94fffdc9-bd2f-400a-877a-39b814bab492?mode=deep",
+    "timestamp": "2026-01-10 13:21:23.546404",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: enforceLimits()] [Limit Bypass] At line 416, limits are only enforced if activeCap > maxCap OR activeCount > maxCount. Can an attacker keep both values exactly at the limit while requesting more capacity, bypassing enforcement? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_12f62ad9-9f99-48db-8edb-4495fe1514eb?mode=deep",
+    "timestamp": "2026-01-10 13:21:50.118666",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: exclude()] [Map Access] At line 632, cc.index is accessed without checking if the id exists. Can this cause a nil/zero value to be returned for excludeList, leading to incorrect capacity calculations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_019da537-d680-4442-891c-4ce097f20b6f?mode=deep",
+    "timestamp": "2026-01-10 13:22:16.288193",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: getPoint()] [Exclusion Bug] At lines 647-649, if excludeFirst is true and i is 0, freeCap is set to 0. Can this incorrectly exclude capacity for legitimate nodes when the first node should not be excluded? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_316ac4c4-d6b3-482d-ba76-45445e562bc8?mode=deep",
+    "timestamp": "2026-01-10 13:22:43.053201",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: maxCapacity()] [Fine-Grained Search Bug] The second binary search at lines 686-693 fine-tunes capacity. Can priority function changes during this search cause the search to converge on an incorrect value? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2263f11a-fcc1-43fc-986c-0a2310a873eb?mode=deep",
+    "timestamp": "2026-01-10 13:23:09.371757",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: maxCapacity()] [Edge Case] At line 678, if cp2.freeCap is 0 or min is 0, freeCap is returned directly. Can this skip capacity verification allowing nodes to get more capacity than they should? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_905fd128-6081-4f4a-a659-9db75906f2a3?mode=deep",
+    "timestamp": "2026-01-10 13:23:36.829073",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: maxCapacity()] [Binary Search Bug] The binary search at lines 668-676 finds the capacity curve point. If priority function returns inconsistent or non-monotonic values, can this cause the search to return incorrect capacity? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f93e4f84-730a-4871-9868-f3f4f3876a44?mode=deep",
+    "timestamp": "2026-01-10 13:24:06.325465",
+    "report_generated": false
   }
 ]
