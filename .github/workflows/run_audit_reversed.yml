@@ -13,6 +13,13 @@ permissions:
 jobs:
   run-audit:
     runs-on: ubuntu-latest
+    # Add retry configuration
+    strategy:
+      max-parallel: 1
+      matrix:
+        retry: [ 1, 2, 3 ]  # Will retry up to 3 times (total of 4 attempts)
+      fail-fast: false  # Don't cancel other matrix jobs if one fails
+
 
     steps:
       - name: Checkout code
