@@ -6298,5 +6298,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_857b8ae9-6010-4891-8ad1-d05368363182?mode=deep",
     "timestamp": "2026-01-10 07:04:21.062694",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/pack.go] [Cross-implementation] Does pack.go produce identical output to other Ethereum ABI implementations (e.g., web3.js, ethers.js), or could differences cause interoperability issues? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_20f6be80-a4ae-4710-8d42-11bbe8e2687e?mode=deep",
+    "timestamp": "2026-01-10 07:05:40.504320",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/pack.go] [Version compatibility] Is the encoding format produced by pack.go backward compatible with previous versions, or could encoding changes break existing contracts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e56de945-bac1-40bd-bd7d-20cac9e4d078?mode=deep",
+    "timestamp": "2026-01-10 07:05:53.346461",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/pack.go] [Complexity attack] Can an attacker craft transaction parameters that maximize encoding time complexity in packElement, creating computational DoS without high memory usage? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ce85ad10-97e5-47d1-946d-664dd6259ded?mode=deep",
+    "timestamp": "2026-01-10 07:06:06.742156",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/pack.go] [Cache poisoning] If encoding results are cached anywhere, could an attacker poison the cache with incorrect encodings that affect subsequent transactions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9e18be7f-add6-427f-bf16-bfba0f68d89e?mode=deep",
+    "timestamp": "2026-01-10 07:06:20.576029",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/pack.go] [JIT exploitation] On platforms with JIT compilation, could predictable encoding patterns enable JIT spraying attacks or other JIT-related vulnerabilities? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_afbf415e-8805-4f07-ac10-d7ada9abfa4a?mode=deep",
+    "timestamp": "2026-01-10 07:06:35.353283",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/pack.go] [Cross-implementation] Does pack.go produce identical output to other Ethereum ABI implementations (e.g., web3.js, ethers.js), or could differences cause interoperability issues? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_040cec79-9e5e-4943-84a4-e16e44cc32e4?mode=deep",
+    "timestamp": "2026-01-10 07:06:51.113943",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/pack.go] [Version compatibility] Is the encoding format produced by pack.go backward compatible with previous versions, or could encoding changes break existing contracts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0163aa6c-1bc0-4678-9417-e160bf23584b?mode=deep",
+    "timestamp": "2026-01-10 07:07:08.160358",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/pack.go] [Complexity attack] Can an attacker craft transaction parameters that maximize encoding time complexity in packElement, creating computational DoS without high memory usage? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8a5cec2d-078a-4165-ba03-4ceb2bdb6484?mode=deep",
+    "timestamp": "2026-01-10 07:07:27.910840",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/pack.go] [Cache poisoning] If encoding results are cached anywhere, could an attacker poison the cache with incorrect encodings that affect subsequent transactions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_78cbf658-adc3-4529-988a-94c8bbe3310e?mode=deep",
+    "timestamp": "2026-01-10 07:07:47.772009",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/pack.go] [JIT exploitation] On platforms with JIT compilation, could predictable encoding patterns enable JIT spraying attacks or other JIT-related vulnerabilities? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6de82e79-2a6f-451a-a538-1b2d0b6f9460?mode=deep",
+    "timestamp": "2026-01-10 07:08:09.651695",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: ParseSelector()] [Input Validation] Can an attacker provide an extremely long selector string (e.g., millions of characters) causing excessive memory allocation and node memory exhaustion, leading to DoS across validator nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8715f945-c29a-476d-86cc-8e5821b70dff?mode=deep",
+    "timestamp": "2026-01-10 07:08:31.958095",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: ParseSelector()] [Recursion DoS] Can an attacker craft a selector with deeply nested tuple types (e.g., 1000+ nesting levels) causing stack overflow through unbounded recursion in parseCompositeType(), resulting in node crash and network disruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3a8d77ee-0240-495e-bff6-40c0c70af6e5?mode=deep",
+    "timestamp": "2026-01-10 07:08:56.199969",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: ParseSelector()] [Error Handling] If parseIdentifier() returns an error but rest is non-empty, does the error message at line 154 leak information about internal state that could aid attackers in crafting more sophisticated exploits? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a3eaf99e-0f5a-47f0-b9ef-3e0c16caa6af?mode=deep",
+    "timestamp": "2026-01-10 07:09:19.738265",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: ParseSelector()] [Edge Case] What happens if unescapedSelector contains null bytes (\\x00) midway through the string - can this cause the parser to truncate incorrectly or behave unpredictably, potentially accepting malformed selectors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c179ae57-ba45-4775-b93e-7fa8160fcb91?mode=deep",
+    "timestamp": "2026-01-10 07:09:44.556035",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: ParseSelector()] [Unicode Handling] Can an attacker use Unicode characters or multi-byte UTF-8 sequences in the selector string to bypass validation in isAlpha/isDigit checks, potentially causing incorrect parsing or crashes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_90371f92-b4fd-42f9-a693-696734bea4c6?mode=deep",
+    "timestamp": "2026-01-10 07:10:09.721487",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: ParseSelector()] [Empty Input DoS] If empty parentheses check at line 157 passes but parseCompositeType receives malformed input, can error handling inconsistencies cause the node to panic instead of gracefully rejecting the transaction? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2e02b8b2-69c7-4152-97f3-205bd264f5d9?mode=deep",
+    "timestamp": "2026-01-10 07:10:36.239060",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: ParseSelector()] [Trailing Data] The check at line 165 validates no trailing data remains, but can an attacker craft input where 'rest' appears empty due to whitespace or special characters, bypassing this validation and causing downstream issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cc3fcf5e-1b65-4c63-8925-ec839fa97759?mode=deep",
+    "timestamp": "2026-01-10 07:11:03.729494",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: ParseSelector()] [Resource Exhaustion] Can an attacker submit thousands of concurrent ParseSelector() calls with complex nested tuples, exhausting goroutine resources and causing validator node unresponsiveness? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_de5cee7e-e611-4e10-aa63-f2716e90746c?mode=deep",
+    "timestamp": "2026-01-10 07:11:30.329587",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: parseToken()] [Buffer Overflow] At line 45, when accessing unescapedSelector[0] without checking len(unescapedSelector) > 0 first (despite line 42 check), can a race condition or concurrent modification cause out-of-bounds panic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2935fd3d-c439-482f-971c-6f2d63b19605?mode=deep",
+    "timestamp": "2026-01-10 07:11:57.135920",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: parseToken()] [Integer Overflow] The position variable (line 46) increments in a loop at line 55 - can an attacker provide input causing position to overflow, potentially leading to incorrect slice bounds or infinite loop? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f90c75e1-2533-4cfc-9958-c20d405494c4?mode=deep",
+    "timestamp": "2026-01-10 07:12:23.989504",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: parseToken()] [Slice Bounds] At line 57, returning unescapedSelector[:position] without verifying position <= len(unescapedSelector) could cause panic if concurrent modifications occur - is this thread-safe? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9dab17ad-378f-4de4-8d3a-781ca846db86?mode=deep",
+    "timestamp": "2026-01-10 07:12:48.840300",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: parseToken()] [Infinite Loop] The loop at lines 50-56 continues while position < len - can specially crafted input cause position to never reach len, creating an infinite loop that hangs the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1e6ab0d7-2070-45ed-9cea-b7ec4988e69b?mode=deep",
+    "timestamp": "2026-01-10 07:13:12.665195",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: parseToken()] [Character Validation] The isIdent parameter changes validation logic at lines 47 and 52 - can an attacker exploit differences between identifier and type parsing to inject unexpected characters? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_efb48f1f-388a-4b94-a888-5356e3c257a8?mode=deep",
+    "timestamp": "2026-01-10 07:13:37.564665",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: parseToken()] [Empty Token] Line 43 returns error for empty tokens, but can this error path be triggered repeatedly to flood error logs and fill disk space in validator nodes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7250e581-566c-4435-9ef2-0017d2e23293?mode=deep",
+    "timestamp": "2026-01-10 07:14:01.348316",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: parseIdentifier()] [Pass-through Vulnerability] Since this function simply calls parseToken with isIdent=true, are there identifier-specific validation rules (e.g., reserved keywords, maximum length) that should be enforced but aren't? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2a81dc13-5c3a-4644-a3fa-6c77153404fa?mode=deep",
+    "timestamp": "2026-01-10 07:14:23.824218",
+    "report_generated": false
   }
 ]
