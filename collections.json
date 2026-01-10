@@ -13798,5 +13798,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6a366ccb-785f-4eaf-b356-6b79bf635c30?mode=deep",
     "timestamp": "2026-01-10 17:04:28.110063",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Lifecycle] [Initialization order] Is the watcher initialized before or after the keystore scans for existing keys, and could the fallback's no-op start() cause initial scan results to be lost? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_81bbeba3-fb2f-4bb0-a8df-827aa4962cfb?mode=deep",
+    "timestamp": "2026-01-10 17:05:51.935217",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Lifecycle] [Shutdown sequence] During node shutdown, is close() called before or after key operations complete, and could the no-op close() allow shutdown race conditions where keys are accessed after cleanup? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6c41efbb-0a0e-480a-a8f3-2ed5c468b4de?mode=deep",
+    "timestamp": "2026-01-10 17:06:04.549602",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Lifecycle] [Hot reload] Does the keystore support hot reload of the entire keystore directory, and if so, does the fallback's disabled watching mean hot reload never works on certain platforms? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9b32ab32-d10a-48f7-b678-9221865ea6c6?mode=deep",
+    "timestamp": "2026-01-10 17:06:17.871206",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Lifecycle] [Restart recovery] After a validator node crash and restart on a fallback platform, how long does it take to detect new keys added during downtime, and could this delay affect validator participation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b2a547f6-cd38-4397-9350-0f8df1cf5d29?mode=deep",
+    "timestamp": "2026-01-10 17:06:31.673821",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Documentation] [Behavior documentation] Is it clearly documented which platforms use the fallback implementation, and could operators unknowingly deploy validators on unsupported platforms with disabled watching? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8eb2cb40-bea8-4072-b15c-ff29ca85b762?mode=deep",
+    "timestamp": "2026-01-10 17:06:46.458020",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Documentation] [Security warnings] Does the documentation warn about the security implications of disabled filesystem watching on fallback platforms, or could operators be unaware of the increased key management burden? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_46540eaf-7b9e-4a70-be0a-23475f906982?mode=deep",
+    "timestamp": "2026-01-10 17:07:02.448995",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [API contract] [Method contracts] Do the watcher methods document their expected behavior and guarantees, and does the fallback implementation violate any implicit contracts that calling code relies on? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a5851362-b47f-45d4-851e-5ee1624e7037?mode=deep",
+    "timestamp": "2026-01-10 17:07:19.497820",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [API contract] [Interface compliance] Is there a watcher interface that both implementations satisfy, and does the fallback properly implement all interface methods with correct semantics? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5677b404-955b-4abc-8b01-8027933587e7?mode=deep",
+    "timestamp": "2026-01-10 17:07:38.334803",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Edge case] [Empty keystore] On fallback platforms with an initially empty keystore directory, does the disabled watching mean that adding the first validator key requires a node restart, creating deployment friction? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_82a199ad-8640-400c-b77e-cd58aa0e16ed?mode=deep",
+    "timestamp": "2026-01-10 17:07:59.166669",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Edge case] [Symlinked keystore] If the keystore directory is a symbolic link, does the fallback's lack of watching mean changes to the symlink target are never detected, allowing key isolation bypass attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_61c88bcb-0c13-4edc-99bb-b3803e3ca577?mode=deep",
+    "timestamp": "2026-01-10 17:08:20.521994",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Edge case] [Network filesystems] On fallback platforms using network-mounted keystore directories (NFS, SMB), does the lack of watching combined with caching cause severe staleness issues where key updates take minutes to propagate? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f71dba64-9666-4d3e-a14f-28791d47f8a6?mode=deep",
+    "timestamp": "2026-01-10 17:08:43.679085",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Edge case] [Readonly keystore] If the keystore directory becomes read-only (permissions changed), does the fallback watcher's disabled state mean this is never detected, causing key write operations to fail silently? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a1c69fed-a642-4a8a-8856-4fd47a0a5f5a?mode=deep",
+    "timestamp": "2026-01-10 17:09:08.379328",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Edge case] [Concurrent validators] Can multiple validator processes on the same fallback platform share a keystore directory, and does the lack of watching cause them to have inconsistent views of available keys? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bffcb68c-ea44-4540-8762-a7c6c3162a45?mode=deep",
+    "timestamp": "2026-01-10 17:09:33.587088",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Monitoring] [Anomaly detection] Does the disabled watching prevent security monitoring systems from detecting anomalous key file access patterns that could indicate ongoing attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4f0fcef6-645c-445a-a06f-6d56a8f0f521?mode=deep",
+    "timestamp": "2026-01-10 17:10:00.358907",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Monitoring] [Audit logging] Should watcher events be logged for security auditing, and does the fallback's lack of events create audit log gaps that hinder incident response? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0f4b1b84-cf9e-45e8-9c6f-620a1c4c414d?mode=deep",
+    "timestamp": "2026-01-10 17:10:27.896817",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Monitoring] [Alerting] Can monitoring systems alert on watcher failures, and does the fallback's always-disabled state cause false positive alerts that operators learn to ignore? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9e139d36-1920-4517-a2a4-994e83fd8723?mode=deep",
+    "timestamp": "2026-01-10 17:10:55.864331",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Cryptography] [Key freshness] Does the lack of watching on fallback platforms mean validators may use keys beyond their intended rotation period, increasing the window of vulnerability if keys are compromised? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ef21ecca-266f-4ca3-9b38-a9ece45c4d8f?mode=deep",
+    "timestamp": "2026-01-10 17:11:24.380974",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Cryptography] [Key backup] If validator operators maintain separate backup keys that should be automatically loaded on primary key failure, does the fallback prevent this failover mechanism from working? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4de9134e-bd20-4e02-91fe-af8528ad2a18?mode=deep",
+    "timestamp": "2026-01-10 17:11:51.903866",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Cryptography] [Key derivation] If keys are derived from a master secret that changes periodically, does the fallback's staleness mean derived keys become stale, causing signature mismatches? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cab7f45d-b32d-4a9f-bea2-7fd16c423f2d?mode=deep",
+    "timestamp": "2026-01-10 17:12:18.162987",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Attack] [Persistence attack] Can an attacker who briefly gains filesystem access on a fallback platform insert malicious validator keys that persist indefinitely because the watcher never detects and alerts on the unauthorized additions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_367e359a-a6e0-4a4a-9864-8c6a8e1f9c35?mode=deep",
+    "timestamp": "2026-01-10 17:12:45.150967",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Attack] [Time-of-check-to-time-of-use] On fallback platforms, could an attacker exploit the time window between key file reads to swap validator keys, causing validators to sign blocks with attacker-controlled keys? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f0a7bb04-3b02-4cde-a9a6-c95a2f890eda?mode=deep",
+    "timestamp": "2026-01-10 17:13:08.163097",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Attack] [Denial of service] Can an attacker on a fallback platform repeatedly modify key files to force expensive rescans during polling, degrading validator performance and causing missed block signing opportunities? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1b17620f-42f3-48e4-8182-e0672d93581e?mode=deep",
+    "timestamp": "2026-01-10 17:13:31.671207",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Attack] [Key exfiltration] Does the lack of watching mean that copying validator key files goes undetected, allowing silent key theft that enables shadow validators controlled by the attacker? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cd6ad97a-6d61-4b13-80bb-e1fb976939fa?mode=deep",
+    "timestamp": "2026-01-10 17:13:54.276954",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Attack] [Rollback attack] Can an attacker on a fallback platform revert key files to older versions, causing validators to reuse previously rotated keys that may be compromised? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6874beb2-ebeb-454f-a72d-ffaceb8acd29?mode=deep",
+    "timestamp": "2026-01-10 17:14:17.494123",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Deployment] [Configuration drift] In multi-platform validator deployments, does the fallback behavior on some platforms while others have active watching cause configuration drift and inconsistent security postures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4e5e8815-1790-4ea2-9071-c9bd51dbcd7d?mode=deep",
+    "timestamp": "2026-01-10 17:14:41.616854",
+    "report_generated": false
   }
 ]
