@@ -15742,5 +15742,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c7b50b5a-3bd6-4418-b014-1bc2209da5db?mode=deep",
     "timestamp": "2026-01-10 10:28:13.085522",
     "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [RLP security] [RLP bomb attack] In GetBody at line 128, rlp.Decode processes untrusted RLP data. Can an attacker craft RLP with deeply nested lists or extremely large integers causing exponential memory growth or CPU exhaustion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bbb8aaac-f510-4ed4-8058-6b4f35c4bb1b?mode=deep",
+    "timestamp": "2026-01-10 10:29:26.649291",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Edge case] [Maximum block number] If number parameter is set to uint64 maximum value, can calculations like number+1 in dependent functions cause overflow, affecting canonical hash lookups and CHT section calculations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4fc97bc3-5f13-4391-b5fd-0cb7365b1485?mode=deep",
+    "timestamp": "2026-01-10 10:29:39.685053",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Edge case] [Empty block handling] For blocks with zero transactions (body.Transactions is empty), do GetBody, GetBlock, and GetBlockReceipts handle empty slices correctly, or can they cause unexpected behavior in receipt derivation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8754baa3-80c8-4ef6-95d5-3d8374b3af68?mode=deep",
+    "timestamp": "2026-01-10 10:29:53.017936",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Edge case] [Block number zero] Do functions properly handle block number 0 (genesis block)? Can edge cases in CHT coverage checks (line 54) or section calculations cause incorrect handling of genesis data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b536ec40-9598-44a3-840d-432023bc8f3d?mode=deep",
+    "timestamp": "2026-01-10 10:30:06.639417",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Error handling] [Error wrapping] Errors are returned directly without wrapping with context (function name, block number). Does this make debugging attacks difficult by losing the call stack context where errors originated? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b0cf1e24-ad87-414e-8b33-108a597c469e?mode=deep",
+    "timestamp": "2026-01-10 10:30:21.385567",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Error handling] [Partial failure propagation] If GetBlock succeeds but GetBlockReceipts fails for the same block, can this cause inconsistent state where transaction data exists but receipt data doesn't, breaking applications that expect both? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d494aff6-86ea-41e7-a716-1e557e391895?mode=deep",
+    "timestamp": "2026-01-10 10:30:36.941133",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Cross-function] [CHT vs BloomTrie trust boundaries] GetHeaderByNumber uses CHT for verification while GetBloomBits uses BloomTrie. Can inconsistencies between CHT and BloomTrie coverage cause some data to be trusted while related data isn't, creating exploitable trust boundary gaps? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_72f8a381-60fa-4996-b73c-d8e827584496?mode=deep",
+    "timestamp": "2026-01-10 10:30:54.038001",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Cross-function] [Concurrent access to shared database] Multiple functions read/write to odr.Database() without visible locking. Can concurrent access cause race conditions where reads return partially written data or writes corrupt each other? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2a2a11fe-8c76-4e59-9243-bb5f4c71ecdd?mode=deep",
+    "timestamp": "2026-01-10 10:31:13.963374",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Cross-function] [Error type consistency] Different functions return different error types (errNoHeader, errNonCanonicalHash, actual errors). Can error type confusion cause improper error handling in callers, masking attacks or causing incorrect fallback behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_85efa8f3-ec99-4d10-b3bf-05f2cf587a2f?mode=deep",
+    "timestamp": "2026-01-10 10:31:33.367588",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Cross-function] [Context cancellation propagation] All functions accept context.Context but handle cancellation differently. Can inconsistent context handling cause some functions to block indefinitely while others fail fast, leading to resource exhaustion or deadlocks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6afbbe41-f385-4663-bb31-23185cb10b41?mode=deep",
+    "timestamp": "2026-01-10 10:31:57.135478",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Cross-function] [Database cache poisoning] Functions like GetHeaderByNumber and GetBodyRLP check local database first. Can an attacker with database write access poison the cache with malicious data that bypasses ODR verification, affecting all subsequent queries? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_51126103-2206-4510-82a0-8187533fe459?mode=deep",
+    "timestamp": "2026-01-10 10:32:18.849226",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Cross-function] [ODR backend consistency] Multiple functions (GetHeaderByNumber, GetBodyRLP, GetBlockReceipts, GetBloomBits) rely on odr.Retrieve(). Can a malicious ODR backend provide inconsistent data across different retrieval types (e.g., header with hash H1 but body with hash H2) causing state inconsistencies? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_301ac9f3-6b82-48f1-8a8b-46433a8f83c5?mode=deep",
+    "timestamp": "2026-01-10 10:32:42.796193",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetTransaction()] [Error ambiguity] At line 286, if GetHeaderByNumber fails OR header.Hash() doesn't match, both return the same error. Can this ambiguity be exploited to hide attacks, making legitimate header retrieval failures indistinguishable from canonicity attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5f40a711-a0fe-42ec-b8c0-5ad7f390da2b?mode=deep",
+    "timestamp": "2026-01-10 10:33:07.651359",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetTransaction()] [RetrieveTxStatus trust] The function calls odr.RetrieveTxStatus at line 279 which is a separate ODR operation from header/body retrieval. Can inconsistencies between TxStatus data and actual block contents be exploited to cause false transaction inclusion claims? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_33b70cbb-96d8-420b-9905-9e620bdc3af7?mode=deep",
+    "timestamp": "2026-01-10 10:33:33.928555",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetTransaction()] [Nil transaction in body] If body.Transactions[pos.Index] is nil at line 289 (due to corrupted body data), can this cause nil pointer dereference when calling .Hash(), leading to panic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b9e581c3-7ae2-4d1c-921d-eb96cff9e1f8?mode=deep",
+    "timestamp": "2026-01-10 10:34:01.441192",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetTransaction()] [Multiple hash matches] If the same transaction hash appears multiple times in a block body (which should be impossible but if enforced elsewhere), does the index-based lookup at line 289 guarantee uniqueness, or can position manipulation cause wrong transaction retrieval? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ad4f5769-abb6-4a3e-8179-58b06dd0020e?mode=deep",
+    "timestamp": "2026-01-10 10:34:29.066493",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetTransaction()] [Transaction index validation] At line 289, the function checks if pos.Index is within bounds and transaction hash matches. If the malicious ODR backend provides correct bounds but wrong transaction content, does the hash check at line 289 properly reject it? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a087cac9-ecf4-48c6-978f-1d5f5a488c98?mode=deep",
+    "timestamp": "2026-01-10 10:34:57.791462",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetTransaction()] [Canonical verification gap] At line 285, GetHeaderByNumber is called to verify canonicality, but can an attacker exploit TOCTOU by triggering a reorg after this check but before GetBody at line 288, causing non-canonical transactions to be returned as canonical? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f2fd8f9d-c871-4831-9f8d-f1e08676ff5e?mode=deep",
+    "timestamp": "2026-01-10 10:35:27.689132",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetTransaction()] [Status check bypass] At line 279, the function checks Status == TxStatusIncluded. Can an attacker exploit races between status check and transaction retrieval to make pending or failed transactions appear as included, enabling double-spend detection bypasses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_800f3cfb-ce77-46f4-9ca1-c9cc8fa85a5b?mode=deep",
+    "timestamp": "2026-01-10 10:35:57.093530",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetTransaction()] [Transaction position manipulation] If the TxStatusRequest at line 278 returns manipulated Lookup data (BlockHash, BlockIndex, Index) at line 282, can an attacker cause the wrong transaction to be retrieved or make a transaction appear to be included when it's not? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_af6625da-c455-4e61-a61b-f7147b67cfe4?mode=deep",
+    "timestamp": "2026-01-10 10:36:25.029194",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBloomBits()] [Bit index validation] The bit parameter at line 226 is not validated. Can an attacker provide bit >= 2048 (outside Bloom filter bit range) causing out-of-bounds access or incorrect bloom data retrieval? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c187d529-43de-4e61-93ac-e6f76ffd2448?mode=deep",
+    "timestamp": "2026-01-10 10:36:55.055865",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBloomBits()] [Section boundary attack] Can an attacker request sections at the boundary of trusted/untrusted bloom tries at line 244-246, exploiting edge cases in the blooms >= check to retrieve unverified bloom data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ae08b792-664e-48b9-866e-55ebc9de1712?mode=deep",
+    "timestamp": "2026-01-10 10:37:24.112441",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBloomBits()] [BloomBits size validation] At line 239, bloom bits are read without size validation. Can an attacker provide bloom bits with incorrect size (not matching BloomBitsLength) causing bloom filter corruption or false matches? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6dfb131e-b81c-4a27-b8a8-1bda10836d81?mode=deep",
+    "timestamp": "2026-01-10 10:37:54.063933",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBloomBits()] [Partial result return] If some sections are found in database and some require ODR at lines 234-252, but ODR retrieval fails at line 262, does the function return partial results with nil entries that could cause nil pointer dereferences in bloom filter matching? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d48ca514-715b-4fa6-a44d-38d3f66fca33?mode=deep",
+    "timestamp": "2026-01-10 10:38:25.229781",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBloomBits()] [Result array corruption] The result array at line 231 is pre-allocated with len(sections). If reqIndex appending at line 248 and result assignment at line 266 are out of sync due to logic errors, can array out-of-bounds or nil pointer dereferences occur? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d14a24cd-23e1-44b3-839f-2a224d807e01?mode=deep",
+    "timestamp": "2026-01-10 10:38:54.065600",
+    "report_generated": false
   }
 ]
