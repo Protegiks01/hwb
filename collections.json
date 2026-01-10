@@ -16048,5 +16048,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b12c5607-192e-43ba-9b72-cd89ef602b18?mode=deep",
     "timestamp": "2026-01-10 19:58:26.419532",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Edge Case] [Empty Data Encryption] What happens if transmitEncrypted is called with empty data []byte{} - will padding and encryption handle this correctly? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_23c8da0c-e788-4225-8d8e-58714e3fffc4?mode=deep",
+    "timestamp": "2026-01-10 19:59:46.445786",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Edge Case] [Maximum Length Data] If data of exactly maxPayloadSize (223 bytes) is encrypted, after padding does it stay within APDU limits or overflow? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8b3d6420-3e63-4565-af64-67a0be819af1?mode=deep",
+    "timestamp": "2026-01-10 19:59:59.545423",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Edge Case] [Nil Input Slices] What if functions like encryptAPDU or decryptAPDU are called with nil slices instead of empty slices - will this cause nil pointer dereferences? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_adc12d47-6db2-4148-9206-7e1495d39bbd?mode=deep",
+    "timestamp": "2026-01-10 20:00:12.810242",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Edge Case] [Card Disconnection] If the card is physically removed during Open() or transmitEncrypted(), are card communication errors properly distinguished from cryptographic failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fae4ca87-3534-452e-9395-fbea45c1dde0?mode=deep",
+    "timestamp": "2026-01-10 20:00:26.568358",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Edge Case] [Repeated Unpair] Can Unpair() be called multiple times - will subsequent calls fail gracefully or cause issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ba2cf251-4970-4dab-943a-46f964cadf88?mode=deep",
+    "timestamp": "2026-01-10 20:00:41.060158",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Edge Case] [Session Timeout] Is there any timeout mechanism for open sessions, or can a session remain open indefinitely potentially using stale keys? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5a167f80-734b-4194-b288-7eec2a25f747?mode=deep",
+    "timestamp": "2026-01-10 20:00:57.198135",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Attack Scenario] [MitM During Pairing] Can an active MitM attacker during Pair() intercept the challenge-response at lines 91-111 and learn the secretHash, then use this to impersonate the card in future sessions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_74799d88-5050-499e-95c1-ba2e100b3ce1?mode=deep",
+    "timestamp": "2026-01-10 20:01:14.669222",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Attack Scenario] [Malicious Card] If the smartcard is malicious or compromised, can it provide crafted responses during Open() at line 157 to weaken the derived session keys? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_67c5d7ad-2984-4d9f-b871-f05c9f4039cd?mode=deep",
+    "timestamp": "2026-01-10 20:01:34.597521",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Attack Scenario] [Replay Attack] Can an attacker capture transmitEncrypted messages and replay them later - does the MAC prevent this or only verify authenticity? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_82046884-9c69-4402-8eec-cdc1f6a26d67?mode=deep",
+    "timestamp": "2026-01-10 20:01:54.996103",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Attack Scenario] [Chosen Ciphertext] Can an attacker submit chosen ciphertexts to transmitEncrypted and use error responses (decrypt failure vs MAC failure) to mount adaptive chosen-ciphertext attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_620fc80c-d8de-4719-9b9e-48978aa74c85?mode=deep",
+    "timestamp": "2026-01-10 20:02:16.362241",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Attack Scenario] [Downgrade to Unencrypted] Is there a fallback mode where communication can happen unencrypted, and can an attacker force this mode by manipulating the Open() handshake? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e57b3c37-498f-481d-ad60-b37d1055fb09?mode=deep",
+    "timestamp": "2026-01-10 20:02:38.912790",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Attack Scenario] [Session Hijacking] If an attacker captures a SecureChannelSession struct from memory, can they use the session keys and IV to inject their own encrypted commands? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ab4ea8d1-4449-45e6-970a-b7c19ab2fc70?mode=deep",
+    "timestamp": "2026-01-10 20:03:03.431044",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Attack Scenario] [Cryptographic Oracle] Can an att\n\n### Citations\n\n**File:** accounts/scwallet/securechannel.go (L1-339)\n```go\n// Copyright 2018 The go-ethereum Authors\n// This file is part of the go-ethereum library.\n//\n// The go-ethereum library is free software: you can redistribute it and/or modify\n// it under the terms of the GNU Lesser General Public License as published by\n// the Free Software Foundation, either version 3 of the License, or\n// (at your option) any later version.\n//\n// The go-ethereum library is distributed in the hope that it will be useful,\n// but WITHOUT ANY WARRANTY; without even the implied warranty of\n// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the\n// GNU Lesser General Public License for more details.\n//\n// You should have received a copy of the GNU Lesser General Public License\n// along with the go-ethereum library. If not, see <http://www.gnu.org/licenses/>.\n\npackage scwallet\n\nimport (",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3d637844-2207-4abe-922c-37b1ca352c66?mode=deep",
+    "timestamp": "2026-01-10 20:03:29.441148",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Edge Case] [Empty Data Encryption] What happens if transmitEncrypted is called with empty data []byte{} - will padding and encryption handle this correctly? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f83e4571-c1ed-4eff-8825-e8bc2d5edd36?mode=deep",
+    "timestamp": "2026-01-10 20:03:54.944406",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Edge Case] [Maximum Length Data] If data of exactly maxPayloadSize (223 bytes) is encrypted, after padding does it stay within APDU limits or overflow? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_71acf1a7-f9a1-4e81-8b3c-1a413264c80c?mode=deep",
+    "timestamp": "2026-01-10 20:04:20.148443",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Edge Case] [Nil Input Slices] What if functions like encryptAPDU or decryptAPDU are called with nil slices instead of empty slices - will this cause nil pointer dereferences? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_42ac6934-1fd3-4038-a1a6-18853552853c?mode=deep",
+    "timestamp": "2026-01-10 20:04:44.569260",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Edge Case] [Card Disconnection] If the card is physically removed during Open() or transmitEncrypted(), are card communication errors properly distinguished from cryptographic failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ffe50710-b55b-4651-84f7-85a2f85fabd3?mode=deep",
+    "timestamp": "2026-01-10 20:05:08.922950",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Edge Case] [Repeated Unpair] Can Unpair() be called multiple times - will subsequent calls fail gracefully or cause issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d9500271-52ac-4234-b0c9-eee3b0cdfb4b?mode=deep",
+    "timestamp": "2026-01-10 20:05:33.624643",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Edge Case] [Session Timeout] Is there any timeout mechanism for open sessions, or can a session remain open indefinitely potentially using stale keys? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6c3d6dec-5604-4639-ba2c-28f57e1df967?mode=deep",
+    "timestamp": "2026-01-10 20:05:59.889462",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Attack Scenario] [MitM During Pairing] Can an active MitM attacker during Pair() intercept the challenge-response at lines 91-111 and learn the secretHash, then use this to impersonate the card in future sessions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2219bed4-bd32-41e6-8dbf-ecae7ef7a29c?mode=deep",
+    "timestamp": "2026-01-10 20:06:24.571654",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Attack Scenario] [Malicious Card] If the smartcard is malicious or compromised, can it provide crafted responses during Open() at line 157 to weaken the derived session keys? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_becd5ea3-e0be-4259-bd3f-b501beb6e71b?mode=deep",
+    "timestamp": "2026-01-10 20:06:49.916545",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Attack Scenario] [Replay Attack] Can an attacker capture transmitEncrypted messages and replay them later - does the MAC prevent this or only verify authenticity? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5dcd9acf-a88e-481d-9199-57ad82ed9e7d?mode=deep",
+    "timestamp": "2026-01-10 20:07:16.280582",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Attack Scenario] [Chosen Ciphertext] Can an attacker submit chosen ciphertexts to transmitEncrypted and use error responses (decrypt failure vs MAC failure) to mount adaptive chosen-ciphertext attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a7078249-c51b-41aa-aedd-00c2fa1a8b9f?mode=deep",
+    "timestamp": "2026-01-10 20:07:43.282803",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Attack Scenario] [Downgrade to Unencrypted] Is there a fallback mode where communication can happen unencrypted, and can an attacker force this mode by manipulating the Open() handshake? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_57c9a4a4-2c84-4086-bc91-23dbfc3308d2?mode=deep",
+    "timestamp": "2026-01-10 20:08:09.797904",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/securechannel.go] [Attack Scenario] [Session Hijacking] If an attacker captures a SecureChannelSession struct from memory, can they use the session keys and IV to inject their own encrypted commands? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0a09496f-338d-4b8e-a592-64382265b57e?mode=deep",
+    "timestamp": "2026-01-10 20:08:35.325383",
+    "report_generated": false
   }
 ]
