@@ -10798,5 +10798,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c43d7839-5ef2-4590-8b44-bfde5e8f656e?mode=deep",
     "timestamp": "2026-01-10 13:43:03.129256",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Export()] [Authorization weakness] In Export() at lines 422-434, successful export only requires the current passphrase - can an attacker with temporary passphrase access export all keys and brute force the new passphrase offline? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_11e3937d-b506-45db-8d29-6eb5b5f13f54?mode=deep",
+    "timestamp": "2026-01-10 13:44:17.977228",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Import()] [Account hijacking] In Import() at lines 437-454, the importMu only prevents concurrent imports but doesn't prevent importing a key for an address that's actively being used by a validator - can this cause address collision attacks where imported keys override active validator keys? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_37eb4ebb-742b-4302-b64d-314e56e8317a?mode=deep",
+    "timestamp": "2026-01-10 13:44:30.749543",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: ImportECDSA()] [Account hijacking] In ImportECDSA() at lines 457-468, similar to Import(), can importing an ECDSA key for an address already in use by another validator cause that validator to lose access to their account or create signing conflicts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_43414cba-f591-4af5-a272-3248e4523dae?mode=deep",
+    "timestamp": "2026-01-10 13:44:44.304865",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Update()] [Passphrase bypass] In Update() at lines 481-487, the function changes the passphrase by decrypting with old passphrase and re-encrypting with new one - can an attacker observing the file system see both the old and new encrypted key files temporarily, allowing offline attacks on both? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_077ecec5-0c40-4ff1-a0da-6d9a4562e250?mode=deep",
+    "timestamp": "2026-01-10 13:44:57.922821",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: TimedUnlock()] [Resource exhaustion] In TimedUnlock() at lines 359-361, each timed unlock spawns a goroutine that runs for the timeout duration - can an attacker repeatedly unlock accounts with long timeouts to exhaust goroutine resources and cause node crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e61e23a1-9a46-4edd-8919-8576b7c02725?mode=deep",
+    "timestamp": "2026-01-10 13:45:12.549607",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: expire()] [Goroutine leak] In expire() at lines 387-405, if the abort channel is never closed and timeout is very large, the goroutine blocks indefinitely - can accumulated expire goroutines from repeated TimedUnlock calls leak memory and eventually crash the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a2eed73a-c687-47a9-962a-cddb5dc0ee4e?mode=deep",
+    "timestamp": "2026-01-10 13:45:28.324878",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: updater()] [Resource leak] In updater() at lines 206-225, the goroutine runs indefinitely while subscribers exist - can an attacker create many subscriptions without canceling them to keep the updater running and consuming resources? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1c9800c1-d1a2-41a0-b78d-e10486b63ce1?mode=deep",
+    "timestamp": "2026-01-10 13:45:45.665175",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: refreshWallets()] [DoS through events] In refreshWallets() at lines 138-181, wallet events are sent synchronously at line 179 - can a slow or blocked event receiver cause refreshWallets() to hang, blocking all wallet operations including critical validator signing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_65bbcef6-6234-44da-94a0-f0dc8d599cec?mode=deep",
+    "timestamp": "2026-01-10 13:46:04.789366",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Subscribe()] [Subscription exhaustion] In Subscribe() at lines 185-199, there's no limit on the number of subscriptions - can an attacker create unlimited subscriptions to exhaust memory and prevent legitimate wallet monitoring? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_21b1b879-eff9-4ca4-9b96-f5d6cb3304f7?mode=deep",
+    "timestamp": "2026-01-10 13:46:24.841044",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: NewAccount()] [Disk exhaustion] In NewAccount() at lines 409-419, accounts are created and stored to disk with no apparent limit - can an attacker with RPC access create unlimited accounts to fill the disk and crash the node? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_991586fd-1434-420b-9907-ac93db2f3404?mode=deep",
+    "timestamp": "2026-01-10 13:46:45.826923",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Import()] [Import DoS] In Import() at lines 437-454, the importMu at line 445 is held during the entire import operation including disk I/O - can an attacker submit slow imports to hold the mutex and block all other imports, preventing legitimate account recovery? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f3b75d1d-282d-4d83-b1b2-bc6a76efb88d?mode=deep",
+    "timestamp": "2026-01-10 13:47:07.780365",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Delete()] [File system DoS] In Delete() at lines 239-259, the function performs file system operations (os.Remove) while potentially holding locks - can slow disk I/O or file system errors cause cascading delays affecting transaction signing for validators? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ff85a25a-84a3-48db-9e5d-81646c0a8e4e?mode=deep",
+    "timestamp": "2026-01-10 13:47:31.659666",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Lock()] [DoS through repeated locking] In Lock() at lines 322-331, if an attacker repeatedly calls Lock() on validator accounts, can this interfere with the expire() goroutine at line 326 causing goroutine leaks or timing issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7cf66375-1a53-40c7-a5a1-7774e154a1e8?mode=deep",
+    "timestamp": "2026-01-10 13:47:57.047023",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Find()] [Cache thrashing] In Find() at lines 370-376, calling cache.maybeReload() and acquiring cache.mu.Lock() - can an attacker trigger repeated Find() calls to cause cache reloading and lock contention, slowing down signing operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b8b7c3d9-87e8-43e7-b58a-c60060cf19c2?mode=deep",
+    "timestamp": "2026-01-10 13:48:23.652669",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: init()] [Path traversal] In init() at line 84 and 94, filepath.Abs() is called on keydir but the result error is ignored - can an attacker provide malicious paths that bypass security checks or access unauthorized directories? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6c615874-5f69-4813-a3f8-3ef9fcc0f3f9?mode=deep",
+    "timestamp": "2026-01-10 13:48:50.954976",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Delete()] [File system race] In Delete() at lines 253-254, os.Remove() is called followed by cache.delete() - can an attacker use file system races to restore the deleted file between these operations, causing cache inconsistency where the account is marked deleted but the key file exists? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1741c8cb-cb21-4dd9-abbb-7306490c6e8e?mode=deep",
+    "timestamp": "2026-01-10 13:49:18.627975",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: NewAccount()] [File system race] In NewAccount() at lines 409-419, the account is stored via storeNewKey() then added to cache - can a race condition between file creation and cache update allow the same account to be created twice with different keys? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fc74edac-5d89-4265-8776-e784df1083fb?mode=deep",
+    "timestamp": "2026-01-10 13:49:46.774519",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Import()] [Directory traversal] In Import() at lines 437-454, the imported key is stored via importKey() which uses ks.storage.JoinPath() - can an attacker craft keyJSON with malicious paths that write keys outside the keystore directory? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a192da6f-bca5-4fea-aab8-1c01f0355384?mode=deep",
+    "timestamp": "2026-01-10 13:50:15.853473",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: importKey()] [File collision] In importKey() at lines 470-478, if ks.storage.StoreKey() fails partway through, can partially written key files corrupt the keystore or allow attacker-controlled key material to be loaded? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3171218b-c5f1-4ce8-ba4e-5054f020579a?mode=deep",
+    "timestamp": "2026-01-10 13:50:44.483805",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Update()] [Atomic update failure] In Update() at lines 481-487, StoreKey() overwrites the existing key file - if this operation fails or crashes midway, can the account become permanently inaccessible with neither old nor new passphrase working? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cafa7bda-d693-4250-9636-e062680e0cca?mode=deep",
+    "timestamp": "2026-01-10 13:51:12.448595",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: init()] [Cache poisoning] In init() at lines 99-120, the account cache is initialized from disk without validation - can an attacker pre-populate the keydir with malicious key files that cause cache poisoning or exploit parsing vulnerabilities? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_14ffab24-3908-48f8-a15d-6f9756d2ac46?mode=deep",
+    "timestamp": "2026-01-10 13:51:37.372110",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: refreshWallets()] [Cache inconsistency] In refreshWallets() at lines 138-181, wallet list is rebuilt from cache accounts but events are sent after mutex release - can concurrent modifications cause wallet state to be inconsistent with the cache? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ec436637-5a5b-4477-ad21-daae88645c8b?mode=deep",
+    "timestamp": "2026-01-10 13:52:03.205333",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: NewPlaintextKeyStore()] [Insecure storage] In NewPlaintextKeyStore() at lines 92-97, keys are stored in plaintext (deprecated) - if this is still accessible via API, can attackers retrieve plaintext private keys directly from the file system? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9e858d2b-2a8f-4c5c-9d44-efc1d25da3af?mode=deep",
+    "timestamp": "2026-01-10 13:52:29.086692",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: Delete()] [Incomplete deletion] In Delete() at line 253, only the key file is removed via os.Remove() - are there any backup copies, temporary files, or cached versions of the key that remain on disk after deletion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5cb8b12d-009d-4656-81fa-fc4c88dac3ba?mode=deep",
+    "timestamp": "2026-01-10 13:52:55.676217",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: SignHash()] [Malleability] In SignHash() at line 273, crypto.Sign() produces an [R || S || V] format signature - does the calling code properly validate that signatures are non-malleable, preventing attackers from creating alternative valid signatures for the same hash? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4fa91f90-f862-4d3e-9d28-ed12cb388276?mode=deep",
+    "timestamp": "2026-01-10 13:53:21.011688",
+    "report_generated": false
   }
 ]
