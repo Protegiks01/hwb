@@ -26536,5 +26536,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_77f83272-32fe-4039-bd07-cd8bd8eb206c?mode=deep",
     "timestamp": "2026-01-10 23:32:59.674387",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Edge Case: ExpiredValue with Base=0] When Base is 0, Add() operations with negative amounts try to compute 'net := int64(-float64(e.Base) / factor)' which is 0/factor=0. Is the return value of 0 correct, or should it return the requested negative amount to signal full rejection? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c9d15984-8c0f-4447-a754-2c45b8b0f8f7?mode=deep",
+    "timestamp": "2026-01-10 23:34:28.213264",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Cross-Function: Fixed64 round-trip] If a uint64 is converted to Fixed64 via Uint64ToFixed64(), then back via ToUint64(), is the result identical? Can precision loss in the round-trip cause balances to decrease with each conversion cycle? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0765d55f-eb45-41ad-813f-a54cff916d29?mode=deep",
+    "timestamp": "2026-01-10 23:34:40.974298",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Cross-Function: LinearExpiredValue persistence] If LinearExpiredValue.Add() is called, modifying Val and Offset, then the struct is serialized (losing Rate), deserialized, and Add() is called again, will the zero Rate cause immediate panic, or silent corruption of Val? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8d023beb-9baa-4694-9440-c1b5e461e905?mode=deep",
+    "timestamp": "2026-01-10 23:34:54.112772",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Cross-Function: Expirer LogOffset() consistency] If one goroutine calls Expirer.LogOffset() while another calls SetRate(), can the LogOffset() computation use partially updated state (old lastUpdate, new rate), producing a logOffset that neither matches the old nor new rate regime? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_87cddf20-f8c0-41db-96f3-32ed506bc648?mode=deep",
+    "timestamp": "2026-01-10 23:35:07.870007",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Cross-Function: AddExp() then SubExp()] If AddExp() is used to merge two ExpiredValues with vastly different Exp values (causing right shifts), then SubExp() is called to remove one, can the precision loss from shifts cause SubExp() to not fully remove the added value, leaving residual amounts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_15179c9b-2936-4def-ab15-d41da958dac3?mode=deep",
+    "timestamp": "2026-01-10 23:35:22.763796",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Cross-Function: Add() then Value()] If ExpiredValue.Add() is called with a large positive amount causing Base to grow very large, then Value() is called with an older logOffset (time went backwards), can the exponential calculation overflow uint64, causing panic or wraparound? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1981b8a4-b244-4517-9a5e-33bf7611e109?mode=deep",
+    "timestamp": "2026-01-10 23:35:38.476746",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Struct: Expirer] [Uninitialized Rate] If Expirer is created with zero values, logOffset=0, rate=0, lastUpdate=0. Calling LogOffset() with a large 'now' value would multiply large dt by rate=0, producing 0. Can this cause expiration to not work at all until SetRate() is called? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c95a8069-91f8-4830-9e04-5d65046c1da5?mode=deep",
+    "timestamp": "2026-01-10 23:35:55.708233",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Struct: Expirer] [Zero Value Lock] Expirer contains a sync.RWMutex. In Go, mutexes must not be copied after first use. If Expirer is copied (passed by value), can this cause lock corruption leading to deadlocks or data races? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e65e75b5-c346-4733-8296-4b3c3eafa7ea?mode=deep",
+    "timestamp": "2026-01-10 23:36:14.531172",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Struct: LinearExpiredValue] [Rate Field Loss] Rate is tagged 'rlp:",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_861342f4-e935-402b-9467-607f275bfd9f?mode=deep",
+    "timestamp": "2026-01-10 23:36:34.774738",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Struct: ExpirationFactor] [Factor Zero Check] ExpirationFactor has no constructor or validation. Can creating an ExpirationFactor{Exp: 0, Factor: 0} cause division by zero in Value() method? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f5496271-665e-4036-95e6-f191f3dccf0a?mode=deep",
+    "timestamp": "2026-01-10 23:36:56.675259",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Struct: ExpiredValue] [Zero Value Safety] If ExpiredValue is used with its zero value (Base=0, Exp=0), are all operations safe? Can calling Add() on an uninitialized ExpiredValue cause unexpected behavior in the exponent shift logic? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6a60edf8-f9c0-4d19-8993-cf01ea5d98b0?mode=deep",
+    "timestamp": "2026-01-10 23:37:19.953585",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Constant: fixedToLogFactor] [Division by Zero Guard] If fixedFactor were somehow zero (corrupted binary), fixedToLogFactor would be Inf. Is there any runtime validation to prevent this, or can a corrupted deployment cause all Pow2() operations to fail? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ff978e8a-dfdf-45f7-9c93-8df162ec0c31?mode=deep",
+    "timestamp": "2026-01-10 23:37:43.824966",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Constant: logToFixedFactor] [Initialization Race] Lines 263-264 initialize global variables using math.Log(2). Are these computed at package init time, and can this computation's precision vary across architectures, causing nodes to calculate different logOffsets? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5d1f856f-888e-4607-bfab-7054a16cba28?mode=deep",
+    "timestamp": "2026-01-10 23:38:09.562122",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Constant: fixedFactor] [Precision Choice] fixedFactor is set to 0x1000000 (16777216), providing ~24 bits of fractional precision. Is this sufficient for all operations, or can accumulated rounding errors over thousands of operations cause significant drift in balances? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3e3a8029-3614-4834-8e04-a2c9e9519c63?mode=deep",
+    "timestamp": "2026-01-10 23:38:36.284847",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: ExpFactor()] [No Validation] ExpFactor doesn't validate its input logOffset. Can malicious or corrupted inputs produce ExpirationFactor with Factor=0 or Factor=Inf, which then cause division by zero or overflow in subsequent Value() calls? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d9f1ac18-f32c-452f-83b7-e8a6ead10b62?mode=deep",
+    "timestamp": "2026-01-10 23:39:02.938715",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: ExpFactor()] [Fraction Pow2 Range] Line 61 calls logOffset.Fraction().Pow2(). The Fraction() extracts the fractional part, which should be in range [0, fixedFactor). But if logOffset is negative, can Fraction() return negative values causing Pow2() to return < 1.0, producing invalid ExpirationFactor? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_88b3ef18-3064-4c4e-ad08-84ae74321252?mode=deep",
+    "timestamp": "2026-01-10 23:39:29.774931",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: ExpFactor()] [ToUint64 Overflow] Line 61 calls logOffset.ToUint64(). If logOffset is negative, ToUint64 casts to uint64 producing a huge value. Can this cause ExpirationFactor.Exp to be incorrect, leading to wrong Value() calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5f5cc432-727e-42fc-9145-c9208ca41ca6?mode=deep",
+    "timestamp": "2026-01-10 23:39:56.134549",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: Fixed64.Pow2()] [NaN Propagation] If f64 is constructed from invalid arithmetic (like division by zero elsewhere), it could be NaN. Does math.Exp(NaN) return NaN, and does this cause all subsequent calculations to become NaN, breaking the entire expiration system? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_807cff4d-4f35-44d4-b542-ef6987532f8e?mode=deep",
+    "timestamp": "2026-01-10 23:40:22.190237",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: Fixed64.Pow2()] [Exponent Underflow] For very large negative f64, math.Exp returns values very close to zero. Can this cause legitimate non-zero values to be rounded down to zero when converted to uint64, effectively burning value? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7d9200a3-c5c7-4c62-9a52-9fd28a133a79?mode=deep",
+    "timestamp": "2026-01-10 23:40:49.260963",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: Fixed64.Pow2()] [Exponent Range] Line 269 calls math.Exp with 'float64(f64) * fixedToLogFactor'. For very large positive f64, this could cause math.Exp to return +Inf. Can this propagate through calculations and cause incorrect large values that overflow uint64 conversions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_787363fd-2179-4a15-8ed9-a99ee0ec9db3?mode=deep",
+    "timestamp": "2026-01-10 23:41:15.275302",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: Fixed64.Fraction()] [Negative Modulo] Line 259 uses modulo operator on Fixed64 (int64). In Go, modulo of negative numbers preserves sign. Can negative Fixed64 values cause Fraction() to return negative fractions, which then cause Pow2() to return values < 1.0 when > 1.0 was expected? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_98444a52-19e4-428c-a344-6878db31f32b?mode=deep",
+    "timestamp": "2026-01-10 23:41:41.145082",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: Fixed64.ToUint64()] [Negative Value Handling] Line 254 casts Fixed64 (int64) to uint64 before division. If the Fixed64 is negative, this produces a very large uint64. Can negative Fixed64 values (from underflows elsewhere) cause ToUint64() to return incorrect large values? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_51beffc2-dd6f-44bb-b546-998ba78ac32b?mode=deep",
+    "timestamp": "2026-01-10 23:42:08.173285",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: Float64ToFixed64()] [Overflow in Cast] If f is larger than int64 max / fixedFactor, the multiplication overflows float64, then gets cast to int64. Can this produce negative Fixed64 values when positive ones were intended, breaking expiration logic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0cc75c14-5ae5-402e-ac73-6fa746adaeed?mode=deep",
+    "timestamp": "2026-01-10 23:42:33.962867",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: Float64ToFixed64()] [Precision Loss] Converting float64 to Fixed64 (line 249) loses precision for numbers with more than ~16 significant digits. Can this precision loss accumulate over many operations, causing significant drift in expiration calculations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ad38301b-94ad-4e73-a000-741d4af2f3ee?mode=deep",
+    "timestamp": "2026-01-10 23:43:00.255874",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: Uint64ToFixed64()] [Multiplication Overflow] Line 244 multiplies 'f * fixedFactor'. If f is greater than uint64 max / fixedFactor, this overflows. Can an attacker provide large uint64 values that wrap around, producing incorrect Fixed64 representations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5b095dd7-18ab-48f4-9273-858b7aa76afd?mode=deep",
+    "timestamp": "2026-01-10 23:43:26.875618",
+    "report_generated": false
   }
 ]
