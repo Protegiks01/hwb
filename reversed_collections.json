@@ -19936,5 +19936,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_283c4550-4434-4c2d-bc34-9e4e0a72a2a8?mode=deep",
     "timestamp": "2026-01-10 15:38:57.751064",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Function: expirer()] [Goroutine leak] If close() is called (line 83) but expirer() goroutine (line 78) is blocked in clock.After(), can the goroutine leak and never terminate, causing resource leaks that accumulate across multiple nodeDB lifecycle iterations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_658b4670-00e1-4f74-990c-087ec4e4f193?mode=deep",
+    "timestamp": "2026-01-10 15:40:39.920939",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Function: expireNodes()] [Callback DoS] If evictCallBack (line 239) is slow or blocking (e.g., performing network I/O or expensive computation), can it block the cleanup cycle for extended periods, preventing other operations and causing the database to grow unbounded until disk exhaustion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9bfad902-9055-447b-98ce-61d51e02ce13?mode=deep",
+    "timestamp": "2026-01-10 15:40:52.713745",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Function: expireNodes()] [Race condition during deletion] While expireNodes() iterates and deletes entries (lines 225-250), can concurrent getOrNewBalance() or setBalance() operations cause the iterator to skip entries, delete wrong entries, or crash due to concurrent map modification-like behavior in the underlying database? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a1a73ed8-bafc-432f-aa22-962108c6f2bf?mode=deep",
+    "timestamp": "2026-01-10 15:41:06.350652",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Function: getPosBalanceIDs()] [Slice corruption] During the copy operation at line 175 where id[:] is populated from iterator key, can an iterator bug or database corruption cause len(it.Key()) to change between the check at line 172 and the copy, leading to out-of-bounds write and memory corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3ddcddb5-d0f4-4f3b-a9b8-2ab2d4e65c7c?mode=deep",
+    "timestamp": "2026-01-10 15:41:20.120866",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Function: forEachBalance()] [Infinite loop] If the underlying database iterator malfunctions and Next() always returns true without advancing, can the forEachBalance() loop run indefinitely without yielding, causing the goroutine to hang and eventually deadlock the entire node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3c2171d5-3525-4f41-9c4a-c9101ff12621?mode=deep",
+    "timestamp": "2026-01-10 15:41:34.924221",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Function: getPosBalanceIDs()] [Slice bounds] Can maxCount be set to an extremely large value causing result slice allocation (line 179) to exhaust memory before the append operations, leading to OOM kills and network-wide node crashes if attackers coordinate? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ee6be742-ba58-41bd-8571-562be8a037f9?mode=deep",
+    "timestamp": "2026-01-10 15:41:51.062395",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Function: forEachBalance()] [Iterator leak] If the callback returns false causing early return (line 207), does the deferred Release() (line 193) execute correctly, or can iterator leaks accumulate over time when callbacks frequently abort iteration, eventually causing resource exhaustion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_59dfc7d4-cb01-4004-8d35-826c26e581ca?mode=deep",
+    "timestamp": "2026-01-10 15:42:07.787868",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Function: getPosBalanceIDs()] [Iterator leak] If the function returns early due to keylen mismatch (line 173) or id comparison (line 177), is the iterator properly released by the defer (line 168), or can early returns before defer execution cause iterator leaks that exhaust file descriptors and crash the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_50af1b9f-4146-44c4-ba23-c5c86e33e7c8?mode=deep",
+    "timestamp": "2026-01-10 15:42:26.175112",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Function: getOrNewBalance()] [TOCTOU vulnerability] Between the cache Get() at line 125 and the subsequent use of the cached item, can another goroutine modify the cache through setBalance() or delBalance(), causing a time-of-check-time-of-use race that reads inconsistent balance state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_348ba123-dc3a-4308-b4dc-ccbdeee4694f?mode=deep",
+    "timestamp": "2026-01-10 15:42:46.043939",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Function: cache operations] [LRU eviction timing] Can an attacker with knowledge of the LRU cache limit (balanceCacheLimit = 8192, line 35) deliberately cycle through 8192+ different client IDs to evict honest clients' cached balances, forcing repeated expensive database reads and causing DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_40e35078-ee34-41e4-887f-ccea2104c579?mode=deep",
+    "timestamp": "2026-01-10 15:43:07.851565",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Function: delBalance()] [Cache invalidation race] Can concurrent delBalance() and getOrNewBalance() operations race such that delBalance() removes the database entry but getOrNewBalance() has already passed the cache check, causing the deleted balance to be re-cached and later restored to the database? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4fdacebb-12b3-49f7-b7d5-2d4b6b801611?mode=deep",
+    "timestamp": "2026-01-10 15:43:30.651702",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Function: setBalance()] [Cache poisoning] If RLP encoding fails silently or produces corrupted data (lines 144-146), can the cache be poisoned with invalid ExpiredValue while the database remains correct, causing divergence that enables denial of service when cache entries are later used? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_01ce4591-cc30-48c2-9109-4adde6747590?mode=deep",
+    "timestamp": "2026-01-10 15:43:55.041023",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Function: getOrNewBalance()] [Cache-DB inconsistency] Can an attacker exploit the gap between cache check (line 125) and database read (line 131) by triggering concurrent setBalance() calls that update the database but not yet the cache, causing stale balance reads that allow excessive service usage? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_25bd2a9a-60c5-4da0-95e3-3a06be872571?mode=deep",
+    "timestamp": "2026-01-10 15:44:19.679096",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Function: setBalance(), getOrNewBalance()] [Race condition] Can concurrent execution of setBalance() and getOrNewBalance() on the same key cause a race where the cache and database become inconsistent - cached value differs from persisted value, allowing double-spending of client balances? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_152d0346-9c6d-411b-ad7b-bc2cc85064d4?mode=deep",
+    "timestamp": "2026-01-10 15:44:46.462736",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Function: key()] [Memory aliasing] Since key() returns a slice view of auxbuf (line 105) rather than a copy, can subsequent calls to key() modify the returned slice data before it's used by the caller, causing database operations to target wrong keys and corrupt balances? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7402e8a3-5b9c-44b1-81a6-bc4b5d6f4ee7?mode=deep",
+    "timestamp": "2026-01-10 15:45:13.931484",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Function: getPrefix()] [Race condition] Can concurrent calls to getPrefix() race with key() operations on the shared verbuf (line 62), causing one operation to read partially written version data and construct invalid database prefixes that retrieve wrong balance records? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_70409cc4-1971-4b9f-ae0b-9dd5e0ad973a?mode=deep",
+    "timestamp": "2026-01-10 15:45:40.751581",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Function: key()] [Buffer corruption] If multiple goroutines simultaneously call key() while one is resizing auxbuf (lines 99-101), can a race condition cause slice header corruption where length/capacity become inconsistent, leading to out-of-bounds access and node crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8fd1fa5f-1ba3-407d-98d0-4aef20ca3c2b?mode=deep",
+    "timestamp": "2026-01-10 15:46:08.175564",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Function: key()] [Race condition] Can concurrent calls to key() from multiple goroutines cause data corruption in the shared auxbuf slice (line 61), where one goroutine's key construction overwrites another's buffer contents before they're used, leading to incorrect database keys and potential balance manipulation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ae001f99-d52d-4d65-920c-fe247da952db?mode=deep",
+    "timestamp": "2026-01-10 15:46:33.923654",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/balance_tracker.go] [BalanceOperation()] [SignNull security] At line 228, SignNull creates a temporary node with the given ID - can this bypass any signature verification that should occur for real nodes, allowing unauthorized balance operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7eacb613-e042-4d0d-b536-ab5bd95cd373?mode=deep",
+    "timestamp": "2026-01-10 15:46:59.910136",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/balance_tracker.go] [stop()] [SetField nil timing] At line 151, SetField is called with nil after storeBalance - can this cause concurrent GetField calls to receive nil and panic before the node is fully removed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f167a962-c691-4716-90b4-eed5f401690c?mode=deep",
+    "timestamp": "2026-01-10 15:47:26.166262",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/balance_tracker.go] [TotalTokenAmount()] [ForEach callback panic] If the ForEach callback at line 164-169 panics when accessing a corrupted nodeBalance, can the panic propagate and leave bt.active in a partially calculated state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fe916613-11bb-48a6-978d-7743add8ceaf?mode=deep",
+    "timestamp": "2026-01-10 15:47:53.566666",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/balance_tracker.go] [newBalanceTracker()] [Subscription callback panic] If the subscription callbacks at lines 85 or 103 panic, does the NodeStateMachine handle this gracefully, or can it leave the entire state machine in a broken state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dc56d482-73db-4ce3-b80e-fc5d53e2d67a?mode=deep",
+    "timestamp": "2026-01-10 15:48:20.760616",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/balance_tracker.go] [storeBalance()] [Threshold constants immutability] The posThreshold and negThreshold constants are used in canDropBalance - if these could be modified (e.g., via race condition in constant initialization), can it cause database corruption? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6e3ff315-a0dc-4d69-941a-9963a20792b9?mode=deep",
+    "timestamp": "2026-01-10 15:48:47.755137",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/balance_tracker.go] [updateTotalBalance()] [Callback failure recovery] If the callback at line 287 returns false after partially modifying state, the function returns at line 288 - but can partial modifications leave bt.active/inactive in an inconsistent state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d7814cb1-62db-498c-9e3f-5f7c0a90073a?mode=deep",
+    "timestamp": "2026-01-10 15:49:16.240789",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/balance_tracker.go] [Clock dependency] [Time source trust] The code trusts mclock.Clock implementation for all timing - if the clock can be manipulated or has bugs, can this be exploited to bypass expiration or manipulate balances? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f4a481b2-591b-4560-b983-15c968abfeb5?mode=deep",
+    "timestamp": "2026-01-10 15:49:45.639261",
+    "report_generated": false
   }
 ]
