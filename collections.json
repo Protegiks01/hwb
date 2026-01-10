@@ -13498,5 +13498,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_34f6aa91-4b44-4fa2-b426-5c917c4cbc0e?mode=deep",
     "timestamp": "2026-01-10 16:44:23.751177",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Function: enabled()] [Calling context] Does calling code check enabled() before attempting to start the watcher, or does it blindly call start() which is a no-op, wasting CPU cycles and potentially masking the fact that watching is disabled? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3637c177-6730-4865-af0d-b7d9b3f8657e?mode=deep",
+    "timestamp": "2026-01-10 16:45:39.391265",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Function: enabled()] [Static return] The function always returns false with no runtime checks - could this cause issues if the platform capabilities change at runtime (e.g., through kernel module loading) and the watcher should become available? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_12065673-a8d4-4a73-bfb4-db53e69bb58e?mode=deep",
+    "timestamp": "2026-01-10 16:45:52.093241",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Build tags] [Platform detection] The build tags exclude specific platforms (darwin with !cgo, ios, linux arm64, windows) - are these platforms actually incapable of filesystem watching, or could this artificially disable watching on platforms where it's critical for validator key security? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2b816ea1-7294-4eda-85bb-40d66b9d6d61?mode=deep",
+    "timestamp": "2026-01-10 16:46:06.069661",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Build tags] [iOS security] On iOS platforms using this fallback, can an attacker exploit the lack of filesystem watching to replace validator private keys in the keystore directory without the node detecting the change, enabling key substitution attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5bde607c-4ecf-41a7-88a1-dd50bdcd4476?mode=deep",
+    "timestamp": "2026-01-10 16:46:19.819283",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Build tags] [Windows security] On Windows platforms using this fallback, does the lack of filesystem watching mean that validator nodes cannot detect when keys are modified by malware, allowing silent key theft or modification attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8666ba25-2759-4706-9a4f-33e1e9faa1dc?mode=deep",
+    "timestamp": "2026-01-10 16:46:34.557411",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Build tags] [ARM64 Linux] On ARM64 Linux systems using this fallback, could the disabled watching allow an attacker with filesystem access to replace validator keys during operation, causing validators to sign blocks with compromised keys? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_53cc40c8-9491-4c2f-9471-308af820cfd4?mode=deep",
+    "timestamp": "2026-01-10 16:46:51.709987",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Build tags] [Darwin without CGO] Does the darwin,!cgo build configuration disable watching unnecessarily, forcing macOS validators without CGO to use the fallback and miss critical key updates during hot-reload operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a9e7a0dd-0d0f-4c17-b264-c51b7c43bb46?mode=deep",
+    "timestamp": "2026-01-10 16:47:08.462065",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Build tags] [Build tag negation] The complex build tag logic using negation (!darwin && !freebsd...) - could incorrect build tag evaluation cause the fallback to be used on supported platforms, silently disabling keystore watching for validators? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c9abac6b-5067-4e4b-8bc8-6d4f8a8dafab?mode=deep",
+    "timestamp": "2026-01-10 16:47:26.838259",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Integration] [Cache staleness] Since the fallback watcher never triggers cache updates, can validator nodes on unsupported platforms operate with stale account caches for extended periods, potentially signing blocks with revoked validator keys? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_14e5e7af-d165-49f1-a8b8-2bd9a6dd3ab7?mode=deep",
+    "timestamp": "2026-01-10 16:47:45.976981",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Integration] [maybeReload behavior] Does the accountCache.maybeReload() function properly handle the case where watcher.running is always false, or could this cause excessive polling that degrades validator node performance? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1efd2b6b-5595-455c-b059-103eea851c68?mode=deep",
+    "timestamp": "2026-01-10 16:48:06.238300",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Integration] [watcherStarted check] The watcherStarted() function checks 'watcher.running || watcher.runEnded' - since both are always false in the fallback, does this break logic that assumes a watcher has run at least once? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f4098de0-dc85-4fc7-90ea-e06848b4b42e?mode=deep",
+    "timestamp": "2026-01-10 16:48:27.741493",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Integration] [Notification channels] Does the accountCache expect watcher events on a notification channel, and if so, does the fallback's lack of events cause the cache to never update, leaving validators with stale key material? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a3aec0d3-38ae-4d87-8b99-81a75abd0765?mode=deep",
+    "timestamp": "2026-01-10 16:48:50.021264",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Integration] [Throttling logic] Does the accountCache throttling mechanism depend on watcher.running being true after start(), and does the fallback's always-false state cause throttling to fail, resulting in excessive rescans? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8c99b829-3c6f-4446-9958-345679fc9095?mode=deep",
+    "timestamp": "2026-01-10 16:49:12.625909",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Key management] [Key addition] When a new validator key is added to the keystore directory on a platform using the fallback, can the validator node fail to load the new key indefinitely, preventing the validator from participating in consensus and causing network disruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d9e9ec92-f9b8-462e-8807-5225e18849fb?mode=deep",
+    "timestamp": "2026-01-10 16:49:36.267684",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Key management] [Key removal] If a compromised validator key is removed from the keystore on a platform using the fallback, can the node continue using the in-memory copy of the removed key to sign blocks, enabling continued malicious validator activity? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5bd50aab-b3bd-4abb-a40a-bab22b1518e0?mode=deep",
+    "timestamp": "2026-01-10 16:50:01.641013",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Key management] [Key rotation] During validator key rotation procedures on fallback platforms, does the lack of filesystem watching mean that nodes must be restarted to pick up new keys, creating a window of downtime that attackers could exploit? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fdf49593-ba2b-40e1-86c0-e1f7b3a6da43?mode=deep",
+    "timestamp": "2026-01-10 16:50:27.598372",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Key management] [Key modification] If a validator key file is modified in place (e.g., password changed) on a fallback platform, can the node continue attempting to use the old cached key, causing signature failures and consensus disruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d351017c-7d4d-4266-9756-173708b87df5?mode=deep",
+    "timestamp": "2026-01-10 16:50:56.609707",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Key management] [Key permissions] Does the fallback's lack of monitoring mean that permission changes on key files (e.g., becoming world-readable) are never detected, allowing prolonged unauthorized access to validator private keys? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_add6ac85-cd79-492c-b85c-754b4f88ed02?mode=deep",
+    "timestamp": "2026-01-10 16:51:23.518151",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Consensus] [Block signing] Can validators running on fallback platforms fail to sign blocks after key updates, causing their blocks to be rejected and reducing network block production capacity below the Byzantine fault tolerance threshold? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_28578eb6-662f-416a-8e18-842c027516d0?mode=deep",
+    "timestamp": "2026-01-10 16:51:48.746758",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Consensus] [Validator set changes] When the authorized validator set changes and new keys are distributed, can fallback platform validators fail to detect their new keys, causing them to be unable to sign blocks during their turn and stalling the network? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_94f304bd-34eb-40ed-b569-cd734cc04efc?mode=deep",
+    "timestamp": "2026-01-10 16:52:15.481298",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Consensus] [Key compromise response] If a validator key is compromised and emergency key rotation is performed, can fallback platform validators continue using the compromised key because they don't detect the replacement, allowing continued malicious block production? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_916bbb45-ca0f-46f6-8bdf-ece8a0241b19?mode=deep",
+    "timestamp": "2026-01-10 16:52:42.568665",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Consensus] [Multi-key validators] For validators managing multiple signing keys, does the fallback's inability to detect new keys mean they cannot dynamically add backup keys, reducing validator redundancy and increasing single points of failure? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9e1ec228-63ac-4915-a674-dee2865c971a?mode=deep",
+    "timestamp": "2026-01-10 16:53:09.215447",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Concurrency] [Unsynchronized reads] Can the 'running' and 'runEnded' fields be read by multiple goroutines concurrently without atomic operations, causing data races that violate Go's memory model and potentially crashing nodes with the race detector enabled? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0300bf7e-2fb7-492e-8d69-d40df5025afe?mode=deep",
+    "timestamp": "2026-01-10 16:53:36.416236",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Concurrency] [Cache mu Lock] Does the accountCache.mu.Lock() properly synchronize access to the watcher struct, or can the watcher fields be accessed without holding the lock, causing race conditions in validator key loading paths? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6e1bc9e4-c279-4e31-b816-0b5dc44a6961?mode=deep",
+    "timestamp": "2026-01-10 16:54:04.965724",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/watch_fallback.go] [Concurrency] [Method receivers] Are the watcher methods safe to call concurrently from multiple goroutines, or could simultaneous calls to start() and close() on the fallback watcher cause undefined behavior in systems that assume thread-safety? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c5192fbd-4b78-461d-9d67-5c639057aa22?mode=deep",
+    "timestamp": "2026-01-10 16:54:33.348364",
+    "report_generated": false
   }
 ]
