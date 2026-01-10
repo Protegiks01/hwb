@@ -16186,5 +16186,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_af12ba70-e622-4f66-9063-e802bcef3171?mode=deep",
     "timestamp": "2026-01-10 11:20:06.519604",
     "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetCanonicalHash()] [Hash collision] If rawdb.ReadCanonicalHash returns a zero hash at line 71, the function calls GetHeaderByNumber and returns header.Hash() at line 80. Can an attacker exploit hash collision vulnerabilities to make different headers produce the same hash, causing canonical chain confusion? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0c89a9a8-6194-4bef-b248-a9b3ca0674ea?mode=deep",
+    "timestamp": "2026-01-10 11:21:30.771801",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetHeaderByNumber()] [Nil header return] If odr.Retrieve() succeeds at line 63 but r.Header is nil at line 66, does the function return a nil header without error, potentially causing nil pointer dereferences in calling code? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5d9221e2-666d-4a3e-b80a-ea4bee62bdd6?mode=deep",
+    "timestamp": "2026-01-10 11:21:43.892019",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetHeaderByNumber()] [Database pruning attack] When a canonical hash exists but the header is pruned at lines 46-50, can an attacker intercept the ODR request and provide a different header than what was originally canonical, causing chain history rewriting? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_35265d9d-0b9d-49c1-a836-16638ac3f2ee?mode=deep",
+    "timestamp": "2026-01-10 11:21:57.425798",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetHeaderByNumber()] [Zero CHT sections] If odr.ChtIndexer().Sections() returns 0 at line 53, does the calculation chts-1 at lines 58-59 cause an underflow creating an extremely large unsigned value, potentially causing panics or incorrect CHT lookups? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6998dd3a-4058-4f38-9f76-b7667ba62a7f?mode=deep",
+    "timestamp": "2026-01-10 11:22:12.063766",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetHeaderByNumber()] [CHT root poisoning] Can a malicious ODR backend provide a manipulated chtHead value at line 53 that causes GetChtRoot to return an incorrect CHT root at line 58, bypassing verification and allowing invalid headers to be accepted? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1445b3d9-75ee-4206-bfaf-4edb977b1e0d?mode=deep",
+    "timestamp": "2026-01-10 11:22:27.523281",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetHeaderByNumber()] [Context cancellation] If the context is cancelled during odr.Retrieve() at line 63, does the function properly clean up and return the cancellation error, or can it leave partial state that causes subsequent calls to fail or return corrupted data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fa057769-9d80-4b5f-9fc3-5dc4cac7a7ed?mode=deep",
+    "timestamp": "2026-01-10 11:22:44.435537",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetHeaderByNumber()] [Race condition] If GetHeaderByNumber is called concurrently for the same block number while the database is being updated, can a race condition cause the function to read inconsistent state (canonical hash present but header absent), leading to incorrect ODR requests? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_aab9df1f-6a57-4520-a2e1-7b7eeca96546?mode=deep",
+    "timestamp": "2026-01-10 11:23:03.336175",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetHeaderByNumber()] [CHT index manipulation] Can an attacker manipulate the CHT index by providing false values from odr.ChtIndexer().Sections() at line 53, causing the function to incorrectly calculate which CHT to use, potentially accepting headers outside trusted CHT range? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d17740c0-08b0-4e78-b545-cdffc78335da?mode=deep",
+    "timestamp": "2026-01-10 11:23:23.028519",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetHeaderByNumber()] [Canonical hash manipulation] When rawdb.ReadCanonicalHash returns a non-zero hash at line 42 but rawdb.ReadHeader returns nil at line 47, does the function fall through to ODR retrieval, and can an attacker exploit this state inconsistency to provide a malicious header claiming to be canonical? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bdd1e152-0a7f-4b7a-8b61-8de863943d7f?mode=deep",
+    "timestamp": "2026-01-10 11:23:43.193465",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetHeaderByNumber()] [Integer overflow] If the number parameter is set to a value near uint64 maximum, can the multiplication chts*odr.IndexerConfig().ChtSize at line 54 overflow, bypassing the CHT coverage check and allowing retrieval of unverified headers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3cf2f177-0974-4ab2-908b-17bd4058ec8c?mode=deep",
+    "timestamp": "2026-01-10 11:24:05.195551",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetHeaderByNumber()] [CHT bypass] Can an attacker provide a malicious CHT root through a compromised ODR backend that causes the CHT verification to pass for a forged header, allowing acceptance of invalid blocks and potentially enabling double-spending or state corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5ec0fee9-0c8d-483a-9b2d-4972f53271ab?mode=deep",
+    "timestamp": "2026-01-10 11:24:28.225172",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: Put()] [Size limits] Is there any per-node size limit enforced, or can a single malicious node of gigabytes in size be stored causing immediate OOM? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8be519a9-a300-43a8-91be-a066e8b98c48?mode=deep",
+    "timestamp": "2026-01-10 11:24:52.308999",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [General] [Input validation] Does NodeSet perform any validation on keys (must be 32 bytes for trie hashes) or values (must be valid RLP), or does it blindly store arbitrary data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cb53edde-c7a6-497a-9add-d9558f232df0?mode=deep",
+    "timestamp": "2026-01-10 11:25:17.813389",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [General] [Trie reconstruction] Does NodeSet assume all stored nodes are valid trie nodes, and could storing non-trie data cause failures when attempting trie reconstruction? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7b218acd-9257-4d5d-85ff-4ce9e446fd4c?mode=deep",
+    "timestamp": "2026-01-10 11:25:44.102397",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: Store()] [Database corruption] If target database is a critical blockchain database and Store() writes malformed nodes, could this corrupt the node's entire state requiring resync? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ff38eb6b-602d-4605-bb68-32bb085600b8?mode=deep",
+    "timestamp": "2026-01-10 11:26:10.356268",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [General] [Light client security] In a light client context where NodeSet caches trie nodes from untrusted peers, does the lack of validation allow malicious peers to inject corrupted nodes causing state sync failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0cab4635-141a-485a-a3b0-c28dfe9153dd?mode=deep",
+    "timestamp": "2026-01-10 11:26:37.581508",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: DataSize()] [Inaccurate size] If Delete() doesn't update dataSize, will DataSize() continue reporting deleted nodes' sizes, providing false memory usage metrics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3733de72-1025-4f62-93e9-5d3b06fd2516?mode=deep",
+    "timestamp": "2026-01-10 11:27:05.308534",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: KeyCount()] [Inaccurate count] Does KeyCount() return len(db.nodes) which doesn't match len(db.order) if Delete was called, providing incorrect metrics? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_40cc6a47-348c-4d3f-a6e3-c8ad1a8890ad?mode=deep",
+    "timestamp": "2026-01-10 11:27:34.149717",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: Has()] [Inefficiency] Does Has() call Get() which acquires locks and returns data (lines 85-86), when it only needs to check existence, causing unnecessary overhead that amplifies DoS impact? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9db41f23-5496-41cf-9ddf-7aab2d1a886c?mode=deep",
+    "timestamp": "2026-01-10 11:28:04.478256",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: NodeList.Store()] [crypto.Keccak256] If the Keccak256 implementation has vulnerabilities or can be manipulated, could this compromise the entire trie storage system? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6dab7b21-877f-453c-b594-9501e5d1d634?mode=deep",
+    "timestamp": "2026-01-10 11:28:35.591382",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: Put()] [common.CopyBytes] If common.CopyBytes has a bug or vulnerability, could this directly compromise NodeSet's data integrity guarantees? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f62dc74b-d852-432b-874a-b872dbee68ef?mode=deep",
+    "timestamp": "2026-01-10 11:29:06.550875",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: NodeList.Store()] [Write ordering] Does NodeList.Store() write nodes in a specific order, and could the lack of ordering cause issues when reconstructing tries from stored nodes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9ac3f412-ee12-4132-9911-69a76e2deef1?mode=deep",
+    "timestamp": "2026-01-10 11:29:38.111979",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: Store()] [Partial writes] If Store() fails partway through writing nodes to target database, is there any rollback mechanism or will the database be left in an inconsistent state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_04d6986f-19d2-4c20-9e02-7a18011e5968?mode=deep",
+    "timestamp": "2026-01-10 11:30:08.757365",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: NodeList.Store()] [Hash-based indexing] By using content hash as key (line 133), does this assume nodes are content-addressed, and could this be exploited if nodes are modified after hashing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_488a0276-ae53-4836-975f-466098db10b5?mode=deep",
+    "timestamp": "2026-01-10 11:30:40.183990",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [General] [Untrusted input] Does NodeSet assume all inputs come from trusted sources, or does it validate that keys and values are properly formatted trie nodes to prevent malicious data injection? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_01818835-c4e2-49fa-b750-8aa6873805e5?mode=deep",
+    "timestamp": "2026-01-10 11:31:09.787700",
+    "report_generated": false
   }
 ]
