@@ -14392,5 +14392,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8b8fc190-36f4-4802-9000-973f96156b58?mode=deep",
     "timestamp": "2026-01-10 08:51:53.321797",
     "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Commit()] [Trie recreation failure] If the new trie.New() after commit fails, the function returns error but has already called StoreChtRoot() - does this create inconsistency where the root is stored but the trie is unusable? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_df1d7f2e-4066-4e4c-b514-eea99551bfef?mode=deep",
+    "timestamp": "2026-01-10 08:53:08.364846",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Commit()] [Database update atomicity] If triedb.Update() succeeds but triedb.Commit() fails, are the updates rolled back, or does this leave the trie database in a partially committed state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5d89b80b-8006-4693-bcb0-22f16df7b83f?mode=deep",
+    "timestamp": "2026-01-10 08:53:21.186449",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Commit()] [NodeSet nil handling] The code checks if nodes != nil before updating triedb - can nil nodes in successful commits indicate an error condition that should be treated as failure? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b89cbdf3-62fc-4a64-978e-d9f36d3364f1?mode=deep",
+    "timestamp": "2026-01-10 08:53:34.931803",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Commit()] [Trie commit failure] If c.trie.Commit(false) returns an error in root or nodes, is this handled properly, or can partial commits leave the database in an inconsistent state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_668c38ab-65b7-4325-851e-9f11f64b7466?mode=deep",
+    "timestamp": "2026-01-10 08:53:48.612179",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Process()] [Header validation bypass] Does Process() validate that the header belongs to the current section before processing, or can out-of-order headers be processed causing incorrect trie state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_19ddcd54-b04b-496d-ab83-be6443fdf746?mode=deep",
+    "timestamp": "2026-01-10 08:54:02.873481",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Process()] [Concurrent process calls] Can multiple goroutines call Process() concurrently for different headers, causing race conditions on c.lastHash or trie operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_afce6318-267d-4955-a7de-03bc9cc7c56c?mode=deep",
+    "timestamp": "2026-01-10 08:54:18.515892",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Process()] [Trie update failure] If c.trie.Update() fails, is the error properly propagated, or can failed updates leave the trie in an inconsistent state with missing entries? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_974eb29e-ff85-4100-9e9b-2fcd4a98afb0?mode=deep",
+    "timestamp": "2026-01-10 08:54:36.088871",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Process()] [RLP encoding failure] Can rlp.EncodeToBytes() fail for valid ChtNode{hash, td} due to extremely large td values, and is this error properly handled or does it silently corrupt the trie? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6be6f25f-fbf8-4ada-a008-7d7cbddc87f2?mode=deep",
+    "timestamp": "2026-01-10 08:54:54.666361",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Process()] [Block number overflow] Can header.Number.Uint64() overflow or return invalid values for blocks with extremely large or malformed number fields, causing incorrect encoding in encNumber? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ba610b96-e95f-45e1-9fd1-fb79315aeaeb?mode=deep",
+    "timestamp": "2026-01-10 08:55:14.767624",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Process()] [Nil total difficulty] Under what conditions can rawdb.ReadTd() return nil for a valid header, and does this indicate a database corruption issue that should be handled gracefully rather than panicking? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3ae96dae-64d3-4443-b4fa-c02dbd934e2c?mode=deep",
+    "timestamp": "2026-01-10 08:55:36.122617",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Process()] [Explicit panic(nil)] Line 204 contains panic(nil) when td is nil - can attackers cause this condition by manipulating database state, block propagation timing, or providing headers for non-existent blocks, causing indexer crashes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_97bdffd3-c2e2-4716-9d8b-bc0fbb068a90?mode=deep",
+    "timestamp": "2026-01-10 08:55:58.551217",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Reset()] [Error masking] If fetchMissingNodes() succeeds but the second trie.New() still fails, does this indicate corrupted fetched data that should be rejected rather than silently returning error? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bfef1ea0-90c7-45e5-8f1b-2f812c9eda76?mode=deep",
+    "timestamp": "2026-01-10 08:56:20.995617",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Reset()] [Race condition on section update] Can concurrent calls to Reset() cause race conditions on the c.section field, leading to inconsistent section tracking across operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5be6e43c-3999-4522-ad18-b62a1bf96a2e?mode=deep",
+    "timestamp": "2026-01-10 08:56:44.956560",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Reset()] [ODR unavailability] If odr backend is nil or unavailable and trie.New() fails, does the indexer remain permanently broken, preventing all future indexing operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ae5800e9-44a7-4b0c-b994-177b2280b4e6?mode=deep",
+    "timestamp": "2026-01-10 08:57:09.550168",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Reset()] [Trie initialization failure] If trie.New() fails for a non-zero section but fetchMissingNodes() also fails, does the function return error properly or leave the backend in an inconsistent state with nil trie? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_555bcdb3-939a-47d7-9fe5-937d785a97bd?mode=deep",
+    "timestamp": "2026-01-10 08:57:35.540152",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Reset()] [Section underflow] When section=0, does the code properly handle root as zero hash, or can section-1 calculation in GetChtRoot cause issues with wrapped uint64 values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8fc4888a-8877-4588-be62-7de6798bb1cf?mode=deep",
+    "timestamp": "2026-01-10 08:58:02.761164",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: fetchMissingNodes()] [ODR backend trust] The function trusts data from c.odr.Retrieve() - can compromised or malicious peers in the ODR network provide crafted responses that exploit trie parsing vulnerabilities? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5c41d9f8-dbe2-4fd7-9721-cc05012f4a30?mode=deep",
+    "timestamp": "2026-01-10 08:58:31.203636",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: fetchMissingNodes()] [Batch write failure] If batch.Write() fails after storing proof data, are the partially written trie nodes rolled back, or does this leave the trie database in an inconsistent state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c010fd1e-603d-4293-96fb-8a028d64bab8?mode=deep",
+    "timestamp": "2026-01-10 08:59:01.015094",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: fetchMissingNodes()] [Block number calculation] Can section*c.sectionSize-1 overflow for large section values, causing incorrect BlockNum in ChtRequest and retrieval of data from wrong chain positions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_30f544fd-294a-4ca6-b5fe-1f3b60f0ff7b?mode=deep",
+    "timestamp": "2026-01-10 08:59:30.042257",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: fetchMissingNodes()] [Section calculation overflow] Can the calculation (section-1) underflow when section=0, causing incorrect ChtRequest with wrapped-around section numbers and retrieval of wrong trie nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_859bd7ee-7170-4cd2-83ae-f03b5f83644e?mode=deep",
+    "timestamp": "2026-01-10 08:59:58.265362",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: fetchMissingNodes()] [Malicious proof data] Can malicious ODR peers provide invalid Proof data in ChtRequest response that passes initial validation but corrupts the trie when stored via r.Proof.Store(batch)? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_40c984db-d969-46ad-b880-535bee81ed4c?mode=deep",
+    "timestamp": "2026-01-10 09:00:27.165225",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: fetchMissingNodes()] [Context timeout bypass] Does the context timeout properly propagate through the retry loop, or can the 10-second sleep bypass context cancellation, preventing graceful shutdown? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d3f830ef-9c46-4b4c-b2af-c83d82e73e82?mode=deep",
+    "timestamp": "2026-01-10 09:00:58.995455",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: fetchMissingNodes()] [Infinite retry loop] The infinite for loop with ErrNoPeers retry can run indefinitely - can an attacker cause permanent ErrNoPeers state by controlling network peers, causing the indexer to hang forever and preventing synchronization? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_371bfca0-8c9e-4262-94a3-39724cc51472?mode=deep",
+    "timestamp": "2026-01-10 09:01:29.169225",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: NewChtIndexer()] [Table prefix collision] Can the ChtTablePrefix or ChtIndexTablePrefix collide with other database prefixes, causing data corruption when different subsystems write to overlapping key spaces? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e15a137b-eb90-46f8-ae6f-4598bf536b2b?mode=deep",
+    "timestamp": "2026-01-10 09:01:58.820500",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: NewChtIndexer()] [Cache configuration] The trie.Config{Cache: 1} uses minimal cache - can this cause excessive disk I/O leading to DoS, or can attackers exploit the tiny cache to force cache thrashing during trie operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b4bdcaa1-2b6d-40b4-a0d9-cf04277b8167?mode=deep",
+    "timestamp": "2026-01-10 09:02:28.032109",
+    "report_generated": false
   }
 ]
