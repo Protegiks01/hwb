@@ -11548,5 +11548,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_577add90-11d8-4a07-80e8-8dad67a5d770?mode=deep",
     "timestamp": "2026-01-10 14:34:15.868239",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: JoinPath()] [Path Traversal] Can an attacker supply a filename with path traversal sequences (../) to bypass the keysDirPath restriction and access keys from arbitrary directories? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6da781c8-c0cc-4a3d-b016-f3677062dcf1?mode=deep",
+    "timestamp": "2026-01-10 14:35:32.529731",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: DecryptKey()] [Version Confusion] Can an attacker craft a keyfile with both version",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_07827296-30cb-4ef3-a026-6a56dac67457?mode=deep",
+    "timestamp": "2026-01-10 14:35:45.473364",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: DecryptKey()] [Type Assertion Failure] If the version field is not a string at line 211, does the type assertion fail gracefully, or can it cause a panic crashing the validator node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_069f153c-8baf-48b2-92b9-d51a825c44f9?mode=deep",
+    "timestamp": "2026-01-10 14:35:59.148756",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: getKDFKey()] [Missing Field Validation] Can an attacker omit required KDF parameter fields (n, r, p, dklen) causing panics when accessing them as map[string]interface{}, leading to node crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_353f6a68-3a37-491c-b847-3f718e1e76f5?mode=deep",
+    "timestamp": "2026-01-10 14:36:12.793074",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: getKDFKey()] [Type Confusion] Can an attacker supply KDF parameters as strings instead of numbers, causing type assertions to fail and potentially bypassing parameter validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9feaf1bf-9dd4-40b7-b869-e808adeb2712?mode=deep",
+    "timestamp": "2026-01-10 14:36:27.345849",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: DecryptDataV3()] [Hex Decoding Errors] Are hex decoding errors for MAC, IV, and ciphertext at lines 244-256 handled properly, or can malformed hex cause crashes or bypass MAC verification? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6a887d17-5265-4cad-949f-555a0d806c83?mode=deep",
+    "timestamp": "2026-01-10 14:36:43.065641",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: decryptKeyV3()] [Version Mismatch] Does the version check at line 277 validate against the expected constant, or can an attacker supply a keyfile with an unexpected version number causing undefined behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_600ce2b7-f4ca-4fb0-9acc-2a5c4a8c10a6?mode=deep",
+    "timestamp": "2026-01-10 14:37:00.184058",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: DecryptKey()] [JSON Bomb] Can an attacker craft a deeply nested or extremely large JSON keyfile causing excessive memory consumption during parsing, leading to DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0b8d32a5-58ca-40b2-ba32-7bf048029435?mode=deep",
+    "timestamp": "2026-01-10 14:37:19.388595",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: StoreKey()] [Verbose Error Message] Does the error message at lines 119-126 leak sensitive information about the keystore location or encryption parameters that could aid an attacker? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a1a14e41-9bc0-4697-9f20-2c8e4eab9329?mode=deep",
+    "timestamp": "2026-01-10 14:37:39.968463",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: DecryptDataV3()] [Error Distinguishability] Can an attacker distinguish between wrong password and corrupted keyfile by analyzing error messages, enabling offline attacks to validate password guesses? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b0407dda-7a1f-4fc8-9d60-98b109520e24?mode=deep",
+    "timestamp": "2026-01-10 14:38:01.767002",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: getKDFKey()] [KDF Error Leakage] Do scrypt.Key() or pbkdf2.Key() errors reveal information about the password or parameters that could help an attacker optimize brute-force attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7ac81ccf-12fc-4e21-bf00-4c0acb6a819a?mode=deep",
+    "timestamp": "2026-01-10 14:38:24.874595",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: DecryptKey()] [Generic Error Return] Does returning ErrDecrypt at line 266 for MAC mismatch prevent timing attacks, or can the error handling path itself leak timing information? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_965cfaad-efc8-4cc1-a22a-406adfae5add?mode=deep",
+    "timestamp": "2026-01-10 14:38:48.434330",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Struct: keyStorePassphrase] [Concurrent Access] Can multiple goroutines call StoreKey() or GetKey() simultaneously on the same keyStorePassphrase instance, causing race conditions in file system operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_822ec645-3009-4691-a909-947c568a2e21?mode=deep",
+    "timestamp": "2026-01-10 14:39:13.351078",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: StoreKey()] [Concurrent Writes] If two goroutines attempt to store keys for the same address simultaneously, can race conditions in temporary file creation or rename operations cause key corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e6911450-3dc6-41b6-809a-b321e890f848?mode=deep",
+    "timestamp": "2026-01-10 14:39:38.504173",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: GetKey()] [Concurrent Reads] Can concurrent reads of the same keyfile while it's being written cause partial reads and decryption failures, potentially locking out validator access? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a0c83e78-c3a2-4fbe-956c-e599c8b6af95?mode=deep",
+    "timestamp": "2026-01-10 14:40:05.022106",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: DecryptKey()] [ECDSA Key Validation] Does crypto.ToECDSAUnsafe() at line 228 validate that the decrypted key bytes form a valid ECDSA private key, or can invalid keys cause crashes or undefined behavior? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ccd3567f-b944-4bba-bcb8-e4c2b9727403?mode=deep",
+    "timestamp": "2026-01-10 14:40:29.783289",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: DecryptKey()] [Address Derivation Mismatch] Can there be cases where the derived address from the private key doesn't match the stored address in the JSON, indicating key corruption or manipulation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fde5659f-d61b-4517-90c4-84673a38a083?mode=deep",
+    "timestamp": "2026-01-10 14:40:54.030918",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: decryptKeyV1()] [Legacy Algorithm Weakness] Does the V1 decryption using AES-CBC at line 323 have known vulnerabilities (padding oracle, etc.) that could be exploited to decrypt old validator keyfiles? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_11c01e1c-1422-425c-b052-f084fdbf1b5c?mode=deep",
+    "timestamp": "2026-01-10 14:41:19.620247",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: decryptKeyV1()] [Keccak Hash for AES Key] Is using Keccak256(derivedKey[:16])[:16] at line 323 to derive the AES key cryptographically sound, or does it reduce the effective key strength? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_75a3a0d5-b696-40cb-8cb5-a9b69d805570?mode=deep",
+    "timestamp": "2026-01-10 14:41:45.030094",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: EncryptKey()] [Weak Password Acceptance] Does the function validate password strength before encryption, or can validators use weak passwords making brute-force attacks feasible? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_38f52ba4-fd43-4ce8-a4a8-30b8d1b6911e?mode=deep",
+    "timestamp": "2026-01-10 14:42:08.085157",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: DecryptKey()] [Password Length Limit] Is there a maximum password length enforced, or can extremely long passwords cause buffer overflows or DoS in the KDF computation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ac40c24e-e7ad-4ed6-b1c9-a0c2a77c92ba?mode=deep",
+    "timestamp": "2026-01-10 14:42:31.402438",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: getKDFKey()] [Empty Password] Does the function handle empty passwords correctly, or can empty passwords result in deterministic key derivation making all keyfiles with empty passwords vulnerable? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ea7aba09-23bc-49ba-8692-edbfbef34b17?mode=deep",
+    "timestamp": "2026-01-10 14:42:55.038121",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: EncryptDataV3()] [Password Encoding] Are passwords properly encoded as UTF-8 before being passed to the KDF, or can encoding issues cause password verification failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4cbe7d58-5b72-4222-abed-4f91a82ddbce?mode=deep",
+    "timestamp": "2026-01-10 14:43:18.078466",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: ensureInt()] [Float Precision Loss] Can very large float64 values lose precision during conversion to int, resulting in incorrect KDF parameters and weaker key derivation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3a4537a3-f3bd-473b-bb3d-c44efe6afbf3?mode=deep",
+    "timestamp": "2026-01-10 14:43:42.045237",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: ensureInt()] [Negative Values] Does ensureInt() handle negative float64 values correctly, or can negative KDF parameters cause undefined behavior in scrypt/pbkdf2? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_03b5aec8-ec90-4131-ba39-a18a90526e02?mode=deep",
+    "timestamp": "2026-01-10 14:44:06.093515",
+    "report_generated": false
   }
 ]
