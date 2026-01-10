@@ -9298,5 +9298,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_04017094-8ae9-4316-aa51-278286457a40?mode=deep",
     "timestamp": "2026-01-10 11:28:16.634843",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/external/backend.go] [Function: Accounts()] [Empty Account List] If listAccounts() returns an empty list, the cache is set to an empty slice - can this cause all subsequent Contains() calls to return false, preventing any validator from producing blocks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2ed0a59e-448a-4b00-b497-771c8414cd0b?mode=deep",
+    "timestamp": "2026-01-10 11:29:32.098286",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/external/backend.go] [Function: SignData()] [Zero-Length Data] If data is empty ([]byte{}), hexutil.Encode returns '0x' - can the external signer misinterpret this as no data vs. empty data, causing signature mismatches? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6c013cf2-0452-42ed-aae6-d7ad42b49efd?mode=deep",
+    "timestamp": "2026-01-10 11:29:45.030333",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/external/backend.go] [Function: SignTx()] [Zero Value Transaction] If all transaction fields are zero/nil, can the external signer produce a signature for an invalid transaction that causes consensus validation failures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_52f015a6-338b-4e88-95e6-a3f476a5257e?mode=deep",
+    "timestamp": "2026-01-10 11:29:58.149779",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/external/backend.go] [Function: Contains()] [Nil Cache Iteration] If api.cache is explicitly set to nil (not just not initialized), the range loop 'for _, a := range api.cache' will not panic but return false - can this hide cache initialization failures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e7e9e0b8-6d84-4399-8270-65deb4006066?mode=deep",
+    "timestamp": "2026-01-10 11:30:11.752205",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/external/backend.go] [Function: NewExternalBackend()] [Nil Signer Slice] If NewExternalSigner returns nil with no error, the signers slice will contain nil - can this cause panics when Wallets() is called and the nil is dereferenced? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_68a943e9-7bff-4312-93ae-e7971a2c34bb?mode=deep",
+    "timestamp": "2026-01-10 11:30:26.498163",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/external/backend.go] [Function: SignTx()] [Clef Version Compatibility] The comment mentions clef may have already transformed signatures - can version mismatches between this code and clef versions cause double-transformation or missing transformation bugs? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8d8973eb-642f-4bb7-96d6-da55094b7790?mode=deep",
+    "timestamp": "2026-01-10 11:30:42.475922",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/external/backend.go] [Function: SignData()] [MimeType Compatibility] Different external signers may interpret MimetypeClique differently - can this cause signature format inconsistencies across validators using different signer implementations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_00b07248-407c-4b68-a26a-024b68450e03?mode=deep",
+    "timestamp": "2026-01-10 11:30:59.099683",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/external/backend.go] [Function: SignTx()] [RPC API Version] The account_signTransaction API call doesn't specify an API version - can changes in the external signer's RPC API break compatibility silently, causing signing failures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_007db06a-6333-484e-810c-0b178278ac49?mode=deep",
+    "timestamp": "2026-01-10 11:31:17.901448",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/external/backend.go] [Function: SignData()] [Signature Determinism] There's no verification that the external signer uses deterministic ECDSA (RFC 6979) - can non-deterministic signatures create timing side-channels that leak validator private key information? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ceffdd51-3fea-48bc-a794-32ce3e4c2ede?mode=deep",
+    "timestamp": "2026-01-10 11:31:38.231040",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/external/backend.go] [Function: SignData()] [Weak Hash Input] The data is signed directly without additional domain separation - can an attacker trick a validator into signing malicious data by claiming it's for a different purpose? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e55c87f2-f620-4e46-882b-d4bc88d3936a?mode=deep",
+    "timestamp": "2026-01-10 11:31:59.140199",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/external/backend.go] [Function: SignText()] [Text Encoding] The text is hex-encoded before signing - can different text encodings (UTF-8, ASCII, etc.) cause signature verification mismatches in consensus operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eaf92c97-5866-4f13-9b9d-4a5256af07f0?mode=deep",
+    "timestamp": "2026-01-10 11:32:21.977502",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/external/backend.go] [Function: SignData()] [No Signature Verification] After receiving a signature from the external signer, there's no verification that the signature is valid for the provided data and account - can the external signer return garbage signatures that are accepted? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_79235106-06d1-4d61-98ad-0fa8dea8e388?mode=deep",
+    "timestamp": "2026-01-10 11:32:45.402038",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/external/backend.go] [Function: Accounts()] [Repeated RPC Calls] Contains() can trigger Accounts() which calls listAccounts() RPC - can an attacker repeatedly call Contains() with nil cache to spam the external signer with RPC requests, causing DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2937fe1c-5ddb-46af-be2d-8846a2273199?mode=deep",
+    "timestamp": "2026-01-10 11:33:10.401042",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/external/backend.go] [Function: SignTx()] [Large AccessList DoS] AccessList can be arbitrarily large - can an attacker request signing of transactions with massive access lists that overwhelm the external signer or cause memory exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_299f7342-1601-4142-ad75-5a011732c67c?mode=deep",
+    "timestamp": "2026-01-10 11:33:35.164728",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/external/backend.go] [Function: SignData()] [Large Data DoS] The data parameter has no size limit - can an attacker request signing of gigabytes of data, causing the external signer to become unresponsive and preventing legitimate block signing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_054f4b9e-eb49-439a-85b6-4b4a6b05c24c?mode=deep",
+    "timestamp": "2026-01-10 11:34:00.205433",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/external/backend.go] [Function: api.client.Call()] [Slow Response DoS] If the external signer is slow to respond, signing operations block synchronously - can this cause validator block production to miss deadlines, resulting in consensus penalties? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_46deddbb-8a1a-48c8-a57a-a0fa5a739432?mode=deep",
+    "timestamp": "2026-01-10 11:34:28.121091",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/external/backend.go] [Function: SignData()] [Block Signing Failure] If SignData() fails during block sealing in Clique consensus, can the validator miss its slot and receive penalties, or worse, can selective signing failures cause chain splits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0da68388-c541-4168-bebc-579254321b8f?mode=deep",
+    "timestamp": "2026-01-10 11:34:54.423760",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/external/backend.go] [Function: SignTx()] [Transaction Censorship] Can a malicious or compromised external signer selectively refuse to sign certain transactions, enabling validator-level censorship attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bb0bef95-85e6-4092-89b5-5f74b20c2b77?mode=deep",
+    "timestamp": "2026-01-10 11:35:21.593292",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/external/backend.go] [Function: Accounts()] [Validator Deauthorization] If the external signer removes a validator's account from the list, the cache isn't updated until the next Accounts() call - can this delay cause the validator to continue attempting block production after deauthorization? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9b28c396-85b9-40ef-b83f-67e406c33528?mode=deep",
+    "timestamp": "2026-01-10 11:35:48.222581",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/external/backend.go] [Function: SignData()] [Equivocation Attack] Can a compromised external signer provide the same validator with signatures for two different blocks at the same height, enabling double-signing equivocation attacks in Clique PoA? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_aa51ed53-c6de-4df2-9f4b-139c063297a6?mode=deep",
+    "timestamp": "2026-01-10 11:36:12.916150",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/external/backend.go] [Function: NewExternalSigner()] [Network Partition] If the network connection to the external signer is intermittent, can validators alternate between online/offline states causing inconsistent block production and consensus instability? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cd371dbb-e498-4e1e-b5f3-e41aca32e537?mode=deep",
+    "timestamp": "2026-01-10 11:36:38.529998",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/external/backend.go] [Function: rpc.Dial()] [DNS Spoofing] If the endpoint is specified as a hostname rather than IP, can DNS spoofing redirect the RPC connection to a malicious external signer without detection? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3809c5d7-a22d-44af-808f-ffae894a043e?mode=deep",
+    "timestamp": "2026-01-10 11:37:05.293039",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/external/backend.go] [Function: api.client.Call()] [Network Latency] High network latency to the external signer can cause signing operations to exceed block time - can this cause validators to miss their slots and reduce network throughput? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ae6b5fd4-ec97-450c-b86e-aea0b9d07dbe?mode=deep",
+    "timestamp": "2026-01-10 11:37:32.072165",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/external/backend.go] [Function: NewExternalBackend()] [Single Endpoint Limitation] Only one endpoint can be configured - can this prevent validators from implementing proper high-availability setups with backup external signers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9103e76a-7c8c-4520-96b5-6770d4e9a2fe?mode=deep",
+    "timestamp": "2026-01-10 11:37:57.832654",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/external/backend.go] [Function: NewExternalSigner()] [Endpoint Validation] The endpoint string is not validated - can malformed endpoints cause panics or undefined behavior in rpc.Dial()? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_673eb44d-0c09-4897-9819-ddf56a598d6b?mode=deep",
+    "timestamp": "2026-01-10 11:38:24.521327",
+    "report_generated": false
   }
 ]
