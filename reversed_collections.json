@@ -16036,5 +16036,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0e59dab8-36e7-4eea-b0c0-a769fd02c83e?mode=deep",
     "timestamp": "2026-01-10 11:09:15.827046",
     "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBloomBits()] [Untrusted bloom trie sections] At line 233, blooms count is retrieved from odr.BloomTrieIndexer().Sections(). Can a malicious ODR backend provide false bloom counts causing the function to incorrectly determine which sections are trusted, accepting unverified bloom data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3e181853-d656-48ff-8402-ecfafbd14f3c?mode=deep",
+    "timestamp": "2026-01-10 11:10:36.514748",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBlock()] [Nil pointer in assembly] If body.Transactions or body.Uncles are nil at line 147, does types.NewBlockWithHeader().WithBody() handle this correctly, or can it cause nil pointer dereferences during block processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dfe6192a-1cd1-4eaf-990b-aa55dc84d0aa?mode=deep",
+    "timestamp": "2026-01-10 11:10:49.373667",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBlock()] [Race condition] If GetHeaderByNumber and GetBody are called concurrently for the same block by different goroutines, can race conditions cause them to fetch from different chain states (e.g., before/after reorg), resulting in inconsistent block assembly? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c7599a44-d8ce-4619-b37e-5f6729ed0846?mode=deep",
+    "timestamp": "2026-01-10 11:11:02.680554",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBlock()] [Block reconstruction attack] types.NewBlockWithHeader().WithBody() at line 147 reconstructs the block from parts. Does this recompute and validate the transaction root and uncle root against the header, or can mismatched parts be assembled into an invalid block? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3ab01f9a-fed5-4505-b899-0f323479a6eb?mode=deep",
+    "timestamp": "2026-01-10 11:11:16.884890",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBlock()] [Error handling asymmetry] At line 140, header retrieval failure returns errNoHeader, but body retrieval failure at line 144 returns the actual error. Can this inconsistency be exploited to distinguish between different failure modes and leak information about chain state? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5b520e42-6498-4c98-a413-6889b68e20fc?mode=deep",
+    "timestamp": "2026-01-10 11:11:31.339171",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBlock()] [Header-body mismatch] GetBlock retrieves header and body separately at lines 138 and 142, then assembles them at line 147. Can an attacker exploit the time window between these retrievals to provide a header and body that don't match (different transactions or uncles), causing state inconsistencies? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e6b7c395-39f9-4857-951f-2b505c0a2edc?mode=deep",
+    "timestamp": "2026-01-10 11:11:47.178999",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBody()] [Memory exhaustion] If GetBodyRLP returns a large RLP payload (e.g., 100MB) and bytes.NewReader is created at line 128, can this cause excessive memory allocation? Is there a size limit enforced before decoding? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_62572549-7851-4d2f-8c12-d480e186a6d8?mode=deep",
+    "timestamp": "2026-01-10 11:12:04.801710",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBody()] [Transaction signature validation] Are the decoded transactions validated for correct signature, nonce, and other properties, or does GetBody blindly return potentially invalid transactions that could cause execution failures later? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_271ae6c8-41d6-4724-ad46-a5a42b21e4b3?mode=deep",
+    "timestamp": "2026-01-10 11:12:23.433328",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBody()] [Uncle validation bypass] Does GetBody perform any validation on the decoded uncles (e.g., uncle count limits, uncle header validity), or can an attacker provide a body with excessive or invalid uncles that violate consensus rules? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5e328994-8bd0-4baa-b37e-55fc16ea8632?mode=deep",
+    "timestamp": "2026-01-10 11:12:43.353187",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBody()] [Nil body return] If rlp.Decode succeeds at line 128 but produces a body with nil Transactions or nil Uncles, does the function validate these fields before returning, or can nil slices cause panics in subsequent block processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_853637e5-05bc-4816-8e54-ffda1dfe3ab9?mode=deep",
+    "timestamp": "2026-01-10 11:13:04.648219",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBody()] [RLP decode panic] At line 128, rlp.Decode is called on untrusted data from GetBodyRLP. If the RLP contains deeply nested structures or malformed data, can this cause panics, stack overflow, or excessive memory allocation leading to node crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_36034a08-19f7-4305-bdf0-73ac41e9d565?mode=deep",
+    "timestamp": "2026-01-10 11:13:27.241511",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBodyRLP()] [RLP size attack] Can an attacker provide an extremely large RLP payload in r.Rlp that passes validation but causes memory exhaustion when processed, leading to DoS of light clients? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4642729c-2e6c-4e65-9245-863ad92b095f?mode=deep",
+    "timestamp": "2026-01-10 11:13:50.976509",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBodyRLP()] [Error masking] At line 108, if GetHeaderByNumber fails, the function returns errNoHeader instead of the actual error. Can this mask critical errors like CHT verification failures, making debugging difficult and hiding attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_55ff8a80-ba89-4a4d-ad6b-7bfd0692cd26?mode=deep",
+    "timestamp": "2026-01-10 11:14:15.041628",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBodyRLP()] [Non-canonical body acceptance] At line 110, if the header hash doesn't match the requested hash, errNonCanonicalHash is returned. But can an attacker exploit TOCTOU (time-of-check-time-of-use) by changing the canonical chain after line 106 but before line 114, causing non-canonical bodies to be accepted? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_00ab86ae-eb41-458f-9846-5ccd5eb146be?mode=deep",
+    "timestamp": "2026-01-10 11:14:41.069247",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBodyRLP()] [Body-header mismatch] The function retrieves the header at line 106 and passes it to BlockRequest at line 113, but does not verify that r.Rlp actually matches the header's TxHash and UncleHash. Can an attacker provide a body that doesn't match the header's Merkle roots, causing state corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d9f2862b-e4ef-40d7-9a29-fa28f79fbf86?mode=deep",
+    "timestamp": "2026-01-10 11:15:07.504879",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetBodyRLP()] [Malicious RLP injection] If the ODR backend provides malformed RLP data in r.Rlp at line 117, does the function validate the RLP structure before returning it, or can malicious RLP cause panics or memory exhaustion when decoded by callers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9c65cf16-9bc0-4c0d-9a87-bb225c297c45?mode=deep",
+    "timestamp": "2026-01-10 11:15:34.938103",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetTd()] [Hash parameter bypass] The function accepts both hash and number parameters at line 84. Can an attacker provide mismatched hash/number pairs that pass through GetHeaderByNumber (which only uses number) but fail hash comparison at line 93, creating confusion about which block's TD is being queried? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_09ba68d5-4a92-42bd-8660-b8989530257a?mode=deep",
+    "timestamp": "2026-01-10 11:16:03.521238",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetTd()] [Integer overflow] Is the TD value retrieved from rawdb.ReadTd at lines 85 and 97 validated for overflow? Can an attacker provide a TD with MaxUint256 or similar extreme values causing arithmetic overflow in chain selection logic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b4aa7448-8c6a-4170-a783-cda1de07f65c?mode=deep",
+    "timestamp": "2026-01-10 11:16:33.414685",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetTd()] [TD manipulation] Can a malicious ODR backend provide a valid header that passes hash verification at line 93 but the TD stored in the database at line 97 is manipulated to be artificially high or low, affecting chain selection and potentially causing chain splits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5b392fd5-96a2-48f7-b226-8c7576699c62?mode=deep",
+    "timestamp": "2026-01-10 11:17:04.931677",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetTd()] [Nil TD dereference] If rawdb.ReadTd returns nil at line 85, the function attempts ODR retrieval. After retrieving the header at line 89, it reads TD again at line 97. If this second read also returns nil, does the function return nil without error, causing nil pointer dereference in callers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5d6cc472-e475-42f7-82d5-9e248e3a23b9?mode=deep",
+    "timestamp": "2026-01-10 11:17:36.170469",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetTd()] [Non-canonical TD acceptance] At line 93, if the header hash doesn't match the requested hash, the function returns errNonCanonicalHash at line 94. However, can an attacker exploit a race condition where the canonical hash changes between line 89 and line 93, causing legitimate requests to fail or malicious ones to succeed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a3043cd3-9281-4896-9255-2f7c79a794bb?mode=deep",
+    "timestamp": "2026-01-10 11:18:06.448188",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetCanonicalHash()] [Context propagation] Does GetCanonicalHash properly propagate the context to GetHeaderByNumber at line 75, ensuring cancellation and timeout handling work correctly, or can long-running ODR requests block indefinitely? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b30ce91e-ee84-423c-bd73-52423a2c4e8b?mode=deep",
+    "timestamp": "2026-01-10 11:18:37.881610",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetCanonicalHash()] [Database inconsistency] The comment at line 79 states 'number -> canonical mapping already be stored in db', but if the database write fails after GetHeaderByNumber succeeds, can subsequent calls receive inconsistent results where the header exists but canonical mapping doesn't? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_90710f36-fa64-4fe0-8927-15aabe6cf7cd?mode=deep",
+    "timestamp": "2026-01-10 11:19:08.850553",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetCanonicalHash()] [Recursive dependency] GetCanonicalHash calls GetHeaderByNumber at line 75, which might internally call GetCanonicalHash through database operations. Can this create infinite recursion or circular dependencies that cause stack overflow panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_550a7c01-afee-41e0-8829-f73805dea4e9?mode=deep",
+    "timestamp": "2026-01-10 11:19:38.161170",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr_util.go] [Function: GetCanonicalHash()] [Trust boundary violation] At line 75, if GetHeaderByNumber fails and returns an error, does the function properly distinguish between 'header does not exist' vs 'ODR backend is malicious', potentially accepting false canonicality claims from compromised peers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_af12ba70-e622-4f66-9063-e802bcef3171?mode=deep",
+    "timestamp": "2026-01-10 11:20:06.519604",
+    "report_generated": false
   }
 ]
