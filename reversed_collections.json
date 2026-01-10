@@ -23836,5 +23836,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c35770c3-45aa-4a28-819b-1e98cc26c5cf?mode=deep",
     "timestamp": "2026-01-10 20:19:53.748497",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: Next()] [DoS/Goroutine leak] If waitCallback(true) at line 82 panics or blocks indefinitely, can this cause the Next() function to deadlock with the lock held, preventing all other goroutines from accessing the iterator and causing complete node freeze? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b5f64669-bad8-4257-96e7-553e274eee0c?mode=deep",
+    "timestamp": "2026-01-10 20:21:23.914094",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: SubscribeState callback] [DoS/Memory exhaustion] At line 61 where nodes are appended to qi.queue without any size limit or bounds checking, can a malicious actor trigger rapid node state changes causing qi.queue to grow unboundedly until the node runs out of memory and crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ca7997fc-41ae-4a1a-a9f2-94ed3649882e?mode=deep",
+    "timestamp": "2026-01-10 20:21:36.781886",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: Next()] [Memory leak] At lines 99-100 and 103, after removing elements from qi.queue by slicing, the underlying array still holds references to removed nodes - can this cause memory leaks where node objects are never garbage collected, eventually exhausting node memory over time? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7794a156-081e-4df4-83c7-dd0837236f19?mode=deep",
+    "timestamp": "2026-01-10 20:21:50.446584",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: SubscribeState callback] [Bounds check] At line 67, qi.queue[:len(qi.queue)-1] assumes the queue has at least one element after the copy, but if concurrent modifications occur, can this lead to negative slice bounds causing a panic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2610ddb4-b7a4-4924-ab9c-4eb3c9d8195c?mode=deep",
+    "timestamp": "2026-01-10 20:22:04.009842",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: SubscribeState callback] [Panic/Bounds check] At line 66, the copy operation copy(qi.queue[i:len(qi.queue)-1], qi.queue[i+1:]) assumes len(qi.queue) > 0, but if the queue becomes empty between the loop at line 64 and the copy, can this cause a panic or memory corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bf2eeb88-01c7-4ebd-814e-5ee381acfc0f?mode=deep",
+    "timestamp": "2026-01-10 20:22:18.490991",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: Next()] [Panic/Bounds check] In LIFO mode at lines 102-103, if qi.queue has length 0 due to concurrent modification between the check at line 91 and the access at line 102, can qi.queue[len(qi.queue)-1] cause an index out of bounds panic crashing the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e084fb83-48ca-48e6-88c3-c0e626974314?mode=deep",
+    "timestamp": "2026-01-10 20:22:35.365531",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: Next()] [Panic/Bounds check] In FIFO mode at lines 98-100, if qi.queue has length 0 due to a race condition or logic error despite the len check at line 80, can accessing qi.queue[0] cause a panic that crashes the node, leading to a DoS condition? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fac7bc94-43c9-4864-ad57-d09c6747a2e2?mode=deep",
+    "timestamp": "2026-01-10 20:22:52.616632",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: SubscribeState callback] [Race condition] Can the defer qi.lock.Unlock() at line 58 combined with qi.cond.Signal() at line 72 create a race where signal is sent before the lock is released, causing waiting goroutines in Next() to wake up while the callback still holds the lock, leading to contention or missed signals? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7a828c88-0e19-431c-a95d-7fbd357b33b4?mode=deep",
+    "timestamp": "2026-01-10 20:23:12.010408",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: Close()] [Race condition] At lines 111-114, can a race condition occur if Close() is called multiple times concurrently, where qi.closed is set to true by multiple goroutines without proper synchronization, and qi.cond.Signal() is called multiple times unnecessarily? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_97d3d0ea-8bec-4ec0-a5f2-8ef2e6003053?mode=deep",
+    "timestamp": "2026-01-10 20:23:32.237889",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: Next()] [Race condition] Between lines 97-104 where qi.nextNode is set and qi.queue is modified using slice operations, can a race occur if Node() is called concurrently from another goroutine after lock release at line 105, accessing potentially stale qi.nextNode values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ce4b9478-e78f-464c-8496-d60be3a3f73d?mode=deep",
+    "timestamp": "2026-01-10 20:23:53.410628",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: SubscribeState callback] [Race condition] Can the slice copy operation at line 66 (copy(qi.queue[i:len(qi.queue)-1], qi.queue[i+1:])) cause data races if another goroutine is concurrently reading from qi.queue in Next(), even though both hold locks, due to slice header manipulation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_46106345-abef-45b3-abda-abaa3f23a9cb?mode=deep",
+    "timestamp": "2026-01-10 20:24:16.616423",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: Next()] [Deadlock] In the wait loop at lines 84-86 where qi.cond.Wait() is called, if Close() is never called and no nodes match the selection criteria, can the goroutine deadlock indefinitely without a timeout mechanism, causing the entire peer selection process to hang and preventing the node from syncing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_19f998ff-53fc-448a-af58-325c781d942f?mode=deep",
+    "timestamp": "2026-01-10 20:24:40.352640",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: Next()] [Race condition] Between lines 91-95 when qi.closed is checked and qi.nextNode is set to nil, can another goroutine call Close() causing a race where qi.nextNode is accessed after Close() has been called, potentially causing inconsistent state or nil pointer dereferences in consuming code? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_038c7097-846a-49e3-91fd-e34c3b8c07ab?mode=deep",
+    "timestamp": "2026-01-10 20:25:05.435575",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: SubscribeState callback] [Race condition] In the state subscription callback at lines 60-72, can multiple concurrent state change events for different nodes cause race conditions when appending to qi.queue, potentially resulting in lost nodes, duplicate nodes, or queue corruption if the NodeStateMachine fires events concurrently? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fe49ecf7-24ff-4e46-a819-e38e64227238?mode=deep",
+    "timestamp": "2026-01-10 20:25:31.441198",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/queueiterator.go] [Function: NewQueueIterator()] [Race condition] Can a race condition occur between the state subscription callback appending to qi.queue and the Next() function reading from qi.queue if the lock is not held during the entire subscription setup, potentially causing queue corruption or inconsistent state that leads to node selection failures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ac607f71-6854-4dee-a7b6-5fef30b76d4b?mode=deep",
+    "timestamp": "2026-01-10 20:26:00.027919",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/fillset.go] [Function: Close()] [Clean shutdown] After Close() completes, can state callbacks still fire for pending state changes? If so, do they access fs.count safely, or can modifications after Close() cause issues for code that assumes FillSet is fully shut down? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2b20ef73-3ad2-4949-872c-2f3c9ab1c5a9?mode=deep",
+    "timestamp": "2026-01-10 20:26:27.716102",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/fillset.go] [Function: NewFillSet()] [SubscribeState guarantee] Does SubscribeState at line 50 guarantee callbacks fire for ALL state changes, or can some be missed under high load? If callbacks are dropped, count becomes incorrect, can readLoop add unlimited nodes thinking target isn't met? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_db988dbb-e8df-4b8c-a322-2769905f632d?mode=deep",
+    "timestamp": "2026-01-10 20:26:55.644726",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/fillset.go] [Function: readLoop()] [Unlock without lock] Is there any code path where fs.lock.Unlock() at line 77 can be called without lock being held? If readLoop somehow continues after return at line 79, can this cause double-unlock panic crashing the node? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ba490de8-5d4d-4479-8b65-c10446ee0461?mode=deep",
+    "timestamp": "2026-01-10 20:27:23.741317",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/fillset.go] [Function: FillSet] [Documentation mismatch] Comment at lines 26-30 says FillSet 'cares about total number of nodes having those flags' across all flag-setting mechanisms. But count only tracks changes observed via callbacks. If NodeStateMachine loses state or crashes, can count become permanently incorrect? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_25e29310-8def-45ed-8730-2fb2e50a57dd?mode=deep",
+    "timestamp": "2026-01-10 20:27:51.017711",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/fillset.go] [Function: SetTarget()] [Documentation mismatch] Comment at lines 85-88 says 'next incoming node will be added regardless of target' if previous target wasn't reached. But at line 73, readLoop checks target<=count. If target is decreased while node is being fetched, is the guarantee actually upheld or can node be skipped? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1168d294-0270-4167-875f-76d7922ad966?mode=deep",
+    "timestamp": "2026-01-10 20:28:18.740369",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/fillset.go] [Function: SetTarget()] [Signal overhead] If SetTarget() is called in tight loop with values that alternate above and below count, line 95 calls Signal() repeatedly. Can excessive Signal() calls cause condition variable overhead and goroutine scheduler pressure leading to DoS? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3a50b295-e6d9-41b9-97bb-15229f722e6a?mode=deep",
+    "timestamp": "2026-01-10 20:28:46.978327",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/fillset.go] [Function: readLoop()] [Tight loop] If target is set very high and iterator provides nodes extremely fast, readLoop at lines 71-82 can execute in tight loop with frequent lock acquire/release. Can this cause excessive CPU usage and prevent other goroutines from running, causing node-wide performance degradation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_833d167a-65cf-42a5-bfd4-e2f962786664?mode=deep",
+    "timestamp": "2026-01-10 20:29:14.667567",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/fillset.go] [Function: NewFillSet()] [Callback flood] If state changes occur at extremely high frequency (millions per second), can the lock contention at lines 51 and 61 in callbacks cause readLoop to be starved, never acquiring the lock and never adding nodes, effectively DoSing the FillSet? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_29ec9964-76fe-4f9b-b1c9-3b49f7a7775d?mode=deep",
+    "timestamp": "2026-01-10 20:29:40.685821",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/fillset.go] [Struct: FillSet] [Exported fields] All FillSet fields at lines 32-38 are unexported. Is there any way external code can access or modify count, target, or closed? If reflection or unsafe pointer manipulation is used, can attacker corrupt FillSet internal state? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0bd80f95-3096-4355-bded-574bb281ca24?mode=deep",
+    "timestamp": "2026-01-10 20:30:06.001737",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/client/fillset.go] [Function: readLoop()] [Loop termination] When input.Next() returns false at line 78, readLoop returns at line 79. Is there any notification to users that FillSet can no longer add nodes? Can this cause confusion where SetTarget() is called but nodes never reach target because iterator is exhausted? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9380fc13-332e-42e5-a8d5-b2fc69df942a?mode=deep",
+    "timestamp": "2026-01-10 20:30:30.734312",
+    "report_generated": false
   }
 ]
