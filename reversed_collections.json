@@ -19336,5 +19336,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_795d78de-e919-420a-ad90-b249988db38f?mode=deep",
     "timestamp": "2026-01-10 14:57:55.220522",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Function: NewClientPool()] [Capacity limit bypass] At lines 110-116, when a node gains priority and the inactive timeout is removed, can an attacker exploit this by repeatedly gaining and losing priority to avoid capacity reduction to minCap? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cb60ac73-10e1-46b2-8fd1-d3516119bbf7?mode=deep",
+    "timestamp": "2026-01-10 14:59:13.646662",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Function: NewClientPool()] [Priority flag manipulation] Can a malicious client exploit the priority flag state transitions to gain activeFlag without having positive balance by racing between the inactiveFlag and priorityFlag state changes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3a6088ab-7168-4e46-9372-68966f799944?mode=deep",
+    "timestamp": "2026-01-10 14:59:26.403425",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Function: NewClientPool()] [Logic error] In the state subscription at lines 98-122, can the timeout logic for inactive clients be bypassed if a client rapidly toggles between active and inactive states, allowing them to maintain connection indefinitely without proper priority? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ea94f83d-7edf-4095-a219-6835c5f3fd47?mode=deep",
+    "timestamp": "2026-01-10 14:59:39.848501",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Function: NewClientPool()] [State machine setup] Can an attacker exploit the state subscription callbacks by triggering rapid state transitions to cause callback queue exhaustion or callback ordering issues that result in inconsistent node states? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1b636084-0b34-4663-b2dc-9cdf3d5e4336?mode=deep",
+    "timestamp": "2026-01-10 14:59:53.522506",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Struct: ClientPool] [Nil pointer] Is the capReqNode pointer properly synchronized? Can a race condition between setting capReqNode in SetCapacity() and reading it in the capacity subscription callback lead to a nil pointer dereference crash? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_116b563a-328d-4196-8018-e8cb51f95eac?mode=deep",
+    "timestamp": "2026-01-10 15:00:08.152862",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Struct: ClientPool] [Race condition] Can concurrent access to the connectedBias field during SetConnectedBias() while other goroutines read it in SetCapacity() cause inconsistent bias application, potentially allowing lower-priority clients to maintain capacity they shouldn't have? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1a8088c7-322b-47c9-ad91-ffdc78722fea?mode=deep",
+    "timestamp": "2026-01-10 15:00:24.071758",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Function: getPosBalanceIDs()] [Unbounded scan] If stop is set to maximum enode.ID, can the\n\n### Citations\n\n**File:** les/vflux/server/clientdb.go (L1-250)\n```go\n// Copyright 2020 The go-ethereum Authors\n// This file is part of the go-ethereum library.\n//\n// The go-ethereum library is free software: you can redistribute it and/or modify\n// it under the terms of the GNU Lesser General Public License as published by\n// the Free Software Foundation, either version 3 of the License, or\n// (at your option) any later version.\n//\n// The go-ethereum library is distributed in the hope that it will be useful,\n// but WITHOUT ANY WARRANTY; without even the implied warranty of\n// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the\n// GNU Lesser General Public License for more details.\n//\n// You should have received a copy of the GNU Lesser General Public License\n// along with the go-ethereum library. If not, see <http://www.gnu.org/licenses/>.\n\npackage server\n\nimport (",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_62df17d0-b255-40bb-8cf8-4ba3a3b4349c?mode=deep",
+    "timestamp": "2026-01-10 15:00:41.535843",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Const: balanceCacheLimit] [Cache limit tuning] With 8192 cache limit (line 35), if there are millions of active clients, can high cache miss rate cause performance degradation that enables DoS through forcing excessive database reads? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4732b686-3128-4f49-acf3-391c3e8ff451?mode=deep",
+    "timestamp": "2026-01-10 15:01:00.822721",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Function: setBalance()] [Cache-first order] setBalance() writes to database first (line 148) then cache (line 149) - if node crashes between writes, cache miss will reload from DB correctly, but can cache-DB ordering cause other race conditions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6e88218b-48a6-4439-86ad-0d09022b6a5b?mode=deep",
+    "timestamp": "2026-01-10 15:01:21.612616",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Function: getOrNewBalance()] [Cache hit race] Between cache.Get() at line 125 returning an item and its usage, can another goroutine evict that item from cache, causing the caller to use a stale cached reference? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_720a26e5-c805-445a-819c-31bac1681521?mode=deep",
+    "timestamp": "2026-01-10 15:01:42.463239",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Struct: cache] [Cache key collision] Cache keys are constructed from db.key() return values converted to string (lines 125, 138, etc.) - can byte-to-string conversion create collisions where different byte sequences produce same string keys? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c5d08914-71dd-4a6a-a4ed-3060fa4b4e79?mode=deep",
+    "timestamp": "2026-01-10 15:02:04.893745",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Function: newNodeDB()] [Version endianness] binary.BigEndian.PutUint16 encodes version (line 77) - if version encoding changes or is interpreted differently, can nodes with different endianness disagree on database layout and corrupt each other's data? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1bd95a5d-8e10-421a-91f5-52be02750fbd?mode=deep",
+    "timestamp": "2026-01-10 15:02:28.684277",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Function: getExpiration()] [Fixed blob size] The code expects exactly 16 bytes (line 110) - can database compaction or corruption cause blob truncation, forcing expiration to (0,0) and breaking balance lifecycle management across the network? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_adb660b7-b945-4464-bde8-0bf07a8a3056?mode=deep",
+    "timestamp": "2026-01-10 15:02:53.517595",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Function: setExpiration()] [Endianness assumption] BigEndian encoding is used (lines 118-119) - if the database is copied to a different-endian system, can expiration values be corrupted, causing all balances to immediately expire or never expire? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6b8678e2-df2d-409b-ab1d-5601eb49f86f?mode=deep",
+    "timestamp": "2026-01-10 15:03:19.992094",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Function: expirer()] [Clock provider trust] The clock is externally provided at line 74 - can providing a malicious clock implementation that never triggers After() prevent all cleanup cycles, causing database to grow without bounds? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2a3b1076-17ad-4d9d-b0ef-91d3a106cf9f?mode=deep",
+    "timestamp": "2026-01-10 15:03:47.355636",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Const: dbCleanupCycle] [Fixed cycle timing] The cleanup runs every hour (line 49) - can attackers time their attacks to just after cleanup, knowing they have a full hour before next expiration check, enabling temporary balance manipulation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5117228a-a3c9-4929-a5f7-8774ce8b214f?mode=deep",
+    "timestamp": "2026-01-10 15:04:14.457773",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Function: expireNodes()] [Clock monotonicity] expireNodes() uses db.clock.Now() for expiration decisions (line 239) - if clock is not monotonic and jumps backward, can balances that should expire be retained indefinitely, breaking expiration guarantees? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_edf03133-ed04-43a9-a3da-741725f5f091?mode=deep",
+    "timestamp": "2026-01-10 15:04:42.401855",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Function: forEachBalance()] [Privacy leak] forEachBalance() exposes all balance IDs to callback - can malicious callbacks harvest all client IDs for network analysis, enabling targeted attacks or privacy violations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d3e197c0-dc32-4794-88ac-ec7bdff5b6ed?mode=deep",
+    "timestamp": "2026-01-10 15:05:09.120156",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Function: key()] [Key derivation] Balance keys are constructed from raw ID bytes without hashing - can this enable collision attacks where attackers generate IDs that hash to same database key, allowing balance theft through key collision? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8d7bf553-23e3-4507-9a53-d60cccfd77d0?mode=deep",
+    "timestamp": "2026-01-10 15:05:33.164513",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Function: getPosBalanceIDs()] [ID enumeration] getPosBalanceIDs() returns IDs in lexicographic order - can this leak information about account creation order or enable rainbow table attacks if IDs are derived from predictable sources? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_be5f548b-8871-49b6-8197-5b08636ee1f5?mode=deep",
+    "timestamp": "2026-01-10 15:05:57.104015",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Function: expireNodes()] [Hook execution timing] cleanupHook is called after all deletions complete (line 246) - if the hook triggers additional database operations, can this cause iterator invalidation or concurrent modification issues in the cleanup code that already completed? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3f58604b-e8d8-4e56-9ab7-73c48ffd1063?mode=deep",
+    "timestamp": "2026-01-10 15:06:22.429166",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Struct field: cleanupHook] [Production exposure] The cleanupHook field (line 66) is marked as test hook but part of production struct - can production code accidentally set this hook to malicious functions that corrupt state during cleanup cycles? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c2fbf14a-25e8-469b-9047-f3d59b7583b1?mode=deep",
+    "timestamp": "2026-01-10 15:06:49.671431",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Function: expireNodes()] [Debug-only logging] The cleanup results are only logged at Debug level (line 249) - in production with Info logging, can massive balance deletions or cleanup failures go unnoticed, hiding attacks or database corruption? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d8ea852d-8f04-4dac-ad5e-d645b7745068?mode=deep",
+    "timestamp": "2026-01-10 15:07:13.130725",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Function: forEachBalance()] [Silent failure] When RLP decode fails at line 203, it continues silently - can this hide widespread database corruption where most balances are unreadable, causing clients to appear to have zero balances without error logs indicating corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cc896e25-1506-4211-9012-7f6923a666ff?mode=deep",
+    "timestamp": "2026-01-10 15:07:37.812692",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientdb.go] [Function: expireNodes()] [log.Crit in cleanup] RLP decode failure during cleanup calls log.Crit() at line 237 - can database corruption cause cleanup cycles to crash the node, preventing future cleanups and causing unbounded growth until manual intervention? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eebe8c2f-795d-48bc-84a7-fc33ba69567c?mode=deep",
+    "timestamp": "2026-01-10 15:08:02.238302",
+    "report_generated": false
   }
 ]
