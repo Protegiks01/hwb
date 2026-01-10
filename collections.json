@@ -12448,5 +12448,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1acae09c-d21e-4fbf-b759-d197957fe583?mode=deep",
     "timestamp": "2026-01-10 15:34:08.972848",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: importPreSaleKey() calling decryptPreSaleKey()] [Double Decryption] If importPreSaleKey() is called multiple times with the same keyJSON but different passwords, can this enable chosen-ciphertext attacks or leak information? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_af32b13c-b21b-4b94-9ec1-ab2d16a4c612?mode=deep",
+    "timestamp": "2026-01-10 15:35:23.202855",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: aesCBCDecrypt() calling pkcs7Unpad()] [Timing Composition] Even if individual functions are constant-time, can the composition of aesCBCDecrypt() and pkcs7Unpad() leak timing information? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_526a7eec-575a-4d6c-ae2d-fb2a85cc5a26?mode=deep",
+    "timestamp": "2026-01-10 15:35:36.069915",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Goroutine Safety] Is decryptPreSaleKey() safe to call from multiple goroutines concurrently? Can concurrent calls cause race conditions in shared data structures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_66fa2a59-4c87-4998-ad87-bd48c397f5f2?mode=deep",
+    "timestamp": "2026-01-10 15:35:49.223805",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: importPreSaleKey()] [Keystore Contention] If multiple goroutines call importPreSaleKey() concurrently, can this cause race conditions in the keyStore.StoreKey() operation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_045949e5-0ce7-467a-82dc-8847f0e537d5?mode=deep",
+    "timestamp": "2026-01-10 15:36:02.956503",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Known Plaintext Attack] If an attacker knows parts of the expected plaintext (seed format), can they use this to accelerate brute-force attacks on the password? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_defe5544-f908-4cf4-97b9-43359e6c392f?mode=deep",
+    "timestamp": "2026-01-10 15:36:17.473120",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Dictionary Attack] With only 2000 PBKDF2 iterations and password-as-salt, can an attacker efficiently run dictionary attacks using precomputed tables? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9b0d5c22-33aa-4489-9938-657a8fb95808?mode=deep",
+    "timestamp": "2026-01-10 15:36:33.562479",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Brute Force] What is the realistic time to brute-force a weak password (e.g., 8 characters) with this key derivation scheme using modern GPUs? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_add99581-d369-4e2d-9639-64575502c0d5?mode=deep",
+    "timestamp": "2026-01-10 15:36:50.656305",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: aesCBCDecrypt()] [Bit Flipping] Can an attacker flip bits in the cipherText to cause predictable changes in the next block of plaintext, exploiting CBC mode's properties? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b347a1f8-b793-47c6-b2d3-a09880f273ee?mode=deep",
+    "timestamp": "2026-01-10 15:37:09.631804",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Malleability] Can an attacker modify the ciphertext in a way that still produces valid PKCS7 padding but decrypts to a different plaintext, potentially recovering information? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ff6da26c-60e0-44dd-ba5d-ed3861410dd0?mode=deep",
+    "timestamp": "2026-01-10 15:37:30.342351",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Nil Pointer] If any intermediate step returns nil (e.g., pkcs7Unpad, ToECDSAUnsafe), can subsequent operations cause nil pointer dereference panics? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4be98987-136f-43f4-9d42-0a828edd3aad?mode=deep",
+    "timestamp": "2026-01-10 15:37:51.723625",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: importPreSaleKey()] [Nil Key] If decryptPreSaleKey() returns a nil key with no error, does importPreSaleKey() handle this gracefully? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c9d2bccf-f178-477f-9671-5c45ee2a4e66?mode=deep",
+    "timestamp": "2026-01-10 15:38:13.970220",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: pkcs7Unpad()] [Integer Underflow] In the expression len(in)-int(padding)-1, can integer underflow occur if padding is larger than len(in), causing loop to access invalid memory? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a7628a89-b20c-4bdc-84ed-747bdd0fff7f?mode=deep",
+    "timestamp": "2026-01-10 15:38:37.861431",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: aesCTRXOR()] [Error Shadowing] The function returns outText, err but aes.NewCipher() error is assigned to err which might be shadowed by the implicit nil from XORKeyStream, hiding errors? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9f4c2359-f5b5-407b-ac94-382da3e393b6?mode=deep",
+    "timestamp": "2026-01-10 15:39:03.043538",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: aesCBCDecrypt()] [Error Assignment] The err variable is assigned but XORKeyStream/CryptBlocks don't return errors, so the final err might not reflect actual failures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ee7c91e0-6fba-4cfd-b383-eaa175e3aca7?mode=deep",
+    "timestamp": "2026-01-10 15:39:29.171207",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [CPU Exhaustion] Can an attacker repeatedly submit decryption requests that force expensive PBKDF2 computation, causing CPU exhaustion DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f36e509a-997b-4054-8084-688f02ccf894?mode=deep",
+    "timestamp": "2026-01-10 15:39:56.748219",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: aesCTRXOR()] [Memory Exhaustion] If inText is gigabytes in size, can the allocation of outText buffer cause OOM and crash the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_530745ca-8010-439f-8f77-b896c7148ee0?mode=deep",
+    "timestamp": "2026-01-10 15:40:23.617605",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: aesCBCDecrypt()] [Large Ciphertext] Can extremely large cipherText cause memory exhaustion when allocating paddedPlaintext buffer? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d57b1797-a5e3-4b12-bdf4-b8bcbd290184?mode=deep",
+    "timestamp": "2026-01-10 15:40:50.937160",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: importPreSaleKey()] [Storage Exhaustion] Can an attacker repeatedly import keys with different UUIDs, filling up the keystore directory and causing storage exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fbe37380-8961-474d-ba30-7377b136cc98?mode=deep",
+    "timestamp": "2026-01-10 15:41:18.604301",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Timing Side Channel Password] Does PBKDF2 execution time vary based on password content or length, potentially leaking password information through timing attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9811afc8-c42d-437d-9837-971aefeb21d8?mode=deep",
+    "timestamp": "2026-01-10 15:41:43.838348",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: aesCBCDecrypt()] [Cache Timing] Can AES decryption operations leak information through CPU cache timing side channels, potentially revealing key bits? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8a5fd43e-426e-4bde-8ca2-7813cbc96da2?mode=deep",
+    "timestamp": "2026-01-10 15:42:07.082121",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: pkcs7Unpad()] [Branch Prediction] Do conditional branches in padding validation cause different CPU branch prediction behavior that could leak padding validity through timing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_35fbb26a-821f-42f7-bfa2-ac0d4f73db0c?mode=deep",
+    "timestamp": "2026-01-10 15:42:30.894236",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Memory Access Patterns] Can memory access patterns during decryption leak information through side channels observable by co-located attackers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_de26a07e-fca2-49bf-be32-49312e5c5400?mode=deep",
+    "timestamp": "2026-01-10 15:42:55.025277",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [JSON UTF-8] Does json.Unmarshal() handle invalid UTF-8 sequences in the JSON safely, or can malformed encoding cause errors? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_14c2fd0e-5360-49fd-acc5-86ffac8ac692?mode=deep",
+    "timestamp": "2026-01-10 15:43:18.748575",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [String Null Bytes] Can JSON strings contain embedded null bytes that could cause string truncation or processing errors? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7fc26b9f-59a4-48bc-951f-a4a9620e94c5?mode=deep",
+    "timestamp": "2026-01-10 15:43:41.266811",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/presale.go] [Function: decryptPreSaleKey()] [Address Format Assumptions] Does the code make assumptions about EthAddr format (lowercase, no 0x prefix) that could be violated by different presale formats? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c15da246-f107-4ff6-a7d5-c049371cb101?mode=deep",
+    "timestamp": "2026-01-10 15:44:03.565128",
+    "report_generated": false
   }
 ]
