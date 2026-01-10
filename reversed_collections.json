@@ -25936,5 +25936,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ed4a898c-e713-440a-aac7-3c0a88edc7b2?mode=deep",
     "timestamp": "2026-01-10 22:50:33.666274",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: dropRequests()] [Cost accounting] At line 398, penaltyCost is not counted in sumCost, but can an attacker exploit this by triggering penalties to reset their cost accounting and send more requests? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_72d9e352-6d1e-49c5-b5fb-7855d1270017?mode=deep",
+    "timestamp": "2026-01-10 22:51:56.956679",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: processLoop()] [Cost leak] At lines 315-316, costs are subtracted from nq.sumCost and l.sumCost, but if request processing fails or panics, are costs leaked causing sumCost to grow unbounded? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_226ff8f1-1d6d-4961-b34e-745707952f6e?mode=deep",
+    "timestamp": "2026-01-10 22:52:09.963378",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: Add()] [Cost bypass] At line 187, if reqCost is 0, it's set to 1, but can an attacker always use reqCost=1 to minimize cost accounting while still consuming resources? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9d309575-921c-4f49-ba40-1c67bdb14442?mode=deep",
+    "timestamp": "2026-01-10 22:52:23.334805",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: update()] [State inconsistency] At lines 232-244, updating weights in address group and selectors happens in multiple steps - can concurrent operations see intermediate inconsistent weight states? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1eaa32fd-505e-432e-b19c-936e937c2f68?mode=deep",
+    "timestamp": "2026-01-10 22:52:37.102087",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: remove()] [State inconsistency] At lines 272-277, removing from group, selector, and map happens sequentially - can a panic between operations leave inconsistent state with node in some structures but not others? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ab021e23-21d4-40c8-94f2-d2b090f57cd3?mode=deep",
+    "timestamp": "2026-01-10 22:52:51.590746",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: dropRequests()] [State inconsistency] At lines 388-400, requests are dropped and penaltyCost set, but if a panic occurs mid-loop, can some nodes have inconsistent penalty state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_afbf8d66-67c3-4666-9764-ec76ecdaa178?mode=deep",
+    "timestamp": "2026-01-10 22:53:07.290008",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: processLoop()] [State inconsistency] At lines 322-326, nq.queue length is checked after reacquiring the lock, but can the queue have been modified making len(nq.queue) > 0 check incorrect? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b65b1326-3ce5-47c8-a739-fb6a47ad1087?mode=deep",
+    "timestamp": "2026-01-10 22:53:24.283592",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: Add()] [State inconsistency] At lines 194-198, when a node changes address, removeFromGroup and addToGroup are called, but can partial failure leave the node in an inconsistent state in neither group? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c1fe0f08-8b35-4561-9283-b91a3a732d7b?mode=deep",
+    "timestamp": "2026-01-10 22:53:42.750353",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: selectionWeights()] [Weight manipulation] At line 165, valueWeight = uint64(f*value) can be 0 if value is 0 - can attackers with 0 value still get processed through flatWeight alone, bypassing value-based prioritization? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8920497c-e6e3-43ca-bc7d-bb50c721d1a1?mode=deep",
+    "timestamp": "2026-01-10 22:54:05.243154",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: addressGroup.add()] [Weight calculation] At line 84, groupWeight = sumFlatWeight / (l+1) decreases as more nodes join - can an attacker split across many IDs in one address to dilute the group weight and avoid selection? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4d53eb2d-eef6-4765-8834-88bd8de6d19d?mode=deep",
+    "timestamp": "2026-01-10 22:54:26.579969",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: choose()] [Selection bias] At lines 282-290, the alternating selection between addressSelect and valueSelect can be gamed - can an attacker predict selection order to time their requests for preferential treatment? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bd0d644c-0352-4f44-bd3d-9d85e6133ec9?mode=deep",
+    "timestamp": "2026-01-10 22:54:50.166596",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: dropRequests()] [Priority manipulation] At line 384, can an attacker send low-cost requests to maximize priority = w / float64(sumCost) and avoid drops while flooding the system? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c2686ad3-ae27-453a-bc63-49bb3ff9865d?mode=deep",
+    "timestamp": "2026-01-10 22:55:13.940387",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: dropRequests()] [Priority manipulation] At lines 378-381, can an attacker spread requests across many addresses to maximize w = 1/float64(len(addresses)*len(nodes)) and avoid being dropped? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1e629493-bc3b-41a5-acd0-0debc463a233?mode=deep",
+    "timestamp": "2026-01-10 22:55:39.268226",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: selectionWeights()] [Priority manipulation] At line 166, if flatWeight calculation results in 0, it's set to 1, but can an attacker exploit this minimum to maintain selection probability even with maximum cost? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8ca91f39-a515-47f3-9142-56c06ca1f649?mode=deep",
+    "timestamp": "2026-01-10 22:56:05.347234",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: selectionWeights()] [Priority manipulation] At lines 159-163, can an attacker send requests with relCost slightly above 0.001 to get maximum weight (f=1), gaining unfair priority over legitimate users? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f04e248a-e56f-4e6a-8717-d9b34d52a640?mode=deep",
+    "timestamp": "2026-01-10 22:56:33.499362",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: Stop()] [Race condition] At lines 339-340, can another goroutine check l.quit and enter a critical section between setting quit=true and calling Signal(), causing missed wakeups? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7474f029-fcb5-4f29-bdda-7244fa91d3d0?mode=deep",
+    "timestamp": "2026-01-10 22:57:02.832774",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: Add()] [Channel leak] When quit is true at line 182, the process channel is closed immediately, but can already-queued requests have their channels leaked if they're never processed? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5f58432d-c3d4-4a6d-8385-c360e6c26f16?mode=deep",
+    "timestamp": "2026-01-10 22:57:31.302260",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: processLoop()] [Deadlock] At line 320, waiting for <-ch to receive can deadlock if the request processor goroutine panics before closing ch, hanging the entire processLoop? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b8ca07d0-8516-45e8-8104-54025002d04a?mode=deep",
+    "timestamp": "2026-01-10 22:58:00.847334",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: processLoop()] [Channel leak] At line 318, if the channel ch is never closed or consumed by the receiver, can this cause goroutine leaks accumulating over time? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c43a7116-1f84-4c04-aeee-f20fcdcac62b?mode=deep",
+    "timestamp": "2026-01-10 22:58:31.506659",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: processLoop()] [Deadlock] At line 309, can l.cond.Wait() wait forever if no goroutine calls Signal() after Stop() is invoked with empty node map? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fd2e6b66-09c2-44c9-ba4f-eb3de919301c?mode=deep",
+    "timestamp": "2026-01-10 22:59:00.861675",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: Add()] [Deadlock] At line 181, the process channel is created with buffer size 1, but can the sender block indefinitely if the receiver never reads, causing goroutine accumulation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_15083790-0505-430a-8623-4252329b2dee?mode=deep",
+    "timestamp": "2026-01-10 22:59:27.742745",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: dropRequests()] [CPU exhaustion] At line 387, can the sort.Sort() operation on a large dropList cause significant CPU consumption and processing delays for legitimate requests? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c2065241-9a43-4647-aa2a-720b9a5ceceb?mode=deep",
+    "timestamp": "2026-01-10 22:59:53.626492",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: dropRequests()] [CPU exhaustion] At lines 371-386, can the double iteration over all nodes (once to sum values, once to build list) cause CPU exhaustion when l.nodes contains millions of entries? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_998e984c-bc8c-4f59-b9f5-f594a51b70f0?mode=deep",
+    "timestamp": "2026-01-10 23:00:19.041064",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: selectionWeights()] [Resource exhaustion] Can an attacker send requests with extremely high values to inflate l.maxValue at line 148, skewing the weight calculation and preventing legitimate high-value requests from being processed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6bf8b9b5-753f-46f6-bba6-4b763e7bedab?mode=deep",
+    "timestamp": "2026-01-10 23:00:44.072695",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: selectionWeights()] [Resource exhaustion] Can an attacker send requests with extremely high costs to inflate l.maxCost at line 155, causing all future legitimate requests to have near-zero selection weights and be starved? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_92736e3f-a247-4187-a4f3-55309c2bebde?mode=deep",
+    "timestamp": "2026-01-10 23:01:08.671335",
+    "report_generated": false
   }
 ]
