@@ -26086,5 +26086,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_92736e3f-a247-4187-a4f3-55309c2bebde?mode=deep",
     "timestamp": "2026-01-10 23:01:08.671335",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: Add()] [DoS] Can an attacker create many addressGroup entries by sending requests from different network addresses, exhausting memory through l.addresses map growth? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_06edea5d-5784-4626-8a2f-621e769c1ef1?mode=deep",
+    "timestamp": "2026-01-10 23:02:45.041050",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: processLoop()] [Goroutine leak] If Stop() is never called, does processLoop() run forever even when no longer needed, causing goroutine leak and resource exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c4593ac9-b477-4226-90a7-5702b87ccbd3?mode=deep",
+    "timestamp": "2026-01-10 23:02:58.202699",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: dropRequests()] [DoS] At line 401, dropRequests() returns when sumCost <= sumCostLimit/2, but can an attacker repeatedly trigger this to stay just above the threshold, causing continuous request drops and service degradation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bf0173f1-9041-4cca-83a4-9fb1d6353c83?mode=deep",
+    "timestamp": "2026-01-10 23:03:11.526237",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: Add()] [Memory exhaustion] Can an attacker send many requests from a single node ID to grow nq.queue unboundedly at line 191, exhausting memory before dropRequests() is triggered? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1845d3e4-77d1-4ccb-8638-b4c5b123747e?mode=deep",
+    "timestamp": "2026-01-10 23:03:25.590233",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: Add()] [Memory exhaustion] Can an attacker create requests for many unique node IDs to fill the l.nodes map indefinitely, causing memory exhaustion and node crash? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_50386ba0-1e69-4a69-84e6-8a4de353858d?mode=deep",
+    "timestamp": "2026-01-10 23:03:40.430359",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: Add()] [DoS] Can an attacker flood Add() calls with minimum reqCost (set to 1 at line 187) to bypass rate limiting and exhaust node resources by creating unlimited nodeQueue entries? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8bae72aa-d946-4918-b9ba-d2bad88c3c88?mode=deep",
+    "timestamp": "2026-01-10 23:03:56.371668",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: addressGroup.update()] [Slice bounds] At line 92, can ag.nodes[nq.groupIndex] access out of bounds if nq.groupIndex >= len(ag.nodes) due to concurrent modifications? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_56ed1b5c-49f9-42d5-a78b-d9ddedc8f750?mode=deep",
+    "timestamp": "2026-01-10 23:04:14.405103",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: processLoop()] [Slice bounds] At line 314, can nq.queue[1:] panic if len(nq.queue) is 0 or 1 and has been modified concurrently? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ad9296cd-86c4-42d3-a126-966ea424042e?mode=deep",
+    "timestamp": "2026-01-10 23:04:33.921062",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: processLoop()] [Slice bounds] At line 313, can nq.queue be empty when accessing nq.queue[0], causing an out-of-bounds panic if queue was emptied by another goroutine? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a2ff617b-1e77-42d6-98e4-a7bdc171edbf?mode=deep",
+    "timestamp": "2026-01-10 23:04:55.387018",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: addressGroup.remove()] [Slice bounds] At lines 109-111, can concurrent operations cause nq.groupIndex to exceed len(ag.nodes)-1, leading to out-of-bounds access when swapping elements? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_229ecb05-5704-49ae-97c5-dfefa68a61df?mode=deep",
+    "timestamp": "2026-01-10 23:05:17.677417",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: processLoop()] [Panic] When writing to request.process channel at line 319, if the receiver has already closed the channel, can this cause a panic and crash the processing goroutine? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_62ba3ad6-b3d0-43ed-a05d-c239bb947f19?mode=deep",
+    "timestamp": "2026-01-10 23:05:40.916405",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: addressGroup.remove()] [Panic] At lines 104-106, can concurrent modifications cause nq.groupIndex to become invalid, triggering the panic 'removed node queue is not in this address group'? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a5e166f0-1e7f-4796-95b9-93b9923175c9?mode=deep",
+    "timestamp": "2026-01-10 23:06:06.216578",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: addressGroup.update()] [Panic] At lines 92-94, can an attacker manipulate nq.groupIndex to trigger the panic 'updated node queue is not in this address group' and crash the node? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_598e755c-0554-42a3-a44c-018b1fad3a4a?mode=deep",
+    "timestamp": "2026-01-10 23:06:31.668601",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: addressGroup.add()] [Panic] At line 78, the panic check 'added node queue is already in an address group' can be triggered by incorrect state - can an attacker manipulate node state to trigger this panic and crash the node? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_78665588-981e-45cb-8abe-a62c374b3f09?mode=deep",
+    "timestamp": "2026-01-10 23:06:58.487933",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: removeFromGroup()] [Nil pointer] At line 262, can l.addresses[nq.address] be nil if the group was deleted, causing panic at line 263? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fb9b4649-966b-4dbc-a2d9-99985fdb5a06?mode=deep",
+    "timestamp": "2026-01-10 23:07:26.528641",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: update()] [Nil pointer] At line 240, can l.addresses[nq.address] be nil if the address group was removed by another goroutine, causing nil pointer dereference at line 241? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_521bb942-f1bc-4ed7-baa6-6ef8ccd20826?mode=deep",
+    "timestamp": "2026-01-10 23:07:54.975137",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: Add()] [Nil pointer] At line 196, when removing from group and adding to new group, if l.addresses[nq.address] returns nil, can subsequent operations panic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_095f4c61-26ad-432e-8537-92803bb5daa0?mode=deep",
+    "timestamp": "2026-01-10 23:08:23.374607",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: processLoop()] [Nil pointer] At line 307, if choose() returns nil and the check passes, but nq becomes nil before line 312, can accessing nq.queue cause a nil pointer panic? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0c94c1cc-7da3-4d64-8db6-5dc62b14cef8?mode=deep",
+    "timestamp": "2026-01-10 23:08:51.153587",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: addressGroup.choose()] [Nil pointer] At line 126, can ag.nodeSelect.Choose() return nil when the selector is empty, causing a panic when casting to *nodeQueue? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_271e0571-b072-45ae-87cc-a4f0b10f9b14?mode=deep",
+    "timestamp": "2026-01-10 23:09:17.821775",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: choose()] [Nil pointer] At line 288, can l.valueSelect.Choose() return nil, and if nq is nil, can subsequent operations on nq cause nil pointer panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3dcd6e61-7b19-4b13-911a-817ea428461c?mode=deep",
+    "timestamp": "2026-01-10 23:09:42.638300",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: choose()] [Nil pointer] At line 283, can l.addressSelect.Choose() return nil when the address selector is empty, causing a panic when casting to *addressGroup? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0f402a5e-57d7-46fe-8917-25bcf46e6001?mode=deep",
+    "timestamp": "2026-01-10 23:10:08.466046",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: dropRequests()] [Division by zero] At line 384, can item.nq.sumCost be 0 when calculating priority = w / float64(nq.sumCost), causing division by zero panic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ad424ebd-b5eb-42b3-9228-4a626c5b21cf?mode=deep",
+    "timestamp": "2026-01-10 23:10:35.923644",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: dropRequests()] [Division by zero] At line 380, if sumValue is 0, the check at line 379 prevents division, but can floating point precision issues cause near-zero sumValue to still trigger division with unstable results? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d2c136ad-e81c-443a-9b7e-b5b7656204ab?mode=deep",
+    "timestamp": "2026-01-10 23:11:01.063519",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: dropRequests()] [Division by zero] At line 378, can len(l.addresses[nq.address].nodes) be 0 causing division by zero when calculating w = 1 / float64(len(l.addresses)*len(...)nodes))? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_46d5f763-53d9-4d1b-87d8-10fd413ae006?mode=deep",
+    "timestamp": "2026-01-10 23:11:26.457589",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: addressGroup.update()] [Division by zero] At line 97, can len(ag.nodes) be 0 when update() is called, causing division by zero in ag.sumFlatWeight / uint64(len(ag.nodes))? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bdbe839e-1708-4a04-850f-77ad99b51e8e?mode=deep",
+    "timestamp": "2026-01-10 23:11:52.301133",
+    "report_generated": false
   }
 ]
