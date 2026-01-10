@@ -16636,5 +16636,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f1b146ef-eb00-4bbb-a0fe-c575ca23328d?mode=deep",
     "timestamp": "2026-01-10 11:51:38.917922",
     "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: DataSize()] [Integer overflow] If dataSize overflows and becomes negative due to arithmetic wrap-around, will DataSize() return a negative value that could bypass size checks in calling code? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_04603015-0806-420c-a011-5616ace698ef?mode=deep",
+    "timestamp": "2026-01-10 11:53:00.426928",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: Put()] [Integer overflow] Can the dataSize counter overflow when summing len(value) at line 58, as it's an int type that could wrap around on 32-bit systems after storing ~2GB of data, causing incorrect size reporting and bypassing memory limits? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_055ba854-17fe-4450-bd5c-311eb78fe599?mode=deep",
+    "timestamp": "2026-01-10 11:53:13.230624",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: Get()] [Resource leak] Does Get() return a direct reference to the internal byte slice (line 78) instead of a copy, allowing callers to modify the internal node data and corrupt the trie cache? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_102efb39-cb74-4479-9e7b-1ebb82e8dcb8?mode=deep",
+    "timestamp": "2026-01-10 11:53:26.718726",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: common.CopyBytes()] [Memory amplification] Does the use of common.CopyBytes(value) at line 56 double the memory footprint of stored nodes, enabling an attacker to exhaust memory twice as fast by exploiting the unnecessary duplication? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_17c2d745-0304-4694-a6ea-a7b68b15572b?mode=deep",
+    "timestamp": "2026-01-10 11:53:40.457682",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: NodeList()] [Memory exhaustion] Can NodeList() cause memory exhaustion by allocating a new slice and copying all node values (lines 111-114) without size limits, allowing an attacker who previously filled NodeSet to trigger OOM during conversion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d51ad381-64fc-4706-a003-b839590b3e92?mode=deep",
+    "timestamp": "2026-01-10 11:53:55.107165",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: Put()] [DoS] Does the order slice grow unboundedly without any cleanup mechanism, allowing an attacker to append millions of key strings through repeated Put() calls, causing slice memory overhead to exhaust available RAM? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_688e157a-bc22-4cc7-a420-17fb653f2bcc?mode=deep",
+    "timestamp": "2026-01-10 11:54:10.730105",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: Put()] [Memory exhaustion] Can an attacker exploit the absence of value size validation in Put() to store arbitrarily large trie nodes (millions of bytes per node), causing rapid memory exhaustion and node crash? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_88039c49-8c0f-4cab-9b6b-4d0fe3136042?mode=deep",
+    "timestamp": "2026-01-10 11:54:27.122247",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: Put()] [Memory exhaustion] Does Put() lack any maximum size limits on the nodes map or dataSize counter, allowing an attacker to cause unbounded memory growth by repeatedly calling Put() with unique keys until the node crashes from OOM? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cd4d167c-9468-4da5-86ec-32987da9cb1f?mode=deep",
+    "timestamp": "2026-01-10 11:54:46.012924",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: Put()] [Race condition] Can multiple goroutines calling Put() with the same key simultaneously bypass the duplicate check at line 51, causing multiple entries in the order slice for the same key and incorrect dataSize calculations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d2775a4c-c5a6-44a9-9d64-6c815f8fabb8?mode=deep",
+    "timestamp": "2026-01-10 11:55:06.382801",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: Store()] [Race condition] Does the Store() method iterate over nodes map (line 122) with only RLock, allowing concurrent Put() calls to modify the map during iteration, potentially causing a panic or corrupted database writes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7cfee8f3-a138-4f3b-b338-a3373fba88d7?mode=deep",
+    "timestamp": "2026-01-10 11:55:27.805003",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: NodeList()] [Race condition] Can concurrent modifications to the nodes map while NodeList() iterates over the order slice (lines 111-114) cause a panic due to accessing keys that were deleted, crashing the light client node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cd62c9dc-935a-488e-9fe5-e397a1b2cf67?mode=deep",
+    "timestamp": "2026-01-10 11:55:50.342999",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: Put()] [Race condition] Can an attacker exploit the race window between checking if key exists (line 51) and appending to order slice (line 57) in concurrent Put() calls to cause duplicate entries in the order slice, leading to memory amplification and DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_38656953-0c2a-4f29-9c3e-7ea700efc760?mode=deep",
+    "timestamp": "2026-01-10 11:56:14.046830",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: Delete()] [State corruption] Does Delete() at line 64-70 fail to update the dataSize counter and order slice when removing nodes, causing memory leak detection to fail and allowing attackers to exhaust node memory through repeated Put/Delete cycles without triggering limits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_50c8672a-8531-434d-b7b1-161f99116652?mode=deep",
+    "timestamp": "2026-01-10 11:56:39.076399",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/nodeset.go] [Function: Put()] [Race condition] Can concurrent calls to Put() and Delete() on the same key cause the dataSize counter to become inconsistent, as Delete() removes from nodes map but doesn't update dataSize, potentially leading to incorrect memory accounting and DoS through resource exhaustion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_30bbe4a3-b67d-4670-95bb-6a9edca21305?mode=deep",
+    "timestamp": "2026-01-10 11:57:05.249642",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/status.go] [Struct: serverSetup] [Active-Capacity consistency] Can the activeFlag be set while capacityField is 0 or nil, creating an impossible state where a client is marked active but has no allocated capacity? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_81bcafe4-4dcb-42bc-8bb0-18bc0d7d5310?mode=deep",
+    "timestamp": "2026-01-10 11:57:34.297344",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/status.go] [Struct: serverSetup] [Balance-Priority consistency] Can the balanceField indicate a positive balance while priorityFlag is not set, or vice versa, creating priority calculation inconsistencies? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9112f6fb-b0c7-486b-b732-c11c51534ef9?mode=deep",
+    "timestamp": "2026-01-10 11:58:01.393646",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/status.go] [Struct: serverSetup] [Max capacity] Can the capacityField be set to math.MaxUint64, causing integer overflow when calculating total server capacity or when summing multiple client capacities? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1daeb4b2-62a8-4534-ade5-1c2c8d9b96a7?mode=deep",
+    "timestamp": "2026-01-10 11:58:27.926821",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/status.go] [Struct: serverSetup] [Zero capacity] Can the capacityField be set to 0 for an active client, creating an inconsistent state where a client is active but has no capacity to serve requests? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_79429022-223f-4cec-ac68-ee398abc10ca?mode=deep",
+    "timestamp": "2026-01-10 11:58:55.651580",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/status.go] [Function: newServerSetup()] [Flag limit] Does the state machine have a limit on the number of flags (typically 64 for a uint64 bitmask), and can creating too many flags cause bit exhaustion or flag assignment failures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a29b6550-643b-479d-99e3-894ef7c93119?mode=deep",
+    "timestamp": "2026-01-10 11:59:23.573137",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/status.go] [Function: newServerSetup()] [Type confusion attack] Can reflect.TypeOf(peerWrapper{}) be manipulated to return a different type than expected, causing the state machine to accept incompatible peer structures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eb2e320c-9099-41aa-82df-3520cb30438d?mode=deep",
+    "timestamp": "2026-01-10 11:59:53.454939",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/status.go] [Function: newServerSetup()] [Reflect exploitation] Can an attacker exploit the reflect.TypeOf() usage to inject types that have malicious methods or special behaviors that execute when the state machine processes them? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7bf802a7-67d9-4a3e-8980-9cb21f782504?mode=deep",
+    "timestamp": "2026-01-10 12:00:22.129448",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/status.go] [Struct: serverSetup] [Lifecycle management] Is there a proper cleanup/shutdown mechanism for serverSetup, or can abandoned instances cause resource leaks when the server is stopped and restarted? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_59118596-a798-4e0c-8a60-f2dad9b13102?mode=deep",
+    "timestamp": "2026-01-10 12:00:49.460303",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/status.go] [Function: newServerSetup()] [Multiple instances] If newServerSetup() is called multiple times (e.g., for different server instances), can the resulting Setup instances interfere with each other in the same process? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_10c96d50-2ea7-46cc-91fe-9f7fbca1c263?mode=deep",
+    "timestamp": "2026-01-10 12:01:15.313165",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/status.go] [Struct: peerWrapper] [Embedding conflicts] Does the embedded clientPeer in peerWrapper have methods that conflict with NodeStateMachine expectations, causing method resolution ambiguity? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6e5c2e5b-ef26-4e6e-998c-f4b2b7f5703c?mode=deep",
+    "timestamp": "2026-01-10 12:01:41.457912",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/status.go] [Function: newServerSetup()] [Allocation failure] If memory allocation for nodestate.Setup fails, does newServerSetup() handle this gracefully or return a partially initialized serverSetup that causes crashes later? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e11c88ec-a5c8-4be0-8a86-ab301d538b3d?mode=deep",
+    "timestamp": "2026-01-10 12:02:07.878909",
+    "report_generated": false
   }
 ]
