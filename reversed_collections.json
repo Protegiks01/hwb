@@ -18736,5 +18736,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_534bc78d-12fc-420f-8a60-7574ba74edfd?mode=deep",
     "timestamp": "2026-01-10 14:15:13.280984",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Initialization] [Synced function nil] If the synced function passed to NewClientPool is nil, will serveCapQuery panic when calling it? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3fa5b2e9-8c11-4295-8817-5ed7f0ea602a?mode=deep",
+    "timestamp": "2026-01-10 14:16:36.481838",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Initialization] [Clock mock issues] If a mock clock is used for testing, can time manipulation cause integer overflows or negative durations in production code paths? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f7174169-f55d-4582-9ec7-aaf248eaf9e1?mode=deep",
+    "timestamp": "2026-01-10 14:16:49.634227",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Initialization] [Constructor parameter validation] Are the minCap, connectedBias, and other parameters validated in NewClientPool? Can invalid values cause undefined behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8f6ab082-1aba-4fa6-bf6a-34457124de33?mode=deep",
+    "timestamp": "2026-01-10 14:17:02.946517",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Memory safety] [Interface nil check] When casting to clientPeer interface, is the nil check sufficient? Can a non-nil interface with nil underlying value cause issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fa43004b-ff33-4883-93ad-dbb37901b524?mode=deep",
+    "timestamp": "2026-01-10 14:17:17.171902",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Memory safety] [Closure capture] Do the closures in state subscriptions properly capture variables, or can they reference freed memory? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_53a574f6-b621-4bfb-95e4-190e9f66548a?mode=deep",
+    "timestamp": "2026-01-10 14:17:32.448055",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Memory safety] [Slice bounds] In serveCapQuery result slice, can the iteration at line 297 go out of bounds if req.AddTokens is modified concurrently? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2be76dd0-6c48-43d9-bd51-f1981c47f3c7?mode=deep",
+    "timestamp": "2026-01-10 14:17:49.119944",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Memory safety] [Map concurrent access] Are all maps in the embedded structs (priorityPool, balanceTracker) properly synchronized when accessed by ClientPool? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f41fbd5f-ade7-45a4-8f47-6ca4912d4743?mode=deep",
+    "timestamp": "2026-01-10 14:18:06.650974",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Security] [Node impersonation] Can an attacker register with a Node() that matches an existing high-priority client to steal their capacity allocation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_38a49a02-c0c7-45f5-86d8-dc4fe588b93d?mode=deep",
+    "timestamp": "2026-01-10 14:18:25.153474",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Security] [Address reuse] Can an attacker reuse the same FreeClientId() across multiple connections to evade rate limiting or priority calculations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_82405a2d-6d67-4dc6-b048-a31553d08031?mode=deep",
+    "timestamp": "2026-01-10 14:18:45.608545",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Security] [ID spoofing] Can an attacker spoof enode.ID or freeID strings in Handle/serveCapQuery to query other clients' capacity information? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_69e600e4-5eb8-4edc-9574-ca8aba0e8d31?mode=deep",
+    "timestamp": "2026-01-10 14:19:06.942618",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [State consistency] [Client field staleness] Can the clientField contain a stale peerWrapper that references a disconnected client? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0fceb331-156c-459e-880b-532f038f87a6?mode=deep",
+    "timestamp": "2026-01-10 14:19:28.791830",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [State consistency] [Priority flag without balance] Can the priorityFlag be set for a node that has zero or negative balance? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_04cb9558-b07a-4079-b7e4-1adabc8e9dab?mode=deep",
+    "timestamp": "2026-01-10 14:19:51.973914",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [State consistency] [Balance-capacity mismatch] Can a node's capacity be non-zero while its balance indicates it should be inactive? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a44926b3-0038-49de-948d-f5c7d4f1c71e?mode=deep",
+    "timestamp": "2026-01-10 14:20:16.034673",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [State consistency] [Flag state invariants] Can a node end up with both activeFlag and inactiveFlag set, or neither set while still connected? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7c3fbbb3-bea4-4010-9df0-52b04665f9f7?mode=deep",
+    "timestamp": "2026-01-10 14:20:39.843102",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [State consistency] [Capacity field desync] Can the capacityField in the node state machine become desynchronized from the actual capacity tracked in priorityPool? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4c324bc6-42d2-4a31-a83f-75d88aa6e322?mode=deep",
+    "timestamp": "2026-01-10 14:21:04.488790",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Economic attack] [MinCap exploitation] Since minCap is granted automatically when possible, can many low-priority clients collectively exhaust capacity that should go to high-priority clients? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b869823b-2479-4aed-8fd5-8f5efe3b5ece?mode=deep",
+    "timestamp": "2026-01-10 14:21:30.111719",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Economic attack] [Free capacity query abuse] Can non-registered clients query capacity information unlimited times for free to gather intelligence on network resources? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dae3b6f6-bd97-467e-8122-64b6dce87d3b?mode=deep",
+    "timestamp": "2026-01-10 14:21:56.026746",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Economic attack] [Bias exploitation] Can clients exploit the bias mechanism by connecting, requesting high capacity with large bias, then disconnecting before costs accumulate? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_661fffbd-70b4-42fb-a479-dac585cd6cd6?mode=deep",
+    "timestamp": "2026-01-10 14:22:23.091079",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Economic attack] [Priority gaming] Can clients game the priority system by timing their balance additions and capacity requests to maximize their allocation unfairly? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fac44b24-103e-467b-b9fd-2ca0d2520f80?mode=deep",
+    "timestamp": "2026-01-10 14:22:50.057841",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Economic attack] [Capacity squatting] Can a client with minimum priority maintain minCap capacity indefinitely by never making requests, effectively squatting on limited resources? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dc9b3fd3-89f4-41da-99e2-98ffcaefa3ae?mode=deep",
+    "timestamp": "2026-01-10 14:23:16.001284",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Error handling] [Callback panic recovery] If a callback panics (e.g., UpdateCapacity or Disconnect), is it properly recovered to prevent node crash? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d19929dc-a95e-4d2d-8db0-3ea58cb4e8cd?mode=deep",
+    "timestamp": "2026-01-10 14:23:43.740367",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Error handling] [Balance retrieval failure] In serveCapQuery, what if BalanceOperation fails or the balance is nil? Can this cause panics in the closure? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f851d843-6e09-47bc-8c86-fc5d330cb211?mode=deep",
+    "timestamp": "2026-01-10 14:24:09.387727",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Error handling] [Invalid client peer] If Register is called with a clientPeer that returns nil from Node(), can this corrupt the internal state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d0024a0d-e5ed-4f43-aff7-e6927cfdc23c?mode=deep",
+    "timestamp": "2026-01-10 14:24:36.555413",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Error handling] [Unregistered node operations] What happens if SetCapacity is called on a node that was just unregistered? Can the Operation still complete with stale state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_86951b77-da65-4816-9691-ef5389a6e36e?mode=deep",
+    "timestamp": "2026-01-10 14:25:04.566997",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/clientpool.go] [Error handling] [Silent capacity failure] When SetCapacity fails to allocate the requested capacity, it returns successfully with a different value. Can clients be confused by this behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f437ed28-2a15-483d-b220-d91e5d8d05d9?mode=deep",
+    "timestamp": "2026-01-10 14:25:33.349542",
+    "report_generated": false
   }
 ]
