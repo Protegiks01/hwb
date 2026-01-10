@@ -25786,5 +25786,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_90f5b137-a57d-4a2e-a10c-d49dbdd5d405?mode=deep",
     "timestamp": "2026-01-10 22:40:08.782595",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: selectionWeights()] [NaN/Inf handling] At lines 152 and 157, divisions can produce NaN if denominators become zero through precision errors - are NaN values properly handled in subsequent uint64 casts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dfa17f61-7723-4f21-81d6-ed65cc9f6073?mode=deep",
+    "timestamp": "2026-01-10 22:41:28.222657",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: selectionWeights()] [Float overflow] At line 164, f *= maxSelectionWeight (1000000000) - can this overflow float64 range when f is large, causing NaN or Inf values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_378c3460-36b5-48a3-9141-929a3d1a9a1d?mode=deep",
+    "timestamp": "2026-01-10 22:41:41.200902",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: dropRequests()] [Float precision] At lines 378-384, priority calculation uses floating point division - can precision errors cause incorrect priority ordering in the drop list? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4dff7bee-52ca-4cf1-8c65-2bee628e5e1b?mode=deep",
+    "timestamp": "2026-01-10 22:41:54.488028",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: selectionWeights()] [Float precision] At lines 146-165, extensive floating point operations occur - can precision loss cause selection weights to converge to same values, breaking prioritization? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bc2ccf7d-1e7d-47ff-8147-62a3ba1ae917?mode=deep",
+    "timestamp": "2026-01-10 22:42:08.421083",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: removeFromGroup()] [Selector update] At line 267, addressSelect.Update(ag) is called after removal, but can empty groups cause selector corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_200f1391-a6d3-4426-adb4-1758dd036865?mode=deep",
+    "timestamp": "2026-01-10 22:42:23.119246",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: addToGroup()] [Selector update] At line 257, addressSelect.Update(ag) is called after adding node, but can the selector be in an inconsistent state if the update fails? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_decd091e-d9c3-44d8-9729-de3280b88e19?mode=deep",
+    "timestamp": "2026-01-10 22:42:39.248084",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: remove()] [Selector leak] At lines 274-275, nodes are removed from valueSelect only if valueWeight != 0, but can nodes with 0 weight leak in the selector? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_da93f16e-4d65-4a0e-8e6b-7015f3fd8ea9?mode=deep",
+    "timestamp": "2026-01-10 22:42:56.728226",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: update()] [Selector inconsistency] At lines 241-244, address selector and value selector are updated separately - can they become out of sync if one update fails? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a215c01a-1dc6-4024-bf20-a510e4583eb3?mode=deep",
+    "timestamp": "2026-01-10 22:43:15.911644",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: addressGroup.add()] [Selector corruption] At line 85, ag.nodeSelect.Update(ag.nodes[l]) is called, but if WeightedRandomSelect.Update has bugs, can node selection become biased? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7956e878-b5da-4add-9702-4ba02255c23d?mode=deep",
+    "timestamp": "2026-01-10 22:43:36.442321",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: removeFromGroup()] [Group cleanup] At lines 264-265, empty address groups are deleted from l.addresses, but can this deletion race with other operations trying to access the group? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6426413a-ecc1-49b2-a57f-84aefbcb816d?mode=deep",
+    "timestamp": "2026-01-10 22:43:58.317313",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: Add()] [Group migration] At lines 194-198, when a node changes addresses, can the removeFromGroup() succeed but addToGroup() fail, leaving the node orphaned? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5e0e2203-60ae-4136-ac5b-9b129c7042e9?mode=deep",
+    "timestamp": "2026-01-10 22:44:21.351501",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: addressGroup.remove()] [Index corruption] At lines 109-112, when swapping the removed node with the last node, can the index update fail if another thread reads the old index? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_610d0eea-4904-4b51-b0be-fef08e7f4b01?mode=deep",
+    "timestamp": "2026-01-10 22:44:44.691376",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: addressGroup.add()] [Index corruption] At line 81, nq.groupIndex is set to len(ag.nodes), but if concurrent adds happen, can multiple nodes get the same groupIndex value? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ba7c2632-0f0f-4004-97d2-b858ab8feaa7?mode=deep",
+    "timestamp": "2026-01-10 22:45:08.842897",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: addToGroup()] [Address spoofing] At lines 249-257, nodes are grouped by address string, but can an attacker spoof or manipulate the address parameter to avoid being grouped with their other malicious nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b9417d05-91f0-40de-b785-c2059ef29b76?mode=deep",
+    "timestamp": "2026-01-10 22:45:33.733626",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: Add()] [Penalty accumulation] At line 201, penaltyCost += reqCost accumulates, but is there a maximum penalty before the node is banned, or can penalties grow indefinitely allowing eventual overflow? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8285b8a9-a8e6-425e-a243-7d8cb8f51c97?mode=deep",
+    "timestamp": "2026-01-10 22:45:59.422527",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: dropRequests()] [Penalty manipulation] At line 397, penaltyCost is set to sumCost, but can an attacker send one high-cost request to inflate sumCost, then many low-cost ones to dilute the penalty? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_18f09ca4-95a4-4fec-ad35-9baeef086f8c?mode=deep",
+    "timestamp": "2026-01-10 22:46:26.652196",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: processLoop()] [Penalty escape] At lines 327-330, when queue is nil (penalized), the node is removed entirely - can this allow the attacker to rejoin with clean state immediately? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8dd22a6e-d85e-4e23-95e1-6bf8e31a7f94?mode=deep",
+    "timestamp": "2026-01-10 22:46:55.163122",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: Add()] [Penalty bypass] At lines 199-204, penalized nodes have their requests immediately dropped, but can an attacker cycle through different node IDs to bypass penalties? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dde91d0e-fc84-4cd8-a7fd-4c0df926fe50?mode=deep",
+    "timestamp": "2026-01-10 22:47:23.772135",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: dropRequests()] [Concurrent map iteration] At lines 371-386, iterating over l.nodes map while processLoop() may modify it - can this cause map concurrent iteration panic even with lock? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a54c8c83-a04f-43dc-ab6a-a579e2f2a93d?mode=deep",
+    "timestamp": "2026-01-10 22:47:52.192373",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: removeFromGroup()] [Concurrent map access] At line 265, delete(l.addresses, nq.address) removes the map entry, but can iterating goroutines still access this deleted entry? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9b709f38-4b15-4a58-b110-9ee6ac9176b4?mode=deep",
+    "timestamp": "2026-01-10 22:48:20.286996",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: addToGroup()] [Concurrent map access] At lines 251-254, reading and writing l.addresses map happens under lock, but can the map be accessed concurrently during the address group update? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9f3d6c22-74a6-4e2c-8bb4-9916b4340f71?mode=deep",
+    "timestamp": "2026-01-10 22:48:48.373408",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: remove()] [Concurrent map access] At line 277, delete(l.nodes, nq.id) happens under lock, but can another goroutine read this map entry concurrently causing a panic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0e06e858-a5c2-45f1-9f0c-9bb3c99acc64?mode=deep",
+    "timestamp": "2026-01-10 22:49:16.675509",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: Add()] [Concurrent map access] At line 189, reading l.nodes[id] and at line 218 writing l.nodes[id] both happen under lock, but can the lock be released allowing concurrent map modification elsewhere? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a5c2a4c0-083e-442b-ac6d-076abb045248?mode=deep",
+    "timestamp": "2026-01-10 22:49:44.648726",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: dropRequests()] [Economic manipulation] At lines 396-397, setting queue to nil and penaltyCost to sumCost penalizes the node, but can high-value attackers bypass this by setting extremely high values to avoid drops? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_83856f4f-eedf-4bc4-a263-2b093bb6a617?mode=deep",
+    "timestamp": "2026-01-10 22:50:10.101760",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: Add()] [Cost bypass] At lines 200-204, when a node is penalized (queue==nil), the request is dropped and penalty increased, but can an attacker wait out the penalty by stopping requests temporarily? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ed4a898c-e713-440a-aac7-3c0a88edc7b2?mode=deep",
+    "timestamp": "2026-01-10 22:50:33.666274",
+    "report_generated": false
   }
 ]
