@@ -14692,5 +14692,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_caa6be6e-8d9a-4745-9a20-b900e9f136b7?mode=deep",
     "timestamp": "2026-01-10 09:13:22.084463",
     "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: ChtRequest] [Genesis block handling] If BlockNum is 0 (genesis), is this handled specially since genesis blocks aren't in CHTs, or can this cause errors? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c16414c3-8d54-4379-94e9-0f9f6f869b66?mode=deep",
+    "timestamp": "2026-01-10 09:14:38.516569",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: TrieRequest] [Empty key handling] If Key is empty (length 0), does this represent the trie root and is it handled correctly, or does it cause traversal errors? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1d7c7716-5789-44f9-acc2-5670c3894cd6?mode=deep",
+    "timestamp": "2026-01-10 09:14:51.426871",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Request queuing] [Queue overflow] If incoming ODR requests are queued, can the queue grow unbounded causing memory exhaustion if peers never respond? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b1d2beec-9727-4646-8d38-33121d2f7830?mode=deep",
+    "timestamp": "2026-01-10 09:15:04.524336",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Network layer] [Bandwidth exhaustion] Can requesting many large block bodies or code simultaneously exhaust network bandwidth? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ea52770e-34b0-42c0-a21b-fd38997075b8?mode=deep",
+    "timestamp": "2026-01-10 09:15:19.046888",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [All request types] [Storage exhaustion] Can an attacker flood the system with requests for different data, causing database storage to grow unbounded? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8ffa018d-1c6c-47b7-83e7-4ddefdf0717a?mode=deep",
+    "timestamp": "2026-01-10 09:15:33.933214",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Request processing] [CPU exhaustion] Can complex Merkle proofs with deep paths cause excessive CPU usage during verification, enabling DoS attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_400801ca-5b9c-4260-a109-2a7cebfc4e9d?mode=deep",
+    "timestamp": "2026-01-10 09:15:49.952245",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Trust assumptions] [Validator collusion] If multiple validators collude to provide consistent but false ODR responses, can light clients detect this through any mechanism? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8911e399-53b2-4114-9ac8-b3d57d396aab?mode=deep",
+    "timestamp": "2026-01-10 09:16:07.055231",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Response validation] [Insufficient verification] Are ODR responses validated against multiple peers to detect malicious responses, or is the first response accepted? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0395af69-a70c-4107-894f-08533c630251?mode=deep",
+    "timestamp": "2026-01-10 09:16:26.146046",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [ODR design] [Single peer trust] If a light client only has one peer, can that single malicious peer completely control the client's view of chain state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a30e9470-9869-4fe1-af32-409bc5053d1e?mode=deep",
+    "timestamp": "2026-01-10 09:16:47.482676",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Indexer synchronization] [Reorg during indexing] If a chain reorg occurs while indexers are building CHT/bloom tries, can this cause indexers to produce incorrect results? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_082fe6b8-ba47-492c-9f2e-09fdd1d85224?mode=deep",
+    "timestamp": "2026-01-10 09:17:08.387809",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: ChtRequest.Config] [Config tampering] If IndexerConfig is modified after initial setup, can this cause CHT/bloom requests to use wrong parameters and accept invalid proofs? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_75d1a7cd-6e61-43e7-be4f-ee385032de49?mode=deep",
+    "timestamp": "2026-01-10 09:17:31.109298",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Interface: OdrBackend.BloomTrieIndexer()] [Bloom indexer corruption] Can the bloom trie indexer be fed malicious data that causes it to build incorrect bloom tries affecting all log queries? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3f2ef41b-21b8-4a38-baaa-c20be385f097?mode=deep",
+    "timestamp": "2026-01-10 09:17:54.843952",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Interface: OdrBackend.ChtIndexer()] [Indexer state manipulation] Can an attacker manipulate the CHT indexer's internal state to cause it to generate incorrect CHT roots that get accepted? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_66517299-bfc5-4fc8-a103-c86977c4e2c9?mode=deep",
+    "timestamp": "2026-01-10 09:18:19.647595",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Database writes] [Disk full handling] If disk runs out of space during StoreResult() writes, is this detected and can the system recover, or does it corrupt the database? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f1ef8f31-5f91-4be5-a3d9-ebeb1cd4d4d4?mode=deep",
+    "timestamp": "2026-01-10 09:18:46.740638",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Database access] [Concurrent access] Is the database handle returned by OdrBackend.Database() thread-safe for concurrent reads and writes from multiple goroutines? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0d6f9d03-f2cc-4203-aee4-6fbe05f3072d?mode=deep",
+    "timestamp": "2026-01-10 09:19:15.117116",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [All StoreResult methods] [Duplicate key handling] If the same data is stored multiple times (same hash/number), does the database handle this correctly or can corruption occur? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0f2a0b7c-6920-4230-9303-629b972cf695?mode=deep",
+    "timestamp": "2026-01-10 09:19:44.123460",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [All StoreResult methods] [Transactional integrity] Are database writes atomic and transactional, or can system crash mid-write leave the database in an inconsistent state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_697c8486-56f3-4e8b-998d-9388460d774c?mode=deep",
+    "timestamp": "2026-01-10 09:20:13.505884",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Cross-chain verification] [Block ancestry] When storing a new canonical header via ChtRequest, is ancestry verified to ensure it connects to existing canonical chain? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_da311c91-e259-4409-8e27-93e563c201e1?mode=deep",
+    "timestamp": "2026-01-10 09:20:44.077123",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: TrieRequest] [Proof freshness] Can an attacker provide a valid but outdated proof for old state, causing the light client to operate on stale data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7b2a676d-5fc9-4b24-a01c-26e49f71f536?mode=deep",
+    "timestamp": "2026-01-10 09:21:14.052047",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Multiple tries] [State-storage consistency] When retrieving both state trie and storage trie data, is there validation that they're from the same block height to prevent state inconsistency? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_16ab16d3-678f-4a86-8fbd-e5fbd27e2d16?mode=deep",
+    "timestamp": "2026-01-10 09:21:42.643652",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: ChtRequest.StoreResult()] [Canonical chain forking] When WriteCanonicalHash is called, if this overwrites an existing canonical hash for the same number, does this trigger proper chain reorganization logic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_981f9743-498a-4711-a342-fac6f13f82d5?mode=deep",
+    "timestamp": "2026-01-10 09:22:13.521816",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Gas limit validation] [Gas limit consistency] Are gas limits in retrieved blocks validated to follow consensus rules (gradual adjustments), or can sudden gas limit changes be accepted? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_747c3654-435a-493d-a10c-c8b4a746a082?mode=deep",
+    "timestamp": "2026-01-10 09:22:44.739412",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Consensus rules] [Timestamp validation] Are block timestamps in retrieved headers validated to be within acceptable ranges and sequential, or can timestamp manipulation attacks occur? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a82b33c8-cd3e-464d-8aa2-937965587b0c?mode=deep",
+    "timestamp": "2026-01-10 09:23:15.513443",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: ReceiptsRequest] [Receipt root mismatch] If Receipts don't generate Header.ReceiptHash, can this cause the light client to accept invalid transaction execution results? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_473b5b0b-b672-4e7e-8af5-a4b6d3ed6bf9?mode=deep",
+    "timestamp": "2026-01-10 09:23:44.034640",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: BlockRequest] [Transaction hash mismatch] If transactions in Rlp don't hash to Header.TxHash, can this cause state root mismatches when transactions are executed? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2a8dba22-4596-4a9b-b18a-8e779b294248?mode=deep",
+    "timestamp": "2026-01-10 09:24:13.548175",
+    "report_generated": false
   }
 ]
