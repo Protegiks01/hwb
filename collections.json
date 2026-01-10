@@ -7048,5 +7048,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f0a34f41-792c-44a2-b2ff-beab4c135432?mode=deep",
     "timestamp": "2026-01-10 07:53:12.358133",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: parseTopicWithSetter()] [Indexed Validation] At lines 143-145, when checking !arg.Indexed, if an attacker manipulates the Indexed flag in Arguments after initial validation, can non-indexed fields be incorrectly parsed from topics causing type confusion attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5fd777a5-f10c-4eba-8e8e-7631b9f214fc?mode=deep",
+    "timestamp": "2026-01-10 07:54:37.313382",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: parseTopicWithSetter()] [Type Switch Exhaustiveness] In the type switch at lines 147-167, the TupleTy case returns error at line 149, but can an attacker craft Arguments with invalid Type.T values that bypass all cases, leaving reconstr uninitialized and causing undefined behavior in setter? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1ad4a423-5011-4041-852e-e025c75f7172?mode=deep",
+    "timestamp": "2026-01-10 07:54:50.452633",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: parseTopicWithSetter()] [Hash Reconstruction] At lines 150-153, for dynamic types (StringTy, BytesTy, SliceTy, ArrayTy), only the keccak256 hash is stored as topic. Can an attacker exploit this by providing different preimages with same hash, causing event data ambiguity and enabling replay attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_772f8111-02db-4a1c-8f94-26ad96d1a1c8?mode=deep",
+    "timestamp": "2026-01-10 07:55:03.683183",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: parseTopicWithSetter()] [Function Type Validation] At lines 154-157, when validating function type encoding, checking if first 8 bytes are non-zero garbage. Can an attacker craft topics with non-zero first 8 bytes that still represent invalid function types, bypassing validation and causing incorrect function pointer reconstruction? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_516d326b-1297-477c-8809-32f87e4dbd09?mode=deep",
+    "timestamp": "2026-01-10 07:55:17.567700",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: parseTopicWithSetter()] [Binary Encoding] At line 155, using binary.BigEndian.Uint64 to check garbage bytes, can endianness manipulation or uint64 overflow in the check cause invalid function types to pass validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_03961522-7c2c-43d0-a45b-f8194248dc91?mode=deep",
+    "timestamp": "2026-01-10 07:55:32.390934",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: parseTopicWithSetter()] [Fixed Array Copy] At lines 158-160, when copying 24 bytes from topics[i][8:32] to tmp array for function type, if topics[i] slice is shorter than 32 bytes, will this cause slice bounds panic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f02fd672-d988-4d24-a11e-ffa9a7616a49?mode=deep",
+    "timestamp": "2026-01-10 07:55:48.210860",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: parseTopicWithSetter()] [toGoType Errors] At lines 162-166, when calling toGoType(0, arg.Type, topics[i].Bytes()), if toGoType has vulnerabilities or returns incorrect values for edge case types, can this lead to type confusion in the reconstructed values? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6127eee6-0b33-4481-8b84-9ab7fe42567d?mode=deep",
+    "timestamp": "2026-01-10 07:56:05.095567",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: parseTopicWithSetter()] [Error Propagation] At lines 164-166, when toGoType returns error, is the error properly propagated without exposing sensitive information, or can error messages leak internal state information to attackers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fa5f5e1b-df47-485f-9649-e264929322f2?mode=deep",
+    "timestamp": "2026-01-10 07:56:24.212987",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: parseTopicWithSetter()] [Setter Function Panic] At line 169, when calling the setter function with arg and reconstr, if setter panics (e.g., due to type mismatch, nil pointer, or reflect issues), will this crash the node without proper recovery? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d3c4fd9a-8543-4800-9344-c102986999ca?mode=deep",
+    "timestamp": "2026-01-10 07:56:44.751452",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: parseTopicWithSetter()] [Loop Index] At line 142, iterating with index i over fields, if fields slice is modified during iteration (concurrent access), can this cause out-of-bounds access to topics slice? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6f1d5d0c-dd7a-4b65-8173-77bb7f8bb2cf?mode=deep",
+    "timestamp": "2026-01-10 07:57:04.198606",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: parseTopicWithSetter()] [Uninitialized Reconstr] If none of the type switch cases match and no error is returned (logic bug), reconstr variable at line 146 remains uninitialized (nil interface). Will passing this to setter cause nil pointer issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_066d23eb-fe24-42f8-9598-be8c4c88c9d1?mode=deep",
+    "timestamp": "2026-01-10 07:57:26.313227",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: MakeTopics()] [Hash Consistency] When converting identical values through different type paths (e.g., string vs []byte at lines 71-75), are the resulting topic hashes guaranteed identical, or can type-specific handling cause hash inconsistencies that break event filtering? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d0e69524-8317-4cd3-aa6c-740b62847aa7?mode=deep",
+    "timestamp": "2026-01-10 07:57:50.467840",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: MakeTopics() + ParseTopics()] [Round-Trip Safety] If a value is encoded via MakeTopics and decoded via ParseTopics, are all types guaranteed to round-trip correctly, or can precision loss (e.g., big.Int with >32 bytes) or type casting cause data corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c95c839b-d513-4f84-8d9f-7e1835e331cb?mode=deep",
+    "timestamp": "2026-01-10 07:58:15.101652",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: genIntType()] [Consistency with MakeTopics] When MakeTopics calls genIntType for signed integers (int8/16/32/64), are the resulting topics consistent with how other clients (e.g., original go-ethereum) encode signed integers, or can divergence cause cross-client filtering incompatibility? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_62f1dcae-4c03-44fa-b31d-0e4837b0d6ac?mode=deep",
+    "timestamp": "2026-01-10 07:58:41.276465",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: parseTopicWithSetter()] [Arguments Validation] The Arguments struct is not validated before use at line 142. Can an attacker inject malformed Arguments with invalid Type, Name, or Indexed fields causing panics or incorrect parsing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_27948b30-a977-407c-a7c0-3c39eec56481?mode=deep",
+    "timestamp": "2026-01-10 07:59:09.101299",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: ParseTopics() + ParseTopicsIntoMap()] [Setter Consistency] Both functions use parseTopicWithSetter with different setter implementations. Can inconsistencies between reflection-based field assignment (ParseTopics) and map assignment (ParseTopicsIntoMap) cause different parsing results for identical topics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_84f6bbd4-085b-432c-886d-d21388b3273c?mode=deep",
+    "timestamp": "2026-01-10 07:59:36.971382",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: MakeTopics()] [Reflection Performance] At lines 86-90, using reflection for static byte arrays is computationally expensive. Can an attacker spam event filter creation with byte array types causing CPU exhaustion and DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_71cb5a76-fb2c-428a-a585-41eaf37eb852?mode=deep",
+    "timestamp": "2026-01-10 08:00:04.961740",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: parseTopicWithSetter()] [Type Enumeration] The Type.T enumeration used in the switch at line 147 must be exhaustive. Are all possible Type.T values handled, or can new types added to the ABI package cause unhandled cases leading to silent failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9c2f9ac1-685b-42e8-a4e2-39dd12b2af45?mode=deep",
+    "timestamp": "2026-01-10 08:00:30.054825",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Cross-Function] [Encoding Determinism] For the same input value, do MakeTopics and genIntType produce deterministic output across different architectures, Go versions, and system endianness, or can non-determinism cause cross-node event filtering inconsistencies? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7258b9da-56a3-4dcb-afe9-b822bf5936a6?mode=deep",
+    "timestamp": "2026-01-10 08:00:54.724781",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: MakeTopics()] [uint64 Conversion] At lines 58-69, when converting uint8/16/32/64 to big.Int and back to bytes, can this conversion chain lose information or produce different encodings than direct byte encoding? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ba9276b5-ab92-4478-bd2a-c2b07890a053?mode=deep",
+    "timestamp": "2026-01-10 08:01:19.892703",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: parseTopicWithSetter()] [Common.Hash Bytes] At line 163, calling topics[i].Bytes() on common.Hash returns a copy. Can repeated Bytes() calls in tight loops cause excessive allocations leading to GC pressure and performance degradation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_806df5e8-63c2-40f8-8409-26ad55c4e047?mode=deep",
+    "timestamp": "2026-01-10 08:01:45.052485",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: genIntType()] [Byte Order] The byte order used at line 109 is implicit (big-endian). Is this consistent with Ethereum ABI encoding specification, or can byte order confusion cause cross-client incompatibility? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_78a955e7-4140-4f19-8ec3-9b400860f724?mode=deep",
+    "timestamp": "2026-01-10 08:02:09.999556",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: MakeTopics()] [Zero Values] For zero values of various types (0, false, empty string, nil big.Int), do they produce distinct topics or can they collide, enabling filter confusion attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a16a8759-3abe-4842-8bf1-e869f77ac218?mode=deep",
+    "timestamp": "2026-01-10 08:02:35.562680",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: parseTopicWithSetter()] [Error Context] When returning errors at lines 139, 144, 149, 156, 165, do error messages include sufficient context for debugging without exposing sensitive internal state? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0684e1b1-1db0-4397-82f6-cf0ebcbb4438?mode=deep",
+    "timestamp": "2026-01-10 08:03:02.162654",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/topics.go] [Function: MakeTopics()] [Recursive Types] If query contains nested slices or arrays of interfaces ([][]interface{}), can deep nesting cause stack overflow during type switch evaluation at lines 38-93? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1ce47c57-fa33-4102-8f43-947b7aeb0321?mode=deep",
+    "timestamp": "2026-01-10 08:03:28.972787",
+    "report_generated": false
   }
 ]
