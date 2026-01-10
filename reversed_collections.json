@@ -17986,5 +17986,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f93e4f84-730a-4871-9868-f3f4f3876a44?mode=deep",
     "timestamp": "2026-01-10 13:24:06.325465",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: inactivePriority()] [Capacity Dependency] At line 290, priority is calculated with pp.minCap. If minCap is set to 0 or extremely large, can this cause priority calculations to return unexpected values affecting queue ordering? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_98d26996-265c-46a4-a332-46458cf6354d?mode=deep",
+    "timestamp": "2026-01-10 13:25:17.030605",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: invertPriority()] [Math Edge Case] At line 264, the special case for math.MinInt64 returns math.MaxInt64. Can this edge case be exploited to give a node maximum inverted priority (minimum actual priority) inappropriately? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0d909ef6-440d-4a13-88a5-6544eabc60a9?mode=deep",
+    "timestamp": "2026-01-10 13:25:29.920921",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: activeMaxPriority()] [Time Manipulation] At line 281, future time is calculated from until - pp.clock.Now(). If clock skew or manipulation occurs, can negative future values at line 282-284 cause incorrect priority estimates? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fbaac494-c2e7-4b65-9e27-43f7ab5f76eb?mode=deep",
+    "timestamp": "2026-01-10 13:25:43.177695",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: activePriority()] [Type Cast Bug] The nodePriority interface methods at lines 273 and 275 return int64. Can overflow in these calculations cause priorities to wrap around, making low-priority nodes appear high-priority? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4f7df034-c387-415a-af8d-fb7d13f87b71?mode=deep",
+    "timestamp": "2026-01-10 13:25:56.894455",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: activePriority()] [Priority Manipulation] At line 272, if bias is 0, the actual priority is used, otherwise estimatePriority is called. Can an attacker manipulate their bias value to game the priority system and stay active longer than deserved? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2ed937ee-7899-499f-a35c-92077bbcbb1f?mode=deep",
+    "timestamp": "2026-01-10 13:26:11.647752",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: activeQueue.Push()] [Priority Inversion] When pushing nodes back to activeQueue at line 438 or 462, are priorities recalculated correctly, or can stale priorities cause lower-priority nodes to remain active while higher-priority nodes stay inactive? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5ea67c96-c159-4e81-9102-b56eb1a9e095?mode=deep",
+    "timestamp": "2026-01-10 13:26:27.440656",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: updatePriority()] [Queue Position Bug] At lines 533-537, the node is removed and re-inserted based on capacity. If the priority has changed dramatically, can this cause the node to oscillate between active/inactive states rapidly? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bd51caff-c098-495c-b8c6-6785e201b2ef?mode=deep",
+    "timestamp": "2026-01-10 13:26:44.723585",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: connectNode()] [Double Insertion] At line 313, a node is pushed to inactiveQueue. If the node is already in the queue due to a previous incomplete operation, can this create duplicate entries causing queue corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b2d034a2-123d-4f08-be3e-2703dff31ee7?mode=deep",
+    "timestamp": "2026-01-10 13:27:03.777385",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: finalizeChanges()] [Queue Reinsertion Bug] At lines 461-465, nodes are pushed back to either activeQueue or inactiveQueue. If the connected flag is false but capacity is non-zero, can this cause a node to be lost from both queues? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_322426cd-d6cc-4644-9523-12418a64857d?mode=deep",
+    "timestamp": "2026-01-10 13:27:24.108731",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: tryActivate()] [Queue Exhaustion] The loop at line 503-516 pops from inactiveQueue and pushes to activeQueue. If enforceLimits() fails to properly deactivate nodes, can all nodes end up in activeQueue violating limits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0e22eb40-9129-4170-8635-70e93afd36ca?mode=deep",
+    "timestamp": "2026-01-10 13:27:46.211440",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: enforceLimits()] [Queue State Corruption] The MultiPop operation at line 423-441 modifies nodes and re-pushes some back to activeQueue. If an error occurs mid-operation, can the queue be left in an inconsistent state with duplicate entries? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_85e72f3c-b095-4a9f-897c-33920c2fb51d?mode=deep",
+    "timestamp": "2026-01-10 13:28:08.526555",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: activeSetIndex()] [Index Corruption] Similarly for activeSetIndex at line 257-259, can a corrupted index from the queue cause permanent tracking issues for the node's position? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ed8ce600-787e-4840-b006-dc92c42a0001?mode=deep",
+    "timestamp": "2026-01-10 13:28:32.509268",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: inactiveSetIndex()] [Index Corruption] If inactiveSetIndex callback at line 252-254 is called with a negative index due to a queue bug, can this cause the inactiveIndex to be set incorrectly, breaking future queue operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b87baf4c-a52d-41ca-9689-645b5ff21a53?mode=deep",
+    "timestamp": "2026-01-10 13:28:58.016582",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: removeFromQueues()] [Double Removal] If removeFromQueues() is called twice for the same node without re-adding it, can the second Remove() call at line 299 panic when trying to remove from inactiveQueue with an invalid index? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bb561802-00e2-4162-9b3f-cb0dda3cc3f4?mode=deep",
+    "timestamp": "2026-01-10 13:29:24.599713",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: removeFromQueues()] [Index Out of Bounds] At lines 295-296, if c.activeIndex is corrupted and points to an invalid index, can Remove() cause a panic or remove the wrong node from the queue? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e5c67b05-6438-46fa-84fa-a43c2c14f007?mode=deep",
+    "timestamp": "2026-01-10 13:29:52.150489",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: tryActivate()] [Forced Update] At line 517, ccUpdateForced is set to true, but if finalizeChanges() fails or returns early, can this flag remain set inappropriately affecting future curve calculations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_22f16456-bb83-4026-9810-4a297d17b891?mode=deep",
+    "timestamp": "2026-01-10 13:30:19.023900",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: finalizeChanges()] [Partial Commit] If an error or panic occurs during the loop at line 449-469, can some nodes be committed while others remain in tempState, causing permanent inconsistency? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d02a531c-7c13-44a2-9b5e-1db061ed74ea?mode=deep",
+    "timestamp": "2026-01-10 13:30:47.202529",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: setTempStepDiv()] [State Check Missing] At line 405, if the node is not in tempState, can setting stepDiv still affect the node's behavior in unexpected ways, or is the field only read when tempState is true? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_070ea394-578f-40f3-a57c-58b7f6a853f2?mode=deep",
+    "timestamp": "2026-01-10 13:31:15.710497",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: setTempBias()] [State Check Missing] At line 396, if the node is not in tempState, an error is logged but execution continues. Can calling setTempBias() on a non-temp node cause the bias to be set incorrectly affecting priority calculations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_01b020e6-a348-4c4f-8493-cff2c24329ca?mode=deep",
+    "timestamp": "2026-01-10 13:31:44.013420",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: setTempCapacity()] [Double State Modification] If setTempCapacity() is called multiple times for the same node without finalizing, can the activeCount increment at line 386 execute multiple times, causing activeCount to be incremented more than once for a single activation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e7bad252-4a65-48c1-867d-3859a075d283?mode=deep",
+    "timestamp": "2026-01-10 13:32:10.805409",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: requestCapacity()] [State Inconsistency] If finalizeChanges() returns false at line 189 (commit condition failed), but updateFlags() is still called with the updates, can this apply partial updates causing state desynchronization? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_202c1237-390d-49a7-86cf-952a401456c7?mode=deep",
+    "timestamp": "2026-01-10 13:32:39.120816",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: setTempState()] [Memory Leak] The tempState slice is appended at line 358 but only cleared at line 471 in finalizeChanges(). If finalizeChanges() is never called (e.g., due to a panic), can this cause unbounded memory growth? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_73bba003-390e-4f63-a87c-82304b85830f?mode=deep",
+    "timestamp": "2026-01-10 13:33:07.699404",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: finalizeChanges()] [State Revert Bug] When commit=false at line 456, setTempCapacity() is called to revert activeCount/activeCap changes. If this revert fails or is incomplete, can nodes be left with incorrect capacity values? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a6abe9b1-9b9f-4022-bb25-deefaae9ec9c?mode=deep",
+    "timestamp": "2026-01-10 13:33:36.417656",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: unsetTempState()] [State Inconsistency] The check at line 368-369 logs an error if tempCapacity != capacity when leaving tempState. If this condition occurs, can it leave the node in an inconsistent state where capacity values don't match queue positions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6a0cba02-5c42-44a9-b37f-f06315120d77?mode=deep",
+    "timestamp": "2026-01-10 13:34:04.346725",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: setTempState()] [State Inconsistency] The check at line 351-352 logs an error if tempCapacity != capacity when entering tempState, but doesn't halt execution. Can continuing execution after this error cause permanent state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5a199aa4-d987-4925-8e10-c191642e28d2?mode=deep",
+    "timestamp": "2026-01-10 13:34:31.030082",
+    "report_generated": false
   }
 ]
