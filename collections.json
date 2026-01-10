@@ -8248,5 +8248,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b9036bac-36f9-47e8-b4e5-5b90cf2a3b6c?mode=deep",
     "timestamp": "2026-01-10 09:14:27.952478",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Bridge Contract Confusion] If the mint contract (custom WBT feature) uses overloaded methods and ResolveNameConflict resolves them incorrectly, can this cause cross-chain bridge operations to call the wrong method, potentially minting tokens without proper burn verification? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a5f88b6d-9a45-4608-9b74-c2662d9332ad?mode=deep",
+    "timestamp": "2026-01-10 09:15:40.316348",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Minting ABI Integrity] When parsing the mint contract ABI during node initialization, if name conflicts are resolved non-deterministically across validator nodes, could different validators execute different mint functions, breaking consensus on cross-chain token supply? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ee0e5ed9-7aa3-4df5-8088-ff0688d1db17?mode=deep",
+    "timestamp": "2026-01-10 09:15:53.217463",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Algorithmic Complexity Attack] The loop (lines 35-38) has O(n) complexity where n is the number of existing names - can an attacker deploy a contract with thousands of methods all named 'func' forcing O(n²) behavior when resolving all conflicts, causing transaction processing delays? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_961647cf-7181-49f6-88a2-adc9639c388d?mode=deep",
+    "timestamp": "2026-01-10 09:16:06.997171",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Cache Poisoning] If the ABI parser caches resolved names but doesn't invalidate the cache properly, can an attacker poison the cache with incorrect name resolutions that persist across multiple contract deployments, causing systematic misrouting of function calls? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6ab2029d-f07c-4176-a5e8-72bc08758e9e?mode=deep",
+    "timestamp": "2026-01-10 09:16:20.605447",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Deployment-Time DoS] During contract deployment when the ABI is parsed, if ResolveNameConflict takes excessive time due to many conflicts, can an attacker spam contract deployments with conflicting names to slow down block production and reduce network throughput? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a1cd83d3-9af1-428e-beac-57c0e630457a?mode=deep",
+    "timestamp": "2026-01-10 09:16:35.247109",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Validator Censorship] If certain name patterns trigger expensive conflict resolution, can Byzantine validators detect and censor contracts containing those patterns, effectively controlling which contracts can be deployed on the network? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f7ff1d5d-6768-4199-abf6-dbf6c9842a12?mode=deep",
+    "timestamp": "2026-01-10 09:16:51.346006",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Empty Return Value] Under what conditions could this function return an empty string, and would calling code handle it properly, or would it cause panics when used as a method/event name in the ABI maps? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_df0e890d-fca7-4eaa-8323-a9166f7e8909?mode=deep",
+    "timestamp": "2026-01-10 09:17:08.524346",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Excessively Long Names] If conflict resolution produces very long names (rawName + large idx), can this exceed limits in downstream code like the bind generator or cause issues with RPC interfaces that have length restrictions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e65f0da1-0aef-4a32-9d0c-bb534c507288?mode=deep",
+    "timestamp": "2026-01-10 09:17:27.196593",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [String Comparison Case Sensitivity] The name comparison in the 'used' function is case-sensitive - can an attacker exploit this by creating methods 'Send', 'send', 'SEND' that all resolve to different names but cause confusion in contract interactions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ec0f3ac2-80c0-4d62-8428-d0547319471c?mode=deep",
+    "timestamp": "2026-01-10 09:17:47.941663",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Garbage Collection Pressure] With contracts having many overloaded functions, the repeated string allocations (line 36) could create GC pressure - during high contract deployment activity, can this cause GC pauses that delay block production? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e281a4c9-bab0-44bc-80e4-7a538f1ca343?mode=deep",
+    "timestamp": "2026-01-10 09:18:09.575028",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Stack Overflow] Although unlikely with a simple loop, if the 'used' callback function is recursive and calls back into ResolveNameConflict, could this create infinite recursion and stack overflow panics? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c8c016eb-ad54-42e7-9796-a8d9185bf4a2?mode=deep",
+    "timestamp": "2026-01-10 09:18:32.251179",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Negative Index Handling] If idx somehow becomes negative (through overflow or corruption), does fmt.Sprintf (line 36) handle it correctly, or could it produce unexpected name formats that break ABI parsing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_085321f0-a4ae-4e59-a8bb-feb81727371a?mode=deep",
+    "timestamp": "2026-01-10 09:18:57.223068",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Zero-Value Handling] If idx is 0 in the first iteration (line 36), the generated name is 'rawName0' - is this the intended behavior, or should it skip 0 and start from 1 to be more intuitive? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_aebb3b57-63ef-4b17-bbbd-57da003e4018?mode=deep",
+    "timestamp": "2026-01-10 09:19:21.931576",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Ethereum ABI Compatibility] Does the name conflict resolution strategy match Ethereum's behavior when parsing the same ABIs, or could different resolution produce incompatible ABIs that break contracts migrated from Ethereum mainnet? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_369d412c-9ed2-4d77-909a-e9c7525f7225?mode=deep",
+    "timestamp": "2026-01-10 09:19:46.878873",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Method ID Calculation] Since Solidity method IDs are based on the function signature, if the resolved name differs from the original but the method ID calculation still uses the original name, can this create method routing confusion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c7d109b5-7855-4f80-8513-2c525d7f17c7?mode=deep",
+    "timestamp": "2026-01-10 09:20:12.472817",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/accounts.go] [Function: TextHash()] [Cryptographic vulnerability] Does the TextHash function properly validate that input data length doesn't cause integer overflow when fmt.Sprintf formats the length in the message prefix, potentially allowing an attacker to craft messages with manipulated length fields that bypass signature validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_94a47601-b434-4848-824b-2d80d3d17671?mode=deep",
+    "timestamp": "2026-01-10 09:20:38.775022",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/accounts.go] [Function: TextAndHash()] [Integer overflow] In line 198, when calculating len(data) for the message prefix, can an attacker provide extremely large data slices (>2^63-1 bytes) that cause integer overflow in the length representation, resulting in signature malleability or replay attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4a78279c-01fc-4df8-a819-12d6fa67f4d2?mode=deep",
+    "timestamp": "2026-01-10 09:21:04.414754",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/accounts.go] [Function: TextAndHash()] [Format string injection] Does the fmt.Sprintf call at line 198 properly sanitize the data parameter when converting to string, or can an attacker inject format string specifiers through binary data that cause information leakage or crashes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cbde02c7-19a6-415d-89ef-ce666228ad70?mode=deep",
+    "timestamp": "2026-01-10 09:21:31.914294",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/accounts.go] [Function: TextAndHash()] [Memory exhaustion] Can an attacker call TextAndHash with arbitrarily large data slices that consume excessive memory when creating the message string at line 198, causing node DoS through memory exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_43f701e0-2587-43db-8260-f1324292d503?mode=deep",
+    "timestamp": "2026-01-10 09:21:57.393795",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/accounts.go] [Function: TextAndHash()] [Signature malleability] Does the Ethereum prefix message format ('\\x19Ethereum Signed Message:\\n') properly prevent cross-chain replay attacks, or can signatures generated for WBT be replayed on Ethereum mainnet or other EVM chains? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_566dcda4-a4f2-4710-bd11-0065953ff015?mode=deep",
+    "timestamp": "2026-01-10 09:22:23.547535",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/accounts.go] [Function: TextHash()] [Return value handling] Line 185 ignores the second return value from TextAndHash - could this mask critical errors in hash generation that should halt transaction processing, allowing invalid signatures to pass validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_33491b50-9d06-43fc-b31a-a1b02eb2a6bd?mode=deep",
+    "timestamp": "2026-01-10 09:22:49.820818",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/accounts.go] [Function: TextAndHash()] [Keccak256 collision] Does the sha3.NewLegacyKeccak256() hasher at lines 199-200 properly handle edge cases where different inputs produce the same hash due to length extension attacks or padding issues? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fd4a5add-a5ea-47a8-9d97-79099d016cbb?mode=deep",
+    "timestamp": "2026-01-10 09:23:15.827440",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/accounts.go] [Function: TextAndHash()] [Unicode handling] When converting data to string at line 198, can Unicode or UTF-8 encoding issues cause different byte sequences to produce identical string representations, enabling signature reuse attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6d168469-785c-4ca1-87a5-915d4381af15?mode=deep",
+    "timestamp": "2026-01-10 09:23:42.224884",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/accounts.go] [Struct: Account] [Address validation] Does the Account struct validate that the Address field contains a valid 20-byte Ethereum address, or can implementations create accounts with zero addresses (0x0) that bypass access controls in signing operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7b5700a1-2f75-4e2f-811c-02208af68b82?mode=deep",
+    "timestamp": "2026-01-10 09:24:08.432330",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/accounts.go] [Struct: Account] [URL injection] Can an attacker craft malicious Account structs with specially crafted URL fields that cause path traversal, directory escaping, or arbitrary file access when wallet backends resolve account locations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fbdef865-9f72-4ad0-8b17-864484b0ebda?mode=deep",
+    "timestamp": "2026-01-10 09:24:33.569364",
+    "report_generated": false
   }
 ]
