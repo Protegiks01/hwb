@@ -10498,5 +10498,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f7be3fc3-bdfb-4086-a9db-f5f548c8b5f3?mode=deep",
     "timestamp": "2026-01-10 13:23:33.196395",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Key File Ordering] The order of file processing depends on os.ReadDir() ordering - can filesystem-specific ordering differences cause different nodes to process validator keys in different orders, leading to non-deterministic behavior or race conditions in key selection? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4c90f687-22b4-43c3-8006-a9708b667937?mode=deep",
+    "timestamp": "2026-01-10 13:24:51.327634",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: nonKeyFile()] [Key Backup Bypass] The filter at line 97 skips files ending with '~' (common backup suffix) - but if an attacker renames a legitimate validator key with this suffix during an attack, will it be ignored during scan, preventing the validator from accessing its signing key? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5cfba54d-00e4-419d-b78b-19edb442d973?mode=deep",
+    "timestamp": "2026-01-10 13:25:04.254514",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Key Enumeration] By observing the 'creates' set returned from scan(), can an attacker enumerate all validator key files in the keystore, enabling targeted theft attempts against specific high-value validator keys? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f1b078bd-4fe5-4783-b57a-42a4d35235c5?mode=deep",
+    "timestamp": "2026-01-10 13:25:18.010915",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Double-Check Race] The os.ReadDir() at line 43 and fi.Info() at line 67 form a double-check pattern - can an attacker exploit the gap between these checks to manipulate file metadata, causing the cache to record incorrect modification times that persist indefinitely? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_82115b6c-ee2d-427f-ab59-92e5a4823ff4?mode=deep",
+    "timestamp": "2026-01-10 13:25:31.664575",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Defer Unlock Timing] The defer fc.mu.Unlock() at line 50 executes after return value construction at line 91 - if the return statement itself causes a panic (e.g., nil set dereference), will the mutex be properly released or will it cause permanent deadlock? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f41b1f00-9250-48d5-b077-7f990810d912?mode=deep",
+    "timestamp": "2026-01-10 13:25:46.304156",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Return Value Race] The creates/deletes/updates sets are constructed under lock but returned after unlock - if these sets reference shared data structures, can subsequent mutex-protected operations corrupt the returned results visible to callers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9819576c-39cd-4773-97ca-6f35a8a9c035?mode=deep",
+    "timestamp": "2026-01-10 13:26:02.265987",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Modification Storm] If an attacker rapidly creates/deletes files in the keystore directory, each modification could trigger a scan - can this create a feedback loop where the node spends all CPU time scanning and never completes validator duties? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d86dda37-2f86-49df-85d1-4bf98a1455f2?mode=deep",
+    "timestamp": "2026-01-10 13:26:19.522876",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Large File DoS] If an attacker creates enormous files (terabytes) in the keystore directory, will the fi.Info() call at line 67 block while reading file metadata, causing prolonged mutex hold times that freeze validator operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9d4e35d9-60a5-4cc2-ab57-93aecf12d349?mode=deep",
+    "timestamp": "2026-01-10 13:26:38.358365",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: nonKeyFile()] [Regex DoS Potential] The strings.HasSuffix and strings.HasPrefix at lines 97-98 are called repeatedly - if an attacker creates files with extremely long names, can this cause excessive CPU consumption in string operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_39f83074-f384-4c50-9875-a8b89a83ed6f?mode=deep",
+    "timestamp": "2026-01-10 13:26:58.035053",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Nil KeyDir] If keyDir parameter is an empty string, os.ReadDir() will read the current directory - can this cause validator nodes to accidentally scan system directories, potentially loading non-key files as keys or exposing sensitive information? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fd1ccf7b-3bb9-4f83-a719-5b076f8fe6f4?mode=deep",
+    "timestamp": "2026-01-10 13:27:19.761258",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Relative Path Injection] If keyDir is a relative path like '../../../etc', os.ReadDir() will resolve it - can an attacker manipulate the working directory to cause scan() to process files outside the intended keystore, accessing other validator keys? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d82170ae-6af6-4b90-97fa-822be657bc0a?mode=deep",
+    "timestamp": "2026-01-10 13:27:42.907791",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: nonKeyFile()] [Hidden Directory Bypass] The check at line 97 skips files starting with '.', but on Unix systems '.' and '..' are special directory entries - are these properly filtered or could they cause path traversal issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c9fd1dd2-1e6f-4c27-9fe4-034dba8076f8?mode=deep",
+    "timestamp": "2026-01-10 13:28:06.546362",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Key File Ordering] The order of file processing depends on os.ReadDir() ordering - can filesystem-specific ordering differences cause different nodes to process validator keys in different orders, leading to non-deterministic behavior or race conditions in key selection? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_90b9fff1-0b86-4faf-9517-f51e97753f60?mode=deep",
+    "timestamp": "2026-01-10 13:28:30.645433",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: nonKeyFile()] [Key Backup Bypass] The filter at line 97 skips files ending with '~' (common backup suffix) - but if an attacker renames a legitimate validator key with this suffix during an attack, will it be ignored during scan, preventing the validator from accessing its signing key? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ac0ac948-b7a9-450d-861f-5adee4c72e31?mode=deep",
+    "timestamp": "2026-01-10 13:28:54.462671",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Key Enumeration] By observing the 'creates' set returned from scan(), can an attacker enumerate all validator key files in the keystore, enabling targeted theft attempts against specific high-value validator keys? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5cedfb3d-1c2c-4cb6-a363-a83ee4957c1f?mode=deep",
+    "timestamp": "2026-01-10 13:29:18.913575",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Double-Check Race] The os.ReadDir() at line 43 and fi.Info() at line 67 form a double-check pattern - can an attacker exploit the gap between these checks to manipulate file metadata, causing the cache to record incorrect modification times that persist indefinitely? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_45eea6c5-a7b8-4e2c-9189-64e7002ef29b?mode=deep",
+    "timestamp": "2026-01-10 13:29:42.935680",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Defer Unlock Timing] The defer fc.mu.Unlock() at line 50 executes after return value construction at line 91 - if the return statement itself causes a panic (e.g., nil set dereference), will the mutex be properly released or will it cause permanent deadlock? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_51a65884-d268-4232-9d3c-54fb3a63a013?mode=deep",
+    "timestamp": "2026-01-10 13:30:05.973698",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Return Value Race] The creates/deletes/updates sets are constructed under lock but returned after unlock - if these sets reference shared data structures, can subsequent mutex-protected operations corrupt the returned results visible to callers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f790f846-3560-4ebc-9f4a-7a3be9f94320?mode=deep",
+    "timestamp": "2026-01-10 13:30:30.120183",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Modification Storm] If an attacker rapidly creates/deletes files in the keystore directory, each modification could trigger a scan - can this create a feedback loop where the node spends all CPU time scanning and never completes validator duties? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_005da70e-d2ab-4e95-9be1-c9c932e9e9ba?mode=deep",
+    "timestamp": "2026-01-10 13:30:54.549575",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Large File DoS] If an attacker creates enormous files (terabytes) in the keystore directory, will the fi.Info() call at line 67 block while reading file metadata, causing prolonged mutex hold times that freeze validator operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_63eb3164-1fb7-4e5d-99ad-0fbc8dced296?mode=deep",
+    "timestamp": "2026-01-10 13:31:18.638945",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: nonKeyFile()] [Regex DoS Potential] The strings.HasSuffix and strings.HasPrefix at lines 97-98 are called repeatedly - if an attacker creates files with extremely long names, can this cause excessive CPU consumption in string operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f567c183-0390-4a3a-a047-6543034aed28?mode=deep",
+    "timestamp": "2026-01-10 13:31:41.727461",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Nil KeyDir] If keyDir parameter is an empty string, os.ReadDir() will read the current directory - can this cause validator nodes to accidentally scan system directories, potentially loading non-key files as keys or exposing sensitive information? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_70040ec9-be32-4b9f-8651-7ef5691782a9?mode=deep",
+    "timestamp": "2026-01-10 13:32:05.894083",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: scan()] [Relative Path Injection] If keyDir is a relative path like '../../../etc', os.ReadDir() will resolve it - can an attacker manipulate the working directory to cause scan() to process files outside the intended keystore, accessing other validator keys? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_140e623e-a71b-4ec3-aba2-8edf4294341a?mode=deep",
+    "timestamp": "2026-01-10 13:32:31.345290",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/file_cache.go] [Function: nonKeyFile()] [Hidden Directory Bypass] The check at line 97 skips files starting with '.', but on Unix systems '.' and '..' are special directory entries - are these properly filtered or could they cause path traversal issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_47854475-bdf5-42d7-8cec-99b3bc5b5a95?mode=deep",
+    "timestamp": "2026-01-10 13:32:57.028690",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/keystore.go] [Function: TimedUnlock()] [Race condition] Can concurrent calls to TimedUnlock() for the same address create a race condition between lines 346-365 where one goroutine reads ks.unlocked[a.Address] while another modifies it, potentially causing unlocked keys to be overwritten without proper cleanup of the abort channel, leading to goroutine leaks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8795b909-b669-4b9c-9cec-37c7f12804dd?mode=deep",
+    "timestamp": "2026-01-10 13:33:21.463661",
+    "report_generated": false
   }
 ]
