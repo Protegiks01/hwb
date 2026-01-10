@@ -14092,5 +14092,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f9479e56-d203-4466-9fd3-70954a5476be?mode=deep",
     "timestamp": "2026-01-10 08:31:01.297787",
     "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Commit() - BloomTrie] [ReadBloomBits failure] If rawdb.ReadBloomBits returns error, does this properly propagate, or can nil data cause subsequent decompression to fail? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a6c181ba-04dd-43d9-9d27-63fc3c768abd?mode=deep",
+    "timestamp": "2026-01-10 08:32:18.879133",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Commit() - BloomTrie] [Section calculation overflow] Can b.section*b.bloomTrieRatio+j overflow during bloom bits reading, causing reads from wrong sections? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_16fb28db-1322-4885-8355-5fbf4aef1e4f?mode=deep",
+    "timestamp": "2026-01-10 08:32:31.844840",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Commit() - BloomTrie] [Integer overflow in encKey] Can uint16(i) overflow if i exceeds 65535, or is BloomBitLength guaranteed to be <= 65535? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0dbbd2e3-65a5-46f7-b68d-af7a05aadf66?mode=deep",
+    "timestamp": "2026-01-10 08:32:45.021754",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Commit() - BloomTrie] [Bloom bit length loop] The loop iterates types.BloomBitLength times - can modified BloomBitLength values cause incorrect indexing or memory issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_804dd1a9-1951-4a81-9bc0-3c9092da9e4e?mode=deep",
+    "timestamp": "2026-01-10 08:32:59.009005",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Process() - BloomTrie] [Concurrent process calls] Can multiple goroutines call Process() concurrently, causing race conditions on sectionHeads array modifications? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f323a005-81df-4366-a14a-89bd1f09c825?mode=deep",
+    "timestamp": "2026-01-10 08:33:13.530654",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Process() - BloomTrie] [Section boundary validation] Does the function validate that the header belongs to the current section before processing, or can out-of-section headers corrupt sectionHeads? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ab2604cc-a25e-4941-a491-dafaff35a28e?mode=deep",
+    "timestamp": "2026-01-10 08:33:29.104930",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Process() - BloomTrie] [Array out of bounds] Can num/b.parentSize exceed len(b.sectionHeads), causing out-of-bounds write to b.sectionHeads array? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a33af86b-c76a-40c8-ba73-3517ad0b83a3?mode=deep",
+    "timestamp": "2026-01-10 08:33:46.262188",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Process() - BloomTrie] [Modulo by zero] If b.parentSize is 0, can (num+1)%b.parentSize cause panic? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_910ec604-6059-4ae5-a326-94852e189f9e?mode=deep",
+    "timestamp": "2026-01-10 08:34:05.386618",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Process() - BloomTrie] [Integer underflow] Can header.Number.Uint64() - b.section*b.size underflow if header number is less than section start, causing wrapped uint64 and array index out of bounds? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_aa2d3df4-b37e-4887-b3e0-97f1709a0a1a?mode=deep",
+    "timestamp": "2026-01-10 08:34:26.610311",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Reset() - BloomTrie] [Section field race] Can concurrent Reset() calls cause race conditions on b.section field? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b04fddae-0a4a-465e-8e25-72c34658b061?mode=deep",
+    "timestamp": "2026-01-10 08:34:47.433509",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Reset() - BloomTrie] [ODR backend dependency] If odr is nil but trie.New() fails, does the function properly return error or attempt nil dereference on b.odr? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b04d9b88-3094-4680-b512-2a8f9f34e647?mode=deep",
+    "timestamp": "2026-01-10 08:35:08.092631",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Reset() - BloomTrie] [Trie initialization failure recovery] If both trie.New() and fetchMissingNodes() fail, does the backend remain in a broken state permanently? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_50cb47b3-a8ec-464e-be49-4d981b4ec716?mode=deep",
+    "timestamp": "2026-01-10 08:35:30.048479",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: Reset() - BloomTrie] [Root retrieval for section=0] When section=0, root should be zero - does GetBloomTrieRoot handle this correctly or return garbage data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e8ed3f43-7a17-4b9f-b216-14bd96ecc889?mode=deep",
+    "timestamp": "2026-01-10 08:35:54.202655",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: fetchMissingNodes() - BloomTrie] [Batch write atomicity] If batch.Write() fails after storing proofs from multiple goroutines, can this leave partially written data corrupting the trie? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2a5cc116-4a9c-4d1a-8ad9-9aa4733eb428?mode=deep",
+    "timestamp": "2026-01-10 08:36:18.863840",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: fetchMissingNodes() - BloomTrie] [Section calculation] Does section-1 properly handle section=0 case, or can underflow cause incorrect BloomTrieNum in requests? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_51d64e96-739f-4393-8137-23e1101f2934?mode=deep",
+    "timestamp": "2026-01-10 08:36:44.997779",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: fetchMissingNodes() - BloomTrie] [Proof manipulation] Can malicious ODR peers provide invalid Proofs that pass initial checks but corrupt the bloom trie when stored? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dac390f5-84c0-40b9-810b-212b86c7b8d8?mode=deep",
+    "timestamp": "2026-01-10 08:37:11.629266",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: fetchMissingNodes() - BloomTrie] [BloomRequest validation] Are BloomRequest parameters (BloomTrieRoot, BloomTrieNum, BitIdx) validated, or can malicious values cause ODR backend crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bfcecabf-feae-4506-b4a8-cb0ad14e935d?mode=deep",
+    "timestamp": "2026-01-10 08:37:39.837145",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: fetchMissingNodes() - BloomTrie] [Retry loop DoS] The infinite retry loop with 10-second delays can cause extended hanging - can attackers trigger repeated ErrNoPeers to DoS the indexing process? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_02150e55-a590-4c4f-b21c-ae2bfcd10a70?mode=deep",
+    "timestamp": "2026-01-10 08:38:07.742408",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: fetchMissingNodes() - BloomTrie] [Context cancellation propagation] Does ctx.Done() properly propagate to all goroutines, or can some goroutines continue executing after context cancellation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_aa0b122d-0303-4c88-a1ba-b7b1d45059ea?mode=deep",
+    "timestamp": "2026-01-10 08:38:36.472446",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: fetchMissingNodes() - BloomTrie] [Error handling race] If one goroutine encounters a fatal error while others continue, can res.err race conditions cause some errors to be lost or incorrect errors to be returned? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_001f885c-9352-45c0-a0e0-00d22c2d40e0?mode=deep",
+    "timestamp": "2026-01-10 08:39:02.824947",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: fetchMissingNodes() - BloomTrie] [Concurrent proof storage] Multiple goroutines call res.nodes.Store(batch) on the same batch - is this thread-safe, or can concurrent batch modifications corrupt the data? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c3e33b65-11a2-45c8-b162-88e26d5bd34d?mode=deep",
+    "timestamp": "2026-01-10 08:39:29.604892",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: fetchMissingNodes() - BloomTrie] [Channel deadlock] Can indexCh or resCh block if goroutines exit early due to errors, causing the main function to hang waiting on channel reads? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_833948e3-160c-418c-a10d-58cc54c96761?mode=deep",
+    "timestamp": "2026-01-10 08:39:58.194650",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: fetchMissingNodes() - BloomTrie] [Goroutine leak] 20 goroutines are spawned - if context is cancelled, do all goroutines properly exit, or can some remain blocked on channel operations causing goroutine leaks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d6f86217-830c-426d-8e37-a346636a0461?mode=deep",
+    "timestamp": "2026-01-10 08:40:26.297765",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: NewBloomTrieIndexer()] [Zero confirmations] The confirms parameter is set to 0 - does this allow immediate bloom trie commitment without confirmation, enabling attacks through chain reorgs? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_07cd59ee-785b-4b18-bdfa-2cb1986b8ea4?mode=deep",
+    "timestamp": "2026-01-10 08:40:53.853629",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: NewBloomTrieIndexer()] [Section heads allocation] Can make([]common.Hash, backend.bloomTrieRatio) allocate excessive memory if bloomTrieRatio is extremely large due to malicious parameters? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_05c374fc-2b95-480c-90b6-5af81c642c6a?mode=deep",
+    "timestamp": "2026-01-10 08:41:19.511504",
+    "report_generated": false
   }
 ]
