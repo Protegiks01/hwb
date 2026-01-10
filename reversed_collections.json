@@ -25186,5 +25186,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8c2f3c41-0b04-4ec1-99b7-c61c9bde0b9e?mode=deep",
     "timestamp": "2026-01-10 21:58:38.343682",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: setWeight()] [Partial Tree Update] At lines 77-81, tree restructuring involves multiple steps - if another goroutine accesses the tree between these steps, can it see partially restructured state with inconsistent maxItems, level, or sumCost values causing incorrect operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0db8ee97-03e3-4c35-b613-340e5725836c?mode=deep",
+    "timestamp": "2026-01-10 22:00:03.140517",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: wrsNode.insert()] [Split-Brain State] If one goroutine is inserting at line 128-143 while another is calling setWeight with 0 on an item in the same branch, can the tree enter a split-brain state where indices in w.idx don't match actual tree positions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fd9499bf-7cc0-4870-a646-8768df3e5b93?mode=deep",
+    "timestamp": "2026-01-10 22:00:16.043534",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: Choose()] [ABA Problem] Between lines 98-99 where choose() returns an item and line 99 where wfn() is called, another goroutine could remove and re-add the same item with different weight - can this ABA problem cause incorrect weight comparisons at line 100, leading to bias in selection? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a7f2dd67-15bb-4704-a7d0-a34a16b2ecd4?mode=deep",
+    "timestamp": "2026-01-10 22:00:29.623604",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: setWeight()] [Nested Recursion] At line 62, setWeight calls itself recursively within the same function - if multiple goroutines trigger this recursion path simultaneously with different items, can stack growth and concurrent map access combine to cause both memory exhaustion and map corruption simultaneously? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ee4c3f41-ad62-4ad9-80ec-ed1147522298?mode=deep",
+    "timestamp": "2026-01-10 22:00:43.430244",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: wrsNode.choose()] [Empty Branch] If n.weights[i] is 0, the condition at line 174 is false, and val is not decremented - if all weights are 0 except the last one, can this cause val to remain positive throughout iteration, triggering the panic at line 182? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4cc91a15-8dc5-42fd-bb6d-92cc1a89fe9f?mode=deep",
+    "timestamp": "2026-01-10 22:00:58.209074",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: Choose()] [SumCost Zero Race] At line 94, sumCost is checked for zero, but between the check and line 97, concurrent setWeight(item, 0) calls could reduce sumCost to 0 - can this cause rand.Int63n(0) to panic with 'invalid argument to Int63n'? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8fedf282-14ca-4d5a-a11e-2bf4b1c54efd?mode=deep",
+    "timestamp": "2026-01-10 22:01:14.206300",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: wrsNode.insert()] [MaxItems Boundary] At line 76, the check is 'w.root.itemCnt == w.root.maxItems' for equality - can off-by-one errors cause itemCnt to exceed maxItems in edge cases, leading to array access beyond bounds in items[branch]? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5615f919-d7cb-4cf7-bc7c-889a6861d35d?mode=deep",
+    "timestamp": "2026-01-10 22:01:31.869251",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: wrsNode.choose()] [All Weights Zero] If all weights in the node are 0, the loop at lines 173-181 would complete without returning, triggering panic at line 182 - can an attacker force all weights to 0 through concurrent modifications to crash the node during peer selection? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a2dc2b28-4659-434b-9555-467ee8f21bd4?mode=deep",
+    "timestamp": "2026-01-10 22:01:51.213559",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: wrsNode.setWeight()] [Weight Zero Edge] At line 154, when weight becomes 0, items[idx] is set to nil but weights[idx] keeps its old value until line 151 updates it - can this create a window where weights[idx] != 0 but items[idx] == nil, causing choose() to attempt nil dereference? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dff9c34b-1989-4e1d-896a-f5b20d3a26d9?mode=deep",
+    "timestamp": "2026-01-10 22:02:11.691641",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: setWeight()] [Zero to Non-Zero] At line 75, when changing weight from 0 to non-zero for an existing item in idx, the item is already in idx but marked as removed in the tree - does this case properly reconstruct the tree entry, or can it leave idx pointing to an invalid tree index? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_97da5698-15a5-4318-af3e-aa9ce5fd78e8?mode=deep",
+    "timestamp": "2026-01-10 22:02:33.436461",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: WeightFn] [Malicious Implementation] WeightFn is a user-provided function that could be malicious - can an attacker provide a WeightFn that returns intentionally incorrect weights (e.g., always 0 or MaxUint64) to manipulate peer selection, forcing clients to only connect to malicious servers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_24131439-5049-44bf-b434-5226d65e0470?mode=deep",
+    "timestamp": "2026-01-10 22:02:56.276285",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: WrsItem interface{}] [Type Safety] WrsItem is defined as interface{} at line 33, allowing any type - if incompatible types are mixed in the same WeightedRandomSelect instance, can type assertions at lines 140, 162, 176, 178 fail and panic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_903e22b0-745c-4d9a-925f-9d30eb82c757?mode=deep",
+    "timestamp": "2026-01-10 22:03:20.646602",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: Choose()] [Nil Return] At line 95, nil is returned if sumCost is 0 - if calling code doesn't check for nil before dereferencing the returned WrsItem, can this cause nil pointer panics elsewhere in the light client code? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e56e42f8-b75c-468c-9d52-e62024ed2bb4?mode=deep",
+    "timestamp": "2026-01-10 22:03:46.390307",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: Update()] [Untrusted WeightFn] At line 45, wfn(item) is called without error handling - if wfn panics, returns negative values cast to uint64, or takes excessive time to execute, can this crash the node or cause DoS during weight updates? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_711c757c-fb1a-4824-b2ae-330a446465c7?mode=deep",
+    "timestamp": "2026-01-10 22:04:12.605023",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: NewWeightedRandomSelect()] [Nil WeightFn] At line 38-39, if wfn parameter is nil, subsequent calls to wfn(item) at lines 45, 99 will panic - is there any validation to prevent nil function pointers from being passed, potentially causing crashes during peer selection? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1b01742d-efea-4e28-bf49-cdb22a957115?mode=deep",
+    "timestamp": "2026-01-10 22:04:38.373342",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: setWeight()] [No Cleanup] At line 72, items are deleted from idx map but not immediately freed from the tree (only marked with nil at line 155) - can this cause memory leaks where removed items remain in memory until tree restructuring, accumulating over time? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ce808680-9fed-4e72-8c66-c2cbc548e32a?mode=deep",
+    "timestamp": "2026-01-10 22:05:05.303525",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: wrsNode.insert()] [Allocation per Insert] At lines 137-138, a new wrsNode is allocated for each branch - can repeated insertions cause excessive memory allocation without proper garbage collection, leading to memory exhaustion and node crashes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8393c18d-654b-4232-b91a-5c14f489e3d3?mode=deep",
+    "timestamp": "2026-01-10 22:05:30.968367",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: setWeight()] [Tree Depth Growth] At lines 77-81, new tree levels are added when the root is full - can an attacker add math.MaxInt items (through repeated maxItems doubling) to create a tree of unbounded depth, exhausting memory and causing crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_55bfbcf6-1481-412d-839e-93e5a9f1c42e?mode=deep",
+    "timestamp": "2026-01-10 22:05:57.356323",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: setWeight()] [Map Growth] The idx map at line 39 has no size limits - can an attacker repeatedly add items with unique keys to grow the map indefinitely, exhausting node memory and causing OOM crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dead0d90-9c6a-4ba0-9a3b-3975a9fb71b1?mode=deep",
+    "timestamp": "2026-01-10 22:06:22.941684",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: wrsNode.choose()] [Weight Subtraction] At line 180, val -= w subtracts weights during traversal - if concurrent weight modifications occur during traversal, can val become inconsistent with actual tree weights, causing choose() to traverse wrong branches or trigger the panic at line 182? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_050cf8d5-d60f-45c8-802c-55b8158d7fe8?mode=deep",
+    "timestamp": "2026-01-10 22:06:49.479659",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: wrsNode.setWeight()] [Decremented Twice] At lines 156 and 166, itemCnt is decremented when weight becomes 0 - if called on a subtree node when the item is already removed at leaf level, can itemCnt be decremented twice for the same removal, causing negative itemCnt wrap-around and tree corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b751bacd-11dc-4641-b981-ba3d40eb0e2c?mode=deep",
+    "timestamp": "2026-01-10 22:07:17.113516",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: wrsNode.insert()] [ItemCnt Inconsistency] At line 128, itemCnt is incremented, but if insertion fails or panics later, itemCnt remains incremented - can this cause itemCnt to exceed the actual number of items, leading to incorrect tree behavior and potential array bounds violations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e072d8a2-8f7b-4ffb-bcfd-1db8fc447895?mode=deep",
+    "timestamp": "2026-01-10 22:07:42.535325",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: wrsNode.setWeight()] [Weight Consistency] At lines 148-168, weight changes propagate up the tree - if a panic or concurrent modification interrupts this propagation, can parent nodes have incorrect weights while children have correct weights, causing choose() to select wrong branches? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_50d0a964-4a31-423b-9381-61b38806f658?mode=deep",
+    "timestamp": "2026-01-10 22:08:09.137808",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: setWeight()] [Level Addition] At lines 77-81, when a new tree level is added, the existing root becomes a child - if this operation is interrupted by concurrent access, can partial tree restructuring leave the tree in an invalid state with incorrect maxItems calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8e6e6c82-dfd0-4a2a-81c4-1b4e916430a7?mode=deep",
+    "timestamp": "2026-01-10 22:08:35.312796",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/weighted_select.go] [Function: wrsNode.insert()] [Branch Imbalance] At line 122, items are inserted into the first available branch - can repeated insertions and removals cause severe tree imbalance where some branches are full while others are empty, degrading selection performance to O(n) and enabling DoS through slow peer selection? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_625c8ab9-8215-4d9a-808a-83c7639dc961?mode=deep",
+    "timestamp": "2026-01-10 22:09:02.576989",
+    "report_generated": false
   }
 ]
