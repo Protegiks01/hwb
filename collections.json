@@ -14548,5 +14548,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_16f696ae-be68-4426-9aeb-6eca60b786ce?mode=deep",
     "timestamp": "2026-01-10 17:55:55.935873",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: Wallet()] [parseURL error handling] If parseURL fails at line 197, the error is returned - but can malformed URLs cause parseURL to panic before returning error? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7fa8b15a-9a8b-457d-9dae-1f89082a57a3?mode=deep",
+    "timestamp": "2026-01-10 17:57:14.565960",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: update()] [Unsubscribe failure] If Unsubscribe() fails at line 126, the error is silently ignored - can failed unsubscription cause duplicate events or resource leaks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_499ac995-2859-477d-b65f-f010adf80287?mode=deep",
+    "timestamp": "2026-01-10 17:57:27.351764",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Function: merge()/drop()] [No error returns] merge and drop have no error returns - if URL operations panic, how are failures communicated to callers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_82311c63-b18e-4c19-a837-d17d6ac44e94?mode=deep",
+    "timestamp": "2026-01-10 17:57:41.132550",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [State invariant] [Wallet ordering] The wallets slice must remain sorted by URL for merge/drop to work - can any code path break this invariant, causing subsequent operations to fail? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fbabc1fa-0761-466b-ab21-595da0959a0d?mode=deep",
+    "timestamp": "2026-01-10 17:57:54.750597",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [State invariant] [Backend-wallet consistency] Each wallet in am.wallets should correspond to a backend in am.backends - can this invariant be violated, leaving orphaned wallets? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_11b1361c-5323-4b49-a5d3-715c0385a666?mode=deep",
+    "timestamp": "2026-01-10 17:58:09.249186",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [State invariant] [Subscription-backend consistency] Each backend in am.backends should have a subscription in am.updaters - can backends exist without subscriptions after AddBackend failure? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d40f703c-3353-46c7-9fbb-0bedfbc435a4?mode=deep",
+    "timestamp": "2026-01-10 17:58:25.052196",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [State invariant] [Duplicate wallets] The merge() function should prevent duplicate wallets, but does it actually check for equality or just use sort position? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_26da2ea9-7b72-4121-871b-f480e532b0fe?mode=deep",
+    "timestamp": "2026-01-10 17:58:42.361113",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Atomic updates] [Multi-step wallet updates] Between merge at line 140/152 and feed.Send at line 147, the state is inconsistent - can queries see partial updates? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_06f50587-21e8-4c91-af59-7337ecabbff8?mode=deep",
+    "timestamp": "2026-01-10 17:59:02.012023",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Event ordering] [WalletArrived vs WalletDropped] Can WalletDropped events be processed before corresponding WalletArrived events if backends send events out of order? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4fd9db06-a7c8-4a73-a19d-51b1ed7e5945?mode=deep",
+    "timestamp": "2026-01-10 17:59:22.879607",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [DoS] [Backend flood] A malicious backend can send unlimited WalletArrived events flooding the updates channel buffer (size 50) - can this block the backend's subscription goroutine and prevent legitimate events? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_319a84b6-bf87-4161-953d-b12834c8474f?mode=deep",
+    "timestamp": "2026-01-10 17:59:45.268213",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [DoS] [Slow subscriber] If feed.Subscribe() creates a subscriber with unbuffered channel that never receives, does feed.Send() at line 147 block forever, DoSing all wallet operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cff748d8-7ffa-4d9c-ad37-d49e132f6a69?mode=deep",
+    "timestamp": "2026-01-10 18:00:07.861584",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [DoS] [AddBackend blocking] If AddBackend is called rapidly in a loop, can the synchronous blocking at line 116 cause all caller goroutines to pile up waiting for update() loop? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a3810a97-0711-426f-ba01-3353ae929b0d?mode=deep",
+    "timestamp": "2026-01-10 18:00:32.006041",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [DoS] [Wallet search cost] Both Wallet() and Find() use linear search - can an attacker maximize search cost by placing target wallet at end of list through URL manipulation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_20026943-598d-456a-b7f3-0ce68fc0be8d?mode=deep",
+    "timestamp": "2026-01-10 18:00:56.391333",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [DoS] [Accounts() complexity] Accounts() iterates all wallets and all accounts per wallet - for n wallets with m accounts each, O(n*m) cost - can this be exploited for DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5ad5a89d-a418-4279-882f-aa627ea6737e?mode=deep",
+    "timestamp": "2026-01-10 18:01:21.811045",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [DoS] [Subscribe resource exhaustion] Unlimited subscriptions via Subscribe() at line 241 - can an attacker create thousands of subscriptions exhausting memory? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_317442a6-1b00-4ac2-b439-4aef189ab66f?mode=deep",
+    "timestamp": "2026-01-10 18:01:47.276077",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Type safety] [reflect.TypeOf backend] At line 91 and 154, reflect.TypeOf is used for backend deduplication - can two different backend types that embed the same struct have identical reflect.Type, causing type confusion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_11a0ea85-3854-4001-aee4-9c5eaa36f5e3?mode=deep",
+    "timestamp": "2026-01-10 18:02:13.967964",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Type safety] [Backend interface nil] If a nil interface (not nil pointer) is passed as Backend, will reflect.TypeOf handle this correctly or panic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6f1557ce-5b9c-4db8-ab4e-45f6392e41b6?mode=deep",
+    "timestamp": "2026-01-10 18:02:40.934971",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Type safety] [Wallet interface nil] If backends return nil wallets in their Wallets() slice, can this cause nil pointer panics in merge/drop URL comparisons? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ab73793f-67ba-49d7-9788-2d8cb484cb9b?mode=deep",
+    "timestamp": "2026-01-10 18:03:08.328402",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Integration] [Backend.Subscribe() behavior] The code assumes Backend.Subscribe() never blocks and returns immediately - if a backend's Subscribe() blocks, can this hang NewManager() or AddBackend()? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6f5ccb7f-1a80-49d4-a508-164433906537?mode=deep",
+    "timestamp": "2026-01-10 18:03:36.797283",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Integration] [Backend.Wallets() consistency] If Backend.Wallets() returns different wallets on each call without sending events, can this create state inconsistency between Manager and backend? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c73cb4f6-da4f-477f-9e20-2991771acc1c?mode=deep",
+    "timestamp": "2026-01-10 18:04:06.673358",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Integration] [WalletEvent.Wallet nil] No validation that event.Wallet is non-nil at line 135 - can backends send events with nil Wallet causing panics in merge/drop? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8d87bb7d-3c2b-48f6-853c-be6687c8b488?mode=deep",
+    "timestamp": "2026-01-10 18:04:33.216362",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Integration] [WalletEvent.Kind invalid] If event.Kind is not WalletArrived or WalletDropped, the switch at line 138 does nothing - can invalid kinds cause silent event loss? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b1e5d521-b7c2-44c2-be56-7e0f15d940cb?mode=deep",
+    "timestamp": "2026-01-10 18:05:00.427112",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Integration] [event.Feed behavior] The code assumes feed.Send() eventually completes - if event.Feed implementation has bugs, can this deadlock the update loop? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5ede2194-d461-4459-a1e8-5d15f32e1a63?mode=deep",
+    "timestamp": "2026-01-10 18:05:27.646801",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Integration] [URL.Cmp() consistency] merge and drop rely on URL.Cmp() being consistent and transitive - if URL implementations violate this, can wallet ordering become corrupted? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d20e7437-db9a-468b-b429-1864165a0317?mode=deep",
+    "timestamp": "2026-01-10 18:05:54.486654",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Security] [Account enumeration] Accounts() at line 210 returns all addresses without access control - can this leak information about validator accounts or user wallets that should be private? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_309a4f01-0fc1-4875-8fd3-d725e835874c?mode=deep",
+    "timestamp": "2026-01-10 18:06:22.093666",
+    "report_generated": false
   }
 ]
