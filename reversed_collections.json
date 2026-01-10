@@ -11848,5 +11848,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c746e3ff-16ca-4c50-98c0-2e99070e9f7e?mode=deep",
     "timestamp": "2026-01-10 04:12:35.437152",
     "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: formatLogfmtValue()] [Type handling] The switch at line 336 handles *big.Int and *uint256.Int specially, but what about other pointer types - can nil pointers of other types bypass checks and cause panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_28d60e87-758e-4832-a685-124d4a73a9ce?mode=deep",
+    "timestamp": "2026-01-10 04:13:52.175275",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: formatLogfmtValue()] [Nil handling] Line 332 checks if value == nil but doesn't handle all nil types (e.g., nil interface with non-nil type) - can this cause inconsistent nil handling leading to panics? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_03ce54b8-7f5b-4bae-8117-248832323554?mode=deep",
+    "timestamp": "2026-01-10 04:14:05.234948",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: JSONFormatEx()] [Type confusion] Lines 271-274 perform type assertion without proper error handling - can malformed log records with non-string keys cause panic during critical state transition logging? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_036a0e9e-217a-4184-8eba-3e7855f2b6ba?mode=deep",
+    "timestamp": "2026-01-10 04:14:18.374541",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: JSONFormatOrderedEx()] [Type confusion] Lines 229-232 assume r.Ctx[i] is a string key without validation - can non-string keys cause JSON marshaling errors that crash nodes during error logging? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_807d740a-26f9-45f6-bd18-f9f6708e5b26?mode=deep",
+    "timestamp": "2026-01-10 04:14:32.094215",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: logfmt()] [Type confusion] Line 169 casts ctx[i] to string with type assertion - if the cast fails, it uses errorKey but still processes the value - can type confusion between keys and values cause log corruption that hides validator misbehavior? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6e2a19af-3fb7-4c4b-9eff-f116511a5d44?mode=deep",
+    "timestamp": "2026-01-10 04:14:47.029482",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: JSONFormatOrderedEx()] [Format string] Line 231 uses fmt.Sprintf with r.Ctx[i] - can malicious log contexts with format specifiers cause crashes during JSON formatting of critical consensus events? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ff29476b-69c8-4d24-889f-5576585ef739?mode=deep",
+    "timestamp": "2026-01-10 04:15:03.015573",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: logfmt()] [Format string] Line 191 uses fmt.Fprintf with user-controlled key k - can format string injection in log keys cause unexpected behavior or crashes during validator logging? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_57258e4c-1639-4205-a001-b66106e86ac3?mode=deep",
+    "timestamp": "2026-01-10 04:15:20.693902",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: TerminalFormat()] [Format string] Lines 128, 130, 134, 136 use fmt.Fprintf with user-controlled msg - can attackers inject format string specifiers in log messages to cause crashes or information disclosure? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_51d41d7d-5fd8-4d0a-8099-0b4db7093835?mode=deep",
+    "timestamp": "2026-01-10 04:15:39.498230",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: formatLogfmtValue()] [Precision loss] Lines 370-372 format float64 with only 3 decimal places - can this precision loss cause important financial values to be truncated in logs, making fraud detection impossible? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4b968b31-9aaa-40cd-a867-8961e2bd525c?mode=deep",
+    "timestamp": "2026-01-10 04:15:59.456542",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: formatShared()] [Information leak] Line 313 calls v.String() on fmt.Stringer types - can malicious types implement String() to leak sensitive blockchain state information through logs? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f75f7d8d-a8d8-40a6-b150-130fd882d01a?mode=deep",
+    "timestamp": "2026-01-10 04:16:20.789406",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: JSONFormatEx()] [Information leak] Line 275 calls formatJSONValue which may serialize internal object state - can this expose sensitive validator configuration or consensus state in JSON logs? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dc089e8f-8f06-4cd5-b71c-4c16bc448956?mode=deep",
+    "timestamp": "2026-01-10 04:16:42.860677",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: TerminalFormat()] [Information leak] Line 114 logs r.Call which includes file paths - does this leak internal directory structure and code organization that could aid attackers in identifying vulnerable code paths? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a9e25888-a7f0-4e38-bc68-1206dd0eac1b?mode=deep",
+    "timestamp": "2026-01-10 04:17:06.896996",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: formatLogfmtValue()] [Information leak] Error messages and fmt.Stringer outputs are logged directly - can malicious contracts or transactions embed sensitive information (private keys, internal state) in error messages that get logged and exposed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_62d8ef24-9866-4629-85bf-72f1869dc15c?mode=deep",
+    "timestamp": "2026-01-10 04:17:32.320939",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: logfmt()] [CPU exhaustion] The utf8.RuneCountInString(v) call at line 182 has O(n) complexity - can logging of extremely long string values cause CPU exhaustion, slowing down critical consensus operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_162a2e9b-a088-49ec-a828-bd7d4b0c0f56?mode=deep",
+    "timestamp": "2026-01-10 04:17:58.998970",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: escapeString()] [Quadratic complexity] strconv.Quote() at line 526 can have quadratic behavior for strings with many escape characters - can attackers trigger logging of malicious strings that cause CPU exhaustion, delaying block propagation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0b6b8cde-bc5e-4045-b489-d8bf0bd3e884?mode=deep",
+    "timestamp": "2026-01-10 04:18:26.136119",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: TerminalFormat()] [Memory allocation] Each call allocates a new bytes.Buffer - can flooding the node with operations that trigger terminal logging cause excessive allocations and garbage collection pressure, degrading performance during consensus? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1ad105f7-590e-48bb-a378-8f7d1cccf618?mode=deep",
+    "timestamp": "2026-01-10 04:18:53.953173",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: formatLogfmtUint256()] [Memory allocation] Line 489 allocates large buffers for uint256 formatting - can malicious contracts trigger logging of massive uint256 values repeatedly, causing memory exhaustion DoS during EVM execution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a0331158-3cd6-4da5-bc6c-a031b39103ed?mode=deep",
+    "timestamp": "2026-01-10 04:19:19.990145",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: formatLogfmtBigInt()] [Memory allocation] Line 459 allocates len(text)+len(text)/3 bytes - can an attacker log extremely large big.Int values (e.g., 2^256-1) causing excessive memory allocation that exhausts node memory during transaction logging? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2853b07e-52f1-40ad-8080-4ef2a2a1b7b5?mode=deep",
+    "timestamp": "2026-01-10 04:19:44.326611",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: logfmt()] [Memory exhaustion] The fieldPadding map grows unboundedly without any cleanup mechanism - can an attacker send log messages with millions of unique keys, causing unbounded map growth and memory exhaustion that crashes validator nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_19eeb69b-afa1-4519-ac2b-5645b19b1b46?mode=deep",
+    "timestamp": "2026-01-10 04:20:07.236641",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: TerminalFormat()] [Integer overflow] Line 119 loads locationLength as uint32, but len(location) returns int - can extremely long file paths cause integer overflow when comparing or storing locationLength? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dbf4d4e4-6428-4e2d-99a7-434dd7d730b5?mode=deep",
+    "timestamp": "2026-01-10 04:20:32.418546",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: formatLogfmtUint256()] [Buffer overflow] Similar to formatLogfmtBigInt, line 489 allocates buffer based on text length - can uint256 values with specific patterns cause buffer overflow when adding commas, corrupting memory? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_22b705d0-be2f-4b07-adaa-e713e68181b0?mode=deep",
+    "timestamp": "2026-01-10 04:20:57.500827",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: formatLogfmtBigInt()] [Array access] The loop at line 463 accesses buf[i] after decrementing i (line 471) - can this cause out-of-bounds access for certain big.Int values, crashing nodes during balance logging? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ac35f28c-8dec-429f-bc05-9921f53b3bd5?mode=deep",
+    "timestamp": "2026-01-10 04:21:23.001824",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: formatLogfmtBigInt()] [Buffer overflow] Line 459 allocates buf with len(text)+len(text)/3, but doesn't verify this is sufficient for all big.Int values - can extremely large big.Int values cause buffer overruns when formatting, leading to memory corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_124adfd6-eb3d-4360-96ad-d4e5f109aeeb?mode=deep",
+    "timestamp": "2026-01-10 04:21:47.970712",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: formatLogfmtUint64()] [Integer underflow] The loop at line 431-439 uses i-- without checking lower bounds - can crafted large numbers cause i to underflow below 0 when accessing out[i], causing a panic that crashes nodes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8ced83f4-84b0-4f37-af4d-7d989f5d2de6?mode=deep",
+    "timestamp": "2026-01-10 04:22:15.474997",
+    "report_generated": false
+  },
+  {
+    "question": "[File: log/format.go] [Function: formatLogfmtUint64()] [Integer overflow] When n < 100000, the code casts uint64 to int (lines 418, 420) - can passing values > MaxInt cause integer overflow leading to negative values in logs, potentially hiding critical balance information during minting operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3efae8f5-42a4-4f13-8bf3-8ba6acbd7d0b?mode=deep",
+    "timestamp": "2026-01-10 04:22:41.011964",
+    "report_generated": false
   }
 ]
