@@ -17686,5 +17686,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8b11c49e-193b-407c-b549-adf33ab15e96?mode=deep",
     "timestamp": "2026-01-10 13:03:05.813507",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: finalizeChanges()] [Update Slice Growth] At line 467, updates slice is appended for each capacity change. Can a large number of nodes changing capacity cause excessive memory allocation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_64b200a7-3290-4fb7-99ff-72e48d25f87d?mode=deep",
+    "timestamp": "2026-01-10 13:04:25.875306",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: setTempState()] [TempState Slice Growth] At line 358, tempState slice grows unbounded during an operation. If many nodes are in temp state simultaneously, can this cause memory exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6e2389f5-c887-4ec3-9e5a-3e77931f58b1?mode=deep",
+    "timestamp": "2026-01-10 13:04:38.864678",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: connectNode()] [Unbounded Node Addition] At line 313, nodes are added to inactiveQueue without limit. Can an attacker add unlimited nodes to exhaust memory or cause queue operation performance degradation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_18f98244-5cce-442e-b204-dc881f07a4c8?mode=deep",
+    "timestamp": "2026-01-10 13:04:52.106165",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: newPriorityPool()] [Queue Memory] The activeQueue and inactiveQueue at lines 107 and 116 can grow unbounded based on connected nodes. Can an attacker connect many nodes to exhaust memory? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a9384db3-3c46-456c-85d6-4d99562fe1d3?mode=deep",
+    "timestamp": "2026-01-10 13:05:07.054179",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: getCapacityCurve()] [Memory Exhaustion] The curve.points slice at line 616 is appended in a loop. If activeCap is very large and nodes have minCap=1, can this create millions of curve points exhausting memory? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f56191dd-29a5-4dbb-90bd-9eb384578188?mode=deep",
+    "timestamp": "2026-01-10 13:05:22.039291",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: getCapacityCurve()] [Map Growth] At line 615, curve.index map is appended without bounds checking. Can a malicious node cause unbounded map growth exhausting memory? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ebc34405-5638-4324-af23-19721dea275a?mode=deep",
+    "timestamp": "2026-01-10 13:05:39.060876",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: getCapacityCurve()] [ExcludeFirst Logic] At lines 606-612, excludeFirst is set if maxCount == activeCount, then the first removed node is marked for exclusion. Can this incorrectly exclude nodes when counts match for other reasons? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e79c6c79-92ee-44e1-bb74-086559f253ef?mode=deep",
+    "timestamp": "2026-01-10 13:05:56.806868",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: getPoint()] [Index Validation] At line 653, ei is used to index cc.points at lines 656. Is ei guaranteed to be a valid index, or can malformed excludeList cause out-of-bounds access? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ea21c241-14b2-4570-ba3e-22cb9bbf5c58?mode=deep",
+    "timestamp": "2026-01-10 13:06:16.639079",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: getPoint()] [Loop Bounds] At line 651, the loop iterates from len(excludeList)-1 down to 0. Can an empty excludeList or out-of-bounds indices cause incorrect calculations or panics? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fc8eed3a-c3b4-42bc-844e-6da86b3d8b85?mode=deep",
+    "timestamp": "2026-01-10 13:06:37.824301",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: exclude()] [Immutability Violation] At line 636-641, a new capacityCurve is returned sharing the points and index maps with the original. Can modifications to the returned curve affect the original cached curve? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c50ff0c2-5c17-4eed-be7d-b85644e1a28c?mode=deep",
+    "timestamp": "2026-01-10 13:06:59.844431",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: getCapacityCurve()] [Infinite Loop] At line 580, the loop continues while activeCap > 0. If enforceLimits() fails to reduce activeCap due to a bug, can this cause an infinite loop hanging the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7a6a9400-edb1-4fe7-b789-558f4e572857?mode=deep",
+    "timestamp": "2026-01-10 13:07:23.552216",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: getCapacityCurve()] [Monotonicity Enforcement] At lines 594-598, nextPri is forced to be monotonic by checking against lastPri. Can this enforcement mask priority calculation bugs that should be fixed instead? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f698723c-5a96-4b8a-8eb2-fc0656f4f6e9?mode=deep",
+    "timestamp": "2026-01-10 13:07:48.721660",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: getCapacityCurve()] [Capacity Overflow Check] At line 582-584, an error is logged if activeCap > maxCap. Can this condition occur legitimately, and if so, does logging alone handle it properly, or should execution halt? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8dec26a9-f3c5-4ebb-8cb2-a27bdf8a7d0f?mode=deep",
+    "timestamp": "2026-01-10 13:08:15.123530",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: getCapacityCurve()] [State Restoration] At line 619, finalizeChanges(false) is called to restore queue state after curve calculation. If this fails or is incomplete, can the pool be left in a modified state affecting actual capacity? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c02b24aa-c0de-451c-87d9-96413e923459?mode=deep",
+    "timestamp": "2026-01-10 13:08:41.788310",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: getCapacityCurve()] [Stale Curve Cache] At line 564, a cached curve is returned if it's less than 10 seconds old and not forced update. Can this stale curve provide incorrect capacity estimates allowing over-allocation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_aba973ea-5658-4b6e-9bc0-90c39117153e?mode=deep",
+    "timestamp": "2026-01-10 13:09:10.486435",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: SubscribeState Callback] [Recursive Lock] At line 147-151, updatePriority is called which acquires the lock. If this callback is triggered from within a locked section, can it cause recursive lock acquisition? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bb5b30aa-17ee-4e05-9b41-1172a3d02732?mode=deep",
+    "timestamp": "2026-01-10 13:09:37.960626",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: SubscribeState Callback] [Lock Acquisition in Callback] At line 137-145, callbacks are registered that call connectNode/disconnectNode. Can these callbacks be invoked while another operation holds the lock, causing deadlock attempts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b1f87923-1389-4500-a3df-e3e3da8d54e1?mode=deep",
+    "timestamp": "2026-01-10 13:10:04.452434",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: updateFlags()] [Lock-Free Execution] updateFlags at line 487-498 must run inside a NodeStateMachine operation without the pool lock. If called incorrectly with the lock held, can this cause subtle state machine issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8518b951-f6f3-48ee-96af-9bd9e2ed5cee?mode=deep",
+    "timestamp": "2026-01-10 13:10:32.705692",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: disconnectNode()] [Lock Release Missing] Similarly at line 323-338, if a panic occurs, can the lock remain held causing deadlock? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ced3c909-29d1-49ad-a16b-2f716af5d0dd?mode=deep",
+    "timestamp": "2026-01-10 13:10:59.915204",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: connectNode()] [Lock Release Missing] If a panic occurs between lock acquisition at line 306 and release at line 315, is the lock properly released via defer, or can this cause permanent deadlock? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fcdf4c7e-036e-4d94-8541-06451a07c850?mode=deep",
+    "timestamp": "2026-01-10 13:11:27.079367",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: Active()] [Lock Contention] Simple getter at line 228-232 acquires lock just to read two uint64 values. Can frequent calls create lock contention affecting performance during high load? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2371007e-c0ef-458c-aeeb-96b950e0182b?mode=deep",
+    "timestamp": "2026-01-10 13:11:54.970808",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: getCapacityCurve()] [Long Lock Hold] At lines 559-627, the lock is held for the entire curve calculation which includes loops and potentially expensive operations. Can an attacker cause this to take excessive time, locking out other operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_599745fc-0c98-4470-ad23-86de8cb53591?mode=deep",
+    "timestamp": "2026-01-10 13:12:23.159834",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: setActiveBias()] [Nested Operation] Similar to SetLimits, at line 224, ns.Operation() with updateFlags can create nested calls. Can updateFlags trigger SubscribeState callbacks that call back into priorityPool with the lock held? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ca5f7437-d93f-4948-a384-e9746cea60b9?mode=deep",
+    "timestamp": "2026-01-10 13:12:51.114474",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: SetLimits()] [Nested Operation] At line 212, ns.Operation() is called while the lock is already released. Can this Operation callback try to acquire the lock again if it calls back into priorityPool methods, causing deadlock? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ee4c6022-1016-469a-af32-006575f0baae?mode=deep",
+    "timestamp": "2026-01-10 13:13:19.569520",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/prioritypool.go] [Function: requestCapacity()] [Lock Duration] The lock is held from line 161 to 190, during which enforceLimits() and finalizeChanges() execute. Can long execution times cause other operations to block excessively, creating DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d61a6231-1ce4-4288-b037-1cec36a1fff0?mode=deep",
+    "timestamp": "2026-01-10 13:13:47.123725",
+    "report_generated": false
   }
 ]
