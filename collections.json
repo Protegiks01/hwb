@@ -6598,5 +6598,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5d9fa764-1034-4f27-ba3b-30bfcc9513dd?mode=deep",
     "timestamp": "2026-01-10 07:24:07.873754",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: assembleArgs()] [Slice Modification] Line 136 modifies subArgs slice by reslicing subArgs[:len(subArgs)-1] - can this cause issues if the slice is referenced elsewhere or used concurrently? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1faf8bbf-3809-4780-8b5f-a53ce97114ad?mode=deep",
+    "timestamp": "2026-01-10 07:25:19.777754",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: assembleArgs()] [Special Type Handling] Lines 135-137 handle special",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7141c1ef-1426-44a3-b71a-e952697fe345?mode=deep",
+    "timestamp": "2026-01-10 07:25:32.474064",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: assembleArgs()] [Indexed Parameter] Line 128 creates ArgumentMarshaling with hardcoded false for Indexed field - is this correct for all contexts, or can this cause issues with event ABI parsing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2efdc344-fcd4-403e-9826-9dbd809f4ae2?mode=deep",
+    "timestamp": "2026-01-10 07:25:45.410667",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: assembleArgs()] [Memory Growth] The arguments slice grows with each append at lines 128, 139 - can extremely large tuple lists cause memory exhaustion through unbounded allocation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e8bca9e6-bd6c-4533-8a27-e1d4654fdcaa?mode=deep",
+    "timestamp": "2026-01-10 07:25:59.064510",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: assembleArgs()] [Dummy Names] Line 126 generates dummy names",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f523e915-b699-448e-a3dc-7726bade0680?mode=deep",
+    "timestamp": "2026-01-10 07:26:14.763497",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: assembleArgs()] [Error Context] Line 132 wraps error with",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9be1e344-41cf-464a-8d57-71e9882eb437?mode=deep",
+    "timestamp": "2026-01-10 07:26:30.334498",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: isDigit()] [Byte Range] The check c >= '0' && c <= '9' at line 30 only validates ASCII digits - can non-ASCII numeric characters bypass validation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_aa584e13-ee5f-431f-9af2-5858d198cb49?mode=deep",
+    "timestamp": "2026-01-10 07:26:47.482929",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: isAlpha()] [Case Sensitivity] The function accepts both upper and lowercase at line 34 - is this intentional for ABI selectors, and can mixed-case function names cause selector hash collisions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1186aa5f-19ae-4d31-bafe-1dcbec87a4a2?mode=deep",
+    "timestamp": "2026-01-10 07:27:06.336648",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Function: isIdentifierSymbol()] [Limited Symbol Set] Only '$' and '_' are allowed at line 38 - are there other symbols that should be supported for Solidity compatibility, or that could be exploited if allowed? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_088ba9b6-a90a-463f-ba5d-567c0145bf16?mode=deep",
+    "timestamp": "2026-01-10 07:27:26.043743",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Cross-Function: parseElementaryType + parseCompositeType] [Nested Array Tuples] Can an attacker combine nested tuples with multi-dimensional arrays (e.g., '((uint256[][]))[][][]') to create exponential complexity in parsing, causing CPU exhaustion DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a9d5efc4-cbe5-4ad2-9474-1eb29d6c9f3e?mode=deep",
+    "timestamp": "2026-01-10 07:27:46.492991",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Cross-Function: parseToken + parseType] [Mutual Recursion] The call chain parseToken -> parseElementaryType -> parseCompositeType -> parseType creates complex recursion - is stack depth bounded, or can this cause overflow? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_23f1babd-accf-4a9b-b208-761a10cad860?mode=deep",
+    "timestamp": "2026-01-10 07:28:08.382604",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Cross-Function: ParseSelector + assembleArgs] [Type Consistency] Can inconsistencies between parsed types from parseCompositeType and assembled arguments in assembleArgs cause JSON marshaling errors or ABI encoding failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_056dfe95-11b2-42be-8150-2b6caef96326?mode=deep",
+    "timestamp": "2026-01-10 07:28:32.362944",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Cross-Function: All parsing functions] [Error Recovery] If parsing fails midway through a complex selector, are all intermediate allocations properly cleaned up, or can repeated failures cause memory leaks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_887f9f1a-547c-47e1-87e5-270ee7e4b772?mode=deep",
+    "timestamp": "2026-01-10 07:28:55.367600",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Cross-Function: parseCompositeType + assembleArgs] [Tuple Array Handling] The special handling of tuple[] at lines 105-106 and 135-137 occurs in two places - can inconsistencies between these implementations cause type mismatches? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_da27745c-f077-4bab-8f74-34f2463287e2?mode=deep",
+    "timestamp": "2026-01-10 07:29:19.710530",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Concurrency: ParseSelector()] [Thread Safety] Are all functions in this file thread-safe for concurrent calls from multiple goroutines, or can shared state corruption occur during parallel selector parsing on validator nodes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_65bdb6f6-053d-48d3-86cb-562e630fd893?mode=deep",
+    "timestamp": "2026-01-10 07:29:45.142641",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Concurrency: String Slicing] [Data Races] All functions perform extensive string slicing operations - can concurrent parsing of the same selector string cause data races or undefined behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8af19a7b-23b5-48ef-8ae8-bdb03406bccc?mode=deep",
+    "timestamp": "2026-01-10 07:30:09.132263",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Concurrency: Error Handling] [Panic Recovery] If a parsing function panics (due to out-of-bounds access or nil pointer), is there proper panic recovery to prevent cascading node crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9814e7b4-d8ef-4a43-b5d1-b582b8ba1669?mode=deep",
+    "timestamp": "2026-01-10 07:30:34.042247",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Integration: ABI System] [Downstream Impact] If ParseSelector returns malformed SelectorMarshaling structure, can this cause crashes or vulnerabilities in ABI encoding/decoding functions that consume this output? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_075dd225-5db8-4eec-af22-6e22d1ae741d?mode=deep",
+    "timestamp": "2026-01-10 07:30:58.303195",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Integration: Transaction Processing] [Validation Bypass] Can attackers craft transaction data with selectors that parse successfully but cause failures in later EVM execution, potentially bypassing gas estimation or security checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8da61842-3769-4485-9677-b22961183416?mode=deep",
+    "timestamp": "2026-01-10 07:31:23.583785",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Integration: Contract Calls] [Function Routing] Can malformed but parseable selectors cause contract calls to be routed to incorrect functions, potentially enabling unauthorized access or unexpected behavior? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5c9b8d34-562b-4e2a-b8b1-9775dd2da992?mode=deep",
+    "timestamp": "2026-01-10 07:31:47.032515",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Integration: JSON Marshaling] [Serialization Issues] The SelectorMarshaling struct at lines 23-27 is JSON-tagged - can edge cases in parsed types cause JSON marshaling to fail or produce invalid output? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9605a9cd-c83b-42a7-a202-d2712ddd5edc?mode=deep",
+    "timestamp": "2026-01-10 07:32:09.468967",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Edge Case: Maximum Length] [Input Limits] Is there a maximum selector length enforced? Can attackers provide gigabyte-sized selectors causing memory exhaustion before validation occurs? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_879d810e-4d65-4a63-895c-994dc3666170?mode=deep",
+    "timestamp": "2026-01-10 07:32:32.824024",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Edge Case: Minimum Length] [Empty Components] Can completely empty function signatures like '()' or single-character names like 'f()' cause unexpected behavior or bypass validation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_59649047-2df4-47b2-97ab-76cbcf1ae03a?mode=deep",
+    "timestamp": "2026-01-10 07:32:55.809877",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Edge Case: Whitespace] [Trimming] Are leading/trailing whitespaces properly handled, or can ' transfer(address,uint256) ' with spaces parse differently than expected? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4e9eee7d-08ea-4166-81b7-7239e037bb70?mode=deep",
+    "timestamp": "2026-01-10 07:33:21.958615",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/selector_parser.go] [Edge Case: Special Characters] [Escape Sequences] The parameter name 'unescapedSelector' suggests escaping concerns - are there escape sequences or special characters that should be handled but aren't? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e95ae8d5-2540-48ae-8ec5-7103bc469210?mode=deep",
+    "timestamp": "2026-01-10 07:33:45.111248",
+    "report_generated": false
   }
 ]
