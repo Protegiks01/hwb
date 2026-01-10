@@ -7348,5 +7348,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f7a73f17-7c07-4a44-9c1e-c4315dd9bbad?mode=deep",
     "timestamp": "2026-01-10 08:13:11.189648",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: readBool()] [Boolean Bypass] At lines 113-120, can an attacker provide a byte value between 2-255 that triggers errBadBool but gets handled differently by different validator nodes due to error handling inconsistencies, causing chain splits during contract call validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a92fb9f3-5bdb-4803-a94d-1d1b2021c406?mode=deep",
+    "timestamp": "2026-01-10 08:14:19.554466",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: readBool()] [Array Bounds] Can an attacker provide a byte slice shorter than 32 bytes, causing the array access word[:31] and word[31] at lines 108-113 to panic or access out-of-bounds memory, leading to validator node crashes and network DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9ff4e04e-c064-4ffe-846d-64959509d620?mode=deep",
+    "timestamp": "2026-01-10 08:14:32.391709",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: readBool()] [Timing Attack] Can an attacker exploit timing differences between the early return at line 110 (non-zero detection) versus the switch statement at lines 113-120 to infer validator states or leak information about pending transactions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_184f16c5-e760-4c8f-af4c-1d11c4aa7b7e?mode=deep",
+    "timestamp": "2026-01-10 08:14:45.774811",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: readFunctionType()] [Type Mismatch] At line 127, can an attacker provide a Type where T != FunctionTy but still pass through to line 130, exploiting potential race conditions in type checking to inject malicious function selectors that redirect mint contract calls to attacker-controlled addresses? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4a0a5711-5751-414a-bb76-0f07ce78d012?mode=deep",
+    "timestamp": "2026-01-10 08:14:59.491875",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: readFunctionType()] [Garbage Data] Can an attacker craft the last 8 bytes (word[24:32]) at line 130 to contain non-zero 'garbage' values that are accepted by some nodes but rejected by others, causing consensus divergence when validators process mint contract function calls differently? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7848025e-3dc9-4de0-bece-3d0128d3bcca?mode=deep",
+    "timestamp": "2026-01-10 08:15:14.288911",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: readFunctionType()] [Function Selector Manipulation] Can an attacker manipulate the 24-byte function type at line 133 to redirect contract calls intended for the mint contract to a malicious contract, bypassing mint limits and enabling unauthorized token creation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3fa153df-9dd0-4c6d-a2b2-7c2b11019b9b?mode=deep",
+    "timestamp": "2026-01-10 08:15:30.558461",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: readFunctionType()] [Address Collision] Can an attacker find collisions in the 20-byte address portion of the function type to impersonate the mint contract address, causing validators to accept fake minting operations that inflate token supply beyond limits? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e457f2ec-3d44-47e2-b675-81d6d5849550?mode=deep",
+    "timestamp": "2026-01-10 08:15:48.412644",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: readFunctionType()] [Array Bounds] Can an attacker provide a word slice shorter than 32 bytes, causing the slice operations word[24:32] and word[0:24] at lines 130-133 to panic, crashing validator nodes during transaction processing and causing network-wide DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a368f432-0472-4034-848e-28672efe9d82?mode=deep",
+    "timestamp": "2026-01-10 08:16:09.917915",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: ReadFixedBytes()] [Type Confusion] At line 140, can an attacker bypass the T != FixedBytesTy check through race conditions or type manipulation, causing the function to process non-fixed-byte types and corrupt memory during reflection operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_15f1f08f-f9a3-4004-ae05-745fedd7570d?mode=deep",
+    "timestamp": "2026-01-10 08:16:30.876106",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: ReadFixedBytes()] [Reflection Panic] Can an attacker provide a Type with an invalid Size value that causes reflect.New(t.GetType()).Elem() at line 144 to panic when allocating arrays, crashing validator nodes during contract call processing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_82af9a23-44fd-4cf6-91fb-c03ef097d7e9?mode=deep",
+    "timestamp": "2026-01-10 08:16:52.251296",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: ReadFixedBytes()] [Memory Exhaustion] Can an attacker craft Type.Size to be extremely large, causing reflect.Copy at line 146 to allocate excessive memory, exhausting validator node resources and causing network-wide DoS affecting block production? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bb84d724-7dba-4171-a090-1ba1ce97d46b?mode=deep",
+    "timestamp": "2026-01-10 08:17:14.977820",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: ReadFixedBytes()] [Out of Bounds Copy] Can an attacker provide a word slice shorter than t.Size, causing the slice word[0:t.Size] at line 146 to panic or copy uninitialized memory, leading to non-deterministic behavior across validators and consensus failure? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f32c8563-c081-42d1-adb8-a21e2e8661a1?mode=deep",
+    "timestamp": "2026-01-10 08:17:39.350622",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: ReadFixedBytes()] [Reflection Attack] Can an attacker exploit the reflection operations at lines 144-146 to cause type confusion where the returned interface contains incorrect data, corrupting state when used in mint contract validation or validator voting? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9fcca74d-f8cf-4433-8a87-c925daa5473d?mode=deep",
+    "timestamp": "2026-01-10 08:18:04.186562",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: forEachUnpack()] [Negative Size] At line 152, can an attacker provide a negative size value that bypasses the check, causing subsequent calculations at line 155 (start+32*size) to underflow and access arbitrary memory regions, corrupting validator state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_77878e30-2065-47ee-af09-cc552d6f0416?mode=deep",
+    "timestamp": "2026-01-10 08:18:30.523564",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: forEachUnpack()] [Integer Overflow] Can an attacker craft size and start values such that start+32*size overflows at line 155, bypassing the bounds check and allowing out-of-bounds reads that leak sensitive validator private keys or mint contract secrets? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6778d6ec-1e9a-44ca-a909-aa3cf7351355?mode=deep",
+    "timestamp": "2026-01-10 08:18:54.871296",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: forEachUnpack()] [Memory Exhaustion] Can an attacker provide an extremely large size value that passes the bounds check at line 155 but causes reflect.MakeSlice at line 164 to allocate gigabytes of memory, exhausting validator node RAM and causing network DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b69e2d32-7aff-4db4-9c4c-b2fd3fb5ad34?mode=deep",
+    "timestamp": "2026-01-10 08:19:18.725984",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: forEachUnpack()] [Type Confusion] Can an attacker provide a Type where T is neither SliceTy nor ArrayTy but still reaches line 174, exploiting race conditions to create uninitialized refSlice that corrupts transaction data when used in mint operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_85c7221e-be5a-4e25-a98d-5202529faf6d?mode=deep",
+    "timestamp": "2026-01-10 08:19:42.495963",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: forEachUnpack()] [Element Size Overflow] Can an attacker manipulate t.Elem at line 174 to cause getTypeSize(*t.Elem) to return an invalid elemSize, leading to incorrect iteration at line 176 that processes wrong data regions and corrupts mint amounts? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d460aeb5-feed-4c34-8c51-4814cd1ffc21?mode=deep",
+    "timestamp": "2026-01-10 08:20:05.232405",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: forEachUnpack()] [Recursive DoS] Can an attacker craft nested arrays where toGoType at line 177 recursively calls forEachUnpack with increasing depths, causing stack overflow that crashes validator nodes during block validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bbbf5085-a1a0-4c11-9861-190b70c3d154?mode=deep",
+    "timestamp": "2026-01-10 08:20:29.777630",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: forEachUnpack()] [Index Overflow] In the loop at line 176, can an attacker craft elemSize and size such that i+elemSize overflows during iteration, causing toGoType to read from incorrect offsets and produce corrupted mint transaction data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bc125ddb-69ca-4587-931f-0d0384c627c8?mode=deep",
+    "timestamp": "2026-01-10 08:20:53.777632",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: forEachUnpack()] [Reflection Set Panic] Can an attacker cause refSlice.Index(j).Set at line 183 to panic by providing malformed data that makes inter incompatible with the slice element type, crashing validators during transaction processing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_13037343-4a24-4d93-b24e-d1bd2c2028d7?mode=deep",
+    "timestamp": "2026-01-10 08:21:20.051650",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: forEachUnpack()] [Array Type Mismatch] At line 167, can an attacker exploit differences in how reflect.New creates arrays versus the actual ABI type expectations, causing type confusion that corrupts validator vote counts or mint limits? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7ebc3428-6f13-4d1f-90ca-0efea886b061?mode=deep",
+    "timestamp": "2026-01-10 08:21:46.302972",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: forTupleUnpack()] [Virtual Args Overflow] Can an attacker craft nested static arrays at lines 198-209 where the virtualArgs calculation overflows, causing incorrect index computation at line 194 that reads wrong data and corrupts mint contract parameters? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_08849d50-45a5-47aa-91c4-e3c2e7c16548?mode=deep",
+    "timestamp": "2026-01-10 08:22:12.240373",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: forTupleUnpack()] [Index Manipulation] At line 194, can an attacker manipulate the (index+virtualArgs)*32 calculation to access arbitrary output offsets, bypassing intended tuple structure and extracting sensitive data from validator memory? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_642c9754-4a6d-422d-9a9d-c21e68239b7b?mode=deep",
+    "timestamp": "2026-01-10 08:22:36.585089",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Function: forTupleUnpack()] [Recursive Array DoS] Can an attacker create deeply nested static arrays at lines 198-209 where getTypeSize(*elem)/32 calculations compound exponentially, causing integer overflow in virtualArgs that leads to incorrect data parsing and consensus failure? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_51375e53-35ae-4c73-b797-a8f17719ed9d?mode=deep",
+    "timestamp": "2026-01-10 08:23:01.778633",
+    "report_generated": false
   }
 ]
