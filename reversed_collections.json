@@ -17086,5 +17086,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_221723d0-71a9-4163-913c-b69a0c89d576?mode=deep",
     "timestamp": "2026-01-10 12:22:39.905352",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/service.go] [Function: Serve()] [Non-atomic batch processing] Requests in a batch are processed sequentially at lines 92-96. If processing is interrupted, are partial results returned? Could this violate atomicity expectations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_da5e55a1-b0ac-4c36-886a-e2e1409f67d9?mode=deep",
+    "timestamp": "2026-01-10 12:23:49.611000",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/service.go] [Function: Serve()] [Results ordering] The results slice at line 91 is populated in request order. If backend.Handle() implementations have side effects, could ordering issues cause state inconsistencies? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b8e4aba6-ece0-4acd-b9a5-12112c19ce57?mode=deep",
+    "timestamp": "2026-01-10 12:24:02.457947",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/service.go] [Function: ServeEncoded()] [Round-trip data corruption] During the decode-process-encode cycle (lines 106-113), could data be corrupted if RLP encoding is not bijective with decoding? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d72349ec-4758-4b4a-98cf-29b250c18117?mode=deep",
+    "timestamp": "2026-01-10 12:24:16.156862",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/service.go] [Function: Serve()] [Delay accumulation] With delayPerRequest set, could an attacker queue many requests to accumulate large delays, effectively time-locking server resources? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eb86acef-1d0a-448d-a67a-ef8d366db1b9?mode=deep",
+    "timestamp": "2026-01-10 12:24:29.836121",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/service.go] [Function: ServeEncoded()] [Decode CPU exhaustion] Could specially crafted RLP data at line 106 trigger expensive decode operations, exhausting CPU resources? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_120711f0-cca5-4ef7-b7ba-841ec7c54bfe?mode=deep",
+    "timestamp": "2026-01-10 12:24:44.428041",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/service.go] [Function: Serve()] [Lock contention DoS] By sending many concurrent requests, could an attacker cause severe lock contention at line 90, degrading service for all users? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9ca34180-b2aa-420c-a2c2-4be921b14f78?mode=deep",
+    "timestamp": "2026-01-10 12:24:59.951560",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/service.go] [Function: Serve()] [Algorithmic complexity DoS] If backend.Handle() implementations have O(n^2) or worse complexity, could attackers craft requests that trigger worst-case performance? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d4b87755-b8b0-4517-934f-7052d56fb611?mode=deep",
+    "timestamp": "2026-01-10 12:25:16.988461",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/service.go] [Function: Register()] [Registration timing attacks] Could an attacker measure service registration timing to infer internal state or service implementation details? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fbf765f2-5c43-4a91-a7e1-fbc3d0376004?mode=deep",
+    "timestamp": "2026-01-10 12:25:36.488129",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/service.go] [Function: Serve()] [Service enumeration] By probing different service IDs in requests, could an attacker enumerate all registered services and their characteristics? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_75d81f40-b8a3-4fe2-90f1-07d4bdc4ca50?mode=deep",
+    "timestamp": "2026-01-10 12:25:56.921277",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/service.go] [Function: Serve()] [Request batching abuse] Can an attacker send batches of 16 requests (MaxRequestLength) where each request targets expensive backend operations to maximize DoS impact per batch? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8e2da548-f301-4772-83aa-b5973d78ec47?mode=deep",
+    "timestamp": "2026-01-10 12:26:17.984900",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/service.go] [Function: ServeEncoded()] [Empty encoded request] If req is an empty byte slice, could RLP decoding produce unexpected results or errors? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b15a5514-319f-481d-b9c2-1787d268e7f2?mode=deep",
+    "timestamp": "2026-01-10 12:26:41.184254",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/service.go] [Function: Register()] [Empty service ID] If srv.id is an empty string, it would pass the ':' check at line 64. Could empty service IDs cause issues when looking up services in Serve()? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a8a5c200-12f4-4c7d-98c7-e819f905ace6?mode=deep",
+    "timestamp": "2026-01-10 12:27:04.465790",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/service.go] [Function: Serve()] [Zero-length results] If all backends return nil or empty byte slices, the results slice will be full of nils. Is this distinguishable from an error condition? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dd5f775f-d653-4eea-9a61-888f2bb04770?mode=deep",
+    "timestamp": "2026-01-10 12:27:28.949925",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/service.go] [Function: Serve()] [MaxRequestLength boundary] The check at line 80 uses '>' to compare with MaxRequestLength. Is the boundary condition correct? Could exactly MaxRequestLength requests be valid? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a3fe2283-7ee0-4fa5-9a8e-d357bb69ea4a?mode=deep",
+    "timestamp": "2026-01-10 12:27:55.224535",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/service.go] [Function: Stop()] [Limiter cleanup coordination] Stop() calls limiter.Stop() at line 119, but doesn't wait for in-flight Serve() calls to complete. Could this cause use-after-free or race conditions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cede6b23-a36f-44c3-b91e-ec0a16a7c390?mode=deep",
+    "timestamp": "2026-01-10 12:28:22.856795",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/service.go] [Function: Serve()] [Limiter cost parameter always 0] The value parameter at line 84 is always 0, ignoring economic incentives. Could this enable free unlimited requests? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_41a59e25-459e-48fc-9f39-b3eae3e47b1c?mode=deep",
+    "timestamp": "2026-01-10 12:28:51.876151",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/service.go] [Function: Serve()] [No timeout on limiter wait] The function blocks indefinitely at line 84 waiting for the limiter channel. Could a stuck limiter cause the entire server to hang? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_72625cdb-0abf-48de-aaae-04a847dec215?mode=deep",
+    "timestamp": "2026-01-10 12:29:19.080697",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/service.go] [Function: Serve()] [Limiter.Add() return value assumptions] At line 84, the code assumes limiter.Add() returns a channel. What if the limiter implementation changes or returns unexpected values? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_83c3aa6e-291a-4263-8b3e-568ded7bc8a8?mode=deep",
+    "timestamp": "2026-01-10 12:29:45.397085",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/service.go] [Function: NewServer()] [Services map not pre-allocated] The services map at line 57 is created without initial capacity. For servers expecting many service registrations, could this cause frequent reallocations and performance issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b6583e42-b750-4452-b2c0-b118e181eb35?mode=deep",
+    "timestamp": "2026-01-10 12:30:11.902828",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/service.go] [Function: NewServer()] [No validation of delayPerRequest] The delayPerRequest parameter is not validated in NewServer(). Could extremely large or negative values cause issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5a8d51c9-0197-4e3b-8e44-67a72916ed18?mode=deep",
+    "timestamp": "2026-01-10 12:30:37.466068",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/service.go] [Function: NewServer()] [Limiter capacity hardcoded] The limiter is created with a hardcoded capacity of 1000 at line 55. Should this be configurable? Could incorrect values cause either DoS vulnerability or service degradation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_14ed3c78-4364-473d-bdbf-413b2b0d4257?mode=deep",
+    "timestamp": "2026-01-10 12:31:03.678204",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/service.go] [Function: Serve()] [Backend return value validation] The bytes returned from backend.Handle() at line 94 are not validated. Could backends return malformed data that causes issues during RLP encoding? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1465b4b0-99ea-442d-a6e0-12f41f23d887?mode=deep",
+    "timestamp": "2026-01-10 12:31:29.593853",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/service.go] [Function: Serve()] [Backend state corruption] If a backend.Handle() implementation maintains state and expects sequential calls per node ID, could interleaved requests from different nodes cause state corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_31ca51c7-b352-4522-b251-0addc162f90d?mode=deep",
+    "timestamp": "2026-01-10 12:31:53.687120",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/service.go] [Function: Serve()] [Backend Handle() thread safety] The comment at line 43 says Handle() is 'never called concurrently', but is this guarantee actually enforced? Could bugs in the limiter break this assumption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_de5b1285-0895-4fee-8e5e-b367040a9fb8?mode=deep",
+    "timestamp": "2026-01-10 12:32:17.213384",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/vflux/server/service.go] [Function: Serve()] [Request replay attacks] There's no nonce or timestamp validation in requests. Could an attacker capture and replay valid requests to waste server resources? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4b24e966-c490-4ffe-8a8f-d30a98372fb5?mode=deep",
+    "timestamp": "2026-01-10 12:32:41.407263",
+    "report_generated": false
   }
 ]
