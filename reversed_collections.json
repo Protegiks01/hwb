@@ -26236,5 +26236,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bdbe839e-1708-4a04-850f-77ad99b51e8e?mode=deep",
     "timestamp": "2026-01-10 23:11:52.301133",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: addressGroup.add()] [Division by zero] At line 84, the division ag.sumFlatWeight / uint64(l+1) is safe, but can integer truncation cause groupWeight to be 0 when it should be positive, breaking selection? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b064c2c8-3a3b-47a8-8b93-4a2579151d7f?mode=deep",
+    "timestamp": "2026-01-10 23:13:28.430666",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: selectionWeights()] [Division by zero] At line 157, if l.maxCost is 0, can the division float64(reqCost) / float64(l.maxCost) panic and crash the node when calculating relCost? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6fd12d54-395d-4b8b-889b-0dfab5f91051?mode=deep",
+    "timestamp": "2026-01-10 23:13:41.265889",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: selectionWeights()] [Division by zero] At line 152, if l.maxValue is 0 when value > 0, can the division value /= l.maxValue cause a division by zero panic crashing the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ecb9e3ff-f142-4f59-a9bf-a1931a180c6d?mode=deep",
+    "timestamp": "2026-01-10 23:13:54.582523",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: Add()] [Integer overflow] At line 201, can nq.penaltyCost += reqCost overflow when an attacker repeatedly sends requests to a penalized node, wrapping penaltyCost to 0 and escaping penalties? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_be4fad16-cf98-48cc-ac72-0d1a835521f3?mode=deep",
+    "timestamp": "2026-01-10 23:14:08.264032",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: selectionWeights()] [Integer overflow] At lines 164-165, can the multiplication f * maxSelectionWeight overflow when f is large, causing flatWeight to wrap and break the selection mechanism? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c29f6126-c954-4f51-a263-8c9f26f1bd07?mode=deep",
+    "timestamp": "2026-01-10 23:14:22.992740",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: addressGroup.add()] [Integer overflow] At line 83, can ag.sumFlatWeight += nq.flatWeight overflow when many nodes with maximum flatWeight join the same address group, causing incorrect groupWeight calculations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3e57c5c0-4dd5-48dc-a338-ea318817d8b1?mode=deep",
+    "timestamp": "2026-01-10 23:14:38.739317",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: dropRequests()] [Integer underflow] At line 398, can l.sumCost -= item.nq.sumCost underflow if item.nq.sumCost > l.sumCost due to race conditions, causing l.sumCost to wrap to maximum uint? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3778c424-0fc0-465d-a147-a743edf5fb16?mode=deep",
+    "timestamp": "2026-01-10 23:14:55.696295",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: processLoop()] [Integer underflow] At line 316, if nq.sumCost < request.cost due to corrupted state, can the subtraction nq.sumCost -= request.cost underflow and wrap to a huge value, breaking cost accounting? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_afee7a7f-b0de-443f-99cf-545794713fa5?mode=deep",
+    "timestamp": "2026-01-10 23:15:15.362093",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: Add()] [Integer overflow] At line 224, can l.sumCost += reqCost overflow when accumulated costs exceed uint maximum, causing sumCost to wrap around and never trigger dropRequests()? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_30e74da2-2ec4-45b4-8241-c9b5b0b0154e?mode=deep",
+    "timestamp": "2026-01-10 23:15:36.013442",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: Add()] [Integer overflow] At line 192, can nq.sumCost += reqCost overflow when an attacker sends many requests with maximum uint cost values, wrapping around to 0 and bypassing cost limits? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_74ae417f-b170-40f9-aedd-1b73f39d3ce8?mode=deep",
+    "timestamp": "2026-01-10 23:15:57.596227",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: addressGroup.remove()] [Race condition] Can concurrent remove() calls on the same address group cause out-of-bounds slice access when one thread reads len(ag.nodes) while another modifies the slice at lines 108-114? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d75b787c-b3b0-4f15-bc8a-54b83ed100f7?mode=deep",
+    "timestamp": "2026-01-10 23:16:18.575151",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: addressGroup.add()] [Race condition] If multiple goroutines call add() concurrently for the same address group, can the groupIndex assignment at line 81 and slice append at line 82 race, causing multiple nodes to have the same groupIndex? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8352336f-c35d-4a41-8619-1d38bc73cf49?mode=deep",
+    "timestamp": "2026-01-10 23:16:41.821957",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: update()] [Race condition] Can concurrent calls to update() from different goroutines cause race conditions when modifying nq.flatWeight and nq.valueWeight without synchronization, leading to incorrect weight calculations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_231c2fc0-c1f0-4963-95e4-4e14343ef4a1?mode=deep",
+    "timestamp": "2026-01-10 23:17:06.521548",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: Stop()] [Race condition] When Stop() sets l.quit=true and signals the condition variable, can processLoop() still process requests between the signal and the quit check, leading to closed channel writes and panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9fb3ca65-608d-42eb-aa53-4e6a4d74b150?mode=deep",
+    "timestamp": "2026-01-10 23:17:31.768487",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: dropRequests()] [Race condition] Can dropRequests() be called concurrently with processLoop() causing inconsistent state when both modify nq.queue, nq.sumCost, and l.sumCost simultaneously? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_640b40e9-154e-43f4-b203-be68ba21b689?mode=deep",
+    "timestamp": "2026-01-10 23:17:56.365158",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: Add()] [Race condition] At lines 189-205, when checking if nq.queue != nil and then appending to it, can another goroutine null the queue between the check and append, causing a panic and node crash? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c99a28a1-0966-4b8d-9159-ba1eda451c7c?mode=deep",
+    "timestamp": "2026-01-10 23:18:21.673544",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: processLoop()] [Race condition] When processLoop() releases the lock at line 317 and reacquires it at line 321, can another goroutine modify the nq.queue state causing a use-after-free or nil pointer dereference when accessing nq.queue[0] at line 313? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_af7d3b18-f962-42f4-934a-2f1d2458bf8d?mode=deep",
+    "timestamp": "2026-01-10 23:18:46.137715",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: Add()] [Race condition] Can concurrent calls to Add() from multiple goroutines cause race conditions when accessing l.nodes map without proper locking beyond the initial lock acquisition, potentially leading to corrupted node queue state and request processing failures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d4459726-921b-43be-930c-2e2fe056a7d9?mode=deep",
+    "timestamp": "2026-01-10 23:19:11.787958",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: addressGroup.add()] [Division by zero] At line 84, the division ag.sumFlatWeight / uint64(l+1) is safe, but can integer truncation cause groupWeight to be 0 when it should be positive, breaking selection? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e5d90cf3-0825-492d-89f6-37e661e3c2c8?mode=deep",
+    "timestamp": "2026-01-10 23:19:39.119701",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: selectionWeights()] [Division by zero] At line 157, if l.maxCost is 0, can the division float64(reqCost) / float64(l.maxCost) panic and crash the node when calculating relCost? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_415b89c0-b070-49c4-a1b1-4e8cea37b68f?mode=deep",
+    "timestamp": "2026-01-10 23:20:05.257450",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: selectionWeights()] [Division by zero] At line 152, if l.maxValue is 0 when value > 0, can the division value /= l.maxValue cause a division by zero panic crashing the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_42dd59d4-04a0-4b20-b636-5405c4c5680f?mode=deep",
+    "timestamp": "2026-01-10 23:20:33.360051",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: Add()] [Integer overflow] At line 201, can nq.penaltyCost += reqCost overflow when an attacker repeatedly sends requests to a penalized node, wrapping penaltyCost to 0 and escaping penalties? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5134af97-0ee3-46f2-a3aa-6f0bd12d267a?mode=deep",
+    "timestamp": "2026-01-10 23:20:58.912661",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: selectionWeights()] [Integer overflow] At lines 164-165, can the multiplication f * maxSelectionWeight overflow when f is large, causing flatWeight to wrap and break the selection mechanism? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6b8260de-7f5b-483b-a88c-48db45b24d82?mode=deep",
+    "timestamp": "2026-01-10 23:21:19.197558",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: addressGroup.add()] [Integer overflow] At line 83, can ag.sumFlatWeight += nq.flatWeight overflow when many nodes with maximum flatWeight join the same address group, causing incorrect groupWeight calculations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0dfe6765-e4c1-4fca-b063-bc0e8e9343ab?mode=deep",
+    "timestamp": "2026-01-10 23:21:41.255216",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/limiter.go] [Function: dropRequests()] [Integer underflow] At line 398, can l.sumCost -= item.nq.sumCost underflow if item.nq.sumCost > l.sumCost due to race conditions, causing l.sumCost to wrap to maximum uint? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_11bf8a7e-b7e5-46ba-bac4-660413982184?mode=deep",
+    "timestamp": "2026-01-10 23:22:04.519465",
+    "report_generated": false
   }
 ]
