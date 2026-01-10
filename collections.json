@@ -11698,5 +11698,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_03b5aec8-ec90-4131-ba39-a18a90526e02?mode=deep",
     "timestamp": "2026-01-10 14:44:06.093515",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: getKDFKey()] [dkLen Validation] Is the dkLen parameter validated to be 32 bytes for scrypt, or can attackers specify different values causing key derivation mismatches? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0bcd4647-9060-408d-8754-f5ba2fe835a0?mode=deep",
+    "timestamp": "2026-01-10 14:45:20.015250",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Constants] [ScryptDKLen] Is scryptDKLen=32 always used consistently throughout encryption and decryption, or can mismatches cause decryption failures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a9a55aa1-48f3-4d19-8d42-76dff92e911c?mode=deep",
+    "timestamp": "2026-01-10 14:45:32.747219",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: decryptKeyV3()] [UUID Parsing] Can malformed UUID strings in the keyfile cause uuid.Parse() to fail, and is the error handled without exposing the keyfile contents? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_15b04b27-3b61-420c-8d04-b81b829a9b17?mode=deep",
+    "timestamp": "2026-01-10 14:45:46.548872",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: DecryptKey()] [UUID Validation] After parsing the UUID at line 229, is it validated to be a valid version 4 UUID, or can arbitrary identifiers be used? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f97849ec-f0b0-4608-b4c0-a0f0d465defe?mode=deep",
+    "timestamp": "2026-01-10 14:46:00.303027",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: EncryptKey()] [Address Encoding] Can hex.EncodeToString() at line 191 produce addresses with incorrect casing, causing validation failures when loading the key? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9fcbbeeb-4ae7-454b-adc0-f1f3661a204e?mode=deep",
+    "timestamp": "2026-01-10 14:46:14.959772",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: getKDFKey()] [Resource Exhaustion] Can an attacker supply extremely large scryptN values (e.g., 2^30) causing memory exhaustion when scrypt.Key() attempts to allocate gigabytes of memory? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5a0b7d5b-397b-4770-aa5f-d48455d1baec?mode=deep",
+    "timestamp": "2026-01-10 14:46:30.839652",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: getKDFKey()] [CPU Exhaustion] Can an attacker supply pbkdf2 parameters with extremely high iteration counts causing validator nodes to hang during key decryption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3388a618-fba5-47f3-81f6-1d122419d981?mode=deep",
+    "timestamp": "2026-01-10 14:46:50.140647",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: EncryptDataV3()] [Panic Propagation] If aesCTRXOR() returns an error instead of panicking, are there code paths that could cause unhandled panics to crash the validator? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0d0d9008-1cac-4851-8d75-8bffbc5a879a?mode=deep",
+    "timestamp": "2026-01-10 14:47:09.376491",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: StoreKey()] [Disk Space Exhaustion] Can repeated StoreKey() calls with verification failures fill the disk with temporary keyfiles, causing disk space exhaustion DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_222d2056-b053-4887-aacb-346bab8f34fb?mode=deep",
+    "timestamp": "2026-01-10 14:47:29.448307",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: DecryptKey()] [Version Downgrade] Can an attacker modify a V3 keyfile to appear as V1, forcing the use of weaker CBC encryption instead of CTR? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_823743a2-ea73-4537-b57a-75234e8ae23e?mode=deep",
+    "timestamp": "2026-01-10 14:47:51.262346",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: decryptKeyV1()] [V1 Security] Should V1 keyfiles still be supported in production, or do they represent a security risk that should be deprecated? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0ecc234d-aa81-486f-b1cc-4881a07cbb7b?mode=deep",
+    "timestamp": "2026-01-10 14:48:14.507488",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: DecryptKey()] [Unversioned Keyfiles] What happens if a keyfile has no version field - does it default to V3, V1, or cause an error? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0a76551e-6e02-4966-bc6e-4aaa6c060328?mode=deep",
+    "timestamp": "2026-01-10 14:48:38.344552",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: getKDFKey()] [PRF Validation] For pbkdf2, is the PRF limited to",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_618855a4-edb4-4525-bd52-5bcdc7b96013?mode=deep",
+    "timestamp": "2026-01-10 14:49:03.808013",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: DecryptDataV3()] [Cipher Algorithm] Is",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_939bcda1-8d69-48b9-9253-fad0d5cf22cf?mode=deep",
+    "timestamp": "2026-01-10 14:49:28.566248",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: EncryptDataV3()] [MAC Algorithm] Is Keccak256 used consistently for MAC generation across all code paths, or can it be substituted with weaker hash functions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6033de6d-5ad2-4694-91ea-e8aabf322062?mode=deep",
+    "timestamp": "2026-01-10 14:49:51.330650",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: JoinPath()] [Path Separator] Does filepath.Join() handle path separators correctly on all platforms (Windows, Linux, macOS), or can platform differences cause key access failures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1eb13dbd-f101-4e38-9863-519172fdd3f6?mode=deep",
+    "timestamp": "2026-01-10 14:50:14.982355",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: StoreKey()] [File Permissions] Are keyfile permissions set appropriately (e.g., 0600) to prevent other users from reading validator private keys? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e9d4014b-ee48-43f2-b12e-29b6e8e2b66d?mode=deep",
+    "timestamp": "2026-01-10 14:50:39.652469",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: GetKey()] [Case Sensitivity] On case-insensitive filesystems, can filename collisions cause the wrong keyfile to be loaded? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8158f64c-3904-4fe9-a754-df74bcbea36c?mode=deep",
+    "timestamp": "2026-01-10 14:51:03.078659",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: EncryptDataV3()] [Empty Data] Can EncryptDataV3() be called with empty data (0 bytes), and does the encryption/MAC generation handle this correctly? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_40aa082b-da63-40cb-82da-d48eb559c1fc?mode=deep",
+    "timestamp": "2026-01-10 14:51:26.755549",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: DecryptDataV3()] [Ciphertext Length] Is the ciphertext length validated to be a multiple of the AES block size, or can arbitrary lengths cause decryption errors? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_208ae6eb-73de-4a12-810e-f4b450695fbb?mode=deep",
+    "timestamp": "2026-01-10 14:51:52.592451",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: EncryptKey()] [Nil Key] Can EncryptKey() be called with a nil private key pointer, causing a panic when accessing key.PrivateKey.D? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b471fd97-9f48-4f54-976c-da951d07bd22?mode=deep",
+    "timestamp": "2026-01-10 14:52:19.316416",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: DecryptKey()] [Nil Auth] Can DecryptKey() be called with an empty auth string, and does this cause issues with the KDF? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ec18786b-1b1a-492b-b0e4-604b9081f595?mode=deep",
+    "timestamp": "2026-01-10 14:52:46.412509",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Struct: keyStorePassphrase] [Mutable Configuration] Can the scryptN and scryptP parameters be modified after initialization, causing inconsistency between encryption and decryption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c6e49afc-f8c0-40bb-9f4d-17d1bc063d80?mode=deep",
+    "timestamp": "2026-01-10 14:53:12.166625",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Function: StoreKey()] [Global vs Instance] Does the global StoreKey() function at line 100 use consistent scrypt parameters, or can different parts of the code use different parameters? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_22fdf76a-ebfb-4e68-ab62-7342d00acb92?mode=deep",
+    "timestamp": "2026-01-10 14:53:37.586025",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/keystore/passphrase.go] [Constants] [Hardcoded Values] Are the scryptR and scryptDKLen constants exposed for modification, or could they be changed in a fork causing keyfile incompatibility? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9e9e186a-0ce2-4579-bb7d-92a246c440e1?mode=deep",
+    "timestamp": "2026-01-10 14:54:03.460063",
+    "report_generated": false
   }
 ]
