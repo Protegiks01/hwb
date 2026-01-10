@@ -14848,5 +14848,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_acf1caa0-3429-4fdb-88c5-05c5101dc73d?mode=deep",
     "timestamp": "2026-01-10 18:16:46.521239",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Validator concern] [Backend compromise] If a validator's keystore backend is compromised, can a malicious backend leak private keys through the Manager's wallet event system? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7ca254ea-41d0-485a-a6c9-5f9bacdcab43?mode=deep",
+    "timestamp": "2026-01-10 18:18:07.359245",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Validator concern] [InsecureUnlockAllowed in production] If Config.InsecureUnlockAllowed is mistakenly enabled on validators, can remote attackers unlock validator signing keys? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_953aa783-42bd-446b-b907-12efa3587427?mode=deep",
+    "timestamp": "2026-01-10 18:18:20.284399",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Validator concern] [Backend compromise] If a validator's keystore backend is compromised, can a malicious backend leak private keys through the Manager's wallet event system? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_85be070f-2bcc-4985-84ff-5be9b2b45569?mode=deep",
+    "timestamp": "2026-01-10 18:18:33.451054",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/manager.go] [Validator concern] [InsecureUnlockAllowed in production] If Config.InsecureUnlockAllowed is mistakenly enabled on validators, can remote attackers unlock validator signing keys? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_05c481dc-05d2-4326-a56c-93b368f1533b?mode=deep",
+    "timestamp": "2026-01-10 18:18:48.272301",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: readPairings()] [File Permission] The pairings file contains sensitive cryptographic material (PairingKey, PublicKey), but no validation is performed on the file path - can an attacker with filesystem access perform a symlink attack to read pairing data from an arbitrary location, potentially exposing validator private keys? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_00bd92b5-741f-4010-8d2e-dc12c5b69c20?mode=deep",
+    "timestamp": "2026-01-10 18:19:02.858127",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: readPairings()] [Data Validation] When unmarshaling pairing data from smartcards.json, there is no validation of the PairingKey or PublicKey byte slice lengths - can a malformed JSON file with oversized keys cause excessive memory allocation leading to OOM DoS on node startup? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_31c5356f-15eb-4d3c-8cbe-cd8697f2da0e?mode=deep",
+    "timestamp": "2026-01-10 18:19:19.539758",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: readPairings()] [Race Condition] The pairings map is initialized without holding stateLock, but other goroutines may attempt concurrent access via pairing() or setPairing() - can this race condition during hub initialization cause a nil map panic or data corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d83ee202-0d88-45eb-896d-43641274ac86?mode=deep",
+    "timestamp": "2026-01-10 18:19:36.483465",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: readPairings()] [Error Handling] If json.Unmarshal fails partway through, the hub.pairings map is left in an inconsistent state with only partially loaded data - can this allow an attacker to cause selective pairing failures by corrupting specific JSON entries? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_788e3d42-2740-4824-81ec-8803daa83097?mode=deep",
+    "timestamp": "2026-01-10 18:19:55.834358",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: readPairings()] [Path Traversal] The filepath.Join(hub.datadir, 'smartcards.json') does not sanitize hub.datadir - can an attacker inject '../' sequences in datadir during NewHub() to read pairing files from arbitrary directories? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e6f7585b-da26-4434-8642-35540c4bf236?mode=deep",
+    "timestamp": "2026-01-10 18:20:16.023966",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: writePairings()] [File Permission] The pairing file is created with permissions 0755 (world-readable, group-readable) allowing any user on the system to read sensitive cryptographic pairing keys - can local attackers extract these keys to impersonate hardware wallets and sign unauthorized transactions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c7c655df-96f1-498f-884b-c1a55b74abbb?mode=deep",
+    "timestamp": "2026-01-10 18:20:37.492205",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: writePairings()] [Data Loss] The file is opened with O_RDWR|O_CREATE which truncates existing content only implicitly - if the Write() call fails partway through, can this leave a corrupted partial pairing file causing permanent loss of all wallet pairings? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d5ff1dc3-f5ed-42c2-a830-2e0ee6b005c6?mode=deep",
+    "timestamp": "2026-01-10 18:20:59.701867",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: writePairings()] [Race Condition] Multiple concurrent calls to setPairing() can trigger simultaneous writePairings() calls without synchronization - can concurrent file writes corrupt the pairing file, causing loss of wallet access for all users? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fb04b946-de73-413c-8db7-ed90d90d7711?mode=deep",
+    "timestamp": "2026-01-10 18:21:24.143244",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: writePairings()] [Resource Leak] If json.Marshal fails after opening pairingFile, the defer pairingFile.Close() may not execute properly - can repeated marshal failures cause file descriptor exhaustion leading to node crash? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e6a08f86-a555-4b9f-b358-127bc3c52aac?mode=deep",
+    "timestamp": "2026-01-10 18:21:49.889717",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: writePairings()] [Atomicity] The write operation is not atomic - if the process crashes mid-write, can this corrupt the pairing file, permanently locking users out of their hardware wallet accounts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a7eca227-5e6e-4e90-be4e-75ae12c02abc?mode=deep",
+    "timestamp": "2026-01-10 18:22:16.553529",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: pairing()] [Race Condition] The function reads hub.pairings map without acquiring stateLock, while setPairing() and readPairings() modify it - can concurrent access cause a map iteration panic crashing the node? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6cbf85af-5a79-49db-a3ee-8d88abfe1eda?mode=deep",
+    "timestamp": "2026-01-10 18:22:43.352464",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: pairing()] [Type Safety] The wallet.PublicKey is used directly as a map key via string conversion - can an attacker craft a wallet with malicious PublicKey bytes that cause hash collisions or panic during string conversion? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_18bd9810-6840-43f8-b599-4eaae2ec51ea?mode=deep",
+    "timestamp": "2026-01-10 18:23:09.135075",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: pairing()] [Nil Pointer] If wallet is nil when pairing() is called, there is no nil check before accessing wallet.PublicKey - can this cause a nil pointer dereference panic crashing the node? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6b45b5f7-2566-4c69-9e1e-1758e8c197b8?mode=deep",
+    "timestamp": "2026-01-10 18:23:35.173739",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: setPairing()] [Race Condition] The function modifies hub.pairings map and calls writePairings() without holding stateLock throughout the entire operation - can a concurrent readPairings() or refreshWallets() cause data races corrupting the pairing state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_93b354d8-c6c3-462a-8b21-95273e842bed?mode=deep",
+    "timestamp": "2026-01-10 18:24:00.088908",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: setPairing()] [Nil Pointer] If wallet or wallet.PublicKey is nil, the string conversion and map operations can panic - can an attacker trigger this by closing a wallet connection during setPairing to crash the node? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3c39b5dd-e85a-4abe-b52a-1558e7245052?mode=deep",
+    "timestamp": "2026-01-10 18:24:25.400744",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: setPairing()] [Error Handling] If writePairings() fails, the in-memory hub.pairings map has already been modified but the file remains unchanged - can this cause state divergence where the hub believes a pairing exists but it's not persisted, leading to wallet loss after restart? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fd75dbb2-219c-42e8-9247-b060a956c0d5?mode=deep",
+    "timestamp": "2026-01-10 18:24:51.003320",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: setPairing()] [DoS] Repeated setPairing(nil) calls to unpair wallets trigger writePairings() on every call without rate limiting - can an attacker spam unpair operations to cause excessive disk I/O, degrading node performance? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_51eabf05-4a88-4c95-90ec-a5e4dcfb5f08?mode=deep",
+    "timestamp": "2026-01-10 18:25:15.276223",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: NewHub()] [Resource Leak] If readPairings() fails after EstablishContext() succeeds, the pcsc.Client context is never released - can this cause resource leaks in the PC/SC daemon, eventually exhausting system resources? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_32225570-cb02-4cc4-a589-da164df73bd7?mode=deep",
+    "timestamp": "2026-01-10 18:25:39.161682",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: NewHub()] [Race Condition] refreshWallets() is called before returning the hub without any synchronization - can concurrent operations on the partially initialized hub cause panics or data races? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6de092e0-cf6b-46cc-8a2b-670b9f5710b6?mode=deep",
+    "timestamp": "2026-01-10 18:26:03.247065",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: NewHub()] [Error Handling] If refreshWallets() panics during initialization, the panic is not recovered - can a malicious smartcard device cause a panic during initial scan, preventing the entire node from starting? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d5f24fcc-0778-4fe6-b3b5-5fbd5599ea21?mode=deep",
+    "timestamp": "2026-01-10 18:26:25.259136",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/scwallet/hub.go] [Function: NewHub()] [Path Injection] The datadir parameter is not validated - can an attacker specify a malicious path like '/dev/null' or '/proc/self/mem' to cause file operations to fail or behave unexpectedly? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_662cdd10-3321-4359-858b-6cf84987ef1c?mode=deep",
+    "timestamp": "2026-01-10 18:26:47.686613",
+    "report_generated": false
   }
 ]
