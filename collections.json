@@ -7948,5 +7948,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7b6b0da0-1509-4d1e-a983-2fc278fd86ca?mode=deep",
     "timestamp": "2026-01-10 08:53:56.430837",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Data Integrity] [Silent Truncation] Can an attacker exploit implicit type conversions (e.g., uint64 to uint32 at line 57) where truncation occurs silently, corrupting transaction amounts without triggering errors? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_530f55e1-2f0d-40b2-a27e-f8a147ba54da?mode=deep",
+    "timestamp": "2026-01-10 08:55:28.378275",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Data Integrity] [Endianness Issues] Can an attacker exploit BigEndian encoding assumptions at line 130, 257 to cause data corruption on systems with different endianness, leading to consensus divergence? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_52061daf-f484-4a2c-9a30-71bc0a3ffd94?mode=deep",
+    "timestamp": "2026-01-10 08:55:41.234272",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Data Integrity] [String Encoding] Can an attacker provide non-UTF8 string data at line 265 that gets interpreted differently by different validators, causing consensus failure when comparing transaction data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ca7ee8ef-5c57-48f2-9388-4cbc11e2eea3?mode=deep",
+    "timestamp": "2026-01-10 08:55:54.449546",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Data Integrity] [Address Padding] Can an attacker manipulate address padding in returnOutput at line 271 to cause BytesToAddress to extract wrong addresses, redirecting funds in transactions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_343c1f53-3eaf-4023-87ca-76a7ea0cb62f?mode=deep",
+    "timestamp": "2026-01-10 08:56:08.885663",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Architecture] [32-bit vs 64-bit] Can an attacker exploit differences in int size between 32-bit and 64-bit systems where type conversions at lines 299, 311, 326 behave differently, causing consensus divergence? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b1ac1e6f-6c21-4987-a4f7-1aaf8c5d8dc0?mode=deep",
+    "timestamp": "2026-01-10 08:56:23.520180",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Architecture] [Pointer Size] Can an attacker exploit pointer size differences that affect reflection operations and memory layout, causing validators on different architectures to process data differently? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_33011002-2b32-466b-88d9-d93d5dc77fa0?mode=deep",
+    "timestamp": "2026-01-10 08:56:39.319883",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Architecture] [Alignment Requirements] Can an attacker craft data that violates alignment requirements on certain architectures, causing crashes or incorrect data reads on some validators but not others? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2132e448-348b-444e-862f-be08811cb0b1?mode=deep",
+    "timestamp": "2026-01-10 08:56:56.167564",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Transaction Pool] [Invalid Transaction DoS] Can an attacker flood the transaction pool with malformed ABI data that triggers expensive unpacking operations before being rejected, overwhelming validator resources? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5a4cea84-fe72-4f3d-8ec0-00231dc1704f?mode=deep",
+    "timestamp": "2026-01-10 08:57:15.060605",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Transaction Pool] [Validation Bypass] Can an attacker craft ABI data that passes initial validation but triggers unpacking errors during block execution, causing validators to include invalid transactions in blocks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8842dc9b-b74c-4ca8-a5b0-6fb0863e9a93?mode=deep",
+    "timestamp": "2026-01-10 08:57:35.397326",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Transaction Pool] [Memory Pool Exhaustion] Can an attacker submit transactions with ABI data that causes large memory allocations during unpacking, exhausting the transaction pool's memory limits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f2d07b0c-bc2f-42b5-b2bf-f9fd1225e6c5?mode=deep",
+    "timestamp": "2026-01-10 08:57:56.476179",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Consensus] [Non-Deterministic Unpacking] Can an attacker craft ABI data that unpacks differently based on system state, timing, or implementation details, causing validators to produce different state roots for the same block? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cd635c04-1e01-48ca-b214-518301cc450f?mode=deep",
+    "timestamp": "2026-01-10 08:58:18.006892",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/unpack.go] [Consensus] [Error Handling Divergence] Can an attacker exploit differences in how validators handle unpacking errors (some crash, some return errors, some continue) to create chain splits? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_15fa6476-5d9a-499b-b973-5912ac18505c?mode=deep",
+    "timestamp": "2026-01-10 08:58:41.647951",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [DoS - Infinite Loop] Can an attacker craft a malicious ABI with method/event names that cause the 'used' function to always return true, leading to an infinite loop in the for loop (line 35-38) that hangs the node during ABI parsing and prevents validators from processing blocks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ba2af1b9-a8ed-4c03-94e8-4d7e1178a039?mode=deep",
+    "timestamp": "2026-01-10 08:59:06.959542",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [DoS - Resource Exhaustion] If the 'used' callback function has expensive computation or database lookups, can an attacker submit contracts with thousands of overloaded function names forcing excessive iterations of the loop (lines 35-38), causing CPU exhaustion and node downtime? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6242d8f6-49a4-4693-82eb-e53112d58dde?mode=deep",
+    "timestamp": "2026-01-10 08:59:33.333978",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [DoS - Memory Exhaustion] During the loop iterations (lines 35-38), each fmt.Sprintf call allocates a new string - can an attacker trigger millions of iterations by carefully crafting ABI names, causing memory exhaustion and node crashes when parsing malicious contract ABIs? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_95b4798d-4caf-4710-becb-2c6c1b7ff0bc?mode=deep",
+    "timestamp": "2026-01-10 09:00:00.126202",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [DoS - Node Crash] If the idx variable overflows after 2^31-1 iterations on 32-bit systems or reaches max int on 64-bit systems (line 35), does the function panic or continue with negative numbers, potentially causing node crashes during contract deployment? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_931e5bfd-134b-46ca-929b-12b6ca622a1a?mode=deep",
+    "timestamp": "2026-01-10 09:00:28.383178",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Integer Overflow] The idx variable starts at 0 and increments indefinitely (line 35) - on systems where int is 32-bit, can idx overflow after 2,147,483,647 iterations, wrap to negative numbers, and create incorrect method names like 'send-2147483648' that bypass validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_55552d4c-4c0f-43bc-95f5-32067bcbd9e3?mode=deep",
+    "timestamp": "2026-01-10 09:00:54.974339",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Integer Overflow Edge Case] If idx reaches MaxInt and overflows (line 36), will fmt.Sprintf with a negative idx create names like 'method-1' that collide with legitimate names, potentially causing method resolution confusion and incorrect contract calls? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8b0abbc1-2609-476e-adbc-b0d50265d5f0?mode=deep",
+    "timestamp": "2026-01-10 09:01:20.250538",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Numeric Suffix Collision] Can an attacker create a contract with methods named 'send', 'send0', 'send1', ... 'send999999' forcing idx to reach very high values (line 35), and then exploit timing attacks to predict the next suffix and front-run contract deployments? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f7c723e2-d6da-49bd-86dc-b4e7098c05bf?mode=deep",
+    "timestamp": "2026-01-10 09:01:46.853495",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Nil Pointer Panic] If the 'used' function parameter is nil (line 32), will the function call on line 34 'ok := used(name)' cause a nil pointer dereference panic that crashes the validator node during ABI parsing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e2044271-9b57-49d7-bbbe-2a0e3253d043?mode=deep",
+    "timestamp": "2026-01-10 09:02:12.933103",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Panic Recovery] If the 'used' callback function panics during execution (lines 34, 37), is there panic recovery in place, or will it crash the entire node process during contract deployment validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f28d1c04-7e2d-4c58-98c0-b06a2fb993be?mode=deep",
+    "timestamp": "2026-01-10 09:02:37.179473",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Callback Panic Propagation] When called from abi.go during method registration (line 167 of abi.go), if the 'used' closure panics, can it propagate up and crash the ABI parsing routine, preventing legitimate contracts from being deployed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9af109ad-daf8-496e-b0b0-740387c3b674?mode=deep",
+    "timestamp": "2026-01-10 09:03:02.478830",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Race Condition] If multiple goroutines call ResolveNameConflict concurrently for the same ABI with the same 'used' function checking a shared map without locks, can race conditions occur where two goroutines get the same resolved name, causing method name collisions in the ABI.Methods map? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_34717b3b-0f86-4015-8aed-d3a4a85ff78f?mode=deep",
+    "timestamp": "2026-01-10 09:03:28.125397",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [Concurrent Map Access] When used from abi.go (line 167) where it checks 'abi.Methods[s]', if multiple threads are parsing ABIs concurrently, can unsynchronized map access cause 'concurrent map read and map write' panics that crash validator nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_49add216-99b0-4fe0-a0da-a09951b4c817?mode=deep",
+    "timestamp": "2026-01-10 09:03:55.936953",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/abi/utils.go] [Function: ResolveNameConflict()] [TOCTOU Vulnerability] Between the 'used(name)' check (line 37) and when the name is actually registered in the map (in calling code), can another goroutine register the same name, creating a time-of-check-time-of-use race condition leading to duplicate method names? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8e2b15f7-afc0-4024-a699-2509038dbfed?mode=deep",
+    "timestamp": "2026-01-10 09:04:19.303689",
+    "report_generated": false
   }
 ]
