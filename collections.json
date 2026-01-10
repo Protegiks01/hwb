@@ -17248,5 +17248,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7b556ac3-351a-46f8-80b2-b50f9110a18f?mode=deep",
     "timestamp": "2026-01-10 21:25:21.639104",
     "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: updater()] [Count race] Between checking hub.updateScope.Count() == 0 at line 282 and setting hub.updating = false at line 283, can a new subscription arrive causing the updater to exit when it shouldn't? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_038c3269-8040-4866-9ab2-1d5a2c848fce?mode=deep",
+    "timestamp": "2026-01-10 21:26:46.878500",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: updater()] [Early exit] If the updater exits at line 285 while events are still queued in updateFeed, are those events lost causing subscribers to miss wallet changes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_66abe8ee-151c-4e8f-91b9-1316f2b7338e?mode=deep",
+    "timestamp": "2026-01-10 21:26:59.778015",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: updater()] [Unlock timing] The stateLock.Unlock() at line 284 happens before return at line 285 - but if a panic occurs between unlock and return, is the lock state consistent? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d911a99c-7690-4b09-9e00-689dad981559?mode=deep",
+    "timestamp": "2026-01-10 21:27:13.714739",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Constant: refreshCycle] [DoS timing] The refreshCycle of 1 second at line 40 - can an attacker exploit this predictable timing to connect malicious devices exactly when enumeration occurs? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ea527fe1-8f04-48ab-a5f7-034debe9f2d6?mode=deep",
+    "timestamp": "2026-01-10 21:27:27.548171",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Constant: refreshThrottling] [Race window] The 500ms throttling at line 44 creates a window where rapid repeated calls are ignored - can this cause legitimate wallet connections to be missed? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a3fb0b24-f69e-4650-9dfe-16c9cc98de02?mode=deep",
+    "timestamp": "2026-01-10 21:27:42.022233",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Constant: LedgerScheme] [URL scheme collision] Can an attacker register a wallet with the same 'ledger' scheme at line 33 causing URL collisions with legitimate Ledger devices? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fb72c23d-8ef9-414f-a356-e36913f12117?mode=deep",
+    "timestamp": "2026-01-10 21:27:57.927019",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Constant: TrezorScheme] [Scheme ambiguity] If both Ledger and Trezor hubs are running, can a device match both schemes causing duplicate wallet registration? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_baaa10f5-fc21-4762-ae3b-e4ccf7f22f35?mode=deep",
+    "timestamp": "2026-01-10 21:28:15.090942",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: NewLedgerHub()] [Product ID array] The productIDs array at lines 73-95 contains 15 product IDs - can an attacker overflow this array if more product IDs are added without proper bounds checking? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a4d0d31f-b3cf-4dcf-a73b-ad87c103d8a6?mode=deep",
+    "timestamp": "2026-01-10 21:28:34.340280",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: NewLedgerHub()] [Device spoofing] Can an attacker create a USB device matching vendorID 0x2c97 and any of the productIDs to impersonate a Ledger device and intercept transactions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_53e54a23-db69-491c-9aab-03e99a01a107?mode=deep",
+    "timestamp": "2026-01-10 21:28:54.671480",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: NewLedgerHub()] [Driver factory] The newLedgerDriver passed at line 96 - if this factory function is compromised, can it inject malicious driver code into all Ledger wallets? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5aae8252-ce1a-4cac-89a2-80841926b791?mode=deep",
+    "timestamp": "2026-01-10 21:29:15.782741",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: NewLedgerHub()] [USB enumeration] If newHub() at line 73 fails but returns a partial Hub object, can this cause nil pointer dereferences when the Hub is used? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6c17f5bb-66a9-4c27-9156-71c0e425acae?mode=deep",
+    "timestamp": "2026-01-10 21:29:38.272498",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: NewTrezorHubWithHID()] [Single product ID] Only productID 0x0001 is supported at line 101 - can attackers exploit devices with this ID to impersonate Trezor devices? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_77dcd3d8-9698-4fa3-b09e-d44becb43f3c?mode=deep",
+    "timestamp": "2026-01-10 21:30:02.703911",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: NewTrezorHubWithHID()] [HID protocol] The usageID 0xff00 at line 101 - can malicious USB devices match this to bypass security checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2465ae6c-1f23-4625-9ca1-6a6a136dde24?mode=deep",
+    "timestamp": "2026-01-10 21:30:28.350837",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: NewTrezorHubWithHID()] [Driver compatibility] If newTrezorDriver creates incompatible drivers for HID mode, can this cause transaction signing failures or fund loss? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f338488a-0f8e-45a9-b71f-47da6459074c?mode=deep",
+    "timestamp": "2026-01-10 21:30:55.032376",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: NewTrezorHubWithWebUSB()] [Firmware version dependency] This hub is for firmware > 1.8.0 - can devices with older firmware be exploited if they match the WebUSB parameters? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2bf5dbbb-78aa-40b5-bed7-d430105eb8c2?mode=deep",
+    "timestamp": "2026-01-10 21:31:22.993611",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: NewTrezorHubWithWebUSB()] [UsageID bypass] The usageID 0xffff with comment 'don't match unset (0)' at line 107 - can this allow non-WebUSB devices to match if they have usageID 0xffff? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_223e3fb4-45ae-49fa-89a4-ce151769af04?mode=deep",
+    "timestamp": "2026-01-10 21:31:50.346233",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Function: NewTrezorHubWithWebUSB()] [VendorID collision] VendorID 0x1209 is a generic USB ID - can other non-Trezor devices match this causing false wallet detection? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e91e9e64-7667-411c-823a-57d9b8191a50?mode=deep",
+    "timestamp": "2026-01-10 21:32:16.818821",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Multi-function race] [Lock ordering] Can Wallets() calling refreshWallets() at line 132 while updater() calls refreshWallets() at line 278 create concurrent refreshWallets() executions that corrupt wallet state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_634435ac-5ff2-45c0-ac99-1c2bebf8354c?mode=deep",
+    "timestamp": "2026-01-10 21:32:43.624242",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Multi-function race] [State consistency] If Subscribe() starts the updater at line 264 while Wallets() is calling refreshWallets() at line 132, can this cause wallet list inconsistencies? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_737fa782-f262-46c7-8969-d2a7141a7d08?mode=deep",
+    "timestamp": "2026-01-10 21:33:10.093185",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Multi-function race] [enumFails counter] Can concurrent refreshWallets() calls from multiple sources increment enumFails atomically but create race conditions in the failure handling logic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_508cb5b3-5b81-42ef-9a7f-0a59a4686b5c?mode=deep",
+    "timestamp": "2026-01-10 21:33:38.097561",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Multi-function race] [Event ordering] If refreshWallets() sends events at line 247 while new subscriptions are being added in Subscribe() at line 259, can events be missed or duplicated? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5c521dd6-a4c7-46e4-8b18-b380e68ef73f?mode=deep",
+    "timestamp": "2026-01-10 21:34:06.121856",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Memory leak] [Wallet slice growth] If devices are repeatedly connected and disconnected, does the hub.wallets slice at line 242 grow without bounds causing memory leaks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1e50513c-6aed-4eb8-a90c-25ee0e7ade50?mode=deep",
+    "timestamp": "2026-01-10 21:34:34.579253",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Memory leak] [Event slice accumulation] The events slice at line 204 is allocated on every refresh - can frequent refreshes cause memory pressure from temporary allocations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_82b8a168-f649-4889-9b18-a2f9b3fab584?mode=deep",
+    "timestamp": "2026-01-10 21:35:03.866249",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Resource leak] [USB device handles] When devices are dropped at line 218, are underlying USB device handles properly closed or do they leak? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0f20beb7-a6d4-48ee-92b0-4cd2c55e1ca3?mode=deep",
+    "timestamp": "2026-01-10 21:35:29.957380",
+    "report_generated": false
+  },
+  {
+    "question": "[File: accounts/usbwallet/hub.go] [Resource leak] [Logger accumulation] Each wallet gets a new logger at line 223 - can logger objects accumulate causing memory leaks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f1a4803a-e07c-4b4f-85a7-22e9dbe0b886?mode=deep",
+    "timestamp": "2026-01-10 21:35:56.891260",
+    "report_generated": false
   }
 ]
