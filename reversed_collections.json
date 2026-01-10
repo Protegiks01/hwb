@@ -14542,5 +14542,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b4bdcaa1-2b6d-40b4-a0d9-cf04277b8167?mode=deep",
     "timestamp": "2026-01-10 09:02:28.032109",
     "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: NewChtIndexer()] [Invalid parameters] Can size=0 or confirms=0 parameters cause division-by-zero errors in subsequent section calculations or allow immediate commitment without confirmation, bypassing security guarantees? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e7af6766-f388-447d-b879-2a9ac78feec4?mode=deep",
+    "timestamp": "2026-01-10 09:03:53.740702",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Struct: ChtIndexerBackend] [Database handle leaks] Are diskdb and trieTable properly closed on indexer shutdown, or can repeated indexer creation/destruction leak database handles causing resource exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5e50b19c-1fbb-433d-b039-355248dc2bce?mode=deep",
+    "timestamp": "2026-01-10 09:04:07.186456",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Struct: ChtIndexerBackend] [Nil pointer dereference] Can the trie field be nil during Process() or Commit() operations if Reset() fails, causing nil pointer dereference panics that crash the indexer? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4d2bb1e6-0b2b-4cfd-a313-067587fdcb0a?mode=deep",
+    "timestamp": "2026-01-10 09:04:20.859389",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Struct: ChtIndexerBackend] [Concurrent access] Are the fields (trie, section, lastHash) protected by mutexes, or can concurrent access from Process(), Commit(), and Reset() cause race conditions leading to corrupted trie state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_53a87b9c-450e-451f-ba41-1c85cfebebde?mode=deep",
+    "timestamp": "2026-01-10 09:04:34.460555",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: StoreChtRoot()] [Root overwrite] Can an attacker trigger multiple StoreChtRoot() calls for the same section with different roots, overwriting legitimate CHT roots and causing verification failures for light clients? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0294a55d-958a-4253-af98-d112d67c5c25?mode=deep",
+    "timestamp": "2026-01-10 09:04:49.470142",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: StoreChtRoot()] [Atomic write guarantee] Can a node crash between storing the trie data and calling StoreChtRoot(), creating inconsistent state where trie nodes exist but the root reference is missing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ef600ba5-186f-4220-bda1-c52cc5102de8?mode=deep",
+    "timestamp": "2026-01-10 09:05:05.428743",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: StoreChtRoot()] [Write failure handling] The function doesn't check the error from db.Put() - can database write failures silently fail, causing nodes to believe CHT roots are stored when they're not, leading to verification failures on restart? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f52cb0d7-180b-436d-86fc-9ce2e6b27c75?mode=deep",
+    "timestamp": "2026-01-10 09:05:22.529502",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: GetChtRoot()] [Integer encoding] Does the BigEndian encoding of sectionIdx properly handle all uint64 values, or can maximum values cause encoding issues leading to key mismatches? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a108203e-c1d4-429d-a991-1743dc42859a?mode=deep",
+    "timestamp": "2026-01-10 09:05:41.362338",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: GetChtRoot()] [Database race condition] Can concurrent calls to GetChtRoot() and StoreChtRoot() for the same section create race conditions where partially written data is read, returning corrupted CHT roots? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8e6d6830-1c4a-4941-a5c5-881f51ed99f8?mode=deep",
+    "timestamp": "2026-01-10 09:06:01.170700",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: GetChtRoot()] [Missing error handling] The function ignores the error return from db.Get() - can this cause silent failures where missing CHT roots return zero hashes that are incorrectly treated as valid, allowing acceptance of unverified chain data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cc596d84-c267-4d3c-98f6-e44450b91c13?mode=deep",
+    "timestamp": "2026-01-10 09:06:22.675648",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Function: GetChtRoot()] [Key collision] Can an attacker exploit the key construction (ChtPrefix + encNumber + sectionHead) to create collisions between different section indices or section heads, causing incorrect CHT root retrieval and verification bypass? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_60dba001-b312-46bc-8e67-a22be5614b78?mode=deep",
+    "timestamp": "2026-01-10 09:06:46.043602",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Struct: ChtNode] [Big.Int overflow] Can extremely large Td values in ChtNode cause big.Int arithmetic overflows or memory exhaustion when performing difficulty calculations during trie verification? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_47e34eca-3877-4ca3-8dcc-c5cf43d67fa4?mode=deep",
+    "timestamp": "2026-01-10 09:07:10.546331",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Struct: ChtNode] [RLP encoding manipulation] Can an attacker craft malicious ChtNode data with nil Td (total difficulty) or Hash values that pass RLP decoding but cause panics or incorrect state when stored in the trie, potentially corrupting the CHT structure? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_361e0da6-e403-49da-b799-2e0b3e19acaf?mode=deep",
+    "timestamp": "2026-01-10 09:07:35.879818",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Variables: TestServerIndexerConfig/TestClientIndexerConfig] [Test configuration in production] Can test configurations with minimal confirmation values (ChtConfirms=1, BloomConfirms=1) accidentally be used in production, allowing attackers to manipulate recently finalized trie roots before sufficient confirmations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e89b7d6a-4c59-4772-a567-ace34318cbc9?mode=deep",
+    "timestamp": "2026-01-10 09:08:02.030162",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Variables: DefaultServerIndexerConfig/DefaultClientIndexerConfig] [Configuration inconsistency] Can inconsistent configurations between server and client nodes (different ChtSize/BloomSize values) cause nodes to generate incompatible trie roots, leading to verification failures and chain synchronization issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_79fbae0b-52f1-43f5-9d21-3d2c0fff49e6?mode=deep",
+    "timestamp": "2026-01-10 09:08:29.923231",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Struct: IndexerConfig] [Integer overflow] If ChtSize, BloomSize, or BloomTrieSize are set to values near UINT64_MAX, can multiplication operations during section boundary calculations (section*size) overflow, causing incorrect indexing boundaries and potential data corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f8c452d6-eea5-45c8-b4a7-2d305fefff69?mode=deep",
+    "timestamp": "2026-01-10 09:08:57.447305",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/postprocess.go] [Struct: IndexerConfig] [Configuration manipulation] Can an attacker provide malicious IndexerConfig values (e.g., ChtSize=0, BloomSize=0, or extremely large values) that cause division-by-zero errors, integer overflows in section calculations, or memory exhaustion when initializing indexers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2ac12b72-b018-46a9-ae89-af853b234f1f?mode=deep",
+    "timestamp": "2026-01-10 09:09:24.350561",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [CHT sections] [Section boundary blocks] Are blocks at CHT section boundaries handled correctly, or can they be included in multiple sections causing inconsistency? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_75124958-25ba-41d0-b7b1-fcf9292a10ec?mode=deep",
+    "timestamp": "2026-01-10 09:09:52.229611",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Bloom filters] [Bit index boundary] If BitIdx is exactly at the boundary (2047), are there off-by-one errors in bloom bit storage or retrieval? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_02408612-2731-48e0-a99a-31050b40d8c9?mode=deep",
+    "timestamp": "2026-01-10 09:10:20.437462",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [All requests] [Request cancellation] If a request is cancelled via context, is partial data properly cleaned up or can it remain in memory/database? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3a65889b-6f9f-4028-a682-6d61e6ce0548?mode=deep",
+    "timestamp": "2026-01-10 09:10:49.777423",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Receipt validation] [Failed transaction receipts] Are receipts for failed transactions (Status=0) properly validated to ensure they revert state correctly? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a1503ce7-ba19-4495-a85d-4a2b38ebce03?mode=deep",
+    "timestamp": "2026-01-10 09:11:19.295265",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: BlockRequest] [Empty block handling] If a block has no transactions (Rlp only contains empty tx list), is this valid and handled correctly? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6590e26b-0f77-4fef-a292-b7dca7921c5e?mode=deep",
+    "timestamp": "2026-01-10 09:11:48.858691",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Header validation] [Future block handling] If retrieved headers have timestamps in the future, is this detected and rejected, or can time-travel attacks occur? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_76b56a40-9761-44d7-a0c0-aa47b6e1e0c1?mode=deep",
+    "timestamp": "2026-01-10 09:12:19.829234",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Type casting] [Interface type assertions] When OdrRequest interface is cast to concrete types, are type assertions safe, or can invalid types cause panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ba4db994-8429-4079-8c00-3e1ab9a31e9a?mode=deep",
+    "timestamp": "2026-01-10 09:12:50.674239",
+    "report_generated": false
+  },
+  {
+    "question": "[File: light/odr.go] [Struct: BloomRequest] [Empty section list] If SectionIndexList is empty, does StoreResult handle this gracefully or does the loop body never execute causing logical errors? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_caa6be6e-8d9a-4745-9a20-b900e9f136b7?mode=deep",
+    "timestamp": "2026-01-10 09:13:22.084463",
+    "report_generated": false
   }
 ]
