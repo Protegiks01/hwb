@@ -26398,5 +26398,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_28651389-df82-407b-9a47-25e30f8d5a9c?mode=deep",
     "timestamp": "2026-01-11 12:16:39.548487",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [Global Variables: Big256, Big257] [Cross-chain validation] In mint contract cross-chain amount conversions using Big256 or Big257 for decimal adjustments, can overflow or precision loss cause minting of incorrect token amounts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f29cba42-bc5b-48d6-8bc3-6b53c9a41c28?mode=deep",
+    "timestamp": "2026-01-11 12:18:13.143992",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [Global Variables: Big1, Big2] [INTURN/NOTURN] In Clique consensus INTURN (Big1) vs NOTURN (Big2) difficulty assignment, can confusion between these values or swapping enable validators to mine out of sequence? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_10aa1d1c-0392-4c89-8b73-78330cabbee4?mode=deep",
+    "timestamp": "2026-01-11 12:18:26.020420",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [Global Variable: Big0] [Validator voting] In validator vote weight calculations using Big0 for abstention detection, can mishandling enable vote manipulation to add/remove validators without proper authorization? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_637b1731-aa2d-412e-971f-fbb80d34f2f3?mode=deep",
+    "timestamp": "2026-01-11 12:18:39.605236",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [Global Variable: Big3] [Block time] If Big3 is used for block time calculations or timestamp validation, can incorrect usage allow timestamp manipulation enabling block withholding attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_897c76e3-dc0b-44a3-8dd0-7c80a7899223?mode=deep",
+    "timestamp": "2026-01-11 12:18:53.374756",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [All Variables] [RLP encoding] When these constants are RLP-encoded for network transmission, can encoding bugs cause different nodes to interpret values differently leading to consensus failure? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1b5338ab-9cd3-4528-bf96-9cd652b2869c?mode=deep",
+    "timestamp": "2026-01-11 12:19:08.196851",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [All Variables] [JSON marshaling] In JSON-RPC APIs exposing these values, can marshaling/unmarshaling errors cause clients to receive incorrect values affecting transaction construction? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a96268a4-02d6-4c16-a159-18979f02a4bb?mode=deep",
+    "timestamp": "2026-01-11 12:19:23.860845",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [All Variables] [Memory leak] If code repeatedly calls big.NewInt() instead of reusing these constants, can it cause memory leaks in long-running validator nodes eventually causing crashes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bcd26766-b214-4bd5-862d-2ebce10765a4?mode=deep",
+    "timestamp": "2026-01-11 12:19:41.636571",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [All Variables] [Cache coherency] On multi-core systems, are these global variables properly cache-aligned? Can false sharing between CPU caches cause performance degradation in high-throughput scenarios? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0f7bad76-337a-4663-86cf-05cd70ab71ef?mode=deep",
+    "timestamp": "2026-01-11 12:20:00.909578",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [Global Variable: Big257] [Modular arithmetic] In cryptographic operations using Big257 (prime number) for modular arithmetic, can edge cases near the modulus enable attacks on signature schemes or address derivation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_60cedff6-f5c8-4be6-b06d-0a9ed50de8f4?mode=deep",
+    "timestamp": "2026-01-11 12:20:21.049974",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [Global Variable: Big256] [Byte operations] In byte array to/from big.Int conversions using Big256 for range validation, can off-by-one errors enable buffer overruns or incorrect data interpretation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3048bfd0-329f-45e2-aa77-dba8ef5b6f45?mode=deep",
+    "timestamp": "2026-01-11 12:20:42.190585",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [Global Variable: Big32] [Word alignment] In operations assuming 32-byte word alignment using Big32, can misalignment cause incorrect memory reads/writes in EVM stack or memory operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_31dd266f-dbac-495d-81c2-c491f629f9c2?mode=deep",
+    "timestamp": "2026-01-11 12:21:05.545817",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [Global Variable: Big0] [Division] In any division operations using Big0 as divisor (division by zero), are there proper checks to prevent panic conditions that crash nodes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9d173c34-40de-446d-b4ed-09d167745eaf?mode=deep",
+    "timestamp": "2026-01-11 12:21:29.238012",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [All Variables] [Test coverage] Are there sufficient tests validating that these constants maintain their expected values throughout the node lifecycle, including under concurrent access? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_aceb9fb3-f7fb-4a12-a132-adf9f15b0544?mode=deep",
+    "timestamp": "2026-01-11 12:21:54.749367",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [All Variables] [Immutability validation] Is there runtime validation ensuring these constants are never modified, or would silent corruption go undetected until causing consensus failure? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_30a3cd5b-a3d2-418f-a540-cf52ab31795d?mode=deep",
+    "timestamp": "2026-01-11 12:22:18.791895",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [All Variables] [Hard fork] If a hard fork requires changing these constants (e.g., increasing block size using Big32), can incompatible values between old and new nodes cause chain splits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_decad2fa-71ed-421d-8716-56a448550be7?mode=deep",
+    "timestamp": "2026-01-11 12:22:42.941617",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [All Variables] [State migration] During state migration or network upgrades, can inconsistent usage of these constants between versions cause state corruption or validation failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_709cba41-44e9-4d70-ae3b-eb1f541963f6?mode=deep",
+    "timestamp": "2026-01-11 12:23:05.761855",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [Global Variables: Big0, Big1] [Comparison semantics] In critical code paths comparing against Big0 or Big1 using .Cmp(), .Sign(), or ==, can inconsistent comparison methods cause validation logic to behave differently than intended enabling exploits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a46d154c-3f7f-488f-a1bb-7ad6f31cba34?mode=deep",
+    "timestamp": "2026-01-11 12:23:29.057920",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [Global Variable: Big2] [Exponentiation] In cryptographic or mathematical operations using Big2 for exponentiation (powers of 2), can incorrect usage cause overflow or enable timing attacks through variable execution time? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a1e7c695-75f6-4ee9-9ae0-842ee9cbb069?mode=deep",
+    "timestamp": "2026-01-11 12:23:54.551084",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [All Variables] [Reflection attacks] Can Go reflection be used to modify these package-level variables at runtime, bypassing normal access patterns and corrupting protocol-critical constants? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_05cce7d6-1316-4828-a2be-3c4d9f31f52e?mode=deep",
+    "timestamp": "2026-01-11 12:24:19.462151",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [Global Variables: Big256, Big257] [Precompiled contracts] In precompiled contract implementations using Big256 or Big257 for modular exponentiation or pairing checks, can edge cases enable consensus failure between nodes with different CPU architectures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0f35a61c-e3aa-42ae-87b0-6f4248e80641?mode=deep",
+    "timestamp": "2026-01-11 12:24:44.484644",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [Global Variable: Big32] [Keccak256] In Keccak256 hashing operations using Big32 for input size validation or padding, can incorrect usage cause hash collisions or enable length extension attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8f5dc5d4-d71b-4683-98f2-c37d99f58e43?mode=deep",
+    "timestamp": "2026-01-11 12:25:11.629515",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [All Variables] [Garbage collection] Can excessive copying of these big.Int values cause GC pressure leading to stop-the-world pauses that miss block production deadlines in Clique consensus? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6fdf329e-fd29-4d51-8bad-9d3b51a3b0b6?mode=deep",
+    "timestamp": "2026-01-11 12:25:40.916547",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [Global Variable: Big1] [Nonce overflow] In nonce increment operations using Big1, if account nonce approaches max uint64, can overflow cause nonce reset enabling transaction replay attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_957604ba-97d0-48e3-a82d-ab6e0b4612d6?mode=deep",
+    "timestamp": "2026-01-11 12:26:13.432103",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [Global Variable: Big0] [Supply calculation] In total supply calculations using Big0 as starting value, can overflow in cumulative addition cause incorrect supply accounting in mint/burn operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_262d9743-4671-4da5-af37-06f646017c53?mode=deep",
+    "timestamp": "2026-01-11 12:26:41.692164",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [All Variables] [Cross-package dependencies] If multiple packages import and use these variables, can initialization order issues cause some packages to see uninitialized or incorrect values during startup? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_90da4211-a5ae-401a-b96f-ecab68490f8f?mode=deep",
+    "timestamp": "2026-01-11 12:27:10.576318",
+    "report_generated": false
   }
 ]
