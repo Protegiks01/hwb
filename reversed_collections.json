@@ -27136,5 +27136,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0a0f17b7-c89e-4abf-a645-b32e0325afba?mode=deep",
     "timestamp": "2026-01-11 09:59:47.475107",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Quit()] [Mutex unlock timing] The mutex is unlocked on line 103 before waiting on closeWait channel on line 104 - can this create a race where loop() closes closeWait and exits before the receive operation starts? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_507c7c8d-64f3-4f32-a44b-72c2eb22fd34?mode=deep",
+    "timestamp": "2026-01-11 10:01:17.113042",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: waitNext()] [Lock ordering] waitNext() holds q.mu during the entire wait period on line 57 - can this cause lock ordering issues or deadlocks if queued functions attempt to acquire other locks that are held when calling Queue()? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_582f6137-7c7a-4693-a3a5-3db3c18317fd?mode=deep",
+    "timestamp": "2026-01-11 10:01:29.833765",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: NewExecQueue()] [Condition variable initialization] The condition variable is initialized with sync.NewCond(&q.mu) on line 33 - can using the mutex address before the ExecQueue is fully constructed cause race detector warnings or undefined behavior? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ee198828-a9f5-43f1-b0c8-07d350a069a1?mode=deep",
+    "timestamp": "2026-01-11 10:01:43.104482",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Queue()] [Mutex contention] All Queue(), CanQueue(), Clear(), and Quit() operations acquire the same mutex - can high contention on this mutex during heavy LES load cause significant performance degradation or priority inversion affecting consensus operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6631f423-d9e0-498e-b703-761f437a1264?mode=deep",
+    "timestamp": "2026-01-11 10:01:57.488633",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: waitNext()] [Spurious wakeup] The cond.Wait() on line 57 can have spurious wakeups requiring rechecking the condition - does the for loop on line 52 properly handle all spurious wakeup cases, or can it exit prematurely when no functions are available? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_53672efc-ad4f-4e8f-98f2-99f71e43bc93?mode=deep",
+    "timestamp": "2026-01-11 10:02:11.978096",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: loop()] [Execution context] Functions executed on line 40 run in the goroutine's stack context - can stack overflow occur if queued functions recursively queue more functions or perform deep recursive calls? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_634e1711-d3a2-429d-8224-50951238d93e?mode=deep",
+    "timestamp": "2026-01-11 10:02:27.571847",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: NewExecQueue()] [Preallocation] The queue preallocates capacity on line 32, but if this capacity is never reached, can the wasted memory accumulate across many ExecQueue instances causing memory pressure on validator nodes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9c3a4388-472e-402d-892b-895123076dcf?mode=deep",
+    "timestamp": "2026-01-11 10:02:44.538328",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Clear()] [Reference retention] Clear() on line 90 uses `q.funcs[:0]` which maintains references to all functions in the backing array until they're overwritten - can this cause memory leaks if large closures remain referenced? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dd30a86f-774c-422c-81a0-fff89f552384?mode=deep",
+    "timestamp": "2026-01-11 10:03:04.470937",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Queue()] [Memory growth] If functions are queued faster than they're executed and the queue repeatedly reaches capacity, can the funcs slice backing array grow unbounded over time as append() allocates progressively larger arrays? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4c399eea-c0e4-486b-b4f7-fee9a378c4b2?mode=deep",
+    "timestamp": "2026-01-11 10:03:25.311398",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: waitNext()] [Slice reallocation] The slice manipulation `append(q.funcs[:0], q.funcs[1:]...)` on line 50 may reallocate the backing array - can this cause dangling pointers if other code holds references to the old funcs slice? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b64345de-e419-4ab0-ac21-e50dc41fab29?mode=deep",
+    "timestamp": "2026-01-11 10:03:48.186014",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: loop()] [Error handling] Queued functions have no way to return errors or results - if a critical operation fails silently inside a queued function, can this cause the validator node to operate with incorrect state assumptions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c6f4af2c-fe15-4440-a5d8-9fc99dcdda44?mode=deep",
+    "timestamp": "2026-01-11 10:04:11.005609",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Queue()] [Function validation] No validation checks if the function parameter f is nil before queueing on line 80 - can nil functions be queued and later cause panic when executed on line 40, crashing the validator node during critical operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_439dc0ca-990a-4355-a78d-8c6271f31375?mode=deep",
+    "timestamp": "2026-01-11 10:04:33.473077",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: loop()] [No panic recovery] There is no recover() mechanism around the function call on line 40 - can any panic in queued functions crash the entire loop goroutine, making the ExecQueue permanently unusable and affecting consensus operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_661984fb-b51d-473c-b45b-07ce95639658?mode=deep",
+    "timestamp": "2026-01-11 10:04:57.799937",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: loop()] [No timeout] Function execution on line 40 has no timeout mechanism - can malicious LES clients queue infinite-loop functions to permanently hang the execution goroutine, effectively DoSing the validator node's LES service? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_de8d12ff-2c23-42f7-aa06-7bc72778eb85?mode=deep",
+    "timestamp": "2026-01-11 10:05:23.460933",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Queue()] [Closure capture] Queued functions are likely closures capturing external variables - can race conditions in the captured variables between queueing time and execution time cause unpredictable behavior or security vulnerabilities? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_28be536d-fd25-497a-b07d-9bb4647d0931?mode=deep",
+    "timestamp": "2026-01-11 10:05:50.040081",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: loop()] [Function safety] There is no validation of queued functions before execution on line 40 - can malicious code be injected through function closures that access unauthorized memory, modify global state, or perform privilege escalation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2e6449d9-e30a-4ad2-9945-1ad384fd0fd2?mode=deep",
+    "timestamp": "2026-01-11 10:06:18.003095",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: loop()] [LES atomicity] If LES state synchronization requires multiple queued functions to execute atomically (e.g., header download, body download, state verification), can interleaving with other clients' requests break atomicity guarantees and corrupt light client state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_103eaa34-591a-443d-8899-3cf9d46900d0?mode=deep",
+    "timestamp": "2026-01-11 10:06:44.754361",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Queue()] [LES priority] The queue processes all functions in FIFO order without prioritization - can malicious light clients queue low-priority requests before critical validator operations (like block production), causing consensus delays or missed block slots? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_79f2993b-02a4-4d69-a4bc-40b9ba52af34?mode=deep",
+    "timestamp": "2026-01-11 10:07:12.867902",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: NewExecQueue()] [LES resource allocation] If ExecQueue instances are created per LES light client connection with large capacity values, can an attacker open many connections to exhaust validator node memory through excessive queue allocations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6ed38363-b0c2-4bb8-a4c4-d89bf7f19de6?mode=deep",
+    "timestamp": "2026-01-11 10:07:42.058086",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Quit()] [LES shutdown] During validator node shutdown, if Quit() blocks on line 104 waiting for a malicious LES request to complete, can this delay or prevent graceful shutdown, potentially causing state corruption or preventing emergency stops during attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fd5b3f76-c875-4ce0-9fb2-c1300fd54646?mode=deep",
+    "timestamp": "2026-01-11 10:08:09.767615",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Clear()] [LES state corruption] If Clear() is called during LES synchronization while important block verification functions are queued, can this cause verification steps to be skipped, allowing invalid blocks to be accepted in the light client chain? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_39f8c28a-c7dd-4d2a-8868-d1729988d509?mode=deep",
+    "timestamp": "2026-01-11 10:08:36.077851",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: loop()] [LES request processing] If queued functions on line 40 process LES light client requests that involve consensus-critical operations (like checkpoint verification), can a malicious client queue computationally expensive requests to delay consensus operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_88cb9105-b02c-4554-8148-9e069c4d7154?mode=deep",
+    "timestamp": "2026-01-11 10:09:00.740023",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Queue()] [LES DoS] If ExecQueue is used for processing LES protocol messages from light clients, can malicious clients flood Queue() calls to fill the queue to capacity, preventing legitimate light client requests from being processed and causing validator node service degradation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_af578386-3840-43f4-9cf3-93da693236a1?mode=deep",
+    "timestamp": "2026-01-11 10:09:24.823701",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Clear()] [Clear timing] Clear() removes all pending functions on line 90 but doesn't signal the condition variable - can functions queued after Clear() be lost if the waiting goroutine doesn't wake up to check for new functions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_aae63fc5-6252-4de0-a209-f2b27a5e772b?mode=deep",
+    "timestamp": "2026-01-11 10:09:50.454116",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: waitNext()] [Drop parameter logic] The drop parameter on line 45 controls whether to remove the executed function, but passing drop=false in the first call and drop=true in subsequent calls - can this logic fail if waitNext() is called from other contexts, causing duplicate execution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_84518de9-ce70-4a91-8b1d-e03a5fd9f869?mode=deep",
+    "timestamp": "2026-01-11 10:10:16.852686",
+    "report_generated": false
   }
 ]
