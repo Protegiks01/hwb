@@ -28648,5 +28648,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_81b3a5f0-402b-440d-874d-8fe4d531e129?mode=deep",
     "timestamp": "2026-01-11 14:49:15.741518",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [SrcMap Injection] Can malicious source map data in info.SrcMap at line 90 exploit vulnerabilities in debuggers or source code verification tools? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2b7e954b-d772-4405-a831-209ea45ea9f4?mode=deep",
+    "timestamp": "2026-01-11 14:50:31.258746",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [SrcMapRuntime Injection] Can manipulated SrcMapRuntime at line 91 cause incorrect runtime debugging or verification? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_60f9d82f-5614-44d9-b62b-79881d728911?mode=deep",
+    "timestamp": "2026-01-11 14:50:44.306176",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Source Mapping DoS] Can extremely large or malformed source maps cause DoS in tools that parse this information? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f16dd381-b44b-48eb-8c18-05d00d0fbe6f?mode=deep",
+    "timestamp": "2026-01-11 14:50:57.564820",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Metadata Injection] Can malicious content in info.Metadata at line 95 exploit contract verification systems or block explorers that display this data? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_aaa57647-8c72-4be4-8b8d-ef2392306fac?mode=deep",
+    "timestamp": "2026-01-11 14:51:11.417730",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Metadata Size] Is there a size limit on Metadata at line 95 to prevent storage bloat or DoS? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4f9f7822-03d5-4660-9aa1-ca94a48a53ca?mode=deep",
+    "timestamp": "2026-01-11 14:51:27.239266",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Userdoc XSS] Can malicious JavaScript or HTML in Userdoc at line 93 cause XSS attacks in block explorers or contract interfaces? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_214f5e8b-c686-41b9-83b0-a37b983a6eca?mode=deep",
+    "timestamp": "2026-01-11 14:51:43.252331",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Devdoc Injection] Can Devdoc at line 94 contain malicious payloads that affect contract verification or development tools? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_72b74b79-6996-4102-bfe0-a18296c321d3?mode=deep",
+    "timestamp": "2026-01-11 14:52:00.750221",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Version Downgrade] Can an attacker force parsing of V8 output as non-V8 by manipulating JSON structure, causing contract data loss or corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c04ce36d-20f4-42c7-b21f-ea8a739ac456?mode=deep",
+    "timestamp": "2026-01-11 14:52:19.593225",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: parseCombinedJSONV8()] [Version Upgrade] Can non-V8 output be incorrectly parsed as V8, leading to type mismatches in ABI/Userdoc/Devdoc fields? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6a358133-04dd-49f6-a2ef-855292daf172?mode=deep",
+    "timestamp": "2026-01-11 14:52:39.854277",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Interface Consistency] Do the interface{} types used for ABI/Userdoc/Devdoc in non-V8 parsing match the expected types when compared to V8 parsing, or can this cause inconsistencies? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f1162f05-411d-4ee4-8b00-cb56ff86bd18?mode=deep",
+    "timestamp": "2026-01-11 14:53:01.512988",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Empty Return] If no contracts are found in output.Contracts at line 67, does the function return an empty map or an error, and can empty map be exploited as success? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d30e4d09-57cb-4f1b-82a4-a49cbbc5303a?mode=deep",
+    "timestamp": "2026-01-11 14:53:24.513726",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Nil Return] Under what conditions does ParseCombinedJSON return nil map, and can callers safely handle this or does it cause nil pointer dereference? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_40b2571c-7f0d-4bc3-a923-e114685bd900?mode=deep",
+    "timestamp": "2026-01-11 14:53:49.594260",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: parseCombinedJSONV8()] [V8 Empty Return] Can parseCombinedJSONV8 return an empty contracts map at line 110 that gets misinterpreted as successful compilation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_21d31c2c-ff2c-4dcf-b964-d07ddda7412b?mode=deep",
+    "timestamp": "2026-01-11 14:54:14.086903",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Struct: solcOutput] [Nested Structure DoS] Can extremely deep nesting in the anonymous struct within solcOutput.Contracts at line 27 cause stack overflow during unmarshaling? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ac2d6dc4-c332-4b93-af5a-282497bfe5c9?mode=deep",
+    "timestamp": "2026-01-11 14:54:38.318325",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Struct: solcOutputV8] [V8 Nesting Attack] Can the V8 struct at line 38 with interface{} fields accept arbitrarily nested structures causing memory exhaustion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_186d5705-ac92-4875-80a8-697dce014b61?mode=deep",
+    "timestamp": "2026-01-11 14:55:02.988578",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [JSON Bomb] Can a 'JSON bomb' with recursive references or exponential expansion cause DoS during parsing at line 61? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d40c5b73-1012-4b1a-8d81-a58c9dae489b?mode=deep",
+    "timestamp": "2026-01-11 14:55:27.692477",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Unicode Handling] Does the string concatenation at line 81-82 properly handle Unicode characters in bytecode hex strings, or can encoding issues cause corruption? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3d6a606f-4503-4a20-8637-a2674a5c5a9b?mode=deep",
+    "timestamp": "2026-01-11 14:55:52.010838",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Null Bytes] Can null bytes in any string fields (Bin, Abi, etc.) cause truncation or parsing errors in downstream code? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6c5e3b35-230b-48bd-b677-bb26f7a94d1a?mode=deep",
+    "timestamp": "2026-01-11 14:56:15.945680",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Special Characters] Do special characters or control characters in contract names at line 67 cause issues in map key handling or downstream lookups? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f696df93-74e4-4d23-ba0b-162ff26e8354?mode=deep",
+    "timestamp": "2026-01-11 14:56:41.016133",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Case Sensitivity] Are contract names at line 67 case-sensitive, and can case variations cause deployment conflicts or overwrites? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3a0fc250-95f7-4f6d-a79f-dffc82246c76?mode=deep",
+    "timestamp": "2026-01-11 14:57:06.555668",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: parseCombinedJSONV8()] [V8 Name Collision] Can V8-specific naming conventions at line 111 conflict with non-V8 contract names, causing confusion in contract registry? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ee906522-9d8b-4b28-b363-50490cab78c9?mode=deep",
+    "timestamp": "2026-01-11 14:57:31.135635",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [SrcMap Injection] Can malicious source map data in info.SrcMap at line 90 exploit vulnerabilities in debuggers or source code verification tools? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_55584448-e688-4389-8e6b-2a2c1637202a?mode=deep",
+    "timestamp": "2026-01-11 14:57:57.559372",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [SrcMapRuntime Injection] Can manipulated SrcMapRuntime at line 91 cause incorrect runtime debugging or verification? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_04d9e348-259c-47cb-8c61-0a6ba316ee55?mode=deep",
+    "timestamp": "2026-01-11 14:58:24.172850",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Source Mapping DoS] Can extremely large or malformed source maps cause DoS in tools that parse this information? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ad755d2b-e19a-40f2-8214-9b43aa26ee36?mode=deep",
+    "timestamp": "2026-01-11 14:58:48.089421",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Metadata Injection] Can malicious content in info.Metadata at line 95 exploit contract verification systems or block explorers that display this data? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_296cc09d-a8ac-4b33-ae11-a5278ad596b3?mode=deep",
+    "timestamp": "2026-01-11 14:59:09.637279",
+    "report_generated": false
   }
 ]
