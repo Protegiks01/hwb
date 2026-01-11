@@ -19348,5 +19348,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fe34a864-9290-4407-8713-d3a3fc5b0901?mode=deep",
     "timestamp": "2026-01-10 23:50:46.339627",
     "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Struct: PayloadAttributes] [Integer overflow] Can the Timestamp field overflow when converted to block timestamp in subsequent processing, enabling timestamp manipulation attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_50df42c2-63ee-4913-b4e1-46d386702032?mode=deep",
+    "timestamp": "2026-01-10 23:52:23.385382",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Struct: ExecutableData] [Parent hash manipulation] Can an attacker set ParentHash at line 49 to a non-existent or invalid parent enabling chain reorganization attacks or orphaned blocks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a3dc224d-c27e-43b2-bf69-ec88aa2cc961?mode=deep",
+    "timestamp": "2026-01-10 23:52:36.304421",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Struct: ExecutableData] [State root forgery] Can an attacker provide StateRoot at line 51 that doesn't match actual post-execution state, bypassing validation and causing state corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_99f5fc68-ebc1-47b7-b52e-bb550eeac3ac?mode=deep",
+    "timestamp": "2026-01-10 23:52:50.112729",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Struct: ExecutableData] [Receipt root mismatch] Can an attacker set ReceiptsRoot at line 52 to an incorrect value that passes initial validation but causes receipt verification failures later? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7beb0ad2-ca17-4b06-925b-abfff0bfe3fc?mode=deep",
+    "timestamp": "2026-01-10 23:53:03.811768",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Struct: ExecutableData] [LogsBloom size] Can the LogsBloom byte array at line 53 be any size other than 256 bytes causing validation errors or memory issues when processed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_884ee22f-02b6-4867-9f01-d647b9fade21?mode=deep",
+    "timestamp": "2026-01-10 23:53:18.558006",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Struct: ExecutableData] [Block number manipulation] Can an attacker set Number at line 55 to skip blocks or create gaps in the chain enabling DoS or chain split attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e7db3d1e-7e7d-40b0-823d-f0773c461439?mode=deep",
+    "timestamp": "2026-01-10 23:53:34.460763",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Struct: ExecutableData] [Gas limit bypass] Can an attacker set GasLimit at line 56 above the maximum allowed limit enabling DoS through computational exhaustion? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5939f6e6-b627-4919-b434-c423f1b403cd?mode=deep",
+    "timestamp": "2026-01-10 23:53:51.615421",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Struct: ExecutableData] [Gas used manipulation] Can an attacker set GasUsed at line 57 greater than GasLimit or less than actual usage, bypassing gas accounting? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cf04c826-1101-4da9-9a6c-9a0ace05e5ff?mode=deep",
+    "timestamp": "2026-01-10 23:54:09.838813",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Struct: ExecutableData] [Timestamp ordering] Does validation enforce that Timestamp at line 58 is greater than parent block timestamp, or can out-of-order timestamps cause consensus issues? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_60b0a2ce-b703-4fee-bc22-f5bfb11bad0f?mode=deep",
+    "timestamp": "2026-01-10 23:54:30.208108",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Struct: ExecutableData] [ExtraData overflow] Can the ExtraData byte array at line 59 exceed the 32-byte limit enforced elsewhere causing validation inconsistencies? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ba92d595-3190-4b20-a12e-fc390147d654?mode=deep",
+    "timestamp": "2026-01-10 23:54:52.346122",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Struct: ExecutableData] [BaseFeePerGas bounds] Can BaseFeePerGas at line 60 be set to negative values or exceed 256 bits bypassing the validation in ExecutableDataToBlock? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bc89159d-1aa9-4c60-ba98-4a6302ad0d72?mode=deep",
+    "timestamp": "2026-01-10 23:55:15.438777",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Struct: ExecutableData] [BlockHash collision] Can an attacker craft ExecutableData where BlockHash at line 61 collides with a different valid block causing consensus confusion? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1c3a6761-17c6-41ca-937b-d8d163a10436?mode=deep",
+    "timestamp": "2026-01-10 23:55:40.225867",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Struct: ExecutableData] [Transactions encoding] Can the Transactions array at line 62 contain invalid RLP encodings that pass initial checks but fail during execution? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_681092e1-ecb9-4040-94cd-90d3a6dc342c?mode=deep",
+    "timestamp": "2026-01-10 23:56:06.386613",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Struct: ExecutableData] [Withdrawals array bounds] Can the Withdrawals array at line 63 be unbounded in size causing memory exhaustion when processed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_10bc3113-18c0-4874-b9b5-8c7ba78df830?mode=deep",
+    "timestamp": "2026-01-10 23:56:32.702937",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Struct: ExecutableData] [Nil slice vs empty slice] For each slice field (LogsBloom, ExtraData, Transactions), does the code properly handle nil vs empty slice causing consensus divergence? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_15fb176e-8728-4137-81e7-6add0a1a1e4d?mode=deep",
+    "timestamp": "2026-01-10 23:56:58.935144",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Struct: PayloadStatusV1] [Status string injection] Can an attacker inject malicious strings into Status field at line 91 that are not one of the expected values (VALID, INVALID, SYNCING) causing incorrect processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5872bfce-82bb-4e0b-9659-d5fb103de953?mode=deep",
+    "timestamp": "2026-01-10 23:57:26.521203",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Struct: PayloadStatusV1] [LatestValidHash manipulation] Can an attacker set LatestValidHash at line 92 to an arbitrary hash causing nodes to accept invalid forks as valid? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ec58d066-b638-4bb5-b217-7758a1294e17?mode=deep",
+    "timestamp": "2026-01-10 23:57:53.371936",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Struct: PayloadStatusV1] [Nil LatestValidHash handling] Does the code properly handle when LatestValidHash is nil versus pointing to zero hash, potentially causing consensus confusion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_262d5d8b-eab8-441a-9387-4dcc28fb320e?mode=deep",
+    "timestamp": "2026-01-10 23:58:18.963311",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Struct: PayloadStatusV1] [ValidationError information leak] Can the ValidationError string at line 93 leak sensitive node information or internal state when propagated across the network? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_844db2b8-7e25-4174-8c0c-913c1fe1ecc5?mode=deep",
+    "timestamp": "2026-01-10 23:58:44.705670",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Struct: PayloadStatusV1] [Nil ValidationError handling] Can incorrect handling of nil vs empty string in ValidationError cause validation logic errors? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_11357d6b-e6b2-4adf-999d-3f140db6509f?mode=deep",
+    "timestamp": "2026-01-10 23:59:12.034044",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Struct: ForkchoiceStateV1] [HeadBlockHash manipulation] Can an attacker set HeadBlockHash at line 127 to a non-existent block causing chain tip confusion and potential reorg attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2883fd17-d751-478b-901c-d81de3821ead?mode=deep",
+    "timestamp": "2026-01-10 23:59:39.502577",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Struct: ForkchoiceStateV1] [SafeBlockHash inconsistency] Can an attacker set SafeBlockHash at line 128 to a block that is not an ancestor of HeadBlockHash violating finality guarantees? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_72f94e23-8139-4589-ab27-d896e0df16c7?mode=deep",
+    "timestamp": "2026-01-11 00:00:06.540515",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Struct: ForkchoiceStateV1] [FinalizedBlockHash manipulation] Can an attacker set FinalizedBlockHash at line 129 to skip finalization of intermediate blocks enabling long-range reorg attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7fc5e89c-ce79-404c-ad8f-344749c5c45f?mode=deep",
+    "timestamp": "2026-01-11 00:00:35.652418",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Struct: ForkchoiceStateV1] [Hash relationship validation] Does the code validate that FinalizedBlockHash is ancestor of SafeBlockHash which is ancestor of HeadBlockHash, or can invalid relationships cause state corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_60dd6afa-9e98-45f9-80b9-f2e26f040b39?mode=deep",
+    "timestamp": "2026-01-11 00:01:03.463211",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Struct: ForkchoiceStateV1] [Zero hash handling] Can zero hashes in any of the three hash fields be interpreted as valid blocks or genesis, causing consensus issues? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7a85420a-68ae-42a7-add6-143e26bf9125?mode=deep",
+    "timestamp": "2026-01-11 00:01:32.778825",
+    "report_generated": false
   }
 ]
