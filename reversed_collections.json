@@ -28486,5 +28486,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a6a75b28-c3d0-4d4a-ac7b-3ef072cfe2ca?mode=deep",
     "timestamp": "2026-01-11 11:32:00.730324",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: NewHead()] [Transaction resurrection] When rollback transactions are re-added to txPending at lines 156-158, are they guaranteed to still exist in txSent map? Can a race with Discard() cause txPending to reference non-existent transactions, leading to nil pointer dereference at line 164? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bcfe72d1-fea3-4a1f-b3d9-9e9c3ea76da1?mode=deep",
+    "timestamp": "2026-01-11 11:33:30.349856",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Announce-only bypass] While registerPeer() checks onlyAnnounce at line 60, does the canSend check at line 127-128 properly verify this flag, or can a malicious peer flip the flag after registration to receive transactions they shouldn't? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_da206fd6-52e4-4158-b568-6fd5bd4f6a51?mode=deep",
+    "timestamp": "2026-01-11 11:33:43.429155",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Peer selection bias] The peerStartPos rotation at lines 83-86 - can an attacker who controls peer registration timing exploit the deterministic rotation to ensure their malicious peers are always selected first for transaction relay? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ac7cd756-27c3-4caf-9180-235dbf15b647?mode=deep",
+    "timestamp": "2026-01-11 11:33:57.579674",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: unregisterPeer()] [Slice corruption] The slice modification at line 73 using append(ltrx.peerList[:i], ltrx.peerList[i+1:]...) - can this cause issues if i is the last index, potentially leading to incorrect slice reconstruction or memory corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6e0029a0-01b5-4897-b2f4-7440e9361512?mode=deep",
+    "timestamp": "2026-01-11 11:34:11.477931",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: unregisterPeer()] [Peer confusion] If unregisterPeer() is called multiple times for the same peer at line 66, does it safely handle the case where the peer is not in the list, or can it cause slice manipulation errors or panic conditions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_653b9783-1f51-4a8a-8645-212bab5f8d15?mode=deep",
+    "timestamp": "2026-01-11 11:34:26.646526",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: registerPeer()] [Duplicate peers] Can the same serverPeer be registered multiple times through registerPeer(), causing duplicate entries in peerList and resulting in the same peer receiving multiple copies of transactions, wasting bandwidth and processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b19b90fa-25c4-40d1-a7bb-e5e85dea4798?mode=deep",
+    "timestamp": "2026-01-11 11:34:42.656607",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: registerPeer()] [Validation bypass] Does registerPeer() verify that the peer pointer is non-nil before appending at line 63? Can passing nil peers cause nil pointer dereferences when send() accesses peerList[pos] at line 99, crashing the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c437031a-c66f-45cd-a241-42396b4fd343?mode=deep",
+    "timestamp": "2026-01-11 11:34:59.630837",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: registerPeer()] [Peer flooding] Can an attacker register unlimited peers through registerPeer() at line 55, causing the peerList at line 63 to grow unboundedly and leading to excessive memory consumption and degraded send() performance during peer iteration? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5b9ed64b-e8d3-4da7-99fc-ca50afdb3e35?mode=deep",
+    "timestamp": "2026-01-11 11:35:18.327838",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Memory leak] The sendTo map created at line 81 accumulates transaction lists per peer. For peers with large transaction counts, can this cause temporary memory spikes or OOM if not bounded, especially with concurrent send() calls? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_51f1cf91-1fe0-4035-9006-7f99e4a57da9?mode=deep",
+    "timestamp": "2026-01-11 11:35:37.611364",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: NewHead()] [Memory accumulation] When NewHead() receives rollback hashes at line 156-158, transactions are re-added to txPending. Can malicious chain reorganizations repeatedly add/remove the same transactions causing txPending to accumulate duplicates if not properly cleaned? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d1a18c95-27ae-403f-90e4-1ba7f1c27f41?mode=deep",
+    "timestamp": "2026-01-11 11:35:57.631860",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: Stop()] [Resource leak] Does closing the stop channel at line 52 guarantee that all spawned goroutines in send() at line 137 will terminate, or can goroutines remain blocked on retriever operations causing persistent resource leaks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ceca6b5c-b7e0-4470-8200-990aa804b37f?mode=deep",
+    "timestamp": "2026-01-11 11:36:19.537016",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Goroutine leak] Each call to send() spawns a goroutine at line 137 for retriever.retrieve(). If ltrx.stop channel is never closed or retrieval hangs, can these goroutines leak causing unbounded goroutine accumulation and resource exhaustion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c859cea6-24fa-47b4-b55d-d6bb9e8510c6?mode=deep",
+    "timestamp": "2026-01-11 11:36:43.018563",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Struct: lesTxRelay] [Memory leak] The txPending map at line 31 accumulates transaction hashes but relies on NewHead() mined notifications to clean them. If NewHead() calls are delayed or missed, can the map grow unboundedly causing memory exhaustion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2381d694-d9b7-4365-bd5e-d35be9ac3b71?mode=deep",
+    "timestamp": "2026-01-11 11:37:06.402566",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Struct: lesTxRelay] [Memory leak] The txSent map at line 30 grows unboundedly as transactions are added in send() at line 92, but are only removed in Discard(). Can an attacker flood the system with unique transactions causing unlimited memory growth and node OOM crash? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_49b07434-da81-48eb-88b9-c4592efd0c17?mode=deep",
+    "timestamp": "2026-01-11 11:37:30.300831",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Race condition] In the goroutine spawned at line 137, can the retriever.retrieve() access peer state that's being concurrently modified by unregisterPeer(), leading to use-after-free or accessing deallocated peer objects? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5059e169-0129-4115-b3f3-ed1007670e4d?mode=deep",
+    "timestamp": "2026-01-11 11:37:54.937428",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: Discard()] [Race condition] Can concurrent Discard() calls at line 171 race with send() operations adding to txSent/txPending maps, causing transactions to be partially deleted or inconsistent state where txPending references non-existent txSent entries? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0bddec43-56b3-42e7-b11f-fd62eca07dfa?mode=deep",
+    "timestamp": "2026-01-11 11:38:19.011946",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: NewHead()] [Race condition] Does NewHead() at line 148 properly synchronize with concurrent Send() calls when modifying txPending map, or can races occur where transactions are simultaneously added and removed causing inconsistent state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_742859cd-4a9a-4a37-877b-5925e2640286?mode=deep",
+    "timestamp": "2026-01-11 11:38:44.312352",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: unregisterPeer()] [Race condition] Can the slice modification in unregisterPeer() at lines 73 using append() cause race conditions with concurrent send() operations iterating over peerList, leading to skipped peers, duplicate sends, or slice corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_247f7aa9-3801-4a91-ab2a-45db09003064?mode=deep",
+    "timestamp": "2026-01-11 11:39:08.569441",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: registerPeer()] [Race condition] Between checking len(ltrx.peerList) at line 95 and accessing ltrx.peerList[pos] at line 99 in send(), can concurrent registerPeer() or unregisterPeer() calls modify the slice causing out-of-bounds access and node panic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_966aee1f-2bde-4c69-8350-8e784a1027c8?mode=deep",
+    "timestamp": "2026-01-11 11:39:33.203509",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: Send()] [Concurrency bug] While Send() at line 142 acquires the lock before calling send(), does the internal send() function at line 80 assume it's already protected, or can it be called from other contexts without locks causing concurrent map access panics? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d1eb42cd-00aa-41a7-9437-1b718f89c54c?mode=deep",
+    "timestamp": "2026-01-11 11:39:57.780163",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Race condition] Does the peerStartPos increment at line 83 suffer from race conditions when send() is called concurrently, potentially causing incorrect peer selection, skipped peers, or out-of-bounds slice access leading to node crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_76a2c7f3-caff-43eb-99cc-a40dabd7cd3d?mode=deep",
+    "timestamp": "2026-01-11 11:40:22.502029",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Race condition] Can concurrent calls to send() from multiple goroutines cause data races on the txSent and txPending maps at lines 90-94, potentially leading to map corruption, transaction loss, or node panics when accessed without lock protection? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7adea614-d546-4be8-88a6-1d688521da31?mode=deep",
+    "timestamp": "2026-01-11 11:40:48.419445",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: NewHead()] [Transaction resurrection] When rollback transactions are re-added to txPending at lines 156-158, are they guaranteed to still exist in txSent map? Can a race with Discard() cause txPending to reference non-existent transactions, leading to nil pointer dereference at line 164? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8fb86242-fbce-4b87-866a-bec8e5744dbe?mode=deep",
+    "timestamp": "2026-01-11 11:41:15.980533",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Announce-only bypass] While registerPeer() checks onlyAnnounce at line 60, does the canSend check at line 127-128 properly verify this flag, or can a malicious peer flip the flag after registration to receive transactions they shouldn't? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_245459f3-b7d6-40c1-bd7a-9435000f1767?mode=deep",
+    "timestamp": "2026-01-11 11:41:42.192383",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Peer selection bias] The peerStartPos rotation at lines 83-86 - can an attacker who controls peer registration timing exploit the deterministic rotation to ensure their malicious peers are always selected first for transaction relay? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_64701fbb-c8de-4299-8cdf-55a6113c7ecc?mode=deep",
+    "timestamp": "2026-01-11 11:42:08.958376",
+    "report_generated": false
   }
 ]
