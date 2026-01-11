@@ -19648,5 +19648,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_41f74c57-d74a-4454-95c1-8d5b0e1b5a0c?mode=deep",
     "timestamp": "2026-01-11 00:12:41.287805",
     "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Go-specific] [Struct copying] Are ExecutableData and PayloadAttributes structs safe to copy, or do they contain pointers that could cause aliasing issues when copied? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6ef6dcbe-d58e-4323-8649-c25a983efb9a?mode=deep",
+    "timestamp": "2026-01-11 00:13:57.279634",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Go-specific] [Method receivers] Do all methods use appropriate receiver types (pointer vs value), or can incorrect receiver types cause unintended mutations or copies? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_87261c08-833b-4f80-9d53-22c15c33dfdb?mode=deep",
+    "timestamp": "2026-01-11 00:14:10.091258",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Go-specific] [Zero values] Are zero values of all struct types safe and valid, or can uninitialized structs cause panics or invalid state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_917158ad-f24a-4eba-9eb4-71a3ec7a548f?mode=deep",
+    "timestamp": "2026-01-11 00:14:23.200446",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Go-specific] [Type assertions] Are there any type assertions or type switches that could panic if unexpected types are encountered? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7ad82b1b-7957-46f8-9f80-c1395e11fab6?mode=deep",
+    "timestamp": "2026-01-11 00:14:36.850302",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: initializeSecrets()] [Cryptographic Weakness] Does the master seed generation use a cryptographically secure random source, or could weak entropy in io.ReadFull(rand.Reader) on certain systems result in predictable master seeds that attackers could brute-force to decrypt all stored credentials and keystore passwords? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_80dcbf1b-2a87-45f8-88ac-aceca7255743?mode=deep",
+    "timestamp": "2026-01-11 00:14:52.284801",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: initializeSecrets()] [TOCTOU Race Condition] Between the first os.Stat check at line 319 and the second check at line 354, can an attacker win a race condition to create masterseed.json with their own content, bypassing the 'will not overwrite' protection and potentially replacing the legitimate master seed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_20622bf3-7cf1-407a-bdbe-a28244a00316?mode=deep",
+    "timestamp": "2026-01-11 00:15:08.065971",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: initializeSecrets()] [Insufficient Randomness] If io.ReadFull returns fewer than 256 bytes (line 328 check), the function returns an error, but what happens if rand.Reader provides exactly 256 bytes of low-entropy data on compromised systems - can this lead to weak master seeds? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3060678c-9f9b-4da3-9df9-de7f33b350c4?mode=deep",
+    "timestamp": "2026-01-11 00:15:24.861389",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: initializeSecrets()] [Directory Permissions] The configDir is created with 0700 permissions at line 315, but if the directory already exists with weaker permissions (e.g., 0755), is this checked and corrected, or could existing weak permissions allow unauthorized access to the master seed file? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4f90d2cb-cbf2-4d3b-9f3b-e07337bcaf4f?mode=deep",
+    "timestamp": "2026-01-11 00:15:43.552078",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: initializeSecrets()] [File Permission TOCTOU] The masterseed.json file is written with 0400 permissions at line 358, but between file creation and permission setting, can an attacker access the file with default permissions in a race condition? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e4df455f-e3c7-4e5e-ae13-7fe32060ecfc?mode=deep",
+    "timestamp": "2026-01-11 00:16:04.344401",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: initializeSecrets()] [Password Validation Bypass] The password validation at line 339 checks ValidatePasswordFormat, but if this validation is insufficient or can be bypassed, can attackers set weak passwords that are easily brute-forced, compromising all encrypted credentials? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b445f573-2271-4c22-9304-9744e5b59f80?mode=deep",
+    "timestamp": "2026-01-11 00:16:26.412716",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: initializeSecrets()] [KDF Parameter Manipulation] The scrypt parameters (N, P) are selected based on LightKDFFlag at lines 332-334, but can an attacker force the use of Light parameters through CLI manipulation, weakening the key derivation and making brute-force attacks feasible? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_88af3b60-a612-4a41-a580-2753155568be?mode=deep",
+    "timestamp": "2026-01-11 00:16:49.269075",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: initializeSecrets()] [Plaintext Password Exposure] The password is stored in a string variable at line 336 and used multiple times - does Go properly zero this memory after use, or could the password remain in memory and be extracted through memory dumps or side-channel attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_13c001ef-a00b-4738-a7e8-ebf935784e27?mode=deep",
+    "timestamp": "2026-01-11 00:17:13.333876",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: initializeSecrets()] [Error Information Leak] If encryptSeed fails at line 347, the error message is returned with details - could this leak information about the encryption implementation that aids cryptographic attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_368ef0a1-2582-4f11-a38d-022b2e0a273f?mode=deep",
+    "timestamp": "2026-01-11 00:17:36.517273",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: readMasterKey()] [Path Traversal] The master seed file path can be specified via signerSecretFlag (line 820) - can an attacker use path traversal (../../) to read arbitrary files on the system, potentially exposing sensitive data or other users' master seeds? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_abfdc6ca-68a7-44a9-94ed-c3670559ad95?mode=deep",
+    "timestamp": "2026-01-11 00:18:00.776312",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: readMasterKey()] [Symbolic Link Attack] If the masterseed.json file is a symbolic link pointing to another file, does checkFile() properly detect this, or can an attacker create a symlink to read/decrypt arbitrary files using the master seed password? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3e48d761-5a86-412f-ab4c-dd5b47898e26?mode=deep",
+    "timestamp": "2026-01-11 00:18:26.608486",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: readMasterKey()] [Password Timing Attack] The password comparison in decryptSeed (line 845) - is this comparison constant-time, or can timing differences leak information about password correctness, enabling password guessing attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6797284c-4da2-4013-bed3-4da819c0f223?mode=deep",
+    "timestamp": "2026-01-11 00:18:52.694031",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: readMasterKey()] [Insufficient Length Check] The master seed length is checked to be >= 256 bytes at line 849, but what if it's exactly 256 bytes of zeros or predictable data - is there validation of entropy or randomness quality? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_91e59054-1af9-4ed2-9a98-82c91e2ef726?mode=deep",
+    "timestamp": "2026-01-11 00:19:17.747127",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: readMasterKey()] [Vault Location Collision] The vault location is derived using Keccak256 hash with only 10 bytes ([:10]) at line 853 - could hash collisions allow different master seeds to map to the same vault directory, enabling vault access by unauthorized parties? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4fc326e0-19a3-427b-91b7-de0d209ae43e?mode=deep",
+    "timestamp": "2026-01-11 00:19:43.478892",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: readMasterKey()] [Directory Creation Race] The vault directory is created with os.Mkdir at line 854 - if multiple processes try to read the master key simultaneously, can race conditions lead to incorrect vault access or directory permission issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_79c5b866-6b6c-472f-b081-a89f24690648?mode=deep",
+    "timestamp": "2026-01-11 00:20:08.025139",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: readMasterKey()] [Error Message Oracle] The function returns 'failed to decrypt the master seed' at line 847 without distinguishing between wrong password and corrupted file - is this sufficient, or could timing/behavior differences reveal which error occurred? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_efb91d75-73b8-494d-a07a-fdefefe713e3?mode=deep",
+    "timestamp": "2026-01-11 00:20:33.904155",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: readMasterKey()] [UI Injection Attack] If ui != nil, the password is obtained through OnInputRequired at line 834 - can a malicious UI implementation log passwords, send them to remote servers, or leak them through side channels? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f9bc54d2-9e2a-4ef2-999b-bdbd21716652?mode=deep",
+    "timestamp": "2026-01-11 00:21:01.832305",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: encryptSeed()] [Weak Key Derivation] The function relies on keystore.EncryptDataV3 for encryption - if the scryptN and scryptP parameters are too low, can attackers brute-force passwords on stolen masterseed.json files within reasonable time? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_73f5e7a5-2edd-4936-adba-7f3fe0be3a1a?mode=deep",
+    "timestamp": "2026-01-11 00:21:29.335764",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: encryptSeed()] [Salt Reuse] Does EncryptDataV3 generate a new salt for each encryption, or could salt reuse across multiple master seed encryptions weaken the security and enable rainbow table attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ad7613b9-e440-450f-a3a8-8dd243419be5?mode=deep",
+    "timestamp": "2026-01-11 00:21:57.917124",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: decryptSeed()] [Version Bypass] At line 1059, if encSeed.Version != 1, only a warning is logged but decryption proceeds - can an attacker modify the version number to bypass security checks or use weaker encryption versions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_48bd0636-e70d-4ade-9e64-271b88fa295d?mode=deep",
+    "timestamp": "2026-01-11 00:22:26.517974",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: decryptSeed()] [JSON Parsing Exploit] The JSON unmarshaling at line 1056 - if the encryptedSeedStorage structure is malformed, can this cause panics, crashes, or reveal information about the decryption process? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_580c40df-bbf4-452c-93e6-53598956d798?mode=deep",
+    "timestamp": "2026-01-11 00:22:52.198671",
+    "report_generated": false
   }
 ]
