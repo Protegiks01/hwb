@@ -32548,5 +32548,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9c2a5c05-1f26-47f7-88bc-569b2915718e?mode=deep",
     "timestamp": "2026-01-11 19:11:27.770254",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Integration] [MustParseBig256 + JSON] If MustParseBig256 is used in JSON deserialization paths without panic recovery, can malformed config files crash all nodes simultaneously? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c09fd2ff-c514-425f-ba1e-e7bdf8af5960?mode=deep",
+    "timestamp": "2026-01-11 19:12:42.812970",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Concurrency] [Global Variable Access] Are reads of tt255, tt256, tt256m1, MaxBig256, MaxBig63 in U256/S256/Exp safe during concurrent goroutine access, or can data races corrupt these values? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_77acaaa9-b5b2-4e32-be3c-1b3a96c9d61b?mode=deep",
+    "timestamp": "2026-01-11 19:12:55.862919",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Concurrency] [big.Int Thread Safety] big.Int operations are not thread-safe - if multiple goroutines call U256/Exp/ReadBits on the same big.Int without locking, can this cause data corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a2e5972c-eb30-4b41-9f06-132aa6ad3808?mode=deep",
+    "timestamp": "2026-01-11 19:13:09.055797",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Concurrency] [Shared Result Mutation] If Exp/U256 are called concurrently with shared input/result big.Ints, can race conditions cause incorrect arithmetic results in parallel transaction execution? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3b895efc-05eb-4232-80fc-03d6681d4eeb?mode=deep",
+    "timestamp": "2026-01-11 19:13:22.807112",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Concurrency] [Slice Access] In ReadBits, if buf is accessed by multiple goroutines simultaneously, can concurrent writes corrupt the byte slice causing invalid state encoding? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_07a261b8-cdf6-4e00-9da5-e8c03f0e84c4?mode=deep",
+    "timestamp": "2026-01-11 19:13:37.796638",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Memory] [PaddedBigBytes Allocation] Can extremely large n parameters in PaddedBigBytes cause memory allocation to exceed node memory limits, triggering OOM kills during block validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f43a98c6-f039-42f4-b8b4-65e0e884c49a?mode=deep",
+    "timestamp": "2026-01-11 19:13:53.979016",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Memory] [Exp Temporary Objects] Does Exp allocate temporary big.Int objects in the loop that cause memory pressure, and can this be exploited for memory exhaustion DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ac2dfe29-d4e6-4dc6-b026-4f992ef38ca6?mode=deep",
+    "timestamp": "2026-01-11 19:14:11.257850",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Memory] [big.Int Growth] As big.Int values are mutated by Exp/U256, can internal big.Int storage grow unbounded, causing memory leaks in long-running validator nodes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_891e2aff-2a93-4dce-949c-af66b517baa6?mode=deep",
+    "timestamp": "2026-01-11 19:14:30.622076",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Memory] [Byte Slice Retention] Does ReadBits or PaddedBigBytes retain references to buf preventing garbage collection, causing memory leaks during high-volume transaction processing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5e7c2446-7047-4de6-80df-91ff77cb6d6e?mode=deep",
+    "timestamp": "2026-01-11 19:14:51.664154",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Error Handling] [ParseBig256 Ignored Errors] Are there code paths where the boolean return from ParseBig256 is ignored, causing nil dereferences when invalid strings are parsed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_faa75ac1-7846-4b55-a008-4b1b58f19d66?mode=deep",
+    "timestamp": "2026-01-11 19:15:13.343616",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Error Handling] [MustParseBig256 Recovery] Is panic recovery in place around all calls to MustParseBig256, or can unrecovered panics propagate and crash validator nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_12cdeeda-aec0-40b7-a244-ccee5884935c?mode=deep",
+    "timestamp": "2026-01-11 19:15:36.309619",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Error Handling] [Silent Failures] Do Byte/bigEndianByteAt silently return 0 for out-of-bounds access hide bugs that should error, causing subtle state corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_127f1528-8226-4679-a23a-ee06e0d54e4f?mode=deep",
+    "timestamp": "2026-01-11 19:16:00.317827",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Error Handling] [Nil Dereferencing] Are nil checks performed before calling methods on big.Int pointers, or can nil arguments cause panics throughout the codebase? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b2aac145-9fdb-409f-9d40-dacd73cc1574?mode=deep",
+    "timestamp": "2026-01-11 19:16:25.076407",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Type Safety] [HexOrDecimal256 vs Decimal256] Can type confusion between HexOrDecimal256 and Decimal256 cause values to be parsed differently in different contexts, leading to configuration mismatches? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3d9ccb84-ba90-42c9-92b7-0ec182bbf866?mode=deep",
+    "timestamp": "2026-01-11 19:16:51.811950",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Type Safety] [big.Int Casting] Do unsafe casts between *big.Int, *HexOrDecimal256, *Decimal256 preserve all invariants, or can type punning cause corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0c6b504e-c29a-4a3b-92e7-d770f918e06f?mode=deep",
+    "timestamp": "2026-01-11 19:17:19.604072",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Type Safety] [int64 Range] Can NewHexOrDecimal256/NewDecimal256 lose information when converting int64 to big.Int if the int64 is at boundary values? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_421b2a6d-07fa-41af-9cfe-b2c5f178fd88?mode=deep",
+    "timestamp": "2026-01-11 19:17:46.935846",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Cryptographic] [S256 in Signatures] If S256 two's complement conversion is incorrect, can this cause ECDSA signature verification to accept invalid signatures or reject valid ones? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a2f90364-1f9b-47d6-904a-efa91612ad14?mode=deep",
+    "timestamp": "2026-01-11 19:18:15.626459",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Cryptographic] [Byte Order] If ReadBits/PaddedBigBytes produce incorrect byte ordering, can this break hash calculations (SHA3, Blake2) causing state root mismatches? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_018fddac-45b3-40db-8004-36f76843775a?mode=deep",
+    "timestamp": "2026-01-11 19:18:45.017539",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Cryptographic] [U256 in Nonces] If U256 incorrectly wraps nonce values, can this enable transaction replay attacks by causing nonce collisions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_79e7696f-61d0-4fe2-b7e8-1d5738163e85?mode=deep",
+    "timestamp": "2026-01-11 19:19:13.020567",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Cryptographic] [Exp in Modular Arithmetic] Does Exp match the modular exponentiation expectations of cryptographic operations, or can differences break precompiled contracts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6586e85c-f927-46b5-963c-adaee71475ea?mode=deep",
+    "timestamp": "2026-01-11 19:19:38.195336",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [EVM] [ADDMOD/MULMOD] If U256 truncation doesn't match EVM specification exactly, can this cause ADDMOD/MULMOD opcodes to produce wrong results enabling fund theft? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dc536d9f-b5b0-4b01-bb1f-b1be921293c7?mode=deep",
+    "timestamp": "2026-01-11 19:20:02.993966",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [EVM] [EXP Opcode] Does the Exp function implementation exactly match EVM EXP opcode behavior including gas costs and truncation, or can discrepancies enable consensus attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f91d530e-224c-4578-a89a-76e1c79f0175?mode=deep",
+    "timestamp": "2026-01-11 19:20:29.373274",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [EVM] [SIGNEXTEND] If S256 two's complement is wrong, can SIGNEXTEND opcode produce incorrect results allowing smart contract exploits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c59b402c-339b-4a19-b5cc-2c89563a0a7c?mode=deep",
+    "timestamp": "2026-01-11 19:20:55.302457",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [EVM] [BYTE Opcode] Does the Byte function match EVM BYTE opcode semantics exactly, or can off-by-one errors cause smart contracts to read wrong values? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0f664268-498e-48ff-bbd9-0b38dfc9e1f7?mode=deep",
+    "timestamp": "2026-01-11 19:21:22.426582",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [EVM] [Balance Overflow] If U256 wrapping allows balance overflow (balance + amount > 2^256), can attackers create ether from nothing through integer overflow? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_225d5f30-a13f-4b81-ab93-372a5d50a3e1?mode=deep",
+    "timestamp": "2026-01-11 19:21:48.399332",
+    "report_generated": false
   }
 ]
