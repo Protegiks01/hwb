@@ -30148,5 +30148,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_afb4f5fa-71ae-4047-87f4-eb1ee264176e?mode=deep",
     "timestamp": "2026-01-11 16:27:46.857089",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Big.MarshalText()] [Negative Number Handling] The comment states negative integers are not supported, but MarshalText doesn't check the sign before calling EncodeBig - can an attacker provide negative Big values that get marshaled and cause issues when unmarshaled by nodes expecting only positive values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f2934a45-61d5-4bf7-a20a-c31fe5d499cb?mode=deep",
+    "timestamp": "2026-01-11 16:29:04.532545",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Big.MarshalText()] [Type Conversion Safety] When casting (*big.Int)(&b), can this operation on a Big value with uninitialized or corrupted internal state cause unexpected behavior or panics in EncodeBig? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6e1a5b69-c7ea-4c35-b776-0000fb8fcb6f?mode=deep",
+    "timestamp": "2026-01-11 16:29:18.079779",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Big.UnmarshalJSON()] [Slice Bounds] When extracting input[1:len(input)-1], can JSON input with special formatting or len < 2 bypass isString but cause slice panic, crashing nodes during transaction value parsing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f695d0ca-056a-4287-950c-1b3f2fa41ac4?mode=deep",
+    "timestamp": "2026-01-11 16:29:31.476774",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Big.UnmarshalJSON()] [Error Wrapping] Does wrapTypeError properly convert all underlying errors from UnmarshalText into json.UnmarshalTypeError, or can some error types escape unwrapped, causing inconsistent error handling across the codebase? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_485b9208-954e-47b2-8920-9ff67531a9df?mode=deep",
+    "timestamp": "2026-01-11 16:29:45.251829",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Big.UnmarshalText()] [256-bit Range Bypass] The check at line 173 validates len(raw) > 64, but can an attacker provide exactly 64 hex characters representing a value > 256 bits through crafted encoding, bypassing the ErrBig256Range check and causing big.Int overflow in downstream calculations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7d2710b6-d763-40c8-b656-9add49c5bc0d?mode=deep",
+    "timestamp": "2026-01-11 16:29:59.988846",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Big.UnmarshalText()] [Word Array Allocation] When allocating words slice at line 176 with len(raw)/bigWordNibbles+1, can an attacker provide maximum-length input (64 chars) that causes excessive word array allocation, leading to memory DoS during transaction pool validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eed516e0-a214-4bbe-9f2b-ea5c058ef921?mode=deep",
+    "timestamp": "2026-01-11 16:30:15.883995",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Big.UnmarshalText()] [Integer Overflow in Word Calculation] At lines 188-189 where words[i] *= 16 and words[i] += big.Word(nib), can an attacker craft hex input that causes words[i] to overflow big.Word capacity before being assembled into big.Int, producing incorrect decoded values? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6163e9a4-583b-405b-9c6f-85c1028470a4?mode=deep",
+    "timestamp": "2026-01-11 16:30:32.680941",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Big.UnmarshalText()] [Loop Bounds Safety] The nested loop structure (lines 178-192) with end tracking and start calculation - can off-by-one errors in start = end - bigWordNibbles (line 179) cause incorrect nibble processing or slice access violations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7d71aff6-817d-47d1-a8d9-3331d2799bc3?mode=deep",
+    "timestamp": "2026-01-11 16:30:51.557286",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Big.UnmarshalText()] [Nibble Validation Timing] Nibble syntax validation occurs during word accumulation (lines 184-187) rather than pre-verification - can this allow partial word array corruption before ErrSyntax is returned, affecting subsequent operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a83b807f-3df6-4979-8b7f-4b0741fcb10e?mode=deep",
+    "timestamp": "2026-01-11 16:31:12.224123",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Big.UnmarshalText()] [SetBits Safety] When calling dec.SetBits(words) at line 194, can providing words array with values exceeding expected ranges cause big.Int internal corruption, leading to incorrect balance calculations or state roots? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ff8b2fcb-04c4-489c-a396-36586a38e4f9?mode=deep",
+    "timestamp": "2026-01-11 16:31:34.161974",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Big.UnmarshalText()] [Pointer Assignment Race] If UnmarshalText is called concurrently on the same Big pointer from multiple goroutines (e.g., parallel transaction validation), can the assignment *b = (Big)(dec) at line 195 cause race conditions corrupting account balances? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a7ba95c3-55b1-4deb-a4e0-cb1127e51750?mode=deep",
+    "timestamp": "2026-01-11 16:31:56.867468",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Big.UnmarshalText()] [Zero-length Input] Does checkNumberText properly handle empty raw output, and will the words slice allocation and SetBits call at lines 176-194 correctly process zero-length input without panics or incorrect zero value assignment? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_692cfcce-a445-4f3c-b49f-c7ea42cad5e1?mode=deep",
+    "timestamp": "2026-01-11 16:32:21.261076",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Big.ToInt()] [Nil Pointer] If ToInt is called on nil Big pointer, will the cast (*big.Int)(b) cause nil pointer panic in callers that don't check for nil, potentially crashing nodes during balance queries? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0d36a2b6-53c4-4037-afef-ed0c37b6ec0e?mode=deep",
+    "timestamp": "2026-01-11 16:32:46.524995",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Big.ToInt()] [Shared State] Does returning (*big.Int)(b) create aliasing where modifications to the returned big.Int affect the original Big value, potentially causing unintended mutations in consensus-critical calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2bf97a45-26c3-4fc8-9230-f717babbd889?mode=deep",
+    "timestamp": "2026-01-11 16:33:12.947839",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Big.UnmarshalGraphQL()] [Type Confusion] When accepting int32 input at line 218, can an attacker provide values near MaxInt32 that are interpreted differently than equivalent hex strings, causing inconsistencies in how values are processed via GraphQL vs JSON APIs? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8eaafdcf-fb03-49b9-86ce-c1ccce8f452a?mode=deep",
+    "timestamp": "2026-01-11 16:33:39.731816",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Big.UnmarshalGraphQL()] [Negative Int32] When calling num.SetInt64(int64(input)) for int32 at line 220, can negative int32 values bypass the stated restriction on negative integers, potentially corrupting account balances or token amounts that should be unsigned? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4de13070-5040-4ef1-afb3-86513daf913e?mode=deep",
+    "timestamp": "2026-01-11 16:34:06.761936",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Big.UnmarshalGraphQL()] [Type Switch Exhaustiveness] The type switch only handles string and int32 - can an attacker provide other numeric types (int64, float64, uint) that fall through to the default case with error but might be partially processed before error return? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_26628abe-9dd1-49b7-b135-dbe5ebcdf4e7?mode=deep",
+    "timestamp": "2026-01-11 16:34:31.396458",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Uint64.MarshalText()] [Buffer Allocation] The initial buffer allocation of 2 bytes with capacity 10 at line 234 - can very large uint64 values cause the buffer to grow beyond capacity through repeated reallocations, impacting performance during mass RPC response generation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ba78ac81-c61d-4c41-bf96-7a8e33097e2c?mode=deep",
+    "timestamp": "2026-01-11 16:34:55.811791",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Uint64.MarshalText()] [Maximum Value] Can marshaling MaxUint64 produce output that when unmarshaled by nodes with different architectures or configurations causes parsing errors or incorrect value interpretation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a1c1c69e-5f7f-403d-9267-92383c9fc9f2?mode=deep",
+    "timestamp": "2026-01-11 16:35:18.881788",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Uint64.UnmarshalJSON()] [Slice Bounds] At line 245 extracting input[1:len(input)-1], can JSON with special formatting (e.g., escaped quotes) cause len < 2 after parsing but pass isString, leading to slice panic during nonce or gas limit parsing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_350cfaa6-a2d5-45aa-a2ee-3c0a517464e1?mode=deep",
+    "timestamp": "2026-01-11 16:35:43.656359",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Uint64.UnmarshalText()] [Range Validation] The check len(raw) > 16 at line 254 catches values with >16 hex digits, but can an attacker provide exactly 16 hex chars representing values > MaxUint64 (0xFFFFFFFFFFFFFFFF) that bypass range check but overflow during accumulation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0b7f5074-1d91-434a-9fca-a82b0d20b53d?mode=deep",
+    "timestamp": "2026-01-11 16:36:08.584851",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Uint64.UnmarshalText()] [Integer Overflow in Accumulation] At lines 263-264 where dec *= 16 and dec += nib, if raw contains maximum valid hex chars, can the multiplication dec *= 16 overflow uint64 before range error is detected, producing incorrect nonce or gas limit values? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_60b13185-2127-43ff-ad41-6adf635beb72?mode=deep",
+    "timestamp": "2026-01-11 16:36:34.817218",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Uint64.UnmarshalText()] [Nibble Validation] Unlike Big.UnmarshalText, this function validates nibbles during accumulation (lines 259-262) - can crafted input with invalid hex chars cause partial dec accumulation before ErrSyntax, leaving *b in corrupted state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d0ba743f-f382-4b84-b485-9cc41ee33b87?mode=deep",
+    "timestamp": "2026-01-11 16:37:01.287044",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Uint64.UnmarshalText()] [Leading Zero Check] Does checkNumberText at line 250 properly reject leading zeros (0x0123), and if this check is bypassed, could different nodes interpret leading-zero values differently, causing consensus failures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c58a8124-b040-4364-960e-727f46c03b77?mode=deep",
+    "timestamp": "2026-01-11 16:37:29.239700",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Uint64.UnmarshalText()] [Assignment Race] If UnmarshalText is called concurrently on the same Uint64 pointer (e.g., parallel processing of transactions with same sender), can *b = Uint64(dec) at line 266 cause race conditions in nonce tracking? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b6428426-e1fb-4fbd-b5ca-e7c9bb6c6a90?mode=deep",
+    "timestamp": "2026-01-11 16:37:56.380255",
+    "report_generated": false
   }
 ]
