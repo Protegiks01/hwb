@@ -19498,5 +19498,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7a85420a-68ae-42a7-add6-143e26bf9125?mode=deep",
     "timestamp": "2026-01-11 00:01:32.778825",
     "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Cross-function] [Round-trip consistency] If a block is converted using BlockToExecutableData and then back using ExecutableDataToBlock, is the result identical, or can data loss/corruption occur in the round-trip? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3a0f1fd1-8a29-4775-9ebd-0838d2a11d28?mode=deep",
+    "timestamp": "2026-01-11 00:03:02.616693",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Cross-function] [Transaction encoding symmetry] Are encodeTransactions and decodeTransactions perfectly symmetric, or can encoding artifacts cause transactions to be modified during encode-decode cycles? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cb44f143-2b8d-497a-865e-8d8e32c95c2c?mode=deep",
+    "timestamp": "2026-01-11 00:03:15.584203",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Cross-function] [Concurrent access] If ExecutableDataToBlock and BlockToExecutableData are called concurrently on related block data, can race conditions cause inconsistent state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cb60f002-f34b-4d78-a434-890c4fd575ac?mode=deep",
+    "timestamp": "2026-01-11 00:03:28.811973",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Cross-function] [Error propagation] Do all functions properly propagate errors up the call stack, or can errors be silently swallowed causing invalid state acceptance? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_08964e4f-3edd-4ff7-8427-1fc14a2f5e74?mode=deep",
+    "timestamp": "2026-01-11 00:03:42.731903",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Cross-function] [Memory management] When processing large ExecutableData with many transactions, are memory allocations bounded to prevent DoS through memory exhaustion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3a0cf017-2e7e-4e30-92c7-46b350b8069d?mode=deep",
+    "timestamp": "2026-01-11 00:03:57.495435",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [JSON marshaling] [Hexutil overflow] Do the hexutil type conversions at lines 42, 68-75 properly handle integer overflow when unmarshaling extremely large hex values? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_969f60a4-7f9c-42b4-a324-7fe36f8d8fe2?mode=deep",
+    "timestamp": "2026-01-11 00:04:13.364776",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [JSON marshaling] [Timestamp boundaries] Can the Timestamp hexutil.Uint64 fields at lines 34, 42, 58, 71 be unmarshaled with values exceeding uint64 max causing overflow? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f728e20a-c5f6-4673-a04f-9d762b48fbfe?mode=deep",
+    "timestamp": "2026-01-11 00:04:31.017829",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [JSON marshaling] [BaseFeePerGas unmarshaling] Does hexutil.Big at lines 60, 72 properly validate size limits preventing unmarshaling of arbitrarily large integers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_591bf6d1-2b3a-4cf1-8151-0f4b642e1dc1?mode=deep",
+    "timestamp": "2026-01-11 00:04:50.318498",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [JSON marshaling] [Bytes field overflow] Can hexutil.Bytes fields at lines 73-75 be unmarshaled with unbounded sizes causing memory exhaustion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8f394d15-f207-4075-b869-b9608733875d?mode=deep",
+    "timestamp": "2026-01-11 00:05:11.623639",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [JSON marshaling] [Transaction array DoS] Can the Transactions array at line 75 be unmarshaled with millions of entries causing memory exhaustion or CPU DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ee6d9484-1698-4932-a5cf-54f63eb5b335?mode=deep",
+    "timestamp": "2026-01-11 00:05:34.127301",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [JSON marshaling] [Nil vs omitted fields] Does JSON unmarshaling properly distinguish between nil and omitted fields for pointers (BaseFeePerGas, Withdrawals, LatestValidHash) preventing consensus confusion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_682e51db-1ecc-4005-9691-42060498bf15?mode=deep",
+    "timestamp": "2026-01-11 00:05:57.115976",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [JSON marshaling] [Type confusion] Can JSON unmarshaling accept values of wrong types (strings for numbers, etc.) that bypass validation after unmarshaling? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f9fd5f32-d488-4220-ae8e-3acf6dc73bf2?mode=deep",
+    "timestamp": "2026-01-11 00:06:20.794449",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Protocol integration] [Clique PoA incompatibility] Since WBT uses Clique PoA consensus, does the beacon/engine types assume PoS semantics (like prevRandao) that conflict with PoA validator selection? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a6e2d73e-bd0c-45da-a29f-25e84b37b626?mode=deep",
+    "timestamp": "2026-01-11 00:06:46.432227",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Protocol integration] [Difficulty semantics] ExecutableDataToBlock sets Difficulty to zero at line 193, but Clique uses difficulty for INTURN/NOTURN - does this break validator turn validation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ea6033d0-d746-4e66-aab5-5791bd6581ab?mode=deep",
+    "timestamp": "2026-01-11 00:07:14.452431",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Protocol integration] [Validator vote encoding] Does the 32-byte ExtraData limit at line 167-169 allow sufficient space for Clique validator signatures and votes, or does truncation break consensus? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_489a0d4b-2bb2-4538-85bc-5df47bebc3e4?mode=deep",
+    "timestamp": "2026-01-11 00:07:43.264347",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Protocol integration] [Withdrawals in PoA] Does WBT's PoA implementation support withdrawals as expected by ExecutableData, or does this create protocol mismatch? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0ffdaa51-9a95-4c5a-b22d-bd591fa5e28d?mode=deep",
+    "timestamp": "2026-01-11 00:08:13.233524",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Protocol integration] [Block building] When a Clique validator builds a block, does it correctly populate ExecutableData, or can discrepancies between PoA and beacon API cause invalid blocks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3bbc6cc2-554e-4072-a5f0-1925568abe0c?mode=deep",
+    "timestamp": "2026-01-11 00:08:43.171809",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Protocol integration] [Sync compatibility] During chain synchronization, can nodes using ExecutableData format sync with nodes using native Clique format, or does format mismatch cause sync failures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_28afbbf3-abef-4158-ac0e-4e3bc2938adc?mode=deep",
+    "timestamp": "2026-01-11 00:09:14.750325",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Protocol integration] [Fork compatibility] If WBT forks from upstream go-ethereum, do beacon/engine types remain compatible, or can protocol changes break consensus? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8fa23393-8bb1-4df7-9b74-7d12f03ee0b4?mode=deep",
+    "timestamp": "2026-01-11 00:09:44.088053",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Edge case] [Empty block handling] Does ExecutableDataToBlock properly handle blocks with zero transactions and nil withdrawals, or can empty blocks cause nil pointer or validation issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_385d033b-30e9-4389-9e54-acc4c0c316fd?mode=deep",
+    "timestamp": "2026-01-11 00:10:14.033347",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Edge case] [Maximum block size] Is there validation preventing ExecutableData from representing blocks exceeding maximum block size limits through oversized transactions or fields? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_17c91c76-b9c5-454e-a40e-244dc1d17192?mode=deep",
+    "timestamp": "2026-01-11 00:10:43.885039",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Edge case] [Genesis block handling] Can ExecutableData represent the genesis block (Number=0, ParentHash=0), or will this cause special case handling errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_64e20e85-7adb-4768-a7ae-f7334305fc2c?mode=deep",
+    "timestamp": "2026-01-11 00:11:13.284784",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Go-specific] [Slice capacity] When allocating enc slice at line 133 or txs slice at line 141, can the capacity be manipulated to cause excessive memory allocation beyond len? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5519e4e4-dc03-443c-9d01-0a242919a848?mode=deep",
+    "timestamp": "2026-01-11 00:11:42.061989",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Go-specific] [String formatting] Does the String() method at line 105-107 for PayloadID handle all possible byte patterns safely without panics? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_af19431c-3f55-419b-a9ee-04dfe0f78877?mode=deep",
+    "timestamp": "2026-01-11 00:12:11.540897",
+    "report_generated": false
+  },
+  {
+    "question": "[File: beacon/engine/types.go] [Go-specific] [Error message formatting] Can the error messages at lines 116, 145, 168, 171, 175, 205 leak sensitive information about node state or internal operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_41f74c57-d74a-4454-95c1-8d5b0e1b5a0c?mode=deep",
+    "timestamp": "2026-01-11 00:12:41.287805",
+    "report_generated": false
   }
 ]
