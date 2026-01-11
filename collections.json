@@ -27148,5 +27148,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dcdea31d-12de-4417-8340-3c506b1329a6?mode=deep",
     "timestamp": "2026-01-11 13:08:28.285496",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: All] [Memory Exhaustion] Attacker repeatedly calls bitutil functions with large slices in goroutines - can memory allocation overhead cause OOM killing validator nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dc7d98a8-67ea-4e85-a8f6-071419a3aec6?mode=deep",
+    "timestamp": "2026-01-11 13:09:38.713676",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: All fast* variants] [Cache Timing Attack] By measuring execution time of fast vs safe paths, can attacker fingerprint node architecture enabling targeted exploits? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7e2a1627-3cc8-497a-8929-e80a3139edf0?mode=deep",
+    "timestamp": "2026-01-11 13:09:51.731962",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: All] [State Corruption Chain] Buffer overflow in XORBytes → corrupted bloom filter from ANDBytes → false validation in TestBytes → acceptance of invalid transaction logs - can this chain corrupt validator state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f77496ac-adcb-49a9-b4d4-2452d40dd454?mode=deep",
+    "timestamp": "2026-01-11 13:10:05.282424",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: All fast* variants] [Code Duplication] Lines 29-47, 73-91, 117-135 are nearly identical patterns - if bug exists in one, it likely exists in all three - has this been verified? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3eee6bab-7045-4b68-96f2-f56f5767663f?mode=deep",
+    "timestamp": "2026-01-11 13:10:19.075187",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Line 5] [Upstream Sync] Code adapted from Go standard library crypto/cipher/xor.go - if upstream fixes security bug, will WBT incorporate fix, or has code diverged too much? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bf787cf3-d56a-42be-b28f-cac5f0bb4175?mode=deep",
+    "timestamp": "2026-01-11 13:10:33.810621",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: All] [Missing Tests] Are there comprehensive tests covering buffer overflow, concurrent access, and architecture-specific behavior, or can bugs go undetected until production? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_028f655d-5a98-4671-9086-72e726d77ca6?mode=deep",
+    "timestamp": "2026-01-11 13:10:50.201290",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: All fast* variants] [Unsafe Justification] Is unsafe pointer usage necessary for performance, or can it be replaced with safer Go code - has performance vs safety tradeoff been evaluated? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_78efdbbd-8466-4fed-aaf6-c1a80ea3d4dd?mode=deep",
+    "timestamp": "2026-01-11 13:11:06.979564",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [All] [Fuzzing Coverage] Have functions been fuzzed with malformed inputs (corrupted slice headers, extreme lengths, overlapping buffers) to find memory corruption bugs? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4a7db553-760c-4624-a622-b45a552b55de?mode=deep",
+    "timestamp": "2026-01-11 13:11:26.071465",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: ANDBytes + ORBytes] [Bloom Filter Integration] When matcher.go chains ANDBytes(line 350, 364) → ORBytes(line 356) → TestBytes(line 366), have integration tests verified this sequence cannot be exploited to bypass log filtering? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_09d16be0-834e-41c1-b298-a931aeb932ac?mode=deep",
+    "timestamp": "2026-01-11 13:11:46.916675",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: TestBytes] [P2P Integration] Has p2p/transport.go line 178 TestBytes(hs.ID) validation been tested against malicious peer IDs including: all zeros, partial zeros, maximum length, corrupted slice headers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9a4a1b57-beb8-4a64-b42e-16428fab40f4?mode=deep",
+    "timestamp": "2026-01-11 13:12:08.880342",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: XORBytes] [Ethash Integration] Even though WBT uses PoA, ethash code at algorithm.go line 200 still calls XORBytes - can this dead code path be exploited if accidentally enabled? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5e588e08-5a22-495d-b401-3ff48c95f642?mode=deep",
+    "timestamp": "2026-01-11 13:12:31.248757",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: All] [Cross-Platform Testing] Have functions been tested on all architectures listed in supportsUnaligned (386, amd64, ppc64, ppc64le, s390x) plus unlisted ones to verify correct behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_746f7aaa-e23a-42f4-a1b7-1ae7650fbf65?mode=deep",
+    "timestamp": "2026-01-11 13:12:55.375667",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: All] [Stress Testing] Under high load with many concurrent bloom filter matches and P2P connections, can bitutil functions cause memory corruption or crashes not seen in normal testing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5f02aabf-6d39-4663-9675-37f431ed0842?mode=deep",
+    "timestamp": "2026-01-11 13:13:20.155779",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Function: CompressBytes()] [Memory exhaustion] Can an attacker provide extremely large input data slices that cause unbounded memory allocation in the bitsetEncodeBytes call, leading to node memory exhaustion and DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5d5da3d0-c68a-423c-b9ad-2e73f8beded3?mode=deep",
+    "timestamp": "2026-01-11 13:13:45.867135",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Function: CompressBytes()] [Memory duplication] When compression is ineffective (line 61-62), the function creates a full copy of input data - can an attacker repeatedly trigger this path with carefully crafted data to cause excessive memory allocation and node crashes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d79bdd4c-6229-40d2-b31f-ae209c5c36ad?mode=deep",
+    "timestamp": "2026-01-11 13:14:12.261728",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Function: CompressBytes()] [Resource leak] If bitsetEncodeBytes allocates large temporary buffers during recursive compression, are these properly released, or can repeated calls lead to memory pressure even after GC? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e4e5c6c0-4a0d-4056-8498-7d8fb39b0370?mode=deep",
+    "timestamp": "2026-01-11 13:14:39.848928",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Function: CompressBytes()] [Integer overflow] The length comparison 'len(out) < len(data)' assumes safe integer operations - can massive input sizes (approaching max int) cause incorrect comparisons leading to wrong compression path selection? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b703ea1f-1bbc-42cf-a3c8-19496c9ccc95?mode=deep",
+    "timestamp": "2026-01-11 13:15:07.417411",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Function: bitsetEncodeBytes()] [Stack overflow] The recursive call at line 96 can theoretically recurse indefinitely with specially crafted input - is there a maximum recursion depth check to prevent stack overflow crashes in validators/nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9eb82503-1495-4663-9e52-13c3e2eadc6b?mode=deep",
+    "timestamp": "2026-01-11 13:15:36.081584",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Function: bitsetEncodeBytes()] [Integer overflow] The bitset size calculation '(len(data)+7)/8' at line 84 could overflow with extremely large data lengths near max int - can this cause incorrect buffer allocation or memory corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1e496002-fd07-44bd-b9a2-422c515bc5bd?mode=deep",
+    "timestamp": "2026-01-11 13:16:03.872648",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Function: bitsetEncodeBytes()] [Slice capacity manipulation] The nonZeroBytes slice is pre-allocated with capacity len(data) (line 85) - can an attacker provide input where all bytes are non-zero, forcing repeated slice expansions and memory churn? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e9a1d2ce-acd4-4b82-80a9-870ab7070f40?mode=deep",
+    "timestamp": "2026-01-11 13:16:30.002429",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Function: bitsetEncodeBytes()] [Bit manipulation error] The bitset setting operation 'nonZeroBitset[i/8] |= 1 << byte(7-i%8)' at line 90 - can integer overflow in the shift operation (with very large i values) lead to incorrect bit positions being set? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_be7b1a5d-7fe0-4bb8-a49a-6179f7d6c3df?mode=deep",
+    "timestamp": "2026-01-11 13:16:56.009362",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Function: bitsetEncodeBytes()] [Empty data handling] Lines 72-75 return nil for empty input - if this compressed data is stored in blockchain state and later decompressed, could nil values be misinterpreted causing state corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4e8b6e53-55d5-4835-b826-43f1b54be9b4?mode=deep",
+    "timestamp": "2026-01-11 13:17:24.376758",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Function: bitsetEncodeBytes()] [Single byte optimization] Lines 77-81 handle single-byte input specially - can an attacker exploit differences in compression behavior between single-byte and multi-byte inputs to cause inconsistent state across nodes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_31e2a3af-24dc-4075-905c-43b5456048f6?mode=deep",
+    "timestamp": "2026-01-11 13:17:51.669245",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Function: bitsetEncodeBytes()] [Zero detection bypass] The check 'if b != 0' at line 88 - are there any edge cases where byte values could be misinterpreted (e.g., due to type conversions) leading to incorrect compression? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fc4a6c55-1eae-4b31-9823-6f04fc126d50?mode=deep",
+    "timestamp": "2026-01-11 13:18:18.070746",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Function: bitsetEncodeBytes()] [Memory amplification] For data with few zero bytes, the compressed output could be larger than input - can an attacker repeatedly submit such data to amplify storage/memory usage across the network? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_baafe4f6-e64e-43f5-bdf4-ab142f240d01?mode=deep",
+    "timestamp": "2026-01-11 13:18:45.299505",
+    "report_generated": false
   }
 ]
