@@ -29236,5 +29236,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eb7e7ae4-532a-43f3-ada5-f34abfc8e215?mode=deep",
     "timestamp": "2026-01-11 12:25:22.230986",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: validateCheckpoint()] [Untrusted Logs Attack] The call to GetUntrustedBlockLogs() at line 66 explicitly marks logs as untrusted - are there additional validation steps before passing these to LookupCheckpointEvents(), or can malicious logs corrupt the checkpoint validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ca5dbb32-c50d-4e7c-ad13-f7615a86fb42?mode=deep",
+    "timestamp": "2026-01-11 12:26:57.604807",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: validateCheckpoint()] [Checkpoint Number Manipulation] Can peer.checkpointNumber be manipulated to point to a block number where the attacker controls the logs, allowing fabricated checkpoint events to pass validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e9b72842-97e8-42ba-835c-0f9bd65091cd?mode=deep",
+    "timestamp": "2026-01-11 12:27:10.670983",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: validateCheckpoint()] [Header Forgery] When retrieving the header at peer.checkpointNumber (line 61), can a malicious peer provide a valid-looking header that doesn't match the actual canonical chain, causing the client to validate against wrong blockchain state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8606db5f-bf5a-440e-b1cf-ea65fb53b461?mode=deep",
+    "timestamp": "2026-01-11 12:27:24.076867",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: validateCheckpoint()] [Slow Peer DoS] Can an attacker peer deliberately respond slowly (just under 10 second timeout) repeatedly to validateCheckpoint() calls, causing resource exhaustion through hanging validation goroutines? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fb5ec798-5f59-4fda-b478-b3615675bb46?mode=deep",
+    "timestamp": "2026-01-11 12:27:37.944047",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: validateCheckpoint()] [Context Cancellation Race] Between context creation at line 56 and the defer cancel() at line 57, can a race condition cause the context to be used after cancellation in RetrieveSingleHeaderByNumber() or GetUntrustedBlockLogs()? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_aca087aa-7803-478e-af78-b07b511afea2?mode=deep",
+    "timestamp": "2026-01-11 12:27:52.725784",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: validateCheckpoint()] [Timeout Bypass] The 10-second timeout context at line 56 can be cancelled - can a malicious peer delay responses to cause timeout, forcing the client to accept checkpoints without proper validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4452f774-78a6-4e4b-88f9-ee8424347a56?mode=deep",
+    "timestamp": "2026-01-11 12:28:09.281641",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: validateCheckpoint()] [CheckpointHash Collision] If two events have the same Index but different CheckpointHash values (line 76), does the code properly reject this scenario, or can an attacker create ambiguous checkpoint states? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_98346258-9e92-4cb3-aa6a-04c9367c7ae5?mode=deep",
+    "timestamp": "2026-01-11 12:28:27.176831",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: validateCheckpoint()] [Event Index Mismatch] If multiple events are returned at line 71 with different Index values, only the first event's index is used (line 75) - can an attacker exploit this by providing mixed valid/invalid events to bypass validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_86d60cac-88af-48f8-8b9c-9f579abc5b5f?mode=deep",
+    "timestamp": "2026-01-11 12:28:46.890867",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: validateCheckpoint()] [Contract Event Parsing] When calling LookupCheckpointEvents() with peer.checkpoint.Hash() at line 70, can an attacker craft logs that parse as valid checkpoint events but contain malicious section index or hash values? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e9094a81-0cdc-4fff-9b2c-d678327b085f?mode=deep",
+    "timestamp": "2026-01-11 12:29:08.297784",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: validateCheckpoint()] [Oracle Manipulation] Can a malicious oracle backend provide fabricated checkpoint events via LookupCheckpointEvents() at line 70 that appear valid but point to attacker-controlled chain state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0bcb2254-35d2-44ac-981f-dff58420a379?mode=deep",
+    "timestamp": "2026-01-11 12:29:31.118104",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: validateCheckpoint()] [Oracle Unavailability] If h.backend.oracle is nil or returns false from IsRunning() checks elsewhere, does validateCheckpoint() still get called, and can this lead to panics or undefined behavior during oracle.Contract().LookupCheckpointEvents()? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eb6fadc4-e33f-49ec-a203-9b29bdbc8d57?mode=deep",
+    "timestamp": "2026-01-11 12:29:54.060548",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: validateCheckpoint()] [Signature Count Manipulation] Can an attacker provide a large number of duplicate signatures (appending same signature multiple times at lines 79-81) to cause resource exhaustion during VerifySigners() processing, leading to node DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cb81e464-c8b2-4fae-9959-093663d49a6d?mode=deep",
+    "timestamp": "2026-01-11 12:30:18.512359",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: validateCheckpoint()] [Empty Signature Set] If events array at line 70 is empty (len(events) == 0), the function returns errInvalidCheckpoint, but what if events contains a single malicious event with zero signatures - does VerifySigners() handle empty signature arrays safely? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0f13be10-7dc1-4a43-b0aa-640cfdf2082d?mode=deep",
+    "timestamp": "2026-01-11 12:30:44.304313",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: validateCheckpoint()] [Signature Replay] Can an attacker replay old valid checkpoint signatures from a previous network state to force the light client to sync to an outdated chain state, enabling double-spend attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7fa98486-ad79-4a82-8746-a1a5db782eef?mode=deep",
+    "timestamp": "2026-01-11 12:31:11.169646",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: validateCheckpoint()] [ECDSA Recovery Attack] When constructing signatures by concatenating event.R, event.S, and event.V at lines 80, can an attacker provide malformed R/S/V values that cause ecrecover to return arbitrary addresses, bypassing trusted signer validation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ede05056-426b-4b44-ba0b-b4c252bb5877?mode=deep",
+    "timestamp": "2026-01-11 12:31:38.817407",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: validateCheckpoint()] [Signature Malleability] Does the signature verification at line 82 properly handle signature malleability (r,s,v format manipulation), or can an attacker craft multiple valid signatures for the same checkpoint to bypass verification logic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d1470e83-715b-43c3-b706-9e608cde8019?mode=deep",
+    "timestamp": "2026-01-11 12:32:07.651731",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: validateCheckpoint()] [Signature Forgery] Can a malicious peer provide a checkpoint with valid-looking but forged signatures that pass the VerifySigners() check, potentially allowing the light client to sync from an attacker-controlled chain and accept invalid state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4adb0f13-98b3-45a4-8788-098e96583dbd?mode=deep",
+    "timestamp": "2026-01-11 12:32:36.913880",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/state_accessor.go] [Function: stateAtTransaction()] [Gas underflow] Can transactions with gas less than intrinsic gas cause underflow in gas pool calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4c5c3ed3-3741-4a5f-aedf-f7d3ab77e3b0?mode=deep",
+    "timestamp": "2026-01-11 12:33:07.118873",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/state_accessor.go] [Function: stateAtTransaction()] [Intrinsic gas] Is intrinsic gas (base cost + data cost) properly validated before ApplyMessage? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2e0452bc-1bee-4bf7-8fa1-fd00f31333bc?mode=deep",
+    "timestamp": "2026-01-11 12:33:34.454593",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/state_accessor.go] [Function: stateAtTransaction()] [Access list cost] Is the access list gas cost correctly calculated during replay? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a68f8f13-5666-44fe-9514-b3c4a7d61377?mode=deep",
+    "timestamp": "2026-01-11 12:34:01.997114",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/state_accessor.go] [Function: stateAtTransaction()] [Access list warmup] For EIP-2930 transactions, are access list addresses and storage keys properly warmed before execution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3b5cee62-9523-43cf-9dd8-402344bc7762?mode=deep",
+    "timestamp": "2026-01-11 12:34:29.238408",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/state_accessor.go] [Function: stateAtTransaction()] [Refund cap] Is the gas refund cap (EIP-3529) correctly enforced during replay? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_df00f14f-0dae-4515-96a1-8e0fffa5ad67?mode=deep",
+    "timestamp": "2026-01-11 12:34:57.046521",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/state_accessor.go] [Function: stateAtTransaction()] [Gas refund] Are gas refunds properly tracked and applied during transaction replay? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7e4234fb-5d95-4241-844d-b7c72b79c4c3?mode=deep",
+    "timestamp": "2026-01-11 12:35:25.601115",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/state_accessor.go] [Function: stateAtTransaction()] [Log index] Does SetTxContext() at line 66 ensure logs have correct transaction indices? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_21524128-f4c1-494c-8e53-2909e88cb4b8?mode=deep",
+    "timestamp": "2026-01-11 12:35:55.181998",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/state_accessor.go] [Function: stateAtTransaction()] [Log ordering] Are logs generated during transaction replay in the same order as original execution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1a434992-035d-493a-85e8-f78cb6052345?mode=deep",
+    "timestamp": "2026-01-11 12:36:22.978371",
+    "report_generated": false
   }
 ]
