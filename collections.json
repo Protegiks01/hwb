@@ -26998,5 +26998,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c3d9a077-edae-44ba-8080-0eb777d89f3a?mode=deep",
     "timestamp": "2026-01-11 12:57:44.488406",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: fastXORBytes, fastANDBytes, fastORBytes] [Torn Writes] At lines 40, 84, 128 where uintptr-sized writes occur, are these atomic on target platforms, or can torn writes during concurrent access produce corrupted results? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0240bca5-e40a-4c5e-9aae-0f42fa5019b4?mode=deep",
+    "timestamp": "2026-01-11 12:59:02.551631",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: All] [Memory Barrier] Do unsafe pointer operations include proper memory barriers, or can CPU reordering cause incorrect results when concurrent goroutines use bitutil functions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2fbb5515-b437-47c0-bfe7-799585806864?mode=deep",
+    "timestamp": "2026-01-11 12:59:16.003429",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: All] [Lock-Free Assumption] Functions appear lock-free assuming single-threaded access - if bloom filter matcher.go uses these in concurrent goroutines without external locking, can this violate safety assumptions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_28fc0e1a-1e24-4810-bafc-215ec17d0b84?mode=deep",
+    "timestamp": "2026-01-11 12:59:29.248940",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: All fast* variants] [Panic on Invalid Slice] If slice header is corrupted with len > cap, will unsafe pointer conversion panic or access invalid memory? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_92550b43-ea87-48e7-bd58-1ccdbe874e42?mode=deep",
+    "timestamp": "2026-01-11 12:59:42.964194",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: All] [No Error Return] None of the functions return errors - if buffer overflow or other error occurs, will functions silently corrupt memory or panic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1efdd981-670e-45b1-ab3b-9616bb2a4c79?mode=deep",
+    "timestamp": "2026-01-11 12:59:58.057217",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: All] [Deferred Recovery] If calling code has deferred recover(), can panics from bitutil functions be caught allowing attacker to probe for memory corruption bugs? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4ab6dd16-b0cb-4f23-9f68-96eb14ecee74?mode=deep",
+    "timestamp": "2026-01-11 13:00:15.525335",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: All fast* variants] [Nil Pointer Dereference] At lines 36-41, 80-85, 124-129, 164-169, if input slices are nil, will unsafe pointer conversion dereference nil causing panic during P2P handshake? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_42abd15e-6a0c-4116-8175-166e0f2c7f21?mode=deep",
+    "timestamp": "2026-01-11 13:00:32.423590",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: All] [Bounds Check Elimination] Does Go compiler eliminate bounds checks in safe* functions, and if not, can attacker intentionally trigger repeated bounds check panics for DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1757d689-d4bc-4902-a5d6-6d5ea8130b3d?mode=deep",
+    "timestamp": "2026-01-11 13:00:51.443581",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: XORBytes, ANDBytes, ORBytes] [Return Value Semantics] Functions return n = min(len(a), len(b)), but caller may assume n = len(dst) was written - can this mismatch cause caller to use uninitialized dst tail? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b3065de6-2d4b-4f55-96be-c0f7e2108efc?mode=deep",
+    "timestamp": "2026-01-11 13:01:11.610177",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: XORBytes, ANDBytes, ORBytes] [Partial Operation] If a and b have different lengths, operation is partial - can caller code that assumes full dst was processed cause logic errors in bloom filter? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2d440354-ec98-46fd-98f5-8a18a6f968ba?mode=deep",
+    "timestamp": "2026-01-11 13:01:32.790917",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: TestBytes] [Boolean Semantics] TestBytes returns true if ANY bit is set - can caller code misinterpret this as ALL bits set causing validation bypass? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b0993454-32bb-4fde-8948-1f98f330633c?mode=deep",
+    "timestamp": "2026-01-11 13:01:55.962982",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: All] [Error Signaling] Functions have no error return - if internal error occurs (buffer overflow detected), how does function signal error to caller? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4deaf92d-60b5-4754-945c-8770297ee0a5?mode=deep",
+    "timestamp": "2026-01-11 13:02:20.456788",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: XORBytes, ANDBytes, ORBytes] [Return Ignored] If caller ignores return value n and assumes full buffer processed, can this cause security issues in validation logic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_af12a421-5a8c-4b3b-be9b-71c590a59fb6?mode=deep",
+    "timestamp": "2026-01-11 13:02:45.329631",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: All] [No Length Validation] None of the functions validate that dst is large enough - is it caller's responsibility to ensure dst length, and what happens if caller violates this contract? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_418bfd7d-a310-4434-b3fd-1d5678330808?mode=deep",
+    "timestamp": "2026-01-11 13:03:11.586068",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: All] [Overlapping Buffers] If dst overlaps with a or b in memory, can this cause undefined behavior in unsafe pointer operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d3547fb8-27ed-4dfd-a207-bec4819979f0?mode=deep",
+    "timestamp": "2026-01-11 13:03:39.701393",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: fastXORBytes, fastANDBytes, fastORBytes] [Alignment Assumption] Fast functions assume proper alignment for uintptr access - what happens if slices are misaligned due to unsafe operations elsewhere? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7749a12b-a7e9-48d0-a496-85a1eb165474?mode=deep",
+    "timestamp": "2026-01-11 13:04:09.084515",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: All] [Nil Checks] No nil checks for input parameters - what happens if caller passes nil slices, especially in P2P validation context? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_479a1a56-9f05-4fbb-a63e-2b5434b4045e?mode=deep",
+    "timestamp": "2026-01-11 13:04:38.446803",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: All] [Zero Length] How do functions behave with zero-length slices - do they return 0 safely or can edge cases cause issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_729bf636-7c64-437c-82e5-0d7e933fd536?mode=deep",
+    "timestamp": "2026-01-11 13:05:07.137172",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Constant: supportsUnaligned] [RISC-V] RISC-V is not in supportsUnaligned list - as RISC-V blockchain nodes become common, will safe fallback cause performance issues enabling DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_327a1676-020f-4211-8402-21a705892336?mode=deep",
+    "timestamp": "2026-01-11 13:05:39.349318",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Constant: supportsUnaligned] [MIPS] MIPS architecture not listed - are there MIPS deployments of WBT that would be vulnerable to incorrect fast path selection? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_99795705-ced1-4fc0-af57-370a806dff9e?mode=deep",
+    "timestamp": "2026-01-11 13:06:09.748373",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Constant: wordSize] [Mixed Binary] If 32-bit and 64-bit node binaries coexist in network and exchange serialized bloom filters, can wordSize difference cause incompatibility? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5b061de6-51c7-418f-a268-a98115d262cb?mode=deep",
+    "timestamp": "2026-01-11 13:06:39.345072",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: All fast* variants] [Endianness] Do fast functions handle big-endian vs little-endian correctly when operating on word-sized chunks, or can endianness differences cause incorrect results? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fb193a80-d601-440b-bdef-bf7054755717?mode=deep",
+    "timestamp": "2026-01-11 13:07:06.322015",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Constant: supportsUnaligned] [WebAssembly] If WBT compiles to WebAssembly for light clients, does GOARCH detection work correctly, and can incorrect path selection cause bugs in browser-based nodes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3dd890eb-3cc6-45ff-8d5c-71bdd7de478f?mode=deep",
+    "timestamp": "2026-01-11 13:07:33.307782",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: Multiple] [Bloom Filter Chain] In matcher.go, sequence ANDBytes → ORBytes → TestBytes processes bloom filter - can accumulated errors across function calls produce false positives allowing unauthorized transaction log access? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_81700063-6d77-4a58-991f-424c95cce227?mode=deep",
+    "timestamp": "2026-01-11 13:08:00.446771",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: XORBytes, TestBytes] [P2P Attack Chain] Attacker crafts peer ID that causes XOR operation during handshake crypto to overflow, then TestBytes misvalidates corrupted result - can this bypass P2P admission control? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dcdea31d-12de-4417-8340-3c506b1329a6?mode=deep",
+    "timestamp": "2026-01-11 13:08:28.285496",
+    "report_generated": false
   }
 ]
