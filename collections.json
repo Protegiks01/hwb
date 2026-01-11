@@ -31498,5 +31498,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a1d707a3-881a-4891-9beb-24ffe8a43d88?mode=deep",
     "timestamp": "2026-01-11 18:00:23.785342",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Add()] [Panic on Map Assignment] If Add() at line 38 causes BasicLRU to assign to its items map during eviction, can a panic occur if the map is nil due to improper initialization, crashing the node when adding a critical validator snapshot? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_34b65f23-ff3a-4c87-b102-f74a356f7f80?mode=deep",
+    "timestamp": "2026-01-11 18:01:30.170974",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Contains()] [Panic Recovery Missing] Does Contains() at line 46 have any panic recovery mechanism, or can a panic in the underlying map lookup propagate and crash the entire node when checking if a validator snapshot exists? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_08a01b9a-5c42-43ea-8728-8489c603c738?mode=deep",
+    "timestamp": "2026-01-11 18:01:43.192648",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Add()] [List Corruption] Can the Add() operation at line 38 corrupt the underlying BasicLRU's doubly-linked list if an eviction occurs while another goroutine is traversing the list via Keys(), causing the list pointers to become inconsistent and leading to infinite loops or crashes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_882f5645-e031-4499-beb0-dfad3c3eed3e?mode=deep",
+    "timestamp": "2026-01-11 18:01:57.056347",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Remove()] [Dangling Pointer] When Remove() at line 86 removes an item from cache, does it properly null out the list element pointers, or can dangling pointers remain that cause use-after-free bugs if another goroutine still holds a reference to the removed element? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c52d73b8-33a3-46f0-9ba3-cd498f865735?mode=deep",
+    "timestamp": "2026-01-11 18:02:11.015182",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Get()] [List Traversal] Can Get() at line 54 trigger a list corruption if BasicLRU.moveToFront() is called during concurrent Add() eviction, causing the list's root.prev and root.next pointers to become inconsistent and breaking the LRU invariant for validator snapshot ordering? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f5658fb2-6bf3-4b6f-ab85-0bab22ecdaff?mode=deep",
+    "timestamp": "2026-01-11 18:02:25.757999",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Keys()] [Inconsistent Iteration] When Keys() at line 94 iterates through the BasicLRU list to collect keys, can a concurrent Add() that evicts items cause the iteration to skip keys or visit the same key twice, leading to inconsistent validator snapshot enumeration? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3e811b7f-4dfd-461f-8181-3455334ff5f3?mode=deep",
+    "timestamp": "2026-01-11 18:02:41.833566",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Purge()] [Incomplete Purge] If Purge() at line 78 is interrupted by a panic or concurrent operation, can it leave the cache in a partially purged state where some items remain in the map but not in the list, causing subsequent Get() calls to return stale validator snapshots? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4146b0da-fedc-4538-b295-53e3571ae072?mode=deep",
+    "timestamp": "2026-01-11 18:02:59.448149",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Add()] [Map-List Desync] Can Add() at line 38 cause the BasicLRU's items map and linked list to become desynchronized if one operation succeeds but the other fails, leading to a state where a key exists in the map but not in the list or vice versa? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_78e42318-ffa7-4724-bec9-93e17330985a?mode=deep",
+    "timestamp": "2026-01-11 18:03:18.851907",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Remove()] [Orphaned Map Entry] When Remove() at line 86 deletes from the list and map, can a failure in one operation but not the other leave an orphaned map entry or list element, causing memory leaks and eventual memory exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a034e78e-a7e6-4897-85e8-3920db8df681?mode=deep",
+    "timestamp": "2026-01-11 18:03:39.955449",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Get()] [Stale List Position] After Get() at line 54 moves an element to the front, can a concurrent operation cause the element's position in the LRU order to become stale, leading to incorrect eviction of recently-used validator snapshots and cache thrashing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5806388e-c1ce-403e-8d20-cee12b24180e?mode=deep",
+    "timestamp": "2026-01-11 18:04:01.973755",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Add()] [Capacity Violation] Can Add() at line 38 violate the cache capacity constraint if multiple goroutines add items simultaneously, causing the cache to temporarily exceed its capacity before eviction catches up, potentially exhausting memory? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4db9b59c-3f2d-465b-89fd-9883bc57d1af?mode=deep",
+    "timestamp": "2026-01-11 18:04:25.584834",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Peek()] [Inconsistent Read] Does Peek() at line 70 read from the map atomically, or can it return a partially constructed cacheItem if another goroutine is concurrently updating the same key, leading to corrupted validator snapshot data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_75e16cd6-4fa3-48c8-8259-4e58b6df799d?mode=deep",
+    "timestamp": "2026-01-11 18:04:47.379445",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: NewCache()] [Capacity Overflow] If NewCache() at line 30 is called with an int capacity near math.MaxInt, can subsequent Len() comparisons at line 62 overflow when checking if cache is full, allowing unbounded growth and memory exhaustion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b9c7028a-f191-4b9a-b7c5-e26708ae4532?mode=deep",
+    "timestamp": "2026-01-11 18:05:11.341912",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Len()] [Length Overflow] Can Len() at line 62 return a negative or overflowed value if the underlying map length exceeds int representation limits, causing incorrect capacity checks in Add() and allowing cache to grow without bounds? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0961c8b7-ead2-44ec-a6bd-8d9f16ce0f58?mode=deep",
+    "timestamp": "2026-01-11 18:05:36.187189",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Add()] [Eviction Check] At line 38, when BasicLRU checks if Len() >= capacity for eviction, can integer overflow in the comparison cause eviction to be skipped, allowing the cache to exceed its capacity and exhaust memory? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f6006ec5-28f4-4361-ac77-7270b3f364d0?mode=deep",
+    "timestamp": "2026-01-11 18:06:01.669797",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: NewCache()] [Negative Capacity] If NewCache() at line 30 receives a negative capacity due to integer underflow in the caller, will the BasicLRU constructor at line 30 handle this safely, or can it create a cache with unexpected behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5b8e68e8-b840-4018-bf3b-c6a7dca33dd8?mode=deep",
+    "timestamp": "2026-01-11 18:06:25.900030",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Keys()] [Slice Overflow] When Keys() at line 94 allocates a slice with capacity from len(c.items), can this overflow if the map length is near the max slice capacity, causing panic or memory allocation failure? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fed49302-2143-4948-864e-44a01dca5298?mode=deep",
+    "timestamp": "2026-01-11 18:06:50.066770",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Add()] [Capacity Zero] If NewCache() is called with capacity=0, will it be corrected to 1 by BasicLRU, but can this correction be bypassed in some code path, leading to a cache with zero capacity that panics on Add()? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c0ddca99-fd4d-4197-b81a-7bf20effe8c0?mode=deep",
+    "timestamp": "2026-01-11 18:07:15.100742",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Add()] [Mutex Unlock Timing] Can the defer unlock at line 36 be delayed by a long-running BasicLRU.Add() operation, causing other goroutines to block on the mutex for extended periods and creating head-of-line blocking that delays consensus? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_db89f706-2d49-462b-9c54-98660214ed8f?mode=deep",
+    "timestamp": "2026-01-11 18:07:40.401319",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Get()] [Mutex Fairness] Does the sync.Mutex at line 25 guarantee fairness, or can a malicious goroutine starve other goroutines by repeatedly calling Get() and monopolizing the mutex, preventing validator snapshot updates from being cached? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e4ce9507-1c7c-44c0-8dde-d28363bc51d5?mode=deep",
+    "timestamp": "2026-01-11 18:08:06.867452",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: All Methods] [Deadlock on Panic] If any method panics while holding the mutex due to BasicLRU corruption, can this cause a deadlock where the mutex is never released, permanently freezing all cache operations including consensus-critical snapshot retrieval? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_84b97086-59d3-4d09-9983-bdb71d4e18b3?mode=deep",
+    "timestamp": "2026-01-11 18:08:32.416388",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Add()] [Reentrant Lock] Can Add() at line 38 somehow trigger a callback that calls another Cache method, causing attempted reentrant acquisition of the non-reentrant sync.Mutex and resulting in deadlock? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c658a5b4-1209-414b-be9d-7256486ad52a?mode=deep",
+    "timestamp": "2026-01-11 18:08:57.663544",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Purge()] [Lock Duration] When Purge() at lines 74-78 clears a large cache, can the extended lock hold time block all other cache operations, effectively creating a DoS condition during chain reorgs when all validator snapshots need to be purged? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5729cd45-79b8-4279-9a52-027b00e73e42?mode=deep",
+    "timestamp": "2026-01-11 18:09:23.679991",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Keys()] [Lock Contention] Can Keys() at lines 90-94 create lock contention by holding the mutex while allocating and populating a potentially large slice, blocking time-sensitive Get() operations for validator snapshots during block validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b9b08bb1-faa2-4f65-9ce5-d691adf51eea?mode=deep",
+    "timestamp": "2026-01-11 18:09:50.275798",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Remove()] [Lock Ordering] If Remove() is called from one goroutine while Add() is called from another, both on different keys, can the mutex serialization create lock ordering issues that lead to performance degradation during concurrent validator snapshot management? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c6de60a8-f70c-493c-bc95-46005d8d9cdc?mode=deep",
+    "timestamp": "2026-01-11 18:10:15.590791",
+    "report_generated": false
   }
 ]
