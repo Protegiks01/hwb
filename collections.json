@@ -29398,5 +29398,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_52504804-0284-45b8-84b7-31b22cc57b41?mode=deep",
     "timestamp": "2026-01-11 15:36:34.511541",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/format.go] [Function: PrettyAge.String()] [Division by Zero] In the division diff/unit.Size at line 73, can unit.Size ever be zero (e.g., due to hardcoded constant errors at lines 51-57), causing panic from division by zero during age formatting? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_50bcd0f5-945b-4db9-b660-df52c3c4a751?mode=deep",
+    "timestamp": "2026-01-11 15:37:46.555557",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/format.go] [Function: PrettyAge.String()] [Modulo by Zero] In the modulo operation diff %= unit.Size at line 74, can unit.Size ever be zero causing panic from modulo by zero when calculating remaining duration? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bc9e1078-e415-409f-bf7d-0e8502031298?mode=deep",
+    "timestamp": "2026-01-11 15:37:59.421681",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/format.go] [Global Variable: prettyDurationRe] [Regex Modification Risk] If the regex pattern at line 30 is modified during maintenance to support additional formats, can incompatible changes break existing code that depends on specific truncation behavior, affecting monitoring tools across the WBT ecosystem? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_af92134a-ef47-4abb-9579-a23b136ed94b?mode=deep",
+    "timestamp": "2026-01-11 15:38:13.176550",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/format.go] [Constant: ageUnits] [Unit Modification Risk] If the ageUnits slice at lines 47-58 is modified to add or remove time units, can this break backwards compatibility with monitoring tools expecting specific age format strings, causing confusion during incident response? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_725997b9-c9c9-4339-bca3-72ed861a43ef?mode=deep",
+    "timestamp": "2026-01-11 15:38:26.785118",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: Decode()] [Input validation bypass] Can an attacker craft a hex string with uppercase 'X' in the prefix (0X instead of 0x) that passes the has0xPrefix() check but causes unexpected behavior in downstream hex.DecodeString(), potentially leading to transaction or block data corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2762f2f1-e20b-4e2f-a7ce-419bf644d824?mode=deep",
+    "timestamp": "2026-01-11 15:38:41.463749",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: Decode()] [Memory exhaustion DoS] If an attacker sends an extremely large hex string (e.g., gigabytes) through RPC API that passes prefix validation, will hex.DecodeString() attempt to allocate massive memory buffers causing node memory exhaustion and crash, affecting network availability? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9c7a4f90-4de7-489c-bf19-76085f96c20c?mode=deep",
+    "timestamp": "2026-01-11 15:38:57.407892",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: Decode()] [Odd length handling] Does the function properly reject hex strings of odd length after the 0x prefix, or can an attacker craft odd-length inputs that cause hex.DecodeString() to return partial/corrupted data that gets accepted as valid transaction or block data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b3adc6e7-0b9b-4e9b-abff-9c1dffcc3b11?mode=deep",
+    "timestamp": "2026-01-11 15:39:15.152329",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: Decode()] [Error masking] Can the mapError() function fail to properly translate certain hex decoding errors, allowing invalid hex data to be silently accepted and potentially corrupting blockchain state or transaction data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e289687b-a26b-459a-802e-67e6a33c3417?mode=deep",
+    "timestamp": "2026-01-11 15:39:34.306202",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: Decode()] [Empty input edge case] When input is empty string, does returning ErrEmptyString properly prevent all downstream operations, or can certain calling contexts misinterpret nil byte slice as valid empty data leading to zero-value confusion in transaction amounts or addresses? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5c2f7f35-a61b-4bb4-9907-1d4b7c260089?mode=deep",
+    "timestamp": "2026-01-11 15:39:54.002645",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: Decode()] [Prefix bypass] Can an attacker craft input strings with null bytes, control characters, or Unicode lookalikes that bypass has0xPrefix() but cause unexpected parsing behavior in hex.DecodeString(), potentially corrupting signature verification or state data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_09d1210d-0e2d-4c26-8bc8-9c0cb586f3ef?mode=deep",
+    "timestamp": "2026-01-11 15:40:14.425177",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: Decode()] [Slice bounds] When calling input[2:] to strip the prefix, if the input length check is somehow bypassed, could this cause a slice bounds panic crashing the node during RPC request processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6f6eac38-deb2-40ad-98d7-d1e59d2a45bd?mode=deep",
+    "timestamp": "2026-01-11 15:40:35.389458",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: MustDecode()] [Panic-induced DoS] If MustDecode() is called in any critical consensus, block validation, or transaction processing path with user-controlled input, can an attacker craft invalid hex strings to trigger panics that crash validator nodes, causing network-wide block production halt? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1f818eeb-cb59-415d-b944-8dc3bb5ac0ad?mode=deep",
+    "timestamp": "2026-01-11 15:40:57.585913",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: MustDecode()] [Unrecovered panic propagation] Are all call sites of MustDecode() properly wrapped with panic recovery handlers, or can panics propagate up to crash entire goroutines handling RPC requests, P2P messages, or block validation operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c12e80cf-9567-425e-b4ad-88b9993e6c7d?mode=deep",
+    "timestamp": "2026-01-11 15:41:18.765042",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: MustDecode()] [Data loss on panic] If MustDecode() is used during transaction pool processing or state database operations and panics, could partially completed database writes be left in inconsistent state without rollback, corrupting blockchain state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d154367a-a0d3-4090-be9b-d0e6951df13c?mode=deep",
+    "timestamp": "2026-01-11 15:41:41.169042",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: Encode()] [Integer overflow] When calculating buffer size as len(b)*2+2, can an attacker provide input slice with length near MaxInt causing integer overflow that allocates too-small buffer, leading to buffer overflow when hex.Encode() writes more data than allocated? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_214976d3-3a36-4d36-8c38-4a417cf0b0c3?mode=deep",
+    "timestamp": "2026-01-11 15:42:04.634459",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: Encode()] [Memory exhaustion] If an attacker sends transaction or block data with extremely large byte slices (e.g., via contract input data), will Encode() allocate double-size buffers causing memory exhaustion and node crash, enabling network-wide DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d7522ede-901e-4875-91cb-7519e6b6b801?mode=deep",
+    "timestamp": "2026-01-11 15:42:29.134527",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: Encode()] [Nil input handling] Does Encode() properly handle nil byte slice input, or does the make() call with negative/zero length cause unexpected behavior that could corrupt RPC responses for transaction receipts or block data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bb995839-72c7-4b5f-94a8-f760c5570d74?mode=deep",
+    "timestamp": "2026-01-11 15:42:54.073287",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: Encode()] [Copy operation safety] Can the copy(enc, '0x') operation fail or behave unexpectedly if the allocated slice is somehow corrupted, potentially causing panics during block or transaction serialization for RPC responses? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d43d807a-123e-4119-9423-67163820a2f4?mode=deep",
+    "timestamp": "2026-01-11 15:43:20.484738",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: DecodeUint64()] [Leading zero bypass] If checkNumber() fails to catch certain leading zero patterns (e.g., '0x00123'), can an attacker craft multiple hex representations of the same uint64 value to create transaction replay opportunities or bypass nonce validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_326aa626-6d6b-49c3-acde-913631d2a985?mode=deep",
+    "timestamp": "2026-01-11 15:43:46.459456",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: DecodeUint64()] [Range validation bypass] Can an attacker craft hex strings representing values >64 bits that pass initial validation but wrap around during ParseUint(), causing gas limits, nonces, or block numbers to be parsed as incorrect values enabling consensus violations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b40b13df-bfb0-4b16-a50f-1b1120fc106a?mode=deep",
+    "timestamp": "2026-01-11 15:44:14.297622",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: DecodeUint64()] [Error mapping failure] Does mapError() correctly translate all possible strconv.ParseUint errors to appropriate hexutil errors, or can certain error conditions be silently ignored allowing invalid numeric data into transaction or block headers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f4b2e0e5-2c49-4fdf-ae96-d639760ec7ca?mode=deep",
+    "timestamp": "2026-01-11 15:44:42.341641",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: DecodeUint64()] [Empty number edge case] When input is '0x', does checkNumber() properly return ErrEmptyNumber before ParseUint() is called, or can this edge case reach ParseUint() causing unexpected zero value that could represent zero gas limit or zero nonce in transactions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_48100af4-52f3-4137-965e-b75488aa510d?mode=deep",
+    "timestamp": "2026-01-11 15:45:10.500862",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: DecodeUint64()] [Base confusion] Since ParseUint uses base 16 explicitly, can an attacker provide input that exploits any mismatch between hex validation and parsing, such as strings with mixed case or special characters that bypass validation but cause parsing errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b6868aac-950f-4144-a6b9-1885a1416bd9?mode=deep",
+    "timestamp": "2026-01-11 15:45:38.362390",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: MustDecodeUint64()] [Panic in block validation] If MustDecodeUint64() is used to parse block numbers, gas limits, or timestamps during block validation and an attacker sends malformed blocks, can triggered panics halt block processing across all nodes causing network freeze? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_aefd3227-297a-47fa-8a91-7f377858d782?mode=deep",
+    "timestamp": "2026-01-11 15:46:04.555471",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: MustDecodeUint64()] [Transaction pool panic] If MustDecodeUint64() is called during transaction pool validation with RPC-submitted transactions, can attackers spam invalid transactions to trigger continuous panics preventing transaction processing and block production? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_64537387-9cb9-4735-b73d-f3131a7538a8?mode=deep",
+    "timestamp": "2026-01-11 15:46:31.271765",
+    "report_generated": false
   }
 ]
