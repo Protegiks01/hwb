@@ -28798,5 +28798,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_296cc09d-a8ac-4b33-ae11-a5278ad596b3?mode=deep",
     "timestamp": "2026-01-11 14:59:09.637279",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: Report()] [Information Disclosure] Does the Report() function expose sensitive file system paths via runtime.Caller(1) that could reveal the deployment directory structure, aiding attackers in mapping the node's file system layout for targeted attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1c856803-b65b-451a-8c28-918f38c17010?mode=deep",
+    "timestamp": "2026-01-11 15:00:25.406692",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: Report()] [Information Disclosure] Can the debug.PrintStack() call in Report() leak sensitive information about the call stack including internal function names, memory addresses, and execution flow that could be used to fingerprint the node version or identify exploitable code paths? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1304bc61-44e9-45b0-b738-008ca61bfc25?mode=deep",
+    "timestamp": "2026-01-11 15:00:38.247495",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: Report()] [Information Disclosure] Does the variadic extra parameter in Report() allow arbitrary sensitive data (private keys, validator identities, account balances, transaction details) to be printed to stderr without sanitization, potentially exposing critical information in log files? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ddf839ee-73bc-455a-ac27-38903296ae17?mode=deep",
+    "timestamp": "2026-01-11 15:00:51.391147",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: Report()] [Information Disclosure] If Report() is called during consensus-critical operations, could the file path and line number disclosure at line 33 reveal the exact location of a consensus vulnerability to attackers monitoring stderr output? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eab55606-9534-4972-aac9-ba885093734c?mode=deep",
+    "timestamp": "2026-01-11 15:01:06.027377",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: Report()] [Information Disclosure] Can the GitHub issue tracker URL hardcoded at line 29 be exploited for social engineering attacks, where attackers impersonate developers to extract sensitive information from users who encounter bugs? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d1eadd18-73f3-4d99-8f16-016d158861d4?mode=deep",
+    "timestamp": "2026-01-11 15:01:21.306286",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: Report()] [DoS Attack] If Report() is called in a hot path or repeatedly during block validation/consensus operations, could the synchronous stderr writes and debug.PrintStack() calls block critical goroutines, causing node performance degradation or temporary unavailability? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3118c7a9-be0b-4460-a0dd-1c23f8abcdd3?mode=deep",
+    "timestamp": "2026-01-11 15:01:37.170196",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: Report()] [DoS Attack] Can an attacker trigger Report() calls with massive variadic arguments (extra ...interface{}) containing extremely large data structures, causing fmt.Fprintln() at line 30 to consume excessive memory and CPU, leading to node crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ee01ae45-a9f0-4b35-8c23-ddc6bf7dab49?mode=deep",
+    "timestamp": "2026-01-11 15:01:54.381623",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: Report()] [DoS Attack] If multiple goroutines simultaneously call Report() during a consensus failure or network event, could concurrent stderr writes create I/O contention and file descriptor exhaustion, bringing down the node? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7222b1d4-6f47-4401-828e-7f90615a2a61?mode=deep",
+    "timestamp": "2026-01-11 15:02:13.606121",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: Report()] [DoS Attack] Could an attacker craft inputs that cause Report() to be called in an infinite loop or recursively, where each call generates a stack trace that itself triggers another Report() call, creating a denial of service through log explosion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_edeeddd0-01f7-4e16-a303-19d7676694de?mode=deep",
+    "timestamp": "2026-01-11 15:02:33.517017",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: Report()] [Resource Exhaustion] If Report() writes to stderr which is redirected to a log file without rotation, could repeated calls fill up disk space on validator nodes, causing node failures when disk space runs out during critical consensus operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c2c4ef1d-5c10-49a0-80fa-aab789ef4984?mode=deep",
+    "timestamp": "2026-01-11 15:02:55.058756",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: Report()] [Input Validation] Does Report() validate the extra ...interface{} parameters before passing them to fmt.Fprintln(), or could specially crafted objects with malicious String() or Format() methods cause panics or arbitrary code execution when serialized? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ec943bbc-a733-4c16-bdfa-60fac0d49fd4?mode=deep",
+    "timestamp": "2026-01-11 15:03:16.513142",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: Report()] [Input Validation] Can the extra parameters include circular references or extremely deep object graphs that cause fmt.Fprintln() at line 30 to recurse infinitely or consume unbounded memory during serialization, crashing the node? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_77dd6817-8550-440b-88df-70be9f9cfdaf?mode=deep",
+    "timestamp": "2026-01-11 15:03:38.922012",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: Report()] [Format String Vulnerability] If Report() is passed objects containing format specifiers in their string representations, could these be interpreted by subsequent logging or monitoring systems as format string attacks, potentially leading to information disclosure or crashes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a24a159c-8b0f-49a6-ba6c-fbd545144058?mode=deep",
+    "timestamp": "2026-01-11 15:04:01.567976",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: Report()] [Race Condition] Is os.Stderr access at lines 29, 30, 33, and 37 thread-safe when Report() is called concurrently from multiple goroutines during consensus operations or block validation, or could interleaved writes corrupt log output and make debugging impossible? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_201ff4ac-b658-494e-8d21-b101b146f57c?mode=deep",
+    "timestamp": "2026-01-11 15:04:26.017147",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: Report()] [Race Condition] Can concurrent calls to Report() from different goroutines cause runtime.Caller(1) to return inconsistent or stale caller information due to race conditions in goroutine stack inspection, leading to misleading debug output? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_472afc29-c17c-44b7-8ee7-02fb529e6ae1?mode=deep",
+    "timestamp": "2026-01-11 15:04:48.270363",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: Report()] [Race Condition] If Report() is called during critical state transitions or consensus operations from multiple goroutines, could the lack of synchronization cause debug.PrintStack() calls to interleave, producing unreadable stack traces that hide the actual bug? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f6366596-b74e-487b-ab0e-d68d61f4093e?mode=deep",
+    "timestamp": "2026-01-11 15:05:11.637059",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: Report()] [Panic Condition] What happens if os.Stderr is nil or closed when Report() is called during a crash recovery scenario - could this cause a panic-within-panic that prevents proper error handling and node recovery? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1676b96c-bca4-4fac-bb27-d39b43a26977?mode=deep",
+    "timestamp": "2026-01-11 15:05:35.637046",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: Report()] [Panic Condition] If runtime.Caller(1) fails or returns unexpected values during Report() execution, could the fmt.Fprintf at line 33 panic due to nil file or invalid line number, causing a secondary crash that masks the original bug? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_99c6c8de-40b6-48f3-813a-1829a4a45609?mode=deep",
+    "timestamp": "2026-01-11 15:05:59.928407",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: Report()] [Panic Condition] Can debug.PrintStack() at line 35 panic if the stack is corrupted or in an invalid state during a severe node failure, preventing Report() from completing and hiding critical debugging information? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ee2ae754-9395-466e-8dde-31082c9e879d?mode=deep",
+    "timestamp": "2026-01-11 15:06:23.858492",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: PrintDeprecationWarning()] [Integer Overflow] At line 42, if the input string length exceeds MaxInt-4 when calculating len(str)+4, could this cause an integer overflow resulting in a negative or incorrect repeat count for strings.Repeat(), leading to a panic or incorrect output? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bdc4c434-9e7f-4011-90ec-a24bcd8d23b5?mode=deep",
+    "timestamp": "2026-01-11 15:06:46.491871",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: PrintDeprecationWarning()] [Integer Overflow] Does strings.Repeat() at line 42 properly handle edge cases where len(str)+4 approaches the maximum integer value, or could this cause memory allocation failures or panics when trying to allocate a buffer for the extremely long line string? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d2444f7b-d4bc-4272-b64e-244ce0bdafbf?mode=deep",
+    "timestamp": "2026-01-11 15:07:08.583972",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: PrintDeprecationWarning()] [Memory Exhaustion] If PrintDeprecationWarning() is called with an extremely long string (e.g., millions of characters), could the strings.Repeat(\\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a1bd5b26-859a-40e9-a97e-9979911f50e0?mode=deep",
+    "timestamp": "2026-01-11 15:07:29.603647",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: PrintDeprecationWarning()] [Memory Exhaustion] Can the strings.Repeat(\\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1e536fc5-418e-47b9-8247-5dba78a59964?mode=deep",
+    "timestamp": "2026-01-11 15:07:50.725879",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: PrintDeprecationWarning()] [Memory Exhaustion] If PrintDeprecationWarning() is called repeatedly with large strings in a loop (e.g., during startup checks or configuration validation), could the memory allocations for repeated strings accumulate and exhaust node memory before garbage collection? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3539ea45-fb37-4b61-a520-b929056f47a9?mode=deep",
+    "timestamp": "2026-01-11 15:08:12.077764",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: PrintDeprecationWarning()] [DoS Attack] If an attacker can control the input to PrintDeprecationWarning() through configuration files or RPC parameters, could they supply a string of length near MaxInt to cause the node to hang indefinitely during string repeat operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_89efcaea-283d-41b8-b893-a9995e042caa?mode=deep",
+    "timestamp": "2026-01-11 15:08:33.898062",
+    "report_generated": false
   }
 ]
