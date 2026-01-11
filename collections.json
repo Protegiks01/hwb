@@ -31648,5 +31648,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c6de60a8-f70c-493c-bc95-46005d8d9cdc?mode=deep",
     "timestamp": "2026-01-11 18:10:15.590791",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Contains()] [Read Amplification] Can repeated Contains() calls at lines 42-46 acquire and release the mutex in rapid succession, causing cache line bouncing and performance degradation in multi-core systems during parallel consensus validation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b09541b3-017d-4d2f-98d3-83bac047d553?mode=deep",
+    "timestamp": "2026-01-11 18:11:29.561555",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Add()] [Snapshot Eviction] When Add() at line 38 evicts the oldest validator snapshot to make room for a new one, can a malicious validator exploit this by flooding the cache with fake snapshots to evict legitimate ancestor snapshots needed for consensus, causing validation failures and chain splits? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d133550a-badf-43d6-92c9-a3ff3a86faa1?mode=deep",
+    "timestamp": "2026-01-11 18:11:42.683875",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Get()] [Snapshot Reordering] Can Get() at line 54 change the LRU order of validator snapshots by moving the accessed item to front, allowing an attacker to manipulate which snapshots get evicted by strategically accessing certain snapshots and causing critical ancestor snapshots to be evicted first? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5ca94a0b-2cfb-48fa-969e-59339deb1c8c?mode=deep",
+    "timestamp": "2026-01-11 18:11:56.575559",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Peek()] [Non-Promoting Read] Does Peek() at lines 66-70 allow reading validator snapshots without promoting them in LRU order, and can this be exploited to check snapshot validity without affecting eviction, allowing attackers to probe for specific validator states? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6b72d687-344d-45e2-9a55-c9b31babd916?mode=deep",
+    "timestamp": "2026-01-11 18:12:11.422239",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Remove()] [Forced Snapshot Removal] Can a malicious node call Remove() at lines 82-86 to explicitly delete critical validator snapshots from cache, forcing expensive recomputation during block validation and enabling timing attacks that delay block production? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a8d520e9-472f-450e-b0d0-96ae05fed58a?mode=deep",
+    "timestamp": "2026-01-11 18:12:26.316582",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Purge()] [Chain Reorg Attack] When Purge() at lines 74-78 clears all cached validator snapshots during a chain reorg, can an attacker trigger frequent reorgs to force repeated cache purges, causing denial of service through continuous snapshot recomputation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dae87434-dcff-4034-a135-9351b4e260ed?mode=deep",
+    "timestamp": "2026-01-11 18:12:42.417642",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Keys()] [Validator Enumeration] Can Keys() at lines 90-94 be used to enumerate all cached validator snapshot hashes, allowing an attacker to identify which validator sets are being used and target specific validators for network-level DoS attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5d02c5df-c172-4b2a-87ff-41f1d95d471c?mode=deep",
+    "timestamp": "2026-01-11 18:13:00.347625",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Add()] [Signature Cache Pollution] When used for signature caching in consensus, can Add() at line 38 be exploited to pollute the signature cache with invalid signatures that appear valid due to hash collisions, causing blocks from unauthorized validators to be accepted? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_053e4040-07e7-4f17-9b2e-b8dd4cda8e55?mode=deep",
+    "timestamp": "2026-01-11 18:13:19.793680",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Get()] [Signature Replay] Can Get() at line 54 return a cached signature that has been used before, and if signature validation doesn't check for uniqueness, could this allow replay attacks where old signatures are reused to validate new blocks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e5803b7c-2007-4ee5-869f-609de76cce21?mode=deep",
+    "timestamp": "2026-01-11 18:13:41.104254",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Contains()] [Signature Existence Check] Can an attacker use Contains() at lines 42-46 to check if a specific block signature is cached, then craft attacks based on whether signatures are cache hits or misses to time their attacks during cache evictions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_60174b21-a679-4038-af08-85432d269209?mode=deep",
+    "timestamp": "2026-01-11 18:14:03.303906",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Len()] [Capacity Planning Attack] Can an attacker monitor Len() at lines 58-62 to determine cache occupancy, then time their attacks when the cache is near capacity to maximize eviction of critical validator snapshots during consensus operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_de381cb2-cfaa-4efe-948b-5ce43e2333b5?mode=deep",
+    "timestamp": "2026-01-11 18:14:25.808694",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Add()] [Code Cache Corruption] When used for contract code caching in state database, can Add() at line 38 cache corrupted bytecode that passes initial validation but causes EVM execution errors later, leading to state divergence between nodes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_047458d4-1cbd-4215-826c-9b63c4162450?mode=deep",
+    "timestamp": "2026-01-11 18:14:50.187619",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Get()] [Stale Code Retrieval] Can Get() at line 54 return stale contract code from cache after the contract has self-destructed, causing the EVM to execute code that should no longer exist and leading to invalid state transitions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e03b0ea0-d427-4181-b441-4782159ad027?mode=deep",
+    "timestamp": "2026-01-11 18:15:14.367480",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Add()] [Code Size Cache Manipulation] When used for code size caching, can Add() at line 38 cache incorrect code sizes that bypass gas metering checks, allowing execution of code that exceeds block gas limits and creating DoS vulnerabilities? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e474e160-b81d-4585-89eb-d56907207c1b?mode=deep",
+    "timestamp": "2026-01-11 18:15:40.683574",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Peek()] [Read-Only State Check] Does Peek() at lines 66-70 create opportunities for time-of-check-time-of-use bugs where cached state is peeked, validated, but then changes before it's used, leading to state inconsistencies? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_86ed91af-66f5-4a2f-ae24-ff0a23245edd?mode=deep",
+    "timestamp": "2026-01-11 18:16:07.082203",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Remove()] [State Cache Invalidation] Can Remove() at lines 82-86 be used to invalidate cached state entries at critical moments during transaction execution, forcing state reloads that could return different values and cause non-deterministic execution? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_957b7232-3ec4-42a7-bb5d-00a88f044e28?mode=deep",
+    "timestamp": "2026-01-11 18:16:35.366578",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Purge()] [Mass State Invalidation] When Purge() at lines 74-78 clears all cached state data, can this cause a thundering herd problem where all transactions suddenly need to reload state from disk, creating a cascade failure that halts block production? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bfe80192-7dde-4def-bdd5-2a3cefe67a96?mode=deep",
+    "timestamp": "2026-01-11 18:17:04.087601",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Keys()] [State Enumeration] Can Keys() at lines 90-94 expose which contract codes or state elements are cached, allowing attackers to infer popular contracts and target them with reentrancy or gas exhaustion attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_79d93803-110f-4c2d-a150-13ce05e568bb?mode=deep",
+    "timestamp": "2026-01-11 18:17:31.376209",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Get()] [Cache Timing Attack] Can timing differences in Get() at line 54 between cache hits and misses leak information about which state elements are accessed frequently, allowing attackers to identify high-value contracts for targeted attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dea6d8fd-d789-477d-854b-925f530e629c?mode=deep",
+    "timestamp": "2026-01-11 18:17:54.705273",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: NewCache()] [Type Parameter Confusion] Can the generic type parameters K and V at line 23 be exploited through type confusion if the cache is instantiated with interface types that can hold different underlying types, leading to type assertion panics during consensus? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_25db2dde-9a29-489b-8350-009292dfc667?mode=deep",
+    "timestamp": "2026-01-11 18:18:19.662890",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Add()] [Comparable Constraint Bypass] Does the comparable constraint on K at line 23 properly prevent unhashable types, or can certain edge case types (like structs with uncomparable fields) bypass this constraint and cause panics when used as map keys? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7fe22cbc-02c5-47d1-9956-0825c9ccfc20?mode=deep",
+    "timestamp": "2026-01-11 18:18:43.284479",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Get()] [Zero Value Confusion] When Get() at line 54 returns the zero value for type V on cache miss, can this zero value be indistinguishable from a legitimately cached zero value, causing confusion in consensus where nil snapshots might be treated as valid? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7789bf47-a4be-45df-a273-b4ee1dc0cc68?mode=deep",
+    "timestamp": "2026-01-11 18:19:08.034156",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Peek()] [Zero Value Return] Can Peek() at line 70 return a zero value that gets mistaken for actual cached data, especially for pointer types where nil might be a valid cached value, leading to nil pointer dereferences in consensus? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3adb3d0f-7e48-434c-822b-e21001a8ab58?mode=deep",
+    "timestamp": "2026-01-11 18:19:33.611245",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Contains()] [Type Aliasing] If K is a type alias that allows different underlying types to hash to the same value, can Contains() at line 46 return false positives, causing the cache to incorrectly report snapshot existence? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0d97bcf0-7771-4099-a3f7-f489f4d28025?mode=deep",
+    "timestamp": "2026-01-11 18:20:00.558090",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Add()] [Resource Leak] When Add() at line 38 evicts an item containing a large validator snapshot with nested structures, does the eviction properly release all memory, or can circular references prevent garbage collection and cause memory leaks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ab591f9e-3a60-4406-b3ff-b5b64b10f595?mode=deep",
+    "timestamp": "2026-01-11 18:20:28.943112",
+    "report_generated": false
   }
 ]
