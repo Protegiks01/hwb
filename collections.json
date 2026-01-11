@@ -20098,5 +20098,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f47cc1e1-47bf-40a1-85cf-a524b87f2428?mode=deep",
     "timestamp": "2026-01-11 00:42:47.740159",
     "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: initialize()] [Legal Warning Bypass] The legal warning can be suppressed with acceptFlag (line 480) - does automated suppression in scripts expose users to risks they didn't acknowledge? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9135458d-9b41-4ed0-8980-2380a506c953?mode=deep",
+    "timestamp": "2026-01-11 00:44:06.646846",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: initialize()] [Log Level Manipulation] The log level is taken from CLI flag at line 494 - can attackers set it to suppress security-critical warnings, hiding attacks in progress? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_44d23f64-b8e7-4b3c-a71b-48a36b8da88c?mode=deep",
+    "timestamp": "2026-01-11 00:44:19.539282",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: initialize()] [Terminal Detection Bypass] The color detection at line 489 checks IsTerminal - can attackers manipulate this to affect log formatting in ways that hide or obfuscate security events? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d6484a43-466b-44ea-bf20-9bd1cf014454?mode=deep",
+    "timestamp": "2026-01-11 00:44:33.361201",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [Vault Key Derivation Collision] Domain-specific keys (pwkey, jskey, confkey) are derived at lines 660-662 using Keccak256 - could preimage attacks or collisions allow accessing wrong storage types or cross-contamination? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_45e40812-3a6f-49d8-b872-654cb198ca74?mode=deep",
+    "timestamp": "2026-01-11 00:44:47.415176",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [AES Key Size] The AES encrypted storage uses keys derived from Keccak256 - are these keys of sufficient length (256-bit), and is the AES mode secure against chosen-plaintext attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ca84ee58-e907-4e0a-a24c-97d9f953d791?mode=deep",
+    "timestamp": "2026-01-11 00:45:02.368077",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [Storage File Permissions] The storage files (credentials.json, jsstorage.json, config.json) created under vaultLocation - are these created with secure permissions (0600), or could they be world-readable? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f9fb88e0-dc71-44d2-8807-78ea4791cf57?mode=deep",
+    "timestamp": "2026-01-11 00:45:18.742718",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: setCredential()] [Storage Concurrency] If multiple Clef instances write to credentials.json simultaneously - is there file locking, or can concurrent writes corrupt the storage? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5fc9bb0c-eae9-44fb-9bfd-47b5b0506a70?mode=deep",
+    "timestamp": "2026-01-11 00:45:36.144292",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: attestFile()] [Config Storage Race] Multiple attestations or config updates - are these atomic operations, or can race conditions lead to inconsistent storage state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0f2f4b77-2ddb-4354-b643-49bcb2e41133?mode=deep",
+    "timestamp": "2026-01-11 00:45:55.407556",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [API Registration Bypass] The RegisterApis call at line 735 - if this fails, does execution continue with partial API exposure, or is it properly terminated? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e3dbcfb8-53d8-4b26-9903-d75678b419f3?mode=deep",
+    "timestamp": "2026-01-11 00:46:16.086910",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [HTTP Handler Stack] The HTTPHandlerStack at line 739 - are middleware components properly ordered to enforce CORS before serving requests, or can attacks bypass CORS checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b8d9ec6e-e96e-4237-8106-c4d395bbbb44?mode=deep",
+    "timestamp": "2026-01-11 00:46:37.943701",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [Port Binding Race] The HTTP server starts at line 746 - if the port is already in use, does it fail safely, or could error handling allow binding to alternative ports attackers control? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a16a9ed9-a2a3-4075-951b-350f2ed6ae18?mode=deep",
+    "timestamp": "2026-01-11 00:47:01.215984",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [IPC Listener Leak] If IPC endpoint creation fails at line 762, is the listener properly cleaned up, or could failed attempts leave dangling resources or permissions issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_96915db3-bc79-460a-ab7a-2d9ecd7d22bf?mode=deep",
+    "timestamp": "2026-01-11 00:47:24.458184",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [Timeout Configuration] The HTTP server uses rpc.DefaultHTTPTimeouts at line 746 - are these timeouts sufficient to prevent slowloris or similar DoS attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a59f263c-6b0c-4cc2-9388-319a29709e99?mode=deep",
+    "timestamp": "2026-01-11 00:47:48.845483",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [Rule Engine Initialization Failure] If NewRuleEvaluator fails at line 682, utils.Fatalf is called - does this allow DoS by providing malformed rule files that crash Clef? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cc0f1633-fc62-47b4-826e-c9ab07b1ed0d?mode=deep",
+    "timestamp": "2026-01-11 00:48:15.013469",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [Rule Engine JavaScript Injection] The ruleJS content at line 686 is passed to rule engine - can malicious JavaScript in attested rules exploit the engine, escape sandbox, or perform unauthorized operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9a3ef5ff-96b9-4c87-89f0-9f84d00b8c2e?mode=deep",
+    "timestamp": "2026-01-11 00:48:40.540923",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [Rule Engine State Persistence] JavaScript storage (jsStorage) at line 666 - can malicious rules persist attacker-controlled state that affects future signing decisions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_06ddfef6-b7fb-4e82-a713-eaf18ed5b10a?mode=deep",
+    "timestamp": "2026-01-11 00:49:04.344298",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [UI Replacement Attack] The ui is replaced with ruleEngine at line 687 - can this replacement be exploited to bypass user confirmation for critical operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_71e7da71-1600-496b-b41d-3aca098ffcb7?mode=deep",
+    "timestamp": "2026-01-11 00:49:28.837527",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [USB Device Exploitation] The nousb flag at line 698 controls USB device access - if USB is enabled, can malicious USB devices exploit the account manager when connected? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_618b909e-b9e9-4be3-82e8-33ee44dc6c9f?mode=deep",
+    "timestamp": "2026-01-11 00:49:53.156465",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [Smart Card Daemon Path] The scpath at line 699 specifies smart card daemon - can path injection here cause execution of attacker-controlled smart card interfaces? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_74981755-7463-4bd0-a20b-76a51cc22804?mode=deep",
+    "timestamp": "2026-01-11 00:50:18.604014",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: initInternalApi()] [Account Manager NoStorage] The pwStorage defaults to NoStorage at line 406 - does this create a vulnerability where password caching is disabled and users must repeatedly enter passwords, leading to password fatigue? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f5b29e9e-76d2-42be-a994-81162627e46e?mode=deep",
+    "timestamp": "2026-01-11 00:50:42.282869",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [SignerAPI Advanced Mode] If advanced mode is enabled (line 704), warnings replace rejections - can this be exploited by social engineering users to approve dangerous transactions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_73ed13ea-180e-42ae-a851-205bdb52f1ac?mode=deep",
+    "timestamp": "2026-01-11 00:51:04.223192",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: setCredential()] [Keccak256 Collision] The vault location uses Keccak256 with 10-byte truncation at line 436 - what is the collision probability, and could attackers generate colliding master seeds to access wrong vaults? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1c7da745-b775-4005-bac6-5198dac83fd2?mode=deep",
+    "timestamp": "2026-01-11 00:51:27.415630",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: encryptSeed()] [Encryption Mode Security] Does EncryptDataV3 use authenticated encryption (like AES-GCM), or is it vulnerable to tampering attacks where modified ciphertext could be decrypted without detection? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_314488af-06fc-49c2-8459-1adbd9b7896b?mode=deep",
+    "timestamp": "2026-01-11 00:51:53.237706",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: readMasterKey()] [Password Brute Force] Is there rate limiting on password attempts for master seed decryption, or can attackers make unlimited decryption attempts for offline brute-force attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_be9b4ece-fd17-4233-9445-e426e7b80491?mode=deep",
+    "timestamp": "2026-01-11 00:52:18.595454",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [Goroutine Leak] The testExternalUI is launched as goroutine at line 774 - if the test flag is used, is this goroutine properly terminated, or does it leak when Clef exits? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c035b769-d2cb-4651-9a5a-8de7b606a12a?mode=deep",
+    "timestamp": "2026-01-11 00:52:45.350587",
+    "report_generated": false
   }
 ]
