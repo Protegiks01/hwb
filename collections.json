@@ -31348,5 +31348,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_507e04ab-ee5b-4761-9eb8-2398649f632b?mode=deep",
     "timestamp": "2026-01-11 17:50:11.774885",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Add()] [Eviction Manipulation] If Add() at line 38 returns evicted=true for a validator snapshot being evicted, can an attacker exploit the timing to repeatedly add/evict snapshots in a pattern that causes the LRU to evict recent snapshots before old ones, breaking the LRU invariant and causing cache misses that degrade consensus performance? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f5be642a-18ae-40a4-9a57-e529da024ff4?mode=deep",
+    "timestamp": "2026-01-11 17:51:36.485877",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Get()] [Stale Data] After Get() at lines 50-54 returns a cached validator snapshot, can the snapshot become stale due to a validator vote that occurred between cache insertion and retrieval, causing the consensus to use an outdated validator set that leads to chain splits when different nodes use different validator sets? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_261c687b-a7bf-4cc7-8df4-89ea210f406c?mode=deep",
+    "timestamp": "2026-01-11 17:51:49.372397",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Peek()] [Timing Side Channel] Does Peek() at lines 66-70 create a timing side channel where an attacker can determine if specific validator snapshots are cached based on response time, allowing them to infer validator identities or voting patterns and perform targeted attacks on specific validators? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6b6b45af-cd28-4f4d-819b-5930955c8060?mode=deep",
+    "timestamp": "2026-01-11 17:52:02.448240",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Remove()] [Orphan Attack] Can Remove() at lines 82-86 be exploited during chain reorg to remove ancestor block snapshots from cache, causing subsequent block validation to fail due to missing parent snapshots and enabling an attacker to orphan valid chains by selectively removing critical snapshots? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f215fe39-42c8-43d7-a601-98b3e2993d72?mode=deep",
+    "timestamp": "2026-01-11 17:52:16.819668",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Keys()] [Key Enumeration] When Keys() at lines 90-94 returns all cached keys for validator snapshots, can an attacker use this to enumerate all recent block hashes and validator addresses, then target specific validators with DoS attacks or use the information to predict future block producers for MEV extraction? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dc006518-07e1-4271-9eb5-e24381bf3d31?mode=deep",
+    "timestamp": "2026-01-11 17:52:31.287178",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Add()] [Hash Collision] If Add() uses the key parameter (a Hash type) without additional validation, can an attacker exploit birthday attacks to create hash collisions between a malicious snapshot and a legitimate one, causing the cache to overwrite legitimate data with attacker-controlled data? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f82a5d85-0622-4c2d-b5ec-ef63e9d5a8ba?mode=deep",
+    "timestamp": "2026-01-11 17:52:46.897759",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Contains()] [Information Leak] Can Contains() at lines 42-46 be used to probe the cache for specific block hashes or validator addresses without triggering access logs, allowing an attacker to map the cache state and identify which blocks/validators are being actively used for targeted attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e1d6de11-1be5-4aa4-bedc-15c5c5001840?mode=deep",
+    "timestamp": "2026-01-11 17:53:04.160716",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: NewCache()] [Memory Exhaustion] If NewCache() at line 29-30 is called with a maliciously large capacity value from a corrupted config, can it allocate excessive memory for the underlying BasicLRU's map structure, causing immediate memory exhaustion and node crash before the cache is even used? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4b00f32e-00df-40f7-9ea6-1dfebce64663?mode=deep",
+    "timestamp": "2026-01-11 17:53:22.932462",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Add()] [Memory Leak] Does Add() at lines 34-38 properly clean up evicted items, or can repeated Add() operations on validator snapshots cause memory leaks where evicted cacheItem structs remain referenced, gradually exhausting memory over time and causing node crashes during long-running consensus operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d821d1ea-c88e-41fc-bfb1-b542206e0e3f?mode=deep",
+    "timestamp": "2026-01-11 17:53:42.596416",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Keys()] [Memory Exhaustion] When Keys() at lines 90-94 creates a slice to return all keys, can an attacker fill the cache with maximum capacity snapshots, causing Keys() to allocate a massive slice that exhausts memory when called during validator snapshot enumeration for consensus voting? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d641527a-020f-42cd-8bfc-be42b4b6d590?mode=deep",
+    "timestamp": "2026-01-11 17:54:04.270976",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Add()] [Unbounded Growth] If the capacity parameter in NewCache() is set to a very large value, can Add() calls at lines 34-38 fill the cache without eviction until physical memory is exhausted, especially if validator snapshots contain large nested data structures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_738e191d-11d0-4161-aac1-4accdf083f1d?mode=deep",
+    "timestamp": "2026-01-11 17:54:27.540766",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Purge()] [Memory Leak] When Purge() at lines 74-78 clears the cache, does it properly release references to large validator snapshot objects, or can these objects remain in memory due to other references, causing memory leaks during frequent cache purges after chain reorgs? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_67b4cbc0-62a2-4f74-a60b-42a11d263a14?mode=deep",
+    "timestamp": "2026-01-11 17:54:51.877578",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Add()] [CPU DoS] Can an attacker exploit Add() by inserting keys that cause pathological behavior in the underlying BasicLRU's hash map (e.g., hash collisions in the Go map implementation), leading to O(n) insertion time instead of O(1) and causing CPU exhaustion DoS during consensus snapshot caching? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c1c60c8d-3913-4d16-933e-e8676f703d40?mode=deep",
+    "timestamp": "2026-01-11 17:55:17.234548",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Get()] [Thundering Herd] If multiple goroutines call Get() at lines 50-54 for the same missing validator snapshot simultaneously, will they all acquire the mutex serially and check the cache individually, causing a thundering herd problem that amplifies cache miss latency and delays block validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7a49737c-24cf-4bfe-8622-8893aa482910?mode=deep",
+    "timestamp": "2026-01-11 17:55:41.202367",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Remove()] [Remove DoS] Can an attacker repeatedly call Remove() at lines 82-86 on non-existent keys, causing the mutex to be acquired/released repeatedly without eviction, wasting CPU cycles and potentially delaying legitimate cache operations during consensus-critical moments? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ed839a8a-939a-4959-8070-521660a4cfd5?mode=deep",
+    "timestamp": "2026-01-11 17:56:06.378459",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Contains()] [Contains Spam] Can rapid Contains() calls at lines 42-46 be used to spam the mutex lock, effectively creating a denial of service where legitimate Add() and Get() operations for validator snapshots are blocked, delaying block validation and production? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_82c4df07-a865-4166-bdc0-685a2c49a871?mode=deep",
+    "timestamp": "2026-01-11 17:56:32.347152",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Len()] [Len Spam] Can an attacker continuously call Len() at lines 58-62, acquiring the mutex each time, to create lock contention that prevents the cache from serving legitimate Get() requests for validator snapshots during time-sensitive consensus operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_424c48d0-6122-4fc6-be94-e01f930e357d?mode=deep",
+    "timestamp": "2026-01-11 17:56:59.334014",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Add()] [Panic on Defer] If a panic occurs in the underlying BasicLRU.Add() call at line 38 after the defer unlock at line 36, can the panic propagate while the mutex is unlocked, leaving the Cache in an inconsistent state where subsequent operations see partially updated data and corrupt validator snapshots? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_72d467c8-5791-4202-ae6b-74f29dfcf95b?mode=deep",
+    "timestamp": "2026-01-11 17:57:26.014334",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Get()] [Panic Recovery] If BasicLRU.Get() at line 54 panics due to internal corruption (e.g., nil pointer in the doubly-linked list), will the defer unlock at line 52 execute, or can the panic leave the mutex locked, causing deadlock and halting all cache operations including consensus snapshot retrieval? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bda2da84-ae40-41ce-8203-a0c6407c0e45?mode=deep",
+    "timestamp": "2026-01-11 17:57:52.863654",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Remove()] [Panic on List Manipulation] Can Remove() at line 86 trigger a panic in BasicLRU.Remove() if the list element has already been removed by a concurrent operation (despite the mutex), causing node crash during validator snapshot cleanup after chain reorg? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a52c2895-f29a-46b1-950c-377fee8098cf?mode=deep",
+    "timestamp": "2026-01-11 17:58:18.412484",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Keys()] [Panic on Slice Allocation] If Keys() at line 94 attempts to allocate a slice for a cache with billions of entries (due to capacity overflow), can this trigger a panic from memory allocation failure that crashes the node during validator enumeration? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_451c8223-a458-431d-b10b-744aef9d7313?mode=deep",
+    "timestamp": "2026-01-11 17:58:43.676638",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Purge()] [Panic on Map Deletion] When Purge() at line 78 calls BasicLRU.Purge() which deletes map entries in a loop, can a concurrent map read (despite the mutex) cause a panic that crashes the node during cache clearing after a major chain reorg? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_61d69d9b-04fe-497e-99af-c4ba1c9bfd98?mode=deep",
+    "timestamp": "2026-01-11 17:59:07.874471",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: NewCache()] [Panic on Negative Capacity] If NewCache() at line 30 is passed a negative capacity value due to integer overflow in the caller, will BasicLRU's capacity correction to 1 mask this error, or can downstream operations panic when the capacity is inconsistent with expected values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9bdf74e7-e665-404e-9a53-bc7fea223286?mode=deep",
+    "timestamp": "2026-01-11 17:59:33.244917",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Peek()] [Panic on Zero Value] If Peek() at line 70 returns a zero value for a missing key, and this zero value is used as a pointer in consensus snapshot validation, can this cause a nil pointer dereference panic when attempting to access snapshot fields? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_31250d5b-3203-44db-a689-972689a8b796?mode=deep",
+    "timestamp": "2026-01-11 17:59:58.590204",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Get()] [Panic on MoveToFront] Can Get() at line 54 trigger a panic in BasicLRU's moveToFront() operation if the list pointers (prev/next) are corrupted, causing a crash during validator snapshot retrieval right before block validation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a1d707a3-881a-4891-9beb-24ffe8a43d88?mode=deep",
+    "timestamp": "2026-01-11 18:00:23.785342",
+    "report_generated": false
   }
 ]
