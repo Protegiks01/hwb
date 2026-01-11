@@ -20248,5 +20248,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c035b769-d2cb-4651-9a5a-8de7b606a12a?mode=deep",
     "timestamp": "2026-01-11 00:52:45.350587",
     "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [Signal Handler Goroutine] The signal handler at line 785 - are there multiple handlers that could race, and is cleanup guaranteed if multiple signals arrive? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0281feea-641c-4583-a24f-38c4de39eb8b?mode=deep",
+    "timestamp": "2026-01-11 00:54:26.993610",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: accountImport()] [Private Key Memory Zeroing] The ECDSA private key loaded at line 559 - is it explicitly zeroed from memory after being encrypted into keystore, or could it remain in process memory? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_84e07cc3-16d0-4705-9f51-cc96f531e63a?mode=deep",
+    "timestamp": "2026-01-11 00:54:39.808721",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: setCredential()] [Password Memory Lifetime] How long do password strings remain in memory after being passed to encryption functions, and are they vulnerable to memory scanning attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ec59bc65-10df-45da-bdc2-e7007865bada?mode=deep",
+    "timestamp": "2026-01-11 00:54:53.463124",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: setCredential()] [Address Case Sensitivity] The address is converted with common.HexToAddress at line 427 - is case preserved correctly for mixed-case checksum addresses, or could case manipulation bypass access controls? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_234e1d5f-8089-4367-877d-6754583e610f?mode=deep",
+    "timestamp": "2026-01-11 00:55:07.182084",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: attestFile()] [SHA256 Input Format] The sha256 sum is taken as string argument at line 394 - is it validated to be exactly 64 hex characters, or could malformed input corrupt config storage? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ef87e2a2-709d-470e-8d99-bbf123e1cbb1?mode=deep",
+    "timestamp": "2026-01-11 00:55:22.028352",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: ipcEndpoint()] [IPC Path Validation] Is there validation that ipcPath doesn't contain null bytes or other special characters that could cause issues in socket creation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9bebc5db-fbf9-413b-a828-7d79f007b65c?mode=deep",
+    "timestamp": "2026-01-11 00:55:37.703744",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [Fatalf Error Exposure] Multiple utils.Fatalf calls (lines 644, 684, 715, 737, 748, 764) - do these error messages leak sensitive information about system configuration or internal state? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a021542f-5585-45a5-ba88-50c80cb9a5c8?mode=deep",
+    "timestamp": "2026-01-11 00:55:54.542882",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: initializeSecrets()] [Partial State on Failure] If any operation fails partway through initializeSecrets, are partial files or directories cleaned up, or could they leave system in inconsistent state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c8124f68-6c07-47cc-83d4-1b0a71b45734?mode=deep",
+    "timestamp": "2026-01-11 00:56:13.118670",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: readMasterKey()] [Decryption Error Ambiguity] The generic error 'failed to decrypt the master seed of clef' at line 847 - is this insufficient feedback that makes legitimate troubleshooting difficult while providing security through obscurity? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3aa6a130-0408-4592-a71f-4326213553f3?mode=deep",
+    "timestamp": "2026-01-11 00:56:33.153335",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [No Authentication] The RPC endpoints (HTTP and IPC) don't appear to have authentication - can any local process or network client access all signing functions without credentials? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_171662cb-8b78-4b43-9f37-e55d7fa5335d?mode=deep",
+    "timestamp": "2026-01-11 00:56:55.139250",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: listAccounts()] [Account Enumeration] There's no access control on listing accounts - can attackers enumerate all addresses to target specific high-value accounts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0b7fdd43-bdc9-4376-a104-fb97dbf8168b?mode=deep",
+    "timestamp": "2026-01-11 00:57:17.094115",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: removeCredential()] [No Authorization Check] Can any user or process that can invoke Clef commands delete credentials for any address without proving ownership? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fa43305a-e6a2-4074-9986-b12df5d93015?mode=deep",
+    "timestamp": "2026-01-11 00:57:41.139082",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: testExternalUI()] [Context Value Injection] The context values 'remote', 'scheme', 'local' set at lines 894-896 - if these are used for authorization, can they be forged by attackers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_27ad9233-0b96-411e-9bbd-d93f7f2fec62?mode=deep",
+    "timestamp": "2026-01-11 00:58:04.909291",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [Startup Info Leak] The StartupInfo at line 776 exposes API versions and endpoint URLs - could this information help attackers identify vulnerable versions or endpoints? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8ac6d3d9-d360-405a-a941-e12e0758c28c?mode=deep",
+    "timestamp": "2026-01-11 00:58:29.584786",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [HTTP/IPC Concurrent Access] The HTTP and IPC servers handle requests concurrently - are all shared data structures (account manager, storage, rule engine) properly synchronized? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_039dedef-0bdb-4dc9-89ea-0273a24b8787?mode=deep",
+    "timestamp": "2026-01-11 00:58:56.152160",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [Storage Concurrent Writes] Multiple threads could write to encrypted storage files simultaneously - is there proper locking to prevent race conditions and data corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_464df9a4-15cd-4aa5-a875-418f4a91f6b4?mode=deep",
+    "timestamp": "2026-01-11 00:59:20.705450",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [UI Concurrent Calls] If UI methods are called concurrently from different goroutines serving RPC requests, are the UI implementations thread-safe? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7c20b490-9c15-494e-93d7-949c87e470f6?mode=deep",
+    "timestamp": "2026-01-11 00:59:43.913866",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: main()] [CLI Flag Injection] Command-line arguments are processed at line 302 - if Clef is invoked by another program, can that program inject malicious flags to compromise security settings? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d5e0443f-cff6-4b20-8099-990b0acc6d09?mode=deep",
+    "timestamp": "2026-01-11 01:00:07.851971",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [Config File Priority] If configuration can come from multiple sources (CLI, files, environment), what is the precedence, and can attackers exploit this to override secure settings? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_085d282f-788f-4e77-a983-7f12eb9f42e4?mode=deep",
+    "timestamp": "2026-01-11 01:00:31.708701",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: attestFile()] [Storage File Location] Storage files are placed under configDir - if this directory is on a shared or network filesystem, can other users access or modify these files? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_932f51e1-4009-40d5-bc04-0d7423836e7c?mode=deep",
+    "timestamp": "2026-01-11 01:00:55.276951",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: initializeSecrets()] [Atomic File Write] Is the masterseed.json file written atomically, or could system crash during write leave a partially written, corrupted file? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ea0cac52-cbc3-4658-a3de-225ca9ee84d5?mode=deep",
+    "timestamp": "2026-01-11 01:01:20.550727",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [Rule File Read Race] The rule file is read at line 671 - if the file is being modified during read, can partial or inconsistent content be loaded? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_173464e6-ef0b-49ba-9df0-748903e3d78e?mode=deep",
+    "timestamp": "2026-01-11 01:01:45.397195",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [Audit Log Write Failure] If audit log write fails at line 713, does execution continue without audit trail, or is the operation aborted? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d4999b8b-523c-485e-84e4-8d66a384bb9a?mode=deep",
+    "timestamp": "2026-01-11 01:02:10.564390",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [Audit Log Truncation] If the audit log file grows very large, is there rotation or size limits, or could unlimited growth cause disk exhaustion DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9158494a-9208-404a-a3b2-391d77a1b3af?mode=deep",
+    "timestamp": "2026-01-11 01:02:35.959663",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [Sensitive Data in Logs] Do log messages at various log levels potentially contain sensitive data like addresses, transaction details, or metadata that should be redacted? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e65a2e0d-9e89-4826-b744-866147872f04?mode=deep",
+    "timestamp": "2026-01-11 01:03:02.283347",
+    "report_generated": false
   }
 ]
