@@ -28198,5 +28198,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7e0b0301-1121-4b2d-978f-87a2beb8b065?mode=deep",
     "timestamp": "2026-01-11 14:20:28.417806",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: parseCombinedJSONV8()] [Error Masking] If json.Unmarshal at line 106 fails with a non-obvious error, does the error returned at line 107 provide sufficient context, or could this mask critical parsing failures that allow malformed contracts to be accepted? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0e7233a2-0132-4d3e-812d-467ef482d9d7?mode=deep",
+    "timestamp": "2026-01-11 14:21:43.039674",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Bytecode Injection] Can an attacker manipulate info.Bin at line 81 to inject malicious bytecode through the '0x' + info.Bin concatenation, bypassing any upstream validation that expects non-prefixed hex strings? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7bd67c63-c3cd-48c9-b218-5c7b96ad8d80?mode=deep",
+    "timestamp": "2026-01-11 14:21:56.000104",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Bytecode Injection] Can an attacker include special characters or null bytes in info.Bin at line 81 that when concatenated with '0x' create invalid bytecode strings that cause downstream EVM deployment failures or exploits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f9235901-6552-469c-af23-cfd9658ef28a?mode=deep",
+    "timestamp": "2026-01-11 14:22:09.936128",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Double Prefix] If info.Bin already starts with '0x' at line 81, does the string concatenation '0x' + info.Bin create '0x0x...' strings that bypass bytecode validation in downstream contract deployment logic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a2d98853-a7f8-4308-9e23-6e9fa2121b89?mode=deep",
+    "timestamp": "2026-01-11 14:22:23.838393",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Runtime Code Injection] Can an attacker inject malicious bytecode through info.BinRuntime at line 82 during the '0x' + info.BinRuntime concatenation, creating runtime code that differs from expected deployment code? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7136f631-1371-46a6-9fb2-425c18c91302?mode=deep",
+    "timestamp": "2026-01-11 14:22:38.666749",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [String Length DoS] Can an attacker provide extremely long info.Bin strings at line 81 (gigabytes) that when concatenated with '0x' cause string allocation failures or memory exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2288ee91-5485-48af-b4ee-858dbda59e30?mode=deep",
+    "timestamp": "2026-01-11 14:22:54.736445",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: parseCombinedJSONV8()] [Bytecode Injection] Can an attacker exploit the '0x' + info.Bin concatenation at line 113 in the V8 parser to inject different bytecode than what was parsed in the non-V8 parser, causing contract inconsistencies across nodes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bb1faf1c-98b2-4529-ba4e-4dd426ff6b48?mode=deep",
+    "timestamp": "2026-01-11 14:23:11.900818",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: parseCombinedJSONV8()] [Runtime Code Mismatch] Does the '0x' + info.BinRuntime concatenation at line 114 properly validate that BinRuntime is a valid hex string, or can malformed runtime code be injected that executes differently than expected? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_530595bf-ebc9-40ca-a472-32987dbe4d78?mode=deep",
+    "timestamp": "2026-01-11 14:23:30.977346",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Nil Map Access] If output.Contracts at line 67 is nil despite successful unmarshal, does the for-range loop safely handle this, or can it cause nil pointer dereference panic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_faa9b9a9-d3d1-4d05-8c07-bd557c20948c?mode=deep",
+    "timestamp": "2026-01-11 14:23:51.846356",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Map Concurrent Access] If ParseCombinedJSON is called concurrently from multiple goroutines on the same node, can the contracts map creation at line 66 and population in the loop at line 67 cause race conditions detected by -race flag? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_01a41560-af65-43b3-8395-5e9481763aff?mode=deep",
+    "timestamp": "2026-01-11 14:24:13.943737",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Hash Map Nil] If info.Hashes at line 83 is nil from malformed JSON, is it safely handled by the Contract struct, or does downstream code assume non-nil Hashes map causing panic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_371ef9e7-f4ca-4f9a-ae88-07a5183df0da?mode=deep",
+    "timestamp": "2026-01-11 14:24:36.281590",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Map Key Collision] Can an attacker craft output.Contracts at line 67 with duplicate contract names that cause unexpected map overwrites, leading to contract deployment confusion? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f0c1490c-8ba4-4f6c-98a2-de440080efa3?mode=deep",
+    "timestamp": "2026-01-11 14:25:00.689415",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: parseCombinedJSONV8()] [Nil Map Access] If output.Contracts at line 111 is nil in the V8 parser, does the for-range loop handle this safely, or is there risk of panic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f5f3c31f-150f-443a-bf00-bed6b1ed5e0b?mode=deep",
+    "timestamp": "2026-01-11 14:25:24.838094",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: parseCombinedJSONV8()] [Map Population Race] Can concurrent calls to parseCombinedJSONV8 cause race conditions during contracts map population at line 110-111, leading to inconsistent contract data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7acd6ade-d4e1-4f6e-a8dc-5d494a82534b?mode=deep",
+    "timestamp": "2026-01-11 14:25:49.095368",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [ABI JSON Injection] Can an attacker inject malicious JSON into info.Abi at line 70 that when unmarshaled contains exploit payloads embedded in the ABI structure, later executed during contract interaction? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6bccd753-cbad-487e-802f-2260cbeedc11?mode=deep",
+    "timestamp": "2026-01-11 14:26:12.547003",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [ABI Unmarshal DoS] If info.Abi at line 70 contains extremely nested JSON structures, does the json.Unmarshal allocate unbounded memory causing DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ad6f9cc4-9ca5-4519-b665-9c71c432832f?mode=deep",
+    "timestamp": "2026-01-11 14:26:37.208285",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [ABI Error Handling] Does the error handling at line 71 for ABI unmarshal provide sufficient detail to detect subtle JSON manipulation, or could malformed ABIs pass through silently? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_32c1ed9f-881b-4028-9723-8f1b275fe647?mode=deep",
+    "timestamp": "2026-01-11 14:27:01.843322",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Userdoc JSON Injection] Can an attacker inject script payloads or malicious data into info.Userdoc at line 73 that gets stored in contract metadata and potentially executed in client interfaces? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d1d5a201-fcb9-4c9e-b2ac-595fff102577?mode=deep",
+    "timestamp": "2026-01-11 14:27:23.040447",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Userdoc Unmarshal Failure] If json.Unmarshal of info.Userdoc at line 73 fails, does the error at line 74 properly prevent contract creation, or could contracts be deployed with corrupted documentation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_307f18f8-4917-4e4a-af67-605085dc2b85?mode=deep",
+    "timestamp": "2026-01-11 14:27:42.016458",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Devdoc JSON Injection] Can an attacker manipulate info.Devdoc at line 76 to inject malicious metadata that affects contract verification or deployment processes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b5daf7af-7dd5-4847-989f-7267b2a65d0a?mode=deep",
+    "timestamp": "2026-01-11 14:28:01.771679",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Devdoc Unmarshal Error] Does the error handling at line 77 for Devdoc properly validate the unmarshaled content, or can malformed developer documentation cause issues in contract deployment? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f7a849a1-b635-4144-aae2-77d58725116b?mode=deep",
+    "timestamp": "2026-01-11 14:28:22.787977",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Type Confusion ABI] Since abi variable at line 69 is interface{}, can downstream code that type-asserts this value cause panic if the actual type doesn't match expected ABI structure? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f3f59fc6-1b7f-46de-82fc-c8eee96a1e18?mode=deep",
+    "timestamp": "2026-01-11 14:28:45.773268",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Type Confusion Userdoc] Can the interface{} type for userdoc at line 69 lead to type assertion failures in downstream code expecting specific documentation structure? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f0e2ee9f-4174-494f-b57f-7ea609046e20?mode=deep",
+    "timestamp": "2026-01-11 14:29:08.092577",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Type Confusion Devdoc] Does downstream code safely handle the interface{} type for devdoc at line 69, or can type mismatches cause panic during contract operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_42a77e26-293c-429b-ab0b-b90ed0ea1fc8?mode=deep",
+    "timestamp": "2026-01-11 14:29:31.357692",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: parseCombinedJSONV8()] [Type Confusion V8 ABI] In V8 parsing, info.Abi at line 124 is already interface{} from the struct - can this lead to inconsistent ABI type handling between V8 and non-V8 code paths causing contract interaction failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_25edae4b-428f-4002-9f28-abaf6cd49ffd?mode=deep",
+    "timestamp": "2026-01-11 14:29:55.498850",
+    "report_generated": false
   }
 ]
