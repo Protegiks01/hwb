@@ -30298,5 +30298,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b6428426-e1fb-4fbd-b5ca-e7c9bb6c6a90?mode=deep",
     "timestamp": "2026-01-11 16:37:56.380255",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Uint64.UnmarshalGraphQL()] [Int32 Range] When accepting int32 input at line 284-285, can negative int32 values be provided that are cast to Uint64, potentially causing wrap-around producing large positive values for gas limits or nonces? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7bf8a997-5bcf-4219-9384-344387f74f97?mode=deep",
+    "timestamp": "2026-01-11 16:39:05.680844",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Uint64.UnmarshalGraphQL()] [Type Inconsistency] Can an attacker provide values as int32 vs string through different API endpoints that are interpreted differently due to the dual handling, causing transaction validation inconsistencies? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_37152d28-2383-4951-a7ac-19b6f5e42b2f?mode=deep",
+    "timestamp": "2026-01-11 16:39:18.794673",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Uint.UnmarshalText()] [Platform Dependency] At line 313, the check u64 > Uint64(^uint(0)) uses platform-dependent uint size - can attackers exploit 32-bit vs 64-bit platform differences to cause values accepted on one platform to be rejected on another, leading to chain splits? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ed11dcde-97f5-4ffd-858a-a54f384d7bd6?mode=deep",
+    "timestamp": "2026-01-11 16:39:32.081385",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Uint.UnmarshalText()] [Range Error Confusion] The condition err == ErrUint64Range at line 313 causes ErrUintRange to be returned, but can this mask actual uint64 overflow errors, allowing values > MaxUint64 to be incorrectly interpreted as platform-specific range errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_27c8bf91-640b-49ce-b00c-54a897abad6b?mode=deep",
+    "timestamp": "2026-01-11 16:39:45.925807",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Uint.UnmarshalText()] [Error Handling Order] If u64 > Uint64(^uint(0)) is true AND err == ErrUint64Range is true, which error takes precedence, and can this ordering be exploited to bypass range validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ecf13efb-29d8-4145-8079-5a4babc1a021?mode=deep",
+    "timestamp": "2026-01-11 16:40:01.344763",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: isString()] [Length Check] The function only checks len(input) >= 2 and quote characters - can input with len == 2 (just quotes",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_109ac45d-4bcf-4823-a9e3-8310589b83c3?mode=deep",
+    "timestamp": "2026-01-11 16:40:18.124251",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: isString()] [Empty JSON String] Can JSON string",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_77f72232-f199-476d-aaae-4248f7db5222?mode=deep",
+    "timestamp": "2026-01-11 16:40:35.860776",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: bytesHave0xPrefix()] [Case Sensitivity] The function accepts both 'x' and 'X' at line 332 - can mixed case prefixes like",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_861e4bff-8742-48f2-ac54-277343f46adb?mode=deep",
+    "timestamp": "2026-01-11 16:40:54.906234",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: bytesHave0xPrefix()] [Buffer Underflow] Can input with len < 2 cause slice access violations, or is this protected by the len >= 2 check at line 332, and are all callers guaranteed to respect this precondition? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_25f7c7da-08ef-45f5-a894-c086e3dcf270?mode=deep",
+    "timestamp": "2026-01-11 16:41:14.334160",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: checkText()] [Empty String Handling] At line 336-337, empty input returns (nil, nil) - can callers mishandle nil return value assuming it represents valid empty hex data, leading to unexpected behavior in address or hash parsing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_31456def-9e11-464b-a2c8-8c2a0ce58a72?mode=deep",
+    "timestamp": "2026-01-11 16:41:36.588264",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: checkText()] [Prefix Stripping] When stripping prefix at line 340 with input = input[2:], can this create aliasing issues where the returned slice shares backing array with original input, potentially causing mutations to affect original data? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ae0e88a4-23ad-4da9-86d9-b522f68b23b1?mode=deep",
+    "timestamp": "2026-01-11 16:41:58.872294",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: checkText()] [Odd Length Check] The odd length check at line 344-346 requires even hex digit count, but can attackers provide input where prefix ambiguity causes odd length on some nodes and even on others, leading to consensus failure? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5a169ce1-7ba2-4d1e-8e73-4e5c1f73e540?mode=deep",
+    "timestamp": "2026-01-11 16:42:22.463706",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: checkText()] [wantPrefix Flag Bypass] Can the wantPrefix boolean be exploited where one code path expects prefix and another doesn't, allowing inconsistent parsing of the same hex data across different API endpoints? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_52d9b83b-ecf8-4722-898f-cce963eff834?mode=deep",
+    "timestamp": "2026-01-11 16:42:46.632045",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: checkNumberText()] [Empty String] Similar to checkText, line 351-353 returns (nil, nil) for empty input - can this nil slice cause issues in Big/Uint64 unmarshaling where nil is interpreted as valid zero value? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4088d331-5029-40eb-993a-6129d9fe8f79?mode=deep",
+    "timestamp": "2026-01-11 16:43:12.219154",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: checkNumberText()] [Prefix Requirement] Unlike checkText, this function always requires 0x prefix (line 354-356) - can API inconsistency where some fields require prefix and others don't lead to validation bypasses or parsing errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8155b2de-326c-43ff-afc8-a142aa0e2054?mode=deep",
+    "timestamp": "2026-01-11 16:43:38.974407",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: checkNumberText()] [Empty Number Check] At line 358-360, input with only",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7217d24a-37e3-441a-b8eb-de22d73383f2?mode=deep",
+    "timestamp": "2026-01-11 16:44:05.945781",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: checkNumberText()] [Leading Zero Detection] The check at line 361-363 rejects leading zeros (0x0123), but can this be bypassed with unicode zero characters or by exploiting differences in how standard library parses hex? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_16d692f7-4af5-4109-8d99-1c9ad58691a6?mode=deep",
+    "timestamp": "2026-01-11 16:44:32.769582",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: checkNumberText()] [Slice Aliasing] When returning input[2:] at line 357 and line 364, does this create shared backing arrays that could cause security issues if the returned slice is mutated by callers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1a12d6b1-29d5-453e-826b-823d0b0f1dfa?mode=deep",
+    "timestamp": "2026-01-11 16:44:59.565297",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: wrapTypeError()] [Type Assertion] At line 368, the type assertion to *decError only checks specific error type - can other error types from hex package or custom errors bypass this wrapping, causing inconsistent error responses across RPC API? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1b3079ec-115d-428f-913c-0dd183500483?mode=deep",
+    "timestamp": "2026-01-11 16:45:26.789256",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: wrapTypeError()] [Error Message Exposure] When creating json.UnmarshalTypeError at line 369, does including err.Error() in Value field leak sensitive internal state information that could aid attackers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_64d73adc-a0db-437a-ae6f-7740cf8bda01?mode=deep",
+    "timestamp": "2026-01-11 16:45:55.539594",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: wrapTypeError()] [Nil Error Handling] If err is nil, this function returns nil - can callers that don't check for nil errors misinterpret success as failure or vice versa, leading to validation bypasses? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_14030452-d36d-420f-830d-193350a2d690?mode=deep",
+    "timestamp": "2026-01-11 16:46:22.955264",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Cross-Function: Multiple UnmarshalText methods] [Concurrent Mutation] If multiple goroutines call UnmarshalText methods on shared Bytes, Big, Uint64, or Uint pointers during parallel transaction processing, can race conditions corrupt these values leading to incorrect nonces, balances, or gas limits? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0e0eb825-b0a9-4d5a-95e4-0f9bc48f5a9d?mode=deep",
+    "timestamp": "2026-01-11 16:46:51.468805",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Cross-Function: All unmarshal methods] [Error Recovery] If unmarshaling fails partway through, do all functions properly restore pointers to original values, or can partial unmarshal leave receivers in corrupted intermediate states affecting subsequent operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0c496943-c465-405a-be4f-9485f975c32c?mode=deep",
+    "timestamp": "2026-01-11 16:47:20.041220",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Cross-Function: JSON vs GraphQL] [API Inconsistency] Can attackers exploit differences between JSON and GraphQL unmarshaling paths (e.g., GraphQL accepting int32 for numeric types) to cause same logical value to be interpreted differently depending on API used? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0f574436-8ce9-48b5-b050-4e735862b4d2?mode=deep",
+    "timestamp": "2026-01-11 16:47:48.133139",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Cross-Function: MarshalText/UnmarshalText] [Roundtrip Safety] For all types (Bytes, Big, Uint64, Uint), are marshal/unmarshal operations guaranteed to be inverse functions, or can values that marshal successfully fail to unmarshal identically, causing state inconsistencies during RPC operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3af6a3ab-10bb-468a-8652-357df70b4aa3?mode=deep",
+    "timestamp": "2026-01-11 16:48:16.909851",
+    "report_generated": false
   }
 ]
