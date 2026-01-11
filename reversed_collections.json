@@ -28336,5 +28336,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e67a8f8f-57dc-41fe-b104-77ffd4755ceb?mode=deep",
     "timestamp": "2026-01-11 11:20:52.164703",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Map growth] The sendTo map at line 81 is created per send() call. For networks with many peers, can this map grow large causing memory allocation overhead, GC pressure, or performance degradation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b2c62b93-37a0-4703-94c5-5c307635baf9?mode=deep",
+    "timestamp": "2026-01-11 11:22:20.248052",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Callback error handling] The callback function at line 137 returns nil for all cases. Does this mask actual errors from message processing that should halt transaction relay, potentially causing silent failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_972e4ca4-18d6-4b09-9025-8a4a2a539c9e?mode=deep",
+    "timestamp": "2026-01-11 11:22:33.364719",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Request function safety] The request function returns a closure at line 134 that calls peer.sendTxs(). If the peer disconnects between when this function is created and when it's called, can it cause nil pointer dereference or panic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_719acaf4-107e-4cdf-881a-e086f34f121d?mode=deep",
+    "timestamp": "2026-01-11 11:22:46.723329",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Peer lifetime] The pp variable captured at line 117 - if the peer is unregistered and deallocated before the closure at line 128 executes, can this cause use-after-free or access to invalid peer object? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c92414ee-c758-4a5d-b0cb-a91699b38def?mode=deep",
+    "timestamp": "2026-01-11 11:23:00.491143",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Variable capture] The closures at lines 123-135 capture variables 'll', 'pp', 'enc', 'reqID', 'peer'. Can these captures cause issues if the captured variables are modified after closure creation but before execution, leading to incorrect behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cf039b2d-4f32-4053-843b-e662a92ecf29?mode=deep",
+    "timestamp": "2026-01-11 11:23:15.339720",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Goroutine spawn rate] Can an attacker trigger rapid send() calls causing goroutines to spawn at line 137 faster than they complete, leading to goroutine exhaustion and node crash? Is there rate limiting? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c8b0dd48-ab00-4fd8-b5c8-d2e7cae2ac63?mode=deep",
+    "timestamp": "2026-01-11 11:23:31.476390",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Channel blocking] If the stop channel is already closed when retriever.retrieve() is called at line 137, does the retriever handle this gracefully, or can it cause panic or goroutine leaks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_113e01fd-8f99-45fa-9c19-cb910b79faa7?mode=deep",
+    "timestamp": "2026-01-11 11:23:48.725700",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Context leakage] The goroutines spawned at line 137 use context.Background(). If retrieval operations hang indefinitely, can these contexts leak without timeout, preventing goroutine cleanup even after Stop() is called? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_02dc85a3-7a15-4066-9c6f-cd2a9ece5d6d?mode=deep",
+    "timestamp": "2026-01-11 11:24:08.660931",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: Stop()] [Double close] Can Stop() at line 52 be called multiple times causing the stop channel to be closed repeatedly, resulting in a panic? Is there protection against concurrent Stop() calls? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d86755e2-ead5-452c-8e62-d8a23e45e489?mode=deep",
+    "timestamp": "2026-01-11 11:24:28.228442",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Free transaction relay] If getTxRelayCost() returns 0 or very small values, can an attacker flood the network with transactions without consuming their flow control budget, leading to bandwidth exhaustion attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_205a6022-bad2-412a-8c63-2b0feb0bd09e?mode=deep",
+    "timestamp": "2026-01-11 11:24:48.872520",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Resource exhaustion] QueuedRequest at line 133 queues the cost. If costs are miscalculated or manipulated to be lower than actual resource usage, can this lead to resource exhaustion where actual bandwidth exceeds flow control limits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a4210d7e-9183-43f3-b670-595dc3a9f771?mode=deep",
+    "timestamp": "2026-01-11 11:25:11.307347",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Cost discrepancy] The cost is calculated twice - once in getCost() at line 125 and again at line 132. Can these return different values if peer state changes between calls, causing accounting inconsistencies in flow control? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_50f27e97-afe2-4423-8509-9380218c7960?mode=deep",
+    "timestamp": "2026-01-11 11:25:35.190873",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Cost manipulation] The getCost function at lines 123-126 calls peer.getTxRelayCost(len(ll), len(enc)). Can a malicious peer manipulate these calculations to report artificially low costs, bypassing flow control and sending excessive data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_20585b67-4c47-41e8-8f4d-ed680c95e076?mode=deep",
+    "timestamp": "2026-01-11 11:26:00.273038",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Data size attack] Can an attacker craft transactions that compress poorly or expand significantly when RLP encoded, causing the encoded size 'enc' to be disproportionately large compared to input, exhausting network bandwidth? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_353e8612-7f4a-45ee-bfda-e5ee3aac634b?mode=deep",
+    "timestamp": "2026-01-11 11:26:27.216766",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Memory exhaustion] If transaction list 'll' contains extremely large transactions or very many transactions, can rlp.EncodeToBytes() at line 119 allocate massive buffers causing memory exhaustion or OOM crash? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_94004357-9087-4683-8eef-de3c7bbeda00?mode=deep",
+    "timestamp": "2026-01-11 11:26:54.751182",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [RLP encoding error] At line 119, rlp.EncodeToBytes() error is silently ignored with blank identifier. Can encoding failures of malformed transactions cause enc to be nil/empty, leading to invalid data being sent to peers or crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d1fd6d8d-d49b-4667-a8c0-d377032c8180?mode=deep",
+    "timestamp": "2026-01-11 11:27:24.263779",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Division by zero] What happens if len(ltrx.peerList) is 0 when doing modulo operations? While there's a check at line 95, can race conditions cause peerList to become empty between check and use? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_14c1372c-55d5-4f45-b843-2f179313bd31?mode=deep",
+    "timestamp": "2026-01-11 11:27:54.404500",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Infinite loop] If peerStartPos >= len(peerList) at line 84 when peerList is non-empty, and peerList becomes empty during send() execution, can the loop at lines 98-112 become infinite as pos never equals peerStartPos? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7d275aab-21d7-4653-957c-fe2254c3aee5?mode=deep",
+    "timestamp": "2026-01-11 11:28:25.807065",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Array bounds] The pos calculation and increments at lines 97-111 - if peerList length changes during iteration due to concurrent modifications, can pos go out of bounds causing a panic at line 99 when accessing ltrx.peerList[pos]? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3f3e3efa-6ab0-4a9f-bb0a-8fd89a69fa67?mode=deep",
+    "timestamp": "2026-01-11 11:28:57.119990",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Integer overflow] Can peerStartPos increment at line 83 overflow if send() is called repeatedly over long periods? While unlikely with uint, what happens if it wraps around - is the modulo at lines 84-86 sufficient to prevent issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c9df35aa-681e-48f1-9fb6-dcd64c18b310?mode=deep",
+    "timestamp": "2026-01-11 11:29:27.959076",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: Send()] [Transaction validity] Does Send() at line 141 validate that the input transactions are well-formed, properly signed, and valid before adding to txSent? Can malformed transactions bypass validation and corrupt the relay state or crash receiving peers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_111dc04a-13df-475e-a41a-026e983b6b90?mode=deep",
+    "timestamp": "2026-01-11 11:30:00.265759",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: Discard()] [Partial cleanup] If Discard() is called for hashes that exist in txPending but not txSent (or vice versa), does this create inconsistent state where one map has entries the other doesn't, leading to logical errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5305f531-5f71-4e9c-bb9a-dc48b993364d?mode=deep",
+    "timestamp": "2026-01-11 11:30:33.056545",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: NewHead()] [Inconsistent state] Between deleting from txPending at line 153 and re-adding at line 157, can concurrent Send() calls observe inconsistent state where a transaction appears mined but is still being propagated? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_25145e63-00c3-4cc1-b106-57552deff3e9?mode=deep",
+    "timestamp": "2026-01-11 11:31:03.209272",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Transaction duplication] Once a transaction is added to txSent at line 92, it's never removed except through Discard(). Can the same transaction be sent repeatedly across multiple send() calls, wasting network bandwidth and peer resources? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d64e75fe-7aed-4855-ab83-62c4359f1158?mode=deep",
+    "timestamp": "2026-01-11 11:31:32.391940",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: NewHead()] [Missing nil check] At line 164, txSent[hash] is accessed without checking if the hash exists in the map. If a rollback hash was already discarded, can this return nil causing a nil transaction in the txs slice and subsequent panic during send()? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a6a75b28-c3d0-4d4a-ac7b-3ef072cfe2ca?mode=deep",
+    "timestamp": "2026-01-11 11:32:00.730324",
+    "report_generated": false
   }
 ]
