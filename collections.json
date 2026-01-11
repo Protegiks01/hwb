@@ -28948,5 +28948,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_89efcaea-283d-41b8-b893-a9995e042caa?mode=deep",
     "timestamp": "2026-01-11 15:08:33.898062",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: PrintDeprecationWarning()] [DoS Attack] Can PrintDeprecationWarning() be called repeatedly in a tight loop if triggered by specific configuration or command-line parameters, causing the node to spam stdout with massive formatted output that fills up logs and degrades performance? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_668af1cd-e4f0-4b04-8e87-fd43af15e552?mode=deep",
+    "timestamp": "2026-01-11 15:09:53.033846",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: PrintDeprecationWarning()] [DoS Attack] If PrintDeprecationWarning() writes to stdout which is being piped or monitored by another process, could large formatted outputs cause buffer overflows or blocking in the parent process, bringing down node management infrastructure? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d86a5d7b-104e-481f-acf9-63cd4d5d0c26?mode=deep",
+    "timestamp": "2026-01-11 15:10:06.359795",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: PrintDeprecationWarning()] [Input Validation] Does PrintDeprecationWarning() validate or sanitize the input string parameter before using it in fmt.Printf() at line 44, or could strings containing format specifiers (%, \\\\n, \\\\x00) cause formatting issues or injection attacks in log aggregation systems? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ce59b860-f2c1-4093-ad24-6fba2d087a54?mode=deep",
+    "timestamp": "2026-01-11 15:10:19.890791",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: PrintDeprecationWarning()] [Input Validation] Can the input string contain null bytes or other control characters that would corrupt the formatted output at lines 44-51, making deprecation warnings unreadable or exploitable in downstream log processing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_36d9a23b-67ec-4e11-852d-7d04073d7ba3?mode=deep",
+    "timestamp": "2026-01-11 15:10:33.682869",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: PrintDeprecationWarning()] [Input Validation] If the str parameter contains Unicode characters with varying widths, could the len(str) calculations at lines 42-43 produce incorrect visual alignment since len() counts bytes not display width, breaking the box formatting and potentially hiding important warnings? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_35d2309a-64b8-4e4b-a2fd-877e9666a5dc?mode=deep",
+    "timestamp": "2026-01-11 15:10:48.350958",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: PrintDeprecationWarning()] [Race Condition] Is stdout access via fmt.Printf() at line 44 safe for concurrent calls to PrintDeprecationWarning() from multiple goroutines during node initialization, or could interleaved output create corrupted/unreadable deprecation warnings? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d0c001d0-8aec-479c-a9c1-4c5ccd7ee36e?mode=deep",
+    "timestamp": "2026-01-11 15:11:04.159554",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: PrintDeprecationWarning()] [Race Condition] If PrintDeprecationWarning() is called concurrently from different goroutines during startup or configuration reloads, could the multi-line formatted output interleave in unpredictable ways that hide critical deprecation information from operators? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4b1f56c7-d15f-4096-ac90-c641c38c3e0a?mode=deep",
+    "timestamp": "2026-01-11 15:11:21.672570",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: Report()] [Side Channel] Could the timing of Report() calls and the length of stack traces printed to stderr be observed by an attacker monitoring system resources, allowing them to infer when specific bugs or consensus failures occur, aiding in targeted attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6899496f-a8ae-47ca-a7d8-64538bc080d4?mode=deep",
+    "timestamp": "2026-01-11 15:11:41.086333",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: Report()] [Side Channel] If Report() is called during cryptographic operations or signature verification failures, could the stderr output timing leak information about which validation path failed, potentially revealing details about the consensus mechanism to network observers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e3be9a03-80dc-4463-a8c2-5984d82149e2?mode=deep",
+    "timestamp": "2026-01-11 15:12:01.494882",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: PrintDeprecationWarning()] [Side Channel] Can the CPU time spent in strings.Repeat() operations be measured by co-located processes or VMs, allowing attackers to infer configuration details or feature usage based on the timing of deprecation warnings during node startup? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_351924e2-d2f6-440c-988d-b6a8cb6e02a8?mode=deep",
+    "timestamp": "2026-01-11 15:12:23.368013",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: Report()] [Critical Path Blocking] If Report() is ever called from consensus-critical code paths (block validation, signature verification, state commitment), could the synchronous stderr I/O and stack printing block validator nodes from producing blocks in time, causing them to miss their turn and reducing network liveness? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ca9845fb-d4a7-4352-933a-f4cd9f4e8678?mode=deep",
+    "timestamp": "2026-01-11 15:12:45.791282",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: Report()] [Critical Path Blocking] Can Report() be triggered during transaction execution within the EVM, where stderr writes would block the transaction processing thread, causing transaction timeouts and potential consensus divergence if different nodes time out differently? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_15412653-3a7a-428c-82cf-ed0e2c0d0c3b?mode=deep",
+    "timestamp": "2026-01-11 15:13:10.290588",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: Report()] [State Inconsistency] If Report() is called during a state commitment operation that subsequently fails, could the partial stderr output mislead operators about the actual failure point, causing incorrect recovery procedures that corrupt the blockchain state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3a7a7c93-43db-4939-a40d-832a824c4cc0?mode=deep",
+    "timestamp": "2026-01-11 15:13:34.848795",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: Report()] [Error Handling] Does Report() check return values from fmt.Fprintln(), fmt.Fprintf(), or debug.PrintStack() to detect stderr write failures, or could silent I/O errors cause critical bug reports to be lost without any indication that logging failed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7329bdbc-6a48-4097-8621-4070eb0df285?mode=deep",
+    "timestamp": "2026-01-11 15:13:58.400490",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: Report()] [Error Handling] If runtime.Caller(1) returns false in the ok parameter (indicating failure to retrieve caller info), does the code handle this gracefully or could it lead to printing garbage values for file and line at line 33? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_713b5a26-bde0-443d-b64d-6c5e714353a5?mode=deep",
+    "timestamp": "2026-01-11 15:14:20.294434",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: PrintDeprecationWarning()] [Error Handling] Does PrintDeprecationWarning() handle fmt.Printf() errors, or if stdout writing fails could this leave the operator unaware of critical deprecation warnings about unsafe configurations or features? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_476bb0a3-8273-490c-8db8-159051785a02?mode=deep",
+    "timestamp": "2026-01-11 15:14:38.431819",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: Report()] [Production Risk] Should Report() be disabled or rate-limited in production validator nodes to prevent information disclosure, or does its presence create an attack surface where triggering specific bugs could leak sensitive operational details to attackers monitoring logs? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bde95cd4-5a70-4386-8708-36c8d1468af6?mode=deep",
+    "timestamp": "2026-01-11 15:14:57.769512",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: Report()] [Production Risk] If Report() is called frequently due to a persistent bug in production, could the continuous stderr output and stack trace generation impact node performance enough to cause validators to miss block production slots, reducing network performance? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d86c8895-2bc6-4ef8-86be-36df75434352?mode=deep",
+    "timestamp": "2026-01-11 15:15:18.841820",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: PrintDeprecationWarning()] [Production Risk] Can deprecation warnings printed at startup be suppressed or ignored in production environments, potentially hiding critical configuration issues that could lead to consensus failures or security vulnerabilities? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4b068fba-b4e0-4c28-847d-086693a7e6e2?mode=deep",
+    "timestamp": "2026-01-11 15:15:40.798205",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: Report()] [Maintainability] Does the hardcoded github.com/ethereum/go-ethereum reference at line 29 need to be updated to point to the WBT repository, or could this mislead users into reporting WBT-specific bugs to the wrong upstream project, delaying fixes for critical security issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2749db42-8951-4892-8bfe-56d08e780906?mode=deep",
+    "timestamp": "2026-01-11 15:16:02.041560",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/debug.go] [Function: Report()] [Maintainability] If WBT diverges significantly from go-ethereum, could bugs reported via Report() to the Ethereum tracker be dismissed as fork-specific issues, leaving critical vulnerabilities unpatched in the WBT codebase? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_62586c59-3f5e-4c5b-abf5-4b75f16b11bc?mode=deep",
+    "timestamp": "2026-01-11 15:16:22.863977",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/format.go] [Function: PrettyDuration.String()] [ReDoS Attack] Can an attacker craft malicious time.Duration values that cause the regex pattern at line 30 to exhibit catastrophic backtracking behavior, leading to CPU exhaustion and node DoS when duration values are formatted for display in RPC responses or logs? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8b2d3c49-32d2-485b-a4ac-64b6d0e4d1cd?mode=deep",
+    "timestamp": "2026-01-11 15:16:45.902533",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/format.go] [Function: PrettyDuration.String()] [Resource Exhaustion] If PrettyDuration.String() is called repeatedly in performance-critical paths (e.g., block validation logging, transaction processing metrics), can the regex compilation and execution at lines 34-39 cause significant CPU overhead leading to block propagation delays or validator timing issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dca0debd-6c21-4125-b07d-7d00df8486a1?mode=deep",
+    "timestamp": "2026-01-11 15:17:07.166311",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/format.go] [Global Variable: prettyDurationRe] [Race Condition] Is the global compiled regex at line 30 safe for concurrent access when multiple goroutines call PrettyDuration.String() simultaneously during parallel block processing, or can race conditions in regex state cause panics or incorrect output affecting node stability? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_277b806e-7511-4f93-891d-1bf059ffd217?mode=deep",
+    "timestamp": "2026-01-11 15:17:31.441626",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/format.go] [Function: PrettyDuration.String()] [Memory Exhaustion] Can extremely large time.Duration values cause the String() conversion at line 35 and subsequent regex operations to allocate excessive memory, potentially leading to OOM conditions when formatting timestamps in high-throughput scenarios? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fb089e07-3b4d-4ab4-9968-5469576a9267?mode=deep",
+    "timestamp": "2026-01-11 15:17:53.794432",
+    "report_generated": false
   }
 ]
