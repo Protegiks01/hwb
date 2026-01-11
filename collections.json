@@ -26548,5 +26548,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_90da4211-a5ae-401a-b96f-ecab68490f8f?mode=deep",
     "timestamp": "2026-01-11 12:27:10.576318",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [Global Variables: Big1, Big2, Big3] [Validator rewards] If these constants are used in block reward or fee distribution calculations, can rounding errors accumulate over time causing validator payment discrepancies? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2f6cc5ba-7e9f-4dfc-bfc8-e88bf36842d2?mode=deep",
+    "timestamp": "2026-01-11 12:28:43.005993",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: XORBytes()] [Buffer Overflow] If dst buffer is shorter than min(len(a), len(b)), can an attacker trigger out-of-bounds writes leading to memory corruption that could crash validator nodes or corrupt blockchain state during P2P handshake validation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1353d085-7c47-4307-9954-cfda9edc8a48?mode=deep",
+    "timestamp": "2026-01-11 12:28:56.075859",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: fastXORBytes()] [Memory Corruption] In the unsafe pointer conversion at lines 36-41, if dst slice has insufficient capacity but valid length, can the uintptr array access write beyond allocated memory causing heap corruption that crashes consensus nodes during bloom filter operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_73c041af-c09d-4dc8-9fc4-301abffbcbd6?mode=deep",
+    "timestamp": "2026-01-11 12:29:09.322894",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: fastXORBytes()] [Slice Bounds Violation] At line 40 where dw[i] = aw[i] ^ bw[i], if the dst slice was allocated with len < n but cap >= n, can this cause a panic during concurrent block validation causing network-wide DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b58451a0-9b03-4f0e-9be8-3d464d8d599d?mode=deep",
+    "timestamp": "2026-01-11 12:29:23.290430",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: fastXORBytes()] [Race Condition] If multiple goroutines call fastXORBytes with overlapping dst buffers during concurrent bloom filter matching, can race conditions corrupt the bloom filter state leading to incorrect log query results that affect transaction validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eb9ff554-5af9-4303-80b2-074ccd073c66?mode=deep",
+    "timestamp": "2026-01-11 12:29:38.093126",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: fastXORBytes()] [Integer Overflow] At line 34 where w = n / wordSize, if n is close to maxint and wordSize is platform-dependent, can integer overflow cause w to be incorrect leading to incomplete XOR operations that corrupt cryptographic operations in ethash cache generation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4c0d40d5-ad86-40c7-b139-1978cacceec8?mode=deep",
+    "timestamp": "2026-01-11 12:29:54.092883",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: fastXORBytes()] [Alignment Issue] The unsafe pointer conversions assume proper alignment for uintptr access - can malicious input provide unaligned byte slices that cause hardware exceptions or incorrect results on architectures that claim to support unaligned access but have performance penalties or correctness issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e1fd53a5-4f90-4d98-81de-bfe399ae6922?mode=deep",
+    "timestamp": "2026-01-11 12:30:12.240234",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: safeXORBytes()] [Buffer Overflow] At line 57 where dst[i] = a[i] ^ b[i], if dst length is less than min(len(a), len(b)), can this cause a panic during P2P peer ID validation leading to connection drops and network fragmentation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5134437b-0bd9-43ba-99e8-576dfd50375f?mode=deep",
+    "timestamp": "2026-01-11 12:30:31.314936",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: XORBytes()] [Architecture Detection Bypass] If supportsUnaligned constant is incorrectly determined for a new architecture added to GOARCH, could fastXORBytes be called on unsupported architecture causing memory corruption in validator nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b13a4b04-8c7b-49f3-863e-8d186ac449fa?mode=deep",
+    "timestamp": "2026-01-11 12:30:52.838974",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: fastXORBytes()] [Uninitialized Memory] At lines 36-38, if dst slice points to uninitialized memory and len(dst) is correct but underlying array contains garbage, can the XOR operation propagate undefined values affecting cryptographic operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_277e54fc-40b8-490b-aa0d-20571c0f7d5a?mode=deep",
+    "timestamp": "2026-01-11 12:31:14.560400",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: fastXORBytes()] [Remainder Loop] At line 43 where i starts at n - n%wordSize, if n < wordSize, does i start at negative value causing panic or infinite loop that could DoS validator nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_36f514e1-b914-47f3-8fac-ca1c05e767f0?mode=deep",
+    "timestamp": "2026-01-11 12:31:36.914440",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: ANDBytes()] [Buffer Overflow] If dst buffer is shorter than min(len(a), len(b)), can an attacker trigger out-of-bounds writes during bloom filter ANDing operations in matcher.go line 350, corrupting memory and causing validator crashes during log filtering? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3242e76d-4131-4964-b8a0-3dcfefe3eabd?mode=deep",
+    "timestamp": "2026-01-11 12:31:59.519006",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: fastANDBytes()] [Memory Corruption] In the unsafe pointer conversion at lines 80-85, if dst slice capacity is insufficient, can the uintptr array writes corrupt adjacent heap objects during concurrent bloom filter matching causing state corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_266a79cf-4415-4813-8d8e-bd21863813ca?mode=deep",
+    "timestamp": "2026-01-11 12:32:24.325369",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: fastANDBytes()] [Slice Bounds] At line 84 where dw[i] = aw[i] & bw[i], if dst was created with make([]byte, 0, capacity) having zero length, will the function panic immediately or write to invalid memory? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4505e1bf-a703-45e1-b3ac-f7f9d8a0a449?mode=deep",
+    "timestamp": "2026-01-11 12:32:49.899795",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: fastANDBytes()] [Race Condition] When matcher.go line 350 calls ANDBytes with andVector as both dst and first input (ANDBytes(andVector, andVector, data)), can concurrent modifications to andVector cause race conditions corrupting bloom filter results? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_95c756b1-8142-47ab-ab7a-35cd2256ac89?mode=deep",
+    "timestamp": "2026-01-11 12:33:14.430817",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: fastANDBytes()] [Remainder Calculation] At line 87 where i = n - n%wordSize, if this calculation is performed on corrupted n value due to race condition, can it result in out-of-bounds access in the remainder loop? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_66e13d8e-da8a-41fc-864b-b22bf44d987e?mode=deep",
+    "timestamp": "2026-01-11 12:33:39.825098",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: safeANDBytes()] [Panic Condition] At line 101 where dst[i] = a[i] & b[i], if dst length is zero but a and b have data, will this immediately panic causing DoS during bloom filter operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4a14bae6-ca47-4c6f-90f1-35dc2de5dd0a?mode=deep",
+    "timestamp": "2026-01-11 12:34:03.875745",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: ANDBytes()] [Return Value Exploit] The function returns n which is min(len(a), len(b)) - if caller assumes full dst was written but dst is longer, can uninitialized tail bytes leak sensitive data from previous operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7f5bd69a-5124-40e9-9417-5796572168c4?mode=deep",
+    "timestamp": "2026-01-11 12:34:28.707434",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: fastANDBytes()] [Word Alignment] If dst, a, or b slices are not word-aligned despite architecture supporting unaligned access, can performance degradation during bloom filter operations cause block validation timeouts leading to failed consensus? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7e7ad9c7-414c-4473-ba55-6ecfbf883b06?mode=deep",
+    "timestamp": "2026-01-11 12:34:51.417816",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: fastANDBytes()] [Capacity vs Length] If dst has len=100 but cap=50 due to memory corruption or adversarial slice header manipulation, can the unsafe pointer cast access beyond allocated memory? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4967287c-a843-4288-845b-095c3bc261ed?mode=deep",
+    "timestamp": "2026-01-11 12:35:14.202144",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: ANDBytes()] [Nil Slice Handling] If dst, a, or b is nil, will the function panic or return 0, and can this be exploited during bloom filter initialization to bypass log filtering security checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_19aa45a8-75c0-464c-b0f5-8936e2125e8a?mode=deep",
+    "timestamp": "2026-01-11 12:35:37.063646",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: ORBytes()] [Buffer Overflow] When matcher.go line 356 calls ORBytes(orVector, orVector, andVector), if orVector is shorter than andVector due to race condition, can buffer overflow corrupt matcher state leading to false positive log matches? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0fe860b2-2d93-4e99-a121-d903ffb99a58?mode=deep",
+    "timestamp": "2026-01-11 12:36:01.621323",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: fastORBytes()] [Memory Corruption] In unsafe pointer conversion at lines 124-129, if concurrent goroutines in bloom filter matching resize the dst slice, can stale pointer writes corrupt memory causing validator crashes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_92eb9d71-ab3a-4721-9628-b08513b5a378?mode=deep",
+    "timestamp": "2026-01-11 12:36:26.720714",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: fastORBytes()] [Race Condition] At line 128 where dw[i] = aw[i] | bw[i], if bloom filter matcher concurrently modifies the input slices, can torn reads/writes produce incorrect OR results affecting transaction log queries? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_46c5394f-f036-42b8-a1f1-27a65104c9a7?mode=deep",
+    "timestamp": "2026-01-11 12:36:53.621891",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: fastORBytes()] [Integer Arithmetic] At line 122 where w = n / wordSize, if n is very large due to corrupted slice header, can w overflow causing incomplete OR operation that produces wrong bloom filter results? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b6dbb4ed-d768-466e-8add-dfa6a14d86f3?mode=deep",
+    "timestamp": "2026-01-11 12:37:22.317431",
+    "report_generated": false
   }
 ]
