@@ -26698,5 +26698,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b6dbb4ed-d768-466e-8add-dfa6a14d86f3?mode=deep",
     "timestamp": "2026-01-11 12:37:22.317431",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: safeORBytes()] [Bounds Check] At line 145 where dst[i] = a[i] | b[i], if dst length was reduced by another goroutine after length check at line 140-142, can this cause panic during concurrent bloom filter operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4d3ec73f-d0e0-42b2-83df-2c68aed4f89a?mode=deep",
+    "timestamp": "2026-01-11 12:38:54.953619",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: ORBytes()] [Self-Reference Safety] When called as ORBytes(dst, dst, other) in bloom filter code, does the function correctly handle dst being both output and input, or can pointer aliasing cause incorrect results? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1831bf20-3cb3-4c2c-85f4-bd19d207e168?mode=deep",
+    "timestamp": "2026-01-11 12:39:08.207094",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: fastORBytes()] [Remainder Loop Edge Case] At line 131 where i starts at n - n%wordSize, if n equals wordSize exactly, does the remainder loop execute zero iterations correctly or can off-by-one errors occur? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b6729399-1115-4f8d-b2fe-2ab406bd0f22?mode=deep",
+    "timestamp": "2026-01-11 12:39:22.284788",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: fastORBytes()] [Unaligned Write] If dst slice was obtained through unsafe operations elsewhere in codebase and has improper alignment, can the uintptr writes at line 128 cause misaligned memory access exceptions on strict architectures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ce6351d1-fad6-4d9b-b4b7-118f56f8c374?mode=deep",
+    "timestamp": "2026-01-11 12:39:36.165335",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: ORBytes()] [Return Value Trust] If caller trusts returned n to indicate bytes written but doesn't verify, can attacker provide oversized dst causing caller to read uninitialized memory as OR result? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d0b1c10d-a512-4b2d-9ed0-f517369505cb?mode=deep",
+    "timestamp": "2026-01-11 12:39:50.781485",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: fastORBytes()] [Slice Header Corruption] If adversarial code corrupts slice header fields (ptr, len, cap) before calling fastORBytes, can the unsafe pointer conversion read/write arbitrary memory leading to RCE? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9d80dbd4-60e9-487c-ad89-036b1eb0ea58?mode=deep",
+    "timestamp": "2026-01-11 12:40:06.552884",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: TestBytes()] [P2P Validation Bypass] When p2p/transport.go line 178 calls TestBytes(hs.ID) to validate peer IDs, if TestBytes incorrectly returns false for all-zero ID due to bug, can attacker connect with invalid identity causing network pollution? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_adb87373-50bc-4b0f-9e35-c97ca4424dec?mode=deep",
+    "timestamp": "2026-01-11 12:40:24.153466",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: fastTestBytes()] [Early Exit Logic] At lines 166-168 where function returns true on first non-zero word, if word-aligned check misses non-zero bytes in remainder due to logic error, can invalid peer IDs pass validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0dd211b4-6c46-429e-8994-909f226e1744?mode=deep",
+    "timestamp": "2026-01-11 12:40:43.839780",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: fastTestBytes()] [Unsafe Pointer Cast] At line 164 where pw := *(*[]uintptr)(unsafe.Pointer(&p)), if p slice has been freed or reallocated by GC, can stale pointer dereference cause crash during P2P handshake? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d188fcb3-3d8b-4da1-98e3-bc73a6a81a30?mode=deep",
+    "timestamp": "2026-01-11 12:41:04.382043",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: fastTestBytes()] [Race Condition] If P2P handshake runs in goroutine and peer ID slice is concurrently modified, can race cause TestBytes to return inconsistent results allowing invalid peers? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5bcd308d-1b09-4ce3-9259-891ddc9eba8b?mode=deep",
+    "timestamp": "2026-01-11 12:41:26.460898",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: fastTestBytes()] [Remainder Check] At lines 171-174 checking remainder bytes, if n < wordSize, does loop correctly check all bytes or can it skip some allowing zero-ID peers through? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5bd0d96f-6c23-431f-91d4-8b9632b0a9c1?mode=deep",
+    "timestamp": "2026-01-11 12:41:50.112307",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: safeTestBytes()] [Short Circuit] At lines 182-186, does loop properly short-circuit on first non-zero byte, or can optimization cause it to read beyond p causing panic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a7a04e7e-8a99-4377-9d12-8800e7f01621?mode=deep",
+    "timestamp": "2026-01-11 12:42:13.154519",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: TestBytes()] [Nil Slice] If p is nil slice, does TestBytes return false (correct for empty) or panic, and can this be exploited in P2P to DoS connection handling? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b363419b-af12-4c67-8b3d-ac758ecaaf7c?mode=deep",
+    "timestamp": "2026-01-11 12:42:36.772287",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: fastTestBytes()] [Word Size Assumption] At line 162 where w = n / wordSize with wordSize from line 15, if wordSize is incorrect for current platform, can this cause incorrect test results? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6ef5a55e-306f-4eff-9e0e-e83df31068b0?mode=deep",
+    "timestamp": "2026-01-11 12:43:00.860884",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: TestBytes()] [Bloom Filter False Negatives] When matcher.go line 366 calls TestBytes(orVector), if false negative occurs, can transactions with matching logs be incorrectly filtered causing users to miss important events? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cdf892d7-f643-4785-aed9-854f1c63b1d7?mode=deep",
+    "timestamp": "2026-01-11 12:43:26.918288",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: fastTestBytes()] [Alignment Sensitivity] If p slice is unaligned and uintptr read spans cache lines, can performance penalty cause timeout in P2P handshake leading to connection failures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_020095f1-46cd-4ff5-80e4-7a3a2bcb54f1?mode=deep",
+    "timestamp": "2026-01-11 12:43:53.318286",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Constant: supportsUnaligned] [Architecture Misdetection] At line 16 where supportsUnaligned checks specific GOARCH values, if new Go version adds architecture with different alignment rules, can incorrect fast path selection cause memory corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f3aae209-884f-46d8-a217-ca966e6ae1ed?mode=deep",
+    "timestamp": "2026-01-11 12:44:20.158982",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Constant: wordSize] [Platform Assumption] At line 15 where wordSize = unsafe.Sizeof(uintptr(0)), on 32-bit vs 64-bit platforms this changes - can this cause buffer overflows when bloom filter code compiled on 64-bit runs on 32-bit or vice versa? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_52da8480-8579-478e-954a-7672098a163f?mode=deep",
+    "timestamp": "2026-01-11 12:44:45.566098",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Constant: supportsUnaligned] [Cross-Compilation] If code is cross-compiled for different architecture than build machine, does runtime.GOARCH reflect target or host architecture, potentially enabling fast path on unsupported target? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_040af2f7-f71b-4801-816f-3dc93c7a5186?mode=deep",
+    "timestamp": "2026-01-11 12:45:09.853710",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Line 12: unsafe import] [Escape Analysis] Do unsafe pointer operations prevent Go compiler escape analysis, potentially causing stack-to-heap moves that create performance issues during high-frequency bloom filter operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a388807a-498c-49ea-a8ae-aa262b48f9eb?mode=deep",
+    "timestamp": "2026-01-11 12:45:34.600949",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Constant: supportsUnaligned] [ARM Architecture] ARM is notably absent from supportsUnaligned list - are there ARM deployments of WBT nodes that would use slow path unnecessarily, and could this cause performance-based DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b38f20d0-caf7-4bd0-87de-475462350855?mode=deep",
+    "timestamp": "2026-01-11 12:45:58.053843",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: XORBytes, ANDBytes, ORBytes] [Shared Buffer Attack] If attacker provides same buffer as dst and one input across multiple operations in sequence, can pointer aliasing accumulate errors causing bloom filter corruption over time? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c9eeb920-90f2-49f8-8036-f95d4cc9499d?mode=deep",
+    "timestamp": "2026-01-11 12:46:21.223566",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: fastXORBytes, fastANDBytes, fastORBytes] [Unsafe Pattern] All three functions use identical unsafe pointer conversion pattern - if there's a bug in this pattern, does it affect all bitwise operations creating systemic vulnerability across bloom filters and P2P? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a25ab9f5-83b1-4d0c-96ec-836eadaf2ca3?mode=deep",
+    "timestamp": "2026-01-11 12:46:46.055027",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: All fast* variants] [Remainder Loop Pattern] All fast functions have similar remainder loop at end (lines 43-45, 87-89, 131-133, 171-174) - is there consistent off-by-one error in calculation n - n%wordSize that affects all operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8da180c8-4dff-46b2-b4dc-a2d59b406b08?mode=deep",
+    "timestamp": "2026-01-11 12:47:11.269998",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: All safe* variants] [Fallback Safety] If supportsUnaligned is false but platform actually supports it, nodes lose performance - can this be exploited to DoS slower nodes during high block validation load? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a602d81c-0477-47d2-a1b2-aad86569f73e?mode=deep",
+    "timestamp": "2026-01-11 12:47:37.007122",
+    "report_generated": false
   }
 ]
