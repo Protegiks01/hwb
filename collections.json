@@ -26848,5 +26848,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a602d81c-0477-47d2-a1b2-aad86569f73e?mode=deep",
     "timestamp": "2026-01-11 12:47:37.007122",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: XORBytes, ANDBytes, ORBytes] [Input Length Discrepancy] All functions use min(len(a), len(b)) as n - if caller expects full dst to be written but a and b have different lengths, can unwritten dst bytes contain sensitive data from previous operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_79ae89f0-8a19-42f9-9d69-c8329fdb7465?mode=deep",
+    "timestamp": "2026-01-11 12:48:48.287795",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: ANDBytes] [Bloom Filter State] When matcher.go line 350 repeatedly calls ANDBytes(andVector, andVector, data) accumulating results, can accumulated floating-point-like errors in pointer arithmetic corrupt final result? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7e719400-5a39-40a6-8595-069d2823f348?mode=deep",
+    "timestamp": "2026-01-11 12:49:01.398968",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: ORBytes] [Bloom Accumulation] When matcher.go line 356 calls ORBytes(orVector, orVector, andVector) merging results, if orVector was preallocated with make([]byte, size) but andVector is shorter, can uninitialized tail bytes affect TestBytes result? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f41c7d3d-88fd-4723-a814-66514a0ed783?mode=deep",
+    "timestamp": "2026-01-11 12:49:14.619995",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: TestBytes] [Bloom False Positive] At matcher.go line 366 where TestBytes(orVector) determines if matches exist, can bit-level errors in preceding AND/OR operations cause false positives allowing invalid transactions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ecb79bbf-962a-4745-ad9a-17a488cf9e92?mode=deep",
+    "timestamp": "2026-01-11 12:49:28.624027",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: ANDBytes] [Concurrent Bloom Access] If multiple goroutines process bloom filter sections concurrently calling ANDBytes on shared andVector at matcher.go line 350, can race conditions produce non-deterministic filter results? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ef82f17a-83fe-4c52-9154-9de945539ffc?mode=deep",
+    "timestamp": "2026-01-11 12:49:43.343530",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: ANDBytes, ORBytes] [Bloom Memory Allocation] If bloom filter code at matcher.go allocates vectors with make([]byte, m.sectionSize/8) at line 347, 361, can integer truncation in division cause undersized buffers passed to bitutil functions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fa11faec-b22b-4b6f-a75c-f8a7ebc0f1e0?mode=deep",
+    "timestamp": "2026-01-11 12:49:59.108327",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: TestBytes] [Peer ID Validation] At p2p/transport.go line 178 where !bitutil.TestBytes(hs.ID) rejects peers, if TestBytes has false negative bug, can attacker connect with all-zero ID bypassing network admission control? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_860d8515-e04b-4244-aeeb-f35bdfbc8a83?mode=deep",
+    "timestamp": "2026-01-11 12:50:16.401282",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: TestBytes] [DOS via Invalid IDs] If attacker floods network with connections having IDs that trigger worst-case TestBytes performance (many zero words followed by non-zero remainder), can this DoS P2P subsystem? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1f9b0651-1593-4faa-b365-6d293e59e6c7?mode=deep",
+    "timestamp": "2026-01-11 12:50:35.448182",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: TestBytes] [Peer ID Size] The check len(hs.ID) != 64 occurs before TestBytes at p2p/transport.go line 178 - if ID is exactly 64 zero bytes, does TestBytes correctly reject it or could malformed slice cause panic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6dcdf7d5-790f-4079-acd9-ab0e56f345e2?mode=deep",
+    "timestamp": "2026-01-11 12:50:56.152663",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: TestBytes] [Race in Handshake] If P2P handshake is concurrent and peer ID slice hs.ID is modified during TestBytes call, can torn read accept invalid peer or panic crashing node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_98f357dd-0469-43e5-a533-e51d7128d8fb?mode=deep",
+    "timestamp": "2026-01-11 12:51:18.294270",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: XORBytes] [Ethash Cache Corruption] At algorithm.go line 200 where XORBytes generates ethash cache, if XOR produces incorrect result due to buffer overflow, can this corrupt PoW cache enabling mining attacks (though WBT uses PoA, code still present)? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_da134d94-99ed-4cec-a766-b775147816d4?mode=deep",
+    "timestamp": "2026-01-11 12:51:40.993696",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: XORBytes] [Cryptographic Side Channel] Do the fast and safe XOR implementations have different timing characteristics that could leak information about cache content in ethash algorithm? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3e4606a5-7215-43cd-b167-df139840cf27?mode=deep",
+    "timestamp": "2026-01-11 12:52:05.283735",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Function: XORBytes] [Constant Time] XOR operation at algorithm.go line 200 is in cryptographic context - are fast/safe paths equally resistant to timing attacks, or can attacker detect which code path was taken? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_90f5be9e-a70b-4560-88cd-32d7e32f9c4a?mode=deep",
+    "timestamp": "2026-01-11 12:52:30.890537",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: fastXORBytes, fastANDBytes, fastORBytes] [Division by Zero] At lines 34, 78, 122 where w = n / wordSize, if wordSize is somehow zero due to corruption, will this cause panic dividing by zero crashing validator nodes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b30d399e-4089-4703-ac85-db7bb4ecbd8e?mode=deep",
+    "timestamp": "2026-01-11 12:52:56.530628",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: fastXORBytes, fastANDBytes, fastORBytes] [Modulo Operation] At lines 43, 87, 131 where i = n - n%wordSize, can n%wordSize produce unexpected results if n is negative due to integer underflow from corrupted length? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1969f9fa-727c-4004-8a65-f33e99c7a8c5?mode=deep",
+    "timestamp": "2026-01-11 12:53:21.638607",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: All] [Length Overflow] If len(a) or len(b) is close to maxint, can computing min(len(a), len(b)) overflow causing n to wrap to small value leading to incomplete operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_757ad8fa-e9e3-4347-88a3-2f7ea22a2c9c?mode=deep",
+    "timestamp": "2026-01-11 12:53:47.502205",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: fastXORBytes, fastANDBytes, fastORBytes] [Loop Counter] In loops at lines 39-41, 83-85, 127-129, if w overflows or is corrupted, can loop write beyond allocated memory? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dfc7970b-f34d-4aa4-ab15-31c094334d44?mode=deep",
+    "timestamp": "2026-01-11 12:54:15.304275",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: fastTestBytes] [Zero-Length Slice] If p has len=0, at line 162 w becomes 0, loop at 165-169 doesn't execute, loop at 171-175 doesn't execute - does function correctly return false for empty slice? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_96df5df0-b0fa-448f-bdba-a841116f502e?mode=deep",
+    "timestamp": "2026-01-11 12:54:42.564336",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: All fast* variants] [GC Safety] When unsafe pointer is obtained at lines 36, 80, 124, 164, if GC moves the underlying array between pointer conversion and access, can stale pointer cause segfault? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bc62d6fa-0f96-408a-b0ad-ce81d3bbb3a0?mode=deep",
+    "timestamp": "2026-01-11 12:55:10.350836",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: All fast* variants] [Pinning] Do slices passed to fast functions need to be pinned to prevent GC relocation, and if not pinned, can GC move cause use-after-free vulnerabilities? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_767c3afe-16ac-42d9-b025-6d729903af54?mode=deep",
+    "timestamp": "2026-01-11 12:55:37.085845",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: All fast* variants] [Stack vs Heap] If dst, a, b slices are stack-allocated in caller, can unsafe pointer conversion access stack memory that gets corrupted when caller returns? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_56738abe-519a-4067-b891-c88909fab065?mode=deep",
+    "timestamp": "2026-01-11 12:56:01.787746",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: All fast* variants] [Finalizer Interaction] If slices have finalizers attached and finalizer runs during fast function execution, can this cause memory corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_487220e2-2ac6-4b5b-ac3f-1c5a02d6796e?mode=deep",
+    "timestamp": "2026-01-11 12:56:28.851745",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: All] [Slice Capacity Growth] If Go runtime grows slice capacity during another operation and old backing array is freed, can cached pointers in fast functions access freed memory? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e7d3f4c3-8eea-44fd-8d26-63999e8d6d45?mode=deep",
+    "timestamp": "2026-01-11 12:56:53.157047",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: All] [Concurrent Read/Write] If one goroutine writes to dst via bitutil function while another reads the same buffer, can race detector miss this if reads are word-aligned? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0ee99122-cc6e-4fc7-8fb6-e9832337c549?mode=deep",
+    "timestamp": "2026-01-11 12:57:17.905497",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/bitutil.go] [Functions: All] [Data Race] None of the functions have mutex protection - if multiple goroutines call functions with overlapping buffers during bloom filter matching, can data races corrupt results? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c3d9a077-edae-44ba-8080-0eb777d89f3a?mode=deep",
+    "timestamp": "2026-01-11 12:57:44.488406",
+    "report_generated": false
   }
 ]
