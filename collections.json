@@ -28048,5 +28048,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7c760f23-e04e-4810-80a6-70c11b3142c2?mode=deep",
     "timestamp": "2026-01-11 14:09:37.395207",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: ContractInfo] [JSON Unmarshal Error Handling] When unmarshaling nested JSON into interface{} fields, are all errors properly caught, or can malformed JSON cause silent failures leading to incomplete contract information? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7f29dd7c-96b1-482e-b10f-b92d79dcec5e?mode=deep",
+    "timestamp": "2026-01-11 14:11:32.775977",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: Contract] [Double Unmarshal Vulnerability] Since AbiDefinition is unmarshaled twice (once as string, then parsed), can this double-parsing create vulnerabilities if the two parsing stages have inconsistent validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_65e9845d-efc0-48fb-bcf3-849c9523e126?mode=deep",
+    "timestamp": "2026-01-11 14:11:45.896612",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: Contract] [String Length Integer Overflow] Can extremely long Code or RuntimeCode strings (near max int64 length) cause integer overflows when their lengths are calculated or used in memory allocation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_aeb74325-6aa6-4212-9628-a55f37c47192?mode=deep",
+    "timestamp": "2026-01-11 14:11:59.438903",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: ContractInfo] [Map Size Integer Overflow] If the Hashes map contains close to max int64 entries, can operations on map size cause integer overflows in iteration or serialization code? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ad5ada97-3cd2-4380-8939-cbc4670f14b5?mode=deep",
+    "timestamp": "2026-01-11 14:12:14.211628",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: Contract] [Unmarshaling from solidity.go] In ParseCombinedJSON (solidity.go:70), when unmarshaling the Abi string into interface{}, can malformed JSON trigger panics that aren't caught, causing node crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1dc45f4b-c2d4-41a2-ba34-66ff031776fd?mode=deep",
+    "timestamp": "2026-01-11 14:12:29.440421",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: Contract] [Unmarshaling from solidity.go] In ParseCombinedJSON (solidity.go:73-77), if Userdoc or Devdoc JSON unmarshaling fails partway through creating multiple contracts, can this leave the contracts map in an inconsistent state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d677dfc8-d1ba-4f5c-a858-b6fdcea0edd6?mode=deep",
+    "timestamp": "2026-01-11 14:12:45.522162",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: Contract] [String Concatenation in solidity.go] When '0x' is prepended to Bin and BinRuntime (solidity.go:81-82), can this create issues if the input already contains '0x' prefix, leading to malformed bytecode strings? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_85297d6f-2487-4a9e-97c5-c9b9bcef82db?mode=deep",
+    "timestamp": "2026-01-11 14:13:02.834112",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: ContractInfo] [Version Injection in solidity.go] The Language field is hardcoded to 'Solidity' (solidity.go:86), but languageVersion is from parameters - can malicious version strings in function arguments cause injection vulnerabilities? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_78b05d99-fc2f-4a9e-af84-970a3e58bf71?mode=deep",
+    "timestamp": "2026-01-11 14:13:22.077674",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: ContractInfo] [SrcMap Assignment in solidity.go] SrcMap is assigned directly from info.SrcMap as interface{} (solidity.go:90) - can type confusion occur if the JSON deserializes this to an unexpected type? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bf78d897-1efe-43aa-b7fa-859066a18ee2?mode=deep",
+    "timestamp": "2026-01-11 14:13:43.321087",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: Contract] [ABI Marshaling in abigen] In cmd/abigen/main.go:189, when contract.Info.AbiDefinition is marshaled back to JSON, can malformed interface{} values cause marshaling to fail silently or produce invalid ABI JSON? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4ab5236f-524d-40e5-81e9-8709efb43a4e?mode=deep",
+    "timestamp": "2026-01-11 14:14:04.971492",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: Contract] [Code Field Usage in abigen] The contract.Code is appended to bins slice (abigen:194) - if Code contains non-hex characters or is malformed, can this cause failures in downstream EVM deployment? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_84d8a647-e64a-43e4-bc5a-522456c510bb?mode=deep",
+    "timestamp": "2026-01-11 14:14:28.496642",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: Contract] [Hashes Usage in abigen] The contract.Hashes map is appended to sigs slice (abigen:195) - can malformed hash values in this map cause signature verification failures or security issues in generated bindings? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bc8f3d6f-395f-4f72-b232-6823b092d51a?mode=deep",
+    "timestamp": "2026-01-11 14:14:52.647296",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: Contract] [Missing Validation Methods] The Contract struct lacks any validation methods - should there be functions to verify Code and RuntimeCode are valid hex, or that Hashes contains valid keccak256 values? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a4661b92-47ba-480f-981f-61536f920112?mode=deep",
+    "timestamp": "2026-01-11 14:15:17.781734",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: ContractInfo] [No Sanitization Methods] ContractInfo has no methods to sanitize user-provided fields like Source or CompilerOptions - can malicious strings in these fields cause XSS or injection attacks in downstream systems? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_78a9033f-76eb-469c-906e-212ecfb5468f?mode=deep",
+    "timestamp": "2026-01-11 14:15:43.768162",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: Contract] [No Deep Copy Method] Without a deep copy method, can shallow copies of Contract structs lead to unintended mutations of shared Hashes map or Info fields across goroutines? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6104b740-559e-4027-ad15-aa829b65fbf8?mode=deep",
+    "timestamp": "2026-01-11 14:16:09.781403",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: ContractInfo] [No Freezing Mechanism] Once a ContractInfo is populated, can it be modified accidentally or maliciously, violating assumptions that contract metadata is immutable after compilation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_87cccace-89b5-465e-b29a-1966f1220594?mode=deep",
+    "timestamp": "2026-01-11 14:16:35.233094",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: Contract] [Serialization Size Limit] When serializing Contract structs to JSON or binary format, are there size limits to prevent serialized data from exceeding reasonable bounds and causing storage or transmission issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ec4b8e0e-9ed1-4f8f-ae80-2f5637be2f7d?mode=deep",
+    "timestamp": "2026-01-11 14:17:01.527947",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: ContractInfo] [Metadata Format Validation] The Metadata field should contain CBOR-encoded metadata according to Solidity spec - is this format validated, or can arbitrary strings cause issues in metadata parsing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_646c0e1d-0172-4cc1-b1df-2ae29aee5b6c?mode=deep",
+    "timestamp": "2026-01-11 14:17:28.916712",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: Contract] [Bytecode Consistency] Is there any validation that Code (creation bytecode) and RuntimeCode (deployed bytecode) are related/consistent, or can completely unrelated bytecode be accepted? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c7bffab0-d3f6-4ab4-91e6-000be32920bc?mode=deep",
+    "timestamp": "2026-01-11 14:17:55.954891",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [JSON Injection] Can an attacker craft malicious combinedJSON input with deeply nested JSON structures that cause stack overflow during json.Unmarshal at line 61, leading to node panic and DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c03e4cdf-92e6-42c2-afc3-d75f66971f61?mode=deep",
+    "timestamp": "2026-01-11 14:18:21.674323",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Memory Exhaustion] Can an attacker provide extremely large combinedJSON byte arrays (gigabytes) that cause memory exhaustion during json.Unmarshal at line 61, crashing all nodes attempting to parse compiler output? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2bbf1aa0-d1d8-4040-890e-eca40499638a?mode=deep",
+    "timestamp": "2026-01-11 14:18:46.892216",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Type Confusion] If json.Unmarshal at line 61 fails and falls back to parseCombinedJSONV8 at line 63, can an attacker exploit the dual parsing logic to cause inconsistent contract parsing across nodes with different Go versions, leading to chain split? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1a2e337e-d2c9-4f15-9f62-a9acca2c4570?mode=deep",
+    "timestamp": "2026-01-11 14:19:12.947786",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Panic Handling] Does the json.Unmarshal call at line 61 properly handle panic conditions from malformed JSON, or can a specially crafted input cause unrecovered panic that crashes the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a8790486-955a-4c01-b5cc-ef4d4902143b?mode=deep",
+    "timestamp": "2026-01-11 14:19:37.965097",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Resource Leak] If json.Unmarshal at line 61 allocates resources during partial parsing before failing, are those resources properly cleaned up before the fallback to parseCombinedJSONV8 at line 63, or does this cause memory leak over repeated calls? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9d2a1549-5ed9-4c49-84d1-169841151384?mode=deep",
+    "timestamp": "2026-01-11 14:20:03.288841",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: parseCombinedJSONV8()] [JSON Injection] Can an attacker craft malicious combinedJSON with exponential JSON depth in the solcOutputV8 structure at line 106 that causes exponential memory allocation during unmarshaling, leading to node crash? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7e0b0301-1121-4b2d-978f-87a2beb8b065?mode=deep",
+    "timestamp": "2026-01-11 14:20:28.417806",
+    "report_generated": false
   }
 ]
