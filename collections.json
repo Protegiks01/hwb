@@ -20398,5 +20398,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e65a2e0d-9e89-4826-b744-866147872f04?mode=deep",
     "timestamp": "2026-01-11 01:03:02.283347",
     "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: newAccount()] [Keystore Directory Permissions] The keystore directory permissions - if the keystore is in a location with weak permissions, can attackers read keystore files directly? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_37ffd818-2525-4b73-acef-35c43cb26ff4?mode=deep",
+    "timestamp": "2026-01-11 01:04:22.932968",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: accountImport()] [Keystore File Overwrite] When importing an account, if a keystore file with the same address exists, is it overwritten, merged, or rejected - could this lead to key loss? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_57dee426-1d85-4e64-9818-8c957bacd35b?mode=deep",
+    "timestamp": "2026-01-11 01:04:35.974293",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: initInternalApi()] [Account Manager Scope] StartClefAccountManager is called with specific parameters - does it properly isolate accounts and prevent cross-contamination between different Clef instances? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5ae902ef-7476-4de5-a301-7d763cf341f3?mode=deep",
+    "timestamp": "2026-01-11 01:04:49.398025",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [HTTP Server TLS] The HTTP server doesn't appear to configure TLS at line 746 - are all connections plaintext, exposing signing requests to network eavesdropping? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4a14adb1-c687-405e-8d33-2ade53edbfd3?mode=deep",
+    "timestamp": "2026-01-11 01:05:04.001028",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [HTTP Binding Address] The HTTP listen address is configurable - can attackers cause binding to 0.0.0.0 to expose the service to the internet instead of localhost? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d9c1710c-cef5-4ccf-98b5-db3da878a8f2?mode=deep",
+    "timestamp": "2026-01-11 01:05:18.798414",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: ipcEndpoint()] [IPC Socket Permissions] On Unix, the IPC socket permissions - are they restricted to owner-only, or can any local user connect? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_772cf32f-5b59-4572-ba51-bd08e25f0a64?mode=deep",
+    "timestamp": "2026-01-11 01:05:34.997367",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [4byte Database Security] The custom 4byte database at line 641 - if users can submit arbitrary 4byte identifiers via API, can this be exploited for storage exhaustion or injection attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_490ec54b-0b90-45f1-9ab0-c6273f888e1b?mode=deep",
+    "timestamp": "2026-01-11 01:05:52.955700",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [4byte Database File Location] The custom DB file path is user-configurable at line 641 - can path injection cause writing to arbitrary files? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_725470b6-3bee-4022-bf74-c3af3c7326f4?mode=deep",
+    "timestamp": "2026-01-11 01:06:11.866500",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [StdIO UI Security] When stdio-ui is enabled at line 633, all UI communication goes through stdin/stdout - can this be exploited if Clef is invoked with redirected stdin from attacker-controlled source? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_087f565c-3ce5-4538-88ea-5f855551a8e3?mode=deep",
+    "timestamp": "2026-01-11 01:06:32.629669",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [CommandlineUI TOCTOU] The CommandlineUI at line 638 relies on terminal interaction - can an attacker with terminal access manipulate prompts or inject responses? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4a5e3945-9831-4311-9ad2-44735bc9a282?mode=deep",
+    "timestamp": "2026-01-11 01:06:54.161497",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: accountImport()] [UI Password Exposure] Passwords are entered through UI at lines 574-580 - are these properly masked in terminal, and could screen capture or terminal logging expose them? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d34ae802-a137-41db-a299-a67f9953ae24?mode=deep",
+    "timestamp": "2026-01-11 01:07:17.017818",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [Rule Engine Sandbox Escape] The rules.NewRuleEvaluator at line 682 - is the JavaScript engine\n\n### Citations\n\n**File:** cmd/clef/main.go (L1-1219)\n```go\n// Copyright 2018 The go-ethereum Authors\n// This file is part of go-ethereum.\n//\n// go-ethereum is free software: you can redistribute it and/or modify\n// it under the terms of the GNU General Public License as published by\n// the Free Software Foundation, either version 3 of the License, or\n// (at your option) any later version.\n//\n// go-ethereum is distributed in the hope that it will be useful,\n// but WITHOUT ANY WARRANTY; without even the implied warranty of\n// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the\n// GNU General Public License for more details.\n//\n// You should have received a copy of the GNU General Public License\n// along with go-ethereum. If not, see <http://www.gnu.org/licenses/>.\n\npackage main\n\nimport (",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5f7491b7-2946-41d4-80fc-30b17c2b13f3?mode=deep",
+    "timestamp": "2026-01-11 01:07:41.333799",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: newAccount()] [Keystore Directory Permissions] The keystore directory permissions - if the keystore is in a location with weak permissions, can attackers read keystore files directly? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_922a8302-b15d-49d1-b7b8-715b4d05a686?mode=deep",
+    "timestamp": "2026-01-11 01:08:07.077324",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: accountImport()] [Keystore File Overwrite] When importing an account, if a keystore file with the same address exists, is it overwritten, merged, or rejected - could this lead to key loss? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a87fc6fa-405a-4e4b-bf7d-894f56f55f9c?mode=deep",
+    "timestamp": "2026-01-11 01:08:33.659539",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: initInternalApi()] [Account Manager Scope] StartClefAccountManager is called with specific parameters - does it properly isolate accounts and prevent cross-contamination between different Clef instances? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1c23aa27-f888-4512-969f-027b67c0c695?mode=deep",
+    "timestamp": "2026-01-11 01:09:00.627872",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [HTTP Server TLS] The HTTP server doesn't appear to configure TLS at line 746 - are all connections plaintext, exposing signing requests to network eavesdropping? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4c3271d3-1f0c-4786-9967-84c7c543c5da?mode=deep",
+    "timestamp": "2026-01-11 01:09:27.801316",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [HTTP Binding Address] The HTTP listen address is configurable - can attackers cause binding to 0.0.0.0 to expose the service to the internet instead of localhost? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_636a47af-0034-4dcf-9bf7-36b1db4654c2?mode=deep",
+    "timestamp": "2026-01-11 01:09:56.442399",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: ipcEndpoint()] [IPC Socket Permissions] On Unix, the IPC socket permissions - are they restricted to owner-only, or can any local user connect? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e2b6a796-8ee9-47e9-8e89-69594b995ee2?mode=deep",
+    "timestamp": "2026-01-11 01:10:25.226423",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [4byte Database Security] The custom 4byte database at line 641 - if users can submit arbitrary 4byte identifiers via API, can this be exploited for storage exhaustion or injection attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8d54a8df-88b9-4fd4-a35f-17ac18eeb1f4?mode=deep",
+    "timestamp": "2026-01-11 01:10:54.450754",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [4byte Database File Location] The custom DB file path is user-configurable at line 641 - can path injection cause writing to arbitrary files? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e6412bc4-5043-4ec0-b60c-ae8e0b170be7?mode=deep",
+    "timestamp": "2026-01-11 01:11:21.210255",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [StdIO UI Security] When stdio-ui is enabled at line 633, all UI communication goes through stdin/stdout - can this be exploited if Clef is invoked with redirected stdin from attacker-controlled source? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6fb3c445-4df3-428a-a96a-818675e3061a?mode=deep",
+    "timestamp": "2026-01-11 01:11:48.272169",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [CommandlineUI TOCTOU] The CommandlineUI at line 638 relies on terminal interaction - can an attacker with terminal access manipulate prompts or inject responses? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d738e946-7934-4573-98ad-89da6b59ba23?mode=deep",
+    "timestamp": "2026-01-11 01:12:13.893133",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: accountImport()] [UI Password Exposure] Passwords are entered through UI at lines 574-580 - are these properly masked in terminal, and could screen capture or terminal logging expose them? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_01acf4a4-6d4a-421d-86a7-147029e1f341?mode=deep",
+    "timestamp": "2026-01-11 01:12:40.063274",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [Rule Engine Sandbox Escape] The rules.NewRuleEvaluator at line 682 - is the JavaScript engine\n\n### Citations\n\n**File:** cmd/clef/main.go (L1-1219)\n```go\n// Copyright 2018 The go-ethereum Authors\n// This file is part of go-ethereum.\n//\n// go-ethereum is free software: you can redistribute it and/or modify\n// it under the terms of the GNU General Public License as published by\n// the Free Software Foundation, either version 3 of the License, or\n// (at your option) any later version.\n//\n// go-ethereum is distributed in the hope that it will be useful,\n// but WITHOUT ANY WARRANTY; without even the implied warranty of\n// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the\n// GNU General Public License for more details.\n//\n// You should have received a copy of the GNU General Public License\n// along with go-ethereum. If not, see <http://www.gnu.org/licenses/>.\n\npackage main\n\nimport (",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6f56afcf-7eb5-4b80-bae4-0f315d487321?mode=deep",
+    "timestamp": "2026-01-11 01:13:06.796630",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/accountcmd.go] [Function: accountList()] [Information Disclosure] Can an attacker with filesystem access but no node permissions list all account addresses through the accountList function, enabling targeted phishing attacks or validator identification even without private key access? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b54574da-f31d-4116-a2d4-3af64585277c?mode=deep",
+    "timestamp": "2026-01-11 01:13:34.067396",
+    "report_generated": false
   }
 ]
