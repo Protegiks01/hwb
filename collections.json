@@ -31198,5 +31198,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d61d4427-50b6-4080-8a54-3d3b07abb44d?mode=deep",
     "timestamp": "2026-01-11 17:40:23.130768",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: Add()] [Defer Overhead] Defer statement at line 57 has overhead in hot paths. In extreme cases (millions of Add() per second during sync), can defer overhead accumulate causing measurable performance degradation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_639f63df-d32d-42be-a54f-988b3d11de0b?mode=deep",
+    "timestamp": "2026-01-11 17:41:38.372553",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Struct: sync.Mutex] [Lock Copying] If SizeConstrainedCache is copied by value, the mutex is copied which violates sync.Mutex's copy prohibition. Does the code prevent accidental struct copies? Can this cause subtle race conditions or panics? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3c555821-2564-429c-9358-12a86dc267fd?mode=deep",
+    "timestamp": "2026-01-11 17:41:51.266695",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: Add()] [Eviction Return Value] When eviction occurs (line 64 sets evicted=true), but what if the added item itself is immediately evicted (e.g., item larger than maxSize after all evictions)? The code doesn't check this case. Can this cause confusion in callers expecting their Add() to succeed? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_784bac3e-3c20-4a91-aa73-70bf485e2a5a?mode=deep",
+    "timestamp": "2026-01-11 17:42:04.889204",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: Add()] [Multiple Simultaneous Evictions] If multiple goroutines call Add() with large values concurrently, can they all trigger evictions simultaneously, causing cache to temporarily shrink below optimal size until all adds complete? Can this cause cache efficiency degradation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5b848827-bfaf-41b6-b87c-179ec83c77fc?mode=deep",
+    "timestamp": "2026-01-11 17:42:18.580940",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: Get()] [Cache Miss Performance] On cache miss (line 83 returns false), does BasicLRU.Get() still modify state or allocate? Can cache misses have performance characteristics different from hits causing timing-based cache probing attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c22cf95d-b4de-404d-8abf-eb514e5a44df?mode=deep",
+    "timestamp": "2026-01-11 17:42:34.187522",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: NewSizeConstrainedCache()] [Duplicate Keys] If callers instantiate multiple caches for same data with same keys but different maxSizes, can this cause confusion where same key has different values across caches violating content-addressed assumption? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_86fa955c-ff7f-4a81-929b-0e79506b89de?mode=deep",
+    "timestamp": "2026-01-11 17:42:49.990673",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Cache Use: Block Bodies] If caching block bodies, can maximum block size (gas limit constrained) be used to compute worst-case cache behavior? Can attackers create gas-limit-maximizing blocks to control eviction patterns and degrade specific validators' cache efficiency? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fdcdc59a-bb44-462f-b411-64d8ccb3a875?mode=deep",
+    "timestamp": "2026-01-11 17:43:06.930864",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Cache Use: Receipt Data] If caching transaction receipts, can receipt size variation be exploited? Large contract creation receipts could evict many small transfer receipts, causing cache thrashing during mixed transaction load and validation DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b2b46899-fd4a-49d1-b4e6-33ea0b672883?mode=deep",
+    "timestamp": "2026-01-11 17:43:25.779448",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Cache Use: Code Storage] If caching contract bytecode, can attackers deploy maximum-size contracts (24KB) to evict frequently-used contract code, forcing expensive code loads from state during popular contract execution, enabling DoS on DeFi or other high-value contracts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cd2b8deb-b6c6-4efc-92e9-a54d487afc17?mode=deep",
+    "timestamp": "2026-01-11 17:43:45.488329",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Cache Use: Trie Nodes] If caching Merkle-Patricia trie nodes, can attackers craft transactions accessing deep trie paths requiring many node loads, filling cache with rarely-reused deep nodes and evicting frequently-used shallow nodes, degrading state access performance? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a9fd94fc-d56a-4df1-811e-516f9cb5382d?mode=deep",
+    "timestamp": "2026-01-11 17:44:07.265353",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Cache Use: Bloom Filters] If caching block bloom filters for log filtering, can adversarial log emission patterns (maximum logs per block) be used to fill cache with large bloom filters, evicting useful ones and forcing re-computation during log queries, enabling query DoS? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3bef4c0b-6a03-49ae-b5d2-688ac50c3edd?mode=deep",
+    "timestamp": "2026-01-11 17:44:29.695351",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Cache Use: Snapshot Data] If caching consensus snapshots, can snapshot size variation during validator set changes be exploited to cause evictions at critical moments (e.g., during validator voting), causing validation delays or failures enabling consensus attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3bac0d80-9a1b-4ebc-a82b-3071d1a2b850?mode=deep",
+    "timestamp": "2026-01-11 17:44:51.983596",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Add()] [Race Condition] Can a race condition occur between the mutex unlock at line 36 and a subsequent call where the underlying BasicLRU state becomes inconsistent if another goroutine modifies c.cache between the defer unlock and actual unlock execution, potentially corrupting validator snapshot cache used in consensus and causing chain splits? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8f88b124-cb37-4c29-a668-deff0b475c11?mode=deep",
+    "timestamp": "2026-01-11 17:45:15.734118",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Get()] [Race Condition] If Get() is called concurrently with Add() during consensus snapshot retrieval, can the mutex at line 51 fail to protect against a scenario where BasicLRU's internal list manipulation in moveToFront() conflicts with eviction in Add(), leading to corrupted validator snapshots and consensus failure? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4cb3b573-2a6f-41a7-9baf-a4f180dcafe8?mode=deep",
+    "timestamp": "2026-01-11 17:45:40.314985",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Remove()] [Race Condition] Can concurrent Remove() calls at lines 82-86 on the same key during validator snapshot cleanup create a race condition where the mutex protects the wrapper but not the underlying BasicLRU list operations, leading to corrupted prev/next pointers and panics during snapshot traversal? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_589245e2-570d-476f-99fc-879bbf656efb?mode=deep",
+    "timestamp": "2026-01-11 17:46:06.476250",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Keys()] [Race Condition] When Keys() is called at lines 90-94 to retrieve all cached validator signatures, can a concurrent Add() that triggers eviction cause the returned slice to contain inconsistent data where some keys are from pre-eviction and others post-eviction, leading to signature verification failures and rejected valid blocks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ec97db63-0956-4732-876f-4682193839ec?mode=deep",
+    "timestamp": "2026-01-11 17:46:33.159200",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Purge()] [Race Condition] If Purge() is called at lines 74-78 during chain reorg while other goroutines are calling Get() on validator snapshots, can the mutex unlock timing allow a goroutine to receive a stale snapshot pointer that was purged, leading to nil pointer dereference and node crash? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2c58862b-beef-4b2f-b47c-edc5928eede3?mode=deep",
+    "timestamp": "2026-01-11 17:46:58.410585",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Contains()] [TOCTOU] Between Contains() returning true at lines 42-46 and a subsequent Get() call, can another goroutine Remove() the key, causing the Get() to return a zero value that gets treated as valid data in consensus snapshot verification, leading to acceptance of blocks from unauthorized validators? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0e6a75a1-b969-4d70-9e84-d51e85d1cab8?mode=deep",
+    "timestamp": "2026-01-11 17:47:23.115704",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Peek()] [Race Condition] Can Peek() at lines 66-70 be used in a TOCTOU attack where an attacker checks if a malicious validator snapshot exists via Peek(), then rapidly calls Add() to evict legitimate snapshots before Get() is called, causing consensus to accept invalid validator sets? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_24857ff1-bd86-4421-a236-c2ccb671f7a9?mode=deep",
+    "timestamp": "2026-01-11 17:47:45.213407",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Add()] [Memory Ordering] Does the defer unlock at line 36 guarantee memory barrier semantics ensuring that the eviction return value and cache state modifications are visible to other goroutines in the correct order, or can reordering cause a goroutine to see evicted=true but still retrieve the evicted snapshot, leading to double-spending? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_70764e8f-1a1d-4411-8cef-ede2d7e50d26?mode=deep",
+    "timestamp": "2026-01-11 17:48:09.251187",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Len()] [Race Condition] When Len() is called at lines 58-62 during validator snapshot size checks for consensus decisions, can a concurrent Add() or Remove() cause Len() to return a size that is immediately stale, leading to incorrect capacity decisions that allow unbounded snapshot growth and memory exhaustion DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4672c864-0bb7-4eb9-bcc3-536f49ab5733?mode=deep",
+    "timestamp": "2026-01-11 17:48:34.351714",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: NewCache()] [Race Condition] If NewCache() is called at line 29-30 concurrently during initialization (e.g., parallel validator setup), can the returned Cache pointers share the same underlying BasicLRU due to race conditions in the constructor, causing multiple consensus engines to share snapshot caches and corrupt validator state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b2d94c1b-2d7f-42c1-9f9a-880323fd912c?mode=deep",
+    "timestamp": "2026-01-11 17:48:56.371903",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Add()] [Cache Poisoning] Can a malicious validator exploit Add() at lines 34-38 to insert a forged snapshot with a crafted hash that collides with a legitimate validator snapshot, causing honest nodes to retrieve the malicious snapshot during block validation and accept blocks from unauthorized validators? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_590ec605-cbb0-48cf-b626-9d0d6053bdb2?mode=deep",
+    "timestamp": "2026-01-11 17:49:20.324532",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Get()] [Cache Poisoning] When Get() at lines 50-54 retrieves a validator snapshot from cache, does it perform any integrity checking on the returned value, or can a memory corruption vulnerability allow an attacker to inject a modified snapshot that changes the validator set mid-consensus? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1553f438-c520-456f-b26d-9235a5358bbd?mode=deep",
+    "timestamp": "2026-01-11 17:49:46.051780",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Add()] [Eviction Attack] Can an attacker flood the cache with Add() calls containing crafted keys that force eviction of critical validator snapshots right before block validation, causing cache misses that trigger expensive recomputation and enable DoS attacks that delay block production beyond the acceptable timeout? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_507e04ab-ee5b-4761-9eb8-2398649f632b?mode=deep",
+    "timestamp": "2026-01-11 17:50:11.774885",
+    "report_generated": false
   }
 ]
