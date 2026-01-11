@@ -23998,5 +23998,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_efd6b225-b695-4df5-b4fb-d3e630bf7f26?mode=deep",
     "timestamp": "2026-01-11 05:08:10.298527",
     "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Function: unlockAccounts()] [Backends Array] At line 474, backends array is accessed without length check before accessing backends[0]. Can empty backends array cause panic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_63c3a627-ae4b-40e8-87f3-8e6a5d37847e?mode=deep",
+    "timestamp": "2026-01-11 09:32:36.509531",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Function: startNode()] [Sync Age Comparison] At line 426, sync completion is determined by comparing block age with 10 minutes. On a chain with no recent blocks, can this cause premature shutdown? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ee40d023-600d-4038-9910-1fab984c93b2?mode=deep",
+    "timestamp": "2026-01-11 09:32:49.387157",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Function: prepare()] [String Comparison] At lines 313, 326, 438, sync mode is compared with string \\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9435482d-8db0-48a9-a16d-a69ce15210f7?mode=deep",
+    "timestamp": "2026-01-11 09:33:03.351896",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Function: init()] [Flag Merge Order] At line 245, multiple flag arrays are merged. Does merge order affect precedence, and can this be exploited to override critical flags? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_68fa419a-cad0-4d28-a854-65125fa00669?mode=deep",
+    "timestamp": "2026-01-11 09:33:17.265272",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Function: startNode()] [Backend Nil Check] At line 441, backend is checked for nil via type assertion ok check. What happens if backend is nil before the assertion - is there a nil pointer access? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7cf2808d-cbd7-47af-94d3-c27efb430d3f?mode=deep",
+    "timestamp": "2026-01-11 09:33:31.949204",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Function: unlockAccounts()] [Split Result Validation] At line 459, strings.Split() always returns at least one element. Can providing empty string still pass through and cause issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9b746de5-3056-48e3-b9e0-e8255ce9cb7a?mode=deep",
+    "timestamp": "2026-01-11 09:33:47.867696",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Function: prepare()] [Flag Mutation] At lines 322, 328, ctx.Set() mutates the context. Is this context shared across goroutines, and can mutations cause race conditions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_07b1770f-ad76-4d94-92b4-1b419b6c08fd?mode=deep",
+    "timestamp": "2026-01-11 09:34:05.468582",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Function: startNode()] [Wallet URL Access] At lines 382, 390, 394, 405, wallet.URL() is called multiple times. Can this be expensive or have side effects that impact performance? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_51115c5d-f69f-4566-919e-e89da55f50f7?mode=deep",
+    "timestamp": "2026-01-11 09:34:23.264472",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Function: main()] [OS Exit Code] At line 267, os.Exit(1) is called. Can this prevent deferred cleanup functions from running, leaking resources? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dbcb6729-d4f3-49f0-ad7c-e0cff4d2812a?mode=deep",
+    "timestamp": "2026-01-11 09:34:43.450115",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Function: init()] [App.Before Hook] At lines 253-256, app.Before hook is set. If this hook fails, does the app still start, or is there proper error handling? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_87867578-0a15-4b4b-857e-d791e6be2214?mode=deep",
+    "timestamp": "2026-01-11 09:35:04.492438",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Function: startNode()] [Account Manager Wallets] At line 380, AccountManager().Wallets() is called. If this returns nil or invalid wallets, can iteration cause panic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ab02cd7c-f2a1-48b5-b0bc-7139a20a1b73?mode=deep",
+    "timestamp": "2026-01-11 09:35:26.730312",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Function: prepare()] [NetworkId Not Set] At line 309, behavior when NetworkIdFlag is not set defaults to Ethereum mainnet. Can this cause accidental mainnet connection from testnet configs? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1540ab51-994c-437f-af94-c5255b8391cd?mode=deep",
+    "timestamp": "2026-01-11 09:35:50.330913",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Function: startNode()] [Mining Threads Zero] At line 449, if MinerThreadsFlag is 0, does StartMining() handle this gracefully, or can it cause division by zero or infinite loops? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5659274c-7d9a-4184-acea-ab6248409c32?mode=deep",
+    "timestamp": "2026-01-11 09:36:14.281912",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Function: unlockAccounts()] [Keystore Type Check] At line 474, KeyStoreType is used to filter backends. Can an attacker register a malicious backend with KeyStoreType to intercept unlock operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_59580e15-0e35-4591-8dc4-e3ba5c9899cd?mode=deep",
+    "timestamp": "2026-01-11 09:36:38.907053",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Function: startNode()] [Defer Stack Close Race] At line 348 in geth(), stack.Close() is deferred. Can the startNode() goroutines still be running when Close() is called, causing use-after-free? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3d878646-3baa-42ea-aef9-43de5518fb18?mode=deep",
+    "timestamp": "2026-01-11 09:37:04.517525",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Function: prepare()] [Mainnet Detection Logic] At lines 313-323, mainnet is detected by absence of testnet flags. Can this misdetect custom networks as mainnet? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6647390f-43d3-4ae7-9fc1-12fd1b18be36?mode=deep",
+    "timestamp": "2026-01-11 09:37:31.704109",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Function: unlockAccounts()] [Password Index Mismatch] At line 482, password index 'i' is passed to unlockAccount(). If there are more accounts than passwords, does this cause out of bounds access? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8a8c2f5f-c070-471c-a1c1-6bec21ebb00f?mode=deep",
+    "timestamp": "2026-01-11 09:37:59.291206",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Function: startNode()] [ExitWhenSynced Logic] At lines 413-433, if ExitWhenSynced is true but sync never completes, does the node run forever, or is there a timeout? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4ed3234e-032f-4296-8891-727086cf87fa?mode=deep",
+    "timestamp": "2026-01-11 09:38:26.959574",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Function: init()] [Tracer Import] At lines 44-45, tracer engines are imported with _ for side effects. Can these tracers have init() functions that execute malicious code? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e9035dad-e380-4547-933b-79369a43ebed?mode=deep",
+    "timestamp": "2026-01-11 09:38:53.629249",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/misccmd.go] [Function: makecache()] [Input validation] Does the function validate that args[0] is not an excessively large string before passing it to strconv.ParseUint, potentially causing a panic or memory exhaustion during parsing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1bb7f003-e28d-46d8-9122-739644778580?mode=deep",
+    "timestamp": "2026-01-11 09:39:21.285568",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/misccmd.go] [Function: makecache()] [Integer overflow] Can an attacker provide a block number near UINT64_MAX that, when divided by epochLength in ethash.MakeCache, causes integer overflow in epoch calculation, leading to incorrect cache generation or node crash? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a90ce0cf-fdb9-49d6-909e-2987e67d4c3c?mode=deep",
+    "timestamp": "2026-01-11 09:39:47.767140",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/misccmd.go] [Function: makecache()] [Path traversal] Does args[1] (outputDir) undergo any sanitization before being passed to ethash.MakeCache, or can an attacker use path traversal sequences (../, ../../, etc.) to write cache files to arbitrary filesystem locations including system directories? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3edbe210-8212-4464-b460-e95792b666e9?mode=deep",
+    "timestamp": "2026-01-11 09:40:14.801589",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/misccmd.go] [Function: makecache()] [Symbolic link attack] If args[1] points to a symbolic link created by an attacker, can ethash.MakeCache follow the symlink and overwrite critical system files or validator private keys, compromising node security? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fbab6e56-8b81-4a18-be63-cf2cfee12f92?mode=deep",
+    "timestamp": "2026-01-11 09:40:40.129963",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/misccmd.go] [Function: makecache()] [Disk space exhaustion] Does the function check available disk space before invoking ethash.MakeCache, or can an attacker specify a block number that generates an extremely large cache file, filling up the disk and causing node crash or preventing block validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_370782d4-a273-45fe-a9bf-6750cf2d6777?mode=deep",
+    "timestamp": "2026-01-11 09:41:06.371416",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/misccmd.go] [Function: makecache()] [Argument parsing DoS] What happens if strconv.ParseUint receives a malformed input like '0x' followed by thousands of hex digits - does it consume excessive CPU time parsing the string, creating a local DoS condition? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a4b39425-7940-4eeb-a31c-7e43f192c18c?mode=deep",
+    "timestamp": "2026-01-11 09:41:32.780647",
+    "report_generated": false
   }
 ]
