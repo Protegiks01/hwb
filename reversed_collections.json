@@ -28036,5 +28036,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8db3369c-d632-49af-beb6-55054a2e16d3?mode=deep",
     "timestamp": "2026-01-11 10:59:54.318121",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Queue()] [Race condition with capacity check] Can a time-of-check-time-of-use (TOCTOU) race occur between checking len(q.funcs) < cap(q.funcs) and appending to q.funcs if the mutex is released, potentially allowing queue overflow and memory exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2c755dac-8ad5-43b2-a920-415bebe6d32f?mode=deep",
+    "timestamp": "2026-01-11 11:01:19.969671",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: waitNext()] [Slice manipulation race] In the slice manipulation operation (q.funcs = append(q.funcs[:0], q.funcs[1:]...)), can a concurrent Queue() call cause a race condition that corrupts the funcs slice, leading to execution of wrong functions or skipped critical validator operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3a66bcb6-8374-4093-8ae7-7315f644e1bb?mode=deep",
+    "timestamp": "2026-01-11 11:01:32.992663",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: waitNext()] [Race condition] Can concurrent calls to Queue() and waitNext() create a race condition when accessing q.funcs slice, potentially leading to index out-of-bounds panics or data corruption affecting critical blockchain operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_75bcf97c-bdef-46c3-b4cc-af998dc3dfa5?mode=deep",
+    "timestamp": "2026-01-11 11:01:47.099101",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: loop()] [Panic propagation] If a queued function f() panics during execution in the loop() goroutine, will the panic crash the entire node or corrupt the queue state, potentially causing consensus failures or validator unavailability? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_04e1fa10-6189-44c6-b8d1-7e98fb84056a?mode=deep",
+    "timestamp": "2026-01-11 11:02:00.835015",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: NewExecQueue()] [Goroutine leak] Can a goroutine leak occur if the queue is created but never properly closed via Quit(), causing the loop() goroutine to run indefinitely and potentially exhausting system resources during validator operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ba96bc17-29f4-4074-b6c5-80ffa36b09c0?mode=deep",
+    "timestamp": "2026-01-11 11:02:15.733897",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: unregisterPeer()] [Callback timing] If unregisterPeer() is called while send() is in progress for that peer, can this cause the peer to receive partial transaction data or errors? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7e3d8d3e-9d67-4509-8ea3-52a6355fba90?mode=deep",
+    "timestamp": "2026-01-11 11:02:32.319094",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: registerPeer()] [Callback order] When registerPeer() is called via subscription, is there any guarantee about ordering relative to other events? Can out-of-order peer registration cause issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d54e4cfe-c293-49e8-a9b3-08012f6fc869?mode=deep",
+    "timestamp": "2026-01-11 11:02:49.752673",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: newLesTxRelay()] [Subscription leak] ps.subscribe(r) at line 47 registers the relay. Is there a corresponding unsubscribe in Stop()? Can failing to unsubscribe cause memory leaks or continued callbacks after relay is stopped? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7923c78a-4c99-40c4-af64-c34c87827ffc?mode=deep",
+    "timestamp": "2026-01-11 11:03:09.374513",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: NewHead()] [Map iteration cost] Creating a transaction slice from txPending map at lines 161-166 requires iterating the entire map. For large txPending, can this cause noticeable latency while holding the lock? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_54339a76-fb60-4776-b340-6c39e72cb854?mode=deep",
+    "timestamp": "2026-01-11 11:03:30.267159",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: unregisterPeer()] [O(n) removal] Peer removal at line 70-76 is O(n) in peerList length. For large peer lists with frequent churn, can this cause performance degradation or lock contention? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0cd42c9a-54fd-4541-953d-2599fcb72855?mode=deep",
+    "timestamp": "2026-01-11 11:03:52.566813",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [O(n*m) complexity] The nested loops at lines 88 (transactions) and 98 (peers) create O(n*m) complexity. For large transaction batches and many peers, can this cause excessive CPU usage and lock contention? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ac20d165-829b-46eb-83c5-346cee63363e?mode=deep",
+    "timestamp": "2026-01-11 11:04:14.345907",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: NewHead()] [Hash validation] Are the hashes in mined and rollback parameters validated to be proper 32-byte hashes? Can invalid hashes cause issues in map operations or comparisons? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_85886a0c-6a64-4572-8766-1bf7b7fd4439?mode=deep",
+    "timestamp": "2026-01-11 11:04:36.505764",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: Discard()] [Nil hash slice] Can Discard() be called with nil hashes slice? The range loop will succeed but do nothing, potentially masking caller errors. (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7d3afad9-f5e7-4e82-a753-05544da86851?mode=deep",
+    "timestamp": "2026-01-11 11:05:00.035093",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: NewHead()] [Nil hash slices] Can NewHead() be called with nil mined or rollback slices? If so, the range iterations will succeed but do nothing, potentially hiding bugs. (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_df0149de-8bc8-4987-8d8c-44b32fbef0f3?mode=deep",
+    "timestamp": "2026-01-11 11:05:25.103741",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: Send()] [Empty transaction slice] If Send() is called with an empty slice, it still acquires locks and processes. Can this be used for DoS by repeatedly calling Send([]) to waste CPU cycles? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_12042256-2687-4fc0-9678-7fcf75e7f2f4?mode=deep",
+    "timestamp": "2026-01-11 11:05:50.467717",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: Send()] [Nil transaction slice] Can Send() be called with a nil transaction slice? If so, the iteration at line 88 will succeed but do nothing, potentially masking bugs in callers. (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c64bcceb-0741-4c7d-af2f-3114c73bacda?mode=deep",
+    "timestamp": "2026-01-11 11:06:18.400156",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: Discard()] [Coordination] Is there coordination between Discard() and NewHead() to ensure transactions aren't discarded while being processed for reorg recovery, potentially causing inconsistent state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cc9b70bd-d582-4821-84f7-3ce652bc7c48?mode=deep",
+    "timestamp": "2026-01-11 11:06:43.951774",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: NewHead()] [Missing transactions] When iterating txPending at lines 163-166, if a hash exists in txPending but not in txSent (due to race or bug), txs[i] will be nil. Does send() handle nil transactions gracefully? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_82ea60aa-569c-4f5f-a8a0-83eb257fab45?mode=deep",
+    "timestamp": "2026-01-11 11:07:10.428473",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: NewHead()] [Duplicate processing] If NewHead() is called multiple times with the same mined hashes due to network delays or duplicate messages, can this cause txPending to be incorrectly emptied or transactions to be lost? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8570326a-50ae-41ca-87d0-f93f16c12ee3?mode=deep",
+    "timestamp": "2026-01-11 11:07:37.636629",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: NewHead()] [Reorg frequency] If NewHead() is called very frequently with many rollback transactions, can the repeated sends at line 167 cause excessive network traffic or peer resource consumption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_afbca24b-ab3c-4faa-90ad-c9884531cded?mode=deep",
+    "timestamp": "2026-01-11 11:08:05.106412",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: Send()] [Bulk transaction handling] If Send() is called with a very large transaction list, can processing all transactions at line 88-114 take excessive time while holding the lock, blocking other operations like registerPeer() or NewHead()? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6fa7c774-affb-4860-9916-e5e37a9002eb?mode=deep",
+    "timestamp": "2026-01-11 11:08:33.000656",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Slow peer handling] If a peer in sendTo map is slow or unresponsive, can the goroutine spawned at line 137 block indefinitely waiting for retriever.retrieve() to complete, causing goroutine accumulation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0ca2c3ef-db2e-4356-9e51-9ff0c1302569?mode=deep",
+    "timestamp": "2026-01-11 11:08:58.360852",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Transaction ownership] When transactions are added to txSent at line 92, is there any validation that the transaction object is valid and will remain valid? Can transaction objects be mutated externally causing corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_45b6efad-6717-4b0b-a98f-fa51e337b3b6?mode=deep",
+    "timestamp": "2026-01-11 11:09:23.381878",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: NewHead()] [Reorg depth] NewHead() handles mined and rollback transactions, but is there any limit on the depth of reorganizations? Can extremely deep reorgs cause txPending to grow excessively large? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_68e8f52f-52c8-412b-a781-ea0d85869c12?mode=deep",
+    "timestamp": "2026-01-11 11:09:48.654854",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: Discard()] [Premature deletion] If Discard() is called for transactions that are still being sent in in-flight goroutines from send(), can this cause those goroutines to access deallocated transaction data or stale references? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d2194d12-c2a0-48ac-8bad-268e738fd3ac?mode=deep",
+    "timestamp": "2026-01-11 11:10:14.343267",
+    "report_generated": false
   }
 ]
