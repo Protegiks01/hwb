@@ -31798,5 +31798,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ab591f9e-3a60-4406-b3ff-b5b64b10f595?mode=deep",
     "timestamp": "2026-01-11 18:20:28.943112",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Remove()] [Cleanup Incomplete] When Remove() at line 86 drops an item, does it trigger any cleanup of resources held by the value (e.g., file handles, database connections), or can resource leaks accumulate over time? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_69a65184-bf0f-42a1-b8cc-289746149c1c?mode=deep",
+    "timestamp": "2026-01-11 18:21:45.010193",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Purge()] [Bulk Resource Release] When Purge() at line 78 clears all items, does it properly release resources held by all values, or can a large cache purge cause resource exhaustion by not cleaning up incrementally? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f3b31d03-d128-457c-95f9-fd8a955e2b23?mode=deep",
+    "timestamp": "2026-01-11 18:21:58.157927",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Keys()] [Temporary Allocation] Does Keys() at line 94 create temporary allocations that could fragment the heap during frequent calls, leading to memory pressure and GC thrashing during intensive consensus operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bd957ccc-e174-4340-bd79-16202d3b4203?mode=deep",
+    "timestamp": "2026-01-11 18:22:11.244569",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: NewCache()] [Cache Multiplication] Can multiple Cache instances share the same underlying BasicLRU structure through incorrect initialization, causing resource contention and unexpected cache behavior? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3b004d47-64a9-4e9e-a678-3d0d2e57be4a?mode=deep",
+    "timestamp": "2026-01-11 18:22:25.050777",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Add()] [Genesis Block Eviction] Can Add() at line 38 evict the genesis block snapshot from cache during normal operation, and if genesis snapshot is needed for validation, could this cause expensive recomputation or validation failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f6aa7d94-4f76-4556-8616-09fe93950310?mode=deep",
+    "timestamp": "2026-01-11 18:22:40.257588",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Get()] [Finalized Block Cache] When Get() at line 54 retrieves a snapshot for a finalized block, can the snapshot be evicted before finalization is complete, causing inconsistent finalization state across nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ab09c7c7-320b-43df-9e84-9b994bcb79f4?mode=deep",
+    "timestamp": "2026-01-11 18:22:56.392938",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Remove()] [Checkpoint Removal] Can Remove() at lines 82-86 delete snapshots for checkpoint blocks that are required for fast sync, breaking the fast sync protocol and forcing full sync for new nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7f35e42f-8f90-4850-bee8-3ba50d4c0628?mode=deep",
+    "timestamp": "2026-01-11 18:23:13.536131",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Purge()] [Hard Fork Purge] During a hard fork, if Purge() at lines 74-78 is called to clear old-rules snapshots, can this create a window where nodes operate with no cached snapshots and validation becomes extremely slow? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0000332b-4ac3-4151-a5d5-30df2c5837e4?mode=deep",
+    "timestamp": "2026-01-11 18:23:32.199917",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Contains()] [Uncle Block Check] Can Contains() at lines 42-46 be used to check for uncle block signatures in cache, and if uncle handling has special logic, could cache hits/misses affect uncle validation differently? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f871b08d-da72-476d-91e6-67f58af3a719?mode=deep",
+    "timestamp": "2026-01-11 18:23:52.205757",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Add()] [Multiple Writers] Can multiple goroutines call Add() for different keys simultaneously, and even though they're protected by mutex, can the sequential processing create artificial bottlenecks during high-throughput block production? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4043ce9c-a9e3-4eab-983a-0d2762c6238c?mode=deep",
+    "timestamp": "2026-01-11 18:24:13.298379",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Get()] [Reader Starvation] Can a continuous stream of Add() operations starve Get() operations by monopolizing the mutex, preventing block validation from retrieving cached snapshots and causing validation timeouts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_39c2aacf-234d-4123-81c7-cd7c4591daf9?mode=deep",
+    "timestamp": "2026-01-11 18:24:35.243265",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: All Methods] [Lock Contention Metrics] Does the Cache provide any metrics on lock contention, or can high contention go undetected until it causes consensus failures during peak load? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7d16e9c8-0e28-48ca-9927-03be604c8164?mode=deep",
+    "timestamp": "2026-01-11 18:24:58.349860",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Add()] [Atomic Eviction] Is the eviction return value from Add() at line 38 computed atomically with the eviction operation, or can race conditions cause the return value to be incorrect, misleading callers about whether eviction occurred? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c41fca28-044d-498c-a192-849195177740?mode=deep",
+    "timestamp": "2026-01-11 18:25:24.184912",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Purge()] [Purge During Iteration] If one goroutine calls Purge() at line 78 while another iterates using Keys(), can this cause the iteration to panic or return incomplete results even though both operations are mutex-protected? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4a6ab5a3-bbf4-4a37-b291-981e115c91ba?mode=deep",
+    "timestamp": "2026-01-11 18:25:49.656749",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Add()] [Duplicate Keys] Can Add() at line 38 handle duplicate keys correctly when called in rapid succession, or can timing issues cause the cache to contain duplicate entries in the underlying structures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_97da79aa-3322-449c-ace7-6b1fec5eceda?mode=deep",
+    "timestamp": "2026-01-11 18:26:13.755688",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Remove()] [Remove Non-Existent] Can Remove() at line 86 be safely called on non-existent keys millions of times, or will this cause performance degradation or resource leaks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_86cb8aaa-9a26-4a6f-9ab0-62d976e148f7?mode=deep",
+    "timestamp": "2026-01-11 18:26:37.829019",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Get()] [Get After Remove] If Get() is called immediately after Remove() for the same key from different goroutines, can the mutex timing cause Get() to return stale data that was just removed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_310ae60c-5737-4b3d-81a0-133a571b4e78?mode=deep",
+    "timestamp": "2026-01-11 18:27:03.647152",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Peek()] [Peek Consistency] Can Peek() return inconsistent results if called repeatedly for the same key during concurrent modifications, potentially returning different values on each call? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_256f3abb-935d-4cc2-b818-949ea614b6f5?mode=deep",
+    "timestamp": "2026-01-11 18:27:30.675754",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: NewCache()] [Capacity Boundary] Can NewCache() with capacity=1 create edge cases where every Add() causes eviction, leading to thrashing behavior that degrades performance? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8ebe24f0-27dc-4cdf-b377-6379a4f7db59?mode=deep",
+    "timestamp": "2026-01-11 18:27:57.992747",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Add()] [Consensus-State Interaction] When the same LRU cache type is used for both consensus snapshots and state code, can operations on one cache interfere with the other through shared underlying resources? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_40acc8dc-287c-491c-8581-e1ed0947f49b?mode=deep",
+    "timestamp": "2026-01-11 18:28:22.723313",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Get()] [Multiple Cache Instances] If multiple Cache instances are created for different purposes (snapshots, signatures, code), can memory pressure from one cache cause evictions in another, creating unexpected cache misses? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2e52fce7-fb73-408a-af9b-420bed36d9d8?mode=deep",
+    "timestamp": "2026-01-11 18:28:44.124104",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Remove()] [Cross-Layer Cache Invalidation] Can Remove() be used to invalidate cache entries that other components depend on, creating cascading invalidation issues across consensus and state layers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_892d7292-42a0-445c-91b2-11d23acfd593?mode=deep",
+    "timestamp": "2026-01-11 18:29:06.730156",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: NewCache()] [Version Compatibility] If cache capacity values change in a protocol upgrade, can existing cache instances with old capacities cause compatibility issues with new nodes expecting different cache sizes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6fce134b-4128-42ef-8397-263657283b44?mode=deep",
+    "timestamp": "2026-01-11 18:29:29.226000",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Add()] [Serialization Assumptions] Does Add() make any assumptions about the serializability of values that could break during protocol upgrades when new types are added to cached structures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_491ed54f-af4f-4bef-b7a7-f921d6e32102?mode=deep",
+    "timestamp": "2026-01-11 18:29:52.224739",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: All Methods] [Missing Bounds Checking] Do any methods perform adequate bounds checking on input parameters, or can malformed inputs cause panics or undefined behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3b2f6851-a2be-4eef-bf91-254fc6b5dbe5?mode=deep",
+    "timestamp": "2026-01-11 18:30:15.423190",
+    "report_generated": false
   }
 ]
