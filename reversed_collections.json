@@ -27886,5 +27886,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7e5212da-0eeb-4549-813f-05bf01b199c8?mode=deep",
     "timestamp": "2026-01-11 10:49:58.882706",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: waitNext()] [Drop timing] Since drop=true removes the function after it executes, can the timing of this removal race with concurrent Queue() operations in a way that corrupts the queue order? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e8013987-3dd4-40c0-ba92-c6e1accbbe1d?mode=deep",
+    "timestamp": "2026-01-11 10:51:42.398592",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: loop()] [Execution ordering] Can race conditions between multiple Queue() calls and loop() execution cause functions to execute in a different order than they were queued, potentially violating consensus ordering requirements? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cb5f6bf1-1820-4d66-aa53-70188e645aa9?mode=deep",
+    "timestamp": "2026-01-11 10:51:55.285450",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: waitNext()] [Empty slice access] When drop=true and len(q.funcs)=0, can the slice operation q.funcs[1:] cause an out-of-bounds panic or incorrect slice manipulation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c8125f5b-54fd-4209-9f7d-d97e83ed942b?mode=deep",
+    "timestamp": "2026-01-11 10:52:08.783229",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Queue()] [Capacity boundary] At exactly cap(q.funcs) capacity, can an off-by-one error in the condition len(q.funcs) < cap(q.funcs) allow one extra function to be queued, causing slice reallocation and potential race conditions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_428d86f4-dec9-48ae-843b-029c3b63bfae?mode=deep",
+    "timestamp": "2026-01-11 10:52:22.409777",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: NewExecQueue()] [Negative capacity] Can passing a negative capacity value cause undefined behavior in make([]func(), 0, capacity), potentially leading to panics or incorrect slice allocation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bf28f6c7-76fc-449d-a535-af8b8eb90371?mode=deep",
+    "timestamp": "2026-01-11 10:52:37.321970",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: NewExecQueue()] [Zero capacity] Can passing capacity=0 to NewExecQueue() create a queue that can never accept functions, causing all Queue() calls to fail and potentially blocking critical validator operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_080ef999-bb31-42d3-9db2-21032c2d0411?mode=deep",
+    "timestamp": "2026-01-11 10:52:52.968105",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Quit()] [Signal without function] When Quit() calls q.cond.Signal() to wake waitNext(), if the queue is empty, will waitNext() properly detect closure and return nil, or can it enter an inconsistent state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4c3fd50f-c087-4ae8-9f93-2259fdc23d37?mode=deep",
+    "timestamp": "2026-01-11 10:53:10.827186",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: waitNext()] [Spurious wakeup] Can spurious wakeups from q.cond.Wait() cause waitNext() to return with an empty queue or invalid state, leading to nil function execution attempts? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eef72d02-ab08-46b9-acbd-5f533add1d82?mode=deep",
+    "timestamp": "2026-01-11 10:53:30.208633",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Queue()] [Signal loss] If q.cond.Signal() is called when no goroutine is waiting on q.cond.Wait(), is the signal lost, potentially causing waitNext() to wait indefinitely even though functions are queued? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_60f385bb-f390-41c8-b947-fe2eb81c42d6?mode=deep",
+    "timestamp": "2026-01-11 10:53:50.968027",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Clear()] [Clear during execution] Can calling Clear() while a function is executing in loop() cause the currently executing function's context to be invalidated if it relies on queue state, leading to undefined behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_656a2a98-8ea9-432e-acfe-d4918e254f14?mode=deep",
+    "timestamp": "2026-01-11 10:54:11.641664",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: CanQueue()] [TOCTOU vulnerability] Can a time-of-check-time-of-use vulnerability exist where CanQueue() returns true but a subsequent Queue() call fails due to concurrent closure or capacity changes, causing inconsistent state in calling code? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e9c4608f-13f5-4ed5-a41e-663578ea4968?mode=deep",
+    "timestamp": "2026-01-11 10:54:33.348832",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Queue()] [Post-closure queueing] After Quit() is called but before the loop() goroutine exits, can Queue() still add functions that will never be executed, potentially causing validator operations to be silently dropped? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_04a39e14-0de3-4da6-b0d4-251156948f91?mode=deep",
+    "timestamp": "2026-01-11 10:54:54.795816",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Quit()] [State race] Can the sequence of operations in Quit() (setting closeWait, signaling, then waiting) race with Queue() operations in a way that allows new functions to be queued after closure signal but before the wait, causing those functions to never execute? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9b8a4348-aaba-455d-8483-13d1090f534f?mode=deep",
+    "timestamp": "2026-01-11 10:55:15.945917",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: isClosed()] [Race on closeWait check] Can concurrent reads of q.closeWait != nil in isClosed() race with Quit() writing to q.closeWait, potentially returning inconsistent results that allow operations after queue closure? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c875c49f-dc8a-4be6-8080-651ce614e1e7?mode=deep",
+    "timestamp": "2026-01-11 10:55:39.074331",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: loop()] [Nil closeWait] If q.closeWait is nil initially and multiple operations check isClosed() concurrently with Quit(), can this cause inconsistent state or nil pointer dereferences? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4b2b4a2a-a658-448e-a492-250deb9cec47?mode=deep",
+    "timestamp": "2026-01-11 10:56:00.947386",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Quit()] [Double close panic] Can calling Quit() multiple times concurrently cause close(q.closeWait) to be called on an already-closed channel, triggering a panic that crashes the node during shutdown? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2580898f-9fd6-48de-94ee-38d05b69c568?mode=deep",
+    "timestamp": "2026-01-11 10:56:21.347367",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: waitNext()] [Nil function pointer] If a nil function is queued via Queue(f) where f is nil, will executing f() in loop() cause a nil pointer dereference panic crashing the validator node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2b60d090-ecbb-4009-a046-4ef463084012?mode=deep",
+    "timestamp": "2026-01-11 10:56:42.480003",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Clear()] [Memory retention] When Clear() sets q.funcs = q.funcs[:0], does this properly release memory of the queued function closures, or do the underlying array elements retain references causing memory leaks in long-running validator nodes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d1588d94-0e80-4dec-9f40-870af0a535fa?mode=deep",
+    "timestamp": "2026-01-11 10:57:04.755189",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: waitNext()] [Slice reallocation] When using append(q.funcs[:0], q.funcs[1:]...), does this operation maintain slice capacity correctly, or can it cause repeated memory reallocations leading to performance degradation during critical consensus operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_66818d7f-2627-466f-8054-9c08137e54b8?mode=deep",
+    "timestamp": "2026-01-11 10:57:27.875359",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Queue()] [Memory leak] If functions queued contain closures that capture large data structures or goroutines, can repeated queueing without clearing cause unbounded memory growth leading to node crashes during high validator activity? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a8e8186d-4cb2-478f-a9a1-6095f4ea602a?mode=deep",
+    "timestamp": "2026-01-11 10:57:51.870125",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: NewExecQueue()] [Capacity overflow] Can passing an extremely large capacity value (e.g., max int) to NewExecQueue() cause memory exhaustion when the slice is pre-allocated, potentially crashing validator nodes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_681342cf-5772-4cde-bb13-70db21d3c3b9?mode=deep",
+    "timestamp": "2026-01-11 10:58:16.359864",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: loop()] [Mutex deadlock] If a queued function f() attempts to acquire q.mu while loop() holds it during waitNext(), can this create a deadlock that freezes validator operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b1759391-ddcc-4e92-946c-75457b996d1e?mode=deep",
+    "timestamp": "2026-01-11 10:58:39.948785",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Quit()] [Channel blocking] Can Quit() block indefinitely on <-q.closeWait if the loop() goroutine panics before reaching close(q.closeWait), causing node shutdown to hang? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_587ce2bb-4437-4a96-94ea-09b70f733226?mode=deep",
+    "timestamp": "2026-01-11 10:59:06.089462",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: waitNext()] [Condition variable deadlock] If q.cond.Signal() is called before q.cond.Wait() in a race condition scenario, can the goroutine in waitNext() wait indefinitely without being awakened, causing validator operations to stall? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7cad5600-ceba-478d-ba04-545b4e1c255c?mode=deep",
+    "timestamp": "2026-01-11 10:59:29.737583",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Quit()] [Deadlock] Can a deadlock occur if Quit() is called while a function is executing and that function attempts to call Queue() or CanQueue() on the same ExecQueue, causing the node to hang indefinitely? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8db3369c-d632-49af-beb6-55054a2e16d3?mode=deep",
+    "timestamp": "2026-01-11 10:59:54.318121",
+    "report_generated": false
   }
 ]
