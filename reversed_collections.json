@@ -26986,5 +26986,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5744b658-1ba2-45f0-95f8-eaba2d7637f0?mode=deep",
     "timestamp": "2026-01-11 09:41:57.981438",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: ExpiredValue.Value()] [Precision Accumulation] Over many repeated Value() calls with varying logOffset values, can accumulated floating-point precision errors cause the returned uint64 to drift significantly from the mathematically correct value, enabling economic attacks through repeated small value manipulations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_030356da-2737-4b7f-a38b-4d0934fb9608?mode=deep",
+    "timestamp": "2026-01-11 09:50:58.558801",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: ExpiredValue.Value()] [Float to Uint Conversion] When the final float64 result is negative (which shouldn't happen but could due to precision errors), the conversion to uint64 is undefined in Go. Can this cause non-deterministic behavior across different architectures, leading to chain consensus issues if validators calculate different values? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3b0701d8-473e-46e5-bec6-a834402b003c?mode=deep",
+    "timestamp": "2026-01-11 09:51:11.637375",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: ExpiredValue.Value()] [Negative Value Wrap] If logOffset is significantly larger than e.Exp, the offset calculation becomes a large negative Fixed64. Does Pow2() on a large negative value produce near-zero results that could incorrectly zero out legitimate balances when this is used for token accounting? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fa04bf71-9705-4f00-a3b3-1b3b5b624315?mode=deep",
+    "timestamp": "2026-01-11 09:51:25.423173",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: ExpiredValue.Value()] [Float64 Precision Loss] When e.Base is near uint64 max and offset.Pow2() returns a value close to 2.0, can the multiplication 'float64(e.Base) * offset.Pow2()' overflow float64 representation (exceed math.MaxFloat64), causing the function to return incorrect values or +Inf which gets cast to uint64 incorrectly? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_161bf25d-d60b-4202-82fd-aaac971df3c5?mode=deep",
+    "timestamp": "2026-01-11 09:51:39.356208",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: ExpiredValue.Value()] [Integer Overflow] Can an attacker craft an ExpiredValue with extreme e.Exp and logOffset values that cause integer underflow in the subtraction 'Uint64ToFixed64(e.Exp) - logOffset', resulting in a massive positive Fixed64 that produces an astronomically large Pow2() result, causing panic or incorrect value calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d5d11a81-7aad-4ba9-82ee-3d9ae6d520dc?mode=deep",
+    "timestamp": "2026-01-11 09:51:53.904264",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Quit()] [Shutdown testing] Testing proper shutdown requires precise timing of Quit() relative to function execution - can incomplete testing miss edge cases that cause production validator nodes to hang during restarts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6deecd3e-8419-46b6-8a9c-edee7db9b4ef?mode=deep",
+    "timestamp": "2026-01-11 09:52:09.681505",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: loop()] [Determinism] The execution order depends on scheduling of goroutines and mutex acquisition order - can non-deterministic behavior make it difficult to reproduce and fix consensus bugs in testing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f5bfce9c-8d9f-4f9e-bf1e-9ee0eee913fc?mode=deep",
+    "timestamp": "2026-01-11 09:52:26.930474",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: waitNext()] [Race detection] The complex interaction between waitNext(), Queue(), and Clear() involves subtle timing - can race detector miss some race conditions due to the happens-before relationships established by mutex and condition variables? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a213af8a-e032-4dd8-8c4d-306558e33ecc?mode=deep",
+    "timestamp": "2026-01-11 09:52:46.553397",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: NewExecQueue()] [No configuration] The constructor only takes capacity, with no configuration for timeouts, priorities, or error handling - can this inflexibility lead to misuse in critical consensus code? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_aa4bb29f-d2d7-4421-9f00-3518181f3af4?mode=deep",
+    "timestamp": "2026-01-11 09:53:06.971836",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Queue()] [No priority] All functions are treated equally without priority - can low-priority LES requests from malicious clients delay high-priority consensus operations like block production? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_463dc2f1-52cc-4902-b6f4-15a0a29265c1?mode=deep",
+    "timestamp": "2026-01-11 09:53:28.907358",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: loop()] [No context] Queued functions have no context parameter for cancellation - can this prevent proper cleanup during shutdown or emergency stops, leaving the validator node in inconsistent state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b1b844ab-013a-431f-b1a4-e4c1f113e2ea?mode=deep",
+    "timestamp": "2026-01-11 09:53:52.076339",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Queue()] [Function type] The function parameter is `func()` with no parameters or return values - can this limit proper error propagation from queued operations, causing failures to go unnoticed in consensus operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_932d5221-0488-46f5-910a-101cc4270c6d?mode=deep",
+    "timestamp": "2026-01-11 09:54:16.492068",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Quit()] [Shutdown ordering] Quit() waits for the current function to complete but doesn't ensure subsequent operations don't queue more functions - can race conditions during shutdown cause partial operation execution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a6b897d0-3a8b-49b8-a536-ef5795e7367f?mode=deep",
+    "timestamp": "2026-01-11 09:54:40.434360",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Clear()] [Clear semantics] Clear() immediately removes all pending functions - if some functions represent critical validator operations (like block signing), can Clear() cause missed blocks or consensus failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7498bb03-3b33-4cab-8b24-4a4a5204bf1e?mode=deep",
+    "timestamp": "2026-01-11 09:55:05.414040",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: waitNext()] [Drop timing] The drop operation on lines 47-50 removes the previous function after getting the next one - can this timing allow observability of queue state that violates expected invariants during concurrent operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_768bb69b-5f6a-4171-a6a9-88eaa98d656e?mode=deep",
+    "timestamp": "2026-01-11 09:55:31.204953",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: loop()] [Execution atomicity] Each function executes atomically on line 40, but there's no atomicity across multiple functions - can this allow intermediate states to be observed that violate consensus invariants? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_19d2e605-5bbd-4740-81ca-9b27bebc6fa2?mode=deep",
+    "timestamp": "2026-01-11 09:55:57.777189",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Queue()] [No ordering guarantees] While functions are queued in FIFO order, if multiple ExecQueues are used for related operations, can lack of cross-queue ordering guarantees cause race conditions in consensus or state synchronization logic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4a76f6ca-9f61-496a-a161-a1650eca28e5?mode=deep",
+    "timestamp": "2026-01-11 09:56:24.578871",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: NewExecQueue()] [Negative capacity] While make() panics on negative capacity, if the capacity parameter comes from external input (e.g., LES protocol messages), can an attacker provide negative values to crash validator nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c3c4bebf-2457-46d3-87fc-0cd037c74e8d?mode=deep",
+    "timestamp": "2026-01-11 09:56:51.218721",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: loop()] [First iteration] The first waitNext(false) call on line 39 has drop=false, while subsequent calls use drop=true - can this first call block indefinitely if no functions are ever queued, hanging the goroutine? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_87353ba3-be92-47e4-9098-f039b4ac51cd?mode=deep",
+    "timestamp": "2026-01-11 09:57:17.112541",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: isClosed()] [Nil pointer] If ExecQueue is not properly initialized and closeWait is nil, isClosed() returns false - can this allow operations on a partially constructed or corrupt ExecQueue causing panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_92872675-fe42-4400-b370-6f2f4c483712?mode=deep",
+    "timestamp": "2026-01-11 09:57:42.936299",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Quit()] [Quit with pending functions] Quit() sets closeWait and signals, but doesn't explicitly clear pending functions - will these functions execute before loop() exits, or are they dropped, potentially causing state inconsistencies? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cdc335bc-61e2-4b46-9516-1d7291cf7ccc?mode=deep",
+    "timestamp": "2026-01-11 09:58:08.474203",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Clear()] [Clear during execution] Clear() can be called while loop() is executing a function - can this cause the currently executing function to be logically",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_37b35318-ebfc-4e0f-b41c-abd42b8ae54e?mode=deep",
+    "timestamp": "2026-01-11 09:58:35.283715",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: waitNext()] [Empty queue loop] If the queue is empty and not closed, waitNext() waits in a loop on lines 52-58 - can this loop consume excessive CPU if the condition variable is repeatedly signaled without actually adding functions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_27ec8169-cce7-43d6-8c9c-5c514efffd34?mode=deep",
+    "timestamp": "2026-01-11 09:58:59.494172",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Queue()] [Full queue handling] When the queue is full, Queue() returns false on line 84 - if the caller doesn't check this return value and assumes success, can important consensus or synchronization operations be silently dropped? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ad65d4c1-9aa2-4496-936a-609baa9734af?mode=deep",
+    "timestamp": "2026-01-11 09:59:23.402100",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: NewExecQueue()] [Zero capacity] If capacity is 0, the queue can never accept any functions - can this cause a permanent DoS if ExecQueue is used for critical consensus operations that must process at least one function? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0a0f17b7-c89e-4abf-a645-b32e0325afba?mode=deep",
+    "timestamp": "2026-01-11 09:59:47.475107",
+    "report_generated": false
   }
 ]
