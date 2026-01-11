@@ -28786,5 +28786,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_80ac99bb-7ae5-4059-b89c-243dfcc3d39c?mode=deep",
     "timestamp": "2026-01-11 11:52:56.612593",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: synchronise()] [Checkpoint vs Header Mismatch] After AddTrustedCheckpoint() at line 175, is there verification that the checkpoint matches the actual blockchain headers being synced? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0272f7bf-2933-4dc5-9d60-4f8e9d67b483?mode=deep",
+    "timestamp": "2026-01-11 11:54:38.359881",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: validateCheckpoint()] [Checkpoint Event Injection] Can an attacker inject fake checkpoint events in the logs returned by GetUntrustedBlockLogs() that match the expected format but point to attacker chain? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_24238b59-4c03-479c-bdcd-d319143e65a6?mode=deep",
+    "timestamp": "2026-01-11 11:54:51.189522",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: synchronise()] [Legacy Checkpoint Bypass] legacyCheckpointSync mode at line 147 skips validateCheckpoint() - can an attacker exploit this by manipulating conditions to force legacy mode with malicious hardcoded checkpoint? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_57662d1b-7abc-46ac-9784-e477f56e7717?mode=deep",
+    "timestamp": "2026-01-11 11:55:04.404789",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: synchronise()] [Checkpoint Rollback Attack] If an attacker can make local checkpoint's SectionIndex higher than peer's (line 119), can they force the client to ignore legitimate newer checkpoints and stay on old chain? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_75eca989-391d-4827-be99-036df2567ffa?mode=deep",
+    "timestamp": "2026-01-11 11:55:19.691691",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: synchronise()] [Early Return Cleanup] Multiple early returns at lines 94, 100, 173, 191 - are all cleanup operations (like callback notifications) properly handled in all exit paths? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c838f3e3-b460-4b43-b9c2-8a0ed3c7f29a?mode=deep",
+    "timestamp": "2026-01-11 11:55:34.438946",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: synchronise()] [Defer Error Handling] The defer at line 160 always calls syncEnd even if synchronisation failed - can this cause test code to incorrectly think sync succeeded when it actually failed? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4ca5c8dd-7345-4a5d-a662-32e12dfff821?mode=deep",
+    "timestamp": "2026-01-11 11:55:50.153532",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: synchronise()] [Silent Error Suppression] Lines 200-201 log downloader errors but don't propagate them - can critical sync failures be silently ignored, leaving the client in an invalid state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_28bc5243-30eb-4620-b44f-06c293caecaa?mode=deep",
+    "timestamp": "2026-01-11 11:56:07.533035",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: validateCheckpoint()] [Event Parsing Errors] If LookupCheckpointEvents() at line 70 returns malformed events with invalid Index, Hash, or signatures, can this cause panics or undefined behavior in subsequent processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_26e3b1bb-e989-4e35-9a9b-93c2203e726f?mode=deep",
+    "timestamp": "2026-01-11 11:56:26.725696",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: validateCheckpoint()] [Partial Error Recovery] If GetUntrustedBlockLogs() returns error at line 66, the function returns immediately - but does this leave any goroutines or contexts in an unclean state? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7da99e50-c18a-489a-8948-5e28fca4486f?mode=deep",
+    "timestamp": "2026-01-11 11:56:47.077252",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: synchronise()] [Callback DoS] If syncEnd or syncStart callbacks at lines 162 and 196 perform expensive operations, can malicious test code DoS the node through expensive callback operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ffddedec-a9e5-4fbd-9633-f281856ce99b?mode=deep",
+    "timestamp": "2026-01-11 11:57:09.738925",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: synchronise()] [Timeout Accumulation] Multiple timeout contexts (10s at line 56, 5s at line 186) - if many peers trigger these timeouts, can accumulated timeout goroutines cause resource exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_83475f23-fbf0-4031-926e-23bfd05ced6c?mode=deep",
+    "timestamp": "2026-01-11 11:57:32.334603",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: synchronise()] [Repeated Sync DoS] If validateCheckpoint() or SyncCheckpoint() repeatedly fails, causing peer removal at lines 172 and 190, can an attacker exhaust the peer pool by repeatedly triggering validation failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ad30f033-ac24-4402-bc6a-ca3c084b6733?mode=deep",
+    "timestamp": "2026-01-11 11:57:56.785541",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: validateCheckpoint()] [Log Processing DoS] GetUntrustedBlockLogs() at line 66 may process many logs - can an attacker create a checkpoint at a block with massive logs to cause processing DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_45a60ca3-c1d9-458d-8df3-a39afe51956a?mode=deep",
+    "timestamp": "2026-01-11 11:58:22.420698",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: validateCheckpoint()] [Computational DoS] The VerifySigners() call at line 82 processes all signatures - can an attacker provide many signatures (even duplicates) to cause expensive ECDSA verification operations that DoS the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_df2ee40d-aeb3-4fee-a3bc-e34a9f543328?mode=deep",
+    "timestamp": "2026-01-11 11:58:48.542679",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: validateCheckpoint()] [Memory Exhaustion] Lines 79-81 append all event signatures to a slice - can a malicious oracle/peer provide thousands of events causing memory exhaustion during signature array construction? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a33d6df4-3710-400e-bf7e-481c3324ef74?mode=deep",
+    "timestamp": "2026-01-11 11:59:15.299275",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: synchronise()] [Peer State Race] Between reading peer.Head() and peer.Td() at line 199 and their actual use in downloader, can the peer's state change, causing sync to use stale values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a4b5fc6b-f3fc-45af-bb0d-e907615b5378?mode=deep",
+    "timestamp": "2026-01-11 11:59:42.888299",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: validateCheckpoint()] [Concurrent Validation] If validateCheckpoint() is called concurrently for multiple peers, can race conditions in oracle.VerifySigners() or blockchain state cause incorrect validation results? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_57fbfb17-c584-4b45-8159-fe816ffac375?mode=deep",
+    "timestamp": "2026-01-11 12:00:12.384892",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: synchronise()] [Blockchain State Race] Between TD comparison at line 99 and actual sync start at line 199, can blockchain reorganization occur that invalidates the TD comparison decision? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_39118135-8928-474a-b553-9fae47848e9f?mode=deep",
+    "timestamp": "2026-01-11 12:00:39.983499",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: synchronise()] [Mode Variable Race] The mode variable is set across lines 138-157 based on multiple conditions - can concurrent state changes cause mode to be incorrect by the time it's used at line 167? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8816a5d3-97e1-4ab0-aa1a-43e084442a78?mode=deep",
+    "timestamp": "2026-01-11 12:01:07.067765",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: synchronise()] [Local Variable Race] The local variable at line 116 is set based on checkpoint comparisons - can concurrent modifications to h.checkpoint cause inconsistent local flag state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c838283a-57e2-45dd-8c71-93d9d7ca6cc7?mode=deep",
+    "timestamp": "2026-01-11 12:01:34.351660",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: synchronise()] [Checkpoint Variable Race] The checkpoint variable is modified at lines 120 and 125 without locking - can concurrent synchronise() calls cause one call to use another call's checkpoint? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5d045d99-fdd6-4cc0-bc18-3a5a4191d04f?mode=deep",
+    "timestamp": "2026-01-11 12:02:02.548311",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: synchronise()] [Concurrent Synchronise Calls] If synchronise() is called concurrently from multiple goroutines with different peers, can race conditions in blockchain.CurrentHeader(), AddTrustedCheckpoint(), or downloader.Synchronise() cause state corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_afa84974-f92b-499a-8ed7-76025a2b8d4a?mode=deep",
+    "timestamp": "2026-01-11 12:02:29.920832",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: validateCheckpoint()] [Header Nil Return] If RetrieveSingleHeaderByNumber() at line 61 returns nil header with nil error, calling GetUntrustedBlockLogs(ctx, h.backend.odr, header) at line 66 with nil header could panic. (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f66cd0fe-ac3e-4942-ab9e-5375461a9c0b?mode=deep",
+    "timestamp": "2026-01-11 12:02:57.461495",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: synchronise()] [Header Nil Pointer] latest variable from CurrentHeader() at line 97 - if this returns nil, accessing latest.Hash() and latest.Number at line 98 will panic. (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8fead787-af6b-4e9a-ba37-e95757d90be7?mode=deep",
+    "timestamp": "2026-01-11 12:03:24.514768",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: validateCheckpoint()] [Peer Nil Pointer] wrapPeer is created at line 60 with peer parameter - if peer is nil despite the check in synchronise(), can this cause panic in RetrieveSingleHeaderByNumber()? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_de4f5c06-a3b2-47dd-a803-2b169575e22c?mode=deep",
+    "timestamp": "2026-01-11 12:03:51.613330",
+    "report_generated": false
   }
 ]
