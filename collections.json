@@ -29098,5 +29098,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fb089e07-3b4d-4ab4-9968-5469576a9267?mode=deep",
     "timestamp": "2026-01-11 15:17:53.794432",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/format.go] [Function: PrettyAge.String()] [Integer Overflow] In the division operation at line 73 (diff/unit.Size), can extreme time.Time values cause integer overflow when computing age components, resulting in incorrect time displays that could mislead operators about validator uptime or block timing in consensus-critical contexts? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9cef5e76-5708-44bd-90e6-cf8b074c246a?mode=deep",
+    "timestamp": "2026-01-11 15:19:15.275285",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/format.go] [Function: PrettyAge.String()] [Integer Overflow] In the modulo operation at line 74 (diff %= unit.Size), can overflow conditions with maximum time.Duration values cause panics or incorrect remainder calculations, potentially affecting time-based logic if these utilities are misused in consensus code? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_25f306ca-fd9e-40fd-9584-7db0f9799c69?mode=deep",
+    "timestamp": "2026-01-11 15:19:27.786959",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/format.go] [Function: PrettyAge.String()] [Arithmetic Edge Case] When diff equals exactly unit.Size at line 72, can boundary conditions in the division and modulo operations produce unexpected results (e.g., division by zero, incorrect precision) affecting time calculations used in validator rotation timing displays? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_694b0b26-9e43-4dd2-be34-88ad04bbaa73?mode=deep",
+    "timestamp": "2026-01-11 15:19:41.983406",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/format.go] [Function: PrettyAge.String()] [Negative Duration] Does the time.Since() call at line 64 handle future timestamps correctly when time.Time(t) is in the future, or can negative durations cause unexpected behavior in the comparison at line 65 or arithmetic operations in the loop, potentially affecting timestamp validation displays? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0f2e99ea-4e79-4ef2-b5c8-4127892e5902?mode=deep",
+    "timestamp": "2026-01-11 15:19:55.781199",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/format.go] [Constant: ageUnits] [Integer Overflow] Can the hardcoded time unit multiplications at lines 51-57 (e.g., 12*30*24*time.Hour) overflow when time.Duration is at maximum value, causing incorrect unit.Size values that break age calculations used in displaying block timestamps or validator activity? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0e657baf-6194-4382-a33f-a0a70c2a0e56?mode=deep",
+    "timestamp": "2026-01-11 15:20:10.580173",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/format.go] [Function: PrettyDuration.String()] [Type Conversion] Can the type conversion from PrettyDuration to time.Duration at line 35 fail or produce unexpected results with extreme values near the type boundaries, causing panics or incorrect string representations in node telemetry or consensus logging? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_75540b0c-9309-4532-887c-ed1e22e2fd8c?mode=deep",
+    "timestamp": "2026-01-11 15:20:26.353140",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/format.go] [Function: PrettyAge.String()] [Type Conversion] Can the type conversion from PrettyAge to time.Time at line 64 fail with uninitialized or zero-value PrettyAge instances, causing panics or incorrect age calculations when displaying validator last-seen timestamps or block times? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bc9ab522-d7aa-48b0-9e4e-1b11e5aea8cc?mode=deep",
+    "timestamp": "2026-01-11 15:20:43.718564",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/format.go] [Function: PrettyDuration.String()] [Format String Injection] If the formatted output from lines 34-39 is used in security-sensitive contexts (e.g., logged to files, displayed in admin UIs, included in RPC responses), can malicious duration values inject control characters or escape sequences causing log injection or terminal manipulation attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_af7e3a2f-9e67-44d3-8c45-958466df559b?mode=deep",
+    "timestamp": "2026-01-11 15:21:03.044405",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/format.go] [Function: PrettyDuration.String()] [String Replacement Bug] In the strings.Replace call at line 37, the hardcoded replacement count of 1 could cause issues if multiple matches exist - can specially crafted duration values with multiple decimal patterns cause incomplete formatting, leading to misleading time displays in consensus monitoring dashboards? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4fdc1ccd-9594-40bd-9aba-a18909ec3b39?mode=deep",
+    "timestamp": "2026-01-11 15:21:23.329071",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/format.go] [Function: PrettyAge.String()] [String Concatenation] Can the repeated string concatenation in the loop at line 73 (result = fmt.Sprintf(...)) cause excessive memory allocations and CPU usage when processing very old timestamps with many time units, potentially affecting node performance during metrics collection? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3f39f632-fdc9-4e8f-8af7-92b4dad26f7d?mode=deep",
+    "timestamp": "2026-01-11 15:21:45.977696",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/format.go] [Global Variable: prettyDurationRe] [Regex Pattern] Is the regex pattern `\\.[0-9]{4,}` at line 30 vulnerable to edge cases where duration strings contain unexpected formats (e.g., scientific notation, very long digit sequences), causing FindString at line 36 to behave unexpectedly or consume excessive CPU? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_95b6c6e4-0d76-4724-8ffd-9d6bd1dc215b?mode=deep",
+    "timestamp": "2026-01-11 15:22:08.992800",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/format.go] [Function: PrettyDuration.String()] [Regex Matching] Can the len(match) > 4 check at line 36 fail to handle all edge cases of the regex match result, allowing improperly truncated decimal values to pass through, potentially causing confusion in time-sensitive validator coordination displays? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2afed6f8-981f-451d-a3ee-eec5c22203e0?mode=deep",
+    "timestamp": "2026-01-11 15:22:32.925127",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/format.go] [Function: PrettyDuration.String()] [Slice Bounds] In the match[:4] substring operation at line 37, can the len(match) > 4 condition at line 36 fail to prevent slice out-of-bounds panics if the regex match returns unexpected results, causing node crashes during duration formatting? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4703ddf8-370b-4891-a5af-f162b073053b?mode=deep",
+    "timestamp": "2026-01-11 15:22:57.373502",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/format.go] [Global Variable: prettyDurationRe] [Concurrent Compilation] Is the regexp.MustCompile at line 30 executed at package initialization safe from race conditions if multiple goroutines import this package simultaneously during node startup, or can concurrent initialization cause panics affecting node boot? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_746719d5-a271-4eaf-a5a9-7aea5592fb33?mode=deep",
+    "timestamp": "2026-01-11 15:23:20.266474",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/format.go] [Global Variable: ageUnits] [Concurrent Read] Is the global ageUnits slice at lines 47-58 safe for concurrent reads when multiple goroutines call PrettyAge.String() simultaneously, or can slice header corruption occur leading to panics during parallel timestamp formatting in block processing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cc017316-dc0b-4a60-9494-40d0f74af97e?mode=deep",
+    "timestamp": "2026-01-11 15:23:41.956499",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/format.go] [Function: PrettyAge.String()] [Race Condition] If PrettyAge.String() is called concurrently from multiple goroutines processing blocks in parallel, can race conditions in the loop iterations at lines 71-80 cause data races in local variables (result, prec, diff) affecting deterministic behavior? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_603f275f-ff6c-4de7-b24c-b19b91a68811?mode=deep",
+    "timestamp": "2026-01-11 15:24:03.259320",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/format.go] [Function: PrettyDuration.String()] [Panic Condition] Can time.Duration.String() at line 35 panic with extreme duration values (e.g., maximum int64), causing uncaught panics that crash validator nodes during metrics collection or RPC response formatting? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_01b6b13e-6c05-4c8e-9f6e-cc8a3c5689c8?mode=deep",
+    "timestamp": "2026-01-11 15:24:25.264757",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/format.go] [Function: PrettyAge.String()] [Panic Condition] Can time.Since() at line 64 panic with uninitialized or corrupted time.Time values, causing node crashes when formatting timestamps for block headers or validator activity logs? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_da08b0bc-2649-4def-92cd-6ead81a54fb0?mode=deep",
+    "timestamp": "2026-01-11 15:24:46.347224",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/format.go] [Function: PrettyAge.String()] [Panic Condition] Can the fmt.Sprintf call at line 73 panic with nil or malformed format arguments, causing validator node crashes during age calculation in consensus monitoring? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eb44508b-7312-4fcb-b8cb-ecfc8698ec9a?mode=deep",
+    "timestamp": "2026-01-11 15:25:08.751094",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/format.go] [Global Variable: prettyDurationRe] [Panic on Init] Can regexp.MustCompile at line 30 panic if the regex pattern is invalid, causing all nodes to fail at startup and creating a network-wide DoS if this code is included in critical initialization paths? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b8910817-0e51-4f0d-adf1-644673096ac3?mode=deep",
+    "timestamp": "2026-01-11 15:25:30.609333",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/format.go] [Function: PrettyAge.String()] [Zero Value Edge Case] When time.Time(t) is zero at line 64, does the time.Since calculation produce expected results or can it cause integer underflow in diff calculations affecting the comparison at line 65 and subsequent loop iterations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ad3f5d4a-f801-4fac-8032-62ec60a30514?mode=deep",
+    "timestamp": "2026-01-11 15:25:49.623708",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/format.go] [Function: PrettyAge.String()] [Negative Time Edge Case] If time.Time(t) represents a future timestamp at line 64, resulting in negative diff, can the comparison diff < time.Second at line 65 incorrectly return \\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_30f33709-923e-4d2e-b46b-7de66df8f3ad?mode=deep",
+    "timestamp": "2026-01-11 15:26:09.142998",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/format.go] [Function: PrettyAge.String()] [Maximum Duration] Can maximum time.Duration values cause the loop at lines 71-80 to iterate excessively when all time units are applicable, consuming CPU and potentially delaying time-sensitive operations in block validation or transaction processing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f828ac45-034a-494b-837a-d9daa2bf0db9?mode=deep",
+    "timestamp": "2026-01-11 15:26:31.014839",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/format.go] [Function: PrettyDuration.String()] [Empty String Edge Case] Can time.Duration.String() at line 35 return an empty string for certain edge case durations, causing the regex operations at lines 36-37 to behave unexpectedly or produce misleading outputs in consensus monitoring? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d8453186-4c56-486e-9dcf-38990f7a29cb?mode=deep",
+    "timestamp": "2026-01-11 15:26:54.588373",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/format.go] [Function: PrettyAge.String()] [Precision Limit] Does the hardcoded precision limit of 3 at line 76 always produce sufficient accuracy for blockchain timing requirements, or can truncation of time units cause operators to misinterpret validator timing in consensus-critical scenarios? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d3acccc4-1acf-49e2-a672-431d012c9504?mode=deep",
+    "timestamp": "2026-01-11 15:27:17.242643",
+    "report_generated": false
   }
 ]
