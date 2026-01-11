@@ -31048,5 +31048,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e9a7c99f-2aab-422f-9bd0-6397ef0eb453?mode=deep",
     "timestamp": "2026-01-11 17:30:07.733814",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: Add()] [Lock Duration] The lock is held during potentially expensive operations: Contains() check, RemoveOldest() loop, BasicLRU.Add(). Can long lock hold times during complex operations starve other goroutines needing cache access, causing latency spikes in block processing or transaction validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_200f7a1e-ed12-45fb-90e9-79cca9ce6880?mode=deep",
+    "timestamp": "2026-01-11 17:31:24.631611",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [API: Missing Remove] There's no Remove() method exposed. If blockchain code needs to invalidate cache entries (e.g., after reorg, invalid block), they cannot. Can inability to purge specific entries cause stale data to persist in cache until naturally evicted, leading to extended periods of inconsistent cached state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5ef8faec-88b9-4d2b-a596-1dd759e06239?mode=deep",
+    "timestamp": "2026-01-11 17:31:37.690128",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [API: Missing Purge] There's no Purge() or Clear() method to empty the cache. During chain reorgs or upgrades requiring cache invalidation, is there a way to clear cache? Can lack of purge capability cause upgrade complications or force node restarts? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_98c7aff6-ce2d-45f8-94fa-9ed32d4d7214?mode=deep",
+    "timestamp": "2026-01-11 17:31:50.912861",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [API: Missing Size] There's no method to query current cache size (c.size). For monitoring and debugging, can inability to inspect cache metrics prevent detection of cache size accounting bugs or memory leaks until node crashes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cec5b48d-2bd9-4254-8f78-af6f10eeff97?mode=deep",
+    "timestamp": "2026-01-11 17:32:05.416465",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [API: Missing Keys] There's no Keys() method to list cached keys (BasicLRU has one). For debugging consensus issues where cached data may differ across validators, can inability to inspect cached keys prevent identification of cache inconsistencies causing validator divergence? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_71bcf7c3-e2d5-47aa-84b2-36049b9f8b00?mode=deep",
+    "timestamp": "2026-01-11 17:32:20.356902",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [API: Missing Contains] There's no public Contains() method (only internal use at line 61). Callers must use Get() which modifies LRU order. Can this force unnecessary LRU reordering when callers only want to check existence, degrading cache efficiency? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2d69e7f8-c02b-494f-abd7-e0bbf830acf5?mode=deep",
+    "timestamp": "2026-01-11 17:32:36.542944",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: NewSizeConstrainedCache()] [No Validation] maxSize parameter has no validation. Can passing 0, negative (as uint64 wraps), or extremely large values cause unexpected behavior? Should there be minimum/maximum limits enforced? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_12673adc-13bf-4f36-bef1-895e52ef025f?mode=deep",
+    "timestamp": "2026-01-11 17:32:53.418680",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: NewSizeConstrainedCache()] [Zero Value Invalid] Comment in basiclru.go:23 states 'zero value is not valid' for BasicLRU. If SizeConstrainedCache is accidentally used without calling NewSizeConstrainedCache() (zero value), can this cause panics when accessing nil BasicLRU.items map? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a0732e51-ccb1-4706-a090-977a1371fb45?mode=deep",
+    "timestamp": "2026-01-11 17:33:12.972934",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: NewSizeConstrainedCache()] [Math.MaxInt Capacity] BasicLRU capacity is set to math.MaxInt (line 47). Is this appropriate for all use cases? Can this allow pathological cases where billions of tiny items are cached within maxSize bytes, causing map overhead to exceed expected memory usage? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8b326fd7-4c41-41aa-bf20-a4375f47411b?mode=deep",
+    "timestamp": "2026-01-11 17:33:33.619426",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: NewSizeConstrainedCache()] [Return Pointer] Function returns *SizeConstrainedCache. If callers copy this struct by value (dereferencing pointer), they get separate lock instances but share the same BasicLRU, causing race conditions. Is this a risk in practice? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_defbffba-6b7f-4806-9c68-da8c93e279d6?mode=deep",
+    "timestamp": "2026-01-11 17:33:55.237450",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Type: blobType] [Type Constraint Limitation] blobType allows ~[]byte | ~string but not other types. If blockchain code needs to cache other serializable types (e.g., RLP-encoded structs), they must wrap in []byte. Can this cause unnecessary allocations and GC pressure during high-throughput blockchain operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dba2522a-4a24-43d0-a8ae-8c8db9320e97?mode=deep",
+    "timestamp": "2026-01-11 17:34:18.371317",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Type: K comparable] [Key Type Safety] K is only constrained to 'comparable', allowing any comparable type. Can using inappropriate key types (e.g., floats with NaN, which don't equal themselves) cause cache lookup failures or unexpected behavior leading to cache misses and performance degradation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ed58d909-fed0-45d8-aa49-f6f4d149107f?mode=deep",
+    "timestamp": "2026-01-11 17:34:42.972560",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Type: V blobType] [String Conversion] When V is string, len(value) counts UTF-8 bytes not runes. For international/Unicode content, is byte-based size accounting appropriate? Can this cause unexpected eviction behavior if callers expect character-based sizing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0ae7866c-63a1-40bc-bbb0-3fbcb1f5daff?mode=deep",
+    "timestamp": "2026-01-11 17:35:07.999001",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Generic Instantiation] Each instantiation of SizeConstrainedCache[K,V] creates separate code. In a large codebase with many cache types, can this cause code bloat increasing binary size and instruction cache pressure affecting overall node performance? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f30ffa2e-acb1-4da6-a203-5ad3d19e47c5?mode=deep",
+    "timestamp": "2026-01-11 17:35:34.752200",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Testing: Concurrent Access] The cache is explicitly thread-safe with mutex, but are there tests verifying correctness under high concurrent load? Can race conditions exist that only manifest under specific timing conditions during production validator workloads? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8da7b873-2697-44c3-b0e5-2520e3fc7dff?mode=deep",
+    "timestamp": "2026-01-11 17:36:00.882202",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Testing: Size Accounting] Is c.size tracking verified to match actual cache size in tests? Can size accounting bugs accumulate silently over long node operation periods until they cause catastrophic failures during high-load events? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e3a6b3e8-f4d9-40d4-8c16-6e583864bece?mode=deep",
+    "timestamp": "2026-01-11 17:36:28.853380",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Observability: Metrics] There are no exported metrics (cache hits, misses, evictions, size). Can lack of observability prevent detecting cache inefficiency, attacks, or bugs in production until they cause service degradation or failures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bc22d33d-5dc7-4d61-8011-e7b7ec19b023?mode=deep",
+    "timestamp": "2026-01-11 17:36:56.597632",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Testing: Overflow Conditions] Are integer overflow scenarios tested? Can overflow bugs exist that only trigger with extreme values unlikely in testing but possible in production after months of operation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4800497d-c65e-4a82-8873-0ae26b8c0589?mode=deep",
+    "timestamp": "2026-01-11 17:37:26.126965",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Usage: Core Components] If this cache is used by critical components (consensus, state, txpool), can cache bugs cause cascading failures? Should critical paths have cache fallback to disk/network to prevent single cache bug from bringing down node? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ef98edd5-ba4c-4212-9360-ae0c57410209?mode=deep",
+    "timestamp": "2026-01-11 17:37:54.562365",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Usage: Validator Critical Path] If validators use this cache for time-critical operations (block production, validation), can cache lock contention or eviction delays cause validators to miss their block slots, reducing network liveness and validator rewards? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b830f50d-e270-4ee9-a240-bd26c6796596?mode=deep",
+    "timestamp": "2026-01-11 17:38:23.195812",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Usage: State Sync] If this cache is used during state sync, can adversarial peers provide malicious data that fills cache with junk, evicting legitimate state data and forcing repeated re-downloads, enabling DoS attacks on syncing nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_77429d51-8dc2-46f7-afcf-1e2f7ea2718b?mode=deep",
+    "timestamp": "2026-01-11 17:38:47.444033",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Usage: Multiple Caches] If node instantiates many cache instances (per-peer, per-component), can total memory usage exceed expectations? Should there be global memory limits across all cache instances to prevent OOM? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_decc0735-c9e6-43a8-9708-58f847e2b3d0?mode=deep",
+    "timestamp": "2026-01-11 17:39:13.255914",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: Add()] [Slice Capacity] For []byte values, len() returns slice length but slice may have larger capacity. Size accounting uses len() (lines 62, 70), but actual memory usage includes capacity. Can this cause actual memory usage to significantly exceed maxSize limits? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9af46381-72a9-4040-9545-5ceecb9dbbe4?mode=deep",
+    "timestamp": "2026-01-11 17:39:36.125870",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: Get()] [Value Escape Analysis] Get() returns cached values which may escape to heap. Can frequent Get() calls cause GC pressure? Should values be copied on return to allow original to be collected if evicted? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5002a949-a0d5-485e-99e6-ce5b30d632d5?mode=deep",
+    "timestamp": "2026-01-11 17:39:59.527118",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Type: map] [Map Growth] BasicLRU uses map[K]cacheItem which grows but never shrinks in Go. Can long-running nodes with fluctuating cache usage accumulate large map capacities wasting memory even when cache is mostly empty? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d61d4427-50b6-4080-8a54-3d3b07abb44d?mode=deep",
+    "timestamp": "2026-01-11 17:40:23.130768",
+    "report_generated": false
   }
 ]
