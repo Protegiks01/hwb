@@ -33148,5 +33148,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_26c471f2-2845-4601-af7d-9b0642f8da2c?mode=deep",
     "timestamp": "2026-01-11 19:52:35.751917",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [SafeAdd/SafeSub/SafeMul] [Concurrent arithmetic] If safe arithmetic functions are called on shared uint64 variables without atomic operations or locks, can race conditions cause lost updates where one goroutine's calculation overwrites another's, leading to incorrect balance or gas tracking? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5c1a9bac-d44f-4032-88dc-fd6211131777?mode=deep",
+    "timestamp": "2026-01-11 19:53:47.650397",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [HexOrDecimal64] [Concurrent unmarshal] If multiple goroutines call UnmarshalJSON/UnmarshalText on the same HexOrDecimal64 receiver pointer, can concurrent writes to *i at line 61 cause data races where partial uint64 values are written, corrupting critical numeric parameters? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5e01ecd1-5ffc-4f27-879e-b695cde0b495?mode=deep",
+    "timestamp": "2026-01-11 19:54:00.679819",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Constants] [Concurrent const access] While constants are read-only, if code incorrectly treats them as variables and attempts to modify them in concurrent contexts, can this cause compilation issues or runtime panics that mask real concurrency bugs in arithmetic operations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ae29f874-d8c0-4dfb-896a-bf0c21e27db0?mode=deep",
+    "timestamp": "2026-01-11 19:54:14.528337",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [ParseUint64 in genesis] [Genesis block corruption] If ParseUint64 is used to parse genesis.json parameters (chainID, initial balances, gas limit) and returns success for malformed values, can an attacker craft genesis files that cause nodes to initialize with different chain states, forking the network from block 0? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7047c1b3-d835-437c-853b-af9ac446fd65?mode=deep",
+    "timestamp": "2026-01-11 19:54:28.312246",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [SafeAdd in balance transfers] [Balance manipulation] If SafeAdd is used in balance transfer logic (recipient.balance += amount) but overflow checking is ignored, can an attacker repeatedly deposit MaxUint64 to wrap balances to zero, then withdraw to steal funds from the wrapped-around negative balance? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0db2ea35-1134-40e3-93e3-7cb9bba2e067?mode=deep",
+    "timestamp": "2026-01-11 19:54:43.342295",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [SafeMul in gas calculations] [Free transactions] If SafeMul calculates transaction cost (gasPrice * gasUsed) but overflow is unchecked, can an attacker use MaxUint64 gasPrice to cause overflow, resulting in wrapped-around near-zero cost, executing expensive operations for free and causing state bloat? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a9766e4a-d096-4882-9810-a1d1bcab79f5?mode=deep",
+    "timestamp": "2026-01-11 19:54:59.837193",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [SafeSub in validator voting] [Vote manipulation] If SafeSub is used in validator vote counting (total_votes -= removed_votes) and underflow isn't validated, can an attacker cause vote counts to wrap to MaxUint64, manipulating validator set changes to add unauthorized validators or remove honest ones? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1575636f-9227-4657-a986-c4e3078e8662?mode=deep",
+    "timestamp": "2026-01-11 19:55:17.175810",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [MustParseUint64 in protocol params] [Network fork] If MustParseUint64 parses protocol parameters from config files and panics on invalid values, can an attacker inject invalid configs that cause validator nodes to crash during network upgrades, splitting the network between upgraded and non-upgraded nodes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f51f6168-929c-4f36-b90d-ed959334c7fe?mode=deep",
+    "timestamp": "2026-01-11 19:55:35.821265",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [UnmarshalJSON in RPC] [RPC DoS] If UnmarshalJSON is used to parse RPC request parameters and can panic on malformed input, can an attacker flood RPC endpoints with invalid JSON causing repeated crashes, degrading node availability and preventing legitimate users from interacting with the blockchain? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_525ab340-e4a9-44dd-a2d7-95fbb0130edb?mode=deep",
+    "timestamp": "2026-01-11 19:55:57.263974",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [ParseUint64] [Maximum value parsing] When parsing '0xFFFFFFFFFFFFFFFF' (MaxUint64), does strconv.ParseUint correctly handle this boundary without overflow, or can subtle implementation differences cause some nodes to parse it as 0 while others parse correctly, leading to consensus failure? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_165f8a82-9b4a-430c-a829-a897776d1099?mode=deep",
+    "timestamp": "2026-01-11 19:56:19.299092",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [SafeAdd] [Symmetric overflow] If SafeAdd(MaxUint64, MaxUint64) is called, the result wraps to MaxUint64-1 with overflow flag set - but can calling code misinterpret this as 'nearly max' value and use it in subsequent operations, amplifying the original overflow error? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_17f113e3-8f1e-430f-8168-15c7ed71016d?mode=deep",
+    "timestamp": "2026-01-11 19:56:42.974228",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [SafeSub] [Zero result ambiguity] SafeSub(x, x) returns (0, false) validly, same as SafeSub(0, 0) - but if calling code uses zero as a sentinel value indicating error, can legitimate zero results from equal value subtractions be misinterpreted as failures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a0d4e743-f597-44e0-aa76-e70bf815c055?mode=deep",
+    "timestamp": "2026-01-11 19:57:07.112900",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [SafeMul] [Squaring max values] If SafeMul(MaxUint32, MaxUint32) is called expecting uint64 result, the multiplication overflows - can code that assumes 32-bit multiplication fits in 64-bit result space ignore overflow checks, causing incorrect calculations in storage costs or reward distributions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6154ca31-adce-4330-a6af-122b6ab4560d?mode=deep",
+    "timestamp": "2026-01-11 19:57:31.828257",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [HexOrDecimal64] [Type alias confusion] HexOrDecimal64 at line 42 is defined as type alias for uint64 - can code that expects distinct types bypass validation by directly constructing uint64 values and casting to HexOrDecimal64, skipping the UnmarshalJSON/UnmarshalText validation logic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a4b09246-fb7e-42da-8abb-84e0753ec745?mode=deep",
+    "timestamp": "2026-01-11 19:57:57.777027",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Constant types] [Type inference issues] The constants at lines 26-39 use untyped expressions (1<<N - 1) - if calling code mixes these with typed uint64 or int64 variables, can implicit type conversions cause unexpected overflow behavior or sign extension when negative values are involved? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_437db201-414e-4408-8193-d07bb2ae3142?mode=deep",
+    "timestamp": "2026-01-11 19:58:22.989200",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [ParseUint64] [Silent failure handling] The function returns (value, bool) but if calling code only checks the value and ignores the bool (e.g., 'val, _ := ParseUint64(s)'), can parse failures result in zero being used for critical values like chainID, causing wrong-chain transaction acceptance? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_24803fa0-88f0-4dc1-84cd-f5b8c0963175?mode=deep",
+    "timestamp": "2026-01-11 19:58:49.075945",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Safe arithmetic functions] [Ignored overflow flags] All three safe arithmetic functions return (result, overflow_bool) - but if any calling code ignores the bool return value, can overflowed results be used in critical calculations for balances, gas, stakes, or votes, breaking consensus and economic security? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6ffd0269-fde5-4880-92aa-dfc335afd1fc?mode=deep",
+    "timestamp": "2026-01-11 19:59:14.003487",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [UnmarshalJSON] [Error propagation] The function returns an error from UnmarshalText at line 52 - but if calling code in JSON unmarshaling paths ignores these errors (e.g., using json:\\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0480709b-0898-4f14-af5b-994ff05f03ca?mode=deep",
+    "timestamp": "2026-01-11 19:59:39.058079",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [MustParseUint64] [Panic recovery gaps] The panic at line 88 can be recovered with defer/recover - but if recovery code doesn't properly handle the error and continues with zero value, can recovered panics silently introduce zero values in critical paths that should have failed loudly? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0c3c953c-1b74-4457-b514-a57ae4496695?mode=deep",
+    "timestamp": "2026-01-11 20:00:04.137796",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [ParseUint64] [Control character injection] The function doesn't sanitize control characters - can an attacker inject null bytes, newlines, or other control characters in numeric strings (e.g., '123\\\\x00456') that cause parsing to stop early, resulting in different values than expected? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_204e48b9-0407-4ebd-bfcf-71df95cc5d78?mode=deep",
+    "timestamp": "2026-01-11 20:00:30.639682",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [UnmarshalJSON] [JSON injection] The quote-stripping logic at lines 49-51 doesn't validate JSON structure - can an attacker inject JSON fragments like '{\\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_da2fa3f2-71b2-4431-9b4e-3c28230a7d65?mode=deep",
+    "timestamp": "2026-01-11 20:00:55.004128",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [All parsing functions] [Locale-dependent behavior] If the underlying strconv.ParseUint implementation has locale-dependent behavior for number separators (e.g., commas in some locales), can different node locales parse '1,000' differently (as 1 with parse error, or as 1000), causing consensus failures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2fb30709-a0b2-4d23-ab9b-038ecfd3e42c?mode=deep",
+    "timestamp": "2026-01-11 20:01:20.675796",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [SafeAdd in state accumulation] [Account state corruption] If SafeAdd accumulates state changes (balance updates, nonce increments, storage size) across multiple operations and any overflow is unchecked, can the accumulated state wrap around, resulting in corrupt account state that breaks merkle proofs and state root validation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bf4f31c9-ee52-4212-ba1b-c3a34af06d64?mode=deep",
+    "timestamp": "2026-01-11 20:01:45.986547",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [SafeSub in state reversions] [Revert corruption] If SafeSub is used during transaction reversion to restore previous state (current_state -= applied_changes) and underflow occurs unchecked, can failed revert operations leave state in inconsistent condition, breaking atomicity guarantees? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_974f7f4c-8a56-4753-96da-8bdb7de49c3f?mode=deep",
+    "timestamp": "2026-01-11 20:02:12.942735",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [SafeMul in storage pricing] [State bloat] If SafeMul calculates storage costs with overflow unchecked, can wrapped-around costs allow attackers to allocate massive storage for near-zero fees, causing state database bloat that degrades node performance and increases sync times? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d4d7a0f5-c7ab-445a-af89-e697431f5beb?mode=deep",
+    "timestamp": "2026-01-11 20:02:38.637622",
+    "report_generated": false
   }
 ]
