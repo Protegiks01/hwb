@@ -28186,5 +28186,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d2194d12-c2a0-48ac-8bad-268e738fd3ac?mode=deep",
     "timestamp": "2026-01-11 11:10:14.343267",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Peer type confusion] If the peer system allows non-serverPeer types to be passed as distPeer, can the unchecked type assertions at lines 124, 128, 131 cause runtime panics bringing down the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a50f849a-118b-47e1-b7a2-968106a3a79a?mode=deep",
+    "timestamp": "2026-01-11 11:11:36.774650",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Type assertion panic] At lines 124, 128, 131, distPeer is cast to *serverPeer without checking if the cast succeeds. Can invalid peer types cause panic during type assertion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8c6b4d27-9ffa-4144-a0aa-39556a77babb?mode=deep",
+    "timestamp": "2026-01-11 11:11:49.760623",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: NewHead()] [Missing error handling] NewHead() doesn't return errors. If sending rollback transactions fails at line 167, how is this failure handled? Can it lead to transactions stuck in txPending forever? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0c38ec7c-85e3-461e-bee6-49aebfa85830?mode=deep",
+    "timestamp": "2026-01-11 11:12:03.333482",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: Send()] [No return value] Send() at line 141 has no return value to indicate success/failure. Can callers detect if transactions were actually relayed or if relay failed due to no peers, encoding errors, or other issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7ba66b44-26ab-4235-a5a8-9f500ca70d5c?mode=deep",
+    "timestamp": "2026-01-11 11:12:17.155011",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Silent failures] Throughout send(), there's no error return value. If transaction sending fails (RLP encoding, peer disconnection, etc.), how are these failures communicated to callers? Can silent failures cause transactions to appear sent when they weren't? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ffeb6ac4-750a-4c7c-b064-ac5df04626cb?mode=deep",
+    "timestamp": "2026-01-11 11:12:31.703094",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Last peer preference] Due to the rotation mechanism, is there a bias where peers added to the end of peerList are more likely to be selected first in subsequent send() calls, creating unfair distribution? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_56ec54e5-b873-48f5-9910-5fd34b3cc25d?mode=deep",
+    "timestamp": "2026-01-11 11:12:47.718583",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Position reset race] When peerStartPos is reset to 0 at line 85, can concurrent send() calls cause some peers to be selected multiple times while others are skipped in the same round? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2a33cdc6-546d-47c8-90c2-9bf44ab785fa?mode=deep",
+    "timestamp": "2026-01-11 11:13:05.505351",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Peer starvation] The round-robin peer selection starting from peerStartPos - can certain peers be starved of transactions if the rotation doesn't distribute fairly, especially if peers are frequently added/removed? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7805c0f8-9fd2-4080-886d-2a28d0a933b2?mode=deep",
+    "timestamp": "2026-01-11 11:13:24.565432",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [ReqID exhaustion] Over long periods, can reqID space be exhausted if rand.Uint64() is not properly seeded or if many requests are made, leading to collisions with old unprocessed requests? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_532b4548-bbb2-46d7-a4e1-868f960578f0?mode=deep",
+    "timestamp": "2026-01-11 11:13:44.680380",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [ReqID collision] If multiple send() calls execute concurrently, can rand.Uint64() at line 121 produce duplicate reqIDs causing request/response mismatching or accounting errors in flow control? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_849327eb-14a7-42bb-9e0c-55b29b4a2449?mode=deep",
+    "timestamp": "2026-01-11 11:14:08.237473",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Weak randomness] At line 121, rand.Uint64() is used for reqID. Is this using a cryptographically secure RNG, or can predictable reqIDs be exploited for request tracking, correlation attacks, or replay? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4ca7aedf-996a-417b-83b5-7d04f3bc8cda?mode=deep",
+    "timestamp": "2026-01-11 11:14:30.874901",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Slice iteration] The iteration over txs at line 88 - if txs slice contains nil transactions due to errors elsewhere, can this cause nil pointer dereference when calling tx.Hash() at line 89? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c0558516-6c58-45c3-a956-ddaf5c6e6a9e?mode=deep",
+    "timestamp": "2026-01-11 11:14:55.297309",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: unregisterPeer()] [Slice memory leak] When removing peers at line 73, the old peerList slice is not explicitly cleared. Can this cause the removed peer to remain referenced by the old slice backing array, preventing garbage collection? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3c805367-bf26-42c4-a367-fc640484d0ce?mode=deep",
+    "timestamp": "2026-01-11 11:15:20.264856",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: NewHead()] [Slice preallocation] At line 161, txs slice is preallocated to len(txPending). If the loop doesn't fill all positions (due to missing entries in txSent), can this leave nil transactions in the slice causing panics? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8efeda6f-beac-4e5b-a88f-2d6e7c0c9fb7?mode=deep",
+    "timestamp": "2026-01-11 11:15:46.502344",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Count overflow] If count parameter is larger than len(peerList), the loop still processes correctly, but is there any upper bound check to prevent passing extremely large count values that could affect performance? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0b2b5d5d-a976-45eb-87e6-6bc8457d8404?mode=deep",
+    "timestamp": "2026-01-11 11:16:14.094890",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Count validation] The count parameter at line 80 is not validated. Can passing count=0 cause the loop at lines 98-112 to never execute, resulting in transactions being added to txSent/txPending but never actually sent? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f7af4d8d-5524-4f7b-9abe-98b2dfca0569?mode=deep",
+    "timestamp": "2026-01-11 11:16:42.136657",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: NewHead()] [Hardcoded count] NewHead() uses count=1 at line 167 for rollback transaction resends. Why send to only 1 peer during reorg recovery? Can this cause poor propagation of recovered transactions during network splits? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1f3b4d13-08c1-480a-90d6-009c39f212ee?mode=deep",
+    "timestamp": "2026-01-11 11:17:08.825587",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: Send()] [Hardcoded count] Send() hardcodes count=3 at line 145. Can this be exploited where an attacker knows transactions will be sent to exactly 3 peers, allowing them to control transaction propagation by targeting those specific peers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0bf96dea-0c71-4579-8267-8a1f64ec72c1?mode=deep",
+    "timestamp": "2026-01-11 11:17:35.069247",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: Stop()] [Partial cleanup] Does Stop() wait for in-flight goroutines to complete, or does it just signal and return immediately? Can this leave goroutines running with invalid state after relay is stopped? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ea1aa693-0f51-48d7-8cf2-99ea0ff221d1?mode=deep",
+    "timestamp": "2026-01-11 11:18:05.372519",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: newLesTxRelay()] [Channel buffer] The stop channel at line 45 is unbuffered. Can this cause blocking issues if multiple goroutines try to read from it simultaneously when Stop() is called? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2dfe66df-5bbd-465d-bf82-62e62d02744d?mode=deep",
+    "timestamp": "2026-01-11 11:18:32.749588",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: newLesTxRelay()] [Nil peer set] If ps parameter is nil at line 40, the subscribe call at line 47 will panic. Is there validation that ps is non-nil before subscription? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_76bd9f7b-0b53-43ce-bf4e-6307100c9842?mode=deep",
+    "timestamp": "2026-01-11 11:19:01.509508",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: newLesTxRelay()] [Nil retriever] If newLesTxRelay() is called with nil retriever parameter at line 40, can this cause nil pointer dereference when retriever.retrieve() is called at line 137, crashing the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_22108d85-3bee-468e-a7a0-4b3ad8abb70b?mode=deep",
+    "timestamp": "2026-01-11 11:19:30.235906",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Struct: lesTxRelay] [Map key collision] Transaction hashes are used as map keys. While hash collisions are unlikely with proper hashing, are there any protections if two different transactions produce the same hash due to implementation bugs? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6411ce92-6473-472a-ae8d-b9005ba2a43a?mode=deep",
+    "timestamp": "2026-01-11 11:19:59.316277",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: NewHead()] [Map iteration during modification] At lines 163-166, txPending is iterated while being modified. While under lock, can the iteration order be non-deterministic causing different transaction ordering across nodes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f4c682ca-47b4-4b6e-8e06-04eb0fe9fe44?mode=deep",
+    "timestamp": "2026-01-11 11:20:26.193300",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/txrelay.go] [Function: send()] [Map access pattern] At line 100, transactions are appended to sendTo[peer]. Can rapid appends cause slice reallocation and copying overhead? Should this use pre-allocated slices based on transaction count? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e67a8f8f-57dc-41fe-b104-77ffd4755ceb?mode=deep",
+    "timestamp": "2026-01-11 11:20:52.164703",
+    "report_generated": false
   }
 ]
