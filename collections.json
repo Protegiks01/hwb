@@ -22798,5 +22798,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e991cd08-a3da-42aa-9c19-8359c9c94115?mode=deep",
     "timestamp": "2026-01-11 03:45:53.418856",
     "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/dbcmd.go] [Function: importLDBdata()] [Race condition] The interrupt handler (lines 583-588) uses channels - can race conditions between signal and close(stop) cause goroutine leaks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_94c3a9e8-ad5b-4528-b997-15fd23269917?mode=deep",
+    "timestamp": "2026-01-11 03:47:21.351920",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/dbcmd.go] [Function: importLDBdata()] [File validation] Is there validation that the import file contains properly formatted data before beginning import, or is validation done during import? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2fa4a080-cd60-41a7-9fe9-2307b7820257?mode=deep",
+    "timestamp": "2026-01-11 03:47:34.249808",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/dbcmd.go] [Function: importLDBdata()] [Partial import] If import is interrupted, is the database left in a consistent state, or does partial import corrupt existing data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_25c5774c-b55d-465e-a747-3adf69b60072?mode=deep",
+    "timestamp": "2026-01-11 03:47:47.642384",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/dbcmd.go] [Function: importLDBdata()] [Signal handling] Does signal.Stop and close(interrupt) (lines 581-582) properly cleanup signal handlers to prevent signal delivery to wrong handlers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9050b994-f813-4c07-863a-fd4380227fbc?mode=deep",
+    "timestamp": "2026-01-11 03:48:02.422954",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/dbcmd.go] [Struct: preimageIterator] [Memory leak] If Release() is not called, does the underlying iter leak database cursors and memory? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_445fb06c-5eed-474f-99f2-8000ec1d9882?mode=deep",
+    "timestamp": "2026-01-11 03:48:17.480745",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/dbcmd.go] [Function: preimageIterator.Next()] [Buffer overflow] The key length check (line 600) assumes HashLength - can malformed keys cause slice access panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fa5fc738-bfcf-4d8a-803e-e7c3a081c201?mode=deep",
+    "timestamp": "2026-01-11 03:48:34.013440",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/dbcmd.go] [Function: preimageIterator.Next()] [Information disclosure] Can iterating all preimages expose hash preimages that should remain secret for security? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fcde3d9f-d37c-4659-b90c-49f3e3e352bf?mode=deep",
+    "timestamp": "2026-01-11 03:48:51.488738",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/dbcmd.go] [Struct: snapshotIterator] [State corruption] Can deleting SnapshotRootKey (line 620) during export cause snapshot inconsistency when reimported? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4ee46e12-5a09-474b-8d3f-3d57b67c84d0?mode=deep",
+    "timestamp": "2026-01-11 03:49:10.612938",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/dbcmd.go] [Function: snapshotIterator.Next()] [Memory leak] Managing two iterators (account, storage) - can failure to release both cause resource leaks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_22208da9-423a-45b8-8fec-60be75a3a507?mode=deep",
+    "timestamp": "2026-01-11 03:49:29.973142",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/dbcmd.go] [Function: snapshotIterator.Next()] [Length validation] Are key length checks (lines 624, 630) sufficient to prevent buffer overflows from malformed snapshot keys? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a77b5ea7-8d8a-4a31-ba8f-2a5ee4f4602c?mode=deep",
+    "timestamp": "2026-01-11 03:49:51.070580",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/dbcmd.go] [Function: snapshotIterator.Next()] [Race condition] Is the init flag (lines 618-621) thread-safe, or can concurrent Next() calls cause double-deletion of SnapshotRootKey? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_411cdec3-31c3-4d56-b255-a1b88e97b343?mode=deep",
+    "timestamp": "2026-01-11 03:50:13.206616",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/dbcmd.go] [Function: snapshotIterator.Release()] [Error handling] If one iterator.Release() fails, does the other still release, or can partial release leak resources? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2564ce7a-1c9e-4053-b787-15843b29b8b5?mode=deep",
+    "timestamp": "2026-01-11 03:50:36.127085",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/dbcmd.go] [Function: exportChaindata()] [Information disclosure] Can exporting preimage or snapshot data expose sensitive information like validator identities or user transaction patterns? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f0252876-e7d4-4ba3-b2f8-43d38728fa4c?mode=deep",
+    "timestamp": "2026-01-11 03:51:00.357437",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/dbcmd.go] [Function: exportChaindata()] [DoS] Can exporting massive snapshot data cause disk space exhaustion, filling the disk and crashing the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bf64099a-c687-4a60-8535-c97b37e59d21?mode=deep",
+    "timestamp": "2026-01-11 03:51:25.182816",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/dbcmd.go] [Function: exportChaindata()] [Type confusion] The kind string lookup (lines 660-662) - can case-sensitivity mismatches allow bypassing intended export restrictions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_db69efdf-4127-4273-a2d9-c64a45fd774d?mode=deep",
+    "timestamp": "2026-01-11 03:51:51.521383",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/dbcmd.go] [Function: exportChaindata()] [Race condition] The interrupt channel handling (lines 679-684) - can race conditions cause stop channel to be closed multiple times causing panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dbb91eb7-8cdc-4ce8-b869-1850f6b0257b?mode=deep",
+    "timestamp": "2026-01-11 03:52:19.621703",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/dbcmd.go] [Function: exportChaindata()] [File overwrite] Does ExportChaindata check if output file exists before overwriting, preventing accidental data loss? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_60ceedc2-8587-4b8d-91f2-5dfc5cba15e9?mode=deep",
+    "timestamp": "2026-01-11 03:52:47.662347",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/dbcmd.go] [Function: exportChaindata()] [Path traversal] Can malicious filenames in ctx.Args().Get(1) use path traversal to write exported data to arbitrary locations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d11e879e-2ea3-4f1b-baf2-e7fcf8288f29?mode=deep",
+    "timestamp": "2026-01-11 03:53:13.395464",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/dbcmd.go] [Var: chainExporters] [Extensibility attack] Can additional exporters be registered at runtime to exfiltrate custom data not intended for export? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3d3990ca-4311-4a43-8478-94dbcc2736f7?mode=deep",
+    "timestamp": "2026-01-11 03:53:40.704153",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/dbcmd.go] [Function: showMetaData()] [Information disclosure] Can metadata reveal sensitive network topology, validator information, or sync status that aids targeted attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_968ba0d5-1af9-466d-8673-d53644654da3?mode=deep",
+    "timestamp": "2026-01-11 03:54:06.531201",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/dbcmd.go] [Function: showMetaData()] [Error handling] If db.Ancients() errors (lines 693-696), execution continues - can this mask critical database corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_75a7e0ae-981e-4d07-94f4-ec869b5ffc1f?mode=deep",
+    "timestamp": "2026-01-11 03:54:31.516271",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/dbcmd.go] [Function: showMetaData()] [Nil pointer] If ReadHeadBlock or ReadHeadHeader return nil (lines 700, 705), are nil dereferences properly avoided in hash/number access? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_96fd39ae-6e66-4032-8e47-f69f45824d77?mode=deep",
+    "timestamp": "2026-01-11 03:54:57.203926",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/dbcmd.go] [Function: showMetaData()] [Format string] Using fmt.Sprintf with block data (lines 701-703, 706-708) - can malformed block data cause format string vulnerabilities? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7b64a24a-d60b-4174-a591-70d781395ab9?mode=deep",
+    "timestamp": "2026-01-11 03:55:23.001125",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/dbcmd.go] [Multiple functions] [Access control] None of the database manipulation functions check user permissions - can any user with CLI access corrupt blockchain state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e3335d01-983e-4009-86c1-3ed6de44e76e?mode=deep",
+    "timestamp": "2026-01-11 03:55:47.243705",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/dbcmd.go] [Multiple functions] [Atomic operations] Do database modifications use transactions to ensure atomicity, or can crashes during operations leave database in inconsistent state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_54fd2e28-0dce-43b5-b13c-5b34317c4648?mode=deep",
+    "timestamp": "2026-01-11 03:56:09.275858",
+    "report_generated": false
   }
 ]
