@@ -32998,5 +32998,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_82842eea-afa9-495f-ade8-19a9f3f9927c?mode=deep",
     "timestamp": "2026-01-11 19:42:16.714290",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: SafeMul()] [Power-of-two optimization] If calling code uses SafeMul for power-of-two multiplications (x * 2^n) that could be implemented as shifts, and only SafeMul is audited for overflow, can bit-shift implementations elsewhere in the codebase have unchecked overflows that SafeMul would catch? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9ac9ef23-a530-47c4-812b-6b43d184d337?mode=deep",
+    "timestamp": "2026-01-11 19:43:36.376536",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: UnmarshalJSON()] [Quote handling vulnerability] At lines 49-51, the function strips surrounding quotes but doesn't validate proper quote pairing - can an attacker provide malformed JSON like '{\\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6db05acd-799c-4211-b522-516edac256e6?mode=deep",
+    "timestamp": "2026-01-11 19:43:49.611748",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: UnmarshalJSON()] [Empty input handling] If input at line 49 is empty (len=0), the function would panic on input[0] access before the len check - can an attacker send empty JSON fields for critical numeric parameters causing validator nodes to crash during config parsing or genesis block loading? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9d4b4814-2389-4391-b0ce-77047e55a8f3?mode=deep",
+    "timestamp": "2026-01-11 19:44:02.732018",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: UnmarshalJSON()] [Single quote bypass] The quote stripping at line 50 only checks for double quotes (\\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_63527bca-fbb5-45e8-8f4a-a079e1d97dd1?mode=deep",
+    "timestamp": "2026-01-11 19:44:16.473164",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: UnmarshalJSON()] [Slice bounds panic] At line 50, input[1 : len(input)-1] assumes len(input) >= 2 when input[0] == '\\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0b744532-ce97-4bf1-bcd8-9cc49fb0ca64?mode=deep",
+    "timestamp": "2026-01-11 19:44:31.469518",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: UnmarshalJSON()] [Nested quotes] If input contains escaped quotes like '\\\\\\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c7c207cf-ea3a-448b-965e-420cdf99fe74?mode=deep",
+    "timestamp": "2026-01-11 19:44:47.870165",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: UnmarshalJSON()] [Number type confusion] The comment at line 47 says it allows 'real decimals' in addition to quoted strings - can an attacker provide JSON with both number and string representations (e.g., [{\\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fb9fdff0-abff-41ac-84f6-9d6a814ac44f?mode=deep",
+    "timestamp": "2026-01-11 19:45:05.731027",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: UnmarshalJSON()] [Unicode quote characters] Can an attacker use Unicode quote lookalikes (U+201C/U+201D",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eb2d9b45-b7f9-4ba3-9cd3-89a5a979bdad?mode=deep",
+    "timestamp": "2026-01-11 19:45:25.963488",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: UnmarshalText()] [Variable shadowing] At line 57, the function declares 'int' variable shadowing the built-in int type - while legal in Go, if this code is copied/modified elsewhere and 'int' is accidentally used as a type instead of a variable, can this cause compilation errors that mask security issues in refactored code? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d6f79db0-38d5-4ef9-9645-3bbfed36abea?mode=deep",
+    "timestamp": "2026-01-11 19:45:46.702881",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: UnmarshalText()] [Error message information leak] At line 59, the error message includes the full input string - can an attacker use invalid inputs to probe for accepted formats, extract information about internal parsing logic, or if input contains sensitive data (addresses, keys), leak it through error logs? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_107b21cd-ae75-4d7b-ae93-53f3e18ce1f8?mode=deep",
+    "timestamp": "2026-01-11 19:46:09.754739",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: UnmarshalText()] [Nil pointer dereference] If the receiver pointer 'i' at line 56 is nil, the assignment at line 61 would panic - can an attacker trigger code paths that call UnmarshalText on uninitialized HexOrDecimal64 pointers, causing node crashes during configuration loading or RPC request processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7d48969f-3612-409a-acd9-57918a6c972f?mode=deep",
+    "timestamp": "2026-01-11 19:46:32.171569",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: UnmarshalText()] [Type conversion assumption] The function assigns uint64 result to HexOrDecimal64 type at line 61 - if calling code assumes HexOrDecimal64 has special validation properties beyond uint64, can an attacker bypass validation by directly constructing HexOrDecimal64 values without going through UnmarshalText? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ca2362bb-f152-47fb-9715-96f633de245c?mode=deep",
+    "timestamp": "2026-01-11 19:46:55.393502",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: MarshalText()] [Hex format ambiguity] At line 67, MarshalText always outputs hex format with '0x' prefix - but if some system components expect decimal format and don't validate the prefix, can this cause parsing errors where the '0x' is ignored and the hex string is parsed as decimal, creating massive value mismatches? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_71c68fd7-d2f3-4b2e-91c5-f12895d74c16?mode=deep",
+    "timestamp": "2026-01-11 19:47:20.071125",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: MarshalText()] [Leading zeros inconsistency] The fmt.Sprintf(\\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bb1372c1-c447-4fe9-829e-340058036c8b?mode=deep",
+    "timestamp": "2026-01-11 19:47:45.185983",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: MarshalText()] [Case sensitivity] fmt.Sprintf(\\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_98c01955-f375-4a95-83ad-f7084cc3d714?mode=deep",
+    "timestamp": "2026-01-11 19:48:11.162338",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: MarshalText()] [Zero value representation] When i=0, MarshalText returns '0x0' - but if calling code expects '0' (without prefix) for zero values or treats '0x0' differently than '0x00', can this cause zero value handling bugs in balance transfers, nonce validation, or gas price checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8155d55b-519d-4c13-ae57-19a64ae7fb5f?mode=deep",
+    "timestamp": "2026-01-11 19:48:38.450714",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Constants: MaxUint64] [Boundary overflow] At line 38, MaxUint64 = 1<<64 - 1 - if code uses MaxUint64 in addition operations without overflow checks (e.g., MaxUint64 + 1), the result wraps to 0 - can an attacker craft transactions with max values that wrap on addition, bypassing balance limits or gas caps? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4deecfe2-fb62-4465-b30b-a2c2acbf2f96?mode=deep",
+    "timestamp": "2026-01-11 19:49:04.944449",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Constants: MaxInt64] [Signed/unsigned confusion] Line 33 defines MaxInt64 = 1<<63 - 1 (positive) while MinInt64 at line 34 is -1 << 63 (negative) - if code mixes signed/unsigned operations or casts between int64 and uint64, can negative values become large positive values after cast, breaking balance checks or gas calculations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ee465758-2572-4da4-8025-c5f46fceebec?mode=deep",
+    "timestamp": "2026-01-11 19:49:31.757080",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Constants: MinInt values] [Negative number handling] Lines 28,30,32,34 define minimum negative values for signed integers - if these are used in blockchain contexts that expect only positive values (balances, gas, nonces), can negative value handling bugs cause wrapping to large uint64 values after type conversion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4fc002dc-f7f5-4302-a754-86eb97ff284d?mode=deep",
+    "timestamp": "2026-01-11 19:49:58.467863",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Constants: Width-specific limits] [Type confusion] Constants define limits for 8, 16, 32, and 64-bit integers - if code uses wrong constant for variable type (e.g., checking uint32 against MaxUint64), can this allow values that overflow the actual storage type, causing corruption when truncated? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_702c8248-157d-44f9-88e8-4ab2d0f61d02?mode=deep",
+    "timestamp": "2026-01-11 19:50:22.593978",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [ParseUint64 + SafeAdd] [Combined overflow] If ParseUint64 accepts a string near MaxUint64 and the result is immediately used in SafeAdd without checking the SafeAdd overflow flag, can an attacker cause parsing to succeed but addition to overflow, with only the addition result being used, enabling balance or gas limit bypasses? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_18710a27-6228-4275-bd1a-808b0bff6903?mode=deep",
+    "timestamp": "2026-01-11 19:50:47.969217",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [MustParseUint64 + SafeMul] [Panic after overflow] If MustParseUint64 successfully parses MaxUint64 and it's then used in SafeMul multiplication where overflow is ignored, can the wrapped result cause downstream panics in calculations expecting valid ranges, creating denial of service? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_beb70d12-e6cb-48a3-90cf-733a58dba878?mode=deep",
+    "timestamp": "2026-01-11 19:51:14.296947",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [UnmarshalJSON + SafeSub] [Deserialization then underflow] If UnmarshalJSON parses a small value from JSON config (e.g., gasLimit=100) and it's used as the minuend in SafeSub with a larger subtrahend, can unchecked underflow cause wrapped-around values in configuration validation, bypassing minimum threshold checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_352e6adf-987c-48c1-a64a-8445dd24115d?mode=deep",
+    "timestamp": "2026-01-11 19:51:41.762453",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [HexOrDecimal64 + MarshalText] [Round-trip inconsistency] If a value is unmarshaled via UnmarshalJSON accepting decimal format, stored as HexOrDecimal64, then marshaled via MarshalText outputting hex format, can the format change cause signature verification failures when the original signed data was in decimal? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_22b62238-5be5-4589-95c4-e239395ace3e?mode=deep",
+    "timestamp": "2026-01-11 19:52:08.771729",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [All Functions] [Concurrent parsing] If multiple goroutines call ParseUint64, MustParseUint64, or unmarshaling functions on shared string buffers or input slices, and the strings are mutated during parsing, can race conditions cause different nodes to parse different values from the same network message? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_26c471f2-2845-4601-af7d-9b0642f8da2c?mode=deep",
+    "timestamp": "2026-01-11 19:52:35.751917",
+    "report_generated": false
   }
 ]
