@@ -29698,5 +29698,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ef4e2ecf-97c5-4c2b-927e-eb92faee88bb?mode=deep",
     "timestamp": "2026-01-11 15:56:38.916496",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: has0xPrefix()] [Length bypass] The check 'len(input) >= 2' - can attackers exploit off-by-one errors or send single-character strings that pass this check but cause subsequent input[0] and input[1] accesses to panic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c579fd25-defd-4407-9d72-841dbafcbd8d?mode=deep",
+    "timestamp": "2026-01-11 15:58:07.275043",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: has0xPrefix()] [Case sensitivity exploit] Function accepts both 'x' and 'X' - can attackers use mixed case prefixes (0X vs 0x) to create multiple representations of same data that bypass deduplication checks or cause cache inconsistencies? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f15de555-7216-4f2c-b6a8-7eda93dbeb00?mode=deep",
+    "timestamp": "2026-01-11 15:58:20.679707",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: has0xPrefix()] [Unicode normalization] Can attackers use Unicode characters that look like '0', 'x' or 'X' to bypass the ASCII byte comparisons at input[0] and input[1], causing malformed strings to be accepted as valid hex? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5b190621-d4e1-4e45-b436-82f21e22556e?mode=deep",
+    "timestamp": "2026-01-11 15:58:33.898475",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: has0xPrefix()] [Null byte handling] If input string contains null bytes or other control characters, does the function behave correctly, or can null bytes before the prefix cause incorrect validation allowing malformed data through? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_847bf919-93bd-4a17-b6be-263822db4e96?mode=deep",
+    "timestamp": "2026-01-11 15:58:47.780579",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: checkNumber()] [Leading zero detection] The check 'len(input) > 1 && input[0] == '0'' at line 204 is meant to reject leading zeros, but does it handle edge cases like '0x0' (valid zero), '0x00' (invalid), and can attackers craft inputs that bypass this to create non-canonical number representations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3025265d-db62-4400-82ce-c7827defab22?mode=deep",
+    "timestamp": "2026-01-11 15:59:02.567440",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: checkNumber()] [Empty number after prefix] When input is exactly '0x' (prefix only), does the function correctly return ErrEmptyNumber preventing downstream parsing attempts, or can empty strings reach ParseUint/DecodeBig causing unexpected zero values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ad422cfe-785c-4af8-915c-1ee9ac635c9e?mode=deep",
+    "timestamp": "2026-01-11 15:59:19.104722",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: checkNumber()] [Slice bounds safety] After removing prefix with 'input = input[2:]', if the prefix check was somehow bypassed, could the slice operation panic due to insufficient length? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a5ff9a22-4a64-4d42-8e15-eddc134fb147?mode=deep",
+    "timestamp": "2026-01-11 15:59:36.523748",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: checkNumber()] [Validation ordering] Does checkNumber() validate all conditions in the correct order, or can certain invalid inputs pass some checks and cause inconsistent error reporting that confuses error handling in consensus-critical code? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f5fbd02d-db88-4705-9df0-d7e9c1a45e51?mode=deep",
+    "timestamp": "2026-01-11 15:59:56.091416",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: decodeNibble()] [Return value validation] Function returns badNibble (^uint64(0)) for invalid input - are all callers properly checking for this sentinel value, or can badNibble be treated as valid digit causing corrupted numeric parsing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4e63cc05-90db-43ec-9a42-8685045c8bcc?mode=deep",
+    "timestamp": "2026-01-11 16:00:15.930651",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: decodeNibble()] [Range checks] The switch statement checks ranges '0'-'9', 'A'-'F', 'a'-'f' - are these ranges correctly handling all Unicode and ASCII edge cases, or can characters with similar byte values bypass validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3d82779a-7114-447b-85c9-e15cdfe834e1?mode=deep",
+    "timestamp": "2026-01-11 16:00:37.582735",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: decodeNibble()] [Arithmetic overflow] The calculations 'uint64(in - '0')', 'uint64(in - 'A' + 10)', etc. - can byte arithmetic overflow or produce unexpected values for edge case inputs near 0xFF? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bcb9a586-1456-440b-bf7c-a6945d6a566b?mode=deep",
+    "timestamp": "2026-01-11 16:01:00.158606",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: decodeNibble()] [Extended ASCII] Can extended ASCII characters (>127) that happen to match the range checks be accepted as valid hex digits, corrupting parsed values in transaction or block data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f6f00c11-6e13-4918-a4b1-81bd22b211ed?mode=deep",
+    "timestamp": "2026-01-11 16:01:24.247681",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: mapError()] [Error type exhaustiveness] Does mapError() handle all possible error types from hex.DecodeString() and strconv.ParseUint(), or can unhandled errors be returned as-is exposing internal implementation details or causing incorrect error handling? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_52e93659-e9b1-4134-bb41-60b1b397142d?mode=deep",
+    "timestamp": "2026-01-11 16:01:50.687525",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: mapError()] [Type assertion failure] The type assertions 'err.(*strconv.NumError)' and 'err.(hex.InvalidByteError)' - if these assertions fail, does the function panic or silently return the wrong error type causing incorrect error propagation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_93b34ea3-0fcc-4781-8b1b-48847d30b1e6?mode=deep",
+    "timestamp": "2026-01-11 16:02:15.805455",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: mapError()] [Error wrapping] By returning hexutil-specific errors, does this lose important context from underlying errors that could be needed for debugging consensus failures or transaction validation issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_31078d47-98fe-4300-8c1b-b1c5bf7afe99?mode=deep",
+    "timestamp": "2026-01-11 16:02:40.834640",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Function: mapError()] [Range error mapping] When strconv.ParseUint returns ErrRange, it's mapped to ErrUint64Range, but are there cases where this loses precision about whether overflow or underflow occurred, causing confusion in validation logic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_aed9b431-0b51-44e6-8a63-2d562211c5d2?mode=deep",
+    "timestamp": "2026-01-11 16:03:06.408986",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Global: bigWordNibbles] [Race condition] Since bigWordNibbles is a package-level variable set in init() and read in DecodeBig(), can concurrent goroutines access it before initialization completes, reading zero value and causing all DecodeBig() calls to fail? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b89b2e7e-ba69-45fb-a3e9-7cb0073ddbb8?mode=deep",
+    "timestamp": "2026-01-11 16:03:31.191994",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Global: uintBits] [Constant calculation] The expression '32 << (uint64(^uint(0)) >> 63)' calculates platform word size - can this produce incorrect values on non-standard platforms causing ErrUintRange to be triggered incorrectly or not at all? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9b3cbca7-67fb-4ae1-a2d1-1ad118a409bd?mode=deep",
+    "timestamp": "2026-01-11 16:03:57.294933",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Global: badNibble] [Sentinel value collision] The sentinel value ^uint64(0) (max uint64) represents invalid nibble - could valid hex strings ever produce this value during parsing, causing legitimate data to be rejected? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_347e09d5-1b06-4713-817c-1485ec3516e1?mode=deep",
+    "timestamp": "2026-01-11 16:04:21.789268",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Global: Error variables] [Error comparison] Are all error variables (ErrEmptyString, ErrSyntax, etc.) compared by identity or by message, and can error wrapping break identity checks causing incorrect error handling in validation code? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bd8488ad-8369-469f-bd55-983272e1b46a?mode=deep",
+    "timestamp": "2026-01-11 16:04:46.153170",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Cross-function: Decode/Encode round-trip] Can certain byte slices fail to round-trip correctly through Encode() then Decode(), causing transaction or block data to be corrupted when serialized for RPC responses and then re-parsed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7535e5f8-d12f-4bdb-8bdc-0e4bcc36ae8a?mode=deep",
+    "timestamp": "2026-01-11 16:05:08.780617",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Cross-function: DecodeUint64/EncodeUint64 canonicalization] Can uint64 values be encoded in multiple ways (e.g., with/without leading zeros) that decode to same value, allowing transaction replay attacks or nonce validation bypasses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ccebfbf0-ec6a-4f2b-90fa-24829c1f6146?mode=deep",
+    "timestamp": "2026-01-11 16:05:31.932932",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Cross-function: DecodeBig/EncodeBig negative handling] Since DecodeBig() doesn't support negative numbers but EncodeBig() does, can this asymmetry cause validation inconsistencies where negative values are encoded but cannot be decoded? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9608d09b-0391-4b5d-b002-e54fac1aca94?mode=deep",
+    "timestamp": "2026-01-11 16:05:56.058687",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Usage in RPC: Transaction field parsing] If hexutil functions are used to parse transaction fields (nonce, gas, gasPrice, value) from RPC requests, can attackers craft malformed hex strings that bypass validation causing invalid transactions to enter the transaction pool? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_53a4f654-6eaf-41ec-8535-ae508e17d619?mode=deep",
+    "timestamp": "2026-01-11 16:06:20.252367",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/hexutil.go] [Usage in RPC: Block header parsing] When parsing block headers from RPC or P2P messages, can malformed hex strings in number, gasLimit, gasUsed, or timestamp fields cause blocks to be rejected incorrectly or accepted incorrectly leading to chain splits? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_74fe1c07-767a-4d7d-bb88-e133b1e3df18?mode=deep",
+    "timestamp": "2026-01-11 16:06:43.897872",
+    "report_generated": false
   }
 ]
