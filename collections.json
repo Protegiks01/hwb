@@ -32398,5 +32398,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_efa243ab-0110-488c-bba5-c670bb118a5d?mode=deep",
     "timestamp": "2026-01-11 19:01:27.282461",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: U256Bytes()] [Caller Expectation] Does the destructive nature of U256Bytes cause issues where callers expect n to be preserved but it gets mutated to n % 2^256? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_facec6e1-2f9e-4858-823b-b52580d99627?mode=deep",
+    "timestamp": "2026-01-11 19:02:46.084931",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: S256()] [Bit Length Assumption] The comment says 'x must not exceed 256 bits' but only checks x.Cmp(tt255) - can 257+ bit numbers slip through and produce undefined 'undefined' results as mentioned in the comment? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_48028188-2439-4432-ba28-b9e45a296de3?mode=deep",
+    "timestamp": "2026-01-11 19:02:59.185529",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: S256()] [No Input Validation] S256 doesn't validate that x <= 256 bits - can oversized inputs cause incorrect two's complement conversion, leading to wrong signed arithmetic results in EVM operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6c1a6e8f-9ed4-4b3f-bd6c-ef11b8d25e02?mode=deep",
+    "timestamp": "2026-01-11 19:03:12.362984",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: S256()] [Nil Input] If x is nil, will x.Cmp(tt255) panic, causing crashes during signed integer operations in smart contract execution? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e97ba9eb-2020-4568-b9f5-a0c221120c15?mode=deep",
+    "timestamp": "2026-01-11 19:03:26.097092",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: S256()] [Negative Input] Does S256 handle already-negative inputs correctly, or can negative x values cause double-negation or incorrect conversions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7c7adae9-8c17-4218-ad85-b13787122c15?mode=deep",
+    "timestamp": "2026-01-11 19:03:40.730932",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: S256()] [Boundary Case] When x exactly equals 2^255, S256 should return -2^255, but the condition uses x.Cmp(tt255) < 0 - is the exact boundary handled correctly? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c4ef9e52-539e-4b4d-88df-ac3c34f2b946?mode=deep",
+    "timestamp": "2026-01-11 19:03:56.589809",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: S256()] [New BigInt] S256 returns new(big.Int).Sub(x, tt256) - does this create a new big.Int or can pointer aliasing cause x to be mutated? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7edb4ad3-d62b-4c2d-99c9-60539e5e2a22?mode=deep",
+    "timestamp": "2026-01-11 19:04:13.669780",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: S256()] [tt256 Corruption] If tt256 global is corrupted, can S256 produce incorrect signed representations causing arithmetic errors throughout the EVM? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_861c81fe-d210-4303-8cab-1dcbb1463c74?mode=deep",
+    "timestamp": "2026-01-11 19:04:34.385767",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: Exp()] [Nil Inputs] Does Exp handle nil base or exponent correctly, or will operations on nil pointers cause panics during EVM EXP opcode execution? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c59105e1-8dae-4d40-848a-5a532cf06331?mode=deep",
+    "timestamp": "2026-01-11 19:04:54.985394",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: Exp()] [Zero Exponent] When exponent is zero, Exp should return 1 - does the Bits() iteration handle empty slices correctly, or can edge cases return incorrect results? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a8b1e5a4-472f-4a04-a49c-d9f684c3abf6?mode=deep",
+    "timestamp": "2026-01-11 19:05:17.323576",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: Exp()] [Zero Base] When base is zero and exponent > 0, Exp should return 0 - can the squaring loop cause unexpected results or infinite loops? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9f7b0aa7-7abb-4edb-9020-06f5f3883274?mode=deep",
+    "timestamp": "2026-01-11 19:05:39.674578",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: Exp()] [Negative Exponent] Does Exp properly reject or handle negative exponents, or can negative values cause unexpected behavior in the bit iteration? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3b279270-ee6e-4ddf-8db2-ed8758993fe0?mode=deep",
+    "timestamp": "2026-01-11 19:06:03.624934",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: Exp()] [Negative Base] Can negative base values cause incorrect results when squared repeatedly, leading to wrong signed exponentiation results in EVM arithmetic? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b765e4a0-fb05-457d-9eae-010d8854c3d2?mode=deep",
+    "timestamp": "2026-01-11 19:06:28.308002",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: Exp()] [Base Mutation] Exp mutates base during calculation with U256(base.Mul(base, base)) - can this cause issues if caller expects base to be unchanged after the call? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_26fc71f1-6fda-438b-8deb-1662d1228983?mode=deep",
+    "timestamp": "2026-01-11 19:06:54.951781",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: Exp()] [Result Mutation] Exp mutates result with U256(result.Mul(result, base)) - are there aliasing issues if result/base/exponent point to the same memory? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4fc11e01-71cc-4be1-84dc-c2add5689963?mode=deep",
+    "timestamp": "2026-01-11 19:07:21.509050",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: Exp()] [U256 Truncation] Each iteration calls U256() which truncates to 256 bits - can accumulated truncation errors cause incorrect final results in large exponentiation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9d6674ba-123b-46a9-afd1-75b2d62ac2f1?mode=deep",
+    "timestamp": "2026-01-11 19:07:47.622276",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: Exp()] [Word Iteration] The outer loop iterates exponent.Bits() words - can extremely large exponents cause excessive iterations leading to DoS during EVM execution? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_70cca297-a351-497c-a359-4841fce3178f?mode=deep",
+    "timestamp": "2026-01-11 19:08:12.273444",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: Exp()] [Bit Loop] The inner loop processes wordBits iterations per word - for 256-bit exponents on 64-bit systems, this is 4*64=256 iterations minimum - can this cause computation DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5b59370e-ae41-4bbb-9d56-627b61fcf52a?mode=deep",
+    "timestamp": "2026-01-11 19:08:35.611364",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: Exp()] [Gas Metering Mismatch] If Exp's actual computation complexity doesn't match EVM gas metering for the EXP opcode, can attackers exploit this discrepancy for DoS attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_da3b30bf-5025-4c93-b51e-a86e3cae5576?mode=deep",
+    "timestamp": "2026-01-11 19:08:57.113102",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: Exp()] [Squaring Precision] The comment credits @karalabe and @chfast - does this implementation match the EVM yellowpaper specification exactly, or can precision differences cause consensus failures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fd971d8a-6537-4119-87a6-1a629716553c?mode=deep",
+    "timestamp": "2026-01-11 19:09:20.048014",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: Exp()] [Final Truncation] Exp returns 256-bit truncated result - do all callers expect this, or can non-truncated intermediate values be accessed causing state inconsistencies? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8f6e8b4d-7db1-4477-9a62-4ae1b7e693eb?mode=deep",
+    "timestamp": "2026-01-11 19:09:44.547288",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Integration] [ParseBig256 + U256] If ParseBig256 allows 256-bit numbers through validation, then U256 truncates them, can this two-step process create different results than direct parsing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b5803283-e18b-4c35-990e-6dd1260f6dd3?mode=deep",
+    "timestamp": "2026-01-11 19:10:08.325383",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Integration] [S256 + Exp] If S256 converts unsigned to signed but Exp expects unsigned inputs, can mixing these operations cause incorrect arithmetic in EVM SIGNEXTEND operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0391bbde-0063-4ae9-850e-e325958660e2?mode=deep",
+    "timestamp": "2026-01-11 19:10:33.877819",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Integration] [PaddedBigBytes + ReadBits] Do PaddedBigBytes and ReadBits produce byte-identical results for the same input, or can padding differences cause state serialization mismatches? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f8e7a036-9978-4c42-b89c-35a2e80ad0c8?mode=deep",
+    "timestamp": "2026-01-11 19:11:00.491237",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Integration] [BigMax/BigMin + Nil] If BigMax/BigMin are used in consensus critical paths (validator selection, gas limits) and receive nil due to upstream errors, can this cause chain splits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9c2a5c05-1f26-47f7-88bc-569b2915718e?mode=deep",
+    "timestamp": "2026-01-11 19:11:27.770254",
+    "report_generated": false
   }
 ]
