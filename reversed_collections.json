@@ -27436,5 +27436,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7e1e3394-f70a-403f-9c32-2e458b4706ee?mode=deep",
     "timestamp": "2026-01-11 10:20:07.724223",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: NewExecQueue()] [Panic] If capacity is set to a very large value (e.g., MaxInt), the make() call on line 32 could allocate enormous memory causing OOM killer to terminate the validator node - can attackers exploit this through malicious capacity values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bcafa055-f17d-43ad-a1bb-fa85d2fa2dcd?mode=deep",
+    "timestamp": "2026-01-11 10:21:32.735455",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Quit()] [Panic] If closeWait channel on line 100 is created but loop() panics before reaching close(q.closeWait) on line 42, the channel will never be closed, causing Quit() to block forever on line 104 - can this create unrecoverable node states? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c8febb73-74d4-46ee-95a3-d916a4ddc8c5?mode=deep",
+    "timestamp": "2026-01-11 10:21:45.798792",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: loop()] [Panic propagation] If a queued function panics on line 40, the panic will propagate to loop() and potentially crash the entire goroutine without proper recovery - can malicious LES clients inject panic-inducing functions to crash critical validator node operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_82477ef9-dac2-47ad-a482-d8574b0cdbba?mode=deep",
+    "timestamp": "2026-01-11 10:21:58.857969",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: waitNext()] [Panic] The slice manipulation `append(q.funcs[:0], q.funcs[1:]...)` on line 50 assumes len(q.funcs) > 0, but if a race condition causes the check on line 53 to pass while len becomes 0, can this cause a slice bounds panic crashing the validator node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3cc2036f-04a3-4811-90cf-d692e3b08fff?mode=deep",
+    "timestamp": "2026-01-11 10:22:12.668556",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Queue()] [Panic] If the funcs slice backing array is corrupted and append() on line 80 attempts to grow the slice beyond available memory, can this cause an out-of-memory panic, crashing the node during critical LES synchronization operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a140a6b3-fe6d-43c7-8d05-b4ae3b545b1e?mode=deep",
+    "timestamp": "2026-01-11 10:22:27.197376",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: loop()] [Panic] If the queued function f() on line 40 is nil (due to memory corruption or race condition), calling f() will cause a nil pointer dereference panic - can attackers inject nil functions through race conditions to crash validator nodes during block production? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3e15d72d-ce22-4ab5-98f4-78e2a30c953b?mode=deep",
+    "timestamp": "2026-01-11 10:22:43.066749",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: waitNext()] [Panic] If Clear() is called concurrently with waitNext() accessing q.funcs[0] on line 54, and Clear() sets len(q.funcs) to 0, can this cause an index out of bounds panic crashing the validator node during critical consensus operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f39259b7-ca24-4d66-b0b8-24654d3bc999?mode=deep",
+    "timestamp": "2026-01-11 10:23:00.668358",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: NewExecQueue()] [Panic] If capacity parameter is negative or zero, make() on line 32 will panic - can attackers trigger node crashes by forcing initialization of ExecQueues with invalid capacity values through malicious LES protocol messages? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f2a1dd06-2b86-4792-8a5f-8faa0b43eaf3?mode=deep",
+    "timestamp": "2026-01-11 10:23:19.306298",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Quit()] [Deadlock] If Quit() is called while a long-running function is executing in loop(), the Quit() call waits on line 104 for closeWait to be closed, but this won't happen until the current function completes - can malicious LES peers queue infinite-loop functions to make Quit() hang indefinitely during node shutdown? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3f3decc0-14f0-47ba-9f09-cb4ff57d70e6?mode=deep",
+    "timestamp": "2026-01-11 10:23:39.215639",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: waitNext()] [Livelock] If multiple goroutines repeatedly call Queue() faster than loop() can execute functions, and the queue reaches capacity, can this create a livelock situation where the system is active but makes no progress on critical consensus or synchronization operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f8f45c1f-ab49-45c9-b50b-0e1f10f099c7?mode=deep",
+    "timestamp": "2026-01-11 10:24:01.485008",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: loop()] [Deadlock] If a panic occurs in a queued function f() on line 40, the panic will propagate up and prevent loop() from reaching close(q.closeWait) on line 42, causing Quit() callers to block forever on line 104 - can attackers inject panic-inducing functions to create unkillable goroutines? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d7490a4b-20ab-4c45-9605-bad9bd816a9b?mode=deep",
+    "timestamp": "2026-01-11 10:24:24.964573",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: waitNext()] [Deadlock] The condition variable Wait() on line 57 releases and reacquires the mutex, but if Signal() is never called after the queue empties and before isClosed() becomes true, can the goroutine wait forever if closeWait is never set, causing goroutine leaks and eventual node resource exhaustion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_79af0b90-bd15-4cf5-9b6b-6df5a0dbb131?mode=deep",
+    "timestamp": "2026-01-11 10:24:48.986595",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Quit()] [Deadlock] If Quit() is called from within a queued function that's currently executing in loop(), the function will try to acquire q.mu on line 98 while the lock is already held by the execution context, causing permanent deadlock and node freeze - can this be exploited to halt validator nodes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c5fe6af6-5758-4540-819d-7b63e7740d10?mode=deep",
+    "timestamp": "2026-01-11 10:25:13.118568",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: waitNext()] [Deadlock] If a queued function f() on line 40 attempts to call Queue(), CanQueue(), Clear(), or Quit() on the same ExecQueue, it will deadlock trying to acquire q.mu while already holding it in the execution context - can malicious LES clients inject such functions to cause validator node deadlocks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_962c7b49-ecee-46a7-8b2d-75589caf4d7a?mode=deep",
+    "timestamp": "2026-01-11 10:25:36.372767",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Queue()] [Race condition] The Signal() call on line 81 is made while holding the lock, but can a race between Signal() and Wait() in waitNext() cause signals to be lost if Wait() is called after Signal() but before the waiting goroutine enters the Wait state, leading to permanent queue stalls? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7e364dac-6827-43d5-ad51-fb0c9e76a256?mode=deep",
+    "timestamp": "2026-01-11 10:25:59.186960",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: waitNext()] [Race condition] After unlocking the mutex on line 59, the returned function f could be cleared or modified by another goroutine before loop() executes it on line 40 - can this cause nil pointer dereferences or execution of unintended functions affecting consensus operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2cf4d35f-c160-4e43-9694-7e889de7b2cb?mode=deep",
+    "timestamp": "2026-01-11 10:26:22.425664",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Quit()] [Race condition] Between checking `!q.isClosed()` on line 99 and creating the closeWait channel on line 100, can multiple goroutines race to call Quit() simultaneously, causing multiple closeWait channels to be created but only one to be closed, leading to goroutine leaks and resource exhaustion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_197e12b8-3924-4af4-8875-0d6d2f4f6a01?mode=deep",
+    "timestamp": "2026-01-11 10:26:44.743986",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Clear()] [Race condition] Clear() on line 90 sets `q.funcs = q.funcs[:0]` which reuses the backing array - can concurrent Queue() operations racing with Clear() cause previously cleared functions to reappear in the queue, leading to duplicate execution of critical consensus or minting operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0551c08a-bc26-4404-8530-1ee820b508a9?mode=deep",
+    "timestamp": "2026-01-11 10:27:07.123132",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: loop()] [Race condition] The loop() function calls waitNext(false) then waitNext(true) repeatedly - can a race condition between these calls and concurrent Queue()/Clear()/Quit() operations cause the same function to execute multiple times, leading to state corruption in LES synchronization or consensus operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_396843d0-05a2-4feb-a619-6bcd30c99205?mode=deep",
+    "timestamp": "2026-01-11 10:27:29.998418",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: waitNext()] [Race condition] In waitNext() line 54, accessing `q.funcs[0]` without checking if the slice was concurrently cleared by Clear() could cause an index out of bounds panic - can an attacker trigger this by timing Clear() calls with waitNext() execution to crash validator nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1f5a868f-ecaf-4647-b4e7-a96574e119fb?mode=deep",
+    "timestamp": "2026-01-11 10:27:53.777461",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: CanQueue()] [TOCTOU vulnerability] The CanQueue() function checks queue state on lines 69-70, but by the time the caller acts on this information, the state may have changed - can an attacker exploit this Time-Of-Check-Time-Of-Use race to queue functions beyond capacity limits, causing memory exhaustion on critical validator nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2ff8f311-2aa8-473c-be89-57536ce69179?mode=deep",
+    "timestamp": "2026-01-11 10:28:19.097609",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Queue()] [Race condition] Between the check `len(q.funcs) < cap(q.funcs)` on line 78 and the append on line 80, can another goroutine modify the funcs slice causing a race condition that bypasses capacity limits, leading to memory exhaustion DoS attacks on validator nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4937978d-3776-46fb-bc88-6d992b60b73a?mode=deep",
+    "timestamp": "2026-01-11 10:28:44.952178",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: waitNext()] [Race condition] In waitNext() lines 47-50, the slice manipulation `q.funcs = append(q.funcs[:0], q.funcs[1:]...)` creates a new backing array - can concurrent Queue() calls during this operation cause data races when accessing the funcs slice without proper synchronization, potentially corrupting the function queue? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_852f2817-d093-4159-8459-fcbece41231d?mode=deep",
+    "timestamp": "2026-01-11 10:29:11.083798",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: NewExecQueue()] [Race condition] Can a race condition occur where Queue() is called immediately after NewExecQueue() but before the goroutine in loop() starts executing, causing the cond.Signal() to be missed and functions to never execute, leading to permanent stalling of critical LES synchronization operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_967bc5cb-e18c-4b6e-9b03-f09cfda3bb45?mode=deep",
+    "timestamp": "2026-01-11 10:29:38.476915",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: loop()] [Goroutine lifecycle] Is there any mechanism to detect if the loop() goroutine has died unexpectedly, or will the queue silently stop working? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5de5f279-8c91-4d15-ba72-46c8b9c61920?mode=deep",
+    "timestamp": "2026-01-11 10:30:02.678127",
+    "report_generated": false
   }
 ]
