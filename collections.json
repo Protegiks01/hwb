@@ -31948,5 +31948,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3b2f6851-a2be-4eef-bf91-254fc6b5dbe5?mode=deep",
     "timestamp": "2026-01-11 18:30:15.423190",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/lru.go] [Function: Add()] [No Audit Trail] Does Add() log when critical validator snapshots are evicted, or can attackers silently evict important data without detection? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a3434dea-c832-4edc-a60c-ce1a0d24407e?mode=deep",
+    "timestamp": "2026-01-11 18:31:41.196381",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Global Variables] [Integer Overflow] Can the initialization of tt255, tt256, tt256m1 at package load time cause integer overflow or panic if BigPow receives malicious parameters, potentially crashing all nodes that import this package and causing network-wide DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_afbc5174-b81e-4312-bd00-9f6fa4688e16?mode=deep",
+    "timestamp": "2026-01-11 18:31:54.693491",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Global Variables] [Race Condition] Are the global variables tt255, tt256, tt256m1, MaxBig256, MaxBig63 protected against concurrent modification during runtime, or can an attacker trigger race conditions through reflection or unsafe package operations to corrupt these critical mathematical bounds used in EVM calculations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_46ce7074-c53d-4ab0-ac81-8b405609c832?mode=deep",
+    "timestamp": "2026-01-11 18:32:08.139908",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Global Variables] [State Corruption] If the MaxBig256 or MaxBig63 constants are somehow modified at runtime through memory corruption or unsafe operations, can this lead to incorrect balance calculations, gas metering errors, or state root mismatches causing consensus failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_08cc6bc6-2399-4bde-bf6a-9764953263b6?mode=deep",
+    "timestamp": "2026-01-11 18:32:21.215176",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Constants] [Architecture Dependency] Does the wordBits calculation (32 << (uint64(^big.Word(0)) >> 63)) produce consistent results across different CPU architectures (32-bit vs 64-bit), or can architecture-specific differences cause nodes to calculate different state roots leading to chain splits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4bf214c1-5216-419f-bfcc-51ea3cb5322e?mode=deep",
+    "timestamp": "2026-01-11 18:32:36.032526",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Constants] [Bit Shift Overflow] In the wordBits constant calculation, can the bit shift operations overflow or produce undefined behavior on unusual architectures, causing incorrect byte/word size calculations that break ReadBits and bigEndianByteAt functions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_af4f4d8d-1c39-43e2-a16a-9eec83b519a6?mode=deep",
+    "timestamp": "2026-01-11 18:32:52.160095",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: NewHexOrDecimal256()] [Nil Pointer] Does NewHexOrDecimal256 properly handle the conversion from int64 to HexOrDecimal256, or can certain input values cause nil pointer dereferences when the returned pointer is used in subsequent operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bb85e600-87b7-4d51-8783-dddd297e3a93?mode=deep",
+    "timestamp": "2026-01-11 18:33:09.385919",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: UnmarshalJSON()] [Buffer Overflow] When UnmarshalJSON strips quotes by indexing input[1:len(input)-1], can an attacker provide maliciously crafted JSON with len(input)==1 causing out-of-bounds slice access and node crash? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d4a5279d-8ffe-4ab2-b9a2-6c98c311b935?mode=deep",
+    "timestamp": "2026-01-11 18:33:29.218068",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: UnmarshalJSON()] [Input Validation] If input is an empty slice or has len(input)==0, does the condition len(input) > 0 properly guard against accessing input[0], or can edge cases slip through causing panics during JSON deserialization of critical consensus data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d8a40ed3-fcf3-45f9-86be-2d74f692b020?mode=deep",
+    "timestamp": "2026-01-11 18:33:50.231537",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: UnmarshalJSON()] [Denial of Service] Can an attacker provide extremely large JSON input (e.g., gigabytes of quoted hex string) that passes the initial length check but causes memory exhaustion in UnmarshalText, leading to node crashes during block validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2840ce3f-f274-41c7-9ef0-20369005d811?mode=deep",
+    "timestamp": "2026-01-11 18:34:12.742002",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: UnmarshalText()] [Integer Overflow] When UnmarshalText calls ParseBig256, can an attacker provide a string representing a value exceeding 256 bits that gets incorrectly truncated or wrapped, leading to balance manipulation in transaction processing or state transitions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_40472b4f-fcc0-4b36-8211-ac0581bda61c?mode=deep",
+    "timestamp": "2026-01-11 18:34:35.675802",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: UnmarshalText()] [State Corruption] If UnmarshalText receives input during genesis block parsing or validator configuration deserialization, can malformed input cause incorrect initialization of critical blockchain parameters, leading to permanent network misconfiguration? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0ef9678d-55b8-4656-ba3d-bdd0131dd4b8?mode=deep",
+    "timestamp": "2026-01-11 18:35:00.002437",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: MarshalText()] [Nil Pointer] The MarshalText function returns '0x0' for nil receivers, but does this behavior create inconsistencies when nil values are serialized and deserialized during state synchronization, potentially causing state root mismatches between nodes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_680e6eb4-f9ba-4743-a924-b8e3c21af827?mode=deep",
+    "timestamp": "2026-01-11 18:35:24.975636",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: MarshalText()] [Format Injection] Can the hex formatting in MarshalText be exploited if the output is used in contexts that interpret escape sequences or special characters, leading to log injection or command injection vulnerabilities in node monitoring systems? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e9a00da4-3b43-4ff0-907d-9e11555d89cc?mode=deep",
+    "timestamp": "2026-01-11 18:35:51.521862",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: NewDecimal256()] [Type Confusion] Does the conversion between int64 and Decimal256 preserve all numeric properties correctly, or can edge cases near MaxInt64 or MinInt64 cause unexpected behavior when these values are used in consensus-critical calculations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a96be1f0-7719-4312-97da-7b34448c7a3a?mode=deep",
+    "timestamp": "2026-01-11 18:36:18.539199",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: Decimal256.UnmarshalText()] [Duplicate Parsing] Since Decimal256.UnmarshalText uses the same ParseBig256 as HexOrDecimal256, can an attacker exploit differences in expected behavior between these types to bypass validation checks in different parts of the codebase? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f852501a-50d9-4d0a-b226-3ac28bfda49a?mode=deep",
+    "timestamp": "2026-01-11 18:36:46.405903",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: Decimal256.MarshalText()] [Inconsistent Serialization] Does Decimal256.MarshalText use a different format string than HexOrDecimal256, and can this inconsistency be exploited to cause deserialization errors when nodes with different configuration assumptions exchange data? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ca8f8108-27e0-4ce1-bd4a-388b118a5daf?mode=deep",
+    "timestamp": "2026-01-11 18:37:14.449416",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: Decimal256.String()] [Format String] The String() method uses %#d formatting - can this be exploited if the output is used in format string contexts elsewhere, leading to format string vulnerabilities or unexpected behavior? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b41dcbb8-8c69-4e0b-b3ef-3929cf85772e?mode=deep",
+    "timestamp": "2026-01-11 18:37:42.484092",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: Decimal256.String()] [Nil Handling] When Decimal256 is nil, String() returns",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0c75ca87-ad79-44ee-9b4c-80b1b3632c82?mode=deep",
+    "timestamp": "2026-01-11 18:38:08.950892",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: ParseBig256()] [Empty String Bypass] When ParseBig256 receives an empty string, it returns a new zero big.Int - can an attacker exploit this to bypass required value checks in transaction validation or consensus parameter parsing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e29a08ed-c019-4e28-99a4-14e888929df9?mode=deep",
+    "timestamp": "2026-01-11 18:38:35.755474",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: ParseBig256()] [Prefix Confusion] The function accepts both '0x' and '0X' prefixes for hex - can this case-insensitive parsing be exploited to create ambiguous representations that different nodes parse differently, causing consensus failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cf4f7674-58e0-43dd-be29-822e782beea7?mode=deep",
+    "timestamp": "2026-01-11 18:39:03.053038",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: ParseBig256()] [Bitlength Validation] ParseBig256 checks if bigint.BitLen() > 256, but does this correctly handle all edge cases including negative numbers, zero, and numbers exactly at 256 bits, or can boundary conditions slip through validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d4f8cf57-f203-4fe4-a507-43b3a8d9e235?mode=deep",
+    "timestamp": "2026-01-11 18:39:31.435850",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: ParseBig256()] [SetString Failure] When big.Int.SetString fails (returns ok=false), ParseBig256 correctly returns (nil, false), but are all callers checking the boolean return value, or can unchecked calls lead to nil pointer dereferences in critical paths? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f5477697-2e12-4648-8c80-f0bbd00573ca?mode=deep",
+    "timestamp": "2026-01-11 18:40:00.300946",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: ParseBig256()] [Hex Overflow] Can an attacker provide a hex string longer than 256 bits that initially passes length checks but overflows during SetString conversion, creating a wrapped value that bypasses the BitLen() > 256 check? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ce5c1afb-6115-4731-ab30-0aad020e26d3?mode=deep",
+    "timestamp": "2026-01-11 18:40:28.915720",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: ParseBig256()] [Decimal Overflow] For decimal parsing (non-0x prefix), can extremely large decimal strings cause memory exhaustion or excessive CPU usage during big.Int.SetString parsing, leading to DoS during block validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b9495952-2c41-47e1-b478-5963a3bce144?mode=deep",
+    "timestamp": "2026-01-11 18:40:56.860506",
+    "report_generated": false
   }
 ]
