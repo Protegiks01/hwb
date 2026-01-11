@@ -27298,5 +27298,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_baafe4f6-e64e-43f5-bdf4-ab142f240d01?mode=deep",
     "timestamp": "2026-01-11 13:18:45.299505",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Function: DecompressBytes()] [Target size manipulation] The function accepts an arbitrary 'target' size parameter - can a malicious node provide incorrect target sizes during state sync causing decompression to produce incorrect state data? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8a3421ed-f965-4f1b-94af-bff4a504c99f?mode=deep",
+    "timestamp": "2026-01-11 13:20:02.893051",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Function: DecompressBytes()] [Size validation bypass] The check 'len(data) > target' at line 103 validates input size - but can negative or zero target values bypass this check and cause unexpected behavior in bitsetDecodeBytes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_09bacdb7-0eb1-4c79-a39e-144f6cc6276e?mode=deep",
+    "timestamp": "2026-01-11 13:20:16.252848",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Function: DecompressBytes()] [Uncompressed data path] When 'len(data) == target' (lines 106-110), data is assumed uncompressed and copied directly - can an attacker inject malicious uncompressed data that bypasses compression validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_16958482-5bb9-4ccb-9d55-a0f740a90361?mode=deep",
+    "timestamp": "2026-01-11 13:20:29.544314",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Function: DecompressBytes()] [Memory allocation] The copy operation at lines 107-108 allocates a new slice - can extremely large target values cause OOM conditions when many decompression operations occur simultaneously? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d539d005-2f01-4fa5-beb7-36339b88b611?mode=deep",
+    "timestamp": "2026-01-11 13:20:43.284983",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Function: DecompressBytes()] [Error propagation] Errors from bitsetDecodeBytes are returned directly - are all possible error conditions properly handled by callers, or could nil returns cause nil pointer panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3e4c0687-74b4-444d-a6d3-41cbecdd19fa?mode=deep",
+    "timestamp": "2026-01-11 13:20:58.130159",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Function: bitsetDecodeBytes()] [Input consumption validation] Line 120 checks 'size != len(data)' to detect unreferenced data - can an attacker craft compressed data with extra trailing bytes that pass this check but cause state inconsistencies? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2b632970-0073-4403-8b38-3e4cb428b3d0?mode=deep",
+    "timestamp": "2026-01-11 13:21:14.234281",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Function: bitsetDecodeBytes()] [Error masking] If bitsetDecodePartialBytes returns an error (line 117), is the error properly logged and handled, or could repeated decompression errors be silently ignored causing gradual state corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c8f0d170-0d95-4383-9070-a358940d92b7?mode=deep",
+    "timestamp": "2026-01-11 13:21:31.521718",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Function: bitsetDecodeBytes()] [Size mismatch handling] The errUnreferencedData error (line 121) indicates leftover input bytes - can this condition occur during legitimate blockchain operations, potentially causing valid blocks to be rejected? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_df888a10-9bf6-4e20-88c5-88e07d75d84e?mode=deep",
+    "timestamp": "2026-01-11 13:21:50.099451",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Function: bitsetDecodePartialBytes()] [Stack overflow] The recursive call at line 148 mirrors compression recursion - is there protection against maliciously deep recursion causing validator node crashes during block validation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_57bdd205-a15d-422c-84f6-5ba16b693312?mode=deep",
+    "timestamp": "2026-01-11 13:22:10.313158",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Function: bitsetDecodePartialBytes()] [Target zero handling] Line 132-134 returns nil for target=0 - can this edge case be exploited in state trie operations where zero-length data might have special meaning? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fd0c8a3a-054f-4b4d-abee-2bd49ee1a36e?mode=deep",
+    "timestamp": "2026-01-11 13:22:32.020979",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Function: bitsetDecodePartialBytes()] [Memory preallocation] Line 136 allocates 'make([]byte, target)' unconditionally - can an attacker specify huge target values during P2P sync to exhaust node memory? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4da868e4-24f4-4ae0-9dec-d33adc27674a?mode=deep",
+    "timestamp": "2026-01-11 13:22:54.454274",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Function: bitsetDecodePartialBytes()] [Empty data assumption] Lines 137-139 return zero-filled slice for empty input data - is this assumption safe for all blockchain state elements, or could zero-filled data be interpreted as valid state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c590e3c8-bb12-4b30-84d9-c2fbb7342d91?mode=deep",
+    "timestamp": "2026-01-11 13:23:19.060169",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Function: bitsetDecodePartialBytes()] [Single byte handling] Lines 140-146 handle target=1 specially - can the check 'if data[0] != 0' be bypassed or manipulated to return incorrect single-byte values? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8d34add8-fb16-4c33-bbaf-4b4fd5c02c2e?mode=deep",
+    "timestamp": "2026-01-11 13:23:44.354020",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Function: bitsetDecodePartialBytes()] [Bitset size calculation] The recursive call uses '(target+7)/8' for bitset target size (line 148) - can integer overflow in this calculation with extreme target values cause incorrect bitset decompression? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5c89d9ec-0d85-4a84-b65e-b0e0a71ddbed?mode=deep",
+    "timestamp": "2026-01-11 13:24:11.719901",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Function: bitsetDecodePartialBytes()] [Loop bounds] The loop 'for i := 0; i < 8*len(nonZeroBitset)' at line 152 - can the multiplication overflow with large bitset sizes, causing incorrect iteration bounds? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f1a5ea4d-249f-4e40-8af4-5c96d795a3a9?mode=deep",
+    "timestamp": "2026-01-11 13:24:38.256881",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Function: bitsetDecodePartialBytes()] [Bit checking logic] The condition 'nonZeroBitset[i/8]&(1<<byte(7-i%8)) != 0' at line 153 - can bit shift overflow or wrap-around cause incorrect bit reads leading to corrupted decompressed data? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4dd5c4ff-eefd-4201-99b2-b00ce1b1d11f?mode=deep",
+    "timestamp": "2026-01-11 13:25:06.789724",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Function: bitsetDecodePartialBytes()] [Pointer bounds check] Line 155 checks 'ptr >= len(data)' - but if ptr is modified incorrectly in the loop, could this check fail to catch out-of-bounds access? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2640d796-22f6-4066-95bf-8ac6f6a469b3?mode=deep",
+    "timestamp": "2026-01-11 13:25:35.376934",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Function: bitsetDecodePartialBytes()] [Output bounds check] Line 158 checks 'i >= len(decomp)' - can carefully crafted bitsets cause i to exceed decomp length, and is this check sufficient to prevent all out-of-bounds writes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e0bdbeb6-0e39-4e02-8f59-af76bb7c5b71?mode=deep",
+    "timestamp": "2026-01-11 13:26:04.223187",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Function: bitsetDecodePartialBytes()] [Zero byte validation] Line 162 checks 'data[ptr] == 0' and returns errZeroContent - but why is a zero byte at this position invalid, and could this validation be bypassed with encoding tricks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c53bd995-6155-414d-bf29-85550d9d1afc?mode=deep",
+    "timestamp": "2026-01-11 13:26:31.659621",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Function: bitsetDecodePartialBytes()] [Array assignment safety] Line 165 assigns 'decomp[i] = data[ptr]' - are there any conditions where this assignment could panic due to slice bounds issues not caught by the earlier checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4fd35778-5b40-49a8-9b2d-9a153df306d1?mode=deep",
+    "timestamp": "2026-01-11 13:26:58.138023",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Function: bitsetDecodePartialBytes()] [Pointer increment] Line 166 increments ptr - can ptr increment past len(data) without detection until the next iteration, potentially causing off-by-one errors? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dfc504cc-4ee7-43e8-aa17-800fa26cb2a0?mode=deep",
+    "timestamp": "2026-01-11 13:27:22.063574",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Error: errMissingData] Can an attacker craft compressed data that triggers errMissingData at line 156, and if this occurs during block validation, does it cause block rejection or node crash? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_06acfc11-8d8c-4bb8-935c-0943a41e5e02?mode=deep",
+    "timestamp": "2026-01-11 13:27:47.072143",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Error: errUnreferencedData] Can extra bytes in compressed data (triggering errUnreferencedData at line 121) be injected by malicious peers to cause state sync failures or chain splits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3951d468-c42f-46e4-a459-05cd5dcb9e83?mode=deep",
+    "timestamp": "2026-01-11 13:28:11.772502",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Error: errExceededTarget] The errExceededTarget error (lines 104, 159) - can this be triggered intentionally to DoS validators during block processing by forcing repeated error handling? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_041b903b-5539-4b35-a9d3-f31f7a333e59?mode=deep",
+    "timestamp": "2026-01-11 13:28:38.776257",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Error: errZeroContent] Line 162 enforces that non-zero bits must reference non-zero bytes - can this invariant be violated through race conditions in concurrent compression/decompression? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f5d84320-2fdf-4ecc-9d5a-cdda74f0222b?mode=deep",
+    "timestamp": "2026-01-11 13:29:05.107204",
+    "report_generated": false
   }
 ]
