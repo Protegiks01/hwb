@@ -19948,5 +19948,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_213496af-56eb-4b66-b5f0-6cfb66ebe014?mode=deep",
     "timestamp": "2026-01-11 00:32:42.793751",
     "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: newAccount()] [Unauthorized Account Creation] Can remote or local attackers call the New() API at line 504 to create unlimited accounts, filling disk space or causing denial of service? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f8720c81-7fdc-49e4-a664-86533af61e61?mode=deep",
+    "timestamp": "2026-01-11 00:33:58.862934",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: newAccount()] [Weak Password Generation] If the UI prompts for password creation, are there enforced complexity requirements, or can users create weak passwords that compromise account security? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_018e4d49-f850-477c-9f14-2007232b5d94?mode=deep",
+    "timestamp": "2026-01-11 00:34:11.952393",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: listAccounts()] [Information Disclosure] The listAccounts function at line 516 returns all accounts including file paths - can unauthorized parties call this to enumerate accounts and target specific keystore files for offline attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_32e0d584-59b2-4d5d-8486-3daae41c9d6b?mode=deep",
+    "timestamp": "2026-01-11 00:34:25.256704",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: listAccounts()] [Path Disclosure] Account URLs containing full filesystem paths (line 525) - can this information help attackers locate and target keystore files, or reveal system directory structure? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_89749bc7-fe82-4261-96d2-674478500767?mode=deep",
+    "timestamp": "2026-01-11 00:34:38.986892",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: listWallets()] [Wallet Status Leak] The function returns wallet status and failure information at line 541 - can this leak sensitive details about wallet hardware, connection status, or error messages exploitable by attackers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_481a2978-387d-409f-836d-4be9acc76628?mode=deep",
+    "timestamp": "2026-01-11 00:34:53.617022",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: accountImport()] [Private Key Exposure] The private key is loaded from a file at line 559 and kept in memory - is it properly zeroed after import, or could memory dumps expose the unencrypted private key? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_22ab092b-97f9-4475-a646-c98d0d8e28d5?mode=deep",
+    "timestamp": "2026-01-11 00:35:09.123266",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: accountImport()] [Password Mismatch Retry] If passwords don't match at line 582, the function returns an error - but how many retries are allowed, and can attackers use this to perform timing attacks or brute-force password guessing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dc583228-06a9-4fd8-89f4-71dc328ab39f?mode=deep",
+    "timestamp": "2026-01-11 00:35:26.786560",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: accountImport()] [File Path Injection] The keyfile path is taken from command-line argument at line 552 - can attackers use path traversal to import from arbitrary locations or overwrite existing keystore files? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3525ba99-4efb-4950-982b-cb5db5e3ea3a?mode=deep",
+    "timestamp": "2026-01-11 00:35:45.483280",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: accountImport()] [Plaintext Key in Arguments] If the private key file path is passed via command-line, could it be logged in shell history, process listings, or system logs, exposing the key location? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4f033d75-0a81-4a0a-b252-b5fbb9e2433f?mode=deep",
+    "timestamp": "2026-01-11 00:36:06.570927",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: checkFile()] [Windows Permission Bypass] On line 872, permission checks are skipped on Windows - can Windows attackers exploit this to access files with weak permissions that would be rejected on Unix systems? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b5bc628a-13f9-41bd-8bd2-8630d8383bdd?mode=deep",
+    "timestamp": "2026-01-11 00:36:27.835330",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: checkFile()] [Permission Check Mask] The check info.Mode().Perm()&0377 != 0 at line 872 verifies group/other permissions are 0, but what about setuid/setgid bits - could these be exploited? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9154817f-70c3-4e03-b85f-780c54a1103d?mode=deep",
+    "timestamp": "2026-01-11 00:36:51.433009",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: checkFile()] [Symlink Permission Check] Does os.Stat follow symlinks, and if so, are the permissions checked on the symlink or the target file - could attackers use symlinks to bypass permission checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_09f1030e-6edf-4547-9367-cb7d4386e3c1?mode=deep",
+    "timestamp": "2026-01-11 00:37:15.373064",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: checkFile()] [TOCTOU Permission Race] Between the permission check and actual file use, can an attacker change file permissions or replace the file, bypassing the security check? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_631eee0c-934c-4620-a931-74619302ca4b?mode=deep",
+    "timestamp": "2026-01-11 00:37:39.110989",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: DefaultConfigDir()] [Environment Variable Injection] On Windows, APPDATA environment variable is used at line 802 - can attackers manipulate this to redirect config files to attacker-controlled locations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_545345c2-0ff2-41f9-9c68-5405152a4430?mode=deep",
+    "timestamp": "2026-01-11 00:38:03.272808",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: DefaultConfigDir()] [Home Directory Trust] The function trusts flags.HomeDir() - if this returns an attacker-controlled path, can config files and master seeds be written to insecure locations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b4e85c38-9bdc-42ae-b4ea-4eb0f814a3bb?mode=deep",
+    "timestamp": "2026-01-11 00:38:27.874304",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: DefaultConfigDir()] [Empty Path Fallback] If no stable location can be determined (line 811), an empty string is returned - how is this handled by calling functions, and can this lead to files being written to unexpected locations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_447cb94a-1bee-4a86-949e-e6264aa0f087?mode=deep",
+    "timestamp": "2026-01-11 00:38:54.190251",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: ipcEndpoint()] [Windows Pipe Injection] On Windows, if ipcPath doesn't start with \\\\\\\\.\\\\pipe\\\\, it's prefixed at line 610 - can attackers inject malicious pipe names or create name collisions with system services? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b3847e00-a0ab-4dfe-af64-edc47a498012?mode=deep",
+    "timestamp": "2026-01-11 00:39:22.097700",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: ipcEndpoint()] [Path Traversal in IPC] The filepath.Join operations at lines 615-617 - can path traversal in ipcPath or datadir parameters lead to IPC sockets being created in arbitrary locations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cc3edb6b-c4e7-46b9-a999-02709894a8de?mode=deep",
+    "timestamp": "2026-01-11 00:39:49.565604",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: ipcEndpoint()] [IPC Socket Hijacking] If the IPC path points to a world-writable directory, can attackers create the socket first and intercept all IPC communication, performing man-in-the-middle attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_744984a4-c121-4b14-91ad-6693f15ce50d?mode=deep",
+    "timestamp": "2026-01-11 00:40:14.988101",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: testExternalUI()] [Test Mode in Production] The test flag at line 772 enables UI testing - can attackers enable this in production to perform unauthorized operations or extract information through test interactions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2e9f4043-5f32-4b13-bb14-96ba848c017d?mode=deep",
+    "timestamp": "2026-01-11 00:40:40.260552",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: testExternalUI()] [Test Signature Leakage] The test function signs actual data including clique headers at line 964 and typed data at line 975 - can attackers obtain valid signatures through test mode that could be replayed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_805ae50e-6871-4185-8ab2-b2dc83de003c?mode=deep",
+    "timestamp": "2026-01-11 00:41:06.457487",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: testExternalUI()] [Test Context Manipulation] The context values set at lines 894-896 - can these be exploited to bypass origin checks or impersonate trusted callers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_56571cbc-695b-4e0c-b819-fbedeb609a69?mode=deep",
+    "timestamp": "2026-01-11 00:41:33.182955",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: confirm()] [Buffer Overflow] The bufio.NewReader at line 883 reads from stdin - can extremely long input cause buffer issues or resource exhaustion? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_02c4a07a-44bd-4b2e-a667-737305f6d446?mode=deep",
+    "timestamp": "2026-01-11 00:41:57.481014",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: confirm()] [Input Injection] The confirmation only checks for exact 'ok' match at line 887 - but could special characters or escape sequences in input cause terminal injection attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f1009361-c62f-445b-9c94-4ad22013163d?mode=deep",
+    "timestamp": "2026-01-11 00:42:22.158498",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: initialize()] [Log Output Manipulation] If stdiouiFlag is true, logs go to stderr (line 478) - can attackers manipulate this to hide error messages or inject fake log entries? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f47cc1e1-47bf-40a1-85cf-a524b87f2428?mode=deep",
+    "timestamp": "2026-01-11 00:42:47.740159",
+    "report_generated": false
   }
 ]
