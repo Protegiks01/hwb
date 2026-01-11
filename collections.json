@@ -32098,5 +32098,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b9495952-2c41-47e1-b478-5963a3bce144?mode=deep",
     "timestamp": "2026-01-11 18:40:56.860506",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: ParseBig256()] [Negative Number Handling] Does ParseBig256 properly reject negative numbers with '-' prefix, or can negative values slip through and cause unexpected behavior in unsigned arithmetic operations used throughout the EVM? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_516e7beb-157a-4137-8632-897b4f08fe2f?mode=deep",
+    "timestamp": "2026-01-11 18:42:14.048041",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: ParseBig256()] [Leading Zeros] The comment says 'Leading zeros are accepted' - can an attacker exploit leading zeros to create different string representations of the same value, causing hash mismatches or signature verification failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3499d5ba-0428-472f-8d4a-6af29330f031?mode=deep",
+    "timestamp": "2026-01-11 18:42:27.121344",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: ParseBig256()] [Unicode Exploitation] Can an attacker provide Unicode digits or lookalike characters that pass initial string checks but cause parsing errors or unexpected numeric values in big.Int.SetString? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8554e756-4279-40a8-bab5-a73102bd0591?mode=deep",
+    "timestamp": "2026-01-11 18:42:40.317755",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: MustParseBig256()] [Panic DoS] MustParseBig256 panics on invalid input - if this function is called with attacker-controlled input during block validation or transaction processing, can the panic crash the node causing DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7b568ac9-80eb-4a47-a68e-5b479c3ddc57?mode=deep",
+    "timestamp": "2026-01-11 18:42:54.037231",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: MustParseBig256()] [Recovery Handling] Does the calling code have panic recovery in place, or can a panic in MustParseBig256 propagate up the call stack and crash critical validator operations, causing block production to halt? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f97244da-b669-454e-b999-49f672a628c3?mode=deep",
+    "timestamp": "2026-01-11 18:43:08.802428",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: MustParseBig256()] [Error Message Leak] The panic message includes the invalid input string - can this leak sensitive information if the input contains private data, or be exploited for log injection attacks in monitoring systems? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_72909957-b8a9-4edd-9e7b-d31ab33d31f0?mode=deep",
+    "timestamp": "2026-01-11 18:43:24.391929",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: BigPow()] [Negative Exponent] Does BigPow properly handle negative exponent values, or can negative b parameters cause nil pointer dereferences or unexpected results in the Exp operation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cd6263d7-e297-4151-86cf-d55a99e362f3?mode=deep",
+    "timestamp": "2026-01-11 18:43:41.677936",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: BigPow()] [Zero Base] When a=0 and b>0, BigPow should return 0, but does the Exp operation handle this correctly, or can edge cases cause undefined behavior used in gas calculations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d0ff96b1-209b-4f68-877b-256ae1d2f561?mode=deep",
+    "timestamp": "2026-01-11 18:44:01.488270",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: BigPow()] [Large Exponent DoS] Can an attacker trigger BigPow with extremely large b values causing exponential computation time and memory usage, leading to node DoS if called during block validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f59c4004-6806-44ce-bd28-513d208ff29b?mode=deep",
+    "timestamp": "2026-01-11 18:44:21.978972",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: BigPow()] [Result Truncation] BigPow returns unbounded results - if used in contexts expecting 256-bit values without subsequent U256 wrapping, can overflowed results corrupt state calculations or gas metering? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_78ec963e-da56-4ac2-9638-00568aaae5fd?mode=deep",
+    "timestamp": "2026-01-11 18:44:44.104068",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: BigPow()] [Mutation Side Effects] BigPow modifies the receiver r during calculation - are there scenarios where the input big.Int a is unexpectedly modified due to aliasing, causing state corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2bba5b22-2c9b-4374-9168-98419f557ea8?mode=deep",
+    "timestamp": "2026-01-11 18:45:06.618006",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: BigMax()] [Nil Input] Does BigMax handle nil inputs correctly, or can nil x or y pointers cause panics during comparison operations in consensus-critical code paths? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5f291432-afbe-475c-a26b-c8364c899c3e?mode=deep",
+    "timestamp": "2026-01-11 18:45:30.314338",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: BigMax()] [Equal Values] When x.Cmp(y) returns 0 (equal values), BigMax returns y - can this arbitrary choice cause non-deterministic behavior if the big.Int pointers have different identities but equal values? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9adc9b95-3691-41e6-bd68-35aee714ba07?mode=deep",
+    "timestamp": "2026-01-11 18:45:55.322537",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: BigMax()] [Mutation Risk] BigMax returns a pointer to one of the input big.Ints - can subsequent mutations to the returned value unexpectedly modify the original input, causing state inconsistencies? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6230f901-2efa-4f8b-b452-82a7d30c99f0?mode=deep",
+    "timestamp": "2026-01-11 18:46:22.569343",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: BigMin()] [Nil Input] Does BigMin handle nil inputs correctly, or can nil pointers cause panics in critical minimum value calculations for gas limits or validator thresholds? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6ecd85f1-a47a-46e9-a085-0b5c4aebee2a?mode=deep",
+    "timestamp": "2026-01-11 18:46:50.562725",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: BigMin()] [Negative Values] Do BigMax/BigMin correctly compare negative big.Int values, or can sign handling errors cause incorrect minimum/maximum selection in signed arithmetic contexts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2171891a-9bcd-42bf-91c0-f9c1507f133d?mode=deep",
+    "timestamp": "2026-01-11 18:47:18.547272",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: FirstBitSet()] [Nil Input] If FirstBitSet receives a nil big.Int pointer, will v.BitLen() panic, and can this be exploited to crash nodes during bit manipulation operations in cryptographic functions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e353535f-e729-43af-b615-09fd5bfe04cd?mode=deep",
+    "timestamp": "2026-01-11 18:47:47.264975",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: FirstBitSet()] [Zero Input] When v is zero (BitLen() returns 0), FirstBitSet returns 0 - is this behavior consistent with expectations in all calling contexts, or can it cause off-by-one errors? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f30dcdda-385f-4154-9e17-e93952c54afa?mode=deep",
+    "timestamp": "2026-01-11 18:48:16.114312",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: FirstBitSet()] [Performance DoS] For large numbers with the first bit set at high positions, FirstBitSet iterates through all lower bits - can an attacker exploit this O(n) complexity to cause DoS in signature verification or hash calculations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b3da2164-e799-4205-b372-8128704b73bc?mode=deep",
+    "timestamp": "2026-01-11 18:48:43.745421",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: FirstBitSet()] [Return Value Edge Case] When no bit is set (impossible for non-zero), FirstBitSet returns v.BitLen() - can this unexpected return value cause array indexing errors in calling code? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3b5062e8-85e6-453f-968e-2de810406565?mode=deep",
+    "timestamp": "2026-01-11 18:49:10.590272",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: PaddedBigBytes()] [Negative Input] Does PaddedBigBytes handle negative big.Int values correctly, or can negative numbers cause incorrect byte encoding that corrupts serialized transaction data or state roots? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3b3a747b-bb55-4c91-82b9-1a86d22fa76a?mode=deep",
+    "timestamp": "2026-01-11 18:49:36.008813",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: PaddedBigBytes()] [BitLen Calculation] The condition bigint.BitLen()/8 >= n uses integer division - can this off-by-one error cause a 257-bit number to pass when n=32, leading to incorrect padding and state corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_49bc98eb-2512-4db1-86a6-60c17ff5d545?mode=deep",
+    "timestamp": "2026-01-11 18:50:03.794946",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: PaddedBigBytes()] [Large n Parameter] Can an attacker provide extremely large n values causing massive memory allocation in make([]byte, n), leading to memory exhaustion and node crashes during serialization? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2ed485b4-c351-4ff4-96df-af02842d0adc?mode=deep",
+    "timestamp": "2026-01-11 18:50:30.402179",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: PaddedBigBytes()] [Zero Padding] When bigint.BitLen()/8 < n, the function creates a zero-padded slice and calls ReadBits - can inconsistencies between these two paths cause different byte representations of the same value? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a6e17afd-1871-49ea-8290-59f08bcd6cbd?mode=deep",
+    "timestamp": "2026-01-11 18:50:56.445466",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: PaddedBigBytes()] [Nil Input] If bigint is nil, will BitLen() panic, and can this crash nodes during balance encoding or transaction serialization? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5efac33c-7309-4807-8b09-0390cf9bb007?mode=deep",
+    "timestamp": "2026-01-11 18:51:21.682047",
+    "report_generated": false
   }
 ]
