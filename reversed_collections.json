@@ -26836,5 +26836,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ef61bb2b-5ec7-4e1c-90d2-580383056595?mode=deep",
     "timestamp": "2026-01-10 23:53:44.729505",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: LinearExpiredValue.Value()] [Integer Overflow in Division] When now (mclock.AbsTime, which is uint64) is extremely large and Rate is 1, the conversion 'uint64(now / e.Rate)' could overflow if the division result exceeds uint64 max. Can this wrap around and produce incorrect offset values? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bd4d5562-6a1f-4495-bc1b-c880e3bceab9?mode=deep",
+    "timestamp": "2026-01-11 09:33:05.966659",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: LinearExpiredValue.Value()] [Division by Zero] At line 149, 'uint64(now / e.Rate)' divides by Rate. If Rate is 0 (which is possible since it's not validated), does this cause a division by zero panic crashing the node? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_24a75cf4-6ad1-4dd1-8ce3-2a93c8c6ea9a?mode=deep",
+    "timestamp": "2026-01-11 09:33:19.015376",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: ExpirationFactor.Value()] [Precision Loss Accumulation] When the same ExpirationFactor is reused across many Value() calls with different exp values, do accumulated precision errors from math.Pow cause calculated values to drift from true exponential decay, enabling economic manipulation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5beceb48-dbc4-45a3-a4fc-895c81cb5fda?mode=deep",
+    "timestamp": "2026-01-11 09:33:32.683691",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: ExpirationFactor.Value()] [Integer Overflow in Subtraction] The subtraction 'int64(exp - e.Exp)' could overflow if exp and e.Exp are on opposite sides of uint64 max. Can this produce a wildly incorrect exponent value, causing math.Pow to return NaN or Inf? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ee8d7592-8aed-4d4e-8257-7fb0743ca970?mode=deep",
+    "timestamp": "2026-01-11 09:33:46.535215",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: ExpirationFactor.Value()] [Exponent Overflow] The expression 'exp - e.Exp' is cast to int64 then used in math.Pow(2, ...). If exp < e.Exp and the difference is large, does the negative exponent produce extremely small values that underflow to zero, incorrectly zeroing legitimate balances? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_89e84d0a-6fc4-463a-a77f-a81b74bf0907?mode=deep",
+    "timestamp": "2026-01-11 09:34:01.244820",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: ExpirationFactor.Value()] [Float Division by Zero] At line 67, 'base / e.Factor' divides by Factor. If Factor is 0.0 (which could happen if ExpFactor was called with a malformed Fixed64), does this cause a division by zero panic crashing the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8701f62a-2ede-4111-83d3-58f37003b41f?mode=deep",
+    "timestamp": "2026-01-11 09:34:17.253554",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: ExpiredValue.SubExp()] [No Return Value] Unlike Add() which returns the actual amount added, SubExp() doesn't return how much was actually subtracted. Can calling code incorrectly assume the full subtraction succeeded when it was capped at zero, leading to accounting errors? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8ef43ea1-f5ca-4882-92c9-42b343b2b912?mode=deep",
+    "timestamp": "2026-01-11 09:34:34.429678",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: ExpiredValue.SubExp()] [Race Condition] SubExp() modifies e.Base and e.Exp without locking. If called concurrently with other methods, can this cause the reads of e.Exp (lines 119, 122) to observe inconsistent values, leading to incorrect shift calculations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4f431815-686f-472d-9a9c-fa8cad02b8db?mode=deep",
+    "timestamp": "2026-01-11 09:34:52.877849",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: ExpiredValue.SubExp()] [Silent Underflow] Lines 126-130 cap the result at zero if e.Base < a.Base, silently preventing underflow. However, can an attacker exploit this by repeatedly subtracting small amounts that push e.Base to zero, then use this to manipulate rate-limiting or quota systems? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b749600c-a23e-404c-9187-1a5041eae3e1?mode=deep",
+    "timestamp": "2026-01-11 09:35:13.709143",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: ExpiredValue.SubExp()] [Right Shift Data Loss] Lines 120 and 123 perform right shifts similar to AddExp(). Can an attacker subtract an ExpiredValue with a much larger Exp, forcing e.Base to be shifted right by a large amount and zeroed out, effectively burning tracked value? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f0df42b1-c7c5-4263-ab62-14b4b27dbacc?mode=deep",
+    "timestamp": "2026-01-11 09:35:35.220329",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: ExpiredValue.AddExp()] [Exp Synchronization] After equalizing the exponents, e.Exp is set to the larger of the two. If this operation races with other concurrent modifications, can it lead to e.Exp and e.Base becoming desynchronized, producing incorrect Value() calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6dc46bce-f7cc-4607-82ab-eba255f5d812?mode=deep",
+    "timestamp": "2026-01-11 09:35:58.039708",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: ExpiredValue.AddExp()] [Asymmetric Shift Behavior] The function shifts either a.Base or e.Base depending on which Exp is larger. Can an attacker exploit this asymmetry by repeatedly adding ExpiredValues in a specific order to maximize precision loss through right shifts, gradually draining value? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_02c1eadf-a195-4ebd-be76-873e930f639d?mode=deep",
+    "timestamp": "2026-01-11 09:36:21.684500",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: ExpiredValue.AddExp()] [Race Condition] AddExp() modifies the receiver e without any locking. If AddExp() is called concurrently with Add() or Value() on the same ExpiredValue from different goroutines, can this cause data races with partially updated Base and Exp fields? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b770064d-daef-4bd7-8fbb-fa9c1c3ec7f9?mode=deep",
+    "timestamp": "2026-01-11 09:36:46.135325",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: ExpiredValue.AddExp()] [Addition Overflow] At line 114, 'e.Base += a.Base' adds two uint64 values without overflow checking. Can an attacker provide two ExpiredValues that sum to exceed uint64 max, causing wraparound and incorrect balance tracking? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_645f698a-ed9e-4993-bdd7-1f2aa8f85e2f?mode=deep",
+    "timestamp": "2026-01-11 09:37:12.514305",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: ExpiredValue.AddExp()] [Right Shift Overflow] At line 108, 'a.Base >>= (e.Exp - a.Exp)' shifts a.Base. If e.Exp - a.Exp >= 64, the shift amount causes all bits to be shifted out. Can an attacker merge ExpiredValues with vastly different Exp values to intentionally zero out legitimate values? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_384b9709-bb9c-45d0-ba13-972672201268?mode=deep",
+    "timestamp": "2026-01-11 09:37:37.399868",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: ExpiredValue.Add()] [Base Multiplication Overflow] At line 80, 'base := factor * float64(amount)' multiplies factor by amount. If both are at extreme values, can this overflow float64, producing +Inf or NaN values that propagate through subsequent calculations and corrupt the state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_647e2a4b-db2a-4192-8863-4d24fe2c4ed3?mode=deep",
+    "timestamp": "2026-01-11 09:38:04.001007",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: ExpiredValue.Add()] [Exponent Shift Amount Overflow] When computing 'integer > e.Exp', if integer (from logOffset) is near uint64 max and e.Exp is 0, can the shift amount 'integer - e.Exp' exceed 63 bits, causing undefined behavior in the right shift operation and corrupting e.Base? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ed73167e-3725-4c09-8eb1-a0b5b5935d03?mode=deep",
+    "timestamp": "2026-01-11 09:38:29.776506",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: ExpiredValue.Add()] [Factor Calculation DoS] The factor calculation 'frac.Pow2()' involves exponential operations. Can an attacker provide logOffset values that cause Pow2() to compute extremely slowly (e.g., near infinity calculations), creating a DoS by making Add() operations take excessive time? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fbaa68a4-5d8e-44f3-90aa-27a61b4e6dcb?mode=deep",
+    "timestamp": "2026-01-11 09:38:55.764747",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: ExpiredValue.Add()] [Inconsistent Return Value] The function returns 'amount' on success but 'net' on failure. If an attacker repeatedly triggers the failure path by carefully crafted amounts that nearly exceed e.Base, can they exploit the return value semantics to confuse calling code about how much was actually added? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_84a3dae1-9d4b-4ea6-928a-71a01336aec6?mode=deep",
+    "timestamp": "2026-01-11 09:39:20.652096",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: ExpiredValue.Add()] [Underflow in Subtraction] At line 96, 'e.Base -= uint64(-base)' subtracts from e.Base. The condition on line 88 checks 'uint64(-base) <= e.Base', but can floating-point precision errors cause -base to be computed slightly larger than expected, bypassing the check and causing uint64 underflow? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8f59ffbf-0476-488b-897c-056491234c8a?mode=deep",
+    "timestamp": "2026-01-11 09:39:45.831222",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: ExpiredValue.Add()] [Race Condition on Struct Fields] ExpiredValue.Add() mutates both e.Base and e.Exp without any locking. If multiple goroutines call Add() concurrently on the same ExpiredValue, can this cause data races where one goroutine reads partially updated values, leading to corrupted state and incorrect balance calculations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_80ba6d76-930b-4050-94f0-ae1fbd6fcb06?mode=deep",
+    "timestamp": "2026-01-11 09:40:11.803146",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: ExpiredValue.Add()] [Negative Float to Uint Cast] Lines 93-96 handle the ARMv8 undefined behavior for negative float64 to uint64 conversion. However, if base is slightly negative due to floating-point errors (e.g., -0.0000001) and the code enters the base >= 0 branch, could this incorrectly add a very large uint64 value due to the undefined conversion? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bf63b887-29e1-4312-985c-71690a14c17f?mode=deep",
+    "timestamp": "2026-01-11 09:40:38.365351",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: ExpiredValue.Add()] [Division by Zero] At line 100, 'net := int64(-float64(e.Base) / factor)' divides by factor. If frac.Pow2() returns 0.0 due to extreme negative fraction values, can this cause a division by zero panic, crashing the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d8cbb369-c6e7-4edb-b049-e5bf3dfae815?mode=deep",
+    "timestamp": "2026-01-11 09:41:05.441243",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: ExpiredValue.Add()] [Right Shift Data Loss] At line 85, when 'integer > e.Exp', the code does 'e.Base >>= (integer - e.Exp)'. If the shift amount is >= 64, does this cause complete data loss (e.Base becomes 0), allowing an attacker to zero out values by forcing large logOffset updates? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f2a49972-8616-4f9d-82da-3ba323adabe8?mode=deep",
+    "timestamp": "2026-01-11 09:41:32.708798",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/expiredvalue.go] [Function: ExpiredValue.Add()] [Integer Overflow in Base] When amount is positive and large, and factor is close to 2.0, the calculation 'e.Base += uint64(base)' could overflow uint64. Is there overflow protection to prevent e.Base from wrapping around to a small value, which would cause catastrophic loss of tracked value? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5744b658-1ba2-45f0-95f8-eaba2d7637f0?mode=deep",
+    "timestamp": "2026-01-11 09:41:57.981438",
+    "report_generated": false
   }
 ]
