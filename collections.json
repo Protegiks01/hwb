@@ -30748,5 +30748,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ba7a188e-7d61-43ae-970d-41a8cf8024ef?mode=deep",
     "timestamp": "2026-01-11 17:09:38.510476",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: Add()] [Zero-Length Value] If len(value) is 0 at line 62, targetSize equals c.size, and no evictions occur. Can attackers flood the cache with zero-length blobs up to math.MaxInt items (BasicLRU capacity), causing memory exhaustion from map overhead and list elements despite zero payload sizes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b3f00099-209c-48b1-a2e7-a510ebd57a1f?mode=deep",
+    "timestamp": "2026-01-11 17:10:55.960942",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: Add()] [Eviction Bypass] At line 61, if c.lru.Contains(key) returns true for an existing key but with a different value (violating the content-addressed assumption in comments at lines 33-34, 52-53), the entire eviction block is skipped. Can this allow cache size to exceed maxSize if attackers repeatedly update existing keys with larger values? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f6b213ec-d122-4f92-95bd-cc51e874fb88?mode=deep",
+    "timestamp": "2026-01-11 17:11:09.073674",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: Add()] [Size Accounting Error] When a key already exists (line 61 check passes), c.lru.Add(key, value) at line 74 is still called. If the new value has a different size than the old value, c.size is not updated. Can this cause c.size to become permanently incorrect, leading to incorrect eviction decisions and cache size violations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3d1d3789-7da7-4c4b-a1b4-be3cfb324b48?mode=deep",
+    "timestamp": "2026-01-11 17:11:22.355558",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: NewSizeConstrainedCache()] [Zero MaxSize] If maxSize parameter is 0, what happens? Line 62 would have targetSize = c.size + len(value) > 0 > maxSize, triggering evictions. But line 66 check 'ok := c.lru.RemoveOldest()' when ok is false breaks the loop. Can this create a cache that never accepts any values, or does it panic? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8108107b-6365-4e9f-8c9c-1aaf2de048ed?mode=deep",
+    "timestamp": "2026-01-11 17:11:36.284070",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: Add()] [Empty Cache Eviction] At line 65-68, when the cache is empty (!ok), the eviction loop breaks. But if c.size is non-zero due to accounting bugs, could this leave the cache in an inconsistent state where c.size > maxSize but no items exist, preventing future additions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1b112d27-aa82-4d03-8167-c21c71e677d2?mode=deep",
+    "timestamp": "2026-01-11 17:11:51.199938",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: Add()] [MaxSize Boundary] When targetSize exactly equals maxSize (line 63 condition false), no evictions occur. If repeated additions bring the cache to exactly maxSize, can one more addition cause targetSize > maxSize by even 1 byte, triggering evictions? Is there a fence-post error allowing the cache to slightly exceed maxSize? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_28e1b37b-48e9-41e7-9071-cb2351554543?mode=deep",
+    "timestamp": "2026-01-11 17:12:07.692221",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: Add()] [Evicted Flag Accuracy] The evicted boolean flag (line 55) is returned to callers. If multiple items are evicted in the loop, evicted is set true (line 64) but provides no count. Can callers make incorrect assumptions about eviction count, leading to logic errors in cache management code? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cb78532d-6f53-43d3-9f95-de86d30d0f5d?mode=deep",
+    "timestamp": "2026-01-11 17:12:25.467293",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Type: blobType] [Type Constraint Violation] The blobType constraint (lines 25-27) allows ~[]byte | ~string. If underlying types with []byte or string bases have unexpected behaviors (custom len(), different memory layouts), could this violate size accounting assumptions causing cache size tracking corruption? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8e8ae6a4-6897-4040-9be8-40255aa7c0ba?mode=deep",
+    "timestamp": "2026-01-11 17:12:45.009525",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: Add()] [String Mutability] While Go strings are immutable, the comment at line 54 warns 'value is _not_ copied on Add, so the caller must not modify it afterwards'. For []byte values, if callers violate this and modify the slice after Add(), can this corrupt cached data or cause size accounting errors if slice capacity changes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d29f3c94-80ed-4e97-8e81-5c623e8b1ee1?mode=deep",
+    "timestamp": "2026-01-11 17:13:06.238241",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: Get()] [Value Aliasing] Get() at line 83 returns the cached value directly without copying. If callers modify returned []byte slices, this mutates cached data. In a blockchain context, could this corrupt block data, transaction hashes, or state roots if multiple components share references, leading to consensus failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_58cd4e76-85e4-4b54-b59b-4e614ac4d355?mode=deep",
+    "timestamp": "2026-01-11 17:13:28.657179",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Type: K comparable] [Key Collision] The key type K is constrained to 'comparable' but not necessarily a cryptographic hash. If keys use non-cryptographic hashes or have collisions, can attackers trigger cache poisoning by overwriting legitimate cached blockchain data with malicious data sharing the same key? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7b87ae95-7285-4a15-a244-bebfeb41f22d?mode=deep",
+    "timestamp": "2026-01-11 17:13:51.947084",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: Add()] [BasicLRU.RemoveOldest() Inconsistency] At line 65, RemoveOldest() returns (key, value, ok). If BasicLRU has bugs where ok=true but value is corrupted/incorrect, the size accounting at line 70 'targetSize -= uint64(len(v))' would use wrong length, permanently corrupting c.size tracking. Can this accumulate over many operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_03b2ee43-136f-4820-b106-f68c8aed6cd7?mode=deep",
+    "timestamp": "2026-01-11 17:14:17.126199",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: Add()] [BasicLRU.Contains() Race] The Contains() check at line 61 and subsequent Add() at line 74 are not atomic relative to BasicLRU state. If BasicLRU's internal state changes between these calls (though protected by mutex here), could this ever cause logic errors in eviction decisions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_45c0388a-afd2-4084-9e11-5a80835d54ee?mode=deep",
+    "timestamp": "2026-01-11 17:14:42.316458",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: NewSizeConstrainedCache()] [BasicLRU Capacity Overflow] BasicLRU is created with math.MaxInt capacity (line 47). On 32-bit systems, math.MaxInt is math.MaxInt32. Can this limit be exceeded on 64-bit systems with huge maxSize values allowing >MaxInt32 small items, causing BasicLRU capacity checks to fail with panics or undefined behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_535b31bb-a592-46d0-a19e-a09a3bb4770f?mode=deep",
+    "timestamp": "2026-01-11 17:15:07.792474",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: Add()] [BasicLRU.Add() Silent Failure] After evictions, line 74 calls c.lru.Add(key, value) but doesn't check return value or errors. If BasicLRU.Add() fails for any reason (capacity issues, internal errors), the size accounting at line 72 is already committed. Can this cause c.size to include items not actually in cache, leading to incorrect evictions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c4aaa3e6-df81-476d-bbeb-f4ce52f06b32?mode=deep",
+    "timestamp": "2026-01-11 17:15:34.582060",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: Get()] [BasicLRU.Get() Side Effects] Get() at line 83 calls BasicLRU.Get() which internally calls moveToFront() modifying the LRU order. If this operation has bugs or panics, it occurs while the lock is held. Can this leave the cache in an inconsistent state with the lock potentially not released properly? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b7a67a3d-981b-45d4-9e29-3217d6a0e09c?mode=deep",
+    "timestamp": "2026-01-11 17:16:00.665787",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Cache Use: Block Data] If this cache stores block blobs for fast retrieval, can malicious validators craft maximum-size blocks (gas limit sized) to fill the cache, evicting honest blocks, forcing nodes to refetch from disk/network repeatedly, degrading sync performance and enabling chain manipulation during high-traffic periods? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_24b3c557-9a34-40dc-b11e-3cb009e39816?mode=deep",
+    "timestamp": "2026-01-11 17:16:26.698739",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Cache Use: Transaction Pool] If caching transaction blobs, can attackers flood with maximum-size transactions to evict legitimate pending transactions from cache, causing repeated expensive re-validation and enabling DoS attacks on transaction pool performance affecting block production? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cc152d36-761c-4720-baeb-0bdf823da9a6?mode=deep",
+    "timestamp": "2026-01-11 17:16:52.567037",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Cache Use: State Data] If caching state trie nodes or account data, can attackers craft transactions accessing maximum-size state entries to evict critical validator state cache entries, forcing expensive disk I/O during block validation and enabling timing attacks or validation DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a1b473e7-0f04-4901-9d67-17c56e0aa538?mode=deep",
+    "timestamp": "2026-01-11 17:17:17.770855",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Cache Use: Consensus Data] If caching validator signatures or consensus snapshots, can cache evictions of critical consensus data during high load cause validators to miss their block production slots due to cache misses and expensive recomputation, reducing network liveness? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9b57a58b-62c4-499c-b731-39d14dde4f24?mode=deep",
+    "timestamp": "2026-01-11 17:17:44.986100",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Content-Addressed Assumption] The cache assumes content-addressed keys (lines 33-34, 52-53) where same key always has same value. In blockchain context, if this is violated (e.g., mutable state keys), can cache return stale state data after state updates, causing consensus failures when validators make decisions on outdated cached state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ab9eef02-e1a3-4553-a028-cf8bb6c0e748?mode=deep",
+    "timestamp": "2026-01-11 17:18:11.476678",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: Add()] [Cache Poisoning] If cache keys are predictable (e.g., block hashes, transaction hashes), can attackers pre-compute colliding keys or exploit hash function weaknesses to insert malicious data that gets served to nodes instead of legitimate blockchain data, corrupting node state or consensus views? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_be05ed6c-10a8-4fe1-8593-d17df25e1127?mode=deep",
+    "timestamp": "2026-01-11 17:18:38.352392",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: Get()] [Timing Attack] Get() performance varies based on cache hit/miss and LRU reordering. Can attackers observe timing differences to infer cached blockchain data (e.g., which transactions/blocks are cached), leaking information about node behavior, validator operations, or network topology? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fbc8537a-077c-476d-b91d-f11f6a915eb2?mode=deep",
+    "timestamp": "2026-01-11 17:19:04.340466",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: Add()] [Panic on Eviction] If BasicLRU.RemoveOldest() panics due to internal bugs (nil pointers, list corruption), this occurs at line 65 while the lock is held. Can this panic leave the cache locked permanently, causing all future cache operations to deadlock and bringing down the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_deca3fd1-3316-4f7e-a8a2-f0125a386c01?mode=deep",
+    "timestamp": "2026-01-11 17:19:29.180117",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: Add()] [Len() Panic] The len(value) calls at lines 62, 70 assume value is a valid slice/string. If through type system bugs or unsafe operations value becomes an invalid reference, can len() panic, crashing the node during critical operations like block validation or transaction processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3a5e1a35-e59a-41f4-9d12-09539f86c172?mode=deep",
+    "timestamp": "2026-01-11 17:19:51.051133",
+    "report_generated": false
   }
 ]
