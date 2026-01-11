@@ -27898,5 +27898,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5f3a92b3-3a05-4f24-91e2-aa42fcea5f71?mode=deep",
     "timestamp": "2026-01-11 13:59:01.036996",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: ContractInfo] [Interface{} Type Safety] The DeveloperDoc field (line 43) uses interface{} - can an attacker exploit type confusion by providing JSON that deserializes to incompatible types, causing panics in downstream processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d0fce6c6-9a12-4936-bc5a-72c3e8b10274?mode=deep",
+    "timestamp": "2026-01-11 14:00:21.412410",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: ContractInfo] [Code Injection] The Source field (line 34) contains contract source code - if this is later used in generated code or logging without sanitization, can an attacker inject malicious code through specially crafted source strings? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_46413933-813c-4bff-b19e-3421b5a591c8?mode=deep",
+    "timestamp": "2026-01-11 14:00:35.123880",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: ContractInfo] [Metadata Injection] The Metadata field (line 44) is a string that could contain arbitrary JSON - if this is parsed or used without validation, can an attacker inject malicious metadata that triggers vulnerabilities in metadata processing code? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a68b4aa5-c6d4-44f9-b8ad-de49e8a2524e?mode=deep",
+    "timestamp": "2026-01-11 14:00:48.911719",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: ContractInfo] [Version String Manipulation] The LanguageVersion field (line 36) is user-controlled string - can specially crafted version strings containing special characters or extremely long values cause issues in version comparison logic or logging? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_799e9611-2ec2-40d3-8650-33c6bd1db4a6?mode=deep",
+    "timestamp": "2026-01-11 14:01:04.081342",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: ContractInfo] [Version String Manipulation] The CompilerVersion field (line 37) comes from external input - can an attacker provide malformed version strings that break version parsing logic or cause buffer overflows in C-interop code? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dbd17bb0-c435-4e32-9937-a5deeb2e2a34?mode=deep",
+    "timestamp": "2026-01-11 14:01:20.430324",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: ContractInfo] [Command Injection] The CompilerOptions field (line 38) could contain attacker-controlled data - if these options are ever passed to shell commands or used in code generation, can they enable command injection attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4a9d2ff6-8f08-46e4-aafd-e704a3a396a1?mode=deep",
+    "timestamp": "2026-01-11 14:01:38.398975",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: ContractInfo] [Memory Exhaustion] Can an attacker craft JSON input with extremely long SrcMapRuntime strings (line 40) containing millions of characters to exhaust node memory during deserialization? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_22a3e819-9c03-4dfb-bf85-0b453cf12a5d?mode=deep",
+    "timestamp": "2026-01-11 14:01:58.114608",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: Contract] [Memory Exhaustion] If multiple Contract structs are created from malicious JSON, can the cumulative memory usage of unbounded Code and RuntimeCode fields cause out-of-memory conditions affecting node stability? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_649c2ea1-862c-4d83-b475-933932b02623?mode=deep",
+    "timestamp": "2026-01-11 14:02:18.816678",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: ContractInfo] [Nested JSON DoS] The AbiDefinition interface{} field can contain deeply nested JSON structures - can an attacker exploit JSON parsing to create stack overflow through excessively deep nesting? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f6eabc4c-8cd8-4b60-92f5-2806f4e3ea76?mode=deep",
+    "timestamp": "2026-01-11 14:02:41.166714",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: ContractInfo] [Metadata Explosion] If the Metadata field contains compressed or encoded data that expands significantly when processed, can this be exploited for zip bomb-style memory exhaustion attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_63328417-dd37-47db-bbcf-6c5eaddebc6f?mode=deep",
+    "timestamp": "2026-01-11 14:03:05.861719",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: Contract] [Race Condition] If Contract structs are accessed concurrently by multiple goroutines (e.g., during parallel compilation), can race conditions occur when reading/writing the Hashes map without synchronization? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b219d3b1-ce3e-46a6-9555-6ac4176bc34e?mode=deep",
+    "timestamp": "2026-01-11 14:03:31.741157",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: Contract] [Race Condition] Do concurrent reads and writes to Contract.Info fields cause data races, potentially leading to corrupted contract metadata or panics during concurrent abigen processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_29d99822-e63a-4fd2-a3e0-38d23dc142b8?mode=deep",
+    "timestamp": "2026-01-11 14:03:58.074785",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: ContractInfo] [Race Condition] Can concurrent modifications to interface{} fields (AbiDefinition, UserDoc, DeveloperDoc, SrcMap) cause data races that result in corrupted ABI data or type assertion panics? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_431ac040-26bc-4a5e-a67f-18cad20e104b?mode=deep",
+    "timestamp": "2026-01-11 14:04:24.248276",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: Contract] [Nil Pointer] If a Contract struct is created with nil Info.AbiDefinition, can subsequent code that assumes non-nil values trigger nil pointer dereferences causing node crashes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_69222036-da6c-4505-b5e7-03e410c405a7?mode=deep",
+    "timestamp": "2026-01-11 14:04:50.664240",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: Contract] [Nil Map] If the Hashes map (line 25) is nil when code attempts to iterate or access it, can this cause nil pointer panics in functions processing contract hashes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_92dd6ed3-0d03-45e5-81e3-74565871d6c2?mode=deep",
+    "timestamp": "2026-01-11 14:05:16.175797",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: ContractInfo] [Nil Interface] Can nil values in interface{} fields (SrcMap, AbiDefinition, UserDoc, DeveloperDoc) cause unexpected behavior or panics when these are marshaled to JSON or type-asserted? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e704ba1b-e10a-4bb8-aa0b-43c7689a8b78?mode=deep",
+    "timestamp": "2026-01-11 14:05:40.371606",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: Contract] [Hex String Validation] The Code field should contain hex-encoded bytecode - is there validation that it starts with '0x' and contains only valid hex characters, or can invalid data cause issues in downstream processing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6d8b5691-5eb3-4d7e-8574-438c45858966?mode=deep",
+    "timestamp": "2026-01-11 14:06:06.397041",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: Contract] [Hex String Validation] The RuntimeCode field should be hex-encoded - if malformed hex data is accepted, can this lead to incorrect bytecode being deployed or processed by the EVM? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_662fabea-2972-45e5-b7eb-37d1bc25a38b?mode=deep",
+    "timestamp": "2026-01-11 14:06:33.593838",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: Contract] [Hash Integrity] The Hashes map should contain keccak256 hashes of functions - is there validation that hash values are valid 32-byte hex strings, or can arbitrary strings be injected? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9c6c59c7-0a44-45a1-bc9f-5a16d0987296?mode=deep",
+    "timestamp": "2026-01-11 14:07:00.891278",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: ContractInfo] [Language Validation] The Language field (line 35) should be 'Solidity' or 'Vyper' - if arbitrary strings are accepted, can this cause confusion or errors in language-specific processing logic? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_67189f05-6cfd-4268-8b17-4b88ca6de59f?mode=deep",
+    "timestamp": "2026-01-11 14:07:29.783460",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: ContractInfo] [ABI Schema Validation] Is the AbiDefinition validated against the official Ethereum ABI JSON schema, or can malformed ABI structures cause crashes when code attempts to parse function signatures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_527afe6f-d493-4aae-a314-37710ae66e39?mode=deep",
+    "timestamp": "2026-01-11 14:07:56.534148",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: Contract] [Cross-Module Vulnerability] When Contract data is passed to cmd/abigen for code generation, can malicious Code or AbiDefinition values result in generated Go code that contains syntax errors or security vulnerabilities? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ba9ca7a9-1e8f-41ee-a89e-e494abe7f9e3?mode=deep",
+    "timestamp": "2026-01-11 14:08:23.672935",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: ContractInfo] [Template Injection] If ContractInfo fields are used in code generation templates without proper escaping, can an attacker inject arbitrary code into generated bindings through specially crafted field values? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b0cc0c3c-3f0c-44ed-9044-2ef874f1b960?mode=deep",
+    "timestamp": "2026-01-11 14:08:47.841712",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: Contract] [Bytecode Manipulation] Can an attacker modify the Code field to contain valid-looking but malicious bytecode that differs from RuntimeCode, potentially leading to deployment of unintended contracts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b550d9db-5c55-4306-a44f-3ea1f58646ec?mode=deep",
+    "timestamp": "2026-01-11 14:09:11.131788",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: Contract] [JSON Tag Mismatch] Are the JSON struct tags correctly matched with solc output format, or can field name mismatches cause data to be silently dropped or misassigned during parsing? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7c760f23-e04e-4810-80a6-70c11b3142c2?mode=deep",
+    "timestamp": "2026-01-11 14:09:37.395207",
+    "report_generated": false
   }
 ]
