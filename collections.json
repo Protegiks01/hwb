@@ -32698,5 +32698,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_225d5f30-a13f-4b81-ab93-372a5d50a3e1?mode=deep",
     "timestamp": "2026-01-11 19:21:48.399332",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [EVM] [Gas Calculation] If BigMax/BigMin are used in gas calculations and handle nil incorrectly, can this cause free transactions or excessive gas charges? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_22e2f7f7-9a4d-44a6-864c-494bd3042686?mode=deep",
+    "timestamp": "2026-01-11 19:22:58.123130",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [EVM] [Stack Values] Can incorrect U256/S256 conversions cause EVM stack values to be misinterpreted, leading to wrong smart contract execution? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cd0e6ca9-be52-479a-beef-817eb06210c3?mode=deep",
+    "timestamp": "2026-01-11 19:23:11.303176",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [State] [Account Balance] If PaddedBigBytes encodes balances incorrectly, can this cause the state trie to accept invalid balances leading to fund creation/destruction? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3eb2d868-4a72-4848-a31e-7164e55676ea?mode=deep",
+    "timestamp": "2026-01-11 19:23:24.870400",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [State] [Nonce Encoding] If U256Bytes encodes nonces wrongly, can replay attacks occur due to incorrect nonce comparison in transaction validation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3758b56b-a4aa-4056-91c7-6bc84d899b5f?mode=deep",
+    "timestamp": "2026-01-11 19:23:38.616503",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [State] [Storage Slots] If ReadBits produces inconsistent encodings, can storage slot values be corrupted causing smart contract state to become invalid? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0e22ba88-81a5-437d-a546-2f9d54e77f83?mode=deep",
+    "timestamp": "2026-01-11 19:23:53.217203",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [State] [Gas Limit] If ParseBig256 allows invalid gas limit values during genesis or block processing, can this break consensus rules permanently? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a33df8e7-77a0-4b4c-9588-1f9ac734247e?mode=deep",
+    "timestamp": "2026-01-11 19:24:09.008880",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [State] [Difficulty] If BigPow is used to calculate difficulty and has precision issues, can this enable validator to game block selection? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_27b592a8-d33a-41f5-a0a7-ea5c9b03ed10?mode=deep",
+    "timestamp": "2026-01-11 19:24:25.925711",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Consensus] [State Root] If any byte encoding function produces non-deterministic results across nodes (due to architecture differences), can this cause immediate chain split? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fbbbaf84-8c2e-44db-b22d-6219a531fce7?mode=deep",
+    "timestamp": "2026-01-11 19:24:45.109857",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Consensus] [Block Hash] If PaddedBigBytes is used in block hash calculations and has endianness issues, can nodes on different architectures reject each other's blocks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2e79bd60-f803-4e8f-a4cb-32c41931997c?mode=deep",
+    "timestamp": "2026-01-11 19:25:05.020766",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Consensus] [Transaction Hash] If U256Bytes produces different encodings for the same value, can this cause transaction hash mismatches breaking transaction pools? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fcc424e6-feba-41d6-a6d9-30453277138e?mode=deep",
+    "timestamp": "2026-01-11 19:25:27.216288",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Consensus] [Receipt Root] If ReadBits is used in receipt encoding and has buffer issues, can this cause receipt root mismatches failing block validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0b77e14b-f9a4-443b-b484-2f357c88b502?mode=deep",
+    "timestamp": "2026-01-11 19:25:50.030323",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Consensus] [Validator Threshold] If BigMax/BigMin are used in validator quorum calculations and produce non-deterministic results, can validator sets diverge? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_267883e6-fcb0-4fea-8044-35cc6242678e?mode=deep",
+    "timestamp": "2026-01-11 19:26:14.199016",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: ParseUint64()] [Integer overflow] Can an attacker provide a hexadecimal string with value exceeding MaxUint64 (e.g., '0xFFFFFFFFFFFFFFFF1') that gets truncated by strconv.ParseUint() at line 77, potentially causing state corruption when used in balance calculations or gas limit validations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_85c00b4e-7c69-47c3-bbb5-7574b37bacbe?mode=deep",
+    "timestamp": "2026-01-11 19:26:39.072349",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: ParseUint64()] [Empty string handling] At line 73-75, empty string returns (0, true) - can an attacker exploit this by providing empty configuration values for critical parameters like gas limits, block numbers, or validator thresholds, causing them to default to zero and enabling DoS attacks or consensus failures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_04c40748-6dbc-47ec-b595-c66d17481479?mode=deep",
+    "timestamp": "2026-01-11 19:27:05.836043",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: ParseUint64()] [Case sensitivity bypass] Lines 76 checks for both '0x' and '0X' prefixes - can an attacker exploit mixed-case hex strings (e.g., '0xaBcD' vs '0XABCD') to bypass validation logic elsewhere in the codebase that assumes case-sensitive parsing, leading to transaction replay or signature verification bypasses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b576e32a-c60d-422a-a4ae-81f7f47a8d93?mode=deep",
+    "timestamp": "2026-01-11 19:27:32.948279",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: ParseUint64()] [Leading zeros acceptance] The function accepts leading zeros in both decimal and hex formats - can an attacker provide values like '0x00000000000000001' or '00000000000001' to bypass rate limiting, nonce validation, or gas price checks that may assume canonical representation without leading zeros? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_96554d15-6ffe-41e1-b947-ac6a4b199bc9?mode=deep",
+    "timestamp": "2026-01-11 19:28:00.966455",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: ParseUint64()] [Negative number handling] If an attacker provides a negative decimal string (e.g., '-100'), strconv.ParseUint at line 80 returns an error - but is this error properly handled in all calling contexts, or could silent failures lead to zero values being used for critical parameters like gas prices or block rewards? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_93a4d08a-93d0-413c-9d12-0ba3d3c7db0a?mode=deep",
+    "timestamp": "2026-01-11 19:28:29.466221",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: ParseUint64()] [Hex prefix manipulation] At line 76, the function only checks first 2 characters for '0x'/'0X' - can an attacker provide strings like '0x0x123' or '0X0x456' where the slice operation s[2:] at line 77 would pass invalid hex strings to strconv.ParseUint, potentially causing different parsing behavior across implementations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f83da987-edc1-4884-b3b3-727ee6a0d145?mode=deep",
+    "timestamp": "2026-01-11 19:28:57.884081",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: ParseUint64()] [Whitespace handling] The function doesn't trim whitespace - can an attacker inject leading/trailing spaces or tabs in JSON configuration (e.g., ' 12345 ' or '\\\\t0x123\\\\n') that cause parsing failures, leading to zero default values for critical blockchain parameters like chainID or block gas limits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cdcd399d-6797-4374-961b-831faecce2e5?mode=deep",
+    "timestamp": "2026-01-11 19:29:26.968998",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: ParseUint64()] [Invalid hex characters] When parsing hex at line 77, if the string after '0x' contains invalid hex characters (g-z, special chars), strconv.ParseUint fails - but are all callers checking the bool return value, or could unchecked failures cause silent zero assignments in validator voting, balance updates, or gas calculations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a1218c77-5c47-4a05-a23e-8efcf5ed7ec1?mode=deep",
+    "timestamp": "2026-01-11 19:29:56.607000",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: ParseUint64()] [UTF-8 exploitation] Can an attacker provide UTF-8 encoded strings with lookalike characters (e.g., Cyrillic 'х' instead of Latin 'x' in '0x' prefix) that pass initial validation but fail parsing, causing inconsistent state across nodes with different locale settings? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_97b2c3c3-a0c5-48e2-ac3e-9bffeabafe13?mode=deep",
+    "timestamp": "2026-01-11 19:30:25.057756",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: ParseUint64()] [Octal parsing bypass] The function doesn't handle octal notation (0o prefix) - can an attacker exploit legacy code paths that might interpret leading zeros as octal (e.g., '0777' = 511 decimal vs 777 decimal), causing value mismatches in cross-chain bridge operations or validator reward calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_15d997de-5d78-4519-b39a-f901d9875ce2?mode=deep",
+    "timestamp": "2026-01-11 19:30:51.215544",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: MustParseUint64()] [Node crash via panic] At lines 85-91, if ParseUint64 returns false, the function panics unconditionally - can an attacker inject invalid values in genesis.json, chain config, or network protocol messages that trigger this panic during node startup or block processing, causing network-wide DoS? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b0db034e-9394-4d96-9d32-a53864af14fa?mode=deep",
+    "timestamp": "2026-01-11 19:31:15.757715",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: MustParseUint64()] [Panic in goroutines] If MustParseUint64 is called from a goroutine without panic recovery (e.g., during concurrent block validation or transaction pool processing), can a malicious validator inject invalid numeric strings that crash individual validation threads, degrading network performance or causing validator nodes to fall behind? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b9994b5a-88ee-4816-81af-2d6cd2b81e6f?mode=deep",
+    "timestamp": "2026-01-11 19:31:40.261717",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: MustParseUint64()] [Genesis block exploitation] If MustParseUint64 is used to parse genesis block parameters and an attacker modifies genesis.json with invalid values (e.g., invalid chainID, block gas limit, or initial balance), the panic at line 88 would prevent any node from starting - can this be exploited to brick the entire network requiring manual intervention? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_59fb83ce-981c-4271-af8b-c7db584d6387?mode=deep",
+    "timestamp": "2026-01-11 19:32:05.629653",
+    "report_generated": false
   }
 ]
