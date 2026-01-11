@@ -21298,5 +21298,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b895c1a9-f0e2-4dc5-9281-7d3f6ddd4358?mode=deep",
     "timestamp": "2026-01-11 02:03:55.630929",
     "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: makeFullNode()] [Ethstats Credential Leak] When registering the Ethstats service with cfg.Ethstats.URL, is the URL properly validated to prevent embedding credentials in logs or metrics that could leak to unauthorized parties? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c256af7a-fab2-4d29-b8bc-fde94717f1c6?mode=deep",
+    "timestamp": "2026-01-11 02:05:18.870408",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: makeFullNode()] [Sync Target Validation] Does the SyncTargetFlag path get validated to prevent directory traversal or symlink attacks that could cause the node to sync to a malicious chain state file controlled by the attacker? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_90b16b62-3fed-46f8-805d-283a95e52130?mode=deep",
+    "timestamp": "2026-01-11 02:05:31.991055",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: makeFullNode()] [Full Sync Tester Race] If RegisterFullSyncTester() is called while the node is already syncing, can race conditions lead to concurrent access to blockchain state causing corruption or consensus violations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9efbad46-1f78-4efe-b619-4e4b7422f742?mode=deep",
+    "timestamp": "2026-01-11 02:05:45.103759",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: makeFullNode()] [Service Order Dependency] Are services registered in a security-critical order (eth, filters, graphql, ethstats, synctester), or can changing the order cause security checks to be bypassed or services to access uninitialized state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3b30b171-779a-45bd-ae8c-b5d0329aaa2e?mode=deep",
+    "timestamp": "2026-01-11 02:05:58.822256",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: dumpConfig()] [Private Key Exposure] When dumping config to stdout or file, does the function properly redact sensitive fields like private keys, external signer credentials, or InfluxDB passwords, or can attackers obtain these by triggering config dumps? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b35d68f7-bbe5-4f21-9960-569a6bdc1d1d?mode=deep",
+    "timestamp": "2026-01-11 02:06:13.353660",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: dumpConfig()] [Genesis Block Leak] Even though cfg.Eth.Genesis is set to nil before marshaling, can attackers still extract genesis parameters through reflection or other TOML encoding side channels that reveal validator identities or network topology? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c31f3934-9ddc-4518-9cd1-5a2ff3528524?mode=deep",
+    "timestamp": "2026-01-11 02:06:28.931814",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: dumpConfig()] [File Permission Weakness] When creating dump file with os.O_CREATE|os.O_TRUNC and mode 0644, does this create world-readable files containing sensitive configuration that could be accessed by other users or processes on the system? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d23e2ab7-1d19-4447-9273-6eaf217f83e5?mode=deep",
+    "timestamp": "2026-01-11 02:06:46.081556",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: dumpConfig()] [Path Traversal in Dump] Can an attacker provide a malicious dump file path containing directory traversal sequences through ctx.Args().Get(0) to overwrite arbitrary files like /etc/passwd or validator keystores? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_91701481-96fb-45c0-91cf-489660210c49?mode=deep",
+    "timestamp": "2026-01-11 02:07:05.453165",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: dumpConfig()] [TOML Injection in Dump] Can attackers inject malicious TOML syntax through config values that, when marshaled and later re-loaded, cause code execution or configuration corruption in other nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_af65b26e-87a6-457b-b855-e1666ed8da3c?mode=deep",
+    "timestamp": "2026-01-11 02:07:27.501089",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: dumpConfig()] [Resource Exhaustion] If tomlSettings.Marshal() is called on extremely large config structures (e.g., with thousands of ethstats tags), can this cause excessive memory allocation leading to OOM crashes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e38b258e-0f6d-445c-80f7-82ced3fb9a6e?mode=deep",
+    "timestamp": "2026-01-11 02:07:48.412138",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: dumpConfig()] [Concurrent Dump Race] If dumpConfig() is called concurrently while the node is modifying cfg, can race conditions lead to partial/corrupted config dumps that cause nodes to fail on reload? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e11ea178-2c37-435e-bb43-3b51328bcc5b?mode=deep",
+    "timestamp": "2026-01-11 02:08:10.917404",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: dumpConfig()] [Defer Close Race] If dump.Close() in defer is called while dump.WriteString() or dump.Write() are still executing, can this truncate the output file leading to incomplete/corrupted config exports? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c98b598a-7170-45f0-b393-7716d3a944d4?mode=deep",
+    "timestamp": "2026-01-11 02:08:35.235354",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: applyMetricConfig()] [Metrics Endpoint Exposure] Can an attacker force metrics to be exposed on 0.0.0.0 or public interfaces through MetricsHTTPFlag, allowing unauthorized access to sensitive node performance data and timing information useful for consensus attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_205ca96e-9bfd-4dd2-ae06-10e455a4d68e?mode=deep",
+    "timestamp": "2026-01-11 02:09:00.506543",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: applyMetricConfig()] [InfluxDB Credential Injection] Are the InfluxDB username, password, and token properly validated and sanitized, or can attackers inject special characters causing authentication bypass or command injection in the InfluxDB client? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_15531082-e769-4798-ab01-d44bf0cec1e3?mode=deep",
+    "timestamp": "2026-01-11 02:09:26.419699",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: applyMetricConfig()] [Metrics Port Collision] If MetricsPortFlag is set to a privileged port (<1024) or conflicts with other services (like the RPC port), can this cause service failures or allow attackers to hijack the metrics endpoint? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5b712dc7-03a5-47da-b74f-b7305f054217?mode=deep",
+    "timestamp": "2026-01-11 02:09:53.333072",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: applyMetricConfig()] [InfluxDB Endpoint SSRF] Can attackers specify malicious InfluxDB endpoints (e.g., internal services, cloud metadata endpoints) through MetricsInfluxDBEndpointFlag, causing the node to leak information through SSRF attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_afb61f4d-5a21-42cd-bb40-f59d15314ffb?mode=deep",
+    "timestamp": "2026-01-11 02:10:20.921804",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: applyMetricConfig()] [Tags Injection] Does the MetricsInfluxDBTagsFlag properly sanitize tag values, or can attackers inject malicious tags that cause InfluxDB query injection, data corruption, or DoS when metrics are written? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_05915eee-da74-49e7-ba35-2f9960b8ee6e?mode=deep",
+    "timestamp": "2026-01-11 02:10:48.569872",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: applyMetricConfig()] [Boolean Flag Confusion] Can attackers exploit the boolean flags (EnabledExpensive, EnableInfluxDB, EnableInfluxDBV2) to cause contradictory configurations where expensive metrics are enabled despite explicit disabling, causing resource exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bae79ade-7437-45bf-b1b7-575a5d230665?mode=deep",
+    "timestamp": "2026-01-11 02:11:15.720110",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: applyMetricConfig()] [Integer Overflow in Port] Is the MetricsPortFlag validated to ensure it's within valid port range (1-65535), or can integer overflow/underflow cause the metrics server to bind to unexpected ports or fail silently? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9d34aea6-dc96-41af-a9ef-6dce48ccb50b?mode=deep",
+    "timestamp": "2026-01-11 02:11:41.630228",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: applyMetricConfig()] [Concurrent Flag Access] If CLI flags are modified concurrently while applyMetricConfig() is executing, can race conditions lead to partial metric configurations that leak sensitive data or cause service disruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_221f4fb4-5edf-4f69-9ab5-e795769fa589?mode=deep",
+    "timestamp": "2026-01-11 02:12:07.226969",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: setAccountManagerBackends()] [External Signer MITM] When connecting to ExternalSigner URL, is certificate validation enforced for HTTPS connections, or can attackers perform MITM attacks to intercept transaction signing requests and steal funds? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7ef193eb-2ab0-46be-bfc9-fccb39cb774c?mode=deep",
+    "timestamp": "2026-01-11 02:12:32.119001",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: setAccountManagerBackends()] [Keystore Path Traversal] Can attackers manipulate the keydir path returned by stack.KeyStoreDir() to point to arbitrary directories, causing the node to load malicious keystores or expose legitimate keys in unintended locations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d255061d-4844-49c3-b627-1f75aa657370?mode=deep",
+    "timestamp": "2026-01-11 02:12:56.578806",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: setAccountManagerBackends()] [Scrypt Parameter Downgrade] Can attackers force UseLightweightKDF to be true through configuration, downgrading scrypt parameters from StandardScryptN/P to LightScryptN/P, making brute-force attacks on encrypted keystores feasible? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_65b6cc96-364d-401b-a506-d0bca4c8ff5c?mode=deep",
+    "timestamp": "2026-01-11 02:13:23.147167",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: setAccountManagerBackends()] [External Signer Return Bypass] If external.NewExternalBackend() succeeds and returns at line 288, but the external signer is malicious, does this completely bypass the keystore and USB wallet protections, allowing unauthorized transaction signing? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ac78725e-fcdf-4275-a079-9385a5611a0e?mode=deep",
+    "timestamp": "2026-01-11 02:13:48.569567",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: setAccountManagerBackends()] [Race Condition in AddBackend] Is am.AddBackend() thread-safe, or can concurrent calls during node initialization lead to duplicate backends, missing backends, or corrupted account manager state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_01afc73e-3baf-486c-b050-28794b78cecd?mode=deep",
+    "timestamp": "2026-01-11 02:14:15.531300",
+    "report_generated": false
   }
 ]
