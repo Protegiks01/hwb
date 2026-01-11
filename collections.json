@@ -19798,5 +19798,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_580c40df-bbf4-452c-93e6-53598956d798?mode=deep",
     "timestamp": "2026-01-11 00:22:52.198671",
     "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: decryptSeed()] [Padding Oracle] Does DecryptDataV3 properly handle padding validation, or can an attacker use a padding oracle attack by repeatedly calling this function with modified ciphertext to decrypt the master seed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2bcb94f3-49a2-4090-a8a0-5a740086c2c3?mode=deep",
+    "timestamp": "2026-01-11 00:24:00.534381",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: setCredential()] [Address Validation Bypass] The address validation uses common.IsHexAddress at line 424, but can malformed addresses that pass this check cause issues in storage, leading to credential misassociation or unauthorized access? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0c30372e-6c31-40be-b76e-476a9e1fe342?mode=deep",
+    "timestamp": "2026-01-11 00:24:13.887263",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: setCredential()] [Password Storage Security] Passwords are stored in AES encrypted storage at line 440, but is the encryption key (pwkey) properly derived and unique per installation, or could key reuse enable decryption across multiple Clef instances? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_414a1511-9f5d-4435-af1e-3490e1bbabb3?mode=deep",
+    "timestamp": "2026-01-11 00:24:27.553742",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: setCredential()] [Credential Overwrite] Can an attacker call setCredential multiple times to overwrite existing credentials without proper authorization, potentially locking out legitimate users or replacing passwords with attacker-controlled ones? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d26b6b1f-25eb-4f01-acf0-a878a4417c5b?mode=deep",
+    "timestamp": "2026-01-11 00:24:41.592033",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: setCredential()] [Vault Path Injection] The vaultLocation at line 436 is constructed from user-controlled configDir - can path injection in configDir lead to credentials being written to attacker-controlled locations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_89b2440a-23ff-4e63-8eac-16281a452f94?mode=deep",
+    "timestamp": "2026-01-11 00:24:57.184393",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: setCredential()] [Plaintext Password in Memory] The password obtained from GetPassPhrase at line 428 is stored in plaintext in memory - could memory dumps or process inspection expose these passwords before they're encrypted? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f85e8737-f103-458d-8da0-02d1044b32ea?mode=deep",
+    "timestamp": "2026-01-11 00:25:13.877706",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: removeCredential()] [Unauthorized Deletion] Can an attacker call removeCredential to delete passwords for arbitrary addresses without proper authentication, causing denial of service by forcing users to re-enter passwords? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5ee09d6d-c8cb-4db4-aadc-9dcbfecdf520?mode=deep",
+    "timestamp": "2026-01-11 00:25:32.386465",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: removeCredential()] [Incomplete Deletion] Does pwStorage.Del at line 468 securely wipe the credential data, or could deleted credentials remain in storage files or memory, recoverable through forensic analysis? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_21721fe8-f3fc-489f-b965-b5db8a6e03ed?mode=deep",
+    "timestamp": "2026-01-11 00:25:52.777840",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: attestFile()] [Hash Collision] The sha256 hash is stored as attestation at line 395, but what if an attacker finds a SHA256 collision for a malicious rule file - can they execute unauthorized rules by passing attestation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_12870fed-4872-450e-983c-746c6a6465b5?mode=deep",
+    "timestamp": "2026-01-11 00:26:14.511791",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: attestFile()] [Argument Injection] The function takes sha256sum as command-line argument - if this argument isn't properly validated, can an attacker inject path traversal or other malicious content into the config storage? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_22b7dc6a-b1fd-4244-8eab-556370b3db4d?mode=deep",
+    "timestamp": "2026-01-11 00:26:36.094395",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: attestFile()] [Attestation Bypass] Once a ruleset hash is attested, can an attacker replace the rule file with a different one after attestation but before it's loaded, bypassing the hash check through TOCTOU? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4facd792-310e-4a28-9074-b899ba603ac4?mode=deep",
+    "timestamp": "2026-01-11 00:27:00.288179",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: attestFile()] [Storage Corruption] If configStorage.Put fails silently at line 395, could this lead to a state where Clef believes a ruleset is attested but the storage doesn't reflect this, causing security policy inconsistencies? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_86644cac-12d0-4946-87fd-b1bcdff0aa79?mode=deep",
+    "timestamp": "2026-01-11 00:27:25.408377",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [Rule File TOCTOU] The rule file is read at line 671, hash is computed at line 675, and compared with stored hash at line 678 - can an attacker replace the file between read and hash computation, or between hash and execution? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7d7fd3c2-313d-4802-a4c0-c75789c86df2?mode=deep",
+    "timestamp": "2026-01-11 00:27:50.761107",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [Hash Mismatch Silent Failure] If the ruleset hash doesn't match the attested hash at line 678, the system logs a warning and disables rules - but does this create a denial of service where legitimate rules are rejected, or allow fallback to less secure UI-only approval? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_25f094a7-48d7-434b-8b6f-f0a8a1a1c130?mode=deep",
+    "timestamp": "2026-01-11 00:28:14.373198",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [RPC Endpoint Exposure] HTTP endpoints are enabled based on HTTPEnabledFlag at line 730 - can unauthenticated remote attackers access these endpoints to perform signing operations, list accounts, or extract sensitive information? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9fb43f3a-4c5d-4e2c-b27c-824cb9ee5c6a?mode=deep",
+    "timestamp": "2026-01-11 00:28:38.134308",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [CORS Bypass] CORS settings are parsed from user input at line 732 - can wildcard or overly permissive CORS configurations allow malicious websites to make signing requests on behalf of users? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d7a6fd97-1e82-489c-a180-6343d1ceed01?mode=deep",
+    "timestamp": "2026-01-11 00:29:04.457906",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [Virtual Host Bypass] Virtual hosts are specified at line 731 - can attackers bypass vhost restrictions using IP addresses, localhost variations, or Host header manipulation to access the RPC endpoint? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d303cd20-70bb-41c2-8cae-4cc557ec521b?mode=deep",
+    "timestamp": "2026-01-11 00:29:29.910014",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [IPC Permission Exposure] The IPC endpoint at line 761 - are the Unix socket permissions properly restricted, or can any local user connect to the IPC endpoint and perform privileged signing operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e6c5c8eb-c268-422b-b7b5-51ab6711f75a?mode=deep",
+    "timestamp": "2026-01-11 00:29:55.033739",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [Shutdown Race Condition] The defer functions for HTTP and IPC shutdown at lines 753-770 - can attackers exploit timing during shutdown to cause incomplete cleanup, leaving sockets open or sensitive data in memory? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b7267b2f-5323-4065-99be-96d9b10e5aeb?mode=deep",
+    "timestamp": "2026-01-11 00:30:18.716231",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [Master Key Fallback] If readMasterKey fails at line 654, the system continues with NoStorage for passwords - does this create a security downgrade where users aren't aware their credentials aren't being stored securely? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d9b67e05-8929-493d-87e4-c34de6dbaabe?mode=deep",
+    "timestamp": "2026-01-11 00:30:41.755806",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [ChainID Manipulation] The chainId is taken from CLI flag at line 694 - can attackers manipulate this to cause transactions to be signed for wrong chains, enabling replay attacks or cross-chain exploits? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3f86ccea-6848-4b1b-b97d-4fbe1d1560dc?mode=deep",
+    "timestamp": "2026-01-11 00:31:05.019137",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [Advanced Mode Risks] Advanced mode (line 697) issues warnings instead of rejections for suspicious requests - can attackers exploit this by tricking users into enabling advanced mode, bypassing security checks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c554ad09-768b-4742-9fe7-618dcd35efc8?mode=deep",
+    "timestamp": "2026-01-11 00:31:28.556865",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [Audit Log Bypass] If the audit log file path is set to empty string at line 712, logging is disabled - can attackers manipulate this flag to disable audit trails and perform undetected malicious operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_39c59922-5262-493c-93c8-cecb0d60168f?mode=deep",
+    "timestamp": "2026-01-11 00:31:52.594114",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [Audit Log Race] Multiple concurrent requests - are audit log writes atomic and thread-safe, or can race conditions corrupt the audit log or lose critical security events? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e17ba753-d797-4f21-b145-fdd0447755d7?mode=deep",
+    "timestamp": "2026-01-11 00:32:17.341072",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/clef/main.go] [Function: signer()] [Signal Handling Race] The signal handler at line 787 waits for os.Interrupt - can attackers send multiple signals to cause race conditions in cleanup, or is there a window where Clef can be forced to exit without proper shutdown? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_213496af-56eb-4b66-b5f0-6cfb66ebe014?mode=deep",
+    "timestamp": "2026-01-11 00:32:42.793751",
+    "report_generated": false
   }
 ]
