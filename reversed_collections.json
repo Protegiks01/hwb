@@ -27586,5 +27586,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5de5f279-8c91-4d15-ba72-46c8b9c61920?mode=deep",
     "timestamp": "2026-01-11 10:30:02.678127",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Clear()] [Clear semantics] Does Clear() guarantee that no functions will execute after it returns, or can functions already dequeued by waitNext() still execute? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dbff5b6b-405f-4490-b023-3e36b469edec?mode=deep",
+    "timestamp": "2026-01-11 10:31:25.088868",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: CanQueue()] [Atomicity with Queue()] Is there any way to atomically check CanQueue() and Queue() to prevent TOCTOU races, or must calling code accept potential race conditions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8481f6d5-9b4d-4cec-9fdc-19a1c66fa938?mode=deep",
+    "timestamp": "2026-01-11 10:31:38.156975",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Quit()] [Emergency shutdown] During emergency validator shutdown, can Quit() hanging prevent critical cleanup operations, leaving the blockchain in an inconsistent state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5fe37bc3-c50b-40d1-8e42-7a0b956cd65c?mode=deep",
+    "timestamp": "2026-01-11 10:31:51.396173",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Queue()] [Block production timing] If block production operations are queued here and Queue() fails due to capacity, can this cause validators to miss their turn in the PoA sequence? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a7efc475-dc87-4655-a350-445d92ef2bbd?mode=deep",
+    "timestamp": "2026-01-11 10:32:05.214377",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: loop()] [Consensus message ordering] If this queue processes consensus messages from validators, can execution delays or ordering issues cause validators to disagree on blockchain state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_00293471-0321-4721-8540-08bcb73aa0e0?mode=deep",
+    "timestamp": "2026-01-11 10:32:19.797826",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: loop()] [Panic in close] Can close(q.closeWait) panic if q.closeWait is nil due to unexpected state, crashing the node? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8ddba90f-e547-4f41-81f1-9cb457698b29?mode=deep",
+    "timestamp": "2026-01-11 10:32:35.509879",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: waitNext()] [Panic in slice operation] Can the slice operation append(q.funcs[:0], q.funcs[1:]...) panic if len(q.funcs) is 0 but the check len(q.funcs) > 0 fails due to race conditions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_676e29ca-7730-4834-ad5d-a9b7baa1f98b?mode=deep",
+    "timestamp": "2026-01-11 10:32:52.533149",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: waitNext()] [Mutex unlock timing] Is the mutex properly unlocked before returning from waitNext(), or can early returns or panics cause the mutex to remain locked? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d3360227-ee7f-454d-b89c-15a5a2805aad?mode=deep",
+    "timestamp": "2026-01-11 10:33:12.130857",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: NewExecQueue()] [Condition variable initialization] Is sync.NewCond(&q.mu) properly initialized before the goroutine starts, or can there be an initialization race? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_06295e0f-307e-4422-af30-441b48196965?mode=deep",
+    "timestamp": "2026-01-11 10:33:32.591990",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Queue()] [Closure capture leaks] If queued functions are closures capturing large blockchain state objects, can this cause excessive memory usage in validator nodes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cac8dbca-0c50-4e17-8dd0-313fde7f6d9e?mode=deep",
+    "timestamp": "2026-01-11 10:33:54.874142",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: loop()] [Function reference retention] After a function executes, are all references to it properly cleared, or can the loop() goroutine retain references causing memory leaks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d925352a-d474-4e05-87ec-df5a2dab5599?mode=deep",
+    "timestamp": "2026-01-11 10:34:16.902190",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Queue()] [Reentrant queueing] If a queued function tries to queue another function on the same ExecQueue, can this cause deadlock or reentrancy issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ee2c150e-712d-4d49-abb2-ac8c73f28245?mode=deep",
+    "timestamp": "2026-01-11 10:34:41.598460",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Quit()] [Nested quit] If a queued function calls Quit() on the same ExecQueue during execution, will this cause a deadlock where the function waits for itself to complete? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_654af54b-73ce-44ca-856d-e066327a6c84?mode=deep",
+    "timestamp": "2026-01-11 10:35:06.509232",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Clear()] [Clear during iteration] If Clear() is called while loop() is between waitNext() calls, can this cause the iteration to skip functions or execute stale function references? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ce295b67-7af6-432c-9ad2-b59427f3acd2?mode=deep",
+    "timestamp": "2026-01-11 10:35:30.192198",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Queue()] [Append race] Even with mutex protection, can the slice append operation in Queue() race with the slice manipulation in waitNext() if they modify the underlying array simultaneously? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eceb6d1f-c8f7-467c-a6d8-2ec060d2ce2a?mode=deep",
+    "timestamp": "2026-01-11 10:35:53.080319",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: waitNext()] [Double execution] Can race conditions cause the same function at q.funcs[0] to be executed twice if drop=true doesn't properly synchronize with the next iteration? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_76180f8c-3dae-49c1-be0e-c4d85b9dffb2?mode=deep",
+    "timestamp": "2026-01-11 10:36:16.327636",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: loop()] [State transition operations] If blockchain state transition functions are executed through this queue, can execution ordering issues or failures corrupt the blockchain state? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6c36fa7a-4545-4b51-9419-9fe289c9a1b8?mode=deep",
+    "timestamp": "2026-01-11 10:36:39.693749",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Queue()] [Block validation operations] If block validation functions are queued here, can queue overflow cause blocks to be dropped, leading to synchronization failures in the validator network? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_81ab51bc-0039-4b2a-8588-9ee274a2e8c7?mode=deep",
+    "timestamp": "2026-01-11 10:37:02.896394",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: NewExecQueue()] [Usage in LES protocol] If this queue is used in the Light Ethereum Subprotocol (LES) for validator operations, can queue capacity limits cause protocol messages to be dropped, affecting consensus? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e9c17816-b073-4568-b101-0fd03ea29a6a?mode=deep",
+    "timestamp": "2026-01-11 10:37:27.292087",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Queue()] [Queue after quit signal] Between the time Quit() sets closeWait and signals, can Queue() still succeed in adding functions that will never execute? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cf9f997b-c2fb-464e-b3b3-b6086617ffe7?mode=deep",
+    "timestamp": "2026-01-11 10:37:51.360602",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Quit()] [Multiple quit race] Can multiple concurrent Quit() calls interfere with each other in setting closeWait and signaling, causing some to block incorrectly? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6ef1994c-e391-447e-a49d-f9659a23c77d?mode=deep",
+    "timestamp": "2026-01-11 10:38:15.960124",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: isClosed()] [Closed state race] Can the transition from open to closed state (q.closeWait != nil) be observed inconsistently across different goroutines due to memory ordering issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_33a0ee8c-b2e3-4bb0-9a5b-62f30286bb47?mode=deep",
+    "timestamp": "2026-01-11 10:38:41.074484",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Quit()] [Signal during Wait] Can the q.cond.Signal() in Quit() properly wake up waitNext() even if it's deep in a Wait() call? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9f3c911b-ba7f-4f5b-809b-69c7eb16123a?mode=deep",
+    "timestamp": "2026-01-11 10:39:06.593017",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Queue()] [Signal without waiter] If q.cond.Signal() is called when no goroutine is waiting, is this handled correctly by the condition variable implementation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5811256b-5976-44f7-b518-a8d01ed7e138?mode=deep",
+    "timestamp": "2026-01-11 10:39:30.241487",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: waitNext()] [Wait without lock] Is q.cond.Wait() properly protected by q.mu being locked, or can lock state issues cause incorrect condition variable behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ad7a1ee8-87ce-4012-9f18-15bb26039e6f?mode=deep",
+    "timestamp": "2026-01-11 10:39:57.721303",
+    "report_generated": false
   }
 ]
