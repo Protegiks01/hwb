@@ -32248,5 +32248,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5efac33c-7309-4807-8b09-0390cf9bb007?mode=deep",
     "timestamp": "2026-01-11 18:51:21.682047",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: bigEndianByteAt()] [Nil Input] If bigint is nil, calling bigint.Bits() will panic - can this be exploited in byte extraction operations during EVM execution or state encoding? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cacc116f-10bb-4a81-8b12-7ef9e7a1aebe?mode=deep",
+    "timestamp": "2026-01-11 18:52:40.528950",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: bigEndianByteAt()] [Negative Index] Does bigEndianByteAt handle negative n values correctly, or can negative indices cause array out-of-bounds access when calculating i = n / wordBytes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_27ca1d8f-29c7-40d7-bfc5-b89c2618db7d?mode=deep",
+    "timestamp": "2026-01-11 18:52:53.679087",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: bigEndianByteAt()] [Word Boundary] When i >= len(words), the function returns 0 - can this silently hide out-of-bounds access errors that should be caught, causing incorrect byte reads in critical operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_283351ab-5634-48c0-a4b3-4c7db58f9fa1?mode=deep",
+    "timestamp": "2026-01-11 18:53:06.803146",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: bigEndianByteAt()] [Bit Shift Overflow] The shift calculation (8 * uint(n%wordBytes)) could theoretically overflow on 32-bit systems if n is extremely large - can this cause incorrect byte extraction? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6ee8dbb1-8509-4d8d-af6b-9ead90a2be68?mode=deep",
+    "timestamp": "2026-01-11 18:53:20.172110",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: bigEndianByteAt()] [Word Endianness] Does the function correctly handle endianness across different architectures, or can 32-bit vs 64-bit systems extract different byte values causing consensus failures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ac4a6c59-09cd-47fc-bf46-306469a0a1f8?mode=deep",
+    "timestamp": "2026-01-11 18:53:34.898668",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: Byte()] [Boundary Check] When n >= padlength, Byte returns 0 - can this silent failure hide logic errors where out-of-bounds access should be an error, leading to incorrect byte extraction in EVM operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_64b3c19d-235b-41c6-b64b-70170d702fc9?mode=deep",
+    "timestamp": "2026-01-11 18:53:50.659908",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: Byte()] [Index Calculation] The calculation padlength-1-n for converting from Little-Endian to Big-Endian indexing - can integer underflow occur if n=0 and padlength=0, causing incorrect byte access? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cc62a9b4-e00e-4cbe-8b6a-67e13adc8b1f?mode=deep",
+    "timestamp": "2026-01-11 18:54:07.707237",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: Byte()] [Negative Parameters] Does Byte properly validate that n and padlength are non-negative, or can negative values cause unexpected behavior or panics in bigEndianByteAt? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2aefef20-dae2-4715-ae1e-ce51e8122a77?mode=deep",
+    "timestamp": "2026-01-11 18:54:26.537667",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: Byte()] [Inconsistent Padding] If different parts of the codebase call Byte with different padlength values for the same bigint, can this cause inconsistent byte representations leading to hash mismatches? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7ff6f67d-c72f-4247-9a34-cc30335a904b?mode=deep",
+    "timestamp": "2026-01-11 18:54:45.383334",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: ReadBits()] [Buffer Overflow] ReadBits does not check if buf is large enough - if buf is too small, can the loop write past the buffer bounds when i > 0, causing memory corruption and potential security vulnerabilities? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e8faa4ab-769a-4ff4-94db-7785af847c3e?mode=deep",
+    "timestamp": "2026-01-11 18:55:06.365505",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: ReadBits()] [Nil Buffer] Does ReadBits properly handle nil or empty buf slices, or will len(buf) cause panics or undefined behavior when buffer operations are performed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3f900e60-f4f0-4b23-afe8-8f647835b3b0?mode=deep",
+    "timestamp": "2026-01-11 18:55:27.579762",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: ReadBits()] [Incomplete Write] The comment says 'If buf is too short the result will be incomplete' - can this silent data truncation cause state root mismatches or transaction signature corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4f746a2c-a028-4443-94f0-959969dca5d8?mode=deep",
+    "timestamp": "2026-01-11 18:55:51.092237",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: ReadBits()] [Nil bigint] If bigint is nil, calling bigint.Bits() will panic - can this crash nodes during state serialization or block encoding operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dec572e2-c828-41af-8456-0f12de4807cc?mode=deep",
+    "timestamp": "2026-01-11 18:56:15.494840",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: ReadBits()] [Word Loop] The outer loop 'for _, d := range bigint.Bits()' assumes words are processed in correct order - can word ordering issues on different architectures cause different byte encodings? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_370d72b0-6d07-4f97-9e1b-60e346b15ff3?mode=deep",
+    "timestamp": "2026-01-11 18:56:41.461814",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: ReadBits()] [Inner Loop Bounds] The inner loop 'j < wordBytes && i > 0' - can edge cases where i becomes negative cause the loop to continue incorrectly, writing to negative indices? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_041b4821-560e-4354-85ba-a3cb300a67bb?mode=deep",
+    "timestamp": "2026-01-11 18:57:07.810598",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: ReadBits()] [Shift Operation] The repeated 'd >>= 8' shift - can this cause loss of data or incorrect byte extraction for numbers that don't align with byte boundaries? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a766aa16-1756-4c1f-a712-714680096618?mode=deep",
+    "timestamp": "2026-01-11 18:57:34.187593",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: U256()] [Destructive Operation] U256 is marked as 'destructive' - can this cause unexpected mutations where caller assumes x is unchanged, leading to balance corruption or gas calculation errors? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9269648f-3163-4895-b3a5-14769cc9d67b?mode=deep",
+    "timestamp": "2026-01-11 18:58:01.157346",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: U256()] [Nil Input] If x is nil, does x.And(x, tt256m1) handle it correctly, or will it panic causing node crashes during EVM arithmetic operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_df18cc1d-73f4-44a7-af4b-cc20238baf72?mode=deep",
+    "timestamp": "2026-01-11 18:58:28.943383",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: U256()] [tt256m1 Corruption] If the global tt256m1 is somehow corrupted (through unsafe operations), can U256 produce incorrect modulo results leading to state corruption across the entire network? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7cc0250a-dd4a-465e-a335-ba8815750265?mode=deep",
+    "timestamp": "2026-01-11 18:58:54.740074",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: U256()] [Negative Input] Does U256 correctly handle negative big.Int inputs by wrapping them to positive 256-bit values, or can negative numbers cause incorrect two's complement behavior? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5b541e91-a1b6-4c32-ad43-d52153f43075?mode=deep",
+    "timestamp": "2026-01-11 18:59:21.369845",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: U256()] [Aliasing Issue] Since U256 modifies x in-place using x.And(x, ...), can pointer aliasing with tt256m1 cause unexpected behavior if x and tt256m1 point to the same memory? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7b0aa5f9-fb54-4d99-8115-2193f3e6db9f?mode=deep",
+    "timestamp": "2026-01-11 18:59:46.587217",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: U256()] [Return Value] U256 returns the same pointer x - can this cause confusion where callers expect a new big.Int and mutations affect unexpected values elsewhere? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5f14a08b-bd08-4293-8ab1-018f2266f8f8?mode=deep",
+    "timestamp": "2026-01-11 19:00:11.117807",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: U256Bytes()] [Double Destruction] U256Bytes calls U256(n) which is destructive, then PaddedBigBytes - can this double mutation cause unexpected behavior if n is reused after the call? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f15c5615-2656-40b3-bfef-5423e8459a42?mode=deep",
+    "timestamp": "2026-01-11 19:00:34.996000",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: U256Bytes()] [Nil Input] If n is nil, will U256(n) or PaddedBigBytes handle it, or will it cause panics during transaction encoding or state serialization? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9dfef083-cb0e-4421-ab04-56e3b8d72ac2?mode=deep",
+    "timestamp": "2026-01-11 19:01:00.205866",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/big.go] [Function: U256Bytes()] [Hardcoded Size] U256Bytes hardcodes 32 bytes - if this function is called in contexts expecting different sizes, can the mismatch cause buffer overruns or data corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_efa243ab-0110-488c-bba5-c670bb118a5d?mode=deep",
+    "timestamp": "2026-01-11 19:01:27.282461",
+    "report_generated": false
   }
 ]
