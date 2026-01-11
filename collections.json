@@ -29998,5 +29998,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2143019b-356d-4680-a3a9-4f9935275b99?mode=deep",
     "timestamp": "2026-01-11 16:17:26.626190",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Bytes.MarshalText()] [Memory DoS] Can an attacker cause excessive memory allocation by providing extremely large byte slices for marshaling, since the result buffer is allocated as len(b)*2+2, potentially causing OOM conditions that crash nodes processing RPC responses? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e5d35201-efa6-4422-8a43-3c0ebb7a69bb?mode=deep",
+    "timestamp": "2026-01-11 16:18:48.222190",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Bytes.MarshalText()] [Integer Overflow] If an attacker provides a Bytes slice where len(b) is close to MaxInt/2, will the calculation len(b)*2+2 overflow when creating the result buffer, potentially causing a panic or incorrect buffer allocation leading to memory corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cfd27c54-c4b6-4ec7-b461-3fb2e7c8c713?mode=deep",
+    "timestamp": "2026-01-11 16:19:01.377120",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Bytes.MarshalText()] [Buffer Safety] Does the function properly handle the case where len(b) is 0, and could a zero-length allocation combined with subsequent operations lead to undefined behavior or panics in downstream code? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_908aabe5-cdde-4778-99a9-7a3884577dfd?mode=deep",
+    "timestamp": "2026-01-11 16:19:15.160138",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Bytes.UnmarshalJSON()] [Slice Bounds] When extracting the string content with input[1:len(input)-1], can an attacker craft JSON input with len(input) < 2 that bypasses the isString check but causes slice bounds panic during extraction? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fa7461d5-1730-4ab2-8f09-ca01a938de8a?mode=deep",
+    "timestamp": "2026-01-11 16:19:28.923677",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Bytes.UnmarshalJSON()] [Type Confusion] Can an attacker provide JSON input that passes isString validation but contains malformed UTF-8 or special characters that cause unexpected behavior in UnmarshalText, potentially leading to state corruption in block/transaction parsing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_314d7b0a-eb82-43db-9596-5e4644827ead?mode=deep",
+    "timestamp": "2026-01-11 16:19:43.556657",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Bytes.UnmarshalJSON()] [Error Handling] Does the wrapTypeError function properly preserve all error information from UnmarshalText, or can critical validation failures be masked, allowing invalid hex data to be accepted in transaction/block fields? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b99d6e98-844c-4109-b4ab-145196fef817?mode=deep",
+    "timestamp": "2026-01-11 16:19:59.826041",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Bytes.UnmarshalText()] [Input Validation] Can an attacker bypass the checkText validation by providing input with mixed case 0X prefix or crafted whitespace that passes through to hex.Decode, potentially causing inconsistent parsing across nodes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_68a99300-e120-4809-be93-4491828cb602?mode=deep",
+    "timestamp": "2026-01-11 16:20:17.406484",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Bytes.UnmarshalText()] [Memory Allocation] When creating dec buffer with len(raw)/2, can an attacker provide maximum-length hex strings that cause excessive memory allocation during block synchronization, leading to DoS by exhausting node memory? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5c6ebdce-3863-48c4-b4a9-5ba839d83e04?mode=deep",
+    "timestamp": "2026-01-11 16:20:37.538033",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Bytes.UnmarshalText()] [State Mutation] If hex.Decode partially succeeds before failing, does the function leave *b in an inconsistent state (partially decoded), which could cause state corruption if the error is not properly handled by callers? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_03ff2651-2f65-4806-8b94-46933a7f3472?mode=deep",
+    "timestamp": "2026-01-11 16:20:58.474225",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Bytes.UnmarshalText()] [Nil Pointer] Can this function be called with a nil receiver (*b == nil), and would this cause a nil pointer dereference panic when assigning *b = dec, potentially crashing nodes during RPC request processing? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_00d1ff48-55e2-4bc6-8400-275d0295f4df?mode=deep",
+    "timestamp": "2026-01-11 16:21:20.752076",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Bytes.UnmarshalGraphQL()] [Type Confusion] Can an attacker provide GraphQL input with unexpected types (e.g., []byte, int, map) that bypass the type switch but are accepted by the default case with only an error, potentially allowing malformed data into consensus-critical structures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_75e99caa-b4c5-4771-ae26-fa76d4f517c0?mode=deep",
+    "timestamp": "2026-01-11 16:21:44.092215",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Bytes.UnmarshalGraphQL()] [Nil Pointer] When assigning *b = data after successful Decode, can a nil receiver cause panic, and would this be exploitable during GraphQL API operations that affect validator state or block processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_656a3572-eb36-4216-a2f5-0794b546f1b6?mode=deep",
+    "timestamp": "2026-01-11 16:22:08.513892",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: Bytes.UnmarshalGraphQL()] [Error Propagation] Does the function properly return errors from Decode, or can the err variable shadowing in the switch statement mask critical decoding failures, allowing invalid hex data into block headers or transaction data? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8b1ec02c-13dc-4db7-9fdc-c8649e791e8b?mode=deep",
+    "timestamp": "2026-01-11 16:22:33.317496",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: UnmarshalFixedJSON()] [Slice Bounds] When slicing input[1:len(input)-1], can an attacker provide JSON with len < 2 that passes isString check but causes out-of-bounds panic, potentially crashing validators during block validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_57d7d6a5-3e40-43dc-876f-aaff4143dc8f?mode=deep",
+    "timestamp": "2026-01-11 16:22:59.254012",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: UnmarshalFixedJSON()] [Length Validation Bypass] Can an attacker craft JSON input where the string length appears valid to isString but contains escape sequences that, when unescaped, produce output of different length than expected by UnmarshalFixedText, bypassing fixed-size validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_58bd334d-5e9e-4249-bb1c-7b501bc67dba?mode=deep",
+    "timestamp": "2026-01-11 16:23:26.389789",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: UnmarshalFixedJSON()] [Type Name Leakage] Does passing typ.String() to UnmarshalFixedText expose internal type information that could aid attackers in crafting targeted exploits against specific fixed-size fields like block hashes or addresses? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_839d51b2-bedf-46ec-9099-171c8c52e635?mode=deep",
+    "timestamp": "2026-01-11 16:23:54.773543",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: UnmarshalFixedText()] [Length Mismatch] Can an attacker exploit the length validation at line 112 by providing hex strings that are exactly double the output length but contain invalid hex characters, causing the function to modify out before detecting syntax errors during the nibble check loop? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_775ddfe1-da99-4864-a225-6c00083ff8a1?mode=deep",
+    "timestamp": "2026-01-11 16:24:23.636598",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: UnmarshalFixedText()] [TOCTOU Race] Between the syntax pre-verification loop (lines 116-120) and the actual hex.Decode call (line 121), could concurrent modifications to the raw slice cause inconsistent decoding, potentially corrupting fixed-size fields like validator addresses or block hashes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_480c923f-3374-4ea6-9b98-4d5b2c0b902a?mode=deep",
+    "timestamp": "2026-01-11 16:24:52.425698",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: UnmarshalFixedText()] [Nibble Validation Bypass] Can an attacker craft input where decodeNibble returns badNibble but this is not detected until after out has been partially modified, causing state corruption in critical fixed-size fields like transaction signatures? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a506758b-23a4-4b54-956f-313e9a1f4bd0?mode=deep",
+    "timestamp": "2026-01-11 16:25:19.533462",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: UnmarshalFixedText()] [Output Buffer Safety] If the out parameter is too small or uninitialized, will hex.Decode (line 121) write beyond buffer bounds, potentially corrupting adjacent memory structures used in consensus or state management? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0a21dd80-b89b-4d7e-8060-283c93123b54?mode=deep",
+    "timestamp": "2026-01-11 16:25:44.497050",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: UnmarshalFixedText()] [Error Message Disclosure] Does the error message at line 113 leak sensitive information about expected field sizes that could help attackers understand internal data structures and craft more targeted attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d052dbd4-faf2-4896-a4c1-bd59cd6b2752?mode=deep",
+    "timestamp": "2026-01-11 16:26:10.118523",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: UnmarshalFixedUnprefixedText()] [Prefix Ambiguity] Since this function accepts optional 0x prefix via checkText(input, false), can an attacker exploit inconsistency where some nodes accept prefixed and others unprefixed input, leading to chain splits during block validation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ca9626b2-b33c-487e-961f-ff66d4067a55?mode=deep",
+    "timestamp": "2026-01-11 16:26:36.003475",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: UnmarshalFixedUnprefixedText()] [Length Calculation] When checking len(raw)/2 != len(out) at line 133, can an attacker provide input where the prefix/no-prefix ambiguity causes different effective lengths across nodes, leading to consensus failure? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ff8b83dc-5cc9-4f66-89fe-518a3afc558e?mode=deep",
+    "timestamp": "2026-01-11 16:27:00.758218",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: UnmarshalFixedUnprefixedText()] [Nibble Pre-verification] Similar to UnmarshalFixedText, does the pre-verification loop (lines 137-141) protect against partial buffer corruption, or can syntax errors after partial hex.Decode leave out in an inconsistent state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_45bacaa5-ac54-4b66-88bb-57a82850c626?mode=deep",
+    "timestamp": "2026-01-11 16:27:24.981276",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Function: UnmarshalFixedUnprefixedText()] [Duplicate Code] Since this function duplicates logic from UnmarshalFixedText with only prefix handling different, could inconsistencies between the two implementations lead to validation bypasses when different code paths are used? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_afb4f5fa-71ae-4047-87f4-eb1ee264176e?mode=deep",
+    "timestamp": "2026-01-11 16:27:46.857089",
+    "report_generated": false
   }
 ]
