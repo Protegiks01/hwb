@@ -30448,5 +30448,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3af6a3ab-10bb-468a-8652-357df70b4aa3?mode=deep",
     "timestamp": "2026-01-11 16:48:16.909851",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Cross-Function: Big vs Uint64] [Type Confusion] Can attackers provide values encoded as Big that should be Uint64 (or vice versa) to bypass range validation, since Big allows up to 256 bits while Uint64 is limited to 64 bits? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a4195506-aa05-4fe5-b3a1-eda58c23a3f7?mode=deep",
+    "timestamp": "2026-01-11 16:49:46.027711",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Cross-Function: Fixed vs Variable Length] [Validation Bypass] Can attackers exploit differences between UnmarshalFixedText (requires exact length) and regular UnmarshalText (allows variable length) to cause same hex data to be accepted in one context but rejected in another? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8aa578c1-9220-40da-88f3-ff24cbdd2739?mode=deep",
+    "timestamp": "2026-01-11 16:49:59.269138",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Edge Case: Maximum hex length] [DoS] Can an attacker provide hex strings at maximum allowed length (64 chars for Big, 16 for Uint64) repeatedly in RPC requests to cause excessive CPU usage during parsing, degrading node performance? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9be2b244-b16e-4534-9ec7-d246e66f62a9?mode=deep",
+    "timestamp": "2026-01-11 16:50:12.664852",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Edge Case: Zero values] [Validation] Do all unmarshal methods properly handle",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ee18ce01-d7fe-4b03-ae40-35119f2bd1fb?mode=deep",
+    "timestamp": "2026-01-11 16:50:26.321647",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Edge Case: Case sensitivity] [Consensus] Since hex parsing accepts both uppercase and lowercase (a-f, A-F), can case differences in identical hex values cause signature verification failures or cache lookup misses? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_53b96523-ded3-471b-97e4-936a8a89a6d2?mode=deep",
+    "timestamp": "2026-01-11 16:50:41.061518",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Edge Case: Unicode] [Injection] Can Unicode characters that look like hex digits (0-9, a-f) but have different code points bypass validation and cause parsing errors or security issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7e338880-3cf5-4122-b02e-ee1f1124b57f?mode=deep",
+    "timestamp": "2026-01-11 16:50:56.555387",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Edge Case: Null JSON] [Nil Handling] What happens if JSON null is unmarshaled into Bytes/Big/Uint64 types, and can null handling inconsistencies cause state corruption in optional fields? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1dd073d9-0bbe-4ab2-afb5-2877ec4f7001?mode=deep",
+    "timestamp": "2026-01-11 16:51:13.791244",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Memory: Bytes.UnmarshalText] [Allocation] When unmarshaling large byte arrays (e.g., contract bytecode), can the dec buffer allocation at line 61 consume excessive memory if called repeatedly, enabling memory exhaustion DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b51247ec-2137-4122-9f07-c19d05164b9e?mode=deep",
+    "timestamp": "2026-01-11 16:51:32.889084",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Memory: Big.UnmarshalText] [Word Array] The words array allocation at line 176 could allocate up to (64/bigWordNibbles + 1) words - can repeated large Big parsing exhaust memory during bulk transaction validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_25bdfc73-5ee6-4c6b-b79e-1a9e86987bd9?mode=deep",
+    "timestamp": "2026-01-11 16:51:52.974121",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Memory: Buffer Reuse] [Optimization] Since unmarshal methods allocate new buffers for each call, can lack of buffer pooling cause excessive GC pressure during high RPC load, impacting node performance? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c66b2af7-3641-4334-b583-3464d67d61b7?mode=deep",
+    "timestamp": "2026-01-11 16:52:14.745687",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Memory: Slice Growth] [Fragmentation] Do repeated marshal/unmarshal operations cause memory fragmentation due to temporary buffer allocations, potentially degrading long-running node performance? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_55457442-f694-451f-9c02-5a0ce35df300?mode=deep",
+    "timestamp": "2026-01-11 16:52:37.050512",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Numeric: Big.UnmarshalText word accumulation] [Correctness] The manual big.Word accumulation in lines 178-191 - can the formula words[i] *= 16; words[i] += big.Word(nib) produce different results than standard big.Int parsing for edge case values? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2d1fb692-42d3-469a-b14b-e7a2568530e5?mode=deep",
+    "timestamp": "2026-01-11 16:53:01.142965",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Numeric: Uint64 overflow] [Correctness] In Uint64.UnmarshalText lines 263-264, can the order of operations (multiply then add) produce different overflow behavior than standard ParseUint for values near MaxUint64? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_81c99972-75a8-409d-90ba-89da55f089cf?mode=deep",
+    "timestamp": "2026-01-11 16:53:26.613523",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Numeric: Big 256-bit limit] [Bypass] Since the 256-bit check at line 173 only validates hex string length (64 chars), can attackers encode 256-bit values with leading zeros in the big.Int representation that exceed 256 bits numerically? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1cfcfe58-517e-4f69-8740-dca439b8b435?mode=deep",
+    "timestamp": "2026-01-11 16:53:53.876725",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Numeric: Platform differences] [Portability] Can Uint type (lines 294-325) behave differently on 32-bit vs 64-bit platforms, causing consensus failures if validator nodes run on different architectures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_23505229-a05e-4a64-be31-bf7447676fd9?mode=deep",
+    "timestamp": "2026-01-11 16:54:22.203830",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Protocol: Transaction nonce] [Replay] If Uint64.UnmarshalText incorrectly parses nonce values due to bugs in lines 249-268, can attackers craft nonces that are accepted but don't increment properly, enabling transaction replay attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6015c6ac-f16c-4193-88b2-b9dcd1e34432?mode=deep",
+    "timestamp": "2026-01-11 16:54:50.552692",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Protocol: Gas limit] [DoS] If Uint64.UnmarshalText allows gas limit overflow (line 263-264), can attackers set gas limits exceeding MaxUint64, causing block validation failures and chain halts? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2e186b1e-3191-46d2-956a-5ab48a3801da?mode=deep",
+    "timestamp": "2026-01-11 16:55:19.409184",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Protocol: Account balance] [Theft] If Big.UnmarshalText produces incorrect values due to word accumulation errors (lines 188-189), can attackers manipulate account balances to steal funds or mint unauthorized tokens? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_672b26c3-5dd3-410d-aae4-07cbe14b727b?mode=deep",
+    "timestamp": "2026-01-11 16:55:50.641353",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Protocol: Block hash] [Forgery] If Bytes.UnmarshalText incorrectly parses block hashes, can attackers craft fake block hashes that pass validation but don't match actual block content, enabling chain reorg attacks? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_83fc064f-958e-48c0-87f1-26cae4792a9a?mode=deep",
+    "timestamp": "2026-01-11 16:56:19.425017",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Protocol: Transaction signature] [Forgery] If UnmarshalFixedText for signature components (r, s, v) has bugs, can attackers craft signatures that appear valid but haven't actually been generated by the claimed sender? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a6b6abc3-d19a-4b22-bcc7-6b18583c9ea6?mode=deep",
+    "timestamp": "2026-01-11 16:56:48.702474",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Protocol: Address parsing] [Spoofing] If UnmarshalFixedText for 20-byte addresses has validation issues, can attackers create addresses that look valid but route funds to attacker-controlled accounts? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cddda9c8-38f7-4099-93fd-e18a371c6dcf?mode=deep",
+    "timestamp": "2026-01-11 16:57:15.114434",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Protocol: State root] [Corruption] If Big values used in state root calculations are parsed incorrectly, can this cause state root mismatches leading to block rejection and chain splits? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3eb39eaf-6a48-4d58-bd7b-b8bbe2a06b7a?mode=deep",
+    "timestamp": "2026-01-11 16:57:41.267148",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [RPC: Input validation] [Injection] Can attackers send crafted RPC requests with malformed hex data that bypasses checkText/checkNumberText validation, causing nodes to crash or execute unintended operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9f83498e-f290-41b5-b656-eca6e1bf0211?mode=deep",
+    "timestamp": "2026-01-11 16:58:07.251691",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [RPC: Error messages] [Info Leak] Do error messages from unmarshal functions (via wrapTypeError, errNonString) expose internal node state or configuration that could aid targeted attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_47ed1ddd-bc78-4959-ad72-85006f513c0a?mode=deep",
+    "timestamp": "2026-01-11 16:58:33.161783",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [RPC: Batch processing] [Amplification] If RPC batch requests contain many unmarshal operations on maximum-length hex strings, can this amplify CPU/memory usage enabling DoS with minimal attacker resources? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_64109cf0-73ce-45c9-b057-9a59adc0e641?mode=deep",
+    "timestamp": "2026-01-11 16:58:59.316341",
+    "report_generated": false
   }
 ]
