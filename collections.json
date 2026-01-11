@@ -26248,5 +26248,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_20958a4c-e0f4-41e7-a146-03169c78b76e?mode=deep",
     "timestamp": "2026-01-11 12:06:01.910002",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [All Variables] [Memory aliasing] Do any functions in the codebase directly assign these global variables to local variables without copying (e.g., 'x := Big1' instead of 'x := new(big.Int).Set(Big1)'), creating aliasing where modifications affect the global state and corrupt subsequent calculations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9567b0e7-cb3c-4f71-ad8f-e5ed2abb0c72?mode=deep",
+    "timestamp": "2026-01-11 12:07:29.626414",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [Global Variable: Big1] [Nonce validation] In transaction validation using Big1 for nonce incrementing, if the constant is corrupted or misused, can it enable nonce-skipping attacks allowing transaction replay or reordering? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e35a3577-c1bb-404e-b9b1-f41861e769be?mode=deep",
+    "timestamp": "2026-01-11 12:07:42.553665",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [Global Variable: Big0] [Gas validation] In gas limit or gas price validation using Big0 for zero-checks, if this constant is modified or compared incorrectly, can transactions with zero gas execute without payment causing economic attacks? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9760a055-5417-4e5e-8311-b66fd10215da?mode=deep",
+    "timestamp": "2026-01-11 12:07:56.588322",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [Global Variables: Big1, Big2, Big3] [Difficulty calculation] In Clique consensus difficulty calculations using Big1 (INTURN) and Big2 (NOTURN), can manipulation of these values or incorrect usage cause validators to produce blocks with invalid difficulty enabling block production out of turn? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_04c62f55-9bbc-4a0d-9157-c904a63241fc?mode=deep",
+    "timestamp": "2026-01-11 12:08:10.234327",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [Global Variable: Big256] [Cryptographic operations] In ECDSA signature verification or address derivation using Big256 for modular arithmetic, can misuse of this constant cause signature validation bypasses allowing unauthorized block signing? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_496116ce-8095-4de8-ac80-91beb29479ac?mode=deep",
+    "timestamp": "2026-01-11 12:08:24.724267",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [Global Variable: Big0] [Balance checks] In state transition balance validation using Big0 to check for sufficient funds, if comparison logic is flawed or the constant is corrupted, can it allow value transfers exceeding account balance resulting in negative balances or fund creation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_18cc3df9-73d3-4ab6-884a-221e28c759ed?mode=deep",
+    "timestamp": "2026-01-11 12:08:40.473696",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [Global Variables: Big256, Big257] [EVM opcodes] In EVM opcode implementations (ADD, MUL, MOD, ADDMOD, MULMOD) using Big256 or Big257 for overflow detection or modular operations, can incorrect usage enable integer overflow exploits in smart contracts interacting with the mint contract? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f9e82da5-6b76-402f-907b-5f77b51d4f79?mode=deep",
+    "timestamp": "2026-01-11 12:08:57.065147",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [Global Variable: Big32] [Storage operations] In state storage operations using Big32 for slot calculations or Keccak hashing, can misuse cause storage slot collisions or incorrect storage access enabling unauthorized state modifications? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0db047d1-9af2-4d5e-bdfa-6b328520c19f?mode=deep",
+    "timestamp": "2026-01-11 12:09:16.402625",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [Variable initialization] [Panic] If big.NewInt() panics during package initialization (e.g., due to resource exhaustion), will this crash all validator nodes simultaneously causing complete network halt requiring manual intervention? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_27db4289-2e73-41be-a7f6-049a32a01c2e?mode=deep",
+    "timestamp": "2026-01-11 12:09:36.448096",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [All Variables] [Nil pointer] If any code path attempts to use these variables before package initialization completes, can nil pointer dereferences occur causing validator node crashes during startup or synchronization? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_762d1c87-39d3-4f79-af36-7fc2f11feda4?mode=deep",
+    "timestamp": "2026-01-11 12:09:58.212486",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [Variable initialization] [Race condition] If the package is imported from multiple goroutines during node startup, is there any risk of initialization races where some goroutines see partially initialized big.Int values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a6d6dc53-3083-474d-8880-f1cf8118b38b?mode=deep",
+    "timestamp": "2026-01-11 12:10:20.947671",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [Global Variable: Big0] [State validation] In core/state_processor block validation using Big0 for empty receipt checks or zero-value detection, can incorrect usage allow invalid blocks with malformed receipts to be accepted corrupting the state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_816f45f6-b0e6-49f1-8ca6-a4da74e4387f?mode=deep",
+    "timestamp": "2026-01-11 12:10:45.110436",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [Global Variables: Big1, Big2] [Block validation] In core/block_validator using Big1 or Big2 for difficulty or number validation, can off-by-one errors in comparisons cause acceptance of invalid blocks leading to chain corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5636c09d-6261-4271-8b73-3739ebe76355?mode=deep",
+    "timestamp": "2026-01-11 12:11:10.395658",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [Global Variable: Big256] [Gas calculation] In core/vm/gas.go using Big256 for memory expansion cost calculations, can incorrect multiplication or division cause gas costs to overflow or underflow enabling DoS attacks through underpriced operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7cf1e511-7a02-481b-94c0-5c6feddf3c2a?mode=deep",
+    "timestamp": "2026-01-11 12:11:36.659426",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [Global Variable: Big0] [Transaction pool] In core/txpool validation using Big0 for gas price or value checks, can edge cases where comparisons fail allow zero-priced transactions to flood the mempool causing DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_24af0594-e8a6-4145-a18d-1aacb51a58fd?mode=deep",
+    "timestamp": "2026-01-11 12:12:04.428382",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [Global Variables: Big32, Big256] [Merkle tree] In Merkle Patricia Trie operations using Big32 or Big256 for node hashing or key encoding, can incorrect usage cause trie corruption leading to invalid state root calculations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f7fb05fb-e1e0-4896-8421-0658702ca0ba?mode=deep",
+    "timestamp": "2026-01-11 12:12:31.363486",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [Global Variable: Big1] [Snapshot voting] In consensus/clique snapshot vote counting using Big1 for incrementing validator votes, can integer overflow in vote accumulation allow unauthorized validator addition? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9d81a73e-fde4-4986-b6f9-5ee8eff2b3a3?mode=deep",
+    "timestamp": "2026-01-11 12:12:59.791071",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [Global Variable: Big0] [Account creation] In state transition account creation checks using Big0 for nonce validation, can bypass of zero-nonce requirements enable contract address prediction attacks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ee5e9dba-97aa-4f47-aed4-b66b91cc9fb3?mode=deep",
+    "timestamp": "2026-01-11 12:13:28.260683",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [All Variables] [Type confusion] If code casts these big.Int pointers to other types or uses unsafe operations, can it cause memory corruption or type confusion attacks affecting consensus or state validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cf28f644-b810-48f5-a926-b505863fb3d1?mode=deep",
+    "timestamp": "2026-01-11 12:13:56.327867",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [All Variables] [Comparison errors] When comparing values against these constants, are comparisons done using .Cmp() method or direct pointer equality? Can pointer equality checks fail even when values are equal causing validation bypasses? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_64b9d3eb-4f0f-4d8d-bac3-0d76f3210934?mode=deep",
+    "timestamp": "2026-01-11 12:14:22.673641",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [Global Variables: Big256, Big257] [Overflow] In calculations multiplying or exponentiating with Big256 or Big257, can intermediate results overflow big.Int internal representation causing panics or incorrect results in EVM execution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0825e850-4987-41ed-94bd-da786a8499c9?mode=deep",
+    "timestamp": "2026-01-11 12:14:49.663897",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [Global Variable: Big0] [Fee bypass] In transaction fee calculation using Big0 for base fee or tip validation, can incorrect zero-checks allow transactions to execute without paying fees disrupting economic model? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cdec9527-b734-4fd4-9549-4d84fd1aa447?mode=deep",
+    "timestamp": "2026-01-11 12:15:17.354416",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [Global Variables: Big1, Big2, Big3] [Gas pricing] If these constants are used in dynamic gas pricing calculations, can manipulation or misuse enable gas price manipulation attacks for MEV extraction? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_51c59097-aea9-4d27-946a-65ce907bf867?mode=deep",
+    "timestamp": "2026-01-11 12:15:44.788014",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [Global Variable: Big32] [Memory pricing] In EVM memory expansion cost calculations using Big32 for word-based pricing, can rounding errors or overflow enable underpriced memory allocation causing DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_690c3ebb-eac9-4d59-a2da-10a63f7172fc?mode=deep",
+    "timestamp": "2026-01-11 12:16:11.811015",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/big.go] [Global Variable: Big0] [Mint validation] In core/mint/contract.go using Big0 for mint amount validation, can bypassing zero-checks allow minting of zero tokens that corrupts accounting or enables repeated minting attempts? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_28651389-df82-407b-9a47-25e30f8d5a9c?mode=deep",
+    "timestamp": "2026-01-11 12:16:39.548487",
+    "report_generated": false
   }
 ]
