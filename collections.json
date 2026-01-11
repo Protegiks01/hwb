@@ -27748,5 +27748,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2c0947e8-37e6-4f50-a80a-c25cefffcdcb?mode=deep",
     "timestamp": "2026-01-11 13:49:21.813613",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Line 141] Assignment 'decomp[0] = data[0]' for single byte case - is bounds checking adequate here? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3ea96918-2438-44e0-84e3-d879f62198b8?mode=deep",
+    "timestamp": "2026-01-11 13:50:34.129941",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Line 148] Recursive call with '(target+7)/8' - is there a maximum recursion depth in the Go runtime that could be hit? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5a804014-4623-4e07-8fc8-2d301c230330?mode=deep",
+    "timestamp": "2026-01-11 13:50:46.956094",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Line 152] Loop bound '8*len(nonZeroBitset)' - can this multiplication result in a value larger than int max causing wraparound? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8c107ad3-ab1c-4f99-a220-4061a3f3e831?mode=deep",
+    "timestamp": "2026-01-11 13:51:00.627407",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Line 153] Complex bit extraction 'nonZeroBitset[i/8]&(1<<byte(7-i%8))' - is this guaranteed correct for all valid i and bitset values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cfc95ed1-0f59-4132-8115-4843514e1b70?mode=deep",
+    "timestamp": "2026-01-11 13:51:14.297851",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Line 155-156] Check 'ptr >= len(data)' before data access - is ptr increment at line 166 guaranteed to keep ptr valid for next iteration? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_57682376-5b6e-4cda-8e91-a317abd3942d?mode=deep",
+    "timestamp": "2026-01-11 13:51:28.895267",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Line 158-159] Check 'i >= len(decomp)' before write - but i is derived from bitset length, can these ever be mismatched? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d9ee1113-5f31-4177-a070-4636aac8b909?mode=deep",
+    "timestamp": "2026-01-11 13:51:44.725654",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Line 162-163] Zero byte detection 'data[ptr] == 0' - why is this an error, and is this check necessary for correctness or just validation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ba3ae75b-72ba-4e2d-a987-15a90e15bce3?mode=deep",
+    "timestamp": "2026-01-11 13:52:01.802905",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Line 165] Direct assignment 'decomp[i] = data[ptr]' - could this ever cause a panic despite earlier bounds checks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b20c16c9-bbd9-4823-ba8b-5412e826cfe6?mode=deep",
+    "timestamp": "2026-01-11 13:52:21.278386",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Line 169] Return statement 'return decomp, ptr, nil' - is ptr always accurately tracking bytes consumed? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5e7ff6b5-9809-40aa-9429-2071fb195af6?mode=deep",
+    "timestamp": "2026-01-11 13:52:41.732951",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Line 141] Assignment 'decomp[0] = data[0]' for single byte case - is bounds checking adequate here? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_85145631-76c2-4b66-98c1-78afc4e3c571?mode=deep",
+    "timestamp": "2026-01-11 13:53:03.638863",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Line 148] Recursive call with '(target+7)/8' - is there a maximum recursion depth in the Go runtime that could be hit? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d8f22367-a341-41f9-bbc8-856ac90bb0d6?mode=deep",
+    "timestamp": "2026-01-11 13:53:25.859307",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Line 152] Loop bound '8*len(nonZeroBitset)' - can this multiplication result in a value larger than int max causing wraparound? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5e4d2439-609d-4003-8520-91fd9a544bf3?mode=deep",
+    "timestamp": "2026-01-11 13:53:48.601581",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Line 153] Complex bit extraction 'nonZeroBitset[i/8]&(1<<byte(7-i%8))' - is this guaranteed correct for all valid i and bitset values? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_88f0b2e0-8b7d-40cf-b6d1-b7a56cee1248?mode=deep",
+    "timestamp": "2026-01-11 13:54:12.711504",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Line 155-156] Check 'ptr >= len(data)' before data access - is ptr increment at line 166 guaranteed to keep ptr valid for next iteration? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e319618b-27e4-492b-aaed-4c217059db32?mode=deep",
+    "timestamp": "2026-01-11 13:54:38.595979",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Line 158-159] Check 'i >= len(decomp)' before write - but i is derived from bitset length, can these ever be mismatched? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a28a241b-e219-4fc2-b120-59139a86c0b7?mode=deep",
+    "timestamp": "2026-01-11 13:55:03.112025",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Line 162-163] Zero byte detection 'data[ptr] == 0' - why is this an error, and is this check necessary for correctness or just validation? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cd890b8c-5f29-4600-be1f-8d9f5067e5db?mode=deep",
+    "timestamp": "2026-01-11 13:55:26.852181",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Line 165] Direct assignment 'decomp[i] = data[ptr]' - could this ever cause a panic despite earlier bounds checks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_074a3a9e-3dc8-4636-906c-bc10cfcc186d?mode=deep",
+    "timestamp": "2026-01-11 13:55:49.799236",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/bitutil/compress.go] [Line 169] Return statement 'return decomp, ptr, nil' - is ptr always accurately tracking bytes consumed? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2f2118ea-73c7-4b90-9271-05913dbff568?mode=deep",
+    "timestamp": "2026-01-11 13:56:12.852393",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: Contract] [JSON Injection] When Contract structs are unmarshaled from external JSON input (e.g., via ParseCombinedJSON), can an attacker craft malicious JSON with extremely large string values in the Code or RuntimeCode fields to cause memory exhaustion and node crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6433e6be-8a47-4d57-b3e1-5bb91e61bb0d?mode=deep",
+    "timestamp": "2026-01-11 13:56:37.342341",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: Contract] [Unbounded Input] Does the Code field (line 22) have any length validation when populated from JSON, or can an attacker provide arbitrarily large bytecode strings that consume excessive memory during abigen processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e81c9d64-9e58-4228-9e7d-6e47fa321043?mode=deep",
+    "timestamp": "2026-01-11 13:57:00.238176",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: Contract] [Unbounded Input] Does the RuntimeCode field (line 23) have size limits, or can malicious JSON input containing multi-gigabyte runtime code strings cause memory exhaustion in nodes processing contract compilation outputs? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dad2ff16-ec2b-40ae-a569-ec8cbdc412db?mode=deep",
+    "timestamp": "2026-01-11 13:57:22.946067",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: Contract] [Map DoS] Can the Hashes map (line 25) be exploited by providing millions of key-value pairs in JSON input, causing excessive memory allocation and potential node crashes during deserialization? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_62b35b92-df2f-4eca-b26d-efd1636e1b32?mode=deep",
+    "timestamp": "2026-01-11 13:57:48.667296",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: ContractInfo] [Interface{} Type Safety] The AbiDefinition field (line 41) uses interface{} type - can an attacker craft JSON that deserializes to unexpected types (e.g., deeply nested arrays) causing type assertion panics when this data is later processed? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_080f376e-40cf-4d09-a5f2-e540a479d85c?mode=deep",
+    "timestamp": "2026-01-11 13:58:12.133804",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: ContractInfo] [Interface{} Type Safety] The SrcMap field (line 39) uses interface{} - can malicious JSON input cause this to deserialize to types that trigger panics during subsequent type assertions or marshaling operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d36d876e-c45a-4f80-9ebb-010c91dd5ffc?mode=deep",
+    "timestamp": "2026-01-11 13:58:36.553863",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/helpers.go] [Struct: ContractInfo] [Interface{} Type Safety] The UserDoc field (line 42) uses interface{} - if this deserializes to an unexpected type from attacker-controlled JSON, can it cause crashes when code attempts to marshal it back to JSON for ABI generation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5f3a92b3-3a05-4f24-91e2-aa42fcea5f71?mode=deep",
+    "timestamp": "2026-01-11 13:59:01.036996",
+    "report_generated": false
   }
 ]
