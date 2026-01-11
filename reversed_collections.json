@@ -27286,5 +27286,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_84518de9-ce70-4a91-8b1d-e03a5fd9f869?mode=deep",
     "timestamp": "2026-01-11 10:10:16.852686",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: loop()] [Execution order] loop() executes functions in FIFO order from q.funcs[0], but can race conditions during Queue() and Clear() operations cause functions to execute in wrong order, violating ordering guarantees critical for consensus operations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9eaeb0c4-57f9-4333-b8c3-69ead49eecc5?mode=deep",
+    "timestamp": "2026-01-11 10:11:49.615983",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Quit()] [Double Quit] If Quit() is called twice, the second call will pass the !q.isClosed() check on line 99 before closeWait is set by the first call, then create a second closeWait channel - can this cause the second Quit() to wait on a channel that never closes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e1e1ec40-34ab-4146-8450-0bc206379fef?mode=deep",
+    "timestamp": "2026-01-11 10:12:02.567887",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Queue()] [State consistency] Queue() checks !q.isClosed() on line 78, but this check reads closeWait pointer without memory barriers - can compiler optimizations or CPU reordering make this check unreliable, allowing queuing to closed queues? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a804851a-6295-4365-93f4-c6eec2b486bc?mode=deep",
+    "timestamp": "2026-01-11 10:12:16.158180",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: waitNext()] [State transition timing] The isClosed() check on line 52 and accessing funcs on line 53 are separate operations - can the queue transition from open to closed between these checks, causing waitNext() to return a function when it should return nil? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_315e8708-cd8d-4f73-9a7b-49b5baf00240?mode=deep",
+    "timestamp": "2026-01-11 10:12:29.824303",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: isClosed()] [State check reliability] isClosed() on line 64 checks if closeWait != nil without holding a lock - can reading this pointer without synchronization return stale values due to memory reordering, causing incorrect closed state detection? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b42eb5c9-f9eb-484e-8646-de2c5b759de1?mode=deep",
+    "timestamp": "2026-01-11 10:12:44.541892",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Clear()] [Capacity preservation] Clear() uses `q.funcs[:0]` on line 90 which keeps the backing array's capacity - can this allow Queue() to later append beyond the originally intended capacity if the backing array was reallocated? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6b346bf0-c1a8-4879-ac6a-46b1bd30ae5f?mode=deep",
+    "timestamp": "2026-01-11 10:13:00.863585",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Queue()] [Append capacity] The append() on line 80 should not exceed capacity due to the check on line 78, but can slice header corruption or race conditions cause append() to allocate a new larger backing array, bypassing the capacity limit? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3bd6c722-28de-4a79-83a6-8b352227cf72?mode=deep",
+    "timestamp": "2026-01-11 10:13:18.004622",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: waitNext()] [Slice bounds] Accessing `q.funcs[0]` on line 54 assumes len(q.funcs) > 0 from the check on line 53, but can the check pass with len > 0, then a concurrent Clear() make len = 0, causing index out of bounds before the access? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1ef3be70-9b1e-4c2d-9d3e-4b83f438ded7?mode=deep",
+    "timestamp": "2026-01-11 10:13:37.139291",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: CanQueue()] [Inconsistent capacity] CanQueue() and Queue() both check `len(q.funcs) < cap(q.funcs)` on lines 70 and 78 - if the capacity is somehow modified between these checks (though Go slices shouldn't allow this), can this create inconsistent queue state? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_65774c0d-dd6d-4d08-ab9b-3b4651ad5253?mode=deep",
+    "timestamp": "2026-01-11 10:13:58.002896",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: NewExecQueue()] [Capacity limits] There is no upper bound validation on the capacity parameter - can an attacker pass MaxInt or very large values to preallocate enormous slices causing immediate memory exhaustion and validator node crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b395f64a-d89e-4e3e-abac-69d444656dfd?mode=deep",
+    "timestamp": "2026-01-11 10:14:19.729355",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Queue()] [Capacity bypass] The capacity check `len(q.funcs) < cap(q.funcs)` on line 78 compares length to capacity, but can integer overflow in len() or cap() on 32-bit systems allow bypassing this check and overflowing the slice? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_10f02051-ae7c-45f8-86a3-db42b297aa27?mode=deep",
+    "timestamp": "2026-01-11 10:14:43.054090",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Quit()] [Signal during close] Signal() is called on line 101 after setting closeWait, but if the loop goroutine is in the middle of executing a long-running function, can the signal be delivered before the function completes, causing confusion in the shutdown sequence? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d4f67ff5-01bf-4b18-9aba-119586a8879b?mode=deep",
+    "timestamp": "2026-01-11 10:15:06.779761",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Queue()] [Signal timing] Signal() is called on line 81 while holding the mutex, but the waiting goroutine in waitNext() on line 57 must reacquire the mutex after waking - can a long critical section in another goroutine holding the mutex cause significant delays in function execution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_344cb0c4-1f64-4cf5-b205-1e74680cc397?mode=deep",
+    "timestamp": "2026-01-11 10:15:31.617349",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: waitNext()] [Signal loss] Signal() on line 81 only wakes one waiting goroutine, but if multiple goroutines are waiting on the same condition variable (which shouldn't happen with current design), can signals be lost leading to missed function executions? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ed0b8c4d-276f-44a1-ae32-f0cb5e97d9d1?mode=deep",
+    "timestamp": "2026-01-11 10:15:55.470295",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Quit()] [Blocking receive] The receive operation `<-q.closeWait` on line 104 blocks until the channel is closed, but if loop() panics before reaching line 42, can this cause Quit() to block forever, preventing graceful validator node shutdown? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2efa48b7-6347-40f3-a00b-015880eed053?mode=deep",
+    "timestamp": "2026-01-11 10:16:17.968685",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: loop()] [Channel close timing] close(q.closeWait) on line 42 happens after waitNext() returns nil, but can a race exist where Quit() creates closeWait, then loop() exits and closes it before line 104 starts waiting, causing a receive from closed channel that returns immediately with zero value? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c5942703-8e05-448f-b16e-5a6db9dea53b?mode=deep",
+    "timestamp": "2026-01-11 10:16:41.052290",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Quit()] [Double close panic] If Quit() is called multiple times concurrently, can multiple goroutines pass the !q.isClosed() check on line 99 before closeWait is set, then all call close(q.closeWait) on line 42, causing a panic from closing an already-closed channel? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ff0d3ad4-cfae-4865-ba12-1ce4f9efbc85?mode=deep",
+    "timestamp": "2026-01-11 10:17:04.156585",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: NewExecQueue()] [Memory leak] The preallocated capacity on line 32 persists for the lifetime of the ExecQueue - if a large capacity is set initially but rarely used, can this waste significant memory across many ExecQueue instances in a validator node? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0e12ced7-d65a-47bb-934e-bdef7699390e?mode=deep",
+    "timestamp": "2026-01-11 10:17:29.159840",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Clear()] [Memory leak] Clear() sets `q.funcs = q.funcs[:0]` on line 90 which keeps the backing array and all function references alive - can repeated Clear() calls without shrinking the backing array cause memory to accumulate indefinitely? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_be4589b1-aefe-4fe9-8f62-029fb3a11169?mode=deep",
+    "timestamp": "2026-01-11 10:17:52.478807",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Quit()] [Channel leak] If multiple Quit() calls race and create multiple closeWait channels on line 100, but only the last one is used for the blocking receive on line 104, can earlier closeWait channels leak never being closed or garbage collected? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ca1a6abc-519f-468e-8cd0-03dc1e3a1edc?mode=deep",
+    "timestamp": "2026-01-11 10:18:14.693263",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: waitNext()] [Goroutine leak] If Wait() on line 57 is called but the condition is never satisfied (no Signal() or Broadcast()), can the goroutine block indefinitely, and if this happens repeatedly, can it exhaust available goroutines causing node DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4e59896b-21c6-4026-b5a5-593e731ed9b3?mode=deep",
+    "timestamp": "2026-01-11 10:18:36.815773",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: loop()] [Resource leak] If queued functions on line 40 open file handles, network connections, or other resources but panic before closing them, can repeated panics cause resource exhaustion leading to validator node crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_222ccaf0-895d-4346-b262-d3b0963af195?mode=deep",
+    "timestamp": "2026-01-11 10:18:58.951917",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Queue()] [Memory leak] If functions queued by Queue() capture large objects or create closures with extensive captured state, and the queue fills to capacity without execution, can this cause memory exhaustion attacks on validator nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_54a85252-7a7e-46ab-b7f5-21fd11f7a722?mode=deep",
+    "timestamp": "2026-01-11 10:19:20.436262",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: Quit()] [Memory leak] After Quit() is called and loop() exits, the funcs slice at line 26 still holds references to all queued functions - can these function closures and their captured variables cause significant memory leaks preventing garbage collection of critical resources? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6c83c603-b66b-4f35-9c60-a5dc712c399f?mode=deep",
+    "timestamp": "2026-01-11 10:19:44.245307",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/utils/exec_queue.go] [Function: NewExecQueue()] [Goroutine leak] The goroutine started on line 34 runs loop() which only exits when waitNext() returns nil (queue closed) - if Quit() is never called or closeWait is never set, can this goroutine leak indefinitely consuming validator node resources? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7e1e3394-f70a-403f-9c32-2e458b4706ee?mode=deep",
+    "timestamp": "2026-01-11 10:20:07.724223",
+    "report_generated": false
   }
 ]
