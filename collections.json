@@ -23698,5 +23698,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_92470f2e-b2b7-436f-b75e-94dad2784c7c?mode=deep",
     "timestamp": "2026-01-11 04:47:38.771676",
     "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Function: unlockAccounts()] [Keystore Backend Check] At lines 474-477, the code assumes backends[0] exists and is a keystore. If AccountManager().Backends() returns an empty slice or wrong backend type, can this cause index out of bounds or type assertion panic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_604f6971-8405-40f1-be3f-45b954dbcd1e?mode=deep",
+    "timestamp": "2026-01-11 04:48:51.635039",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Function: unlockAccounts()] [Backend Type Assertion] At line 479, backends[0] is asserted to *keystore.KeyStore. If this assertion fails silently (ok=false not checked), can subsequent operations on ks cause nil pointer dereference? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5547b3c2-7d04-450f-988b-de848ab9dc3b?mode=deep",
+    "timestamp": "2026-01-11 04:49:04.561122",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Function: unlockAccounts()] [Password List Generation] At line 480, utils.MakePasswordList(ctx) is called. If this reads passwords from files, can an attacker symlink password files to sensitive system files, causing information disclosure? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_05430ac7-8945-4faf-8c14-ada755b07d1b?mode=deep",
+    "timestamp": "2026-01-11 04:49:18.144496",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Function: unlockAccounts()] [Account Iteration] At lines 481-483, accounts are unlocked in order with matching password indices. If the number of accounts exceeds the number of passwords, can this cause index out of bounds in unlockAccount()? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a56c5d87-9d3d-4d1b-8669-b690a88c1dc9?mode=deep",
+    "timestamp": "2026-01-11 04:49:31.978540",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Function: unlockAccounts()] [unlockAccount Call] At line 482, unlockAccount() is called but the return values are ignored. If unlocking fails but doesn't call Fatalf(), can the node continue running without unlocked validator accounts? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_042cb0bf-2fe9-4c82-b657-a735e45141fd?mode=deep",
+    "timestamp": "2026-01-11 04:49:46.658137",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Variable: nodeFlags] [Flag Injection] At lines 56-153, numerous flags are merged. Can an attacker provide a malicious config file that overrides critical security flags like NoUSBFlag or InsecureUnlockAllowedFlag? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ac237cb7-8aad-4e5d-929e-690c6b88c9cf?mode=deep",
+    "timestamp": "2026-01-11 04:50:02.354758",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Variable: nodeFlags] [UnlockedAccountFlag] At line 58, UnlockedAccountFlag is included. Can an attacker use environment variables to set this flag and automatically unlock accounts on node startup? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_039f67c5-33bc-429d-9924-db7ae0a3cba8?mode=deep",
+    "timestamp": "2026-01-11 04:50:19.065847",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Variable: nodeFlags] [PasswordFileFlag] At line 59, PasswordFileFlag allows reading passwords from files. Can an attacker provide a path to a named pipe that hangs indefinitely, causing node startup DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_64258fc5-ec85-4013-a2b2-0cb3b3f6276a?mode=deep",
+    "timestamp": "2026-01-11 04:50:38.577234",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Variable: nodeFlags] [BootnodesFlag] At line 60, bootstrap nodes can be configured. Can an attacker set this to malicious nodes that perform eclipse attacks, isolating the validator from the honest network? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_094e1b28-447a-47bb-a870-beaa3c733ba6?mode=deep",
+    "timestamp": "2026-01-11 04:50:59.300343",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Variable: nodeFlags] [KeyStoreDirFlag] At line 62, keystore directory is configurable. Can an attacker set this to a world-readable directory or network share, exposing encrypted validator keys? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_24649888-584e-4199-972d-47dfe79601ef?mode=deep",
+    "timestamp": "2026-01-11 04:51:20.695161",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Variable: nodeFlags] [ExternalSignerFlag] At line 63, external signer support is included. Can an attacker hijack the external signer connection to sign malicious blocks or transactions? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1491326b-c45d-41da-bc7f-efe64b01ce85?mode=deep",
+    "timestamp": "2026-01-11 04:51:43.528142",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Variable: nodeFlags] [TxPoolLocalsFlag] At line 77, local transaction addresses can be whitelisted. Can a malicious validator add attacker addresses as locals to ensure their spam transactions are always included? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1297761b-ba90-45bd-94f7-8ad4afdf3a2e?mode=deep",
+    "timestamp": "2026-01-11 04:52:06.728438",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Variable: nodeFlags] [TxPoolPriceLimitFlag] At line 81, minimum gas price can be configured. Can an attacker set this to 0 to enable DoS attacks through free transactions? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6e4e9d11-c28f-47c2-80cc-69ea543c5eb2?mode=deep",
+    "timestamp": "2026-01-11 04:52:30.510053",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Variable: nodeFlags] [TxPoolGlobalSlotsFlag] At line 84, global transaction pool size is configurable. Can setting this to 0 prevent the node from accepting any transactions, DoSing block production? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e8058f35-e6f9-4c01-b95d-a873d2d783ad?mode=deep",
+    "timestamp": "2026-01-11 04:52:55.041079",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Variable: nodeFlags] [SyncModeFlag] At line 88, sync mode is configurable. Can an attacker force a validator node into light sync mode, preventing proper consensus participation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d5b4fcec-cf01-47b5-bbe5-363111a71e1b?mode=deep",
+    "timestamp": "2026-01-11 04:53:20.908518",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Variable: nodeFlags] [MaxPeersFlag] At line 120, maximum peer count is configurable. Can setting this to 0 or 1 enable easy eclipse attacks by preventing honest peer connections? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0374d656-fdc5-44c9-aa6c-b0ebc65f8447?mode=deep",
+    "timestamp": "2026-01-11 04:53:47.797962",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Variable: nodeFlags] [MinerEtherbaseFlag] At line 127, the mining reward address is configurable. Can an attacker modify this to redirect block rewards to their address instead of the legitimate validator? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4f72a1aa-5d45-47a9-a51a-ac10693bf79b?mode=deep",
+    "timestamp": "2026-01-11 04:54:13.398819",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Variable: nodeFlags] [MinerExtraDataFlag] At line 128, extra data in blocks is configurable. Can an attacker inject malicious data that exploits vulnerabilities in block processing or reveals validator identity? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6ac086ed-5dab-4f6f-871b-dad9e127cbfc?mode=deep",
+    "timestamp": "2026-01-11 04:54:38.824709",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Variable: nodeFlags] [MinerNoVerifyFlag] At line 130, mining without verification can be enabled. Can this allow validators to produce invalid blocks that violate consensus rules? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c75c12da-2bc9-434e-9638-f0afa722c34b?mode=deep",
+    "timestamp": "2026-01-11 04:55:06.264093",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Variable: nodeFlags] [NodeKeyFileFlag] At line 136, the node private key file is configurable. Can an attacker set this to a predictable location to steal the node key and impersonate the node? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_13a69321-6835-4f14-808d-bea766077dda?mode=deep",
+    "timestamp": "2026-01-11 04:55:32.101877",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Variable: nodeFlags] [NodeKeyHexFlag] At line 137, node key can be provided as hex. Can this be logged or captured in process listings, exposing the private key? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0dd94019-a61c-4474-a615-d5674ab76f86?mode=deep",
+    "timestamp": "2026-01-11 04:55:59.505859",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Variable: rpcFlags] [HTTPEnabledFlag] At line 156, HTTP RPC can be enabled. If this is accidentally enabled with account unlock, can attackers remotely access unlocked accounts? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_407f5264-db86-4ec8-9b75-0de9a9444f24?mode=deep",
+    "timestamp": "2026-01-11 04:56:25.242000",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Variable: rpcFlags] [HTTPCORSDomainFlag] At line 159, CORS domains are configurable. Can an attacker set this to \\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bf1d63ad-d192-434f-9338-626aef6494c7?mode=deep",
+    "timestamp": "2026-01-11 04:56:52.701051",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Variable: rpcFlags] [JWTSecretFlag] At line 163, JWT secret for authentication is configurable. If this is set to a weak or default value, can attackers authenticate to protected RPC endpoints? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_715faa3c-f60f-4177-a86d-92f65c20c387?mode=deep",
+    "timestamp": "2026-01-11 04:57:20.675433",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/main.go] [Variable: rpcFlags] [HTTPApiFlag] At line 168, RPC API namespaces are configurable. Can enabling dangerous APIs like \\",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f2f889e2-e6b3-4a06-a4a3-20aea94f7410?mode=deep",
+    "timestamp": "2026-01-11 04:57:49.029583",
+    "report_generated": false
   }
 ]
