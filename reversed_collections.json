@@ -29086,5 +29086,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f102a68e-ad5f-4497-aec5-00710eac3cd7?mode=deep",
     "timestamp": "2026-01-11 12:14:34.399057",
     "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: synchronise()] [Checkpoint Addition Failure] If AddTrustedCheckpoint() at line 175 fails or corrupts blockchain state, there's no error checking - can this lead to silent state corruption? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ad7a2ae1-b00e-4f84-b204-c618958419eb?mode=deep",
+    "timestamp": "2026-01-11 12:15:58.500554",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: synchronise()] [AddTrustedCheckpoint Race] Line 175 adds checkpoint to blockchain without locking - can concurrent synchronise() calls from multiple peers cause race conditions in AddTrustedCheckpoint()? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3cf7d7dd-51b3-4ea6-9235-3935795af205?mode=deep",
+    "timestamp": "2026-01-11 12:16:11.404503",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: synchronise()] [Peer Removal Race] Between validateCheckpoint() failure at line 170 and removePeer() at line 172, can the peer still send messages or trigger other operations that corrupt state? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7041b35d-073c-43ed-ab51-ef971701e2b6?mode=deep",
+    "timestamp": "2026-01-11 12:16:24.610231",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: synchronise()] [Validation Error Handling] If validateCheckpoint() returns error at line 170, peer is removed and function returns - but does this leave the blockchain in an inconsistent state if partial sync already occurred? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a051494b-7789-46bb-8e42-248c732246ed?mode=deep",
+    "timestamp": "2026-01-11 12:16:38.352922",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: synchronise()] [Mode Check Bypass] Lines 167-176 only validate checkpoint if mode==checkpointSync, but not for legacyCheckpointSync - can an attacker force legacyCheckpointSync mode to skip validation and sync to malicious checkpoint? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6c0b9b2c-d42d-4238-b688-144659f48d2a?mode=deep",
+    "timestamp": "2026-01-11 12:16:52.965913",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: synchronise()] [Fallback Checkpoint Race] If h.checkpoint is set to non-nil between line 150 check and line 153 assignment, can this cause unexpected legacyCheckpointSync mode with wrong checkpoint? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0b126390-e02c-4115-bb18-1b7b4d099dce?mode=deep",
+    "timestamp": "2026-01-11 12:17:08.594556",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: synchronise()] [Oracle State Race] Lines 149-156 check oracle state (IsRunning()) - can a race condition where oracle transitions from running to stopped mid-function cause inconsistent mode selection or validation bypass? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_46704eaa-ac86-466f-a6a4-61970b8e8992?mode=deep",
+    "timestamp": "2026-01-11 12:17:25.948415",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: synchronise()] [ChtSize Manipulation] If h.backend.iConfig.ChtSize is zero or very large at line 143, can this cause integer overflow, division by zero, or incorrect comparison leading to wrong sync mode? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f8b00dc7-8642-42d4-a0d1-442ee523b612?mode=deep",
+    "timestamp": "2026-01-11 12:17:46.046249",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: synchronise()] [Block Number Overflow] Line 143 calculates (checkpoint.SectionIndex+1)*h.backend.iConfig.ChtSize-1 - can integer overflow in this calculation cause incorrect mode selection, potentially bypassing checkpoint validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bc1d7872-4fb0-414f-91e5-e3babde7f442?mode=deep",
+    "timestamp": "2026-01-11 12:18:05.969215",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: synchronise()] [Empty Checkpoint Detection] The checkpoint.Empty() check at line 140 determines sync mode - if Empty() has bugs or can be bypassed, can an attacker force checkpoint sync with invalid empty checkpoint? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2f7ee8c8-f198-4a7b-b3f2-22d1de15f0c6?mode=deep",
+    "timestamp": "2026-01-11 12:18:28.150451",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: synchronise()] [Mode Downgrade Attack] Lines 140-157 show multiple conditions that downgrade from checkpointSync to lightSync - can an attacker manipulate oracle state or local chain state to force unsafe lightSync mode bypassing checkpoint validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_60a7caf3-d32a-4699-a1df-0bd56e43bd62?mode=deep",
+    "timestamp": "2026-01-11 12:18:51.316031",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: synchronise()] [Checkpoint Pointer Aliasing] The checkpoint variable is reassigned at lines 120 and 125 - can pointer aliasing cause the wrong checkpoint to be used later if h.checkpoint or peer.checkpoint changes during execution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e2ad826a-d467-4180-95cb-27a4e723bbb1?mode=deep",
+    "timestamp": "2026-01-11 12:19:14.836792",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: synchronise()] [Empty Checkpoint Creation] Line 127 creates an empty TrustedCheckpoint{} when config.Checkpoint is nil - can this empty checkpoint be exploited to force lightSync mode with insufficient validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_973300d6-6211-4e2d-b276-c83f484b2e7f?mode=deep",
+    "timestamp": "2026-01-11 12:19:39.681898",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: synchronise()] [SyncFromCheckpoint Bypass] If h.backend.config.SyncFromCheckpoint is true (line 124), the code uses config.Checkpoint which can be nil - can this nil value at line 127 bypass intended checkpoint sync, falling back to empty checkpoint? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_024e3def-b920-4c3b-a0a7-efe5ecfe2e23?mode=deep",
+    "timestamp": "2026-01-11 12:20:06.019235",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: synchronise()] [Checkpoint Downgrade Attack] Lines 119-121 show local checkpoint takes precedence if its SectionIndex >= peer checkpoint - can an attacker with an old local checkpoint force the client to ignore newer valid peer checkpoints, syncing to outdated state? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6b623e31-5118-4798-83f5-49265399b288?mode=deep",
+    "timestamp": "2026-01-11 12:20:32.017194",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: synchronise()] [CurrentHeader Race] Between reading h.backend.blockchain.CurrentHeader() at line 97 and using it for TD lookup at line 98, can a blockchain reorganization change the current header, causing TD mismatch? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cc8deca4-3e8e-4925-9844-2063e4169351?mode=deep",
+    "timestamp": "2026-01-11 12:20:59.603507",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: synchronise()] [TD Manipulation] Can peer.Td() be manipulated by a malicious peer to report artificially high total difficulty, passing the check at line 99 but actually providing an invalid chain? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c2930ece-4435-4453-af12-70c56ff9f711?mode=deep",
+    "timestamp": "2026-01-11 12:21:28.363560",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: synchronise()] [Nil TD Handling] If currentTd is nil at line 99, the TD comparison is skipped - can an attacker exploit an uninitialized chain state (nil TD) to force sync with malicious low-TD peer? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1b11b052-98e4-4891-9dbf-77543f47c615?mode=deep",
+    "timestamp": "2026-01-11 12:21:57.911777",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: synchronise()] [TD Comparison Race] The TD comparison at lines 97-101 reads currentTd and peer.Td() - can a race condition cause peer.Td() to change between comparison and actual sync, leading to syncing with a peer that has lower TD than expected? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_de7f39c1-3d1b-4a73-87af-6df10b157cd4?mode=deep",
+    "timestamp": "2026-01-11 12:22:26.589631",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: synchronise()] [Nil Peer Check Bypass] The nil check at lines 93-95 returns early if peer is nil, but can other functions pass a non-nil but invalid/corrupted peer struct, bypassing this safety check? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_24223933-fa00-43bb-934a-179f58e67803?mode=deep",
+    "timestamp": "2026-01-11 12:22:54.302538",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: validateCheckpoint()] [Log Level Information Leak] The log.Warn() at line 86 logs peer.id and len(signers) - can this information leak be exploited to correlate peer identities or analyze network topology for targeted attacks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6b92916e-b7d7-49f1-9ab8-edbf997814a3?mode=deep",
+    "timestamp": "2026-01-11 12:23:22.647269",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: validateCheckpoint()] [Validation Bypass] If VerifySigners() returns valid=true but with an empty signers list, does the code accept the checkpoint, or is there a minimum signer threshold that should be enforced? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_89cdbb76-d3dc-4742-be48-1df843c3dc76?mode=deep",
+    "timestamp": "2026-01-11 12:23:51.469284",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: validateCheckpoint()] [Silent Failure] If RetrieveSingleHeaderByNumber() returns an error at line 62, the function returns the error but doesn't immediately remove the peer - can repeated failures from a malicious peer cause resource leaks? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_bd83479f-c8a3-4ba2-92d3-3b3666605f4a?mode=deep",
+    "timestamp": "2026-01-11 12:24:21.885212",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: validateCheckpoint()] [ODR Manipulation] The ODR (On-Demand Retrieval) backend at h.backend.odr (line 66) retrieves data from network peers - can a malicious peer in the ODR network provide fake logs that pass validation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_48126f7f-5146-4a2e-ab8d-8dff4093e337?mode=deep",
+    "timestamp": "2026-01-11 12:24:52.174092",
+    "report_generated": false
+  },
+  {
+    "question": "[File: les/sync.go] [Function: validateCheckpoint()] [Log Bloom Filter Bypass] Can an attacker craft logs that pass bloom filter checks but contain malicious checkpoint event data that's only detected after expensive processing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_eb7e7ae4-532a-43f3-ada5-f34abfc8e215?mode=deep",
+    "timestamp": "2026-01-11 12:25:22.230986",
+    "report_generated": false
   }
 ]
