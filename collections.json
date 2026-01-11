@@ -28348,5 +28348,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_25edae4b-428f-4002-9f28-abaf6cd49ffd?mode=deep",
     "timestamp": "2026-01-11 14:29:55.498850",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: parseCombinedJSONV8()] [Type Confusion V8 Docs] Do the interface{} types for info.Userdoc and info.Devdoc at lines 125-126 match the expected types from non-V8 parsing, or can version-specific type differences cause issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_56919f7a-0b18-4877-ae14-2727697e9380?mode=deep",
+    "timestamp": "2026-01-11 14:31:14.541510",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Struct: solcOutput] [Missing Validation] Does the solcOutput struct at line 26 validate that Contracts map is non-nil and non-empty, or can empty compiler output be accepted as valid? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8840a3e5-2760-424a-995e-08f5eaa5eff2?mode=deep",
+    "timestamp": "2026-01-11 14:31:27.676514",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Struct: solcOutput] [Version Field] Is the Version field at line 33 validated to ensure it matches expected compiler versions, or can malicious version strings cause compatibility issues? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c7d053bb-6d36-4e94-8d15-3a9e4268ab6a?mode=deep",
+    "timestamp": "2026-01-11 14:31:41.003507",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Struct: solcOutput] [BinRuntime Validation] Does the struct validate that BinRuntime at line 28 is valid hex, or can arbitrary strings be stored that later cause deployment failures? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f740dc45-84e5-4df0-b49d-b0a59487da79?mode=deep",
+    "timestamp": "2026-01-11 14:31:55.011455",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Struct: solcOutput] [SrcMap Validation] Are SrcMap and SrcMapRuntime fields at lines 29-30 validated to prevent injection of malicious source mapping data? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2c24bd2b-0366-4fff-95ef-7a59912e9107?mode=deep",
+    "timestamp": "2026-01-11 14:32:09.883555",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Struct: solcOutput] [Hashes Map Validation] Does the Hashes map at line 31 validate function signature hashes, or can malicious hash values corrupt contract function resolution? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_62fc43c6-1056-487d-af77-346cd31e75f0?mode=deep",
+    "timestamp": "2026-01-11 14:32:25.998500",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Struct: solcOutputV8] [Missing V8 Validation] Does solcOutputV8 at line 37 have different validation requirements than solcOutput, and are these enforced? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_692107a8-42d4-4964-99e1-83c969b581fc?mode=deep",
+    "timestamp": "2026-01-11 14:32:43.680352",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Struct: solcOutputV8] [Interface Field Validation] Do the interface{} fields Abi, Devdoc, Userdoc at lines 42-44 have any validation before being assigned to ContractInfo? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c59da8cc-51db-425b-a318-cbac2d44e151?mode=deep",
+    "timestamp": "2026-01-11 14:33:02.756079",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Version Detection] Can an attacker craft JSON that partially parses as solcOutput at line 61 but should actually be parsed as V8, causing incorrect contract interpretation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ccf6ae56-9430-41de-82fc-776417aece2c?mode=deep",
+    "timestamp": "2026-01-11 14:33:23.781615",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Fallback Logic] If json.Unmarshal at line 61 fails with a transient error rather than format mismatch, does the fallback to parseCombinedJSONV8 at line 63 incorrectly accept the input? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0f5e6406-ed9a-4ddc-918d-92bd2b9d54f3?mode=deep",
+    "timestamp": "2026-01-11 14:33:45.989298",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Version Confusion] Can an attacker exploit the version detection by providing JSON that succeeds in both parsers but produces different contract outputs, causing nodes to diverge? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_719c9c3d-ce86-4f0f-8c31-6b5176346971?mode=deep",
+    "timestamp": "2026-01-11 14:34:07.956142",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Error Propagation] If parseCombinedJSONV8 at line 63 also fails, is the original error from line 61 lost, making debugging impossible? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0d82d2c1-55b9-4ab3-9b4a-c336dfcf36e5?mode=deep",
+    "timestamp": "2026-01-11 14:34:30.133425",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Contract Struct Creation] Can the Contract struct creation at line 80-97 be exploited by providing inconsistent Code and RuntimeCode values that pass validation but execute incorrectly? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e2d6d28c-8ca9-4d01-8fbe-5bbdcbb92a12?mode=deep",
+    "timestamp": "2026-01-11 14:34:53.381359",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [ContractInfo Injection] Can an attacker inject malicious values into ContractInfo fields at lines 84-96 that bypass downstream security checks in contract deployment? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_58552c75-9123-4dfc-a0a6-18a66a4c61df?mode=deep",
+    "timestamp": "2026-01-11 14:35:17.313928",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Source Field Injection] Is the source parameter at line 85 validated before being stored in ContractInfo, or can malicious source strings cause issues in contract verification? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_24d4fe65-0ad9-408c-a1c4-e5470206c432?mode=deep",
+    "timestamp": "2026-01-11 14:35:42.992615",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Language Hardcoding] The Language field is hardcoded to 'Solidity' at line 86 - can this be exploited if the actual compiler output is from a different language? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ffc9ebdc-24df-4b65-ba8f-f0f20b140ef1?mode=deep",
+    "timestamp": "2026-01-11 14:36:07.725631",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [LanguageVersion Trust] Is languageVersion at line 87 validated against actual compiler output version, or is this trusted input from caller? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0001223a-1499-43ca-bc54-c56a6084d5b5?mode=deep",
+    "timestamp": "2026-01-11 14:36:32.510202",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [CompilerVersion Mismatch] Can compilerVersion at line 88 be manipulated to claim a different compiler than actually used, bypassing version-specific security checks? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6ec48141-c3ba-4b01-94df-22dbb69f1b60?mode=deep",
+    "timestamp": "2026-01-11 14:36:58.308084",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [CompilerOptions Injection] Can malicious compilerOptions at line 89 contain script or command injection payloads that get executed during contract deployment or verification? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5af52da6-8039-461c-85e8-9cb7f5a2729b?mode=deep",
+    "timestamp": "2026-01-11 14:37:22.120346",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [SrcMap Assignment] Does assigning info.SrcMap at line 90 validate the source map format, or can malformed source maps cause debugger or verification tool crashes? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5c7b4045-01d6-469a-8e88-3a9ce2996104?mode=deep",
+    "timestamp": "2026-01-11 14:37:44.904763",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Metadata String] Is the info.Metadata field at line 95 validated for size and content, or can extremely large metadata strings cause storage or memory issues? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b14948f5-640d-4d0d-8113-b63f192130a4?mode=deep",
+    "timestamp": "2026-01-11 14:38:10.145504",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: parseCombinedJSONV8()] [V8 Contract Creation] Does the Contract struct creation at lines 112-129 for V8 have the same security validations as the non-V8 version, or can discrepancies be exploited? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_649c7c69-2af7-4b11-833e-d35dec9b8239?mode=deep",
+    "timestamp": "2026-01-11 14:38:37.558853",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [combinedJSON Nil Check] If combinedJSON parameter at line 59 is nil, does json.Unmarshal handle this safely, or can it cause panic? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d733f117-4eb3-4971-b346-d06599f7f1b8?mode=deep",
+    "timestamp": "2026-01-11 14:39:03.851579",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Empty Input] If combinedJSON is an empty byte slice, does the function return an appropriate error, or does it return an empty contracts map that could be mistaken for success? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2eab796e-9451-49fe-a30a-80e7cf90108a?mode=deep",
+    "timestamp": "2026-01-11 14:39:29.883688",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/compiler/solidity.go] [Function: ParseCombinedJSON()] [Source Validation] Is the source parameter at line 59 validated for path traversal or injection attacks before being stored in ContractInfo? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_584d67e8-4fe9-47ff-8f15-b4a247d324a1?mode=deep",
+    "timestamp": "2026-01-11 14:39:52.681138",
+    "report_generated": false
   }
 ]
