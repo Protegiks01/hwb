@@ -30598,5 +30598,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_64109cf0-73ce-45c9-b057-9a59adc0e641?mode=deep",
     "timestamp": "2026-01-11 16:58:59.316341",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [RPC: Response marshaling] [DoS] If marshal operations (MarshalText) are called on extremely large values during RPC responses, can buffer allocation in lines like 41 (Bytes) or 234 (Uint64) cause memory exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_67c72e1e-e5d5-41c5-9f24-812e546ff5fb?mode=deep",
+    "timestamp": "2026-01-11 17:00:20.666562",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [GraphQL: Type coercion] [Bypass] Can GraphQL's type coercion combined with UnmarshalGraphQL's interface{} acceptance enable attacks where types are converted in unexpected ways, bypassing validation? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5c91baec-e08c-4751-bd06-9c28557d249f?mode=deep",
+    "timestamp": "2026-01-11 17:00:33.822106",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [GraphQL: Int32 limits] [Range] Since UnmarshalGraphQL for Big and Uint64 accepts int32 (lines 218-221, 284-285), can the limited range of int32 (±2^31) be exploited to cause different behavior than full 256-bit or 64-bit parsing? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b41228b5-348c-4289-94f7-aa33cb93583d?mode=deep",
+    "timestamp": "2026-01-11 17:00:48.036970",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [GraphQL: Error handling] [Masking] Do UnmarshalGraphQL methods properly propagate all validation errors, or can GraphQL error handling mask critical parsing failures? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_398b8d03-80c8-478e-a042-c981e9e5e46f?mode=deep",
+    "timestamp": "2026-01-11 17:01:02.123297",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Consensus: Determinism] [Fork Risk] Are all unmarshal operations guaranteed to be deterministic across all nodes regardless of platform, Go version, or configuration, or could subtle differences cause consensus failures? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fd6dbc2e-a2ab-476a-b16f-e748c0e93bdf?mode=deep",
+    "timestamp": "2026-01-11 17:01:17.430718",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Consensus: Block validation] [Bypass] If block fields (hash, number, gasLimit, etc.) use these unmarshal methods, can parsing bugs allow invalid blocks to be accepted by some nodes but rejected by others? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_59451719-0409-4841-a479-bc445ed321bf?mode=deep",
+    "timestamp": "2026-01-11 17:01:33.708175",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Consensus: Transaction validation] [Bypass] If transaction fields (nonce, gasPrice, value) use these types, can unmarshaling inconsistencies cause transaction validity to differ across nodes? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_960eeb12-5c82-4ab3-8cd3-bbbfd6d59473?mode=deep",
+    "timestamp": "2026-01-11 17:01:51.216470",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [State: Account state] [Corruption] Can bugs in Big or Uint64 unmarshaling cause incorrect account balance or nonce values to be stored in state database, leading to fund loss or double-spending? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_152ffa7c-5efa-46f1-a4e0-f8e8e3f14e4b?mode=deep",
+    "timestamp": "2026-01-11 17:02:10.386841",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [State: Storage slots] [Access] If contract storage values use Big type, can incorrect parsing enable unauthorized storage modifications or reads? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0e5a3f42-ac71-451d-82ad-a05a48ef6dc3?mode=deep",
+    "timestamp": "2026-01-11 17:02:31.154337",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Performance: Repeated parsing] [Degradation] Can an attacker send identical invalid hex strings repeatedly to cause repeated parsing attempts and error handling, degrading node performance? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c049ee33-0ae1-4584-97d8-f5db4837c400?mode=deep",
+    "timestamp": "2026-01-11 17:02:52.139024",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Performance: CPU intensive] [DoS] Are the manual parsing loops in Big.UnmarshalText (lines 178-191) and Uint64.UnmarshalText (lines 258-265) CPU efficient, or can they be exploited for computational DoS? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_77197d52-6031-4afd-ae21-7c0934c9224f?mode=deep",
+    "timestamp": "2026-01-11 17:03:14.855711",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/hexutil/json.go] [Availability: Panic conditions] [Crash] Are all possible panic conditions (nil pointer, slice bounds, integer overflow) properly handled with returns, or can some edge cases crash the node? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_da24c7cb-2919-4bc7-b9ef-59a3023a19c3?mode=deep",
+    "timestamp": "2026-01-11 17:03:38.362867",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: Add()] [Integer Overflow] In the size calculation at line 62 where targetSize is computed as 'c.size + uint64(len(value))', can an attacker craft extremely large blob values that cause uint64 overflow, wrapping targetSize to a small value and bypassing maxSize constraints, leading to unbounded memory consumption and node DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_267620c9-aaf6-4c7d-b910-2abc2d694036?mode=deep",
+    "timestamp": "2026-01-11 17:04:03.728404",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: Add()] [Integer Underflow] At line 70 where 'targetSize -= uint64(len(v))' is executed, if len(v) somehow exceeds targetSize due to concurrent modifications or BasicLRU inconsistencies, can this cause uint64 underflow wrapping to math.MaxUint64, corrupting size tracking and causing memory exhaustion DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7784029d-9ced-47ab-b91c-55e382f88d29?mode=deep",
+    "timestamp": "2026-01-11 17:04:30.626907",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: NewSizeConstrainedCache()] [Integer Overflow] When maxSize parameter is set to values near math.MaxUint64, can subsequent additions cause overflow in targetSize calculations (line 62), bypassing eviction logic and leading to unbounded cache growth causing node memory exhaustion? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5a596e1b-7aa9-484e-b52e-4af39c1fb6f5?mode=deep",
+    "timestamp": "2026-01-11 17:04:57.417332",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: Add()] [Size Tracking Corruption] At line 72 where 'c.size = targetSize' is set, if the eviction loop (lines 63-71) is interrupted or returns inconsistent values from BasicLRU.RemoveOldest(), can this lead to c.size becoming permanently desynchronized from actual cache size, causing either premature evictions or unbounded growth? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_6cb621e6-a9a6-46d2-ac1b-4b0330bfb08c?mode=deep",
+    "timestamp": "2026-01-11 17:05:26.734282",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: Add()] [Race Condition] The lock is acquired at line 56 and released at line 57 via defer, but BasicLRU is documented as 'not safe for concurrent use' in basiclru.go:22. If multiple goroutines call Add() simultaneously and BasicLRU operations interleave unsafely, can this corrupt the underlying list/map structures causing panics, incorrect evictions, or cache inconsistencies? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5183a0c7-ae97-481e-b010-937e01a43970?mode=deep",
+    "timestamp": "2026-01-11 17:05:55.785001",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: Get()] [Race Condition] While Get() holds the lock (lines 80-81), it calls c.lru.Get(key) which modifies BasicLRU's internal list structure (moveToFront). If there's any path where BasicLRU operations could be called without the lock, could concurrent access corrupt the doubly-linked list causing nil pointer dereferences and node crashes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1a555243-150d-4f9a-ab12-086debc6e2fc?mode=deep",
+    "timestamp": "2026-01-11 17:06:25.253252",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Struct: SizeConstrainedCache] [Lock Scope] The mutex at line 39 protects operations, but is the scope sufficient? If external code obtains references to the underlying BasicLRU through reflection or type assertion, can they bypass the lock and directly manipulate BasicLRU causing race conditions and cache corruption? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d7ea7908-e9f2-439f-99af-b666980b9a08?mode=deep",
+    "timestamp": "2026-01-11 17:06:54.918576",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: Add()] [Deadlock] While unlikely with the current simple lock/defer pattern, if future modifications add nested locks or the BasicLRU implementation changes to take locks internally, could this create deadlock scenarios causing node hangs and unavailability? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_100d7a3d-b821-4317-a620-265763104487?mode=deep",
+    "timestamp": "2026-01-11 17:07:25.389492",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: Add()] [Lock Holding Duration] During the eviction loop (lines 63-71) that may iterate many times with large caches, the lock is held for extended periods. Can an attacker fill the cache with maximum-size blobs requiring many evictions, causing lock contention that degrades Get() performance and creates DoS conditions for cache reads? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3466e831-41c8-4ba4-8827-dd655d4db2b2?mode=deep",
+    "timestamp": "2026-01-11 17:07:56.276934",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: Add()] [Memory Exhaustion] If maxSize is set to an extremely large value (e.g., near system memory limits), can attackers repeatedly Add() maximum-size blobs to consume all available memory before evictions occur, causing OOM crashes and node unavailability? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a8919243-8b0a-4e8d-bd82-37aa350dc294?mode=deep",
+    "timestamp": "2026-01-11 17:08:24.366612",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: NewSizeConstrainedCache()] [Unbounded Cache] The BasicLRU is initialized with math.MaxInt capacity at line 47. If maxSize bytes allows for more than math.MaxInt items of very small sizes, could this cause integer overflow in BasicLRU's internal counting or map size limits, leading to panics or undefined behavior? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_8fc1aac0-0a9b-4ca3-abf6-e925ab5db651?mode=deep",
+    "timestamp": "2026-01-11 17:08:49.444989",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: Add()] [Eviction Loop DoS] In the eviction loop (lines 63-71), if RemoveOldest() consistently returns values smaller than needed to reach targetSize <= maxSize, could the loop iterate excessively or infinitely, causing CPU exhaustion DoS? What prevents an infinite loop if len(v) is always 0? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_29c2b6e4-4dad-4a8d-bbf4-ce96eb3ce2d9?mode=deep",
+    "timestamp": "2026-01-11 17:09:13.112178",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/lru/blob_lru.go] [Function: Add()] [Memory Leak] At line 74, c.lru.Add(key, value) is called even after evictions. If this Add() fails silently or BasicLRU has bugs, could the evicted space never be reclaimed while c.size reflects the new targetSize, causing permanent memory leaks accumulating over time until node crashes? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ba7a188e-7d61-43ae-970d-41a8cf8024ef?mode=deep",
+    "timestamp": "2026-01-11 17:09:38.510476",
+    "report_generated": false
   }
 ]
