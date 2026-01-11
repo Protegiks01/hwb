@@ -32848,5 +32848,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_59fb83ce-981c-4271-af8b-c7db584d6387?mode=deep",
     "timestamp": "2026-01-11 19:32:05.629653",
     "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: MustParseUint64()] [Config file DoS] If MustParseUint64 parses runtime configuration (validator addresses, port numbers, timeout values) and an attacker gains write access to config files, can they inject invalid strings that cause repeated panic-restart loops, effectively DoSing validator nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f7c43927-6e5d-4d73-8aa3-75921ab97de6?mode=deep",
+    "timestamp": "2026-01-11 19:33:26.929756",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: MustParseUint64()] [Error message leak] The panic message at line 88 includes the invalid input string - can an attacker use this to probe for accepted input formats, learn about internal parsing logic, or extract sensitive information if the string originated from private keys, validator addresses, or internal identifiers? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5d4756de-09c2-445b-91c0-3b9232e3052a?mode=deep",
+    "timestamp": "2026-01-11 19:33:39.941488",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: SafeSub()] [Balance underflow] At lines 94-97, SafeSub detects underflow via borrowOut flag - but if calling code doesn't check the returned bool and only uses the diff value, can an attacker trigger balance underflows (e.g., withdrawing more than account balance) where x < y results in a wrapped-around large uint64 value, enabling theft of funds? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_7b3736a1-1bbb-4905-b5d4-9300d96e1c9b?mode=deep",
+    "timestamp": "2026-01-11 19:33:53.327888",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: SafeSub()] [Gas calculation underflow] If SafeSub is used in gas metering calculations and the bool return is ignored, can an attacker craft transactions where gas refunds exceed gas used (x < y), causing the refund calculation to underflow and wrap to MaxUint64, draining the validator's gas reserves or causing state corruption? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2f37ff42-9d24-4133-b561-d4f8839d20f9?mode=deep",
+    "timestamp": "2026-01-11 19:34:07.267305",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: SafeSub()] [Nonce manipulation] If SafeSub is used for nonce-related calculations and underflow isn't checked, can an attacker manipulate nonce ordering by causing wraps from small nonces to MaxUint64, enabling transaction replay attacks or reordering that violates consensus rules? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_a1125d34-e0a6-4f0c-9c3e-894b024dd9f8?mode=deep",
+    "timestamp": "2026-01-11 19:34:22.237563",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: SafeSub()] [Timestamp underflow] If SafeSub calculates time differences between blocks and the bool is unchecked, can a malicious validator provide future timestamps in blocks that cause underflow when subtracted from current time, wrapping to huge durations that break difficulty adjustment or validator selection algorithms? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_957f26a4-6cbb-4ccf-acd3-05e66a2b6e94?mode=deep",
+    "timestamp": "2026-01-11 19:34:38.394328",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: SafeSub()] [Reward calculation underflow] If SafeSub is used in validator reward distribution and underflow checking is missing, can an attacker cause reward calculations to underflow (negative rewards) but wrap to massive uint64 values, minting unlimited tokens and breaking the economic model? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0058b02d-b322-4cf7-b159-6565649ff731?mode=deep",
+    "timestamp": "2026-01-11 19:34:55.823066",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: SafeSub()] [Race condition on bool check] If SafeSub is called concurrently and multiple goroutines check the overflow bool but use a cached diff value from an earlier call, can race conditions cause some threads to use underflowed values while others detect the error, leading to inconsistent state across validator nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b9605060-4b24-4bc4-ae8a-6944616f5b7a?mode=deep",
+    "timestamp": "2026-01-11 19:35:15.623458",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: SafeSub()] [Zero operand edge case] When y=0, SafeSub returns (x, false) correctly - but if calling code has special handling for zero subtractions that bypasses overflow checks, can an attacker exploit this to bypass validation by crafting operations that appear safe but lead to underflow in subsequent calculations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_000c8115-28f5-4848-bbea-11020e1e001e?mode=deep",
+    "timestamp": "2026-01-11 19:35:36.527756",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: SafeSub()] [MaxUint64 boundary] If x=MaxUint64 and y=MaxUint64, SafeSub returns (0, false) - but can an attacker exploit maximum value subtractions in vote counting, stake calculations, or block number differences to cause off-by-one errors in consensus logic that depends on these boundary conditions? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3d055eb7-76b0-4459-a68e-25a6bf103679?mode=deep",
+    "timestamp": "2026-01-11 19:35:58.294208",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: SafeAdd()] [Balance overflow] At lines 100-103, SafeAdd detects overflow via carryOut flag - if calling code ignores the bool return, can an attacker add to balances repeatedly until overflow occurs (x + y > MaxUint64), causing balance to wrap to small values and enabling double-spending or unauthorized fund withdrawal? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_b8652564-d4f9-4e7a-9efd-6e05ba4313cd?mode=deep",
+    "timestamp": "2026-01-11 19:36:21.164340",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: SafeAdd()] [Gas limit overflow] If SafeAdd is used to accumulate gas consumption across transactions in a block and overflow isn't checked, can an attacker submit transactions with MaxUint64 gas limits that overflow when added, bypassing the block gas limit and causing DoS through excessive computation? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_23dbb9c2-25f7-4298-a77d-c5922bb612d1?mode=deep",
+    "timestamp": "2026-01-11 19:36:45.477533",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: SafeAdd()] [Total supply manipulation] If SafeAdd calculates total token supply by adding minted amounts and overflow is unchecked, can an attacker mint amounts that cause overflow, wrapping the total supply to near-zero and breaking economic invariants or enabling unlimited minting in subsequent operations? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_68d15573-554c-472f-90fb-73c035403eee?mode=deep",
+    "timestamp": "2026-01-11 19:37:10.694138",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: SafeAdd()] [Fee accumulation overflow] If SafeAdd accumulates transaction fees for validator rewards and overflow occurs without detection, can fees wrap to small values, causing validators to miss rewards, enabling fee griefing attacks, or breaking the fee market mechanism? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_26ffb5c4-71af-4909-9f3c-0ef7e8977bce?mode=deep",
+    "timestamp": "2026-01-11 19:37:36.542197",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: SafeAdd()] [Block number overflow] If SafeAdd is used to calculate future block numbers (current + offset) and overflow isn't handled, can an attacker manipulate block height calculations to wrap around, causing confusion in chain reorganization logic, checkpoint validation, or hard fork activation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_87097dcb-df53-4898-8f0d-7ca9d229a293?mode=deep",
+    "timestamp": "2026-01-11 19:38:02.457831",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: SafeAdd()] [Concurrent addition races] If multiple goroutines call SafeAdd with shared state variables and don't use atomic operations or locks, can race conditions cause some additions to succeed while others fail overflow checks, leading to inconsistent balance or gas tracking across validator nodes? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_790d0814-a487-4baf-bdf3-556c6ec1dbb4?mode=deep",
+    "timestamp": "2026-01-11 19:38:28.661492",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: SafeAdd()] [Stake accumulation overflow] If SafeAdd accumulates validator stakes in PoA voting and overflow occurs unchecked, can an attacker increase their stake to MaxUint64 multiple times, wrapping back to small values but maintaining voting power, enabling unauthorized validator addition/removal? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_3b9e886e-d493-441d-88ea-cdcde1236945?mode=deep",
+    "timestamp": "2026-01-11 19:38:53.290849",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: SafeAdd()] [Cross-chain bridge overflow] If SafeAdd is used in the minting contract to track cross-chain deposits and overflow isn't validated, can an attacker deposit amounts that overflow the tracked total, minting more tokens on Whitechain than were actually locked on the source chain? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_1208963a-159b-4217-b986-786ca3ae2027?mode=deep",
+    "timestamp": "2026-01-11 19:39:18.497350",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: SafeMul()] [Gas price overflow] At lines 106-109, SafeMul detects overflow when hi != 0 - if calling code ignores the bool when multiplying gas price by gas used, can an attacker use MaxUint64 gas price to cause overflow, wrapping the transaction cost to near-zero and executing expensive operations for free? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_cbb7c5d4-1e78-4910-bc87-350303457210?mode=deep",
+    "timestamp": "2026-01-11 19:39:41.879347",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: SafeMul()] [Reward calculation overflow] If SafeMul calculates validator block rewards (base_reward * multiplier) and overflow is unchecked, can the multiplication wrap to a small value, causing validators to receive minimal rewards and potentially abandoning the network due to unprofitability? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_791a816c-aa42-43ad-bfaf-48a8fb9ebf4d?mode=deep",
+    "timestamp": "2026-01-11 19:40:06.349742",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: SafeMul()] [Time duration overflow] If SafeMul multiplies time units (seconds * nanoseconds) for timeout calculations and overflow occurs unchecked, can wrapped-around small timeout values cause premature timeout errors in peer synchronization, block propagation, or consensus voting? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_99808215-0b09-474d-9447-74f314fce0dc?mode=deep",
+    "timestamp": "2026-01-11 19:40:32.263487",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: SafeMul()] [Stake calculation overflow] If SafeMul is used to calculate voting power (stake_amount * voting_weight) in validator elections and overflow isn't handled, can an attacker with large stake cause overflow that wraps their voting power to near-zero, failing to prevent malicious validator addition? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ec2d5b39-2c27-4b67-8560-434e7565f394?mode=deep",
+    "timestamp": "2026-01-11 19:40:58.149357",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: SafeMul()] [Storage cost overflow] If SafeMul calculates storage costs (storage_slots * cost_per_slot) for smart contracts and overflow is unchecked, can an attacker allocate MaxUint64 storage slots at near-zero cost due to overflow, causing state bloat and DoS? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_535fd3fa-4d37-4af1-a438-241106d971d3?mode=deep",
+    "timestamp": "2026-01-11 19:41:25.550155",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: SafeMul()] [Zero multiplication edge case] When either x=0 or y=0, SafeMul returns (0, false) correctly - but if calling code has special zero-handling paths that bypass overflow validation, can an attacker inject zero multipliers in fee calculations to make all transactions free? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_e22a5783-1f08-41e2-bdac-cd80af376a32?mode=deep",
+    "timestamp": "2026-01-11 19:41:52.708278",
+    "report_generated": false
+  },
+  {
+    "question": "[File: common/math/integer.go] [Function: SafeMul()] [One multiplication bypass] When x=1 or y=1, the result equals the other operand with no overflow - can an attacker exploit this by using multiplier=1 in contexts where overflow checking is expected to catch suspicious large values, bypassing economic limits or rate limiting? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_82842eea-afa9-495f-ade8-19a9f3f9927c?mode=deep",
+    "timestamp": "2026-01-11 19:42:16.714290",
+    "report_generated": false
   }
 ]
