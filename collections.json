@@ -21448,5 +21448,155 @@
     "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_01afc73e-3baf-486c-b050-28794b78cecd?mode=deep",
     "timestamp": "2026-01-11 02:14:15.531300",
     "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: setAccountManagerBackends()] [USB Hub Failure Silent] When Ledger or Trezor hub initialization fails, the code only logs a warning and continues—can this lead to operators believing hardware wallets are active when they're not, causing security-critical operations to fall back to less secure keystores? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5311b801-e707-4a1e-8c47-18e92b8a4a66?mode=deep",
+    "timestamp": "2026-01-11 02:15:36.604598",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: setAccountManagerBackends()] [Smart Card Path Injection] Can attackers inject malicious paths through conf.SmartCardDaemonPath that cause the smart card hub to connect to attacker-controlled daemons, enabling private key theft? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_df9f434b-1132-4c40-b8ae-2d982da879b7?mode=deep",
+    "timestamp": "2026-01-11 02:15:49.489423",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: setAccountManagerBackends()] [Backend Order Security] Does the order of backend registration (external signer, then keystore, then USB, then smartcard) create a priority system that can be exploited to force the node to use less secure signing methods? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_4ea07fb0-bf18-49fc-9afc-36dcea62a51b?mode=deep",
+    "timestamp": "2026-01-11 02:16:03.317440",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: setAccountManagerBackends()] [Multiple Backend Race] The comment mentions 'very racey' behavior with multiple backends—can this race condition be exploited to cause double-signing of blocks by validators using multiple backends, leading to slashing or consensus violations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f484147b-ec5b-4279-84a3-bd27129c240e?mode=deep",
+    "timestamp": "2026-01-11 02:16:17.134632",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: setAccountManagerBackends()] [USB Hub Resource Leak] If NewLedgerHub(), NewTrezorHubWithHID(), or NewTrezorHubWithWebUSB() fail after partial initialization, can this leak USB resources or file descriptors causing eventual node failure? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_ce740a38-e397-41dd-96a6-32dd1090d388?mode=deep",
+    "timestamp": "2026-01-11 02:16:31.794789",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: setAccountManagerBackends()] [SmartCard Keydir Collision] When passing keydir to scwallet.NewHub(), if this directory is shared with the keystore backend, can this lead to key material confusion or unauthorized access to smart card keys through filesystem operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_dd530e8b-c961-4f1a-98fb-d87594e76c88?mode=deep",
+    "timestamp": "2026-01-11 02:16:48.056359",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: defaultNodeConfig()] [Version Information Leak] Does exposing git commit and date through params.VersionWithCommit() reveal sensitive information about the build environment or code state that aids attackers in identifying known vulnerabilities? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_45f7326b-6b22-4ba8-a1d0-651c819a42a5?mode=deep",
+    "timestamp": "2026-01-11 02:17:05.236329",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: defaultNodeConfig()] [HTTP Module Injection] By appending 'eth' to HTTPModules and WSModules, does this automatically expose Ethereum RPC methods that should require explicit enabling, potentially exposing attack surfaces on default installations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_d46d54f4-b1cd-4eb1-b588-e62b93fbf978?mode=deep",
+    "timestamp": "2026-01-11 02:17:23.510456",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: defaultNodeConfig()] [IPC Path Collision] Is the hardcoded IPC path 'geth.ipc' properly validated to prevent collisions with other processes, symlink attacks, or unauthorized access through predictable socket locations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c6f9544d-80e7-416f-a327-6ef29da916db?mode=deep",
+    "timestamp": "2026-01-11 02:17:43.733968",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: defaultNodeConfig()] [Default Config Mutation] Is node.DefaultConfig properly copied or cloned, or does modifying cfg result in mutating the global default that affects all subsequent node initializations in the process? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_f98997e6-f73e-4c7c-afcb-075efa7fb48e?mode=deep",
+    "timestamp": "2026-01-11 02:18:06.120785",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Struct: gethConfig] [Missing Field Validation] Does the gethConfig struct validate that critical fields (Eth, Node) are never nil, or can attackers craft TOML configs that leave these nil causing nil pointer dereferences during node operation? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_86f0455e-8b43-469a-b982-f86fbdf6f8cc?mode=deep",
+    "timestamp": "2026-01-11 02:18:28.984132",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Struct: gethConfig] [Config Field Injection] Can attackers add arbitrary fields to gethConfig through TOML that get unmarshaled into unexpected Go struct fields due to embedding or reflection, bypassing security validations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_2a9d0c5a-1a42-42a0-91c1-ecc11a14df8d?mode=deep",
+    "timestamp": "2026-01-11 02:18:52.617681",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Struct: gethConfig] [Ethstats URL Validation] Is the Ethstats.URL field validated for proper URL format and protocol restrictions, or can attackers inject file://, javascript:, or other dangerous protocols causing security violations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_17a7657d-d961-4b0f-9cf1-5e6678ddf42f?mode=deep",
+    "timestamp": "2026-01-11 02:19:17.805155",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Struct: gethConfig] [Metrics Config Isolation] Is the Metrics config properly isolated from Eth and Node configs, or can field name collisions cause metrics settings to override critical consensus parameters? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_626f5db9-8265-4c1f-b2b2-c79692fd1eb8?mode=deep",
+    "timestamp": "2026-01-11 02:19:45.066706",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: deprecated()] [Incomplete Deprecation List] Are all security-critical deprecated fields properly enumerated in the deprecated() function, or can attackers use unlisted deprecated fields that still affect node behavior to bypass security mitigations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_148d6d65-33b8-434a-9e87-cb42657b5119?mode=deep",
+    "timestamp": "2026-01-11 02:20:11.536767",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: deprecated()] [False Deprecation] Can attackers exploit false positives in deprecated() to make the node ignore legitimate security-critical configuration fields by making them appear deprecated? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_21f1705c-20e4-4a3a-87e9-de955da39170?mode=deep",
+    "timestamp": "2026-01-11 02:20:38.802174",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Function: deprecated()] [EVM Interpreter Override] Even though EVMInterpreter and EWASMInterpreter are marked deprecated, can older configs still override these values causing nodes to run with unexpected/vulnerable interpreter implementations? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_9cb4c888-2c5f-474d-a73d-c59cf3f6466d?mode=deep",
+    "timestamp": "2026-01-11 02:21:06.490457",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Integration: loadConfig + makeConfigNode] [TOCTOU Race] Between loadConfig() reading the file and makeConfigNode() using the config, can an attacker modify the underlying config file or replace it via symlink, causing time-of-check-time-of-use vulnerabilities? (High)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_0e8cbb81-140e-40f7-aedf-07c295dfdfbd?mode=deep",
+    "timestamp": "2026-01-11 02:21:34.268662",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Integration: makeConfigNode + setAccountManagerBackends] [Initialization Order] If setAccountManagerBackends() is called before stack.AccountManager() is fully initialized, can this cause panics or undefined behavior in account management operations? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_5caee2d7-230e-4d27-8cc3-75581e7df045?mode=deep",
+    "timestamp": "2026-01-11 02:22:02.033412",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Integration: makeFullNode + dumpConfig] [Config Consistency] If node configuration is dumped after services are registered but before the node is fully started, can the dumped config differ from the running config causing inconsistencies when operators try to reproduce configurations? (Low)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_df8cc018-1625-4f85-bd79-3b50f4df272d?mode=deep",
+    "timestamp": "2026-01-11 02:22:30.490159",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [Integration: applyMetricConfig + makeFullNode] [Metrics Override] Can metrics configuration applied after makeFullNode() override security-critical backend parameters causing validators to leak transaction data through metrics endpoints? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_99acb233-cb77-494c-90f8-65e0530f11ef?mode=deep",
+    "timestamp": "2026-01-11 02:22:58.273077",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [CLI: configFileFlag] [Multiple Config Files] If an attacker can cause configFileFlag to be set multiple times (e.g., through environment variables and CLI flags), which value takes precedence and can this be exploited to load malicious configs? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_214b0b79-9ac2-41c7-9b19-eacb9c4c4e84?mode=deep",
+    "timestamp": "2026-01-11 02:23:26.637838",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [CLI: OverrideShanghai] [Fork Override Attack] Can validators be tricked into using different OverrideShanghai values causing them to apply Shanghai fork rules at different blocks, leading to consensus failure and chain split? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_c111c22d-d8ca-46f5-aaf8-0c9b4c4c6033?mode=deep",
+    "timestamp": "2026-01-11 02:23:52.523366",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [CLI: SyncTargetFlag] [Malicious Sync Target] Can an attacker provide a malicious blockchain database file through SyncTargetFlag that causes the node to sync to an invalid chain state, potentially accepting double-spends or violating consensus rules? (Critical)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_fd3df73d-0a75-48aa-bd05-36770af1f89a?mode=deep",
+    "timestamp": "2026-01-11 02:24:20.323340",
+    "report_generated": false
+  },
+  {
+    "question": "[File: cmd/geth/config.go] [CLI: EthStatsURLFlag] [URL Injection] Can attackers inject malicious URLs through EthStatsURLFlag that contain authentication credentials, causing the node to leak these credentials in logs or network requests? (Medium)",
+    "url": "https://deepwiki.com/search/-you-are-an-elite-ethereum-cli_397184e4-9706-46e9-bf64-55e93a062077?mode=deep",
+    "timestamp": "2026-01-11 02:24:47.304687",
+    "report_generated": false
   }
 ]
